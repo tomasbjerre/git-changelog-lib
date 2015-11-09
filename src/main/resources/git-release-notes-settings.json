@@ -1,0 +1,13 @@
+{
+ "ignoreCommitsIfMessageMatches": "^\[maven-release-plugin\]|^\[Gradle Release Plugin]|^Merge",
+ "issues": [
+  {
+   "type": "JIRA",
+   "pattern": "((?<!([A-Z]{1,10})-?)[A-Z]+-\d+)",
+  },
+  {
+   "type": "CUSTOM",
+   "pattern": "#[0-9]+?",
+  }
+ ]
+}

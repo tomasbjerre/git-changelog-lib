@@ -1,0 +1,11 @@
+.classpath
+.project
+.settings
+generated-src
+build
+target
+bin
+temp
+.gradle
+.couscous
+couscous.phar
