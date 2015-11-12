@@ -1,0 +1,19 @@
+{
+ "fromRepo": ".",
+ "fromCommit": "0000000000000000000000000000000000000000",
+ "toRef": "refs/heads/master",
+ 
+ "ignoreCommitsIfMessageMatches": "^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*",
+ "readableTagName": "/([^/]+?)$",
+ "dateFormat": "YYYY-MM-dd HH:mm:ss",
+ "untaggedName": "Untagged",
+ "templatePath": "git-changelog-template.mustache",
+ 
+ "jiraServer": "",
+ "jiraIssuePattern": "((?<!([A-Z]{1,10})-?)[A-Z]+-\d+)",
+
+ "githubServer": "",
+ "githubIssuePattern": "#[0-9]+?",
+ 
+ "customIssues": []
+}

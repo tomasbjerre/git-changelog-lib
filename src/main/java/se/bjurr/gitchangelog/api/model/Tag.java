@@ -1,4 +1,4 @@
-package se.bjurr.gitreleasenotes.api.model;
+package se.bjurr.gitchangelog.api.model;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
@@ -13,7 +13,6 @@ public class Tag {
  public Tag(String name, List<Commit> commits, List<Author> authors, List<Issue> issues) {
   checkArgument(!commits.isEmpty(), "commits is empty!");
   checkArgument(!authors.isEmpty(), "authors is empty!");
-  checkArgument(!issues.isEmpty(), "issues is empty!");
   this.commits = commits;
   this.authors = authors;
   this.issues = issues;

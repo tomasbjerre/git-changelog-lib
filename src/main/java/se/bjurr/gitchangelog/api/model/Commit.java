@@ -1,20 +1,18 @@
-package se.bjurr.gitreleasenotes.api.model;
+package se.bjurr.gitchangelog.api.model;
 
 import static com.google.common.base.Preconditions.checkNotNull;
-
-import java.util.Date;
 
 public class Commit {
  private final String authorName;
  private final String authorEmailAddress;
- private final Date commitTime;
+ private final String commitTime;
  private final String message;
  private final String hash;
 
- public Commit(String authorName, String authorEmailAddress, Date commitTime, String message, String hash) {
+ public Commit(String authorName, String authorEmailAddress, String commitTime, String message, String hash) {
   this.authorName = checkNotNull(authorName, "authorName");
   this.authorEmailAddress = checkNotNull(authorEmailAddress, "authorEmailAddress");
-  this.message = checkNotNull(message, "message");
+  this.message = checkNotNull(message, "message").trim();
   this.commitTime = checkNotNull(commitTime, "commitTime");
   this.hash = checkNotNull(hash, "hash");
  }
@@ -31,7 +29,7 @@ public class Commit {
   return authorName;
  }
 
- public Date getCommitTime() {
+ public String getCommitTime() {
   return commitTime;
  }
 

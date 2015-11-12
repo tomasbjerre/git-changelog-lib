@@ -18,10 +18,10 @@ apply plugin: 'net.researchgate.release'
 
 group = 'se.bjurr.gitreleasenotes'
 
-mainClassName = 'se.bjurr.gitreleasenotes.main.Main'
+mainClassName = 'se.bjurr.gitchangelog.main.Main'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.6
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
 
 repositories {
  mavenLocal()

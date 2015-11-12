@@ -1,4 +1,4 @@
-package se.bjurr.gitreleasenotes.api.model;
+package se.bjurr.gitchangelog.api.model;
 
 import java.util.List;
 

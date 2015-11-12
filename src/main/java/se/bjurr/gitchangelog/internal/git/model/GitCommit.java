@@ -1,4 +1,4 @@
-package se.bjurr.gitreleasenotes.internal.git.model;
+package se.bjurr.gitchangelog.internal.git.model;
 
 import static com.google.common.base.MoreObjects.toStringHelper;
 
@@ -47,5 +47,18 @@ public class GitCommit {
     .add("commitTime", commitTime)//
     .add("message", message)//
     .toString();
+ }
+
+ @Override
+ public int hashCode() {
+  return hash.hashCode();
+ }
+
+ @Override
+ public boolean equals(Object obj) {
+  if (obj.getClass() == GitCommit.class) {
+   return ((GitCommit) obj).getHash().equals(hash);
+  }
+  return false;
  }
 }
