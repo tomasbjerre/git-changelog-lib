@@ -7,6 +7,7 @@ import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.io.Files.createParentDirs;
 import static com.google.common.io.Files.write;
 import static com.google.common.io.Resources.getResource;
+import static se.bjurr.gitchangelog.internal.settings.Settings.defaultSettings;
 import static se.bjurr.gitchangelog.internal.settings.Settings.fromFile;
 
 import java.io.File;
@@ -140,9 +141,9 @@ public class GitChangelogApi {
   return this;
  }
 
- public void toStdout() {
-  String rendered = render();
-  System.out.println(rendered);
+ public GitChangelogApi withTimeZone(String timeZone) {
+  settings.setTimeZone(timeZone);
+  return this;
  }
 
  public void toFile(String filePath) {
@@ -157,6 +158,21 @@ public class GitChangelogApi {
 
  public GitChangelogApi withTemplatePath(String templatePath) {
   settings.setTemplatePath(templatePath);
+  return this;
+ }
+
+ public GitChangelogApi withDateFormat(String dateFormat) {
+  settings.setDateFormat(dateFormat);
+  return this;
+ }
+
+ public GitChangelogApi withNoIssueName(String noIssueName) {
+  settings.setNoIssueName(noIssueName);
+  return this;
+ }
+
+ public GitChangelogApi withReadableTagName(String readableTagName) {
+  settings.setReadableTagName(readableTagName);
   return this;
  }
 
@@ -208,12 +224,6 @@ public class GitChangelogApi {
  }
 
  private GitChangelogApi() {
-  URL resource = null;
-  try {
-   resource = getResource("git-changelog-settings.json");
-   settings = fromFile(resource.toURI().toURL());
-  } catch (Exception e) {
-   throw new RuntimeException("Cannot find default config in " + resource, e);
-  }
+  settings = defaultSettings();
  }
 }

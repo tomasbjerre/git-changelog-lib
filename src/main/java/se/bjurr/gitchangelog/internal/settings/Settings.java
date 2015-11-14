@@ -2,6 +2,7 @@ package se.bjurr.gitchangelog.internal.settings;
 
 import static com.google.common.base.Charsets.UTF_8;
 import static com.google.common.base.Optional.fromNullable;
+import static com.google.common.io.Resources.getResource;
 
 import java.net.URL;
 import java.util.List;
@@ -11,6 +12,8 @@ import com.google.common.io.Resources;
 import com.google.gson.Gson;
 
 public class Settings {
+ public static final String DEFAULT_FILE = "git-changelog-settings.json";
+
  private static Gson gson = new Gson();
 
  private String fromRepo;
@@ -28,9 +31,8 @@ public class Settings {
  private String readableTagName;
  private String dateFormat;
  private String noIssueName;
- private List<CustomIssue> customIssues;
-
  private String timeZone;
+ private List<CustomIssue> customIssues;
 
  public Settings() {
  }
@@ -151,10 +153,6 @@ public class Settings {
   return readableTagName;
  }
 
- public String getReadableTagPattern() {
-  return readableTagName;
- }
-
  public String getDateFormat() {
   return dateFormat;
  }
@@ -181,5 +179,15 @@ public class Settings {
 
  public String getTimeZone() {
   return timeZone;
+ }
+
+ public static Settings defaultSettings() {
+  URL resource = null;
+  try {
+   resource = getResource(DEFAULT_FILE);
+   return fromFile(resource.toURI().toURL());
+  } catch (Exception e) {
+   throw new RuntimeException("Cannot find default config in " + resource, e);
+  }
  }
 }

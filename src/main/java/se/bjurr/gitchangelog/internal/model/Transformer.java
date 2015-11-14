@@ -66,7 +66,7 @@ public class Transformer {
  }
 
  private String toReadableTagName(String input) {
-  Matcher matcher = compile(settings.getReadableTagPattern()).matcher(input);
+  Matcher matcher = compile(settings.getReadableTagName()).matcher(input);
   if (matcher.find()) {
    return matcher.group(1);
   }
