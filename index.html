@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Git-changelog : Changelog from git repo">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Git-changelog</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/tomasbjerre/git-changelog">View on GitHub</a>
+
+          <h1 id="project_title">Git-changelog</h1>
+          <h2 id="project_tagline">Changelog from git repo</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/tomasbjerre/git-changelog/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/tomasbjerre/git-changelog/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="git-release-notes-" class="anchor" href="#git-release-notes-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Git Release Notes <a href="https://travis-ci.org/tomasbjerre/git-changelog"><img src="https://travis-ci.org/tomasbjerre/git-changelog.svg?branch=master" alt="Build Status"></a>
+</h1>
+
+<p>This is a library for generating a changelog, or releasenotes, from a GIT repository. It can also be run as a standalone program.</p>
+
+<p>It is fully configurable with a <a href="http://mustache.github.io/">Mustache</a> template. There are some templates used for testing available <a href="https://github.com/tomasbjerre/git-changelog/tree/master/src/test/resources/templates">here</a> and the results <a href="https://github.com/tomasbjerre/git-changelog/tree/master/src/test/resources/assertions">here</a>.</p>
+
+<p>Available in <a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22se.bjurr.gitchangelog%22">Maven Central</a>.</p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>This software can be used:</p>
+
+<ul>
+<li>As a library</li>
+<li>From command line</li>
+</ul>
+
+<h3>
+<a id="as-a-library" class="anchor" href="#as-a-library" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a library</h3>
+
+<p>It has a <a href="https://github.com/tomasbjerre/git-changelog/blob/master/src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java">builder</a> for creating the changelog.</p>
+
+<pre><code>  gitChangelogApiBuilder()
+   .withFromCommit(ZERO_COMMIT)
+   .withToRef("refs/heads/master")
+   .withTemplatePath("changelog.mustache")
+   .toFile("CHANGELOG.md");
+</code></pre>
+
+<p>It can also create releasenotes. If you are using git flow it may look like this.</p>
+
+<pre><code>  gitChangelogApiBuilder()
+   .withFromRef("refs/heads/dev")
+   .withToRef("refs/heads/master")
+   .withTemplatePath("releasenotes.mustache")
+   .toStdout();
+</code></pre>
+
+<h3>
+<a id="command-line" class="anchor" href="#command-line" aria-hidden="true"><span class="octicon octicon-link"></span></a>Command line</h3>
+
+<p>Or from command line:</p>
+
+<pre><code>Arguments:
+-cl, --customIssueLink &lt;string&gt;            Custom issue link.
+                                           &lt;string&gt;: any string
+                                           Default: 
+-cn, --customIssueName &lt;string&gt;            Custom issue name.
+                                           &lt;string&gt;: any string
+                                           Default: 
+-cp, --customIssuePattern &lt;string&gt;         Custom issue pattern.
+                                           &lt;string&gt;: any string
+                                           Default: 
+-fc, --fromCommit &lt;string&gt;                 From commit.
+                                           &lt;string&gt;: any string
+                                           Default: 
+-fr, --fromRef &lt;string&gt;                    From ref.
+                                           &lt;string&gt;: any string
+                                           Default: 
+-gp, --githubPattern &lt;string&gt;              Github pattern.
+                                           &lt;string&gt;: any string
+                                           Default: 
+-gs, --githubServer &lt;string&gt;               Github server. When a Github server 
+                                           is given, the title of the Github 
+                                           issues can be used in the changelog.
+                                           &lt;string&gt;: any string
+                                           Default: 
+-h, --help &lt;argument-to-print-help-for&gt;    &lt;argument-to-print-help-for&gt;: an argument to print help for
+                                           Default: If no specific parameter is given the whole usage text is given
+-ip, --ignorePattern &lt;string&gt;              Ignore commits where pattern 
+                                           matches message.
+                                           &lt;string&gt;: any string
+                                           Default: 
+-jp, --jiraPattern &lt;string&gt;                Jira issue pattern.
+                                           &lt;string&gt;: any string
+                                           Default: 
+-js, --jiraServer &lt;string&gt;                 Jira server. When a Jira server is 
+                                           given, the title of the Jira issues can be 
+                                           used in the changelog.
+                                           &lt;string&gt;: any string
+                                           Default: 
+-of, --output-file &lt;string&gt;                Write output to file.
+                                           &lt;string&gt;: any string
+                                           Default: 
+-r, --repo &lt;string&gt;                        Repository.
+                                           &lt;string&gt;: any string
+                                           Default: 
+-sf, --settings-file &lt;string&gt;              Use settings from file.
+                                           &lt;string&gt;: any string
+                                           Default: 
+-std, --stdout                             Print builder to &lt;STDOUT&gt;.
+                                           Default: enabled
+-t, --template &lt;string&gt;                    Template to use. A default template 
+                                           will be used if not specified.
+                                           &lt;string&gt;: any string
+                                           Default: null
+-tc, --toCommit &lt;string&gt;                   To commit.
+                                           &lt;string&gt;: any string
+                                           Default: 
+-tr, --toRef &lt;string&gt;                      To ref.
+                                           &lt;string&gt;: any string
+                                           Default: 
+-ut, --untaggedName &lt;string&gt;               When listing commits per tag, this 
+                                           will by the name of a virtual tag that 
+                                           contains commits not available in any git 
+                                           tag.
+                                           &lt;string&gt;: any string
+                                           Default: null
+</code></pre>
+
+<h2>
+<a id="developer-instructions" class="anchor" href="#developer-instructions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Developer instructions</h2>
+
+<p>To build the code, have a look at <code>.travis.yml</code>.</p>
+
+<p>To do a release you need to do <code>./gradlew release</code> and release the artifact from <a href="https://oss.sonatype.org/#stagingRepositories">staging</a>. More information <a href="http://central.sonatype.org/pages/releasing-the-deployment.html">here</a>.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Git-changelog maintained by <a href="https://github.com/tomasbjerre">tomasbjerre</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
