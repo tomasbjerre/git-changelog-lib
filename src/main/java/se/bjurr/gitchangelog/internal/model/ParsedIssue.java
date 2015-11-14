@@ -40,7 +40,12 @@ public class ParsedIssue implements IGitCommitReferer {
 
  @Override
  public int hashCode() {
-  return name.hashCode();
+  return toString().hashCode();
+ }
+
+ @Override
+ public String toString() {
+  return name + issue;
  }
 
  @Override

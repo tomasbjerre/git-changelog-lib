@@ -5,6 +5,9 @@ import static se.softhouse.jargo.Arguments.helpArgument;
 import static se.softhouse.jargo.Arguments.optionArgument;
 import static se.softhouse.jargo.Arguments.stringArgument;
 import static se.softhouse.jargo.CommandLineParser.withArguments;
+
+import java.io.File;
+
 import se.bjurr.gitchangelog.api.GitChangelogApi;
 import se.softhouse.jargo.Argument;
 import se.softhouse.jargo.ArgumentException;
@@ -110,53 +113,53 @@ public class Main {
 
    GitChangelogApi changelogApiBuilder = gitChangelogApiBuilder();
    if (arg.wasGiven(settingsArgument)) {
-    changelogApiBuilder.withSettings(arg.get(settingsArgument));
+    changelogApiBuilder.withSettings(new File(arg.get(settingsArgument)).toURI().toURL());
    }
    if (arg.wasGiven(fromCommitArgument)) {
-    changelogApiBuilder.fromCommit(arg.get(fromCommitArgument));
-    changelogApiBuilder.fromRef(null);
+    changelogApiBuilder.withFromCommit(arg.get(fromCommitArgument));
+    changelogApiBuilder.withFromRef(null);
    }
    if (arg.wasGiven(fromRefArgument)) {
-    changelogApiBuilder.fromCommit(null);
-    changelogApiBuilder.fromRef(arg.get(fromRefArgument));
+    changelogApiBuilder.withFromCommit(null);
+    changelogApiBuilder.withFromRef(arg.get(fromRefArgument));
    }
    if (arg.wasGiven(fromRepoArgument)) {
-    changelogApiBuilder.fromRepo(arg.get(fromRepoArgument));
+    changelogApiBuilder.withFromRepo(arg.get(fromRepoArgument));
    }
    if (arg.wasGiven(toCommitArgument)) {
-    changelogApiBuilder.toCommit(arg.get(toCommitArgument));
-    changelogApiBuilder.toRef(null);
+    changelogApiBuilder.withToCommit(arg.get(toCommitArgument));
+    changelogApiBuilder.withToRef(null);
    }
    if (arg.wasGiven(toRefArgument)) {
-    changelogApiBuilder.toCommit(null);
-    changelogApiBuilder.toRef(arg.get(toRefArgument));
+    changelogApiBuilder.withToCommit(null);
+    changelogApiBuilder.withToRef(arg.get(toRefArgument));
    }
    if (arg.wasGiven(untaggedTagNameArgument)) {
-    changelogApiBuilder.untaggedName(arg.get(untaggedTagNameArgument));
+    changelogApiBuilder.withUntaggedName(arg.get(untaggedTagNameArgument));
    }
    if (arg.wasGiven(ignoreCommitsIfMessageMatchesArgument)) {
-    changelogApiBuilder.ignoreCommitsWithMesssage(arg.get(ignoreCommitsIfMessageMatchesArgument));
+    changelogApiBuilder.withIgnoreCommitsWithMesssage(arg.get(ignoreCommitsIfMessageMatchesArgument));
    }
    if (arg.wasGiven(templatePathArgument)) {
-    changelogApiBuilder.templatePath(arg.get(templatePathArgument));
+    changelogApiBuilder.withTemplatePath(arg.get(templatePathArgument));
    }
    if (arg.wasGiven(jiraIssuePatternArgument)) {
-    changelogApiBuilder.jiraIssuePattern(arg.get(jiraIssuePatternArgument));
+    changelogApiBuilder.withJiraIssuePattern(arg.get(jiraIssuePatternArgument));
    }
    if (arg.wasGiven(jiraServerArgument)) {
-    changelogApiBuilder.jiraServer(arg.get(jiraServerArgument));
+    changelogApiBuilder.withJiraServer(arg.get(jiraServerArgument));
    }
    if (arg.wasGiven(githubIssuePatternArgument)) {
-    changelogApiBuilder.githubIssuePattern(arg.get(githubIssuePatternArgument));
+    changelogApiBuilder.withGithubIssuePattern(arg.get(githubIssuePatternArgument));
    }
    if (arg.wasGiven(githubServerArgument)) {
-    changelogApiBuilder.githubServer(arg.get(githubServerArgument));
+    changelogApiBuilder.withGithubServer(arg.get(githubServerArgument));
    }
    if ( //
    arg.wasGiven(customIssueNameArgument) && //
      arg.wasGiven(customIssuePatternArgument) && //
      arg.wasGiven(customIssueLinkArgument)) {
-    changelogApiBuilder.customIssues(//
+    changelogApiBuilder.withCustomIssues(//
       arg.get(customIssueNameArgument),//
       arg.get(customIssuePatternArgument),//
       arg.get(customIssueLinkArgument));

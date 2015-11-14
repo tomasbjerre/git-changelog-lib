@@ -67,6 +67,6 @@ public class IssueParser {
     foundIssues.get(noIssue.getName()).addCommit(gitCommit);
    }
   }
-  return newArrayList(usingToString().sortedCopy(foundIssues.values()));
+  return usingToString().sortedCopy(foundIssues.values());
  }
 }

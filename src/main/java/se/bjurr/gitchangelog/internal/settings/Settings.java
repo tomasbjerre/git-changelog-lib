@@ -3,7 +3,7 @@ package se.bjurr.gitchangelog.internal.settings;
 import static com.google.common.base.Charsets.UTF_8;
 import static com.google.common.base.Optional.fromNullable;
 
-import java.net.URI;
+import java.net.URL;
 import java.util.List;
 
 import com.google.common.base.Optional;
@@ -29,6 +29,8 @@ public class Settings {
  private String dateFormat;
  private String noIssueName;
  private List<CustomIssue> customIssues;
+
+ private String timeZone;
 
  public Settings() {
  }
@@ -105,9 +107,9 @@ public class Settings {
   return fromNullable(jiraServer);
  }
 
- public static Settings fromFile(URI url) {
+ public static Settings fromFile(URL url) {
   try {
-   return gson.fromJson(Resources.toString(url.toURL(), UTF_8), Settings.class);
+   return gson.fromJson(Resources.toString(url, UTF_8), Settings.class);
   } catch (Exception e) {
    throw new RuntimeException("Cannot read " + url, e);
   }
@@ -171,5 +173,13 @@ public class Settings {
 
  public String getNoIssueName() {
   return noIssueName;
+ }
+
+ public void setTimeZone(String timeZone) {
+  this.timeZone = timeZone;
+ }
+
+ public String getTimeZone() {
+  return timeZone;
  }
 }

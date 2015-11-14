@@ -9,6 +9,7 @@ import static com.google.common.collect.Maps.toMap;
 import static com.google.common.collect.Maps.uniqueIndex;
 import static com.google.common.collect.Multimaps.index;
 import static com.google.common.collect.Ordering.from;
+import static java.util.TimeZone.getTimeZone;
 import static java.util.regex.Pattern.compile;
 import static se.bjurr.gitchangelog.internal.common.GitPredicates.ignoreCommits;
 
@@ -174,7 +175,9 @@ public class Transformer {
  }
 
  private String format(Date commitTime) {
-  return new SimpleDateFormat(settings.getDateFormat()).format(commitTime);
+  SimpleDateFormat df = new SimpleDateFormat(settings.getDateFormat());
+  df.setTimeZone(getTimeZone(settings.getTimeZone()));
+  return df.format(commitTime);
  }
 
  public List<Author> toAuthors(List<GitCommit> gitCommits) {

@@ -46,6 +46,10 @@ public class GitRepo {
  };
  private final Repository repository;
 
+ public GitRepo() {
+  this.repository = null;
+ }
+
  public GitRepo(File repo) {
   FileRepositoryBuilder builder = new FileRepositoryBuilder();
   Optional<File> gitDir = findClosestGitRepo(repo);
