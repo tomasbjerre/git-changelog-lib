@@ -16,7 +16,7 @@ apply plugin: 'signing'
 apply plugin: 'com.bmuschko.nexus'
 apply plugin: 'net.researchgate.release'
 
-group = 'se.bjurr.gitreleasenotes'
+group = 'se.bjurr.gitchangelog'
 
 mainClassName = 'se.bjurr.gitchangelog.main.Main'
 
@@ -51,14 +51,14 @@ sourceSets {
 
 modifyPom {
  project {
-  name 'GIT Release Notes'
-  description 'Library that generates release notes from a GIT repository.'
-  url 'https://github.com/tomasbjerre/git-release-notes'
+  name 'GIT Changelog'
+  description 'Library that generates changelog from a GIT repository.'
+  url 'https://github.com/tomasbjerre/git-changelog'
   inceptionYear '2015'
    scm {
-   url 'https://github.com/tomasbjerre/git-release-notes'
-   connection 'scm:https://tomasbjerre@github.com/tomasbjerre/git-release-notes.git'
-   developerConnection 'scm:git://github.com/tomasbjerre/git-release-notes.git'
+   url 'https://github.com/tomasbjerre/git-changelog'
+   connection 'scm:https://tomasbjerre@github.com/tomasbjerre/git-changelog.git'
+   developerConnection 'scm:git://github.com/tomasbjerre/git-changelog.git'
   }
 
   licenses {
