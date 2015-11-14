@@ -76,9 +76,9 @@ public class GitChangelogApi {
   Transformer transformer = new Transformer(settings);
   return new Changelog(//
     transformer.toCommits(diff), //
-    transformer.toTags(diff, tags, issues), //
+    transformer.toTags(diff, tags), //
     transformer.toAuthors(diff), //
-    transformer.toIssues(diff, issues));
+    transformer.toIssues(issues));
  }
 
  private ObjectId getId(GitRepo gitRepo, String ref, String commit) {

@@ -4,7 +4,11 @@ import static com.google.common.base.Preconditions.checkArgument;
 
 import java.util.List;
 
-public class Tag {
+import se.bjurr.gitchangelog.api.model.interfaces.IAuthors;
+import se.bjurr.gitchangelog.api.model.interfaces.ICommits;
+import se.bjurr.gitchangelog.api.model.interfaces.IIssues;
+
+public class Tag implements ICommits, IAuthors, IIssues {
  private final List<Commit> commits;
  private final List<Author> authors;
  private final List<Issue> issues;
@@ -19,10 +23,12 @@ public class Tag {
   this.name = name;
  }
 
+ @Override
  public List<Issue> getIssues() {
   return issues;
  }
 
+ @Override
  public List<Author> getAuthors() {
   return authors;
  }
@@ -35,6 +41,7 @@ public class Tag {
   return commits.get(0);
  }
 
+ @Override
  public List<Commit> getCommits() {
   return commits;
  }

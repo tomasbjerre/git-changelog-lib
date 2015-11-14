@@ -4,7 +4,11 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.List;
 
-public class Changelog {
+import se.bjurr.gitchangelog.api.model.interfaces.IAuthors;
+import se.bjurr.gitchangelog.api.model.interfaces.ICommits;
+import se.bjurr.gitchangelog.api.model.interfaces.IIssues;
+
+public class Changelog implements ICommits, IAuthors, IIssues {
  private final List<Commit> commits;
  private final List<Tag> tags;
  private final List<Author> authors;
@@ -17,14 +21,17 @@ public class Changelog {
   this.issues = checkNotNull(issues, "issues");
  }
 
+ @Override
  public List<Issue> getIssues() {
   return issues;
  }
 
+ @Override
  public List<Author> getAuthors() {
   return authors;
  }
 
+ @Override
  public List<Commit> getCommits() {
   return commits;
  }

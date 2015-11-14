@@ -1,9 +1,11 @@
 package se.bjurr.gitchangelog.internal.model;
 
+import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.collect.Iterables.filter;
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Lists.transform;
 import static com.google.common.collect.Maps.newHashMap;
+import static com.google.common.collect.Maps.toMap;
 import static com.google.common.collect.Maps.uniqueIndex;
 import static com.google.common.collect.Multimaps.index;
 import static com.google.common.collect.Ordering.from;
@@ -25,6 +27,8 @@ import se.bjurr.gitchangelog.api.model.Issue;
 import se.bjurr.gitchangelog.api.model.Tag;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
+import se.bjurr.gitchangelog.internal.issues.IssueParser;
+import se.bjurr.gitchangelog.internal.model.interfaces.IGitCommitReferer;
 import se.bjurr.gitchangelog.internal.settings.Settings;
 
 import com.google.common.base.Function;
@@ -33,14 +37,15 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.Multimap;
 
 public class Transformer {
+
  public Transformer(Settings settings) {
   this.settings = settings;
  }
 
  private final Settings settings;
 
- public List<Tag> toTags(List<GitCommit> allCommits, List<GitTag> gitTags, final List<ParsedIssue> parsedIssues) {
-  final Map<String, List<GitCommit>> commitsPerTag = getCommitsPerTag(allCommits, gitTags);
+ public List<Tag> toTags(List<GitCommit> allCommits, List<GitTag> gitTags) {
+  final Map<String, List<GitCommit>> commitsPerTag = getCommitsPerGitCommitReferer(allCommits, gitTags);
 
   List<String> withUnfilteredCommits = withUnfilteredCommits(commitsPerTag);
 
@@ -50,7 +55,8 @@ public class Transformer {
     List<GitCommit> gitCommits = commitsPerTag.get(input);
     List<Commit> commits = toCommits(gitCommits);
     List<Author> authors = toAuthors(gitCommits);
-    List<Issue> issues = toIssues(gitCommits, parsedIssues);
+    List<ParsedIssue> parsedIssues = new IssueParser(settings, gitCommits).parseForIssues();
+    List<Issue> issues = toIssues(parsedIssues);
     return new Tag(toReadableTagName(input), commits, authors, issues);
    }
   });
@@ -85,34 +91,48 @@ public class Transformer {
   return tagsWithCommits;
  }
 
- private Map<String, List<GitCommit>> getCommitsPerTag(List<GitCommit> allCommits, List<GitTag> gitTags) {
-  Map<GitCommit, GitTag> tagPerCommit = uniqueIndex(gitTags, new Function<GitTag, GitCommit>() {
+ private <T extends IGitCommitReferer> Map<String, List<GitCommit>> getCommitsPerGitCommitReferer(
+   List<GitCommit> allCommits, List<T> gitCommitReferer) {
+  final Map<GitCommit, T> perCommit = uniqueIndex(gitCommitReferer, new Function<T, GitCommit>() {
    @Override
-   public GitCommit apply(GitTag input) {
+   public GitCommit apply(T input) {
     return input.getGitCommit();
    }
   });
 
-  final Map<String, List<GitCommit>> commitsPerTag = newHashMap();
-  String currentTagName = null;
-  for (GitCommit gitCommit : allCommits) {
-   GitTag tag = tagPerCommit.get(gitCommit);
-   if (tag == null && currentTagName == null) {
-    currentTagName = settings.getUntaggedName();
-   } else if (tag != null) {
-    currentTagName = tag.getName();
+  Map<GitCommit, String> stringPerCommit = toMap(perCommit.keySet(), new Function<GitCommit, String>() {
+   @Override
+   public String apply(GitCommit input) {
+    if (perCommit.containsKey(input)) {
+     return perCommit.get(input).getName();
+    }
+    return null;
    }
-   if (!commitsPerTag.containsKey(currentTagName)) {
-    commitsPerTag.put(currentTagName, new ArrayList<GitCommit>());
+  });
+
+  return commitsPerString(allCommits, stringPerCommit, settings.getUntaggedName());
+ }
+
+ private Map<String, List<GitCommit>> commitsPerString(List<GitCommit> allCommits,
+   Map<GitCommit, String> stringPerCommit, String unMappedName) {
+  final Map<String, List<GitCommit>> commitsPerString = newHashMap();
+  String currentName = unMappedName;
+  for (GitCommit gitCommit : allCommits) {
+   String tag = stringPerCommit.get(gitCommit);
+   if (tag != null) {
+    currentName = tag;
+   }
+   if (!commitsPerString.containsKey(currentName)) {
+    commitsPerString.put(checkNotNull(currentName, "currentTagName"), new ArrayList<GitCommit>());
    }
 
-   commitsPerTag.get(currentTagName).add(gitCommit);
+   commitsPerString.get(currentName).add(gitCommit);
   }
-  return commitsPerTag;
+  return commitsPerString;
  }
 
  public List<Commit> toCommits(Collection<GitCommit> from) {
-  List<GitCommit> filteredCommits = newArrayList(Iterables.filter(from,
+  List<GitCommit> filteredCommits = newArrayList(filter(from,
     ignoreCommits(settings.getIgnoreCommitsIfMessageMatches())));
   return transform(filteredCommits, new Function<GitCommit, Commit>() {
    @Override
@@ -122,15 +142,23 @@ public class Transformer {
   });
  }
 
- public List<Issue> toIssues(List<GitCommit> diff, List<ParsedIssue> issues) {
-  return transform(issues, new Function<ParsedIssue, Issue>() {
+ public List<Issue> toIssues(List<ParsedIssue> issues) {
+  Iterable<ParsedIssue> issuesWithCommits = Iterables.filter(issues, new Predicate<ParsedIssue>() {
+   @Override
+   public boolean apply(ParsedIssue input) {
+    return !toCommits(input.getGitCommits()).isEmpty();
+   }
+  });
+
+  return transform(newArrayList(issuesWithCommits), new Function<ParsedIssue, Issue>() {
    @Override
    public Issue apply(ParsedIssue input) {
-    List<Author> authors = null;
+    List<GitCommit> gitCommits = input.getGitCommits();
     return new Issue(//
-      newArrayList(toCommit(input.getGitCommit())), //
-      authors,//
+      toCommits(gitCommits), //
+      toAuthors(gitCommits),//
       input.getName(), //
+      input.getIssue(), //
       input.getLink());
    }
   });

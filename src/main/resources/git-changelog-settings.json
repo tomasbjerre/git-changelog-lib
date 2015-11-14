@@ -7,6 +7,7 @@
  "readableTagName": "/([^/]+?)$",
  "dateFormat": "YYYY-MM-dd HH:mm:ss",
  "untaggedName": "Untagged",
+ "noIssueName": "No issue",
  "templatePath": "git-changelog-template.mustache",
  
  "jiraServer": "",

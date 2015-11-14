@@ -12,7 +12,7 @@ public class CustomIssue {
 
  public CustomIssue(String name, String pattern, String link) {
   this.name = checkNotNull(name, "name");
-  this.pattern = checkNotNull(pattern, "name");
+  this.pattern = checkNotNull(pattern, "pattern");
   this.link = link;
  }
 

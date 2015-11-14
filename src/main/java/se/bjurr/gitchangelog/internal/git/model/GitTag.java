@@ -1,8 +1,12 @@
 package se.bjurr.gitchangelog.internal.git.model;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.util.List;
 
-public class GitTag {
+import se.bjurr.gitchangelog.internal.model.interfaces.IGitCommitReferer;
+
+public class GitTag implements IGitCommitReferer {
 
  private final String name;
  private final List<GitCommit> gitCommits;
@@ -12,10 +16,12 @@ public class GitTag {
   this.gitCommits = gitCommits;
  }
 
+ @Override
  public GitCommit getGitCommit() {
-  return gitCommits.get(0);
+  return checkNotNull(gitCommits.get(0), name);
  }
 
+ @Override
  public String getName() {
   return name;
  }

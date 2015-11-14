@@ -2,7 +2,9 @@ package se.bjurr.gitchangelog.api.model;
 
 import java.util.List;
 
-public class Author {
+import se.bjurr.gitchangelog.api.model.interfaces.ICommits;
+
+public class Author implements ICommits {
  private final List<Commit> commits;
  private final String authorName;
  private final String authorEmail;
@@ -21,6 +23,7 @@ public class Author {
   return authorName;
  }
 
+ @Override
  public List<Commit> getCommits() {
   return commits;
  }

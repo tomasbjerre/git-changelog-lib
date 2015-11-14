@@ -4,14 +4,16 @@ Changelog of Git Changelog.
 
 {{#tags}}
 ## {{name}}
-
- {{#authors}}
+ {{#issues}}
+### {{name}} {{issue}}
+  {{#authors}}
 * {{authorName}}
-  {{#commits}}
-{{{message}}}
+   {{#commits}}
 {{commitTime}}
+{{{message}}}
 
-  {{/commits}}
+   {{/commits}}
 
- {{/authors}}
+  {{/authors}}
+ {{/issues}}
 {{/tags}}

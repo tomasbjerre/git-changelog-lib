@@ -1,10 +1,12 @@
 package se.bjurr.gitchangelog.internal.settings;
 
 import static com.google.common.base.Charsets.UTF_8;
+import static com.google.common.base.Optional.fromNullable;
 
 import java.net.URI;
 import java.util.List;
 
+import com.google.common.base.Optional;
 import com.google.common.io.Resources;
 import com.google.gson.Gson;
 
@@ -15,22 +17,18 @@ public class Settings {
  private String fromRef;
  private String toRef;
  private String ignoreCommitsIfMessageMatches;
- private String jiraEnabled;
  private String jiraServer;
  private String jiraIssuePattern;
- private String githubEnabled;
  private String githubServer;
  private String githubIssuePattern;
  private String toCommit;
  private String fromCommit;
- private List<CustomIssue> customIssues;
  private String untaggedName;
-
  private String templatePath;
-
  private String readableTagName;
-
  private String dateFormat;
+ private String noIssueName;
+ private List<CustomIssue> customIssues;
 
  public Settings() {
  }
@@ -55,10 +53,6 @@ public class Settings {
   return toRef;
  }
 
- public void setGithubEnabled(String githubEnabled) {
-  this.githubEnabled = githubEnabled;
- }
-
  public void setFromRepo(String fromRepo) {
   this.fromRepo = fromRepo;
  }
@@ -79,10 +73,6 @@ public class Settings {
   this.ignoreCommitsIfMessageMatches = ignoreCommitsIfMessageMatches;
  }
 
- public void setJiraEnabled(String jiraEnabled) {
-  this.jiraEnabled = jiraEnabled;
- }
-
  public void setJiraIssuePattern(String jiraIssuePattern) {
   this.jiraIssuePattern = jiraIssuePattern;
  }
@@ -95,32 +85,24 @@ public class Settings {
   return customIssues;
  }
 
- public String getGithubEnabled() {
-  return githubEnabled;
+ public Optional<String> getGithubIssuePattern() {
+  return fromNullable(githubIssuePattern);
  }
 
- public String getGithubIssuePattern() {
-  return githubIssuePattern;
- }
-
- public String getGithubServer() {
-  return githubServer;
+ public Optional<String> getGithubServer() {
+  return fromNullable(githubServer);
  }
 
  public String getIgnoreCommitsIfMessageMatches() {
   return ignoreCommitsIfMessageMatches;
  }
 
- public String getJiraEnabled() {
-  return jiraEnabled;
+ public Optional<String> getJiraIssuePattern() {
+  return fromNullable(jiraIssuePattern);
  }
 
- public String getJiraIssuePattern() {
-  return jiraIssuePattern;
- }
-
- public String getJiraServer() {
-  return jiraServer;
+ public Optional<String> getJiraServer() {
+  return fromNullable(jiraServer);
  }
 
  public static Settings fromFile(URI url) {
@@ -177,5 +159,17 @@ public class Settings {
 
  public void setDateFormat(String dateFormat) {
   this.dateFormat = dateFormat;
+ }
+
+ public void setNoIssueName(String noIssueName) {
+  this.noIssueName = noIssueName;
+ }
+
+ public void setReadableTagName(String readableTagName) {
+  this.readableTagName = readableTagName;
+ }
+
+ public String getNoIssueName() {
+  return noIssueName;
  }
 }
