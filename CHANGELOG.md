@@ -5,9 +5,9 @@ Changelog of Git Changelog.
 ## Next release
 ### Features
 
-Better error message if no template specified
+Changing regexp pattern for github
 
-### Github
+ * So that it does not match feature issues
 
 Better error message if no template specified
 
@@ -37,22 +37,6 @@ Adding generated CHANGELOG.md
  * Correcting faulty precondition check, file output argument could not be set.
 
 Customizing changelog
-
-### Github
-
-Car remove issue from commit message in changelog
-
-Improving test output
-
-Adding generated CHANGELOG.md 
-
- * Correcting faulty precondition check, file output argument could not be set.
-
-Customizing changelog
-
-Adding script to generate changelog
-
- * Finding git repo in parent folders correctly fix
 
 ### Other changes
 

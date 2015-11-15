@@ -16,7 +16,7 @@
  "jiraIssuePattern": "\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b",
 
  "githubServer": "",
- "githubIssuePattern": "#[0-9]*",
+ "githubIssuePattern": "#[0-9]+",
  
  "customIssues": []
 }
