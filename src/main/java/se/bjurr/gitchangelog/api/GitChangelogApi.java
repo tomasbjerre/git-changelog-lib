@@ -176,6 +176,11 @@ public class GitChangelogApi {
   return this;
  }
 
+ public GitChangelogApi withRemoveIssueFromMessageArgument(boolean removeIssueFromMessage) {
+  settings.setRemoveIssueFromMessage(removeIssueFromMessage);
+  return this;
+ }
+
  public GitChangelogApi withTemplateContent(String templateContent) {
   this.templateContent = templateContent;
   return this;

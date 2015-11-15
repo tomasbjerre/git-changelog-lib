@@ -41,6 +41,7 @@ public class Main {
  public static final String PARAM_DATEFORMAT = "-df";
  public static final String PARAM_NOISSUE = "-ni";
  public static final String PARAM_READABLETAGNAME = "-rt";
+ private static final String PARAM_REMOVEISSUE = "-ri";
  private static String systemOutPrintln;
  private static boolean recordSystemOutPrintln;
 
@@ -144,16 +145,24 @@ public class Main {
     .description("Pattern to extract readable part of tag.")//
     .defaultValue(defaultSettings.getReadableTagName())//
     .build();
+  Argument<Boolean> removeIssueFromMessageArgument = optionArgument(PARAM_REMOVEISSUE, "--remove-issue-from-message")//
+    .description("Dont print any issues in the messages of commits.")//
+    .build();
 
   try {
    ParsedArguments arg = withArguments(helpArgument, settingsArgument, outputStdoutArgument, outputFileArgument,
      templatePathArgument, fromCommitArgument, fromRefArgument, fromRepoArgument, toCommitArgument, toRefArgument,
      untaggedTagNameArgument, jiraIssuePatternArgument, jiraServerArgument, ignoreCommitsIfMessageMatchesArgument,
      githubIssuePatternArgument, githubServerArgument, customIssueLinkArgument, customIssueNameArgument,
-     customIssuePatternArgument, timeZoneArgument, dateFormatArgument, noIssueArgument, readableTagNameArgument)//
+     customIssuePatternArgument, timeZoneArgument, dateFormatArgument, noIssueArgument, readableTagNameArgument,
+     removeIssueFromMessageArgument)//
      .parse(args);
 
    GitChangelogApi changelogApiBuilder = gitChangelogApiBuilder();
+
+   if (arg.wasGiven(removeIssueFromMessageArgument)) {
+    changelogApiBuilder.withRemoveIssueFromMessageArgument(true);
+   }
 
    if (arg.wasGiven(settingsArgument)) {
     changelogApiBuilder.withSettings(new File(arg.get(settingsArgument)).toURI().toURL());

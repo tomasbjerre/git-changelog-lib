@@ -34,6 +34,8 @@ public class Settings {
  private String timeZone;
  private List<CustomIssue> customIssues;
 
+ private boolean removeIssueFromMessage;
+
  public Settings() {
  }
 
@@ -189,5 +191,13 @@ public class Settings {
   } catch (Exception e) {
    throw new RuntimeException("Cannot find default config in " + resource, e);
   }
+ }
+
+ public void setRemoveIssueFromMessage(boolean removeIssueFromMessage) {
+  this.removeIssueFromMessage = removeIssueFromMessage;
+ }
+
+ public boolean removeIssueFromMessage() {
+  return removeIssueFromMessage;
  }
 }

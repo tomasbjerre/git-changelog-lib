@@ -4,35 +4,44 @@ Changelog of Git Changelog.
 
 ## Next release
 ### Bugs
-*Tomas Bjerre*
 
-Adding generated CHANGELOG.md #feature
+Adding generated CHANGELOG.md 
 
- * Correcting faulty precondition check, file output argument could not be set. #bug
-
-*Tomas Bjerre*
+ * Correcting faulty precondition check, file output argument could not be set.
 
 Adding script to generate changelog
 
- * Finding git repo in parent folders correctly #bugfix
+ * Finding git repo in parent folders correctly fix
 
 ### Features
-*Tomas Bjerre*
 
-Improving test output #feature
+Car remove issue from commit message in changelog
 
-*Tomas Bjerre*
+Improving test output
 
-Adding generated CHANGELOG.md #feature
+Adding generated CHANGELOG.md 
 
- * Correcting faulty precondition check, file output argument could not be set. #bug
+ * Correcting faulty precondition check, file output argument could not be set.
 
-*Tomas Bjerre*
+Customizing changelog
 
-Customizing changelog #feature
+### Github
+
+Car remove issue from commit message in changelog
+
+Improving test output
+
+Adding generated CHANGELOG.md 
+
+ * Correcting faulty precondition check, file output argument could not be set.
+
+Customizing changelog
+
+Adding script to generate changelog
+
+ * Finding git repo in parent folders correctly fix
 
 ### Other changes
-*Tomas Bjerre*
 
 More settings can be set from command line
 
@@ -40,19 +49,12 @@ More settings can be set from command line
 
 ## 1.0
 ### Other changes
-*Tomas Bjerre*
 
 Doc
 
-*Tomas Bjerre*
-
 Test
 
-*Tomas Bjerre*
-
 Work for 1.0
-
-*Tomas Bjerre*
 
 Initial commit
 

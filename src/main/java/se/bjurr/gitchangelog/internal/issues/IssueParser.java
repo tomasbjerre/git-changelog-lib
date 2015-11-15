@@ -35,13 +35,7 @@ public class IssueParser {
  public List<ParsedIssue> parseForIssues() {
   Map<String, ParsedIssue> foundIssues = newHashMap();
 
-  List<CustomIssue> patterns = newArrayList(settings.getCustomIssues());
-  if (settings.getGithubIssuePattern().isPresent()) {
-   patterns.add(new CustomIssue("Github", settings.getGithubIssuePattern().get(), settings.getGithubServer().orNull()));
-  }
-  if (settings.getJiraIssuePattern().isPresent()) {
-   patterns.add(new CustomIssue("Jira", settings.getJiraIssuePattern().get(), settings.getJiraServer().orNull()));
-  }
+  List<CustomIssue> patterns = getPatterns(settings);
 
   for (GitCommit gitCommit : commits) {
    boolean commitMappedToIssue = false;
@@ -68,5 +62,16 @@ public class IssueParser {
    }
   }
   return usingToString().sortedCopy(foundIssues.values());
+ }
+
+ public static List<CustomIssue> getPatterns(Settings settings) {
+  List<CustomIssue> patterns = newArrayList(settings.getCustomIssues());
+  if (settings.getGithubIssuePattern().isPresent()) {
+   patterns.add(new CustomIssue("Github", settings.getGithubIssuePattern().get(), settings.getGithubServer().orNull()));
+  }
+  if (settings.getJiraIssuePattern().isPresent()) {
+   patterns.add(new CustomIssue("Jira", settings.getJiraIssuePattern().get(), settings.getJiraServer().orNull()));
+  }
+  return patterns;
  }
 }

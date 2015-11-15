@@ -3,17 +3,16 @@
 Changelog of Git Changelog.
 
 ## No tag
-### Github #3
+### Github #30
 * T B
 1970-01-09 00:00:00
 Adding stuff
- #30
 
 
 ### Jira JIR-1234
 * Tomas B
 1970-01-10 00:00:00
-Adding stuff JIR-1234
+Adding stuff
 
 
 ### No issue supplied 
@@ -28,23 +27,22 @@ Adding stuff
 
 
 ## 1.0
-### Github #1
+### Github #12
 * Tomas B
 1970-01-06 00:00:00
-Adding stuff #12
+Adding stuff
 
 
-### Github #2
+### Github #20
 * T B
 1970-01-03 00:00:00
-Adding stuff #20
+Adding stuff
 
 
 ### Jira JIR-5262
 * Tomas B
 1970-01-04 00:00:00
-Adding stuff 
-  JIR-5262
+Adding stuff
 
 
 ### No issue supplied 

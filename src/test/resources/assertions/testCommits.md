@@ -6,11 +6,10 @@ Changelog of Git Changelog.
 More stuff
 
 ## Tomas B - 1970-01-10 00:00:00
-Adding stuff JIR-1234
+Adding stuff
 
 ## T B - 1970-01-09 00:00:00
 Adding stuff
- #30
 
 ## Tomas B - 1970-01-08 00:00:00
 Adding stuff
@@ -19,17 +18,16 @@ Adding stuff
 This is 1.0 tagged commit
 
 ## Tomas B - 1970-01-06 00:00:00
-Adding stuff #12
+Adding stuff
 
 ## T B - 1970-01-05 00:00:00
 Adding stuff
 
 ## Tomas B - 1970-01-04 00:00:00
-Adding stuff 
-  JIR-5262
+Adding stuff
 
 ## T B - 1970-01-03 00:00:00
-Adding stuff #20
+Adding stuff
 
 ## Tomas B - 1970-01-02 00:00:00
 Adding stuff

@@ -56,7 +56,7 @@ Or from command line:
                                            Default: null
 -gp, --githubPattern <string>              Github pattern.
                                            <string>: any string
-                                           Default: #[0-9]+?
+                                           Default: #[0-9]*
 -gs, --githubServer <string>               Github server. When a Github server 
                                            is given, the title of the Github 
                                            issues can be used in the changelog.
@@ -86,6 +86,9 @@ Or from command line:
 -r, --repo <string>                        Repository.
                                            <string>: any string
                                            Default: .
+-ri, --remove-issue-from-message           Dont print any issues in the 
+                                           messages of commits.
+                                           Default: disabled
 -rt, --readable-tag-name <string>          Pattern to extract readable part of 
                                            tag.
                                            <string>: any string
@@ -94,7 +97,7 @@ Or from command line:
                                            <string>: any string
                                            Default: null
 -std, --stdout                             Print builder to <STDOUT>.
-                                           Default: enabled
+                                           Default: disabled
 -t, --template <string>                    Template to use. A default template 
                                            will be used if not specified.
                                            <string>: any string
@@ -113,7 +116,7 @@ Or from command line:
                                            contains commits not available in any git 
                                            tag.
                                            <string>: any string
-                                           Default: Untagged
+                                           Default: No tag
 ```
 
 ## Developer instructions

@@ -12,6 +12,7 @@ import static com.google.common.collect.Ordering.from;
 import static java.util.TimeZone.getTimeZone;
 import static java.util.regex.Pattern.compile;
 import static se.bjurr.gitchangelog.internal.common.GitPredicates.ignoreCommits;
+import static se.bjurr.gitchangelog.internal.issues.IssueParser.getPatterns;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 import se.bjurr.gitchangelog.internal.issues.IssueParser;
 import se.bjurr.gitchangelog.internal.model.interfaces.IGitCommitReferer;
+import se.bjurr.gitchangelog.internal.settings.CustomIssue;
 import se.bjurr.gitchangelog.internal.settings.Settings;
 
 import com.google.common.base.Function;
@@ -170,8 +172,17 @@ public class Transformer {
     gitCommit.getAuthorName(), //
     gitCommit.getAuthorEmailAddress(), //
     format(gitCommit.getCommitTime()), //
-    gitCommit.getMessage(), //
+    toMessage(gitCommit.getMessage()), //
     gitCommit.getHash());
+ }
+
+ private String toMessage(String message) {
+  if (settings.removeIssueFromMessage()) {
+   for (CustomIssue customIssue : getPatterns(settings)) {
+    message = message.replaceAll(customIssue.getPattern(), "");
+   }
+  }
+  return message;
  }
 
  private String format(Date commitTime) {
