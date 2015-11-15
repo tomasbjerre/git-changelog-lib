@@ -16,14 +16,14 @@
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
-          <a id="forkme_banner" href="https://github.com/tomasbjerre/git-changelog">View on GitHub</a>
+          <a id="forkme_banner" href="https://github.com/tomasbjerre/git-changelog-lib">View on GitHub</a>
 
           <h1 id="project_title">Git-changelog</h1>
           <h2 id="project_tagline">Changelog from git repo</h2>
 
             <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/tomasbjerre/git-changelog/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/tomasbjerre/git-changelog/tarball/master">Download this project as a tar.gz file</a>
+              <a class="zip_download_link" href="https://github.com/tomasbjerre/git-changelog-lib/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/tomasbjerre/git-changelog-lib/tarball/master">Download this project as a tar.gz file</a>
             </section>
         </header>
     </div>
@@ -32,14 +32,14 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h1>
-<a id="git-release-notes-" class="anchor" href="#git-release-notes-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Git Release Notes <a href="https://travis-ci.org/tomasbjerre/git-changelog"><img src="https://travis-ci.org/tomasbjerre/git-changelog.svg?branch=master" alt="Build Status"></a>
+<a id="git-release-notes-" class="anchor" href="#git-release-notes-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Git Release Notes <a href="https://travis-ci.org/tomasbjerre/git-changelog-lib"><img src="https://travis-ci.org/tomasbjerre/git-changelog-lib.svg?branch=master" alt="Build Status"></a>
 </h1>
 
 <p>This is a library for generating a changelog, or releasenotes, from a GIT repository. It can also be run as a standalone program.</p>
 
 <p>It is fully configurable with a <a href="http://mustache.github.io/">Mustache</a> template. There are some templates used for testing available <a href="https://github.com/tomasbjerre/git-changelog/tree/master/src/test/resources/templates">here</a> and the results <a href="https://github.com/tomasbjerre/git-changelog/tree/master/src/test/resources/assertions">here</a>.</p>
 
-<p>Available in <a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22se.bjurr.gitchangelog%22">Maven Central</a>.</p>
+<p>Available in <a href="http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22git-changelog-lib%22">Maven Central</a>.</p>
 
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
@@ -47,12 +47,14 @@
 <p>This software can be used:</p>
 
 <ul>
+<li>With a <a href="https://github.com/tomasbjerre/git-changelog-gradle-plugin">Gradle plugin</a>
+</li>
 <li>As a library</li>
 <li>From command line</li>
 </ul>
 
 <h3>
-<a id="as-a-library" class="anchor" href="#as-a-library" aria-hidden="true"><span class="octicon octicon-link"></span></a>As a library</h3>
+<a id="library" class="anchor" href="#library" aria-hidden="true"><span class="octicon octicon-link"></span></a>Library</h3>
 
 <p>It has a <a href="https://github.com/tomasbjerre/git-changelog/blob/master/src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java">builder</a> for creating the changelog.</p>
 
@@ -77,25 +79,27 @@
 
 <p>Or from command line:</p>
 
-<pre><code>Arguments:
--cl, --customIssueLink &lt;string&gt;            Custom issue link.
+<pre><code>-cl, --customIssueLink &lt;string&gt;            Custom issue link.
                                            &lt;string&gt;: any string
-                                           Default: 
+                                           Default: null
 -cn, --customIssueName &lt;string&gt;            Custom issue name.
                                            &lt;string&gt;: any string
-                                           Default: 
+                                           Default: null
 -cp, --customIssuePattern &lt;string&gt;         Custom issue pattern.
                                            &lt;string&gt;: any string
-                                           Default: 
+                                           Default: null
+-df, --date-format &lt;string&gt;                Format to use when printing dates.
+                                           &lt;string&gt;: any string
+                                           Default: YYYY-MM-dd HH:mm:ss
 -fc, --fromCommit &lt;string&gt;                 From commit.
                                            &lt;string&gt;: any string
-                                           Default: 
+                                           Default: 0000000000000000000000000000000000000000
 -fr, --fromRef &lt;string&gt;                    From ref.
                                            &lt;string&gt;: any string
-                                           Default: 
+                                           Default: null
 -gp, --githubPattern &lt;string&gt;              Github pattern.
                                            &lt;string&gt;: any string
-                                           Default: 
+                                           Default: #[0-9]*
 -gs, --githubServer &lt;string&gt;               Github server. When a Github server 
                                            is given, the title of the Github 
                                            issues can be used in the changelog.
@@ -106,42 +110,56 @@
 -ip, --ignorePattern &lt;string&gt;              Ignore commits where pattern 
                                            matches message.
                                            &lt;string&gt;: any string
-                                           Default: 
+                                           Default: ^\[maven-release-plugin\].*|^\[Gradle Release Plugin\].*|^Merge.*
 -jp, --jiraPattern &lt;string&gt;                Jira issue pattern.
                                            &lt;string&gt;: any string
-                                           Default: 
+                                           Default: \b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\b
 -js, --jiraServer &lt;string&gt;                 Jira server. When a Jira server is 
                                            given, the title of the Jira issues can be 
                                            used in the changelog.
                                            &lt;string&gt;: any string
                                            Default: 
+-ni, --no-issue-name &lt;string&gt;              Name of virtual issue that contains 
+                                           commits that has no issue associated.
+                                           &lt;string&gt;: any string
+                                           Default: No issue
 -of, --output-file &lt;string&gt;                Write output to file.
                                            &lt;string&gt;: any string
                                            Default: 
 -r, --repo &lt;string&gt;                        Repository.
                                            &lt;string&gt;: any string
-                                           Default: 
+                                           Default: .
+-ri, --remove-issue-from-message           Dont print any issues in the 
+                                           messages of commits.
+                                           Default: disabled
+-rt, --readable-tag-name &lt;string&gt;          Pattern to extract readable part of 
+                                           tag.
+                                           &lt;string&gt;: any string
+                                           Default: /([^/]+?)$
 -sf, --settings-file &lt;string&gt;              Use settings from file.
                                            &lt;string&gt;: any string
-                                           Default: 
+                                           Default: null
 -std, --stdout                             Print builder to &lt;STDOUT&gt;.
-                                           Default: enabled
+                                           Default: disabled
 -t, --template &lt;string&gt;                    Template to use. A default template 
                                            will be used if not specified.
                                            &lt;string&gt;: any string
-                                           Default: null
+                                           Default: git-changelog-template.mustache
 -tc, --toCommit &lt;string&gt;                   To commit.
                                            &lt;string&gt;: any string
-                                           Default: 
+                                           Default: null
 -tr, --toRef &lt;string&gt;                      To ref.
                                            &lt;string&gt;: any string
-                                           Default: 
+                                           Default: refs/heads/master
+-tz, --timeZone &lt;string&gt;                   TimeZone to use when printing dates.
+                                           &lt;string&gt;: any string
+                                           Default: UTC
 -ut, --untaggedName &lt;string&gt;               When listing commits per tag, this 
                                            will by the name of a virtual tag that 
                                            contains commits not available in any git 
                                            tag.
                                            &lt;string&gt;: any string
-                                           Default: null
+                                           Default: No tag
 </code></pre>
 
 <h2>
