@@ -2,7 +2,7 @@
 
 Changelog of Git Changelog.
 
-## Next release
+## 1.1
 ### Bugs
 
 Adding generated CHANGELOG.md 
