@@ -3,6 +3,7 @@ package se.bjurr.gitchangelog.internal.git;
 import static com.google.common.base.Joiner.on;
 import static com.google.common.base.Optional.absent;
 import static com.google.common.base.Optional.of;
+import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Throwables.propagate;
 import static com.google.common.collect.Iterables.transform;
 import static com.google.common.collect.Lists.newArrayList;
@@ -53,6 +54,7 @@ public class GitRepo {
  public GitRepo(File repo) {
   FileRepositoryBuilder builder = new FileRepositoryBuilder();
   Optional<File> gitDir = findClosestGitRepo(repo);
+  checkArgument(gitDir.isPresent(), "Could not find any Git repo in " + repo.getAbsolutePath());
 
   try {
    this.repository = builder//
@@ -137,9 +139,9 @@ public class GitRepo {
   if (candidate.exists()) {
    return of(candidate);
   }
-  if (file.getParent() == null) {
+  if (file.getAbsoluteFile().getParent() == null) {
    return absent();
   }
-  return findClosestGitRepo(file.getParentFile());
+  return findClosestGitRepo(file.getAbsoluteFile().getParentFile());
  }
 }
