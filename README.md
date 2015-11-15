@@ -1,6 +1,6 @@
 # Git Release Notes [![Build Status](https://travis-ci.org/tomasbjerre/git-changelog-lib.svg?branch=master)](https://travis-ci.org/tomasbjerre/git-changelog-lib)
 
-This is a library for generating a changelog, or releasenotes, from a GIT repository. It can also be run as a standalone program.
+This is a library for generating a changelog, or releasenotes, from a GIT repository. It can also be run as a standalone program, Gradle plugin, Maven plugin or Jenkins plugin.
 
 It is fully configurable with a [Mustache](http://mustache.github.io/) template. There are some templates used for testing available [here](https://github.com/tomasbjerre/git-changelog/tree/master/src/test/resources/templates) and the results [here](https://github.com/tomasbjerre/git-changelog/tree/master/src/test/resources/assertions).
 
@@ -10,6 +10,7 @@ Available in [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22g
 This software can be used:
  * With a [Gradle plugin](https://github.com/tomasbjerre/git-changelog-gradle-plugin)
  * With a [Maven plugin](https://github.com/tomasbjerre/git-changelog-maven-plugin)
+ * With a [Jenkins plugin](https://github.com/tomasbjerre/git-releasenotes-plugin)
  * As a library
  * From command line
 
@@ -119,6 +120,74 @@ Or from command line:
                                            tag.
                                            <string>: any string
                                            Default: No tag
+```
+
+## Supplied information
+
+The template is supplied with a datastructure like:
+```
+* commits
+ - authorName
+ - authorEmailAddress
+ - message
+ - commitTime
+* tags
+ - name
+ * commits
+  - authorName
+  - authorEmailAddress
+  - message
+  - commitTime
+ * authors
+  - authorName
+  - authrorEmail
+  * commits
+   - authorName
+   - authorEmailAddress
+   - message
+   - commitTime
+ * issues
+  - name
+  - issue
+  - link
+  * commits
+   - authorName
+   - authorEmailAddress
+   - message
+   - commitTime
+  * authors
+   - authorName
+   - authrorEmail
+   * commits
+    - authorName
+    - authorEmailAddress
+    - message
+    - commitTime
+* authors
+ - authorName
+ - authrorEmail
+ * commits
+  - authorName
+  - authorEmailAddress
+  - message
+  - commitTime
+* issues
+ - name
+ - issue
+ - link
+ * commits
+  - authorName
+  - authorEmailAddress
+  - message
+  - commitTime
+ * authors
+  - authorName
+  - authrorEmail
+  * commits
+   - authorName
+   - authorEmailAddress
+   - message
+   - commitTime
 ```
 
 ## Developer instructions
