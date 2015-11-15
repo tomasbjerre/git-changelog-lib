@@ -8,10 +8,11 @@ Available in [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22g
 
 ## Usage
 This software can be used:
+ * With a [Gradle plugin](https://github.com/tomasbjerre/git-changelog-gradle-plugin)
  * As a library
  * From command line
 
-### As a library
+### Library
 
 It has a [builder](https://github.com/tomasbjerre/git-changelog/blob/master/src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java) for creating the changelog.
 
