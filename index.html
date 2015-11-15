@@ -35,7 +35,7 @@
 <a id="git-release-notes-" class="anchor" href="#git-release-notes-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Git Release Notes <a href="https://travis-ci.org/tomasbjerre/git-changelog-lib"><img src="https://travis-ci.org/tomasbjerre/git-changelog-lib.svg?branch=master" alt="Build Status"></a>
 </h1>
 
-<p>This is a library for generating a changelog, or releasenotes, from a GIT repository. It can also be run as a standalone program.</p>
+<p>This is a library for generating a changelog, or releasenotes, from a GIT repository. It can also be run as a standalone program, Gradle plugin, Maven plugin or Jenkins plugin.</p>
 
 <p>It is fully configurable with a <a href="http://mustache.github.io/">Mustache</a> template. There are some templates used for testing available <a href="https://github.com/tomasbjerre/git-changelog/tree/master/src/test/resources/templates">here</a> and the results <a href="https://github.com/tomasbjerre/git-changelog/tree/master/src/test/resources/assertions">here</a>.</p>
 
@@ -50,6 +50,8 @@
 <li>With a <a href="https://github.com/tomasbjerre/git-changelog-gradle-plugin">Gradle plugin</a>
 </li>
 <li>With a <a href="https://github.com/tomasbjerre/git-changelog-maven-plugin">Maven plugin</a>
+</li>
+<li>With a <a href="https://github.com/tomasbjerre/git-releasenotes-plugin">Jenkins plugin</a>
 </li>
 <li>As a library</li>
 <li>From command line</li>
@@ -162,6 +164,75 @@
                                            tag.
                                            &lt;string&gt;: any string
                                            Default: No tag
+</code></pre>
+
+<h2>
+<a id="supplied-information" class="anchor" href="#supplied-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>Supplied information</h2>
+
+<p>The template is supplied with a datastructure like:</p>
+
+<pre><code>* commits
+ - authorName
+ - authorEmailAddress
+ - message
+ - commitTime
+* tags
+ - name
+ * commits
+  - authorName
+  - authorEmailAddress
+  - message
+  - commitTime
+ * authors
+  - authorName
+  - authrorEmail
+  * commits
+   - authorName
+   - authorEmailAddress
+   - message
+   - commitTime
+ * issues
+  - name
+  - issue
+  - link
+  * commits
+   - authorName
+   - authorEmailAddress
+   - message
+   - commitTime
+  * authors
+   - authorName
+   - authrorEmail
+   * commits
+    - authorName
+    - authorEmailAddress
+    - message
+    - commitTime
+* authors
+ - authorName
+ - authrorEmail
+ * commits
+  - authorName
+  - authorEmailAddress
+  - message
+  - commitTime
+* issues
+ - name
+ - issue
+ - link
+ * commits
+  - authorName
+  - authorEmailAddress
+  - message
+  - commitTime
+ * authors
+  - authorName
+  - authrorEmail
+  * commits
+   - authorName
+   - authorEmailAddress
+   - message
+   - commitTime
 </code></pre>
 
 <h2>
