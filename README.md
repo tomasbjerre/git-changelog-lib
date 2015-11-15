@@ -9,6 +9,7 @@ Available in [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22g
 ## Usage
 This software can be used:
  * With a [Gradle plugin](https://github.com/tomasbjerre/git-changelog-gradle-plugin)
+ * With a [Maven plugin](https://github.com/tomasbjerre/git-changelog-maven-plugin)
  * As a library
  * From command line
 

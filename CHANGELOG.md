@@ -13,6 +13,10 @@ Better error message if no template specified
 
 ### Other changes
 
+Adding link to Maven plugin
+
+Doc
+
 Prepare for next release
 
 ## 1.1
