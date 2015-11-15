@@ -1,6 +1,7 @@
 package se.bjurr.gitchangelog.api;
 
 import static com.google.common.base.Charsets.UTF_8;
+import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Strings.isNullOrEmpty;
 import static com.google.common.base.Throwables.propagate;
 import static com.google.common.collect.Lists.newArrayList;
@@ -204,6 +205,7 @@ public class GitChangelogApi {
   if (templateContent != null) {
    return templateContent;
   }
+  checkArgument(settings.getTemplatePath() != null, "You must specify a template!");
   try {
    return Resources.toString(getResource(settings.getTemplatePath()), UTF_8);
   } catch (Exception e) {

@@ -2,6 +2,19 @@
 
 Changelog of Git Changelog.
 
+## Next release
+### Features
+
+Better error message if no template specified
+
+### Github
+
+Better error message if no template specified
+
+### Other changes
+
+Prepare for next release
+
 ## 1.1
 ### Bugs
 
