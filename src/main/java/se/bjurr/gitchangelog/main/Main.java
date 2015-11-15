@@ -201,10 +201,10 @@ public class Main {
    }
 
    checkArgument(//
-     !arg.wasGiven(outputFileArgument) && !arg.wasGiven(outputFileArgument),//
+     arg.wasGiven(outputStdoutArgument) || arg.wasGiven(outputFileArgument),//
      "You must supply an output, " + PARAM_OUTPUT_FILE + " <filename> or " + PARAM_OUTPUT_STDOUT);
 
-   if (arg.get(outputStdoutArgument)) {
+   if (arg.wasGiven(outputStdoutArgument)) {
     systemOutPrintln(changelogApiBuilder.render());
    }
 

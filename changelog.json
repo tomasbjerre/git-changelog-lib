@@ -6,7 +6,7 @@
  "ignoreCommitsIfMessageMatches": "^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*",
  "readableTagName": "/([^/]+?)$",
  "dateFormat": "YYYY-MM-dd HH:mm:ss",
- "untaggedName": "Untagged",
+ "untaggedName": "Next release",
  "noIssueName": "No issue",
  "timeZone": "UTC",
  
