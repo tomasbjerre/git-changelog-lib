@@ -1,0 +1,21 @@
+{
+ "fromRepo": ".",
+ "fromCommit": "0000000000000000000000000000000000000000",
+ "toRef": "refs/heads/master",
+ 
+ "ignoreCommitsIfMessageMatches": "^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*",
+ "readableTagName": "/([^/]+?)$",
+ "dateFormat": "YYYY-MM-dd HH:mm:ss",
+ "untaggedName": "Untagged",
+ "noIssueName": "No issue",
+ "timeZone": "UTC",
+ 
+ "jiraIssuePattern": "\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b",
+
+ "githubIssuePattern": "#[0-9]+?",
+ 
+ "customIssues": [
+  { "name": "Bugs", "pattern": "#bug" },
+  { "name": "Features", "pattern": "#feature" }
+ ]
+}
