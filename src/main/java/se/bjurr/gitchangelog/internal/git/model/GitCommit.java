@@ -42,6 +42,7 @@ public class GitCommit {
  @Override
  public String toString() {
   return toStringHelper(this)//
+    .add("hash", hash)//
     .add("authorName", authorName)//
     .add("authorEmailAddress", authorEmailAddress)//
     .add("commitTime", commitTime)//

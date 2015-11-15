@@ -2,19 +2,7 @@
 
 Changelog of Git Changelog.
 
-## 1.0
-### Github #1
-* Tomas B
-1970-01-06 00:00:00
-Adding stuff #12
-
-
-### Github #2
-* T B
-1970-01-03 00:00:00
-Adding stuff #20
-
-
+## No tag
 ### Github #3
 * T B
 1970-01-09 00:00:00
@@ -28,6 +16,30 @@ Adding stuff
 Adding stuff JIR-1234
 
 
+### No issue supplied 
+* T B
+1970-01-11 00:00:00
+More stuff
+
+
+* Tomas B
+1970-01-08 00:00:00
+Adding stuff
+
+
+## 1.0
+### Github #1
+* Tomas B
+1970-01-06 00:00:00
+Adding stuff #12
+
+
+### Github #2
+* T B
+1970-01-03 00:00:00
+Adding stuff #20
+
+
 ### Jira JIR-5262
 * Tomas B
 1970-01-04 00:00:00
@@ -35,26 +47,20 @@ Adding stuff
   JIR-5262
 
 
-### No issue 
-* authorName
-1970-01-01 00:00:00
-First commit!
+### No issue supplied 
+* T B
+1970-01-07 00:00:00
+This is 1.0 tagged commit
+
+1970-01-05 00:00:00
+Adding stuff
 
 
 * Tomas B
 1970-01-02 00:00:00
 Adding stuff
 
-1970-01-08 00:00:00
-Adding stuff
 
-
-* T B
-1970-01-05 00:00:00
-Adding stuff
-
-1970-01-07 00:00:00
-Adding stuff
-
-1970-01-11 00:00:00
-More stuff
+* authorName
+1970-01-01 00:00:00
+First commit!

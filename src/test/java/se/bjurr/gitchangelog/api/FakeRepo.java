@@ -8,6 +8,7 @@ import static se.bjurr.gitchangelog.api.FakeGitRepo.TIME_DAY;
 import static se.bjurr.gitchangelog.api.GitChangelogApi.ZERO_COMMIT;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -39,7 +40,8 @@ public class FakeRepo {
     .withCommit(
       new GitCommit("Tomas B", "tomas.b@example", new Date(DAY_ZERO + TIME_DAY * 5), "Adding stuff #12", hashes.get(4)))
     .withCommit(
-      new GitCommit("T B", "tomas.b@example", new Date(DAY_ZERO + TIME_DAY * 6), "Adding stuff", hashes.get(5)))
+      new GitCommit("T B", "tomas.b@example", new Date(DAY_ZERO + TIME_DAY * 6), "This is 1.0 tagged commit", hashes
+        .get(5)))
     .withCommit(
       new GitCommit("Tomas B", "tomas.b@example", new Date(DAY_ZERO + TIME_DAY * 7), "Adding stuff", hashes.get(6)))
     .withCommit(
@@ -52,6 +54,20 @@ public class FakeRepo {
 
   fakeGitRepo.withTag(new GitTag("1.0", fakeGitRepo.getDiff(fromString(ZERO_COMMIT), fromString(hashes.get(5)))));
 
+  System.out.println("Created fake repo for testing:");
+  for (GitCommit gitCommit : fakeGitRepo.getDiff(fromString(ZERO_COMMIT), fakeGitRepo.getRef("refs/heads/master"))) {
+   printTag(gitCommit.getHash(), fakeGitRepo.getTags());
+   System.out.println(" " + gitCommit.getHash() + " " + gitCommit.getMessage());
+  }
+
   return fakeGitRepo;
+ }
+
+ private static void printTag(String hash, List<GitTag> tags) {
+  for (GitTag gitTag : tags) {
+   if (gitTag.getGitCommit().getHash().equals(hash)) {
+    System.out.println("Tag: " + gitTag.getName());
+   }
+  }
  }
 }

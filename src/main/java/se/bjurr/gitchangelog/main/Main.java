@@ -158,20 +158,42 @@ public class Main {
    if (arg.wasGiven(settingsArgument)) {
     changelogApiBuilder.withSettings(new File(arg.get(settingsArgument)).toURI().toURL());
    }
-
-   changelogApiBuilder //
-     .withFromRepo(arg.get(fromRepoArgument)) //
-     .withUntaggedName(arg.get(untaggedTagNameArgument)) //
-     .withIgnoreCommitsWithMesssage(arg.get(ignoreCommitsIfMessageMatchesArgument)) //
-     .withTemplatePath(arg.get(templatePathArgument)) //
-     .withJiraIssuePattern(arg.get(jiraIssuePatternArgument)) //
-     .withJiraServer(arg.get(jiraServerArgument)) //
-     .withGithubIssuePattern(arg.get(githubIssuePatternArgument)) //
-     .withGithubServer(arg.get(githubServerArgument)) //
-     .withTimeZone(arg.get(timeZoneArgument))//
-     .withDateFormat(arg.get(dateFormatArgument))//
-     .withNoIssueName(arg.get(noIssueArgument))//
-     .withReadableTagName(arg.get(readableTagNameArgument));
+   if (arg.wasGiven(fromRepoArgument)) {
+    changelogApiBuilder.withFromRepo(arg.get(fromRepoArgument));
+   }
+   if (arg.wasGiven(untaggedTagNameArgument)) {
+    changelogApiBuilder.withUntaggedName(arg.get(untaggedTagNameArgument));
+   }
+   if (arg.wasGiven(ignoreCommitsIfMessageMatchesArgument)) {
+    changelogApiBuilder.withIgnoreCommitsWithMesssage(arg.get(ignoreCommitsIfMessageMatchesArgument));
+   }
+   if (arg.wasGiven(templatePathArgument)) {
+    changelogApiBuilder.withTemplatePath(arg.get(templatePathArgument));
+   }
+   if (arg.wasGiven(jiraIssuePatternArgument)) {
+    changelogApiBuilder.withJiraIssuePattern(arg.get(jiraIssuePatternArgument));
+   }
+   if (arg.wasGiven(jiraServerArgument)) {
+    changelogApiBuilder.withJiraServer(arg.get(jiraServerArgument));
+   }
+   if (arg.wasGiven(githubIssuePatternArgument)) {
+    changelogApiBuilder.withGithubIssuePattern(arg.get(githubIssuePatternArgument));
+   }
+   if (arg.wasGiven(githubServerArgument)) {
+    changelogApiBuilder.withGithubServer(arg.get(githubServerArgument));
+   }
+   if (arg.wasGiven(timeZoneArgument)) {
+    changelogApiBuilder.withTimeZone(arg.get(timeZoneArgument));
+   }
+   if (arg.wasGiven(dateFormatArgument)) {
+    changelogApiBuilder.withDateFormat(arg.get(dateFormatArgument));
+   }
+   if (arg.wasGiven(noIssueArgument)) {
+    changelogApiBuilder.withNoIssueName(arg.get(noIssueArgument));
+   }
+   if (arg.wasGiven(readableTagNameArgument)) {
+    changelogApiBuilder.withReadableTagName(arg.get(readableTagNameArgument));
+   }
 
    if (arg.wasGiven(fromCommitArgument)) {
     changelogApiBuilder.withFromCommit(arg.get(fromCommitArgument));

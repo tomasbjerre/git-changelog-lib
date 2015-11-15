@@ -2,7 +2,7 @@
 
 Changelog of Git Changelog.
 
-## Untagged
+## Next release
 ### Bugs
 *Tomas Bjerre*
 
@@ -19,6 +19,10 @@ Adding script to generate changelog
 ### Features
 *Tomas Bjerre*
 
+Improving test output #feature
+
+*Tomas Bjerre*
+
 Adding generated CHANGELOG.md #feature
 
  * Correcting faulty precondition check, file output argument could not be set. #bug
@@ -27,7 +31,7 @@ Adding generated CHANGELOG.md #feature
 
 Customizing changelog #feature
 
-### No issue
+### Other changes
 *Tomas Bjerre*
 
 More settings can be set from command line
@@ -35,7 +39,7 @@ More settings can be set from command line
  * More testing
 
 ## 1.0
-### No issue
+### Other changes
 *Tomas Bjerre*
 
 Doc

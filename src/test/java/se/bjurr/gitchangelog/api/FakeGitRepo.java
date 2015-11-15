@@ -3,6 +3,7 @@ package se.bjurr.gitchangelog.api;
 import static com.google.common.base.Joiner.on;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.collect.Lists.newArrayList;
+import static com.google.common.collect.Lists.reverse;
 import static com.google.common.collect.Maps.uniqueIndex;
 import static org.eclipse.jgit.lib.ObjectId.fromString;
 import static se.bjurr.gitchangelog.api.GitChangelogApi.ZERO_COMMIT;
@@ -32,7 +33,7 @@ public class FakeGitRepo extends GitRepo {
  }
 
  public FakeGitRepo withCommit(GitCommit gitCommit) {
-  commits.add(gitCommit);
+  commits.add(0, gitCommit);
   return this;
  }
 
@@ -56,7 +57,7 @@ public class FakeGitRepo extends GitRepo {
  @Override
  public ObjectId getRef(String fromRef) {
   if (fromRef.equals("refs/heads/master")) {
-   return fromString(commits.get(commits.size() - 1).getHash());
+   return fromString(commits.get(0).getHash());
   }
   Map<String, GitTag> tagsMap = uniqueIndex(tags, new Function<GitTag, String>() {
    @Override
@@ -76,13 +77,13 @@ public class FakeGitRepo extends GitRepo {
  @Override
  public List<GitCommit> getDiff(ObjectId from, ObjectId to) {
   List<GitCommit> toReturn = newArrayList();
-  boolean included = true;
-  for (GitCommit gitCommit : commits) {
+  boolean included = false;
+  for (GitCommit gitCommit : reverse(commits)) {
    if (gitCommit.getHash().equals(from.getName())) {
     included = true;
    }
    if (included) {
-    toReturn.add(gitCommit);
+    toReturn.add(0, gitCommit);
    }
    if (gitCommit.getHash().equals(to.getName())) {
     break;

@@ -6,7 +6,7 @@
  "ignoreCommitsIfMessageMatches": "^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*",
  "readableTagName": "/([^/]+?)$",
  "dateFormat": "YYYY-MM-dd HH:mm:ss",
- "untaggedName": "Untagged",
+ "untaggedName": "No tag",
  "noIssueName": "No issue",
  "templatePath": "git-changelog-template.mustache",
  "timeZone": "UTC",

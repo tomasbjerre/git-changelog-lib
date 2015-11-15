@@ -7,7 +7,7 @@
  "readableTagName": "/([^/]+?)$",
  "dateFormat": "YYYY-MM-dd HH:mm:ss",
  "untaggedName": "Next release",
- "noIssueName": "No issue",
+ "noIssueName": "Other changes",
  "timeZone": "UTC",
  
  "jiraIssuePattern": "\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b",
