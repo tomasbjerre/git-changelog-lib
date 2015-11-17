@@ -37,9 +37,13 @@
 
 <p>This is a library for generating a changelog, or releasenotes, from a GIT repository. It can also be run as a standalone program, Gradle plugin, Maven plugin or Jenkins plugin.</p>
 
-<p>It is fully configurable with a <a href="http://mustache.github.io/">Mustache</a> template. There are some templates used for testing available <a href="https://github.com/tomasbjerre/git-changelog/tree/master/src/test/resources/templates">here</a> and the results <a href="https://github.com/tomasbjerre/git-changelog/tree/master/src/test/resources/assertions">here</a>.</p>
+<p>It is fully configurable with a <a href="http://mustache.github.io/">Mustache</a> template. That can:</p>
 
-<p>Available in <a href="http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22git-changelog-lib%22">Maven Central</a>.</p>
+<ul>
+<li>Be stored to file, like CHANGELOG.md. There are some templates used for testing available <a href="https://github.com/tomasbjerre/git-changelog/tree/master/src/test/resources/templates">here</a> and the results <a href="https://github.com/tomasbjerre/git-changelog/tree/master/src/test/resources/assertions">here</a>.</li>
+<li>Be posted to MediaWiki (<a href="https://raw.githubusercontent.com/tomasbjerre/git-changelog-lib/master/sandbox/mediawiki.png">here</a> is an example)</li>
+<li>Or just be printed to STDOUT</li>
+</ul>
 
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
@@ -47,14 +51,11 @@
 <p>This software can be used:</p>
 
 <ul>
-<li>With a <a href="https://github.com/tomasbjerre/git-changelog-gradle-plugin">Gradle plugin</a>
-</li>
-<li>With a <a href="https://github.com/tomasbjerre/git-changelog-maven-plugin">Maven plugin</a>
-</li>
-<li>With a <a href="https://github.com/tomasbjerre/git-releasenotes-plugin">Jenkins plugin</a>
-</li>
-<li>As a library</li>
-<li>From command line</li>
+<li>With a <a href="https://github.com/tomasbjerre/git-changelog-gradle-plugin">Gradle plugin</a>.</li>
+<li>With a <a href="https://github.com/tomasbjerre/git-changelog-maven-plugin">Maven plugin</a>.</li>
+<li>With a <a href="https://github.com/tomasbjerre/git-releasenotes-plugin">Jenkins plugin</a>.</li>
+<li>As a library <a href="http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22git-changelog-lib%22">Maven Central</a>.</li>
+<li>From command line <a href="http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22git-changelog-lib%22">Maven Central</a> (the zip file).</li>
 </ul>
 
 <h3>
@@ -76,6 +77,15 @@
    .withToRef("refs/heads/master")
    .withTemplatePath("releasenotes.mustache")
    .toStdout();
+</code></pre>
+
+<p>A page can be created in MediaWiki like this.</p>
+
+<pre><code> .toMediaWiki(
+  "username",
+  "password",
+  "http://host/mediawiki",
+  "Title of page");
 </code></pre>
 
 <h3>
@@ -103,7 +113,7 @@
                                            Default: null
 -gp, --githubPattern &lt;string&gt;              Github pattern.
                                            &lt;string&gt;: any string
-                                           Default: #[0-9]*
+                                           Default: #[0-9]+
 -gs, --githubServer &lt;string&gt;               Github server. When a Github server 
                                            is given, the title of the Github 
                                            issues can be used in the changelog.
@@ -121,6 +131,19 @@
 -js, --jiraServer &lt;string&gt;                 Jira server. When a Jira server is 
                                            given, the title of the Jira issues can be 
                                            used in the changelog.
+                                           &lt;string&gt;: any string
+                                           Default: 
+-mp, --mediawiki-password &lt;string&gt;         Password to authenticate with 
+                                           MediaWiki.
+                                           &lt;string&gt;: any string
+                                           Default: 
+-mt, --mediawiki-title &lt;string&gt;            Title of MediaWiki page.
+                                           &lt;string&gt;: any string
+                                           Default: 
+-mu, --mediawiki-user &lt;string&gt;             User to authenticate with MediaWiki.
+                                           &lt;string&gt;: any string
+                                           Default: 
+-murl, --mediawiki-url &lt;string&gt;            Base URL of MediaWiki.
                                            &lt;string&gt;: any string
                                            Default: 
 -ni, --no-issue-name &lt;string&gt;              Name of virtual issue that contains 
@@ -164,6 +187,11 @@
                                            tag.
                                            &lt;string&gt;: any string
                                            Default: No tag
+</code></pre>
+
+<p>Creating a MediaWiki page can be done like this.</p>
+
+<pre><code>./git-changelog-lib -murl http://localhost/mediawiki -mu tomas -mp tomaskod -mt "Tomas Title" -t /home/bjerre/workspace/git-changelog-lib/changelog_mediawiki.mustache -ut "Next release"
 </code></pre>
 
 <h2>
@@ -233,6 +261,15 @@
    - authorEmailAddress
    - message
    - commitTime
+</code></pre>
+
+<h2>
+<a id="mediawiki" class="anchor" href="#mediawiki" aria-hidden="true"><span class="octicon octicon-link"></span></a>MediaWiki</h2>
+
+<p>The library can create a wiki page in MediaWiki. To do this, you must enable the API in MediaWiki in <code>mediawiki/LocalSettings.php</code> by adding:</p>
+
+<pre><code>$wgEnableAPI = true;
+$wgEnableWriteAPI = true;
 </code></pre>
 
 <h2>
