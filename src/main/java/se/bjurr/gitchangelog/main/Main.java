@@ -41,7 +41,12 @@ public class Main {
  public static final String PARAM_DATEFORMAT = "-df";
  public static final String PARAM_NOISSUE = "-ni";
  public static final String PARAM_READABLETAGNAME = "-rt";
- private static final String PARAM_REMOVEISSUE = "-ri";
+ public static final String PARAM_REMOVEISSUE = "-ri";
+ public static final String PARAM_MEDIAWIKIURL = "-murl";
+ public static final String PARAM_MEDIAWIKITITLE = "-mt";
+ public static final String PARAM_MEDIAWIKIUSER = "-mu";
+ public static final String PARAM_MEDIAWIKIPASSWORD = "-mp";
+
  private static String systemOutPrintln;
  private static boolean recordSystemOutPrintln;
 
@@ -149,13 +154,30 @@ public class Main {
     .description("Dont print any issues in the messages of commits.")//
     .build();
 
+  Argument<String> mediaWikiUrlArgument = stringArgument(PARAM_MEDIAWIKIURL, "--mediawiki-url")//
+    .description("Base URL of MediaWiki.")//
+    .build();
+  Argument<String> mediaWikiTitleArgument = stringArgument(PARAM_MEDIAWIKITITLE, "--mediawiki-title")//
+    .description("Title of MediaWiki page.")//
+    .defaultValue(null) //
+    .build();
+  Argument<String> mediaWikiUserArgument = stringArgument(PARAM_MEDIAWIKIUSER, "--mediawiki-user")//
+    .description("User to authenticate with MediaWiki.")//
+    .defaultValue("") //
+    .build();
+  Argument<String> mediaWikiPasswordArgument = stringArgument(PARAM_MEDIAWIKIPASSWORD, "--mediawiki-password")//
+    .description("Password to authenticate with MediaWiki.")//
+    .defaultValue("") //
+    .build();
+
   try {
    ParsedArguments arg = withArguments(helpArgument, settingsArgument, outputStdoutArgument, outputFileArgument,
      templatePathArgument, fromCommitArgument, fromRefArgument, fromRepoArgument, toCommitArgument, toRefArgument,
      untaggedTagNameArgument, jiraIssuePatternArgument, jiraServerArgument, ignoreCommitsIfMessageMatchesArgument,
      githubIssuePatternArgument, githubServerArgument, customIssueLinkArgument, customIssueNameArgument,
      customIssuePatternArgument, timeZoneArgument, dateFormatArgument, noIssueArgument, readableTagNameArgument,
-     removeIssueFromMessageArgument)//
+     removeIssueFromMessageArgument, mediaWikiUrlArgument, mediaWikiUserArgument, mediaWikiPasswordArgument,
+     mediaWikiTitleArgument)//
      .parse(args);
 
    GitChangelogApi changelogApiBuilder = gitChangelogApiBuilder();
@@ -232,8 +254,18 @@ public class Main {
    }
 
    checkArgument(//
-     arg.wasGiven(outputStdoutArgument) || arg.wasGiven(outputFileArgument),//
-     "You must supply an output, " + PARAM_OUTPUT_FILE + " <filename> or " + PARAM_OUTPUT_STDOUT);
+     arg.wasGiven(outputStdoutArgument) || arg.wasGiven(outputFileArgument) || arg.wasGiven(mediaWikiUrlArgument),//
+     "You must supply an output, " + PARAM_OUTPUT_FILE + " <filename>, " + PARAM_OUTPUT_STDOUT + " or "
+       + PARAM_MEDIAWIKIURL + " http://...");
+
+   if (arg.wasGiven(mediaWikiUrlArgument)) {
+    changelogApiBuilder//
+      .toMediaWiki(//
+        arg.get(mediaWikiUserArgument), //
+        arg.get(mediaWikiPasswordArgument),//
+        arg.get(mediaWikiUrlArgument), //
+        arg.get(mediaWikiTitleArgument));//
+   }
 
    if (arg.wasGiven(outputStdoutArgument)) {
     systemOutPrintln(changelogApiBuilder.render());

@@ -2,17 +2,20 @@
 
 This is a library for generating a changelog, or releasenotes, from a GIT repository. It can also be run as a standalone program, Gradle plugin, Maven plugin or Jenkins plugin.
 
-It is fully configurable with a [Mustache](http://mustache.github.io/) template. There are some templates used for testing available [here](https://github.com/tomasbjerre/git-changelog/tree/master/src/test/resources/templates) and the results [here](https://github.com/tomasbjerre/git-changelog/tree/master/src/test/resources/assertions).
+It is fully configurable with a [Mustache](http://mustache.github.io/) template. That can:
 
-Available in [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22git-changelog-lib%22).
+ * Be stored to file, like CHANGELOG.md. There are some templates used for testing available [here](https://github.com/tomasbjerre/git-changelog/tree/master/src/test/resources/templates) and the results [here](https://github.com/tomasbjerre/git-changelog/tree/master/src/test/resources/assertions).
+ * Be posted to MediaWiki ([here](https://raw.githubusercontent.com/tomasbjerre/git-changelog-lib/master/sandbox/mediawiki.png) is an example)
+ * Or just be printed to STDOUT
+
 
 ## Usage
 This software can be used:
- * With a [Gradle plugin](https://github.com/tomasbjerre/git-changelog-gradle-plugin)
- * With a [Maven plugin](https://github.com/tomasbjerre/git-changelog-maven-plugin)
- * With a [Jenkins plugin](https://github.com/tomasbjerre/git-releasenotes-plugin)
- * As a library
- * From command line
+ * With a [Gradle plugin](https://github.com/tomasbjerre/git-changelog-gradle-plugin).
+ * With a [Maven plugin](https://github.com/tomasbjerre/git-changelog-maven-plugin).
+ * With a [Jenkins plugin](https://github.com/tomasbjerre/git-releasenotes-plugin).
+ * As a library [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22git-changelog-lib%22).
+ * From command line [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22git-changelog-lib%22) (the zip file).
 
 ### Library
 
@@ -34,6 +37,15 @@ It can also create releasenotes. If you are using git flow it may look like this
    .withToRef("refs/heads/master")
    .withTemplatePath("releasenotes.mustache")
    .toStdout();
+```
+A page can be created in MediaWiki like this.
+
+```
+ .toMediaWiki(
+  "username",
+  "password",
+  "http://host/mediawiki",
+  "Title of page");
 ```
 
 ### Command line
@@ -59,7 +71,7 @@ Or from command line:
                                            Default: null
 -gp, --githubPattern <string>              Github pattern.
                                            <string>: any string
-                                           Default: #[0-9]*
+                                           Default: #[0-9]+
 -gs, --githubServer <string>               Github server. When a Github server 
                                            is given, the title of the Github 
                                            issues can be used in the changelog.
@@ -77,6 +89,19 @@ Or from command line:
 -js, --jiraServer <string>                 Jira server. When a Jira server is 
                                            given, the title of the Jira issues can be 
                                            used in the changelog.
+                                           <string>: any string
+                                           Default: 
+-mp, --mediawiki-password <string>         Password to authenticate with 
+                                           MediaWiki.
+                                           <string>: any string
+                                           Default: 
+-mt, --mediawiki-title <string>            Title of MediaWiki page.
+                                           <string>: any string
+                                           Default: 
+-mu, --mediawiki-user <string>             User to authenticate with MediaWiki.
+                                           <string>: any string
+                                           Default: 
+-murl, --mediawiki-url <string>            Base URL of MediaWiki.
                                            <string>: any string
                                            Default: 
 -ni, --no-issue-name <string>              Name of virtual issue that contains 
@@ -120,6 +145,11 @@ Or from command line:
                                            tag.
                                            <string>: any string
                                            Default: No tag
+```
+
+Creating a MediaWiki page can be done like this.
+```
+./git-changelog-lib -murl http://localhost/mediawiki -mu tomas -mp tomaskod -mt "Tomas Title" -t /home/bjerre/workspace/git-changelog-lib/changelog_mediawiki.mustache -ut "Next release"
 ```
 
 ## Supplied information
@@ -188,6 +218,13 @@ The template is supplied with a datastructure like:
    - authorEmailAddress
    - message
    - commitTime
+```
+
+## MediaWiki
+The library can create a wiki page in MediaWiki. To do this, you must enable the API in MediaWiki in `mediawiki/LocalSettings.php` by adding:
+```
+$wgEnableAPI = true;
+$wgEnableWriteAPI = true;
 ```
 
 ## Developer instructions

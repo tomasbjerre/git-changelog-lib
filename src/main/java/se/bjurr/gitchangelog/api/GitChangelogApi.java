@@ -8,6 +8,7 @@ import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.io.Files.createParentDirs;
 import static com.google.common.io.Files.write;
 import static com.google.common.io.Resources.getResource;
+import static se.bjurr.gitchangelog.internal.mediawiki.MediaWikiClient.createMediaWikiPage;
 import static se.bjurr.gitchangelog.internal.settings.Settings.defaultSettings;
 import static se.bjurr.gitchangelog.internal.settings.Settings.fromFile;
 
@@ -155,6 +156,10 @@ public class GitChangelogApi {
   } catch (IOException e) {
    propagate(e);
   }
+ }
+
+ public void toMediaWiki(String username, String password, String url, String title) {
+  createMediaWikiPage(username, password, url, title, render());
  }
 
  public GitChangelogApi withTemplatePath(String templatePath) {

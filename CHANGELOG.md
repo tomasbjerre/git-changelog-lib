@@ -11,7 +11,13 @@ Changing regexp pattern for github
 
 Better error message if no template specified
 
+### Github
+
+MediaWiki integration
+
 ### Other changes
+
+doc
 
 Adding link to Maven plugin
 
