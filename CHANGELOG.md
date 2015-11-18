@@ -5,7 +5,7 @@ Changelog of Git Changelog.
 ## Next release
 ### Github [#7](https://github.com/tomasbjerre/git-changelog-lib/issues/7)
 
-[a73d7d616f26d7a](https://github.com/tomasbjerre/git-changelog-lib/commit/a73d7d616f26d7a) Tomas Bjerre *2015-11-18 19:04:39*
+[210e963a07b8a7b](https://github.com/tomasbjerre/git-changelog-lib/commit/210e963a07b8a7b) Tomas Bjerre *2015-11-18 19:06:00*
 
 Adding booleans to check if link and/or issue exists in issue
 
