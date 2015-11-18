@@ -2,6 +2,10 @@
 
 Changelog of Git Changelog.
 
+## Bugs #bug
+### T B - 1970-01-11 00:00:00
+More stuff
+
 ## Github #12
 ### Tomas B - 1970-01-06 00:00:00
 Adding stuff
@@ -23,9 +27,6 @@ Adding stuff
 Adding stuff
 
 ## No issue supplied 
-### T B - 1970-01-11 00:00:00
-More stuff
-
 ### Tomas B - 1970-01-08 00:00:00
 Adding stuff
 

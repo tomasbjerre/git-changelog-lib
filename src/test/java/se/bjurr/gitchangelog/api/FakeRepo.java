@@ -50,7 +50,7 @@ public class FakeRepo {
       new GitCommit("Tomas B", "tomas.b@example", new Date(DAY_ZERO + TIME_DAY * 9), "Adding stuff JIR-1234", hashes
         .get(8)))
     .withCommit(
-      new GitCommit("T B", "tomas.b@example", new Date(DAY_ZERO + TIME_DAY * 10), "More stuff", hashes.get(9)));
+      new GitCommit("T B", "tomas.b@example", new Date(DAY_ZERO + TIME_DAY * 10), "More stuff #bug", hashes.get(9)));
 
   fakeGitRepo.withTag(new GitTag("1.0", fakeGitRepo.getDiff(fromString(ZERO_COMMIT), fromString(hashes.get(5)))));
 

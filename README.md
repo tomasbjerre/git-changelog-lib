@@ -178,7 +178,9 @@ The template is supplied with a datastructure like:
    - commitTime
  * issues
   - name
+  - hasIssue
   - issue
+  - hasLink
   - link
   * commits
    - authorName
@@ -203,8 +205,10 @@ The template is supplied with a datastructure like:
   - commitTime
 * issues
  - name
- - issue
- - link
+  - hasIssue
+  - issue
+  - hasLink
+  - link
  * commits
   - authorName
   - authorEmailAddress

@@ -5,12 +5,24 @@ Changelog of Git Changelog.
 ## Next release
 ### Github [#7](https://github.com/tomasbjerre/git-changelog-lib/issues/7)
 
+[91bf70d3f2a90f7](https://github.com/tomasbjerre/git-changelog-lib/commit/91bf70d3f2a90f7) Tomas Bjerre *2015-11-18 19:21:41*
+
+Adding hasIssue hasLink to readme doc
+
+
+## 1.3
+### Github [#7](https://github.com/tomasbjerre/git-changelog-lib/issues/7)
+
 [210e963a07b8a7b](https://github.com/tomasbjerre/git-changelog-lib/commit/210e963a07b8a7b) Tomas Bjerre *2015-11-18 19:06:00*
 
 Adding booleans to check if link and/or issue exists in issue
 
 
 ### Other changes
+
+[467d126c87b734e](https://github.com/tomasbjerre/git-changelog-lib/commit/467d126c87b734e) Tomas Bjerre *2015-11-18 19:17:48*
+
+Adding new mediawiki screenshot
 
 [49afd799253a777](https://github.com/tomasbjerre/git-changelog-lib/commit/49afd799253a777) Tomas Bjerre *2015-11-18 06:55:50*
 
