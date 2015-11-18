@@ -5,7 +5,7 @@ Changelog of Git Changelog.
 ## Next release
 ### Github [#7](https://github.com/tomasbjerre/git-changelog-lib/issues/7)
 
-[91bf70d3f2a90f7](https://github.com/tomasbjerre/git-changelog-lib/commit/91bf70d3f2a90f7) Tomas Bjerre *2015-11-18 19:21:41*
+[fbb455921921ddc](https://github.com/tomasbjerre/git-changelog-lib/commit/fbb455921921ddc) Tomas Bjerre *2015-11-18 19:41:03*
 
 Adding hasIssue hasLink to readme doc
 
