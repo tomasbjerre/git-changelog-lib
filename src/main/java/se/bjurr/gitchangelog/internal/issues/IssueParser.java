@@ -44,10 +44,15 @@ public class IssueParser {
     if (matcher.find()) {
      String matched = matcher.group();
      if (!foundIssues.containsKey(matched)) {
+      String link = issuePattern.getLink().or("") //
+        .replaceAll("\\$\\{PATTERN_GROUP\\}", matched);
+      for (int i = 0; i <= matcher.groupCount(); i++) {
+       link = link.replaceAll("\\$\\{PATTERN_GROUP_" + i + "\\}", matcher.group(i));
+      }
       foundIssues.put(matched, new ParsedIssue(//
         issuePattern.getName(),//
         matched,//
-        issuePattern.getLink().or("").replaceAll("\\$\\{PATTERN_GROUP\\}", matched)));
+        link));
      }
      foundIssues.get(matched).addCommit(gitCommit);
      commitMappedToIssue = true;
@@ -70,7 +75,12 @@ public class IssueParser {
    patterns.add(new CustomIssue("Github", settings.getGithubIssuePattern().get(), settings.getGithubServer().orNull()));
   }
   if (settings.getJiraIssuePattern().isPresent()) {
-   patterns.add(new CustomIssue("Jira", settings.getJiraIssuePattern().get(), settings.getJiraServer().orNull()));
+   if (settings.getJiraServer().isPresent()) {
+    patterns.add(new CustomIssue("Jira", settings.getJiraIssuePattern().get(), settings.getJiraServer().or("")
+      + "/browse/${PATTERN_GROUP}"));
+   } else {
+    patterns.add(new CustomIssue("Jira", settings.getJiraIssuePattern().get(), settings.getJiraServer().orNull()));
+   }
   }
   return patterns;
  }

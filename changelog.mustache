@@ -5,11 +5,19 @@ Changelog of Git Changelog.
 {{#tags}}
 ## {{name}}
  {{#issues}}
-### {{name}} {{issue}}
+  {{#hasIssue}}
+### {{name}} [{{issue}}]({{link}})
+  {{/hasIssue}}
+  {{^hasIssue}}
+### {{name}}
+  {{/hasIssue}}
 
-   {{#commits}}
+  {{#commits}}
+[{{hash}}](https://github.com/tomasbjerre/git-changelog-lib/commit/{{hash}}) {{authorName}} *{{commitTime}}*
+
 {{{message}}}
 
-   {{/commits}}
+  {{/commits}}
+
  {{/issues}}
 {{/tags}}

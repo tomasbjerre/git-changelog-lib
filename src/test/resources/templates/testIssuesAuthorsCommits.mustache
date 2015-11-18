@@ -3,7 +3,12 @@
 Changelog of Git Changelog.
 
 {{#issues}}
-## {{name}} {{issue}}
+{{#hasIssue}}
+## {{name}} [{{issue}}]({{link}})
+{{/hasIssue}}
+{{^hasIssue}}
+## {{name}}
+{{/hasIssue}}
   {{#authors}}
 ### {{authorName}}
    {{#commits}}

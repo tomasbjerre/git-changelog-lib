@@ -12,11 +12,12 @@
  "timeZone": "UTC",
  "removeIssueFromMessage": "true",
  
- "jiraServer": "",
+ "jiraServer": "https://jiraserver/jira",
  "jiraIssuePattern": "\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b",
 
- "githubServer": "",
- "githubIssuePattern": "#[0-9]+",
- 
- "customIssues": []
+ "jiraIssuePattern": "\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b",
+
+ "customIssues": [
+  {"name": "Github", "pattern": "#([0-9]+)", "link": "https://github.com/tomasbjerre/git-releasenotes-plugin/issues/${PATTERN_GROUP_1}" }
+ ]
 }

@@ -10,13 +10,13 @@
  "noIssueName": "Other changes",
  "timeZone": "UTC",
  "removeIssueFromMessage": "true",
- 
+
+ "jiraServer": "https://jiraserver/jira",
  "jiraIssuePattern": "\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b",
 
- "githubIssuePattern": "#[0-9]+",
- 
+ "jiraIssuePattern": "\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b",
+
  "customIssues": [
-  { "name": "Bugs", "pattern": "#bug" },
-  { "name": "Features", "pattern": "#feature" }
+  {"name": "Github", "pattern": "#([0-9]+)", "link": "https://github.com/tomasbjerre/git-changelog-lib/issues/${PATTERN_GROUP_1}" }
  ]
 }
