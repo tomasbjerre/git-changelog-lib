@@ -2,6 +2,18 @@
 
 Changelog of Git Changelog.
 
+## Next release
+### Other changes
+
+[ad85b354f985f53](https://github.com/tomasbjerre/git-changelog-lib/commit/ad85b354f985f53) Tomas Bjerre *2015-11-19 20:55:41*
+
+Not loading default settings by default when using API
+
+[64f318ca8f10ba8](https://github.com/tomasbjerre/git-changelog-lib/commit/64f318ca8f10ba8) Tomas Bjerre *2015-11-19 19:46:44*
+
+updating changelog
+
+
 ## 1.4
 ### Github [#7](https://github.com/tomasbjerre/git-changelog-lib/issues/7)
 
