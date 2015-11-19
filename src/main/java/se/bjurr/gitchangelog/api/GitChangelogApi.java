@@ -4,7 +4,6 @@ import static com.google.common.base.Charsets.UTF_8;
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Strings.isNullOrEmpty;
 import static com.google.common.base.Throwables.propagate;
-import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.io.Files.createParentDirs;
 import static com.google.common.io.Files.write;
 import static com.google.common.io.Resources.getResource;
@@ -138,8 +137,8 @@ public class GitChangelogApi {
   return this;
  }
 
- public GitChangelogApi withCustomIssues(String name, String pattern, String link) {
-  settings.setCustomIssues(newArrayList(new CustomIssue(name, pattern, link)));
+ public GitChangelogApi withCustomIssue(String name, String pattern, String link) {
+  settings.getCustomIssues().add(new CustomIssue(name, pattern, link));
   return this;
  }
 

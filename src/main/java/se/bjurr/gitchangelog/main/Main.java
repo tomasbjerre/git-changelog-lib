@@ -247,7 +247,7 @@ public class Main {
    arg.wasGiven(customIssueNameArgument) && //
      arg.wasGiven(customIssuePatternArgument) && //
      arg.wasGiven(customIssueLinkArgument)) {
-    changelogApiBuilder.withCustomIssues(//
+    changelogApiBuilder.withCustomIssue(//
       arg.get(customIssueNameArgument),//
       arg.get(customIssuePatternArgument),//
       arg.get(customIssueLinkArgument));
