@@ -74,7 +74,7 @@ public class MediaWikiClient {
    }
    logger.info("Using edit token " + httpState.getEditToken());
    createPage(httpState, url, title, text);
-   logger.info("Created " + url + "/" + title);
+   logger.info("Created " + url + "/index.php/" + title);
   } catch (Exception e) {
    propagate(e);
   }

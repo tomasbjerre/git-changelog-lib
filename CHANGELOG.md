@@ -5,7 +5,19 @@ Changelog of Git Changelog.
 ## Next release
 ### Other changes
 
-[ad85b354f985f53](https://github.com/tomasbjerre/git-changelog-lib/commit/ad85b354f985f53) Tomas Bjerre *2015-11-19 20:55:41*
+[10bbafc774749cc](https://github.com/tomasbjerre/git-changelog-lib/commit/10bbafc774749cc) Tomas Bjerre *2015-11-20 17:02:37*
+
+Some more work to get the lib working with Jenkins plugin
+
+[f978c6fd9c72233](https://github.com/tomasbjerre/git-changelog-lib/commit/f978c6fd9c72233) Tomas Bjerre *2015-11-19 21:21:04*
+
+Better error if not setting fromRepo
+
+
+## 1.5
+### Other changes
+
+[d3e8656074af987](https://github.com/tomasbjerre/git-changelog-lib/commit/d3e8656074af987) Tomas Bjerre *2015-11-19 20:56:47*
 
 Not loading default settings by default when using API
 

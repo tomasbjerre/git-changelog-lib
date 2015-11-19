@@ -1,6 +1,6 @@
 package se.bjurr.gitchangelog.internal.git.model;
 
-import static com.google.common.base.MoreObjects.toStringHelper;
+import static com.google.common.base.Objects.toStringHelper;
 
 import java.util.Date;
 

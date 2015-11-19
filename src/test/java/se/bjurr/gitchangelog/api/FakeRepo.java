@@ -52,7 +52,8 @@ public class FakeRepo {
     .withCommit(
       new GitCommit("T B", "tomas.b@example", new Date(DAY_ZERO + TIME_DAY * 10), "More stuff #bug", hashes.get(9)));
 
-  fakeGitRepo.withTag(new GitTag("1.0", fakeGitRepo.getDiff(fromString(ZERO_COMMIT), fromString(hashes.get(5)))));
+  fakeGitRepo.withTag(new GitTag("refs/tags/1.0", fakeGitRepo.getDiff(fromString(ZERO_COMMIT),
+    fromString(hashes.get(5)))));
 
   System.out.println("Created fake repo for testing:");
   for (GitCommit gitCommit : fakeGitRepo.getDiff(fromString(ZERO_COMMIT), fakeGitRepo.getRef("refs/heads/master"))) {

@@ -15,8 +15,6 @@
  "jiraServer": "https://jiraserver/jira",
  "jiraIssuePattern": "\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b",
 
- "jiraIssuePattern": "\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b",
-
  "customIssues": [
   {"name": "Github", "pattern": "#([0-9]+)", "link": "https://github.com/tomasbjerre/git-releasenotes-plugin/issues/${PATTERN_GROUP_1}" },
   { "name": "Bugs", "pattern": "#bug" }

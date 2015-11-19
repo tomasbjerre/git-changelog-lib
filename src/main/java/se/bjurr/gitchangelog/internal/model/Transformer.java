@@ -2,13 +2,12 @@ package se.bjurr.gitchangelog.internal.model;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.collect.Iterables.filter;
+import static com.google.common.collect.Iterables.transform;
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Lists.transform;
 import static com.google.common.collect.Maps.newHashMap;
-import static com.google.common.collect.Maps.toMap;
 import static com.google.common.collect.Maps.uniqueIndex;
 import static com.google.common.collect.Multimaps.index;
-import static com.google.common.collect.Ordering.from;
 import static java.util.TimeZone.getTimeZone;
 import static java.util.regex.Pattern.compile;
 import static se.bjurr.gitchangelog.internal.common.GitPredicates.ignoreCommits;
@@ -36,8 +35,8 @@ import se.bjurr.gitchangelog.internal.settings.Settings;
 
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
-import com.google.common.collect.Iterables;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Ordering;
 
 public class Transformer {
 
@@ -52,7 +51,7 @@ public class Transformer {
 
   List<String> withUnfilteredCommits = withUnfilteredCommits(commitsPerTag);
 
-  Iterable<Tag> tags = transform(withUnfilteredCommits, new Function<String, Tag>() {
+  List<Tag> tags = newArrayList(transform(withUnfilteredCommits, new Function<String, Tag>() {
    @Override
    public Tag apply(String input) {
     List<GitCommit> gitCommits = commitsPerTag.get(input);
@@ -62,7 +61,7 @@ public class Transformer {
     List<Issue> issues = toIssues(parsedIssues);
     return new Tag(toReadableTagName(input), commits, authors, issues);
    }
-  });
+  }));
 
   return order(tags);
  }
@@ -70,13 +69,17 @@ public class Transformer {
  private String toReadableTagName(String input) {
   Matcher matcher = compile(settings.getReadableTagName()).matcher(input);
   if (matcher.find()) {
+   if (matcher.groupCount() == 0) {
+    throw new RuntimeException("Pattern: \"" + settings.getReadableTagName() + "\" did not match any group in: \""
+      + input + "\"");
+   }
    return matcher.group(1);
   }
   return input;
  }
 
  private List<Tag> order(Iterable<Tag> tags) {
-  return from(new Comparator<Tag>() {
+  return Ordering.from(new Comparator<Tag>() {
    @Override
    public int compare(Tag o1, Tag o2) {
     return o2.getCommit().getCommitTime().compareTo(o1.getCommit().getCommitTime());
@@ -103,15 +106,14 @@ public class Transformer {
    }
   });
 
-  Map<GitCommit, String> stringPerCommit = toMap(perCommit.keySet(), new Function<GitCommit, String>() {
-   @Override
-   public String apply(GitCommit input) {
-    if (perCommit.containsKey(input)) {
-     return perCommit.get(input).getName();
-    }
-    return null;
+  Map<GitCommit, String> stringPerCommit = newHashMap();
+  for (GitCommit input : perCommit.keySet()) {
+   if (perCommit.containsKey(input)) {
+    stringPerCommit.put(input, perCommit.get(input).getName());
+   } else {
+    stringPerCommit.put(null, perCommit.get(input).getName());
    }
-  });
+  }
 
   return commitsPerString(allCommits, stringPerCommit, settings.getUntaggedName());
  }
@@ -137,23 +139,23 @@ public class Transformer {
  public List<Commit> toCommits(Collection<GitCommit> from) {
   List<GitCommit> filteredCommits = newArrayList(filter(from,
     ignoreCommits(settings.getIgnoreCommitsIfMessageMatches())));
-  return transform(filteredCommits, new Function<GitCommit, Commit>() {
+  return newArrayList(transform(filteredCommits, new Function<GitCommit, Commit>() {
    @Override
    public Commit apply(GitCommit c) {
     return toCommit(c);
    }
-  });
+  }));
  }
 
  public List<Issue> toIssues(List<ParsedIssue> issues) {
-  Iterable<ParsedIssue> issuesWithCommits = Iterables.filter(issues, new Predicate<ParsedIssue>() {
+  Iterable<ParsedIssue> issuesWithCommits = filter(issues, new Predicate<ParsedIssue>() {
    @Override
    public boolean apply(ParsedIssue input) {
     return !toCommits(input.getGitCommits()).isEmpty();
    }
   });
 
-  return transform(newArrayList(issuesWithCommits), new Function<ParsedIssue, Issue>() {
+  return newArrayList(transform(issuesWithCommits, new Function<ParsedIssue, Issue>() {
    @Override
    public Issue apply(ParsedIssue input) {
     List<GitCommit> gitCommits = input.getGitCommits();
@@ -164,7 +166,7 @@ public class Transformer {
       input.getIssue(), //
       input.getLink());
    }
-  });
+  }));
  }
 
  private Commit toCommit(GitCommit gitCommit) {
@@ -206,7 +208,7 @@ public class Transformer {
    }
   }));
 
-  return transform(newArrayList(authorsWithCommits), new Function<String, Author>() {
+  return newArrayList(transform(authorsWithCommits, new Function<String, Author>() {
    @Override
    public Author apply(String input) {
     List<GitCommit> gitCommitsOfSameAuthor = newArrayList(commitsPerAuthor.get(input));
@@ -216,6 +218,6 @@ public class Transformer {
       commitsOfSameAuthor.get(0).getAuthorEmailAddress(), //
       commitsOfSameAuthor);
    }
-  });
+  }));
  }
 }

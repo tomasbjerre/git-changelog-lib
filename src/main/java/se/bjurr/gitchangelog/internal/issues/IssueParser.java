@@ -1,5 +1,6 @@
 package se.bjurr.gitchangelog.internal.issues;
 
+import static com.google.common.base.Strings.isNullOrEmpty;
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
 import static com.google.common.collect.Ordering.usingToString;
@@ -70,16 +71,16 @@ public class IssueParser {
  }
 
  public static List<CustomIssue> getPatterns(Settings settings) {
-  List<CustomIssue> patterns = newArrayList(settings.getCustomIssues());
-  if (settings.getGithubIssuePattern().isPresent()) {
-   patterns.add(new CustomIssue("Github", settings.getGithubIssuePattern().get(), settings.getGithubServer().orNull()));
+  if (settings.getCustomIssues() == null) {
+   return newArrayList();
   }
-  if (settings.getJiraIssuePattern().isPresent()) {
+  List<CustomIssue> patterns = newArrayList(settings.getCustomIssues());
+  if (!isNullOrEmpty(settings.getJiraIssuePattern())) {
    if (settings.getJiraServer().isPresent()) {
-    patterns.add(new CustomIssue("Jira", settings.getJiraIssuePattern().get(), settings.getJiraServer().or("")
+    patterns.add(new CustomIssue("Jira", settings.getJiraIssuePattern(), settings.getJiraServer().or("")
       + "/browse/${PATTERN_GROUP}"));
    } else {
-    patterns.add(new CustomIssue("Jira", settings.getJiraIssuePattern().get(), settings.getJiraServer().orNull()));
+    patterns.add(new CustomIssue("Jira", settings.getJiraIssuePattern(), settings.getJiraServer().orNull()));
    }
   }
   return patterns;

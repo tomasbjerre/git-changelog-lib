@@ -77,15 +77,15 @@ public class GitChangelogApi {
 
  public Changelog getChangelog() {
   if (fakeGitRepo == null) {
-   return getChangelog(new GitRepo(new File(checkNotNull(settings.getFromRepo(), "fromRepo"))));
+   return getChangelog(new GitRepo(new File(settings.getFromRepo())));
   } else {
    return getChangelog(fakeGitRepo);
   }
  }
 
  private Changelog getChangelog(GitRepo gitRepo) {
-  ObjectId fromId = getId(gitRepo, settings.getFromRef(), settings.getFromCommit());
-  ObjectId toId = getId(gitRepo, settings.getToRef(), settings.getToCommit());
+  ObjectId fromId = getId(gitRepo, settings.getFromRef().orNull(), settings.getFromCommit().orNull());
+  ObjectId toId = getId(gitRepo, settings.getToRef().orNull(), settings.getToCommit().orNull());
   List<GitCommit> diff = gitRepo.getDiff(fromId, toId);
   List<GitTag> tags = gitRepo.getTags();
   List<ParsedIssue> issues = new IssueParser(settings, diff).parseForIssues();
@@ -124,16 +124,6 @@ public class GitChangelogApi {
 
  public GitChangelogApi withIgnoreCommitsWithMesssage(String ignoreCommitsIfMessageMatches) {
   settings.setIgnoreCommitsIfMessageMatches(ignoreCommitsIfMessageMatches);
-  return this;
- }
-
- public GitChangelogApi withGithubIssuePattern(String githubIssuePattern) {
-  settings.setGithubIssuePattern(githubIssuePattern);
-  return this;
- }
-
- public GitChangelogApi withGithubServer(String githubServer) {
-  settings.setGithubServer(githubServer);
   return this;
  }
 
@@ -194,7 +184,7 @@ public class GitChangelogApi {
  public String render() {
   try {
    MustacheFactory mf = new DefaultMustacheFactory();
-   String templateContent = getTemplateContent();
+   String templateContent = checkNotNull(getTemplateContent(), "No template!");
    StringReader reader = new StringReader(templateContent);
    Mustache mustache = mf.compile(reader, settings.getTemplatePath());
    StringWriter writer = new StringWriter();

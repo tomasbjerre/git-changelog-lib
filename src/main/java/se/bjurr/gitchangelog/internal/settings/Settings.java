@@ -1,10 +1,12 @@
 package se.bjurr.gitchangelog.internal.settings;
 
 import static com.google.common.base.Charsets.UTF_8;
+import static com.google.common.base.Objects.firstNonNull;
 import static com.google.common.base.Optional.fromNullable;
 import static com.google.common.io.Resources.getResource;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.google.common.base.Optional;
@@ -13,6 +15,15 @@ import com.google.gson.Gson;
 
 public class Settings {
  public static final String DEFAULT_FILE = "git-changelog-settings.json";
+ public static final boolean DEFAULT_REMOVE_ISSUE = true;
+ public static final String DEFAULT_TIMEZONE = "UTC";
+ public static final String DEFAULT_DATEFORMAT = "YYYY-MM-dd HH:mm:ss";
+ public static final String DEFAULT_IGNORE_COMMITS_REGEXP = "";
+ public static final String DEFAULT_UNTAGGED_NAME = "Unreleased";
+ public static final String DEFAULT_READABLE_TAG_NAME = "(.*)";
+ public static final String DEFAULT_NO_ISSUE_NAME = "No issue";
+ public static final String DEFAULT_GITHUB_ISSUE_PATTERN = "#[0-9]+";
+ public static final String DEFAULT_JIRA_ISSUE_PATTEN = "\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b";
 
  private static Gson gson = new Gson();
 
@@ -22,8 +33,6 @@ public class Settings {
  private String ignoreCommitsIfMessageMatches;
  private String jiraServer;
  private String jiraIssuePattern;
- private String githubServer;
- private String githubIssuePattern;
  private String toCommit;
  private String fromCommit;
  private String untaggedName;
@@ -32,9 +41,8 @@ public class Settings {
  private String dateFormat;
  private String noIssueName;
  private String timeZone;
- private List<CustomIssue> customIssues;
-
  private boolean removeIssueFromMessage;
+ private List<CustomIssue> customIssues;
 
  public Settings() {
  }
@@ -51,12 +59,12 @@ public class Settings {
   this.toRef = toRef;
  }
 
- public String getFromRef() {
-  return fromRef;
+ public Optional<String> getFromRef() {
+  return fromNullable(fromRef);
  }
 
- public String getToRef() {
-  return toRef;
+ public Optional<String> getToRef() {
+  return fromNullable(toRef);
  }
 
  public void setFromRepo(String fromRepo) {
@@ -64,15 +72,7 @@ public class Settings {
  }
 
  public String getFromRepo() {
-  return fromRepo;
- }
-
- public void setGithubIssuePattern(String githubIssuePattern) {
-  this.githubIssuePattern = githubIssuePattern;
- }
-
- public void setGithubServer(String githubServer) {
-  this.githubServer = githubServer;
+  return fromNullable(fromRepo).or(".");
  }
 
  public void setIgnoreCommitsIfMessageMatches(String ignoreCommitsIfMessageMatches) {
@@ -88,23 +88,15 @@ public class Settings {
  }
 
  public List<CustomIssue> getCustomIssues() {
-  return customIssues;
- }
-
- public Optional<String> getGithubIssuePattern() {
-  return fromNullable(githubIssuePattern);
- }
-
- public Optional<String> getGithubServer() {
-  return fromNullable(githubServer);
+  return firstNonNull(customIssues, new ArrayList<CustomIssue>());
  }
 
  public String getIgnoreCommitsIfMessageMatches() {
-  return ignoreCommitsIfMessageMatches;
+  return fromNullable(ignoreCommitsIfMessageMatches).or(DEFAULT_IGNORE_COMMITS_REGEXP);
  }
 
- public Optional<String> getJiraIssuePattern() {
-  return fromNullable(jiraIssuePattern);
+ public String getJiraIssuePattern() {
+  return fromNullable(jiraIssuePattern).or(DEFAULT_JIRA_ISSUE_PATTEN);
  }
 
  public Optional<String> getJiraServer() {
@@ -127,16 +119,16 @@ public class Settings {
   this.toCommit = toCommit;
  }
 
- public String getFromCommit() {
-  return fromCommit;
+ public Optional<String> getFromCommit() {
+  return fromNullable(fromCommit);
  }
 
- public String getToCommit() {
-  return toCommit;
+ public Optional<String> getToCommit() {
+  return fromNullable(toCommit);
  }
 
  public String getUntaggedName() {
-  return untaggedName;
+  return fromNullable(untaggedName).or(DEFAULT_UNTAGGED_NAME);
  }
 
  public void setUntaggedName(String untaggedName) {
@@ -144,7 +136,7 @@ public class Settings {
  }
 
  public String getTemplatePath() {
-  return templatePath;
+  return fromNullable(templatePath).or("changelog.mustache");
  }
 
  public void setTemplatePath(String templatePath) {
@@ -152,11 +144,11 @@ public class Settings {
  }
 
  public String getReadableTagName() {
-  return readableTagName;
+  return fromNullable(readableTagName).or(DEFAULT_READABLE_TAG_NAME);
  }
 
  public String getDateFormat() {
-  return dateFormat;
+  return fromNullable(dateFormat).or(DEFAULT_DATEFORMAT);
  }
 
  public void setDateFormat(String dateFormat) {
@@ -172,7 +164,7 @@ public class Settings {
  }
 
  public String getNoIssueName() {
-  return noIssueName;
+  return fromNullable(noIssueName).or(DEFAULT_NO_ISSUE_NAME);
  }
 
  public void setTimeZone(String timeZone) {
@@ -180,7 +172,7 @@ public class Settings {
  }
 
  public String getTimeZone() {
-  return timeZone;
+  return fromNullable(timeZone).or(DEFAULT_TIMEZONE);
  }
 
  public static Settings defaultSettings() {
@@ -197,7 +189,7 @@ public class Settings {
   this.removeIssueFromMessage = removeIssueFromMessage;
  }
 
- public boolean removeIssueFromMessage() {
-  return removeIssueFromMessage;
+ public Boolean removeIssueFromMessage() {
+  return fromNullable(removeIssueFromMessage).or(DEFAULT_REMOVE_ISSUE);
  }
 }

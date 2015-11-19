@@ -69,14 +69,6 @@ Or from command line:
 -fr, --fromRef <string>                    From ref.
                                            <string>: any string
                                            Default: null
--gp, --githubPattern <string>              Github pattern.
-                                           <string>: any string
-                                           Default: #[0-9]+
--gs, --githubServer <string>               Github server. When a Github server 
-                                           is given, the title of the Github 
-                                           issues can be used in the changelog.
-                                           <string>: any string
-                                           Default: 
 -h, --help <argument-to-print-help-for>    <argument-to-print-help-for>: an argument to print help for
                                            Default: If no specific parameter is given the whole usage text is given
 -ip, --ignorePattern <string>              Ignore commits where pattern 
@@ -97,7 +89,7 @@ Or from command line:
                                            Default: 
 -mt, --mediawiki-title <string>            Title of MediaWiki page.
                                            <string>: any string
-                                           Default: 
+                                           Default: null
 -mu, --mediawiki-user <string>             User to authenticate with MediaWiki.
                                            <string>: any string
                                            Default: 

@@ -21,7 +21,7 @@ public class GitChangelogApiTest {
  }
 
  @Test
- public void testTagsIssuesAuthorsCommits() throws Exception {
+ public void testThatIssuesCanBeRemoved() throws Exception {
 
   String expected = Resources.toString(getResource("assertions/testThatIssuesCanBeRemoved.md"), UTF_8).trim();
 
@@ -33,5 +33,31 @@ public class GitChangelogApiTest {
     .withRemoveIssueFromMessageArgument(true) //
     .withTemplatePath(templatePath)//
     .render().trim());
+ }
+
+ @Test(expected = RuntimeException.class)
+ public void testThatReadableGroupMustExist() throws Exception {
+  URL settingsFile = getResource("settings/git-changelog-test-settings.json").toURI().toURL();
+  String templatePath = "templates/testIssuesCommits.mustache";
+
+  gitChangelogApiBuilder()//
+    .withSettings(settingsFile)//
+    .withRemoveIssueFromMessageArgument(true) //
+    .withTemplatePath(templatePath)//
+    .withReadableTagName(".*/[0-9]+?\\.[0-9]+?$")//
+    .render();
+ }
+
+ @Test()
+ public void testThatReadableGroupCanBeSet() throws Exception {
+  URL settingsFile = getResource("settings/git-changelog-test-settings.json").toURI().toURL();
+  String templatePath = "templates/testIssuesCommits.mustache";
+
+  gitChangelogApiBuilder()//
+    .withSettings(settingsFile)//
+    .withRemoveIssueFromMessageArgument(true) //
+    .withTemplatePath(templatePath)//
+    .withReadableTagName(".*/([0-9]+?\\.[0-9]+?)$")//
+    .render();
  }
 }

@@ -82,19 +82,19 @@ public class Main {
     .build();
   Argument<String> fromRefArgument = stringArgument(PARAM_FROM_REF, "--fromRef")//
     .description("From ref.")//
-    .defaultValue(defaultSettings.getFromRef())//
+    .defaultValue(defaultSettings.getFromRef().orNull())//
     .build();
   Argument<String> toRefArgument = stringArgument(PARAM_TO_REF, "--toRef")//
     .description("To ref.")//
-    .defaultValue(defaultSettings.getToRef())//
+    .defaultValue(defaultSettings.getToRef().orNull())//
     .build();
   Argument<String> fromCommitArgument = stringArgument(PARAM_FROM_COMMIT, "--fromCommit")//
     .description("From commit.")//
-    .defaultValue(defaultSettings.getFromCommit())//
+    .defaultValue(defaultSettings.getFromCommit().orNull())//
     .build();
   Argument<String> toCommitArgument = stringArgument(PARAM_TO_COMMIT, "--toCommit")//
     .description("To commit.")//
-    .defaultValue(defaultSettings.getToCommit())//
+    .defaultValue(defaultSettings.getToCommit().orNull())//
     .build();
 
   Argument<String> ignoreCommitsIfMessageMatchesArgument = stringArgument(PARAM_IGNORE_PATTERN, "--ignorePattern")//
@@ -108,17 +108,7 @@ public class Main {
     .build();
   Argument<String> jiraIssuePatternArgument = stringArgument(PARAM_JIRA_ISSUE_PATTERN, "--jiraPattern")//
     .description("Jira issue pattern.")//
-    .defaultValue(defaultSettings.getJiraIssuePattern().orNull())//
-    .build();
-
-  Argument<String> githubServerArgument = stringArgument(PARAM_GITHUB_SERVER, "--githubServer")//
-    .description(
-      "Github server. When a Github server is given, the title of the Github issues can be used in the changelog.")//
-    .defaultValue(defaultSettings.getGithubServer().orNull())//
-    .build();
-  Argument<String> githubIssuePatternArgument = stringArgument(PARAM_GITHUB_PATTERN, "--githubPattern")//
-    .description("Github pattern.")//
-    .defaultValue(defaultSettings.getGithubIssuePattern().orNull())//
+    .defaultValue(defaultSettings.getJiraIssuePattern())//
     .build();
 
   Argument<String> customIssueNameArgument = stringArgument(PARAM_CUSTOM_ISSUE_NAME, "--customIssueName")//
@@ -174,10 +164,9 @@ public class Main {
    ParsedArguments arg = withArguments(helpArgument, settingsArgument, outputStdoutArgument, outputFileArgument,
      templatePathArgument, fromCommitArgument, fromRefArgument, fromRepoArgument, toCommitArgument, toRefArgument,
      untaggedTagNameArgument, jiraIssuePatternArgument, jiraServerArgument, ignoreCommitsIfMessageMatchesArgument,
-     githubIssuePatternArgument, githubServerArgument, customIssueLinkArgument, customIssueNameArgument,
-     customIssuePatternArgument, timeZoneArgument, dateFormatArgument, noIssueArgument, readableTagNameArgument,
-     removeIssueFromMessageArgument, mediaWikiUrlArgument, mediaWikiUserArgument, mediaWikiPasswordArgument,
-     mediaWikiTitleArgument)//
+     customIssueLinkArgument, customIssueNameArgument, customIssuePatternArgument, timeZoneArgument,
+     dateFormatArgument, noIssueArgument, readableTagNameArgument, removeIssueFromMessageArgument,
+     mediaWikiUrlArgument, mediaWikiUserArgument, mediaWikiPasswordArgument, mediaWikiTitleArgument)//
      .parse(args);
 
    GitChangelogApi changelogApiBuilder = gitChangelogApiBuilder();
@@ -206,12 +195,6 @@ public class Main {
    }
    if (arg.wasGiven(jiraServerArgument)) {
     changelogApiBuilder.withJiraServer(arg.get(jiraServerArgument));
-   }
-   if (arg.wasGiven(githubIssuePatternArgument)) {
-    changelogApiBuilder.withGithubIssuePattern(arg.get(githubIssuePatternArgument));
-   }
-   if (arg.wasGiven(githubServerArgument)) {
-    changelogApiBuilder.withGithubServer(arg.get(githubServerArgument));
    }
    if (arg.wasGiven(timeZoneArgument)) {
     changelogApiBuilder.withTimeZone(arg.get(timeZoneArgument));

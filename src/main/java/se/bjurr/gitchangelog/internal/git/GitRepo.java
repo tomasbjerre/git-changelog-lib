@@ -110,9 +110,14 @@ public class GitRepo {
 
  public ObjectId getRef(String fromRef) {
   try {
-   return repository.getAllRefs().get(fromRef).getObjectId();
+   for (Ref foundRef : repository.getAllRefs().values()) {
+    if (foundRef.getName().endsWith(fromRef)) {
+     return repository.getAllRefs().get(fromRef).getObjectId();
+    }
+   }
+   throw new RuntimeException(fromRef + " not found in:\n" + on("\n").join(repository.getAllRefs().values()));
   } catch (Exception e) {
-   throw new RuntimeException(fromRef + " not found in:\n" + on("\n").join(repository.getAllRefs().values()), e);
+   throw new RuntimeException("", e);
   }
  }
 
