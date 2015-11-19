@@ -2,12 +2,23 @@
 
 Changelog of Git Changelog.
 
-## Next release
+## 1.4
 ### Github [#7](https://github.com/tomasbjerre/git-changelog-lib/issues/7)
 
 [fbb455921921ddc](https://github.com/tomasbjerre/git-changelog-lib/commit/fbb455921921ddc) Tomas Bjerre *2015-11-18 19:41:03*
 
 Adding hasIssue hasLink to readme doc
+
+
+### Other changes
+
+[49c51f0fa73f35c](https://github.com/tomasbjerre/git-changelog-lib/commit/49c51f0fa73f35c) Tomas Bjerre *2015-11-19 19:40:27*
+
+Making sure several custom issue patterns can be set with API
+
+[1669b02acf8c9fb](https://github.com/tomasbjerre/git-changelog-lib/commit/1669b02acf8c9fb) Tomas Bjerre *2015-11-18 21:00:59*
+
+Updating mediawiki screenshot
 
 
 ## 1.3
