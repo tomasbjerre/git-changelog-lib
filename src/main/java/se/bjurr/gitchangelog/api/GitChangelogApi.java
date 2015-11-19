@@ -2,6 +2,7 @@ package se.bjurr.gitchangelog.api;
 
 import static com.google.common.base.Charsets.UTF_8;
 import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Strings.isNullOrEmpty;
 import static com.google.common.base.Throwables.propagate;
 import static com.google.common.io.Files.createParentDirs;
@@ -76,7 +77,7 @@ public class GitChangelogApi {
 
  public Changelog getChangelog() {
   if (fakeGitRepo == null) {
-   return getChangelog(new GitRepo(new File(settings.getFromRepo())));
+   return getChangelog(new GitRepo(new File(checkNotNull(settings.getFromRepo(), "fromRepo"))));
   } else {
    return getChangelog(fakeGitRepo);
   }
