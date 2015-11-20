@@ -44,7 +44,6 @@ public class TemplatesTest {
  private void test(String testcase) throws Exception {
   assertThat(fakeRepo())//
     .withTemplate(testcase + ".mustache") //
-    .withSettings("git-changelog-test-settings.json") //
     .rendersTo(testcase + ".md");
  }
 }

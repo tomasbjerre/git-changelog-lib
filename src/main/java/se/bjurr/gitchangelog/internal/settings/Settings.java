@@ -3,6 +3,7 @@ package se.bjurr.gitchangelog.internal.settings;
 import static com.google.common.base.Charsets.UTF_8;
 import static com.google.common.base.Objects.firstNonNull;
 import static com.google.common.base.Optional.fromNullable;
+import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.io.Resources.getResource;
 
 import java.net.URL;
@@ -85,6 +86,13 @@ public class Settings {
 
  public void setJiraServer(String jiraServer) {
   this.jiraServer = jiraServer;
+ }
+
+ public void addCustomIssue(CustomIssue customIssue) {
+  if (customIssues == null) {
+   customIssues = newArrayList();
+  }
+  customIssues.add(customIssue);
  }
 
  public List<CustomIssue> getCustomIssues() {

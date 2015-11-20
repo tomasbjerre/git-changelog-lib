@@ -5,7 +5,11 @@ Changelog of Git Changelog.
 ## Next release
 ### Other changes
 
-[b88f3b31d4dad49](https://github.com/tomasbjerre/git-changelog-lib/commit/b88f3b31d4dad49) Tomas Bjerre *2015-11-20 20:34:30*
+[6d4bea88e569c02](https://github.com/tomasbjerre/git-changelog-lib/commit/6d4bea88e569c02) Tomas Bjerre *2015-11-20 21:12:27*
+
+Adding custom issues correctly #bugfix
+
+[d669ae9e7d00e52](https://github.com/tomasbjerre/git-changelog-lib/commit/d669ae9e7d00e52) Tomas Bjerre *2015-11-20 20:34:55*
 
 Better regular expression for extracting readable part of tag name #feature
 

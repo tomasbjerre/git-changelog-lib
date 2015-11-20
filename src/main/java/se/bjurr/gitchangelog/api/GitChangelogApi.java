@@ -128,7 +128,7 @@ public class GitChangelogApi {
  }
 
  public GitChangelogApi withCustomIssue(String name, String pattern, String link) {
-  settings.getCustomIssues().add(new CustomIssue(name, pattern, link));
+  settings.addCustomIssue(new CustomIssue(name, pattern, link));
   return this;
  }
 

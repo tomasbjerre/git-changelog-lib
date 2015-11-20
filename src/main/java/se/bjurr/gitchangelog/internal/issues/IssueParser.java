@@ -71,9 +71,6 @@ public class IssueParser {
  }
 
  public static List<CustomIssue> getPatterns(Settings settings) {
-  if (settings.getCustomIssues() == null) {
-   return newArrayList();
-  }
   List<CustomIssue> patterns = newArrayList(settings.getCustomIssues());
   if (!isNullOrEmpty(settings.getJiraIssuePattern())) {
    if (settings.getJiraServer().isPresent()) {
