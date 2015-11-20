@@ -2,6 +2,14 @@
 
 Changelog of Git Changelog.
 
+## 1.7
+### Other changes
+
+[388a3a851f665c1](https://github.com/tomasbjerre/git-changelog-lib/commit/388a3a851f665c1) Tomas Bjerre *2015-11-20 19:08:45*
+
+Using correct reference #bugfix
+
+
 ## 1.6
 ### Other changes
 

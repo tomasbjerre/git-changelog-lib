@@ -18,7 +18,7 @@ public class Settings {
  public static final boolean DEFAULT_REMOVE_ISSUE = true;
  public static final String DEFAULT_TIMEZONE = "UTC";
  public static final String DEFAULT_DATEFORMAT = "YYYY-MM-dd HH:mm:ss";
- public static final String DEFAULT_IGNORE_COMMITS_REGEXP = "";
+ public static final String DEFAULT_IGNORE_COMMITS_REGEXP = "^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*";
  public static final String DEFAULT_UNTAGGED_NAME = "Unreleased";
  public static final String DEFAULT_READABLE_TAG_NAME = "(.*)";
  public static final String DEFAULT_NO_ISSUE_NAME = "No issue";
