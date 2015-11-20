@@ -111,14 +111,6 @@
 -fr, --fromRef &lt;string&gt;                    From ref.
                                            &lt;string&gt;: any string
                                            Default: null
--gp, --githubPattern &lt;string&gt;              Github pattern.
-                                           &lt;string&gt;: any string
-                                           Default: #[0-9]+
--gs, --githubServer &lt;string&gt;               Github server. When a Github server 
-                                           is given, the title of the Github 
-                                           issues can be used in the changelog.
-                                           &lt;string&gt;: any string
-                                           Default: 
 -h, --help &lt;argument-to-print-help-for&gt;    &lt;argument-to-print-help-for&gt;: an argument to print help for
                                            Default: If no specific parameter is given the whole usage text is given
 -ip, --ignorePattern &lt;string&gt;              Ignore commits where pattern 
@@ -139,7 +131,7 @@
                                            Default: 
 -mt, --mediawiki-title &lt;string&gt;            Title of MediaWiki page.
                                            &lt;string&gt;: any string
-                                           Default: 
+                                           Default: null
 -mu, --mediawiki-user &lt;string&gt;             User to authenticate with MediaWiki.
                                            &lt;string&gt;: any string
                                            Default: 
@@ -221,7 +213,9 @@
    - commitTime
  * issues
   - name
+  - hasIssue
   - issue
+  - hasLink
   - link
   * commits
    - authorName
@@ -246,8 +240,10 @@
   - commitTime
 * issues
  - name
- - issue
- - link
+  - hasIssue
+  - issue
+  - hasLink
+  - link
  * commits
   - authorName
   - authorEmailAddress
