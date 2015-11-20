@@ -2,6 +2,22 @@
 
 Changelog of Git Changelog.
 
+## Next release
+### Other changes
+
+[b88f3b31d4dad49](https://github.com/tomasbjerre/git-changelog-lib/commit/b88f3b31d4dad49) Tomas Bjerre *2015-11-20 20:34:30*
+
+Better regular expression for extracting readable part of tag name #feature
+
+
+## 1.8
+### Other changes
+
+[c226865b64ce01c](https://github.com/tomasbjerre/git-changelog-lib/commit/c226865b64ce01c) Tomas Bjerre *2015-11-20 20:24:08*
+
+Setting default setting of ignore commits regexp #bugfix
+
+
 ## 1.7
 ### Other changes
 

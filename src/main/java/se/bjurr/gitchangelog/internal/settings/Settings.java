@@ -20,7 +20,7 @@ public class Settings {
  public static final String DEFAULT_DATEFORMAT = "YYYY-MM-dd HH:mm:ss";
  public static final String DEFAULT_IGNORE_COMMITS_REGEXP = "^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*";
  public static final String DEFAULT_UNTAGGED_NAME = "Unreleased";
- public static final String DEFAULT_READABLE_TAG_NAME = "(.*)";
+ public static final String DEFAULT_READABLE_TAG_NAME = "/([^/]+?)$";
  public static final String DEFAULT_NO_ISSUE_NAME = "No issue";
  public static final String DEFAULT_GITHUB_ISSUE_PATTERN = "#[0-9]+";
  public static final String DEFAULT_JIRA_ISSUE_PATTEN = "\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b";
