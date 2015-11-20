@@ -2,10 +2,10 @@
 
 Changelog of Git Changelog.
 
-## Next release
+## 1.6
 ### Other changes
 
-[10bbafc774749cc](https://github.com/tomasbjerre/git-changelog-lib/commit/10bbafc774749cc) Tomas Bjerre *2015-11-20 17:02:37*
+[bfa6753630efcdb](https://github.com/tomasbjerre/git-changelog-lib/commit/bfa6753630efcdb) Tomas Bjerre *2015-11-20 17:03:04*
 
 Some more work to get the lib working with Jenkins plugin
 
