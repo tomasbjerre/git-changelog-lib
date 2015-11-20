@@ -1,0 +1,27 @@
+<h1> Git Changelog changelog </h1>
+
+<p>
+Changelog of Git Changelog.
+</p>
+
+{{#tags}}
+<h2> {{name}} </h2>
+ {{#issues}}
+  {{#hasLink}}
+<h2> {{name}} <a href="{{link}}">{{issue}}</a></h2>
+  {{/hasLink}}
+  {{^hasLink}}
+<h3> {{name}} </h3>
+  {{/hasLink}}
+
+   {{#commits}}
+<a href="https://github.com/tomasbjerre/git-changelog-lib/commit/{{hash}}">{{hash}}</a> {{authorName}} <i>{{commitTime}}</i>
+<p>
+{{{message}}}
+</p>
+
+
+  {{/commits}}
+
+ {{/issues}}
+{{/tags}}
