@@ -5,9 +5,10 @@ This is a library for generating a changelog, or releasenotes, from a GIT reposi
 It is fully configurable with a [Mustache](http://mustache.github.io/) template. That can:
 
  * Be stored to file, like CHANGELOG.md. There are some templates used for testing available [here](https://github.com/tomasbjerre/git-changelog/tree/master/src/test/resources/templates) and the results [here](https://github.com/tomasbjerre/git-changelog/tree/master/src/test/resources/assertions).
- * Be posted to MediaWiki ([here](https://raw.githubusercontent.com/tomasbjerre/git-changelog-lib/master/sandbox/mediawiki.png) is an example)
+ * Be posted to MediaWiki ([here](https://github.com/tomasbjerre/git-changelog-lib/tree/screenshots/sandbox) is an example)
  * Or just be printed to STDOUT
 
+There are some screenshots [here](https://github.com/tomasbjerre/git-changelog-lib/tree/screenshots/sandbox).
 
 ## Usage
 This software can be used:

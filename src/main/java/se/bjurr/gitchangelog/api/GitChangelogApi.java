@@ -1,14 +1,16 @@
 package se.bjurr.gitchangelog.api;
 
 import static com.google.common.base.Charsets.UTF_8;
+import static com.google.common.base.Optional.absent;
+import static com.google.common.base.Optional.of;
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
-import static com.google.common.base.Strings.isNullOrEmpty;
 import static com.google.common.base.Throwables.propagate;
 import static com.google.common.io.Files.createParentDirs;
 import static com.google.common.io.Files.write;
 import static com.google.common.io.Resources.getResource;
-import static se.bjurr.gitchangelog.internal.mediawiki.MediaWikiClient.createMediaWikiPage;
+import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.REF_MASTER;
+import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 import static se.bjurr.gitchangelog.internal.settings.Settings.fromFile;
 
 import java.io.File;
@@ -25,6 +27,7 @@ import se.bjurr.gitchangelog.internal.git.GitRepo;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 import se.bjurr.gitchangelog.internal.issues.IssueParser;
+import se.bjurr.gitchangelog.internal.mediawiki.MediaWikiClient;
 import se.bjurr.gitchangelog.internal.model.ParsedIssue;
 import se.bjurr.gitchangelog.internal.model.Transformer;
 import se.bjurr.gitchangelog.internal.settings.CustomIssue;
@@ -34,11 +37,11 @@ import com.github.mustachejava.DefaultMustacheFactory;
 import com.github.mustachejava.Mustache;
 import com.github.mustachejava.MustacheFactory;
 import com.google.common.annotations.VisibleForTesting;
+import com.google.common.base.Optional;
 import com.google.common.io.Files;
 import com.google.common.io.Resources;
 
 public class GitChangelogApi {
- public static final String ZERO_COMMIT = "0000000000000000000000000000000000000000";
 
  private Settings settings;
 
@@ -84,8 +87,10 @@ public class GitChangelogApi {
  }
 
  private Changelog getChangelog(GitRepo gitRepo) {
-  ObjectId fromId = getId(gitRepo, settings.getFromRef().orNull(), settings.getFromCommit().orNull());
-  ObjectId toId = getId(gitRepo, settings.getToRef().orNull(), settings.getToCommit().orNull());
+  ObjectId fromId = getId(gitRepo, settings.getFromRef(), settings.getFromCommit()) //
+    .or(gitRepo.getCommit(ZERO_COMMIT));
+  ObjectId toId = getId(gitRepo, settings.getToRef(), settings.getToCommit()) //
+    .or(gitRepo.getRef(REF_MASTER));
   List<GitCommit> diff = gitRepo.getDiff(fromId, toId);
   List<GitTag> tags = gitRepo.getTags();
   List<ParsedIssue> issues = new IssueParser(settings, diff).parseForIssues();
@@ -148,7 +153,9 @@ public class GitChangelogApi {
  }
 
  public void toMediaWiki(String username, String password, String url, String title) {
-  createMediaWikiPage(username, password, url, title, render());
+  new MediaWikiClient(url, title, render()) //
+    .withUser(username, password) //
+    .createMediaWikiPage();
  }
 
  public GitChangelogApi withTemplatePath(String templatePath) {
@@ -214,14 +221,14 @@ public class GitChangelogApi {
   }
  }
 
- private ObjectId getId(GitRepo gitRepo, String ref, String commit) {
-  if (!isNullOrEmpty(ref)) {
-   return gitRepo.getRef(ref);
+ private Optional<ObjectId> getId(GitRepo gitRepo, Optional<String> ref, Optional<String> commit) {
+  if (ref.isPresent()) {
+   return of(gitRepo.getRef(ref.get()));
   }
-  if (!isNullOrEmpty(commit)) {
-   return gitRepo.getCommit(commit);
+  if (commit.isPresent()) {
+   return of(gitRepo.getCommit(commit.get()));
   }
-  throw new RuntimeException("Reference or commit must be defined!");
+  return absent();
  }
 
  private GitChangelogApi() {

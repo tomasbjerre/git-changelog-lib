@@ -5,7 +5,7 @@ import static com.google.common.hash.Hashing.sha1;
 import static org.eclipse.jgit.lib.ObjectId.fromString;
 import static se.bjurr.gitchangelog.api.FakeGitRepo.DAY_ZERO;
 import static se.bjurr.gitchangelog.api.FakeGitRepo.TIME_DAY;
-import static se.bjurr.gitchangelog.api.GitChangelogApi.ZERO_COMMIT;
+import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 
 import java.util.Date;
 import java.util.List;

@@ -3,8 +3,18 @@ package se.bjurr.gitchangelog.internal.settings;
 import static com.google.common.base.Charsets.UTF_8;
 import static com.google.common.base.Objects.firstNonNull;
 import static com.google.common.base.Optional.fromNullable;
+import static com.google.common.base.Strings.emptyToNull;
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.io.Resources.getResource;
+import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_DATEFORMAT;
+import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_FILE;
+import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_IGNORE_COMMITS_REGEXP;
+import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_JIRA_ISSUE_PATTEN;
+import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_NO_ISSUE_NAME;
+import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_READABLE_TAG_NAME;
+import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_REMOVE_ISSUE;
+import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_TIMEZONE;
+import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_UNTAGGED_NAME;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -15,17 +25,6 @@ import com.google.common.io.Resources;
 import com.google.gson.Gson;
 
 public class Settings {
- public static final String DEFAULT_FILE = "git-changelog-settings.json";
- public static final boolean DEFAULT_REMOVE_ISSUE = true;
- public static final String DEFAULT_TIMEZONE = "UTC";
- public static final String DEFAULT_DATEFORMAT = "YYYY-MM-dd HH:mm:ss";
- public static final String DEFAULT_IGNORE_COMMITS_REGEXP = "^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*";
- public static final String DEFAULT_UNTAGGED_NAME = "Unreleased";
- public static final String DEFAULT_READABLE_TAG_NAME = "/([^/]+?)$";
- public static final String DEFAULT_NO_ISSUE_NAME = "No issue";
- public static final String DEFAULT_GITHUB_ISSUE_PATTERN = "#[0-9]+";
- public static final String DEFAULT_JIRA_ISSUE_PATTEN = "\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b";
-
  private static Gson gson = new Gson();
 
  private String fromRepo;
@@ -61,11 +60,11 @@ public class Settings {
  }
 
  public Optional<String> getFromRef() {
-  return fromNullable(fromRef);
+  return fromNullable(emptyToNull(fromRef));
  }
 
  public Optional<String> getToRef() {
-  return fromNullable(toRef);
+  return fromNullable(emptyToNull(toRef));
  }
 
  public void setFromRepo(String fromRepo) {
@@ -128,11 +127,11 @@ public class Settings {
  }
 
  public Optional<String> getFromCommit() {
-  return fromNullable(fromCommit);
+  return fromNullable(emptyToNull(fromCommit));
  }
 
  public Optional<String> getToCommit() {
-  return fromNullable(toCommit);
+  return fromNullable(emptyToNull(toCommit));
  }
 
  public String getUntaggedName() {

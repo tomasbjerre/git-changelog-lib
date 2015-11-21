@@ -5,7 +5,22 @@ Changelog of Git Changelog.
 ## Next release
 ### Other changes
 
-[6d4bea88e569c02](https://github.com/tomasbjerre/git-changelog-lib/commit/6d4bea88e569c02) Tomas Bjerre *2015-11-20 21:12:27*
+[1dd6c9fc83d6e5a](https://github.com/tomasbjerre/git-changelog-lib/commit/1dd6c9fc83d6e5a) Tomas Bjerre *2015-11-21 14:05:33*
+
+Adding test cases for MediaWiki integration
+
+ * Linking readme to screenshots
+ * Not encoding html-tags for MediaWiki, to enable setting the toclimit with a tag.
+
+[7749ddfa42b4034](https://github.com/tomasbjerre/git-changelog-lib/commit/7749ddfa42b4034) Tomas Bjerre *2015-11-20 21:38:13*
+
+Adding example html-template
+
+
+## 1.9
+### Other changes
+
+[b5f03710018a65d](https://github.com/tomasbjerre/git-changelog-lib/commit/b5f03710018a65d) Tomas Bjerre *2015-11-20 21:12:55*
 
 Adding custom issues correctly #bugfix
 

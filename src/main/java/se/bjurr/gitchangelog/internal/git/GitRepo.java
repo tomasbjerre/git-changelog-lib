@@ -10,7 +10,7 @@ import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Lists.transform;
 import static org.eclipse.jgit.lib.ObjectId.fromString;
 import static org.eclipse.jgit.revwalk.RevSort.REVERSE;
-import static se.bjurr.gitchangelog.api.GitChangelogApi.ZERO_COMMIT;
+import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 
 import java.io.File;
 import java.io.IOException;

@@ -6,7 +6,7 @@ import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Lists.reverse;
 import static com.google.common.collect.Maps.uniqueIndex;
 import static org.eclipse.jgit.lib.ObjectId.fromString;
-import static se.bjurr.gitchangelog.api.GitChangelogApi.ZERO_COMMIT;
+import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 
 import java.util.Date;
 import java.util.List;
