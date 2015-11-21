@@ -2,10 +2,10 @@
 
 Changelog of Git Changelog.
 
-## Next release
+## 1.10
 ### Other changes
 
-[1dd6c9fc83d6e5a](https://github.com/tomasbjerre/git-changelog-lib/commit/1dd6c9fc83d6e5a) Tomas Bjerre *2015-11-21 14:05:33*
+[c8da374a92183d2](https://github.com/tomasbjerre/git-changelog-lib/commit/c8da374a92183d2) Tomas Bjerre *2015-11-21 14:18:19*
 
 Adding test cases for MediaWiki integration
 
