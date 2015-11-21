@@ -3,7 +3,7 @@ package se.bjurr.gitchangelog.api;
 public final class GitChangelogApiConstants {
 
  public static final String ZERO_COMMIT = "0000000000000000000000000000000000000000";
- public static final String REF_MASTER = "refs/heads/master";
+ public static final String REF_MASTER = "master";
  public static final String DEFAULT_FILE = "git-changelog-settings.json";
  public static final boolean DEFAULT_REMOVE_ISSUE = true;
  public static final String DEFAULT_TIMEZONE = "UTC";

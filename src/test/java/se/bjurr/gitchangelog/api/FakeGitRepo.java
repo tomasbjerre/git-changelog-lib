@@ -55,8 +55,8 @@ public class FakeGitRepo extends GitRepo {
  }
 
  @Override
- public ObjectId getRef(String fromRef) {
-  if (fromRef.equals("refs/heads/master")) {
+ public ObjectId getRef(String ref) {
+  if (ref.endsWith("master")) {
    return fromString(commits.get(0).getHash());
   }
   Map<String, GitTag> tagsMap = uniqueIndex(tags, new Function<GitTag, String>() {
@@ -65,8 +65,8 @@ public class FakeGitRepo extends GitRepo {
     return input.getGitCommit().getHash();
    }
   });
-  return fromString(checkNotNull(tagsMap.get(fromRef),
-    "Not found: " + fromRef + " in:\n" + on("\n").join(tagsMap.keySet())).getGitCommit().getHash());
+  return fromString(checkNotNull(tagsMap.get(ref), "Not found: " + ref + " in:\n" + on("\n").join(tagsMap.keySet()))
+    .getGitCommit().getHash());
  }
 
  @Override

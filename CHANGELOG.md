@@ -2,6 +2,20 @@
 
 Changelog of Git Changelog.
 
+## Next release
+### Other changes
+
+[6031f794be34eb8](https://github.com/tomasbjerre/git-changelog-lib/commit/6031f794be34eb8) Tomas Bjerre *2015-11-21 15:35:14*
+
+Changing master reference constan, to just master
+
+ * refs/heads/master may not exist, perhaps its refs/remotes/origin/master
+
+[8c95fd4870872d4](https://github.com/tomasbjerre/git-changelog-lib/commit/8c95fd4870872d4) Tomas Bjerre *2015-11-21 14:24:35*
+
+doc
+
+
 ## 1.10
 ### Other changes
 

@@ -6,6 +6,7 @@ import static com.google.common.io.Resources.getResource;
 import static org.junit.Assert.assertEquals;
 import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
 import static se.bjurr.gitchangelog.api.GitChangelogApi.setFakeGitRepo;
+import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.REF_MASTER;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 import static se.bjurr.gitchangelog.main.Main.PARAM_OUTPUT_STDOUT;
 import static se.bjurr.gitchangelog.main.Main.PARAM_SETTINGS_FILE;
@@ -60,7 +61,7 @@ public class GitChangelogApiAsserter {
     gitChangelogApiBuilder()
       .withFromRepo(".")
       .withFromCommit(ZERO_COMMIT)
-      .withToRef("refs/heads/master")
+      .withToRef(REF_MASTER)
       .withIgnoreCommitsWithMesssage("^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*")
       .withReadableTagName("/([^/]+?)$")
       .withDateFormat("YYYY-MM-dd HH:mm:ss")
