@@ -31,8 +31,6 @@ public class Main {
  public static final String PARAM_IGNORE_PATTERN = "-ip";
  public static final String PARAM_JIRA_SERVER = "-js";
  public static final String PARAM_JIRA_ISSUE_PATTERN = "-jp";
- public static final String PARAM_GITHUB_SERVER = "-gs";
- public static final String PARAM_GITHUB_PATTERN = "-gp";
  public static final String PARAM_CUSTOM_ISSUE_NAME = "-cn";
  public static final String PARAM_CUSTOM_ISSUE_PATTERN = "-cp";
  public static final String PARAM_CUSTOM_ISSUE_LINK = "-cl";
@@ -46,6 +44,7 @@ public class Main {
  public static final String PARAM_MEDIAWIKITITLE = "-mt";
  public static final String PARAM_MEDIAWIKIUSER = "-mu";
  public static final String PARAM_MEDIAWIKIPASSWORD = "-mp";
+ public static final String PARAM_GITHUBAPI = "-gapi";
 
  private static String systemOutPrintln;
  private static boolean recordSystemOutPrintln;
@@ -159,6 +158,10 @@ public class Main {
     .description("Password to authenticate with MediaWiki.")//
     .defaultValue("") //
     .build();
+  Argument<String> gitHubApiArgument = stringArgument(PARAM_GITHUBAPI, "--github-api")//
+    .description("GitHub API.")//
+    .defaultValue("") //
+    .build();
 
   try {
    ParsedArguments arg = withArguments(helpArgument, settingsArgument, outputStdoutArgument, outputFileArgument,
@@ -166,7 +169,7 @@ public class Main {
      untaggedTagNameArgument, jiraIssuePatternArgument, jiraServerArgument, ignoreCommitsIfMessageMatchesArgument,
      customIssueLinkArgument, customIssueNameArgument, customIssuePatternArgument, timeZoneArgument,
      dateFormatArgument, noIssueArgument, readableTagNameArgument, removeIssueFromMessageArgument,
-     mediaWikiUrlArgument, mediaWikiUserArgument, mediaWikiPasswordArgument, mediaWikiTitleArgument)//
+     mediaWikiUrlArgument, mediaWikiUserArgument, mediaWikiPasswordArgument, mediaWikiTitleArgument, gitHubApiArgument)//
      .parse(args);
 
    GitChangelogApi changelogApiBuilder = gitChangelogApiBuilder();
@@ -224,6 +227,9 @@ public class Main {
    if (arg.wasGiven(toRefArgument)) {
     changelogApiBuilder.withToCommit(null);
     changelogApiBuilder.withToRef(arg.get(toRefArgument));
+   }
+   if (arg.wasGiven(gitHubApiArgument)) {
+    changelogApiBuilder.withGitHubApi(arg.get(gitHubApiArgument));
    }
 
    if ( //

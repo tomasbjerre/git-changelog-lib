@@ -1,4 +1,4 @@
-package se.bjurr.gitchangelog.internal.mediawiki;
+package se.bjurr.gitchangelog.internal.integrations.mediawiki;
 
 import static com.google.common.base.Charsets.UTF_8;
 import static com.google.common.base.Optional.fromNullable;
@@ -6,9 +6,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Strings.isNullOrEmpty;
 import static com.google.common.base.Throwables.propagate;
 import static com.google.common.collect.Maps.newHashMap;
-import static com.google.common.io.ByteStreams.toByteArray;
+import static com.jayway.jsonpath.JsonPath.read;
 import static java.net.URLEncoder.encode;
-import static java.util.regex.Pattern.compile;
 import static org.slf4j.LoggerFactory.getLogger;
 
 import java.io.OutputStream;
@@ -16,14 +15,16 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.regex.Matcher;
+
+import net.minidev.json.JSONArray;
 
 import org.slf4j.Logger;
 
-import com.google.common.annotations.VisibleForTesting;
+import se.bjurr.gitchangelog.internal.integrations.rest.RestClient;
+
 import com.google.common.base.Optional;
 
-public class MediaWikiClient {
+public class MediaWikiClient extends RestClient {
 
  private static final String DEFAULT_ANONYMOUS_EDIT_TOKEN = "+\\";
  private static Logger logger = getLogger(MediaWikiClient.class);
@@ -68,6 +69,7 @@ public class MediaWikiClient {
  private final String text;
 
  public MediaWikiClient(String url, String title, String text) {
+  super(0, null);
   this.url = url;
   this.title = title;
   this.text = text;
@@ -142,7 +144,7 @@ public class MediaWikiClient {
     + "/api.php?action=query&prop=info%7Crevisions&intoken=edit&rvprop=timestamp&titles=" + encode(title, UTF_8.name())
     + "&format=json");
   logger.info("Response:\n" + response);
-  String token = getValueOf("edittoken", response);
+  String token = ((JSONArray) read(response, "$.query.pages.*.edittoken")).get(0).toString();
   httpState.setEditToken(unEscapeJson(token));
  }
 
@@ -171,20 +173,9 @@ public class MediaWikiClient {
 
  private void getWikiToken(HttpState httpState, String response) {
   logger.info("Response:\n" + response);
-  String token = getValueOf("token", response);
+  String token = read(response, "$.login.token");
   logger.info("Using wikitoken: " + token);
   httpState.setWikiToken(token);
- }
-
- private String getValueOf(String attribute, String json) {
-  String regexp = "\"" + attribute + "\"[^\"]*\"([^\"]*)";
-  try {
-   Matcher matcher = compile(regexp).matcher(json);
-   matcher.find();
-   return matcher.group(1);
-  } catch (Exception e) {
-   throw new RuntimeException("Could not find \"" + attribute + "\" with regexp " + regexp + " in \"" + json + "\"", e);
-  }
  }
 
  private String postToWiki(HttpState httpState, String addr) throws Exception {
@@ -205,16 +196,6 @@ public class MediaWikiClient {
   } finally {
    conn.disconnect();
   }
- }
-
- @VisibleForTesting
- HttpURLConnection openConnection(URL url) throws Exception {
-  return (HttpURLConnection) url.openConnection();
- }
-
- @VisibleForTesting
- String getResponse(HttpURLConnection conn) throws Exception {
-  return new String(toByteArray(conn.getInputStream()));
  }
 
  private boolean shouldAuthenticate(String username, String password) {

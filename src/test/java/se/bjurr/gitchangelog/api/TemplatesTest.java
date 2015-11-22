@@ -1,9 +1,16 @@
 package se.bjurr.gitchangelog.api;
 
+import static com.google.common.base.Charsets.UTF_8;
+import static com.google.common.io.Resources.getResource;
 import static se.bjurr.gitchangelog.api.FakeRepo.fakeRepo;
 import static se.bjurr.gitchangelog.api.GitChangelogApiAsserter.assertThat;
+import static se.bjurr.gitchangelog.internal.integrations.rest.RestClient.mock;
 
 import org.junit.Test;
+
+import se.bjurr.gitchangelog.internal.integrations.rest.RestClientMock;
+
+import com.google.common.io.Resources;
 
 public class TemplatesTest {
  @Test
@@ -42,6 +49,11 @@ public class TemplatesTest {
  }
 
  private void test(String testcase) throws Exception {
+  RestClientMock mockedRestClient = new RestClientMock();
+  mockedRestClient.addMockedResponse("/repos/tomasbjerre/git-changelog-lib/issues?state=all",
+    Resources.toString(getResource("github-issues.json"), UTF_8));
+  mock(mockedRestClient);
+
   assertThat(fakeRepo())//
     .withTemplate(testcase + ".mustache") //
     .rendersTo(testcase + ".md");

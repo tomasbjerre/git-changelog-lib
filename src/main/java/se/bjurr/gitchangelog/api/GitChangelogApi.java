@@ -26,12 +26,12 @@ import se.bjurr.gitchangelog.api.model.Changelog;
 import se.bjurr.gitchangelog.internal.git.GitRepo;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
+import se.bjurr.gitchangelog.internal.integrations.mediawiki.MediaWikiClient;
 import se.bjurr.gitchangelog.internal.issues.IssueParser;
-import se.bjurr.gitchangelog.internal.mediawiki.MediaWikiClient;
 import se.bjurr.gitchangelog.internal.model.ParsedIssue;
 import se.bjurr.gitchangelog.internal.model.Transformer;
-import se.bjurr.gitchangelog.internal.settings.CustomIssue;
 import se.bjurr.gitchangelog.internal.settings.Settings;
+import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
 
 import com.github.mustachejava.DefaultMustacheFactory;
 import com.github.mustachejava.Mustache;
@@ -133,7 +133,7 @@ public class GitChangelogApi {
  }
 
  public GitChangelogApi withCustomIssue(String name, String pattern, String link) {
-  settings.addCustomIssue(new CustomIssue(name, pattern, link));
+  settings.addCustomIssue(new SettingsIssue(name, pattern, link));
   return this;
  }
 
@@ -185,6 +185,16 @@ public class GitChangelogApi {
 
  public GitChangelogApi withTemplateContent(String templateContent) {
   this.templateContent = templateContent;
+  return this;
+ }
+
+ public GitChangelogApi withGitHubApi(String gitHubApi) {
+  settings.setGitHubApi(gitHubApi);
+  return this;
+ }
+
+ public GitChangelogApi withGitHubIssuePattern(String gitHubIssuePattern) {
+  settings.setGitHubIssuePattern(gitHubIssuePattern);
   return this;
  }
 

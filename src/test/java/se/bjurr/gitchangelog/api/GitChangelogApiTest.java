@@ -6,18 +6,27 @@ import static org.junit.Assert.assertEquals;
 import static se.bjurr.gitchangelog.api.FakeRepo.fakeRepo;
 import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
 import static se.bjurr.gitchangelog.api.GitChangelogApi.setFakeGitRepo;
+import static se.bjurr.gitchangelog.internal.integrations.rest.RestClient.mock;
 
 import java.net.URL;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import se.bjurr.gitchangelog.internal.integrations.rest.RestClientMock;
+
 import com.google.common.io.Resources;
 
 public class GitChangelogApiTest {
+ private RestClientMock mockedRestClient;
+
  @Before
- public void before() {
+ public void before() throws Exception {
   setFakeGitRepo(fakeRepo());
+  mockedRestClient = new RestClientMock();
+  mockedRestClient.addMockedResponse("/repos/tomasbjerre/git-changelog-lib/issues?state=all",
+    Resources.toString(getResource("github-issues.json"), UTF_8));
+  mock(mockedRestClient);
  }
 
  @Test

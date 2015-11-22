@@ -11,7 +11,6 @@ import static com.google.common.collect.Multimaps.index;
 import static java.util.TimeZone.getTimeZone;
 import static java.util.regex.Pattern.compile;
 import static se.bjurr.gitchangelog.internal.common.GitPredicates.ignoreCommits;
-import static se.bjurr.gitchangelog.internal.issues.IssueParser.getPatterns;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,8 +29,9 @@ import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 import se.bjurr.gitchangelog.internal.issues.IssueParser;
 import se.bjurr.gitchangelog.internal.model.interfaces.IGitCommitReferer;
-import se.bjurr.gitchangelog.internal.settings.CustomIssue;
+import se.bjurr.gitchangelog.internal.settings.IssuesUtil;
 import se.bjurr.gitchangelog.internal.settings.Settings;
+import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
 
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
@@ -163,9 +163,11 @@ public class Transformer {
       toCommits(gitCommits), //
       toAuthors(gitCommits),//
       input.getName(), //
+      input.getTitle().or(""), //
       input.getIssue(), //
       input.getLink());
    }
+
   }));
  }
 
@@ -180,8 +182,8 @@ public class Transformer {
 
  private String toMessage(String message) {
   if (settings.removeIssueFromMessage()) {
-   for (CustomIssue customIssue : getPatterns(settings)) {
-    message = message.replaceAll(customIssue.getPattern(), "");
+   for (SettingsIssue issue : new IssuesUtil(settings).getIssues()) {
+    message = message.replaceAll(issue.getPattern(), "");
    }
   }
   return message;

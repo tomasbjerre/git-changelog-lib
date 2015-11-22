@@ -29,6 +29,7 @@ repositories {
 }
 
 dependencies {
+ compile 'com.jayway.jsonpath:json-path:2.0.0'
  compile 'com.google.guava:guava:11.0.1'
  compile 'se.softhouse:jargo:0.1.1'
  compile 'org.eclipse.jgit:org.eclipse.jgit:4.1.0.201509280440-r'

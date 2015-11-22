@@ -15,8 +15,12 @@
  "jiraServer": "https://jiraserver/jira",
  "jiraIssuePattern": "\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b",
 
+ "gitHubApi": "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
+ "gitHubIssuePattern": "#([0-9]+)",
+
  "customIssues": [
-  {"name": "Github", "pattern": "#([0-9]+)", "link": "https://github.com/tomasbjerre/git-releasenotes-plugin/issues/${PATTERN_GROUP_1}" },
+  { "name": "Incident", "pattern": "INC[0-9]*", "link": "http://inc/${PATTERN_GROUP}" },
+  { "name": "CQ", "pattern": "CQ([0-9]+)", "link": "http://cq/${PATTERN_GROUP_1}" },
   { "name": "Bugs", "pattern": "#bug" }
  ]
 }

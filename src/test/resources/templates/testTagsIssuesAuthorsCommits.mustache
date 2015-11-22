@@ -5,11 +5,16 @@ Changelog of Git Changelog.
 {{#tags}}
 ## {{name}}
  {{#issues}}
-### {{name}} {{issue}}
+  {{#hasLink}}
+### {{name}} [{{issue}}]({{link}}) {{title}}
+  {{/hasLink}}
+  {{^hasLink}}
+### {{name}} {{title}}
+  {{/hasLink}}
   {{#authors}}
 * {{authorName}}
    {{#commits}}
-{{commitTime}}
+[{{hash}}](https://server/{{hash}}) *{{commitTime}}*
 {{{message}}}
 
    {{/commits}}

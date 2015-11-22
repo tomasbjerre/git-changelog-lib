@@ -55,28 +55,27 @@ public class GitChangelogApiAsserter {
     .render().trim());
 
   // Test lib
-  assertEquals(
-    "With lib: " + file,
-    expected,
-    gitChangelogApiBuilder()
-      .withFromRepo(".")
-      .withFromCommit(ZERO_COMMIT)
-      .withToRef(REF_MASTER)
-      .withIgnoreCommitsWithMesssage("^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*")
-      .withReadableTagName("/([^/]+?)$")
-      .withDateFormat("YYYY-MM-dd HH:mm:ss")
-      .withUntaggedName("No tag")
-      .withNoIssueName("No issue supplied")
-      .withTimeZone("UTC")
-      .withRemoveIssueFromMessageArgument(true)
-      .withJiraServer("https://jiraserver/jira")
-      .withJiraIssuePattern("\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b")
-      .withCustomIssue("Github", "#([0-9]+)",
-        "https://github.com/tomasbjerre/git-releasenotes-plugin/issues/${PATTERN_GROUP_1}")
-      .withCustomIssue("Bugs", "#bug", null) //
-      .withTemplatePath(templatePath) //
-      .render() //
-      .trim());
+  assertEquals("With lib: " + file, expected, gitChangelogApiBuilder() //
+    .withFromRepo(".") //
+    .withFromCommit(ZERO_COMMIT) //
+    .withToRef(REF_MASTER) //
+    .withIgnoreCommitsWithMesssage("^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*") //
+    .withReadableTagName("/([^/]+?)$") //
+    .withDateFormat("YYYY-MM-dd HH:mm:ss") //
+    .withUntaggedName("No tag") //
+    .withNoIssueName("No issue supplied") //
+    .withTimeZone("UTC") //
+    .withRemoveIssueFromMessageArgument(true) //
+    .withJiraServer("https://jiraserver/jira") //
+    .withJiraIssuePattern("\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b") //
+    .withGitHubApi("https://api.github.com/repos/tomasbjerre/git-changelog-lib") //
+    .withGitHubIssuePattern("#([0-9]+)") //
+    .withCustomIssue("Incident", "INC[0-9]*", "http://inc/${PATTERN_GROUP}") //
+    .withCustomIssue("CQ", "CQ([0-9]+)", "http://cq/${PATTERN_GROUP_1}") //
+    .withCustomIssue("Bugs", "#bug", null) //
+    .withTemplatePath(templatePath) //
+    .render() //
+    .trim());
 
   // Test main
   List<String> argList = newArrayList(//

@@ -6,12 +6,17 @@ Changelog of Git Changelog.
 {{#tags}}
 == {{name}} ==
  {{#issues}}
-  {{#hasLink}}
-=== {{name}} [{{link}} {{issue}}] ===
-  {{/hasLink}}
-  {{^hasLink}}
+  {{#hasIssue}}
+   {{#hasLink}}
+=== {{name}} [{{link}} {{issue}}] {{title}} ===
+   {{/hasLink}}
+   {{^hasLink}}
+=== {{name}} {{issue}} {{title}} ===
+   {{/hasLink}}
+  {{/hasIssue}}
+  {{^hasIssue}}
 === {{name}} ===
-  {{/hasLink}}
+  {{/hasIssue}}
 
    {{#commits}}
 [https://github.com/tomasbjerre/git-changelog-lib/commit/{{hash}} {{hash}}] {{authorName}} {{commitTime}}

@@ -15,19 +15,31 @@ public class Issue implements ICommits, IAuthors {
  private final List<Author> authors;
  private final String name;
  private final boolean hasIssue;
+ private final String title;
+ private final boolean hasTitle;
  private final String issue;
  private final boolean hasLink;
  private final String link;
 
- public Issue(List<Commit> commits, List<Author> authors, String name, String issue, String link) {
+ public Issue(List<Commit> commits, List<Author> authors, String name, String title, String issue, String link) {
   checkState(!commits.isEmpty(), "commits");
   this.commits = commits;
   this.authors = checkNotNull(authors, "authors");
   this.name = checkNotNull(name, "name");
-  this.issue = issue;
+  this.title = nullToEmpty(title);
+  this.hasTitle = !isNullOrEmpty(title);
+  this.issue = nullToEmpty(issue);
   this.hasIssue = !isNullOrEmpty(issue);
   this.link = nullToEmpty(link);
   this.hasLink = !isNullOrEmpty(link);
+ }
+
+ public String getTitle() {
+  return title;
+ }
+
+ public boolean hasTitle() {
+  return hasTitle;
  }
 
  public boolean hasIssue() {

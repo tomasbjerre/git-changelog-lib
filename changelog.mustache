@@ -6,7 +6,12 @@ Changelog of Git Changelog.
 ## {{name}}
  {{#issues}}
   {{#hasIssue}}
-### {{name}} [{{issue}}]({{link}})
+   {{#hasLink}}
+### {{name}} [{{issue}}]({{link}}) {{title}}
+   {{/hasLink}}
+   {{^hasLink}}
+### {{name}} {{issue}} {{title}}
+   {{/hasLink}}
   {{/hasIssue}}
   {{^hasIssue}}
 ### {{name}}

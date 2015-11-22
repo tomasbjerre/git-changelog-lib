@@ -1,19 +1,22 @@
 package se.bjurr.gitchangelog.internal.issues;
 
-import static com.google.common.base.Strings.isNullOrEmpty;
-import static com.google.common.collect.Lists.newArrayList;
+import static com.google.common.base.Objects.firstNonNull;
 import static com.google.common.collect.Maps.newHashMap;
 import static com.google.common.collect.Ordering.usingToString;
 import static java.util.regex.Pattern.compile;
+import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITHUB;
 
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
+import se.bjurr.gitchangelog.internal.integrations.github.GitHubClient;
+import se.bjurr.gitchangelog.internal.integrations.github.GitHubIssue;
 import se.bjurr.gitchangelog.internal.model.ParsedIssue;
-import se.bjurr.gitchangelog.internal.settings.CustomIssue;
+import se.bjurr.gitchangelog.internal.settings.IssuesUtil;
 import se.bjurr.gitchangelog.internal.settings.Settings;
+import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
 
 public class IssueParser {
 
@@ -36,24 +39,38 @@ public class IssueParser {
  public List<ParsedIssue> parseForIssues() {
   Map<String, ParsedIssue> foundIssues = newHashMap();
 
-  List<CustomIssue> patterns = getPatterns(settings);
+  GitHubClient gitHubClient = null;
+  if (settings.getGitHubApi().isPresent()) {
+   gitHubClient = new GitHubClient(settings.getGitHubApi().get());
+  }
+
+  List<SettingsIssue> patterns = new IssuesUtil(settings).getIssues();
 
   for (GitCommit gitCommit : commits) {
    boolean commitMappedToIssue = false;
-   for (CustomIssue issuePattern : patterns) {
+   for (SettingsIssue issuePattern : patterns) {
     Matcher matcher = compile(issuePattern.getPattern()).matcher(gitCommit.getMessage());
     if (matcher.find()) {
      String matched = matcher.group();
      if (!foundIssues.containsKey(matched)) {
-      String link = issuePattern.getLink().or("") //
-        .replaceAll("\\$\\{PATTERN_GROUP\\}", matched);
-      for (int i = 0; i <= matcher.groupCount(); i++) {
-       link = link.replaceAll("\\$\\{PATTERN_GROUP_" + i + "\\}", matcher.group(i));
+      if (issuePattern.getType() == GITHUB && gitHubClient != null && gitHubClient.getIssue(matched).isPresent()) {
+       GitHubIssue gitHubIssue = gitHubClient.getIssue(matched).get();
+       foundIssues.put(matched, new ParsedIssue(//
+         issuePattern.getName(),//
+         gitHubIssue.getTitle(), //
+         matched,//
+         gitHubIssue.getLink()));
+      } else {
+       String link = issuePattern.getLink().or("") //
+         .replaceAll("\\$\\{PATTERN_GROUP\\}", matched);
+       for (int i = 0; i <= matcher.groupCount(); i++) {
+        link = link.replaceAll("\\$\\{PATTERN_GROUP_" + i + "\\}", firstNonNull(matcher.group(i), ""));
+       }
+       foundIssues.put(matched, new ParsedIssue(//
+         issuePattern.getName(),//
+         matched,//
+         link));
       }
-      foundIssues.put(matched, new ParsedIssue(//
-        issuePattern.getName(),//
-        matched,//
-        link));
      }
      foundIssues.get(matched).addCommit(gitCommit);
      commitMappedToIssue = true;
@@ -68,18 +85,5 @@ public class IssueParser {
    }
   }
   return usingToString().sortedCopy(foundIssues.values());
- }
-
- public static List<CustomIssue> getPatterns(Settings settings) {
-  List<CustomIssue> patterns = newArrayList(settings.getCustomIssues());
-  if (!isNullOrEmpty(settings.getJiraIssuePattern())) {
-   if (settings.getJiraServer().isPresent()) {
-    patterns.add(new CustomIssue("Jira", settings.getJiraIssuePattern(), settings.getJiraServer().or("")
-      + "/browse/${PATTERN_GROUP}"));
-   } else {
-    patterns.add(new CustomIssue("Jira", settings.getJiraIssuePattern(), settings.getJiraServer().orNull()));
-   }
-  }
-  return patterns;
  }
 }

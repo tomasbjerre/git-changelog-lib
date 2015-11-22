@@ -3,9 +3,17 @@
 Changelog of Git Changelog.
 
 ## Next release
+### GitHub [#2](https://github.com/tomasbjerre/git-changelog-lib/issues/2) GitHub Integration
+
+[50d8e965d4b2df7](https://github.com/tomasbjerre/git-changelog-lib/commit/50d8e965d4b2df7) Tomas Bjerre *2015-11-22 19:05:26*
+
+Integrating with GitHub
+
+
+## 1.11
 ### Other changes
 
-[6031f794be34eb8](https://github.com/tomasbjerre/git-changelog-lib/commit/6031f794be34eb8) Tomas Bjerre *2015-11-21 15:35:14*
+[c655cbd914d06f3](https://github.com/tomasbjerre/git-changelog-lib/commit/c655cbd914d06f3) Tomas Bjerre *2015-11-21 15:36:03*
 
 Changing master reference constan, to just master
 
@@ -32,11 +40,14 @@ Adding example html-template
 
 
 ## 1.9
-### Other changes
+### Bugs #bug 
 
 [b5f03710018a65d](https://github.com/tomasbjerre/git-changelog-lib/commit/b5f03710018a65d) Tomas Bjerre *2015-11-20 21:12:55*
 
-Adding custom issues correctly #bugfix
+Adding custom issues correctly fix
+
+
+### Other changes
 
 [d669ae9e7d00e52](https://github.com/tomasbjerre/git-changelog-lib/commit/d669ae9e7d00e52) Tomas Bjerre *2015-11-20 20:34:55*
 
@@ -44,19 +55,19 @@ Better regular expression for extracting readable part of tag name #feature
 
 
 ## 1.8
-### Other changes
+### Bugs #bug 
 
 [c226865b64ce01c](https://github.com/tomasbjerre/git-changelog-lib/commit/c226865b64ce01c) Tomas Bjerre *2015-11-20 20:24:08*
 
-Setting default setting of ignore commits regexp #bugfix
+Setting default setting of ignore commits regexp fix
 
 
 ## 1.7
-### Other changes
+### Bugs #bug 
 
 [388a3a851f665c1](https://github.com/tomasbjerre/git-changelog-lib/commit/388a3a851f665c1) Tomas Bjerre *2015-11-20 19:08:45*
 
-Using correct reference #bugfix
+Using correct reference fix
 
 
 ## 1.6
@@ -84,7 +95,7 @@ updating changelog
 
 
 ## 1.4
-### Github [#7](https://github.com/tomasbjerre/git-changelog-lib/issues/7)
+### GitHub [#7](https://github.com/tomasbjerre/git-changelog-lib/issues/7) Add booleans to enable if statements
 
 [fbb455921921ddc](https://github.com/tomasbjerre/git-changelog-lib/commit/fbb455921921ddc) Tomas Bjerre *2015-11-18 19:41:03*
 
@@ -103,7 +114,7 @@ Updating mediawiki screenshot
 
 
 ## 1.3
-### Github [#7](https://github.com/tomasbjerre/git-changelog-lib/issues/7)
+### GitHub [#7](https://github.com/tomasbjerre/git-changelog-lib/issues/7) Add booleans to enable if statements
 
 [210e963a07b8a7b](https://github.com/tomasbjerre/git-changelog-lib/commit/210e963a07b8a7b) Tomas Bjerre *2015-11-18 19:06:00*
 
@@ -126,7 +137,7 @@ doc
 
 
 ## 1.2
-### Github [#4](https://github.com/tomasbjerre/git-changelog-lib/issues/4)
+### GitHub [#4](https://github.com/tomasbjerre/git-changelog-lib/issues/4) Mediawiki integration
 
 [f45829b2c6a78d7](https://github.com/tomasbjerre/git-changelog-lib/commit/f45829b2c6a78d7) Tomas Bjerre *2015-11-17 19:27:03*
 
@@ -163,6 +174,21 @@ Prepare for next release
 
 
 ## 1.1
+### Bugs #bug 
+
+[b3ddd5fdad30f41](https://github.com/tomasbjerre/git-changelog-lib/commit/b3ddd5fdad30f41) Tomas Bjerre *2015-11-15 09:48:35*
+
+Adding generated CHANGELOG.md #feature
+
+ * Correcting faulty precondition check, file output argument could not be set.
+
+[82be7c398d445bd](https://github.com/tomasbjerre/git-changelog-lib/commit/82be7c398d445bd) Tomas Bjerre *2015-11-15 09:15:38*
+
+Adding script to generate changelog
+
+ * Finding git repo in parent folders correctly fix
+
+
 ### Other changes
 
 [ec026ad2f25c612](https://github.com/tomasbjerre/git-changelog-lib/commit/ec026ad2f25c612) Tomas Bjerre *2015-11-15 11:37:18*
@@ -173,21 +199,9 @@ Car remove issue from commit message in changelog #feature
 
 Improving test output #feature
 
-[b3ddd5fdad30f41](https://github.com/tomasbjerre/git-changelog-lib/commit/b3ddd5fdad30f41) Tomas Bjerre *2015-11-15 09:48:35*
-
-Adding generated CHANGELOG.md #feature
-
- * Correcting faulty precondition check, file output argument could not be set. #bug
-
 [59830c6f2a394fe](https://github.com/tomasbjerre/git-changelog-lib/commit/59830c6f2a394fe) Tomas Bjerre *2015-11-15 09:24:58*
 
 Customizing changelog #feature
-
-[82be7c398d445bd](https://github.com/tomasbjerre/git-changelog-lib/commit/82be7c398d445bd) Tomas Bjerre *2015-11-15 09:15:38*
-
-Adding script to generate changelog
-
- * Finding git repo in parent folders correctly #bugfix
 
 [ba9d565ddd15d1b](https://github.com/tomasbjerre/git-changelog-lib/commit/ba9d565ddd15d1b) Tomas Bjerre *2015-11-15 08:58:00*
 

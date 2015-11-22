@@ -16,6 +16,7 @@
  "jiraIssuePattern": "\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b",
 
  "customIssues": [
-  {"name": "Github", "pattern": "#[0-9]+", "link": "" } 
+  { "name": "Bugs", "pattern": "#bug" },
+  { "name": "Features", "pattern": "#feature" }
  ]
 }

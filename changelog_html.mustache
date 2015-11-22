@@ -7,12 +7,18 @@ Changelog of Git Changelog.
 {{#tags}}
 <h2> {{name}} </h2>
  {{#issues}}
-  {{#hasLink}}
-<h2> {{name}} <a href="{{link}}">{{issue}}</a></h2>
-  {{/hasLink}}
-  {{^hasLink}}
-<h3> {{name}} </h3>
-  {{/hasLink}}
+  {{#hasIssue}}
+   {{#hasLink}}
+<h2> {{name}} <a href="{{link}}">{{issue}}</a> {{title}} </h2>
+   {{/hasLink}}
+   {{^hasLink}}
+<h2> {{name}} {{issue}} {{title}} </h2>
+   {{/hasLink}}
+  {{/hasIssue}}
+  {{^hasIssue}}
+<h2> {{name}} </h2>
+  {{/hasIssue}}
+
 
    {{#commits}}
 <a href="https://github.com/tomasbjerre/git-changelog-lib/commit/{{hash}}">{{hash}}</a> {{authorName}} <i>{{commitTime}}</i>

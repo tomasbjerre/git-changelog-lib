@@ -1,6 +1,8 @@
 package se.bjurr.gitchangelog.internal.model;
 
+import static com.google.common.base.Optional.fromNullable;
 import static com.google.common.base.Preconditions.checkNotNull;
+import static com.google.common.base.Strings.emptyToNull;
 import static com.google.common.collect.Lists.newArrayList;
 
 import java.util.List;
@@ -8,16 +10,31 @@ import java.util.List;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.model.interfaces.IGitCommitReferer;
 
+import com.google.common.base.Optional;
+
 public class ParsedIssue implements IGitCommitReferer {
  private final List<GitCommit> gitCommits = newArrayList();
  private final String name;
+ private final String title;
  private final String link;
  private final String issue;
 
  public ParsedIssue(String name, String issue, String link) {
   this.name = checkNotNull(name, "name");
+  this.title = null;
   this.issue = issue;
   this.link = link;
+ }
+
+ public ParsedIssue(String name, String title, String issue, String link) {
+  this.name = checkNotNull(name, "name");
+  this.title = emptyToNull(title);
+  this.issue = issue;
+  this.link = link;
+ }
+
+ public Optional<String> getTitle() {
+  return fromNullable(title);
  }
 
  @Override

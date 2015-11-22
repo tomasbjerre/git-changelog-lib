@@ -8,6 +8,7 @@ import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.io.Resources.getResource;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_DATEFORMAT;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_FILE;
+import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_GITHUB_ISSUE_PATTERN;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_IGNORE_COMMITS_REGEXP;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_JIRA_ISSUE_PATTEN;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_NO_ISSUE_NAME;
@@ -42,12 +43,14 @@ public class Settings {
  private String noIssueName;
  private String timeZone;
  private boolean removeIssueFromMessage;
- private List<CustomIssue> customIssues;
+ private String gitHubApi;
+ private String gitHubIssuePattern;
+ private List<SettingsIssue> customIssues;
 
  public Settings() {
  }
 
- public void setCustomIssues(List<CustomIssue> customIssues) {
+ public void setCustomIssues(List<SettingsIssue> customIssues) {
   this.customIssues = customIssues;
  }
 
@@ -87,15 +90,15 @@ public class Settings {
   this.jiraServer = jiraServer;
  }
 
- public void addCustomIssue(CustomIssue customIssue) {
+ public void addCustomIssue(SettingsIssue customIssue) {
   if (customIssues == null) {
    customIssues = newArrayList();
   }
   customIssues.add(customIssue);
  }
 
- public List<CustomIssue> getCustomIssues() {
-  return firstNonNull(customIssues, new ArrayList<CustomIssue>());
+ public List<SettingsIssue> getCustomIssues() {
+  return firstNonNull(customIssues, new ArrayList<SettingsIssue>());
  }
 
  public String getIgnoreCommitsIfMessageMatches() {
@@ -198,5 +201,21 @@ public class Settings {
 
  public Boolean removeIssueFromMessage() {
   return fromNullable(removeIssueFromMessage).or(DEFAULT_REMOVE_ISSUE);
+ }
+
+ public Optional<String> getGitHubApi() {
+  return fromNullable(gitHubApi);
+ }
+
+ public void setGitHubApi(String gitHubApi) {
+  this.gitHubApi = gitHubApi;
+ }
+
+ public void setGitHubIssuePattern(String gitHubIssuePattern) {
+  this.gitHubIssuePattern = gitHubIssuePattern;
+ }
+
+ public String getGitHubIssuePattern() {
+  return fromNullable(gitHubIssuePattern).or(DEFAULT_GITHUB_ISSUE_PATTERN);
  }
 }

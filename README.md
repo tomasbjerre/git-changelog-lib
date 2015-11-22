@@ -70,6 +70,9 @@ Or from command line:
 -fr, --fromRef <string>                    From ref.
                                            <string>: any string
                                            Default: null
+-gapi, --github-api <string>               GitHub API.
+                                           <string>: any string
+                                           Default: 
 -h, --help <argument-to-print-help-for>    <argument-to-print-help-for>: an argument to print help for
                                            Default: If no specific parameter is given the whole usage text is given
 -ip, --ignorePattern <string>              Ignore commits where pattern 
