@@ -68,6 +68,8 @@ public class GitChangelogApiAsserter {
     .withRemoveIssueFromMessageArgument(true) //
     .withJiraServer("https://jiraserver/jira") //
     .withJiraIssuePattern("\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b") //
+    .withJiraUsername("user") //
+    .withJiraPassword("code") //
     .withGitHubApi("https://api.github.com/repos/tomasbjerre/git-changelog-lib") //
     .withGitHubIssuePattern("#([0-9]+)") //
     .withCustomIssue("Incident", "INC[0-9]*", "http://inc/${PATTERN_GROUP}") //

@@ -198,6 +198,16 @@ public class GitChangelogApi {
   return this;
  }
 
+ public GitChangelogApi withJiraUsername(String string) {
+  settings.setJiraUsername(string);
+  return this;
+ }
+
+ public GitChangelogApi withJiraPassword(String string) {
+  settings.setJiraPassword(string);
+  return this;
+ }
+
  public String render() {
   try {
    MustacheFactory mf = new DefaultMustacheFactory();

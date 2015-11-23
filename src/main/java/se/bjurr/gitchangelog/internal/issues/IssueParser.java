@@ -5,6 +5,7 @@ import static com.google.common.collect.Maps.newHashMap;
 import static com.google.common.collect.Ordering.usingToString;
 import static java.util.regex.Pattern.compile;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITHUB;
+import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.JIRA;
 
 import java.util.List;
 import java.util.Map;
@@ -13,6 +14,8 @@ import java.util.regex.Matcher;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.integrations.github.GitHubClient;
 import se.bjurr.gitchangelog.internal.integrations.github.GitHubIssue;
+import se.bjurr.gitchangelog.internal.integrations.jira.JiraClient;
+import se.bjurr.gitchangelog.internal.integrations.jira.JiraIssue;
 import se.bjurr.gitchangelog.internal.model.ParsedIssue;
 import se.bjurr.gitchangelog.internal.settings.IssuesUtil;
 import se.bjurr.gitchangelog.internal.settings.Settings;
@@ -44,6 +47,14 @@ public class IssueParser {
    gitHubClient = new GitHubClient(settings.getGitHubApi().get());
   }
 
+  JiraClient jiraClient = null;
+  if (settings.getJiraServer().isPresent()) {
+   jiraClient = new JiraClient(settings.getJiraServer().get());
+   if (settings.getJiraUsername().isPresent()) {
+    jiraClient.withBasicCredentials(settings.getJiraUsername().get(), settings.getJiraPassword().get());
+   }
+  }
+
   List<SettingsIssue> patterns = new IssuesUtil(settings).getIssues();
 
   for (GitCommit gitCommit : commits) {
@@ -60,6 +71,13 @@ public class IssueParser {
          gitHubIssue.getTitle(), //
          matched,//
          gitHubIssue.getLink()));
+      } else if (issuePattern.getType() == JIRA && jiraClient != null && jiraClient.getIssue(matched).isPresent()) {
+       JiraIssue jiraIssue = jiraClient.getIssue(matched).get();
+       foundIssues.put(matched, new ParsedIssue(//
+         issuePattern.getName(),//
+         jiraIssue.getTitle(), //
+         matched,//
+         jiraIssue.getLink()));
       } else {
        String link = issuePattern.getLink().or("") //
          .replaceAll("\\$\\{PATTERN_GROUP\\}", matched);

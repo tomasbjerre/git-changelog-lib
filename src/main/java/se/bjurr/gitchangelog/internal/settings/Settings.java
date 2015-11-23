@@ -47,6 +47,10 @@ public class Settings {
  private String gitHubIssuePattern;
  private List<SettingsIssue> customIssues;
 
+ private String jiraUsername;
+
+ private String jiraPassword;
+
  public Settings() {
  }
 
@@ -217,5 +221,21 @@ public class Settings {
 
  public String getGitHubIssuePattern() {
   return fromNullable(gitHubIssuePattern).or(DEFAULT_GITHUB_ISSUE_PATTERN);
+ }
+
+ public Optional<String> getJiraUsername() {
+  return fromNullable(jiraUsername);
+ }
+
+ public void setJiraPassword(String jiraPassword) {
+  this.jiraPassword = jiraPassword;
+ }
+
+ public void setJiraUsername(String jiraUsername) {
+  this.jiraUsername = jiraUsername;
+ }
+
+ public Optional<String> getJiraPassword() {
+  return fromNullable(jiraPassword);
  }
 }

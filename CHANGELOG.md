@@ -5,9 +5,16 @@ Changelog of Git Changelog.
 ## Next release
 ### GitHub [#2](https://github.com/tomasbjerre/git-changelog-lib/issues/2) GitHub Integration
 
-[50d8e965d4b2df7](https://github.com/tomasbjerre/git-changelog-lib/commit/50d8e965d4b2df7) Tomas Bjerre *2015-11-22 19:05:26*
+[45af766856ac703](https://github.com/tomasbjerre/git-changelog-lib/commit/45af766856ac703) Tomas Bjerre *2015-11-22 19:51:40*
 
 Integrating with GitHub
+
+
+### GitHub [#3](https://github.com/tomasbjerre/git-changelog-lib/issues/3) Jira Integration
+
+[950997dd037f888](https://github.com/tomasbjerre/git-changelog-lib/commit/950997dd037f888) Tomas Bjerre *2015-11-23 17:25:48*
+
+Integrating with Jira
 
 
 ## 1.11

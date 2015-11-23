@@ -18,8 +18,9 @@ public class RestClientMock extends RestClient {
   super(0, null);
  }
 
- public void addMockedResponse(String url, String response) {
+ public RestClientMock addMockedResponse(String url, String response) {
   mockedResponses.put(url, response);
+  return this;
  }
 
  @Override

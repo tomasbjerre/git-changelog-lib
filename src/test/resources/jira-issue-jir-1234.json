@@ -1,0 +1,9 @@
+{
+ "expand":"renderedFields,names,schema,transitions,operations,editmeta,changelog",
+ "id":"139925",
+ "self":"https://domain/jira/rest/api/2/issue/139925",
+ "key":"JIR-1234",
+ "fields":{
+  "summary":"Title of jira 1234"
+ }
+}

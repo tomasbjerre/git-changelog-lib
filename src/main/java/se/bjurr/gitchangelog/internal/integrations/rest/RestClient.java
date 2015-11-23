@@ -3,6 +3,7 @@ package se.bjurr.gitchangelog.internal.integrations.rest;
 import static com.google.common.base.Throwables.propagate;
 import static com.google.common.cache.CacheBuilder.newBuilder;
 import static com.google.common.io.ByteStreams.toByteArray;
+import static javax.xml.bind.DatatypeConverter.printBase64Binary;
 import static org.slf4j.LoggerFactory.getLogger;
 
 import java.net.HttpURLConnection;
@@ -20,6 +21,7 @@ public class RestClient {
  private static Logger logger = getLogger(RestClient.class);
  private static RestClient mockedRestClient;
  private final LoadingCache<String, String> urlCache;
+ private String basicAuthString;
 
  public RestClient(long duration, TimeUnit cacheExpireAfterAccess) {
   if (duration != 0) {
@@ -34,6 +36,11 @@ public class RestClient {
   } else {
    urlCache = null;
   }
+ }
+
+ public RestClient withBasicAuthCredentials(String username, String password) {
+  this.basicAuthString = new String(printBase64Binary((username + ":" + password).getBytes()));
+  return this;
  }
 
  public String get(String url) {
@@ -54,6 +61,11 @@ public class RestClient {
    logger.info("GET:\n" + urlParam);
    URL url = new URL(urlParam);
    HttpURLConnection conn = openConnection(url);
+   conn.setRequestProperty("Content-Type", "application/json");
+   conn.setRequestProperty("Accept", "application/json");
+   if (this.basicAuthString != null) {
+    conn.setRequestProperty("Authorization", "Basic " + basicAuthString);
+   }
    response = getResponse(conn);
    return response;
   } catch (Exception e) {

@@ -22,7 +22,7 @@ Adding stuff
  with gh again
 
 
-### Jira [JIR-1234](https://jiraserver/jira/browse/JIR-1234) 
+### Jira [JIR-1234](https://jiraserver/jira/browse/) Title of jira 1234
 * Tomas B
 [9db063f3b5e0adfd0d29a03db0a1c207b3740a94](https://server/9db063f3b5e0adfd0d29a03db0a1c207b3740a94) *1970-01-10 00:00:00*
 Adding stuff with a jira
@@ -41,7 +41,7 @@ Adding stuff  gh 12
 Adding stuff with gh 20
 
 
-### Jira [JIR-5262](https://jiraserver/jira/browse/JIR-5262) 
+### Jira [JIR-5262](https://jiraserver/jira/browse/) The Title of jira 5262
 * Tomas B
 [8e146c3c4e33449f95a49679795f74f7ae19ecc1](https://server/8e146c3c4e33449f95a49679795f74f7ae19ecc1) *1970-01-04 00:00:00*
 Adding stuff with a jira

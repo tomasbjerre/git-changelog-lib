@@ -50,8 +50,13 @@ public class TemplatesTest {
 
  private void test(String testcase) throws Exception {
   RestClientMock mockedRestClient = new RestClientMock();
-  mockedRestClient.addMockedResponse("/repos/tomasbjerre/git-changelog-lib/issues?state=all",
-    Resources.toString(getResource("github-issues.json"), UTF_8));
+  mockedRestClient //
+    .addMockedResponse("/repos/tomasbjerre/git-changelog-lib/issues?state=all",
+      Resources.toString(getResource("github-issues.json"), UTF_8)) //
+    .addMockedResponse("/jira/rest/api/2/issue/JIR-1234?fields=parent,summary",
+      Resources.toString(getResource("jira-issue-jir-1234.json"), UTF_8)) //
+    .addMockedResponse("/jira/rest/api/2/issue/JIR-5262?fields=parent,summary",
+      Resources.toString(getResource("jira-issue-jir-5262.json"), UTF_8));
   mock(mockedRestClient);
 
   assertThat(fakeRepo())//

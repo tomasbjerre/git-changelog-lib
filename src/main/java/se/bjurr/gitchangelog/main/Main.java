@@ -31,6 +31,8 @@ public class Main {
  public static final String PARAM_IGNORE_PATTERN = "-ip";
  public static final String PARAM_JIRA_SERVER = "-js";
  public static final String PARAM_JIRA_ISSUE_PATTERN = "-jp";
+ public static final String PARAM_JIRA_USERNAME = "-ju";
+ public static final String PARAM_JIRA_PASSWORD = "-jpw";
  public static final String PARAM_CUSTOM_ISSUE_NAME = "-cn";
  public static final String PARAM_CUSTOM_ISSUE_PATTERN = "-cp";
  public static final String PARAM_CUSTOM_ISSUE_LINK = "-cl";
@@ -69,7 +71,7 @@ public class Main {
     .defaultValue(defaultSettings.getTemplatePath())//
     .build();
 
-  Argument<String> untaggedTagNameArgument = stringArgument(PARAM_UNTAGGED_TAG_NAME, "--untaggedName")//
+  Argument<String> untaggedTagNameArgument = stringArgument(PARAM_UNTAGGED_TAG_NAME, "--untagged-name")//
     .description(
       "When listing commits per tag, this will by the name of a virtual tag that contains commits not available in any git tag.")//
     .defaultValue(defaultSettings.getUntaggedName())//
@@ -79,24 +81,24 @@ public class Main {
     .description("Repository.")//
     .defaultValue(defaultSettings.getFromRepo())//
     .build();
-  Argument<String> fromRefArgument = stringArgument(PARAM_FROM_REF, "--fromRef")//
+  Argument<String> fromRefArgument = stringArgument(PARAM_FROM_REF, "--from-ref")//
     .description("From ref.")//
     .defaultValue(defaultSettings.getFromRef().orNull())//
     .build();
-  Argument<String> toRefArgument = stringArgument(PARAM_TO_REF, "--toRef")//
+  Argument<String> toRefArgument = stringArgument(PARAM_TO_REF, "--to-ref")//
     .description("To ref.")//
     .defaultValue(defaultSettings.getToRef().orNull())//
     .build();
-  Argument<String> fromCommitArgument = stringArgument(PARAM_FROM_COMMIT, "--fromCommit")//
+  Argument<String> fromCommitArgument = stringArgument(PARAM_FROM_COMMIT, "--from-commit")//
     .description("From commit.")//
     .defaultValue(defaultSettings.getFromCommit().orNull())//
     .build();
-  Argument<String> toCommitArgument = stringArgument(PARAM_TO_COMMIT, "--toCommit")//
+  Argument<String> toCommitArgument = stringArgument(PARAM_TO_COMMIT, "--to-commit")//
     .description("To commit.")//
     .defaultValue(defaultSettings.getToCommit().orNull())//
     .build();
 
-  Argument<String> ignoreCommitsIfMessageMatchesArgument = stringArgument(PARAM_IGNORE_PATTERN, "--ignorePattern")//
+  Argument<String> ignoreCommitsIfMessageMatchesArgument = stringArgument(PARAM_IGNORE_PATTERN, "--ignore-pattern")//
     .description("Ignore commits where pattern matches message.")//
     .defaultValue(defaultSettings.getIgnoreCommitsIfMessageMatches())//
     .build();
@@ -105,25 +107,33 @@ public class Main {
     .description("Jira server. When a Jira server is given, the title of the Jira issues can be used in the changelog.")//
     .defaultValue(defaultSettings.getJiraServer().orNull())//
     .build();
-  Argument<String> jiraIssuePatternArgument = stringArgument(PARAM_JIRA_ISSUE_PATTERN, "--jiraPattern")//
+  Argument<String> jiraIssuePatternArgument = stringArgument(PARAM_JIRA_ISSUE_PATTERN, "--jira-pattern")//
     .description("Jira issue pattern.")//
     .defaultValue(defaultSettings.getJiraIssuePattern())//
     .build();
+  Argument<String> jiraUsernamePatternArgument = stringArgument(PARAM_JIRA_USERNAME, "--jira-username")//
+    .description("Optional username to authenticate with Jira.")//
+    .defaultValue(defaultSettings.getJiraIssuePattern())//
+    .build();
+  Argument<String> jiraPasswordPatternArgument = stringArgument(PARAM_JIRA_PASSWORD, "--jira-password")//
+    .description("Optional password to authenticate with Jira.")//
+    .defaultValue(defaultSettings.getJiraIssuePattern())//
+    .build();
 
-  Argument<String> customIssueNameArgument = stringArgument(PARAM_CUSTOM_ISSUE_NAME, "--customIssueName")//
+  Argument<String> customIssueNameArgument = stringArgument(PARAM_CUSTOM_ISSUE_NAME, "--custom-issue-name")//
     .description("Custom issue name.")//
     .defaultValue(null)//
     .build();
-  Argument<String> customIssuePatternArgument = stringArgument(PARAM_CUSTOM_ISSUE_PATTERN, "--customIssuePattern")//
+  Argument<String> customIssuePatternArgument = stringArgument(PARAM_CUSTOM_ISSUE_PATTERN, "--custom-issue-pattern")//
     .description("Custom issue pattern.")//
     .defaultValue(null)//
     .build();
-  Argument<String> customIssueLinkArgument = stringArgument(PARAM_CUSTOM_ISSUE_LINK, "--customIssueLink")//
+  Argument<String> customIssueLinkArgument = stringArgument(PARAM_CUSTOM_ISSUE_LINK, "--custom-issue-link")//
     .description("Custom issue link.")//
     .defaultValue(null)//
     .build();
 
-  Argument<String> timeZoneArgument = stringArgument(PARAM_TIMEZONE, "--timeZone")//
+  Argument<String> timeZoneArgument = stringArgument(PARAM_TIMEZONE, "--time-zone")//
     .description("TimeZone to use when printing dates.")//
     .defaultValue(defaultSettings.getTimeZone())//
     .build();
@@ -169,7 +179,8 @@ public class Main {
      untaggedTagNameArgument, jiraIssuePatternArgument, jiraServerArgument, ignoreCommitsIfMessageMatchesArgument,
      customIssueLinkArgument, customIssueNameArgument, customIssuePatternArgument, timeZoneArgument,
      dateFormatArgument, noIssueArgument, readableTagNameArgument, removeIssueFromMessageArgument,
-     mediaWikiUrlArgument, mediaWikiUserArgument, mediaWikiPasswordArgument, mediaWikiTitleArgument, gitHubApiArgument)//
+     mediaWikiUrlArgument, mediaWikiUserArgument, mediaWikiPasswordArgument, mediaWikiTitleArgument, gitHubApiArgument,
+     jiraUsernamePatternArgument, jiraPasswordPatternArgument)//
      .parse(args);
 
    GitChangelogApi changelogApiBuilder = gitChangelogApiBuilder();
@@ -198,6 +209,12 @@ public class Main {
    }
    if (arg.wasGiven(jiraServerArgument)) {
     changelogApiBuilder.withJiraServer(arg.get(jiraServerArgument));
+   }
+   if (arg.wasGiven(jiraUsernamePatternArgument)) {
+    changelogApiBuilder.withJiraUsername(arg.get(jiraUsernamePatternArgument));
+   }
+   if (arg.wasGiven(jiraPasswordPatternArgument)) {
+    changelogApiBuilder.withJiraPassword(arg.get(jiraPasswordPatternArgument));
    }
    if (arg.wasGiven(timeZoneArgument)) {
     changelogApiBuilder.withTimeZone(arg.get(timeZoneArgument));
