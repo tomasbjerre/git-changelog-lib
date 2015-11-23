@@ -45,6 +45,8 @@
 <li>Or just be printed to STDOUT</li>
 </ul>
 
+<p>It can integrate with Jira and/or GitHub to retrieve the title of issues.</p>
+
 <p>There are some screenshots <a href="https://github.com/tomasbjerre/git-changelog-lib/tree/screenshots/sandbox">here</a>.</p>
 
 <h2>
@@ -95,31 +97,38 @@
 
 <p>Or from command line:</p>
 
-<pre><code>-cl, --customIssueLink &lt;string&gt;            Custom issue link.
+<pre><code>-cl, --custom-issue-link &lt;string&gt;          Custom issue link.
                                            &lt;string&gt;: any string
                                            Default: null
--cn, --customIssueName &lt;string&gt;            Custom issue name.
+-cn, --custom-issue-name &lt;string&gt;          Custom issue name.
                                            &lt;string&gt;: any string
                                            Default: null
--cp, --customIssuePattern &lt;string&gt;         Custom issue pattern.
+-cp, --custom-issue-pattern &lt;string&gt;       Custom issue pattern.
                                            &lt;string&gt;: any string
                                            Default: null
 -df, --date-format &lt;string&gt;                Format to use when printing dates.
                                            &lt;string&gt;: any string
                                            Default: YYYY-MM-dd HH:mm:ss
--fc, --fromCommit &lt;string&gt;                 From commit.
+-fc, --from-commit &lt;string&gt;                From commit.
                                            &lt;string&gt;: any string
                                            Default: 0000000000000000000000000000000000000000
--fr, --fromRef &lt;string&gt;                    From ref.
+-fr, --from-ref &lt;string&gt;                   From ref.
                                            &lt;string&gt;: any string
                                            Default: null
+-gapi, --github-api &lt;string&gt;               GitHub API.
+                                           &lt;string&gt;: any string
+                                           Default: 
 -h, --help &lt;argument-to-print-help-for&gt;    &lt;argument-to-print-help-for&gt;: an argument to print help for
                                            Default: If no specific parameter is given the whole usage text is given
--ip, --ignorePattern &lt;string&gt;              Ignore commits where pattern 
+-ip, --ignore-pattern &lt;string&gt;             Ignore commits where pattern 
                                            matches message.
                                            &lt;string&gt;: any string
                                            Default: ^\[maven-release-plugin\].*|^\[Gradle Release Plugin\].*|^Merge.*
--jp, --jiraPattern &lt;string&gt;                Jira issue pattern.
+-jp, --jira-pattern &lt;string&gt;               Jira issue pattern.
+                                           &lt;string&gt;: any string
+                                           Default: \b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\b
+-jpw, --jira-password &lt;string&gt;             Optional password to authenticate 
+                                           with Jira.
                                            &lt;string&gt;: any string
                                            Default: \b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\b
 -js, --jiraServer &lt;string&gt;                 Jira server. When a Jira server is 
@@ -127,6 +136,10 @@
                                            used in the changelog.
                                            &lt;string&gt;: any string
                                            Default: 
+-ju, --jira-username &lt;string&gt;              Optional username to authenticate 
+                                           with Jira.
+                                           &lt;string&gt;: any string
+                                           Default: \b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\b
 -mp, --mediawiki-password &lt;string&gt;         Password to authenticate with 
                                            MediaWiki.
                                            &lt;string&gt;: any string
@@ -166,16 +179,16 @@
                                            will be used if not specified.
                                            &lt;string&gt;: any string
                                            Default: git-changelog-template.mustache
--tc, --toCommit &lt;string&gt;                   To commit.
+-tc, --to-commit &lt;string&gt;                  To commit.
                                            &lt;string&gt;: any string
                                            Default: null
--tr, --toRef &lt;string&gt;                      To ref.
+-tr, --to-ref &lt;string&gt;                     To ref.
                                            &lt;string&gt;: any string
                                            Default: refs/heads/master
--tz, --timeZone &lt;string&gt;                   TimeZone to use when printing dates.
+-tz, --time-zone &lt;string&gt;                  TimeZone to use when printing dates.
                                            &lt;string&gt;: any string
                                            Default: UTC
--ut, --untaggedName &lt;string&gt;               When listing commits per tag, this 
+-ut, --untagged-name &lt;string&gt;              When listing commits per tag, this 
                                            will by the name of a virtual tag that 
                                            contains commits not available in any git 
                                            tag.
@@ -219,6 +232,8 @@
   - issue
   - hasLink
   - link
+  - hasTitle
+  - title
   * commits
    - authorName
    - authorEmailAddress
@@ -242,10 +257,12 @@
   - commitTime
 * issues
  - name
-  - hasIssue
-  - issue
-  - hasLink
-  - link
+ - hasIssue
+ - issue
+ - hasLink
+ - link
+ - hasTitle
+ - title
  * commits
   - authorName
   - authorEmailAddress
