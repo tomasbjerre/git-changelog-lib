@@ -8,6 +8,7 @@ import static com.google.common.base.Throwables.propagate;
 import static com.google.common.collect.Maps.newHashMap;
 import static com.jayway.jsonpath.JsonPath.read;
 import static java.net.URLEncoder.encode;
+import static java.util.concurrent.TimeUnit.MINUTES;
 import static org.slf4j.LoggerFactory.getLogger;
 
 import java.io.OutputStream;
@@ -69,7 +70,7 @@ public class MediaWikiClient extends RestClient {
  private final String text;
 
  public MediaWikiClient(String url, String title, String text) {
-  super(0, null);
+  super(0, MINUTES);
   this.url = url;
   this.title = title;
   this.text = text;

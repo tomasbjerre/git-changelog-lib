@@ -4,6 +4,8 @@ import static com.google.common.base.Objects.firstNonNull;
 import static com.google.common.collect.Maps.newHashMap;
 import static com.google.common.collect.Ordering.usingToString;
 import static java.util.regex.Pattern.compile;
+import static se.bjurr.gitchangelog.internal.integrations.github.GitHubClientFactory.createGitHubClient;
+import static se.bjurr.gitchangelog.internal.integrations.jira.JiraClientFactory.createJiraClient;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITHUB;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.JIRA;
 
@@ -44,12 +46,12 @@ public class IssueParser {
 
   GitHubClient gitHubClient = null;
   if (settings.getGitHubApi().isPresent()) {
-   gitHubClient = new GitHubClient(settings.getGitHubApi().get());
+   gitHubClient = createGitHubClient(settings.getGitHubApi().get());
   }
 
   JiraClient jiraClient = null;
   if (settings.getJiraServer().isPresent()) {
-   jiraClient = new JiraClient(settings.getJiraServer().get());
+   jiraClient = createJiraClient(settings.getJiraServer().get());
    if (settings.getJiraUsername().isPresent()) {
     jiraClient.withBasicCredentials(settings.getJiraUsername().get(), settings.getJiraPassword().get());
    }

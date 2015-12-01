@@ -30,13 +30,11 @@ public class JiraClient {
 
  public Optional<JiraIssue> getIssue(String issue) {
   String endpoint = api + "/rest/api/2/issue/" + issue + "?fields=parent,summary";
-  try {
-   String json = client.get(endpoint);
-   String title = read(json, "$.fields.summary");
+  Optional<String> json = client.get(endpoint);
+  if (json.isPresent()) {
+   String title = read(json.get(), "$.fields.summary");
    String link = api + "/browse/";
    return of(new JiraIssue(title, link, issue));
-  } catch (Exception e) {
-   logger.info("Did not find " + issue + " at " + endpoint, e);
   }
   return absent();
  }

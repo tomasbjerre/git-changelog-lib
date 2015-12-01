@@ -3,6 +3,7 @@ package se.bjurr.gitchangelog.internal.integrations.rest;
 import static com.google.common.base.Joiner.on;
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
+import static java.util.concurrent.TimeUnit.MINUTES;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -15,7 +16,7 @@ public class RestClientMock extends RestClient {
  private final Map<String, String> mockedResponses = newHashMap();
 
  public RestClientMock() {
-  super(0, null);
+  super(0, MINUTES);
  }
 
  public RestClientMock addMockedResponse(String url, String response) {

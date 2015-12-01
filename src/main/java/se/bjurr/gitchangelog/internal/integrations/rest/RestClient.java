@@ -1,5 +1,7 @@
 package se.bjurr.gitchangelog.internal.integrations.rest;
 
+import static com.google.common.base.Optional.absent;
+import static com.google.common.base.Optional.of;
 import static com.google.common.base.Throwables.propagate;
 import static com.google.common.cache.CacheBuilder.newBuilder;
 import static com.google.common.io.ByteStreams.toByteArray;
@@ -14,28 +16,25 @@ import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 
 import com.google.common.annotations.VisibleForTesting;
+import com.google.common.base.Optional;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 
 public class RestClient {
  private static Logger logger = getLogger(RestClient.class);
  private static RestClient mockedRestClient;
- private final LoadingCache<String, String> urlCache;
+ private final LoadingCache<String, Optional<String>> urlCache;
  private String basicAuthString;
 
  public RestClient(long duration, TimeUnit cacheExpireAfterAccess) {
-  if (duration != 0) {
-   urlCache = newBuilder()//
-     .expireAfterAccess(duration, cacheExpireAfterAccess)//
-     .build(new CacheLoader<String, String>() {
-      @Override
-      public String load(String url) throws Exception {
-       return doGet(url);
-      }
-     });
-  } else {
-   urlCache = null;
-  }
+  urlCache = newBuilder()//
+    .expireAfterAccess(duration, cacheExpireAfterAccess)//
+    .build(new CacheLoader<String, Optional<String>>() {
+     @Override
+     public Optional<String> load(String url) throws Exception {
+      return doGet(url);
+     }
+    });
  }
 
  public RestClient withBasicAuthCredentials(String username, String password) {
@@ -43,19 +42,15 @@ public class RestClient {
   return this;
  }
 
- public String get(String url) {
+ public Optional<String> get(String url) {
   try {
-   if (urlCache != null) {
-    return urlCache.get(url);
-   } else {
-    return doGet(url);
-   }
+   return urlCache.get(url);
   } catch (ExecutionException e) {
    throw propagate(e);
   }
  }
 
- private String doGet(String urlParam) {
+ private Optional<String> doGet(String urlParam) {
   String response = null;
   try {
    logger.info("GET:\n" + urlParam);
@@ -66,11 +61,10 @@ public class RestClient {
    if (this.basicAuthString != null) {
     conn.setRequestProperty("Authorization", "Basic " + basicAuthString);
    }
-   response = getResponse(conn);
-   return response;
+   return of(getResponse(conn));
   } catch (Exception e) {
    logger.error("Got:\n" + response);
-   throw propagate(e);
+   return absent();
   }
  }
 

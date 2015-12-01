@@ -28,12 +28,12 @@ public class GitHubClient {
  }
 
  public Optional<GitHubIssue> getIssue(String issue) {
-  try {
-   if (issue.startsWith("#")) {
-    issue = issue.substring(1);
-   }
-   String json = client.get(api + "/issues?state=all");
-   JSONArray jsonArray = (JSONArray) JsonPath.read(json, "$.*");
+  if (issue.startsWith("#")) {
+   issue = issue.substring(1);
+  }
+  Optional<String> json = client.get(api + "/issues?state=all");
+  if (json.isPresent()) {
+   JSONArray jsonArray = (JSONArray) JsonPath.read(json.get(), "$.*");
    for (Object jsonIssue : jsonArray) {
     LinkedHashMap o = (LinkedHashMap) jsonIssue;
     String htmlUrl = o.get("html_url").toString();
@@ -43,8 +43,6 @@ public class GitHubClient {
      return of(new GitHubIssue(title, htmlUrl, number));
     }
    }
-  } catch (Exception e) {
-   logger.error("Error while getting issue " + issue, e);
   }
   return absent();
  }
