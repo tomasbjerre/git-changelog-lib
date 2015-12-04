@@ -3,6 +3,32 @@
 Changelog of Git Changelog.
 
 ## Next release
+### Other changes
+
+[54a695490c17d8b](https://github.com/tomasbjerre/git-changelog-lib/commit/54a695490c17d8b) Tomas Bjerre *2015-12-04 21:30:30*
+
+Using JGit to find repo folder correctly
+
+ * And JsonPath 2.1.0
+
+
+## 1.14
+### Other changes
+
+[2b9b6112244d1aa](https://github.com/tomasbjerre/git-changelog-lib/commit/2b9b6112244d1aa) Tomas Bjerre *2015-12-01 21:34:52*
+
+Caching requests to GitHub and Jira
+
+
+## 1.13
+### Other changes
+
+[abe713cb069aa1f](https://github.com/tomasbjerre/git-changelog-lib/commit/abe713cb069aa1f) Tomas Bjerre *2015-11-23 21:44:23*
+
+Avoiding crash if GitHub issue cant be found
+
+
+## 1.12
 ### GitHub [#2](https://github.com/tomasbjerre/git-changelog-lib/issues/2) GitHub Integration
 
 [45af766856ac703](https://github.com/tomasbjerre/git-changelog-lib/commit/45af766856ac703) Tomas Bjerre *2015-11-22 19:51:40*
@@ -12,7 +38,7 @@ Integrating with GitHub
 
 ### GitHub [#3](https://github.com/tomasbjerre/git-changelog-lib/issues/3) Jira Integration
 
-[950997dd037f888](https://github.com/tomasbjerre/git-changelog-lib/commit/950997dd037f888) Tomas Bjerre *2015-11-23 17:25:48*
+[30a1095331ded15](https://github.com/tomasbjerre/git-changelog-lib/commit/30a1095331ded15) Tomas Bjerre *2015-11-23 17:32:23*
 
 Integrating with Jira
 

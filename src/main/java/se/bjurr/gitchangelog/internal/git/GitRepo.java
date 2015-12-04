@@ -1,9 +1,6 @@
 package se.bjurr.gitchangelog.internal.git;
 
 import static com.google.common.base.Joiner.on;
-import static com.google.common.base.Optional.absent;
-import static com.google.common.base.Optional.of;
-import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Throwables.propagate;
 import static com.google.common.collect.Iterables.transform;
 import static com.google.common.collect.Lists.newArrayList;
@@ -31,7 +28,6 @@ import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 
 import com.google.common.base.Function;
-import com.google.common.base.Optional;
 
 public class GitRepo {
  private static final Function<RevCommit, GitCommit> TO_GITCOMMIT = new Function<RevCommit, GitCommit>() {
@@ -52,16 +48,19 @@ public class GitRepo {
  }
 
  public GitRepo(File repo) {
-  FileRepositoryBuilder builder = new FileRepositoryBuilder();
-  Optional<File> gitDir = findClosestGitRepo(repo);
-  checkArgument(gitDir.isPresent(), "Could not find any Git repo in " + repo.getAbsolutePath());
-
   try {
-   this.repository = builder//
-     .setGitDir(gitDir.get())//
-     .readEnvironment()//
-     .findGitDir()//
-     .build();
+   File repoFile = new File(repo.getAbsolutePath());
+   File gitRepoFile = new File(repo.getAbsolutePath() + "/.git");
+   if (gitRepoFile.exists()) {
+    repoFile = gitRepoFile;
+   }
+   FileRepositoryBuilder builder = new FileRepositoryBuilder()//
+     .findGitDir(repoFile)//
+     .readEnvironment();
+   if (builder.getGitDir() == null) {
+    throw new RuntimeException("Did not find a GIT repo in " + repo.getAbsolutePath());
+   }
+   this.repository = builder.build();
   } catch (IOException e) {
    throw propagate(e);
   }
@@ -135,18 +134,7 @@ public class GitRepo {
    walk.markStart(root);
    return walk.next();
   } catch (Exception e) {
-   throw new RuntimeException("First commit not found!", e);
+   throw new RuntimeException("First commit not found in " + repository.getDirectory(), e);
   }
- }
-
- private static Optional<File> findClosestGitRepo(File file) {
-  File candidate = new File(file.getAbsolutePath() + "/.git");
-  if (candidate.exists()) {
-   return of(candidate);
-  }
-  if (file.getAbsoluteFile().getParent() == null) {
-   return absent();
-  }
-  return findClosestGitRepo(file.getAbsoluteFile().getParentFile());
  }
 }

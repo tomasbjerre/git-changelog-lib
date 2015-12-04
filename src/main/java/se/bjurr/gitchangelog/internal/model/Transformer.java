@@ -6,7 +6,6 @@ import static com.google.common.collect.Iterables.transform;
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Lists.transform;
 import static com.google.common.collect.Maps.newHashMap;
-import static com.google.common.collect.Maps.uniqueIndex;
 import static com.google.common.collect.Multimaps.index;
 import static java.util.TimeZone.getTimeZone;
 import static java.util.regex.Pattern.compile;
@@ -99,12 +98,11 @@ public class Transformer {
 
  private <T extends IGitCommitReferer> Map<String, List<GitCommit>> getCommitsPerGitCommitReferer(
    List<GitCommit> allCommits, List<T> gitCommitReferer) {
-  final Map<GitCommit, T> perCommit = uniqueIndex(gitCommitReferer, new Function<T, GitCommit>() {
-   @Override
-   public GitCommit apply(T input) {
-    return input.getGitCommit();
-   }
-  });
+
+  final Map<GitCommit, T> perCommit = newHashMap();
+  for (T referer : gitCommitReferer) {
+   perCommit.put(referer.getGitCommit(), referer);
+  }
 
   Map<GitCommit, String> stringPerCommit = newHashMap();
   for (GitCommit input : perCommit.keySet()) {
