@@ -111,7 +111,15 @@ public class GitRepo {
   try {
    for (Ref foundRef : repository.getAllRefs().values()) {
     if (foundRef.getName().endsWith(fromRef)) {
-     return repository.getAllRefs().get(foundRef.getName()).getObjectId();
+     Ref ref = repository.getAllRefs().get(foundRef.getName());
+     try (Git git = new Git(repository)) {
+      Ref peeledRef = repository.peel(ref);
+      if (peeledRef.getPeeledObjectId() != null) {
+       return peeledRef.getPeeledObjectId();
+      } else {
+       return ref.getObjectId();
+      }
+     }
     }
    }
    throw new RuntimeException(fromRef + " not found in:\n" + on("\n").join(repository.getAllRefs().values()));

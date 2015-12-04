@@ -5,7 +5,15 @@ Changelog of Git Changelog.
 ## Next release
 ### Other changes
 
-[54a695490c17d8b](https://github.com/tomasbjerre/git-changelog-lib/commit/54a695490c17d8b) Tomas Bjerre *2015-12-04 21:30:30*
+[f1b00fd89a520a1](https://github.com/tomasbjerre/git-changelog-lib/commit/f1b00fd89a520a1) Tomas Bjerre *2015-12-04 22:39:09*
+
+Adding Bitbucket plugin to readme
+
+
+## 1.15
+### Other changes
+
+[2d0c1f1102387d0](https://github.com/tomasbjerre/git-changelog-lib/commit/2d0c1f1102387d0) Tomas Bjerre *2015-12-04 22:09:16*
 
 Using JGit to find repo folder correctly
 
