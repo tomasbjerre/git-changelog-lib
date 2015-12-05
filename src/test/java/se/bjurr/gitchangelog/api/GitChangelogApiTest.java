@@ -1,6 +1,8 @@
 package se.bjurr.gitchangelog.api;
 
 import static com.google.common.base.Charsets.UTF_8;
+import static com.google.common.collect.ImmutableMap.of;
+import static com.google.common.collect.Maps.newHashMap;
 import static com.google.common.io.Resources.getResource;
 import static org.junit.Assert.assertEquals;
 import static se.bjurr.gitchangelog.api.FakeRepo.fakeRepo;
@@ -73,5 +75,21 @@ public class GitChangelogApiTest {
     .withTemplatePath(templatePath)//
     .withReadableTagName(".*/([0-9]+?\\.[0-9]+?)$")//
     .render();
+ }
+
+ @Test()
+ public void testThatCustomVariablesCanBeUsed() throws Exception {
+  String expected = Resources.toString(getResource("assertions/testAuthorsCommitsExtended.md"), UTF_8).trim();
+
+  URL settingsFile = getResource("settings/git-changelog-test-settings.json").toURI().toURL();
+  String templatePath = "templates/testAuthorsCommitsExtended.mustache";
+
+  assertEquals(expected, gitChangelogApiBuilder()//
+    .withSettings(settingsFile)//
+    .withExtendedVariables(newHashMap(of("customVariable", (Object) "the value"))) //
+    .withRemoveIssueFromMessageArgument(true) //
+    .withTemplatePath(templatePath)//
+    .render() //
+    .trim());
  }
 }

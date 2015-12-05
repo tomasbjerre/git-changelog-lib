@@ -20,6 +20,7 @@ import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_UNTAGGE
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.google.common.base.Optional;
 import com.google.common.io.Resources;
@@ -50,6 +51,8 @@ public class Settings {
  private String jiraUsername;
 
  private String jiraPassword;
+
+ private Map<String, Object> extendedVariables;
 
  public Settings() {
  }
@@ -237,5 +240,13 @@ public class Settings {
 
  public Optional<String> getJiraPassword() {
   return fromNullable(jiraPassword);
+ }
+
+ public void setExtendedVariables(Map<String, Object> extendedVariables) {
+  this.extendedVariables = extendedVariables;
+ }
+
+ public Map<String, Object> getExtendedVariables() {
+  return extendedVariables;
  }
 }

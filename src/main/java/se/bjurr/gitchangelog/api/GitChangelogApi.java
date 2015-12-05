@@ -19,6 +19,7 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.net.URL;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.jgit.lib.ObjectId;
 
@@ -215,7 +216,9 @@ public class GitChangelogApi {
    StringReader reader = new StringReader(templateContent);
    Mustache mustache = mf.compile(reader, settings.getTemplatePath());
    StringWriter writer = new StringWriter();
-   mustache.execute(writer, this.getChangelog()).flush();
+   mustache.execute(writer, //
+     new Object[] { this.getChangelog(), settings.getExtendedVariables() } //
+     ).flush();
    return writer.toString();
   } catch (IOException e) {
    throw propagate(e);
@@ -257,5 +260,10 @@ public class GitChangelogApi {
 
  private GitChangelogApi(Settings settings) {
   this.settings = settings;
+ }
+
+ public GitChangelogApi withExtendedVariables(Map<String, Object> extendedVariables) {
+  settings.setExtendedVariables(extendedVariables);
+  return this;
  }
 }
