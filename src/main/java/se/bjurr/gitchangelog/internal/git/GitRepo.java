@@ -67,20 +67,25 @@ public class GitRepo {
  }
 
  public List<GitCommit> getDiff(ObjectId from, ObjectId to) {
-  try (Git git = new Git(repository)) {
+  Git git = null;
+  try {
+   git = new Git(repository);
    Iterable<RevCommit> itr = git //
      .log() //
      .addRange(from, to) //
      .call(); //
-
    return newArrayList(transform(itr, TO_GITCOMMIT));
   } catch (Exception e) {
    throw new RuntimeException("References:\n" + on("\n").join(repository.getAllRefs().keySet()), e);
+  } finally {
+   git.close();
   }
  }
 
  public List<GitTag> getTags() {
-  try (Git git = new Git(repository)) {
+  Git git = null;
+  try {
+   git = new Git(repository);
    List<GitTag> refs = newArrayList();
    for (Ref ref : git.tagList().call()) {
     LogCommand log = git.log();
@@ -104,6 +109,8 @@ public class GitRepo {
    return refs;
   } catch (Exception e) {
    throw propagate(e);
+  } finally {
+   git.close();
   }
  }
 
@@ -112,13 +119,17 @@ public class GitRepo {
    for (Ref foundRef : repository.getAllRefs().values()) {
     if (foundRef.getName().endsWith(fromRef)) {
      Ref ref = repository.getAllRefs().get(foundRef.getName());
-     try (Git git = new Git(repository)) {
+     Git git = null;
+     try {
+      git = new Git(repository);
       Ref peeledRef = repository.peel(ref);
       if (peeledRef.getPeeledObjectId() != null) {
        return peeledRef.getPeeledObjectId();
       } else {
        return ref.getObjectId();
       }
+     } finally {
+      git.close();
      }
     }
    }
@@ -136,7 +147,9 @@ public class GitRepo {
  }
 
  private ObjectId firstCommit() {
-  try (RevWalk walk = new RevWalk(repository)) {
+  RevWalk walk = null;
+  try {
+   walk = new RevWalk(repository);
    RevCommit root = walk.parseCommit(repository.resolve(Constants.HEAD));
    walk.sort(REVERSE);
    walk.markStart(root);

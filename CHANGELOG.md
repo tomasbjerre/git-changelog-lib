@@ -5,9 +5,27 @@ Changelog of Git Changelog.
 ## Next release
 ### Other changes
 
-[f1b00fd89a520a1](https://github.com/tomasbjerre/git-changelog-lib/commit/f1b00fd89a520a1) Tomas Bjerre *2015-12-04 22:39:09*
+[01c3111e3bd06ea](https://github.com/tomasbjerre/git-changelog-lib/commit/01c3111e3bd06ea) Tomas Bjerre *2015-12-08 18:43:35*
 
-Adding Bitbucket plugin to readme
+Downgrading JGIT to 3.6.2 to be compatible with its older API
+
+
+## 1.17
+### Other changes
+
+[c7e3a39354cb339](https://github.com/tomasbjerre/git-changelog-lib/commit/c7e3a39354cb339) Tomas Bjerre *2015-12-05 14:30:21*
+
+Allowing variables to be extended with custom context:s
+
+
+## 1.16
+### Other changes
+
+[b818fd6a2f1207c](https://github.com/tomasbjerre/git-changelog-lib/commit/b818fd6a2f1207c) Tomas Bjerre *2015-12-05 14:01:56*
+
+Peeling references
+
+ * To support annotated tags
 
 
 ## 1.15

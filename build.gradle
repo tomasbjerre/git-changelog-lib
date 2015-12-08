@@ -32,7 +32,7 @@ dependencies {
  compile 'com.jayway.jsonpath:json-path:2.1.0'
  compile 'com.google.guava:guava:11.0.1'
  compile 'se.softhouse:jargo:0.1.1'
- compile 'org.eclipse.jgit:org.eclipse.jgit:4.1.0.201509280440-r'
+ compile 'org.eclipse.jgit:org.eclipse.jgit:3.6.2.201501210735-r'
  compile 'com.github.spullara.mustache.java:compiler:0.8.18'
  compile 'com.google.code.gson:gson:2.4'
  testCompile 'junit:junit:4.12'
