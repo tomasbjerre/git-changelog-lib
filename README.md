@@ -21,6 +21,33 @@ This software can be used:
  * As a library [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22git-changelog-lib%22).
  * From command line [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22git-changelog-lib%22) (the zip file).
 
+Here is an example template. There are more examples [here](https://github.com/tomasbjerre/git-changelog/tree/master/src/test/resources/templates).
+```
+# Git Changelog changelog
+
+Changelog of Git Changelog.
+{{#tags}}
+## {{name}}
+ {{#issues}}
+  {{#hasLink}}
+### {{name}} [{{issue}}]({{link}}) {{title}}
+  {{/hasLink}}
+  {{^hasLink}}
+### {{name}} {{title}}
+  {{/hasLink}}
+  {{#authors}}
+* {{authorName}}
+   {{#commits}}
+[{{hash}}](https://server/{{hash}}) *{{commitTime}}*
+{{{message}}}
+
+   {{/commits}}
+
+  {{/authors}}
+ {{/issues}}
+{{/tags}}
+```
+
 ### Library
 
 It has a [builder](https://github.com/tomasbjerre/git-changelog/blob/master/src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java) for creating the changelog.
