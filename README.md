@@ -16,7 +16,7 @@ There are some screenshots [here](https://github.com/tomasbjerre/git-changelog-l
 This software can be used:
  * With a [Gradle plugin](https://github.com/tomasbjerre/git-changelog-gradle-plugin).
  * With a [Maven plugin](https://github.com/tomasbjerre/git-changelog-maven-plugin).
- * With a [Jenkins plugin](https://github.com/tomasbjerre/git-changelog-publisher-plugin).
+ * With a [Jenkins plugin](https://github.com/jenkinsci/git-changelog-plugin).
  * With a [Bitbucket Server plugin](https://github.com/tomasbjerre/git-changelog-bitbucket-plugin).
  * As a library [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22git-changelog-lib%22).
  * From command line [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22git-changelog-lib%22) (the zip file).
