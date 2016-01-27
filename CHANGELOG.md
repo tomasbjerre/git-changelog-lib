@@ -5,7 +5,19 @@ Changelog of Git Changelog.
 ## Next release
 ### Other changes
 
-[01c3111e3bd06ea](https://github.com/tomasbjerre/git-changelog-lib/commit/01c3111e3bd06ea) Tomas Bjerre *2015-12-08 18:43:35*
+[d405f4e8ae5f34f](https://github.com/tomasbjerre/git-changelog-lib/commit/d405f4e8ae5f34f) Tomas Bjerre *2015-12-11 07:56:23*
+
+Changing Jenkins plugin link to point at JenkinsCI
+
+[296d811a7ec3492](https://github.com/tomasbjerre/git-changelog-lib/commit/296d811a7ec3492) Tomas Bjerre *2015-12-10 17:12:44*
+
+Adding example template to readme
+
+
+## 1.18
+### Other changes
+
+[25fad813507296c](https://github.com/tomasbjerre/git-changelog-lib/commit/25fad813507296c) Tomas Bjerre *2015-12-08 18:44:25*
 
 Downgrading JGIT to 3.6.2 to be compatible with its older API
 

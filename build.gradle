@@ -1,24 +1,32 @@
 buildscript {
  repositories {
   jcenter()
+  maven {
+   url "https://plugins.gradle.org/m2/"
+  }
  }
  dependencies {
   classpath 'com.bmuschko:gradle-nexus-plugin:2.3.1'
   classpath 'net.researchgate:gradle-release:2.2.2'
+  classpath 'gradle.plugin.se.bjurr.gitchangelog:git-changelog-gradle-plugin:1.10'
  }
 }
 
 apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'eclipse'
-apply plugin: 'application'
 apply plugin: 'signing'
 apply plugin: 'com.bmuschko.nexus'
 apply plugin: 'net.researchgate.release'
+apply plugin: 'se.bjurr.gitchangelog.git-changelog-gradle-plugin'
+
+task gitChangelogTask(type: se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask) {
+ gitChangelogPlugin.templateContent = new File('changelog.mustache').getText('UTF-8');
+ gitChangelogPlugin.filePath = "CHANGELOG.md";
+ gitChangelogPlugin.settingsFile = "changelog.json";
+}
 
 group = 'se.bjurr.gitchangelog'
-
-mainClassName = 'se.bjurr.gitchangelog.main.Main'
 
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
@@ -31,7 +39,6 @@ repositories {
 dependencies {
  compile 'com.jayway.jsonpath:json-path:2.1.0'
  compile 'com.google.guava:guava:11.0.1'
- compile 'se.softhouse:jargo:0.1.1'
  compile 'org.eclipse.jgit:org.eclipse.jgit:3.6.2.201501210735-r'
  compile 'com.github.spullara.mustache.java:compiler:0.8.18'
  compile 'com.google.code.gson:gson:2.4'
@@ -55,12 +62,12 @@ modifyPom {
  project {
   name 'GIT Changelog'
   description 'Library that generates changelog from a GIT repository.'
-  url 'https://github.com/tomasbjerre/git-changelog'
+  url 'https://github.com/tomasbjerre/git-changelog-lib'
   inceptionYear '2015'
    scm {
-   url 'https://github.com/tomasbjerre/git-changelog'
-   connection 'scm:https://tomasbjerre@github.com/tomasbjerre/git-changelog.git'
-   developerConnection 'scm:git://github.com/tomasbjerre/git-changelog.git'
+   url 'https://github.com/tomasbjerre/git-changelog-lib'
+   connection 'scm:https://tomasbjerre@github.com/tomasbjerre/git-changelog-lib.git'
+   developerConnection 'scm:git://github.com/tomasbjerre/git-changelog-lib.git'
   }
 
   licenses {
