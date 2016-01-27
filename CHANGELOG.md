@@ -5,6 +5,21 @@ Changelog of Git Changelog.
 ## Next release
 ### Other changes
 
+[cac0ed0ff08686c](https://github.com/tomasbjerre/git-changelog-lib/commit/cac0ed0ff08686c) Tomas Bjerre *2016-01-27 18:36:55*
+
+Removing generate_changelog.sh
+
+
+## 1.19
+### GitHub [#11](https://github.com/tomasbjerre/git-changelog-lib/issues/11) Move command line to its own repo
+
+[a7b20fdea564ff2](https://github.com/tomasbjerre/git-changelog-lib/commit/a7b20fdea564ff2) Tomas Bjerre *2016-01-27 18:14:33*
+
+Removing command line code
+
+
+### Other changes
+
 [d405f4e8ae5f34f](https://github.com/tomasbjerre/git-changelog-lib/commit/d405f4e8ae5f34f) Tomas Bjerre *2015-12-11 07:56:23*
 
 Changing Jenkins plugin link to point at JenkinsCI
