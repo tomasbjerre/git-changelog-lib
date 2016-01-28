@@ -32,7 +32,7 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h1>
-<a id="git-changelog-lib-" class="anchor" href="#git-changelog-lib-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Git Changelog Lib <a href="https://travis-ci.org/tomasbjerre/git-changelog-lib"><img src="https://travis-ci.org/tomasbjerre/git-changelog-lib.svg?branch=master" alt="Build Status"></a>
+<a id="git-changelog-lib-" class="anchor" href="#git-changelog-lib-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Git Changelog Lib <a href="https://travis-ci.org/tomasbjerre/git-changelog-lib"><img src="https://travis-ci.org/tomasbjerre/git-changelog-lib.svg?branch=master" alt="Build Status"></a>
 </h1>
 
 <p>This is a library for generating a changelog, or releasenotes, from a GIT repository. It can also be run as a standalone program, Gradle plugin, Maven plugin or Jenkins plugin.</p>
@@ -50,21 +50,48 @@
 <p>There are some screenshots <a href="https://github.com/tomasbjerre/git-changelog-lib/tree/screenshots/sandbox">here</a>.</p>
 
 <h2>
-<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
 
 <p>This software can be used:</p>
 
 <ul>
 <li>With a <a href="https://github.com/tomasbjerre/git-changelog-gradle-plugin">Gradle plugin</a>.</li>
 <li>With a <a href="https://github.com/tomasbjerre/git-changelog-maven-plugin">Maven plugin</a>.</li>
-<li>With a <a href="https://github.com/tomasbjerre/git-changelog-publisher-plugin">Jenkins plugin</a>.</li>
+<li>With a <a href="https://github.com/jenkinsci/git-changelog-plugin">Jenkins plugin</a>.</li>
 <li>With a <a href="https://github.com/tomasbjerre/git-changelog-bitbucket-plugin">Bitbucket Server plugin</a>.</li>
+<li>From <a href="https://github.com/tomasbjerre/git-changelog-command-line">command line</a>.</li>
 <li>As a library <a href="http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22git-changelog-lib%22">Maven Central</a>.</li>
-<li>From command line <a href="http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22git-changelog-lib%22">Maven Central</a> (the zip file).</li>
 </ul>
 
+<p>Here is an example template. There are more examples <a href="https://github.com/tomasbjerre/git-changelog/tree/master/src/test/resources/templates">here</a>.</p>
+
+<pre><code># Git Changelog changelog
+
+Changelog of Git Changelog.
+{{#tags}}
+## {{name}}
+ {{#issues}}
+  {{#hasLink}}
+### {{name}} [{{issue}}]({{link}}) {{title}}
+  {{/hasLink}}
+  {{^hasLink}}
+### {{name}} {{title}}
+  {{/hasLink}}
+  {{#authors}}
+* {{authorName}}
+   {{#commits}}
+[{{hash}}](https://server/{{hash}}) *{{commitTime}}*
+{{{message}}}
+
+   {{/commits}}
+
+  {{/authors}}
+ {{/issues}}
+{{/tags}}
+</code></pre>
+
 <h3>
-<a id="library" class="anchor" href="#library" aria-hidden="true"><span class="octicon octicon-link"></span></a>Library</h3>
+<a id="library" class="anchor" href="#library" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Library</h3>
 
 <p>It has a <a href="https://github.com/tomasbjerre/git-changelog/blob/master/src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java">builder</a> for creating the changelog.</p>
 
@@ -93,117 +120,8 @@
   "Title of page");
 </code></pre>
 
-<h3>
-<a id="command-line" class="anchor" href="#command-line" aria-hidden="true"><span class="octicon octicon-link"></span></a>Command line</h3>
-
-<p>Or from command line:</p>
-
-<pre><code>-cl, --custom-issue-link &lt;string&gt;          Custom issue link.
-                                           &lt;string&gt;: any string
-                                           Default: null
--cn, --custom-issue-name &lt;string&gt;          Custom issue name.
-                                           &lt;string&gt;: any string
-                                           Default: null
--cp, --custom-issue-pattern &lt;string&gt;       Custom issue pattern.
-                                           &lt;string&gt;: any string
-                                           Default: null
--df, --date-format &lt;string&gt;                Format to use when printing dates.
-                                           &lt;string&gt;: any string
-                                           Default: YYYY-MM-dd HH:mm:ss
--fc, --from-commit &lt;string&gt;                From commit.
-                                           &lt;string&gt;: any string
-                                           Default: 0000000000000000000000000000000000000000
--fr, --from-ref &lt;string&gt;                   From ref.
-                                           &lt;string&gt;: any string
-                                           Default: null
--gapi, --github-api &lt;string&gt;               GitHub API.
-                                           &lt;string&gt;: any string
-                                           Default: 
--h, --help &lt;argument-to-print-help-for&gt;    &lt;argument-to-print-help-for&gt;: an argument to print help for
-                                           Default: If no specific parameter is given the whole usage text is given
--ip, --ignore-pattern &lt;string&gt;             Ignore commits where pattern 
-                                           matches message.
-                                           &lt;string&gt;: any string
-                                           Default: ^\[maven-release-plugin\].*|^\[Gradle Release Plugin\].*|^Merge.*
--jp, --jira-pattern &lt;string&gt;               Jira issue pattern.
-                                           &lt;string&gt;: any string
-                                           Default: \b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\b
--jpw, --jira-password &lt;string&gt;             Optional password to authenticate 
-                                           with Jira.
-                                           &lt;string&gt;: any string
-                                           Default: \b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\b
--js, --jiraServer &lt;string&gt;                 Jira server. When a Jira server is 
-                                           given, the title of the Jira issues can be 
-                                           used in the changelog.
-                                           &lt;string&gt;: any string
-                                           Default: 
--ju, --jira-username &lt;string&gt;              Optional username to authenticate 
-                                           with Jira.
-                                           &lt;string&gt;: any string
-                                           Default: \b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\b
--mp, --mediawiki-password &lt;string&gt;         Password to authenticate with 
-                                           MediaWiki.
-                                           &lt;string&gt;: any string
-                                           Default: 
--mt, --mediawiki-title &lt;string&gt;            Title of MediaWiki page.
-                                           &lt;string&gt;: any string
-                                           Default: null
--mu, --mediawiki-user &lt;string&gt;             User to authenticate with MediaWiki.
-                                           &lt;string&gt;: any string
-                                           Default: 
--murl, --mediawiki-url &lt;string&gt;            Base URL of MediaWiki.
-                                           &lt;string&gt;: any string
-                                           Default: 
--ni, --no-issue-name &lt;string&gt;              Name of virtual issue that contains 
-                                           commits that has no issue associated.
-                                           &lt;string&gt;: any string
-                                           Default: No issue
--of, --output-file &lt;string&gt;                Write output to file.
-                                           &lt;string&gt;: any string
-                                           Default: 
--r, --repo &lt;string&gt;                        Repository.
-                                           &lt;string&gt;: any string
-                                           Default: .
--ri, --remove-issue-from-message           Dont print any issues in the 
-                                           messages of commits.
-                                           Default: disabled
--rt, --readable-tag-name &lt;string&gt;          Pattern to extract readable part of 
-                                           tag.
-                                           &lt;string&gt;: any string
-                                           Default: /([^/]+?)$
--sf, --settings-file &lt;string&gt;              Use settings from file.
-                                           &lt;string&gt;: any string
-                                           Default: null
--std, --stdout                             Print builder to &lt;STDOUT&gt;.
-                                           Default: disabled
--t, --template &lt;string&gt;                    Template to use. A default template 
-                                           will be used if not specified.
-                                           &lt;string&gt;: any string
-                                           Default: git-changelog-template.mustache
--tc, --to-commit &lt;string&gt;                  To commit.
-                                           &lt;string&gt;: any string
-                                           Default: null
--tr, --to-ref &lt;string&gt;                     To ref.
-                                           &lt;string&gt;: any string
-                                           Default: refs/heads/master
--tz, --time-zone &lt;string&gt;                  TimeZone to use when printing dates.
-                                           &lt;string&gt;: any string
-                                           Default: UTC
--ut, --untagged-name &lt;string&gt;              When listing commits per tag, this 
-                                           will by the name of a virtual tag that 
-                                           contains commits not available in any git 
-                                           tag.
-                                           &lt;string&gt;: any string
-                                           Default: No tag
-</code></pre>
-
-<p>Creating a MediaWiki page can be done like this.</p>
-
-<pre><code>./git-changelog-lib -murl http://localhost/mediawiki -mu tomas -mp tomaskod -mt "Tomas Title" -t /home/bjerre/workspace/git-changelog-lib/changelog_mediawiki.mustache -ut "Next release"
-</code></pre>
-
 <h2>
-<a id="supplied-information" class="anchor" href="#supplied-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>Supplied information</h2>
+<a id="supplied-information" class="anchor" href="#supplied-information" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Supplied information</h2>
 
 <p>The template is supplied with a datastructure like:</p>
 
@@ -280,7 +198,7 @@
 </code></pre>
 
 <h2>
-<a id="mediawiki" class="anchor" href="#mediawiki" aria-hidden="true"><span class="octicon octicon-link"></span></a>MediaWiki</h2>
+<a id="mediawiki" class="anchor" href="#mediawiki" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>MediaWiki</h2>
 
 <p>The library can create a wiki page in MediaWiki. To do this, you must enable the API in MediaWiki in <code>mediawiki/LocalSettings.php</code> by adding:</p>
 
@@ -289,7 +207,7 @@ $wgEnableWriteAPI = true;
 </code></pre>
 
 <h2>
-<a id="developer-instructions" class="anchor" href="#developer-instructions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Developer instructions</h2>
+<a id="developer-instructions" class="anchor" href="#developer-instructions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Developer instructions</h2>
 
 <p>To build the code, have a look at <code>.travis.yml</code>.</p>
 
