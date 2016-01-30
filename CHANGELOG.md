@@ -5,9 +5,11 @@ Changelog of Git Changelog.
 ## Next release
 ### Other changes
 
-[3b8208830a28d67](https://github.com/tomasbjerre/git-changelog-lib/commit/3b8208830a28d67) Tomas Bjerre *2016-01-30 14:46:41*
+[00b37d11101f8d1](https://github.com/tomasbjerre/git-changelog-lib/commit/00b37d11101f8d1) Tomas Bjerre *2016-01-30 16:39:21*
 
 Correcting revision logging
+
+ * Resetting Jira and GitHub clients before tests. Was having troubles with the cache not being invalidated between tests.
 
 
 ## 1.20
