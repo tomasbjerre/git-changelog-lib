@@ -30,11 +30,10 @@ dependencies {
  compile 'com.google.guava:guava:11.0.1'
  compile 'org.eclipse.jgit:org.eclipse.jgit:3.6.2.201501210735-r'
  compile 'com.github.spullara.mustache.java:compiler:0.8.18'
- compile 'com.google.code.gson:gson:2.4'
+ compile 'com.google.code.gson:gson:2.5'
  testCompile 'junit:junit:4.12'
  testCompile 'org.slf4j:slf4j-simple:1.7.13'
  testCompile 'org.assertj:assertj-core:2.3.0'
- testCompile 'com.google.code.gson:gson:2.5'
 }
 
 test {

@@ -5,6 +5,14 @@ Changelog of Git Changelog.
 ## Next release
 ### Other changes
 
+[51cad91dcd3e96c](https://github.com/tomasbjerre/git-changelog-lib/commit/51cad91dcd3e96c) Tomas Bjerre *2016-01-30 17:07:21*
+
+Removing accidently added duplicate Gson dependency
+
+
+## 1.21
+### Other changes
+
 [00b37d11101f8d1](https://github.com/tomasbjerre/git-changelog-lib/commit/00b37d11101f8d1) Tomas Bjerre *2016-01-30 16:39:21*
 
 Correcting revision logging
