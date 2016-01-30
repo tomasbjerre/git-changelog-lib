@@ -70,10 +70,14 @@ public class GitRepo {
   Git git = null;
   try {
    git = new Git(repository);
-   Iterable<RevCommit> itr = git //
-     .log() //
-     .addRange(from, to) //
-     .call(); //
+   LogCommand logCommand = git //
+     .log();
+   if (from.name().equals(firstCommit().name())) {
+    logCommand.add(to);
+   } else {
+    logCommand.addRange(from, to);
+   }
+   Iterable<RevCommit> itr = logCommand.call(); //
    return newArrayList(transform(itr, TO_GITCOMMIT));
   } catch (Exception e) {
    throw new RuntimeException("References:\n" + on("\n").join(repository.getAllRefs().keySet()), e);
@@ -146,7 +150,7 @@ public class GitRepo {
   return fromString(fromCommit);
  }
 
- private ObjectId firstCommit() {
+ private RevCommit firstCommit() {
   RevWalk walk = null;
   try {
    walk = new RevWalk(repository);

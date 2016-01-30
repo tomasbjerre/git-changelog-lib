@@ -5,7 +5,13 @@ Changelog of Git Changelog.
 ## Next release
 ### Other changes
 
-[ad9f073faa1ba99](https://github.com/tomasbjerre/git-changelog-lib/commit/ad9f073faa1ba99) Tomas Bjerre *2016-01-30 09:15:11*
+[1a9c14ecdaa2a6e](https://github.com/tomasbjerre/git-changelog-lib/commit/1a9c14ecdaa2a6e) Tomas Bjerre *2016-01-30 11:54:00*
+
+Including first commit
+
+ * Was excluding it when ZERO_COMMIT constant was used
+
+[0038494e3452b52](https://github.com/tomasbjerre/git-changelog-lib/commit/0038494e3452b52) Tomas Bjerre *2016-01-30 09:32:00*
 
 Documentation
 
