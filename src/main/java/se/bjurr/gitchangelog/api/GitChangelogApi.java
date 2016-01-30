@@ -388,4 +388,8 @@ public class GitChangelogApi {
  private GitChangelogApi(Settings settings) {
   this.settings = settings;
  }
+
+ public Settings getSettings() {
+  return settings;
+ }
 }

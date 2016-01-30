@@ -4,6 +4,10 @@ public class JiraClientFactory {
 
  private static JiraClient jiraClient;
 
+ public static void reset() {
+  jiraClient = null;
+ }
+
  public static JiraClient createJiraClient(String apiUrl) {
   if (jiraClient == null) {
    jiraClient = new JiraClient(apiUrl);

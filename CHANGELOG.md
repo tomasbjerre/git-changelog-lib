@@ -5,7 +5,15 @@ Changelog of Git Changelog.
 ## Next release
 ### Other changes
 
-[1a9c14ecdaa2a6e](https://github.com/tomasbjerre/git-changelog-lib/commit/1a9c14ecdaa2a6e) Tomas Bjerre *2016-01-30 11:54:00*
+[3b8208830a28d67](https://github.com/tomasbjerre/git-changelog-lib/commit/3b8208830a28d67) Tomas Bjerre *2016-01-30 14:46:41*
+
+Correcting revision logging
+
+
+## 1.20
+### Other changes
+
+[c3da07c0286855d](https://github.com/tomasbjerre/git-changelog-lib/commit/c3da07c0286855d) Tomas Bjerre *2016-01-30 11:56:15*
 
 Including first commit
 
@@ -328,6 +336,10 @@ Test
 Work for 1.0
 
 [5aaeb907f68915a](https://github.com/tomasbjerre/git-changelog-lib/commit/5aaeb907f68915a) Tomas Bjerre *2015-11-14 09:46:23*
+
+Initial commit
+
+[a1aa5ff5b625e63](https://github.com/tomasbjerre/git-changelog-lib/commit/a1aa5ff5b625e63) Tomas Bjerre *2015-11-12 05:29:31*
 
 Initial commit
 

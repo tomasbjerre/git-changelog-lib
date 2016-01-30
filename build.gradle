@@ -1,14 +1,10 @@
 buildscript {
  repositories {
   jcenter()
-  maven {
-   url "https://plugins.gradle.org/m2/"
-  }
  }
  dependencies {
   classpath 'com.bmuschko:gradle-nexus-plugin:2.3.1'
   classpath 'net.researchgate:gradle-release:2.2.2'
-  classpath 'gradle.plugin.se.bjurr.gitchangelog:git-changelog-gradle-plugin:1.10'
  }
 }
 
@@ -18,13 +14,6 @@ apply plugin: 'eclipse'
 apply plugin: 'signing'
 apply plugin: 'com.bmuschko.nexus'
 apply plugin: 'net.researchgate.release'
-apply plugin: 'se.bjurr.gitchangelog.git-changelog-gradle-plugin'
-
-task gitChangelogTask(type: se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask) {
- gitChangelogPlugin.templateContent = new File('changelog.mustache').getText('UTF-8');
- gitChangelogPlugin.filePath = "CHANGELOG.md";
- gitChangelogPlugin.settingsFile = "changelog.json";
-}
 
 group = 'se.bjurr.gitchangelog'
 
@@ -45,6 +34,13 @@ dependencies {
  testCompile 'junit:junit:4.12'
  testCompile 'org.slf4j:slf4j-simple:1.7.13'
  testCompile 'org.assertj:assertj-core:2.3.0'
+ testCompile 'com.google.code.gson:gson:2.5'
+}
+
+test {
+ if (System.getProperty('DEBUG', 'false') == 'true') {
+  jvmArgs '-Xdebug', '-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=9009'
+ }
 }
 
 eclipse {

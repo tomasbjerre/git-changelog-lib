@@ -11,6 +11,7 @@ import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 import java.net.URL;
 
 import com.google.common.io.Resources;
+import com.google.gson.GsonBuilder;
 
 public class GitChangelogApiAsserter {
 
@@ -42,9 +43,16 @@ public class GitChangelogApiAsserter {
   String templatePath = "templates/" + template;
 
   // Test lib with settings
-  assertEquals("With lib: " + file, expected, gitChangelogApiBuilder()//
+  GitChangelogApi gitChangelogApiBuilder = gitChangelogApiBuilder()//
     .withSettings(settingsFile)//
-    .withTemplatePath(templatePath)//
+    .withTemplatePath(templatePath);
+
+  String changelog = toJson(gitChangelogApiBuilder.getChangelog());
+  String settings = toJson(gitChangelogApiBuilder.getSettings());
+  String templateContent = Resources.toString(getResource(templatePath), UTF_8);
+
+  assertEquals("Test:\n" + file + "\nTemplate:\n" + templateContent + "\nChangelog: " + changelog + "\nSettings: "
+    + settings, expected, gitChangelogApiBuilder //
     .render().trim());
 
   // Test lib
@@ -71,5 +79,9 @@ public class GitChangelogApiAsserter {
     .withTemplatePath(templatePath) //
     .render() //
     .trim());
+ }
+
+ private String toJson(Object object) {
+  return new GsonBuilder().setPrettyPrinting().create().toJson(object);
  }
 }

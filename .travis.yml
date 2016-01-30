@@ -3,6 +3,10 @@ language: java
 jdk:
   - oraclejdk8
   - oraclejdk7
+git:
+  depth: 9999999
+before_script:
+  - git log --graph --full-history --all --color --date=short --pretty=format:"%Cred%x09%h %Creset%ad%Cgreen%d %Creset %s %C(bold)(%an)%Creset"
 script:
   - ./gradlew build --stacktrace -i
 after_script:

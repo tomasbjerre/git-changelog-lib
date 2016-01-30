@@ -31,4 +31,9 @@ public class GitTag implements IGitCommitReferer {
  public List<GitCommit> getGitCommits() {
   return gitCommits;
  }
+
+ @Override
+ public String toString() {
+  return "Tag: " + name + ": " + getGitCommit();
+ }
 }

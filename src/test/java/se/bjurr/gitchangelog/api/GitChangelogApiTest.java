@@ -15,15 +15,21 @@ import java.net.URL;
 import org.junit.Before;
 import org.junit.Test;
 
+import se.bjurr.gitchangelog.internal.integrations.github.GitHubClientFactory;
+import se.bjurr.gitchangelog.internal.integrations.jira.JiraClientFactory;
 import se.bjurr.gitchangelog.internal.integrations.rest.RestClientMock;
 
 import com.google.common.io.Resources;
+import com.google.gson.GsonBuilder;
 
 public class GitChangelogApiTest {
  private RestClientMock mockedRestClient;
 
  @Before
  public void before() throws Exception {
+  GitHubClientFactory.reset();
+  JiraClientFactory.reset();
+
   setFakeGitRepo(fakeRepo());
   mockedRestClient = new RestClientMock();
   mockedRestClient //
@@ -44,11 +50,15 @@ public class GitChangelogApiTest {
   URL settingsFile = getResource("settings/git-changelog-test-settings.json").toURI().toURL();
   String templatePath = "templates/testIssuesCommits.mustache";
 
-  assertEquals(expected, gitChangelogApiBuilder()//
+  String templateContent = Resources.toString(getResource(templatePath), UTF_8);
+
+  GitChangelogApi changelogApiBuilder = gitChangelogApiBuilder()//
     .withSettings(settingsFile)//
     .withRemoveIssueFromMessageArgument(true) //
-    .withTemplatePath(templatePath)//
-    .render().trim());
+    .withTemplatePath(templatePath);
+
+  assertEquals("templateContent:\n" + templateContent + "\nContext:\n" + toJson(changelogApiBuilder.getChangelog()),
+    expected, changelogApiBuilder.render().trim());
  }
 
  @Test(expected = RuntimeException.class)
@@ -91,5 +101,9 @@ public class GitChangelogApiTest {
     .withTemplatePath(templatePath)//
     .render() //
     .trim());
+ }
+
+ private String toJson(Object object) {
+  return new GsonBuilder().setPrettyPrinting().create().toJson(object);
  }
 }

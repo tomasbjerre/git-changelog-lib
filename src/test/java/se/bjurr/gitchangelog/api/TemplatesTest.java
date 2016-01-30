@@ -8,6 +8,8 @@ import static se.bjurr.gitchangelog.internal.integrations.rest.RestClient.mock;
 
 import org.junit.Test;
 
+import se.bjurr.gitchangelog.internal.integrations.github.GitHubClientFactory;
+import se.bjurr.gitchangelog.internal.integrations.jira.JiraClientFactory;
 import se.bjurr.gitchangelog.internal.integrations.rest.RestClientMock;
 
 import com.google.common.io.Resources;
@@ -49,6 +51,9 @@ public class TemplatesTest {
  }
 
  private void test(String testcase) throws Exception {
+  GitHubClientFactory.reset();
+  JiraClientFactory.reset();
+
   RestClientMock mockedRestClient = new RestClientMock();
   mockedRestClient //
     .addMockedResponse("/repos/tomasbjerre/git-changelog-lib/issues?state=all",

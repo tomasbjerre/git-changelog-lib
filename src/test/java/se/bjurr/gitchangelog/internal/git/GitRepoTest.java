@@ -18,6 +18,7 @@ import com.google.common.io.Resources;
 
 public class GitRepoTest {
  private static final String FIRST_COMMIT_HASH = "a1aa5ff";
+ private static final String FIRST_COMMIT_HASH_FULL = "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8";
  private static final String TAG_1_0_HASH = "01484ce71bbc76e1af75ebb07a52844145ce99dc";
  private File gitRepoFile;
 
@@ -39,11 +40,20 @@ public class GitRepoTest {
  }
 
  @Test
- public void testThatCommitsCanBeRetrieved() {
+ public void testThatZeroCommitCanBeRetrieved() {
   GitRepo gitRepo = getGitRepo();
   ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
-  assertThat(firstCommit).isNotNull();
-  assertThat(firstCommit.name()).startsWith(FIRST_COMMIT_HASH);
+  assertThat(firstCommit).as(gitRepo.toString()).isNotNull();
+  assertThat(firstCommit.name()).as(gitRepo.toString()).startsWith(FIRST_COMMIT_HASH);
+ }
+
+ @Test
+ public void testThatCommitsCanBeRetrieved() {
+  GitRepo gitRepo = getGitRepo();
+  assertThat(gitRepo.getCommit(FIRST_COMMIT_HASH_FULL)).isNotNull();
+  assertThat(gitRepo.getCommit(FIRST_COMMIT_HASH_FULL).name()).isEqualTo(FIRST_COMMIT_HASH_FULL);
+  assertThat(gitRepo.getCommit(TAG_1_0_HASH)).isNotNull();
+  assertThat(gitRepo.getCommit(TAG_1_0_HASH).name()).isEqualTo(TAG_1_0_HASH);
  }
 
  @Test
@@ -52,18 +62,43 @@ public class GitRepoTest {
   ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
   ObjectId lastCommit = gitRepo.getRef(REF_MASTER);
   List<GitCommit> diff = gitRepo.getDiff(firstCommit, lastCommit);
-  assertThat(diff).isNotEmpty();
+  assertThat(diff.size()).isGreaterThan(10);
   assertThat(reverse(diff).get(0).getHash()).startsWith(FIRST_COMMIT_HASH);
  }
 
  @Test
- public void testThatCommitsBetweenCommitAndCommitCanBeListed() {
-  GitRepo gitRepo = getGitRepo(); 
+ public void testThatCommitsBetweenZeroCommitAndCommitCanBeListed() {
+  GitRepo gitRepo = getGitRepo();
   ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
   ObjectId lastCommit = gitRepo.getCommit(TAG_1_0_HASH);
   List<GitCommit> diff = gitRepo.getDiff(firstCommit, lastCommit);
-  assertThat(diff).isNotEmpty();
+  assertThat(diff).as("Commits in first release.").hasSize(6);
   assertThat(reverse(diff).get(0).getHash()).startsWith(FIRST_COMMIT_HASH);
+ }
+
+ @Test
+ public void testThatCommitsSecondReleaseCommitCanBeListed() {
+  GitRepo gitRepo = getGitRepo();
+  ObjectId firstRelease = gitRepo.getRef("refs/tags/1.0");
+  ObjectId secondRelease = gitRepo.getRef("refs/tags/1.1");
+  List<GitCommit> diff = gitRepo.getDiff(firstRelease, secondRelease);
+  assertThat(diff).as("Commits in second release.").hasSize(8);
+  assertThat(reverse(diff).get(0).getHash()).startsWith("3950");
+ }
+
+ @Test
+ public void testThatCommitsBetweenCommitAndCommitCanBeListed() {
+  GitRepo gitRepo = getGitRepo();
+  ObjectId firstCommit = gitRepo.getCommit(FIRST_COMMIT_HASH_FULL);
+  ObjectId lastCommit = gitRepo.getCommit("e3766e2d4bc6d206475c5d2ed96b3f967a6e157e");
+  List<GitCommit> diff = gitRepo.getDiff(firstCommit, lastCommit);
+  assertThat(diff).isNotEmpty();
+  assertThat(reverse(diff).get(0).getHash())//
+    .as("first")//
+    .startsWith(FIRST_COMMIT_HASH);
+  assertThat(diff.get(0).getHash())//
+    .as("last")//
+    .startsWith("e3766e2d4bc6d20");
  }
 
  private GitRepo getGitRepo() {
