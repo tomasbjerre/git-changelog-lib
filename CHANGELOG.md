@@ -5,9 +5,19 @@ Changelog of Git Changelog.
 ## Next release
 ### Other changes
 
-[cac0ed0ff08686c](https://github.com/tomasbjerre/git-changelog-lib/commit/cac0ed0ff08686c) Tomas Bjerre *2016-01-27 18:36:55*
+[ad9f073faa1ba99](https://github.com/tomasbjerre/git-changelog-lib/commit/ad9f073faa1ba99) Tomas Bjerre *2016-01-30 09:15:11*
 
-Removing generate_changelog.sh
+Documentation
+
+[96719f26ed22419](https://github.com/tomasbjerre/git-changelog-lib/commit/96719f26ed22419) Tomas Bjerre *2016-01-28 19:53:50*
+
+Adding test cases to GitRepo
+
+[7613efc4a5a0833](https://github.com/tomasbjerre/git-changelog-lib/commit/7613efc4a5a0833) Tomas Bjerre *2016-01-27 18:51:11*
+
+Updating CHANGELOG.md
+
+ * And Removing generate_changelog.sh
 
 
 ## 1.19

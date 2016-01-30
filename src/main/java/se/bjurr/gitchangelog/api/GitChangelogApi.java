@@ -18,12 +18,14 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 
 import org.eclipse.jgit.lib.ObjectId;
 
 import se.bjurr.gitchangelog.api.model.Changelog;
+import se.bjurr.gitchangelog.api.model.Issue;
 import se.bjurr.gitchangelog.internal.git.GitRepo;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
@@ -55,35 +57,282 @@ public class GitChangelogApi {
   GitChangelogApi.fakeGitRepo = fakeGitRepo;
  }
 
+ public static GitChangelogApi gitChangelogApiBuilder() {
+  return new GitChangelogApi();
+ }
+
+ /**
+  * {@link Settings}.
+  */
  public GitChangelogApi withSettings(URL url) {
   settings = fromFile(url);
   return this;
  }
 
- public static GitChangelogApi gitChangelogApiBuilder() {
-  return new GitChangelogApi();
- }
-
+ /**
+  * Folder where repo lives.
+  */
  public GitChangelogApi withFromRepo(String fromRepo) {
   settings.setFromRepo(fromRepo);
   return this;
  }
 
+ /**
+  * Include all commits from here. Any tag or branch name.
+  */
  public GitChangelogApi withFromRef(String fromBranch) {
   settings.setFromRef(fromBranch);
   return this;
  }
 
+ /**
+  * Include all commits to this reference. Any tag or branch name. There is a
+  * constant for master here: reference{GitChangelogApiConstants#REF_MASTER}.
+  */
  public GitChangelogApi withToRef(String toBranch) {
   settings.setToRef(toBranch);
   return this;
  }
 
+ /**
+  * Include all commits from here. Any commit hash. There is a constant pointing
+  * at the first commit here: reference{GitChangelogApiConstants#ZERO_COMMIT}.
+  */
+ public GitChangelogApi withFromCommit(String fromCommit) {
+  settings.setFromCommit(fromCommit);
+  return this;
+ }
+
+ /**
+  * Include all commits to here. Any commit hash.
+  */
+ public GitChangelogApi withToCommit(String toCommit) {
+  settings.setToCommit(toCommit);
+  return this;
+ }
+
+ /**
+  * A regular expression that is evaluated on the commit message of each commit.
+  * If it matches, the commit will be filtered out and not included in the
+  * changelog.<br>
+  * <br>
+  * To ignore tags creted by Maven and Gradle release plugins, perhaps you want
+  * this: <br>
+  * <code>
+  * ^\[maven-release-plugin\].*|^\[Gradle Release Plugin\].*|^Merge.*
+  * </code><br>
+  * <br>
+  * Remember to escape it, if added to the json-file it would look like this:<br>
+  * <code>
+  * ^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*
+  * </code>
+  */
+ public GitChangelogApi withIgnoreCommitsWithMesssage(String ignoreCommitsIfMessageMatches) {
+  settings.setIgnoreCommitsIfMessageMatches(ignoreCommitsIfMessageMatches);
+  return this;
+ }
+
+ /**
+  * Some commits may not be included in any tag. Commits that not released yet
+  * may not be tagged. This is a "virtual tag", added to
+  * {@link Changelog#getTags()}, that includes those commits. A fitting value
+  * may be "Next release".
+  */
+ public GitChangelogApi withUntaggedName(String untaggedName) {
+  settings.setUntaggedName(untaggedName);
+  return this;
+ }
+
+ /**
+  * Path of template-file to use. It is a Mustache (https://mustache.github.io/)
+  * template. Supplied with the context of {@link Changelog}.
+  */
+ public GitChangelogApi withTemplatePath(String templatePath) {
+  settings.setTemplatePath(templatePath);
+  return this;
+ }
+
+ /**
+  * Use string as template. {@link #withTemplatePath}.
+  */
+ public GitChangelogApi withTemplateContent(String templateContent) {
+  this.templateContent = templateContent;
+  return this;
+ }
+
+ /**
+  * Your tags may look something like
+  * <code>git-changelog-maven-plugin-1.6</code>. But in the changelog you just
+  * want <code>1.6</code>. With this regular expression, the numbering can be
+  * extracted from the tag name.<br>
+  * <code>/([^/]+?)$</code>
+  */
+ public GitChangelogApi withReadableTagName(String readableTagName) {
+  settings.setReadableTagName(readableTagName);
+  return this;
+ }
+
+ /**
+  * Format of dates, see {@link SimpleDateFormat}.
+  */
+ public GitChangelogApi withDateFormat(String dateFormat) {
+  settings.setDateFormat(dateFormat);
+  return this;
+ }
+
+ /**
+  * This is a "virtual issue" that is added to {@link Changelog#getIssues()}. It
+  * contains all commits that has no issue in the commit comment. This could be
+  * used as a "wall of shame" listing commiters that did not tag there commits
+  * with an issue.
+  */
+ public GitChangelogApi withNoIssueName(String noIssueName) {
+  settings.setNoIssueName(noIssueName);
+  return this;
+ }
+
+ /**
+  * When date of commits are translated to a string, this timezone is used.<br>
+  * <code>UTC</code>
+  */
+ public GitChangelogApi withTimeZone(String timeZone) {
+  settings.setTimeZone(timeZone);
+  return this;
+ }
+
+ /**
+  * If true, the changelog will not contain the issue in the commit comment. If
+  * your changelog is grouped by issues, you may want this to be true. If not
+  * grouped by issue, perhaps false.
+  */
+ public GitChangelogApi withRemoveIssueFromMessageArgument(boolean removeIssueFromMessage) {
+  settings.setRemoveIssueFromMessage(removeIssueFromMessage);
+  return this;
+ }
+
+ /**
+  * URL pointing at your JIRA server. When configured, the
+  * {@link Issue#getTitle()} will be populated with title from JIRA.<br>
+  * <code>https://jiraserver/jira</code>
+  */
+ public GitChangelogApi withJiraServer(String jiraServer) {
+  settings.setJiraServer(jiraServer);
+  return this;
+ }
+
+ /**
+  * Pattern to recognize JIRA:s. <code>\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\b</code><br>
+  * <br>
+  * Or escaped if added to json-file:<br>
+  * <code>\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b</code>
+  */
+ public GitChangelogApi withJiraIssuePattern(String jiraIssuePattern) {
+  settings.setJiraIssuePattern(jiraIssuePattern);
+  return this;
+ }
+
+ /**
+  * Authenticate to JIRA.
+  */
+ public GitChangelogApi withJiraUsername(String string) {
+  settings.setJiraUsername(string);
+  return this;
+ }
+
+ /**
+  * Authenticate to JIRA.
+  */
+ public GitChangelogApi withJiraPassword(String string) {
+  settings.setJiraPassword(string);
+  return this;
+ }
+
+ /**
+  * URL pointing at GitHub API. When configured, the {@link Issue#getTitle()}
+  * will be populated with title from GitHub.<br>
+  * <code>https://api.github.com/repos/tomasbjerre/git-changelog-lib</code>
+  */
+ public GitChangelogApi withGitHubApi(String gitHubApi) {
+  settings.setGitHubApi(gitHubApi);
+  return this;
+ }
+
+ /**
+  * Pattern to recognize GitHub:s. <code>#([0-9]+)</code>
+  */
+ public GitChangelogApi withGitHubIssuePattern(String gitHubIssuePattern) {
+  settings.setGitHubIssuePattern(gitHubIssuePattern);
+  return this;
+ }
+
+ /**
+  * Custom issues are added to support any kind of issue management, perhaps
+  * something that is internal to your project. See {@link SettingsIssue}.
+  */
+ public GitChangelogApi withCustomIssue(String name, String pattern, String link) {
+  settings.addCustomIssue(new SettingsIssue(name, pattern, link));
+  return this;
+ }
+
+ /**
+  * Extended variables is simply a key-value mapping of variables that are made
+  * available in the template. Is used, for example, by the Bitbucket plugin to
+  * supply some internal variables to the changelog context.
+  */
+ public GitChangelogApi withExtendedVariables(Map<String, Object> extendedVariables) {
+  settings.setExtendedVariables(extendedVariables);
+  return this;
+ }
+
+ /**
+  * Write changelog to file.
+  */
+ public void toFile(String filePath) {
+  try {
+   File file = new File(filePath);
+   createParentDirs(file);
+   write(render().getBytes(), file);
+  } catch (IOException e) {
+   propagate(e);
+  }
+ }
+
+ /**
+  * Create MediaWiki page with changelog.
+  */
+ public void toMediaWiki(String username, String password, String url, String title) {
+  new MediaWikiClient(url, title, render()) //
+    .withUser(username, password) //
+    .createMediaWikiPage();
+ }
+
+ /**
+  * Get the changelog as data object.
+  */
  public Changelog getChangelog() {
   if (fakeGitRepo == null) {
    return getChangelog(new GitRepo(new File(settings.getFromRepo())));
   } else {
    return getChangelog(fakeGitRepo);
+  }
+ }
+
+ /**
+  * Get the changelog as rendered string.
+  */
+ public String render() {
+  try {
+   MustacheFactory mf = new DefaultMustacheFactory();
+   String templateContent = checkNotNull(getTemplateContent(), "No template!");
+   StringReader reader = new StringReader(templateContent);
+   Mustache mustache = mf.compile(reader, settings.getTemplatePath());
+   StringWriter writer = new StringWriter();
+   mustache.execute(writer, //
+     new Object[] { this.getChangelog(), settings.getExtendedVariables() } //
+     ).flush();
+   return writer.toString();
+  } catch (IOException e) {
+   throw propagate(e);
   }
  }
 
@@ -101,128 +350,6 @@ public class GitChangelogApi {
     transformer.toTags(diff, tags), //
     transformer.toAuthors(diff), //
     transformer.toIssues(issues));
- }
-
- public GitChangelogApi withFromCommit(String fromCommit) {
-  settings.setFromCommit(fromCommit);
-  return this;
- }
-
- public GitChangelogApi withToCommit(String toCommit) {
-  settings.setToCommit(toCommit);
-  return this;
- }
-
- public GitChangelogApi withUntaggedName(String untaggedName) {
-  settings.setUntaggedName(untaggedName);
-  return this;
- }
-
- public GitChangelogApi withJiraIssuePattern(String jiraIssuePattern) {
-  settings.setJiraIssuePattern(jiraIssuePattern);
-  return this;
- }
-
- public GitChangelogApi withJiraServer(String jiraServer) {
-  settings.setJiraServer(jiraServer);
-  return this;
- }
-
- public GitChangelogApi withIgnoreCommitsWithMesssage(String ignoreCommitsIfMessageMatches) {
-  settings.setIgnoreCommitsIfMessageMatches(ignoreCommitsIfMessageMatches);
-  return this;
- }
-
- public GitChangelogApi withCustomIssue(String name, String pattern, String link) {
-  settings.addCustomIssue(new SettingsIssue(name, pattern, link));
-  return this;
- }
-
- public GitChangelogApi withTimeZone(String timeZone) {
-  settings.setTimeZone(timeZone);
-  return this;
- }
-
- public void toFile(String filePath) {
-  try {
-   File file = new File(filePath);
-   createParentDirs(file);
-   write(render().getBytes(), file);
-  } catch (IOException e) {
-   propagate(e);
-  }
- }
-
- public void toMediaWiki(String username, String password, String url, String title) {
-  new MediaWikiClient(url, title, render()) //
-    .withUser(username, password) //
-    .createMediaWikiPage();
- }
-
- public GitChangelogApi withTemplatePath(String templatePath) {
-  settings.setTemplatePath(templatePath);
-  return this;
- }
-
- public GitChangelogApi withDateFormat(String dateFormat) {
-  settings.setDateFormat(dateFormat);
-  return this;
- }
-
- public GitChangelogApi withNoIssueName(String noIssueName) {
-  settings.setNoIssueName(noIssueName);
-  return this;
- }
-
- public GitChangelogApi withReadableTagName(String readableTagName) {
-  settings.setReadableTagName(readableTagName);
-  return this;
- }
-
- public GitChangelogApi withRemoveIssueFromMessageArgument(boolean removeIssueFromMessage) {
-  settings.setRemoveIssueFromMessage(removeIssueFromMessage);
-  return this;
- }
-
- public GitChangelogApi withTemplateContent(String templateContent) {
-  this.templateContent = templateContent;
-  return this;
- }
-
- public GitChangelogApi withGitHubApi(String gitHubApi) {
-  settings.setGitHubApi(gitHubApi);
-  return this;
- }
-
- public GitChangelogApi withGitHubIssuePattern(String gitHubIssuePattern) {
-  settings.setGitHubIssuePattern(gitHubIssuePattern);
-  return this;
- }
-
- public GitChangelogApi withJiraUsername(String string) {
-  settings.setJiraUsername(string);
-  return this;
- }
-
- public GitChangelogApi withJiraPassword(String string) {
-  settings.setJiraPassword(string);
-  return this;
- }
-
- public String render() {
-  try {
-   MustacheFactory mf = new DefaultMustacheFactory();
-   String templateContent = checkNotNull(getTemplateContent(), "No template!");
-   StringReader reader = new StringReader(templateContent);
-   Mustache mustache = mf.compile(reader, settings.getTemplatePath());
-   StringWriter writer = new StringWriter();
-   mustache.execute(writer, //
-     new Object[] { this.getChangelog(), settings.getExtendedVariables() } //
-     ).flush();
-   return writer.toString();
-  } catch (IOException e) {
-   throw propagate(e);
-  }
  }
 
  private String getTemplateContent() {
@@ -260,10 +387,5 @@ public class GitChangelogApi {
 
  private GitChangelogApi(Settings settings) {
   this.settings = settings;
- }
-
- public GitChangelogApi withExtendedVariables(Map<String, Object> extendedVariables) {
-  settings.setExtendedVariables(extendedVariables);
-  return this;
  }
 }

@@ -48,6 +48,8 @@ Changelog of Git Changelog.
 {{/tags}}
 ```
 
+Settings can be supplied with a JSON config ([documented here](https://github.com/tomasbjerre/git-changelog/blob/master/src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java)).
+
 ### Library
 
 It has a [builder](https://github.com/tomasbjerre/git-changelog/blob/master/src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java) for creating the changelog.

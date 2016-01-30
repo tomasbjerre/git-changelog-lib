@@ -18,9 +18,13 @@ import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_TIMEZON
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_UNTAGGED_NAME;
 
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import se.bjurr.gitchangelog.api.model.Changelog;
+import se.bjurr.gitchangelog.api.model.Issue;
 
 import com.google.common.base.Optional;
 import com.google.common.io.Resources;
@@ -29,29 +33,128 @@ import com.google.gson.Gson;
 public class Settings {
  private static Gson gson = new Gson();
 
+ /**
+  * Folder where repo lives.
+  */
  private String fromRepo;
+ /**
+  * Include all commits from here. Any tag or branch name.
+  */
  private String fromRef;
+ /**
+  * Include all commits to this reference. Any tag or branch name. There is a
+  * constant for master here: reference{GitChangelogApiConstants#REF_MASTER}.
+  */
  private String toRef;
- private String ignoreCommitsIfMessageMatches;
- private String jiraServer;
- private String jiraIssuePattern;
- private String toCommit;
+ /**
+  * Include all commits from here. Any commit hash. There is a constant pointing
+  * at the first commit here: reference{GitChangelogApiConstants#ZERO_COMMIT}.
+  */
  private String fromCommit;
+ /**
+  * Include all commits to here. Any commit hash.
+  */
+ private String toCommit;
+ /**
+  * A regular expression that is evaluated on the commit message of each commit.
+  * If it matches, the commit will be filtered out and not included in the
+  * changelog.<br>
+  * <br>
+  * To ignore tags creted by Maven and Gradle release plugins, perhaps you want
+  * this: <br>
+  * <code>
+  * ^\[maven-release-plugin\].*|^\[Gradle Release Plugin\].*|^Merge.*
+  * </code><br>
+  * <br>
+  * Remember to escape it, if added to the json-file it would look like this:<br>
+  * <code>
+  * ^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*
+  * </code>
+  */
+ private String ignoreCommitsIfMessageMatches;
+ /**
+  * Some commits may not be included in any tag. Commits that not released yet
+  * may not be tagged. This is a "virtual tag", added to
+  * {@link Changelog#getTags()}, that includes those commits. A fitting value
+  * may be "Next release".
+  */
  private String untaggedName;
+ /**
+  * Path of template-file to use. It is a Mustache (https://mustache.github.io/)
+  * template. Supplied with the context of {@link Changelog}.
+  */
  private String templatePath;
+ /**
+  * Your tags may look something like
+  * <code>git-changelog-maven-plugin-1.6</code>. But in the changelog you just
+  * want <code>1.6</code>. With this regular expression, the numbering can be
+  * extracted from the tag name.<br>
+  * <code>/([^/]+?)$</code>
+  */
  private String readableTagName;
+ /**
+  * Format of dates, see {@link SimpleDateFormat}.
+  */
  private String dateFormat;
+ /**
+  * This is a "virtual issue" that is added to {@link Changelog#getIssues()}. It
+  * contains all commits that has no issue in the commit comment. This could be
+  * used as a "wall of shame" listing commiters that did not tag there commits
+  * with an issue.
+  */
  private String noIssueName;
+ /**
+  * When date of commits are translated to a string, this timezone is used.<br>
+  * <code>UTC</code>
+  */
  private String timeZone;
+ /**
+  * If true, the changelog will not contain the issue in the commit comment. If
+  * your changelog is grouped by issues, you may want this to be true. If not
+  * grouped by issue, perhaps false.
+  */
  private boolean removeIssueFromMessage;
- private String gitHubApi;
- private String gitHubIssuePattern;
- private List<SettingsIssue> customIssues;
-
+ /**
+  * URL pointing at your JIRA server. When configured, the
+  * {@link Issue#getTitle()} will be populated with title from JIRA.<br>
+  * <code>https://jiraserver/jira</code>
+  */
+ private String jiraServer;
+ /**
+  * Pattern to recognize JIRA:s. <code>\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\b</code><br>
+  * <br>
+  * Or escaped if added to json-file:<br>
+  * <code>\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b</code>
+  */
+ private String jiraIssuePattern;
+ /**
+  * Authenticate to JIRA.
+  */
  private String jiraUsername;
-
+ /**
+  * Authenticate to JIRA.
+  */
  private String jiraPassword;
-
+ /**
+  * URL pointing at GitHub API. When configured, the {@link Issue#getTitle()}
+  * will be populated with title from GitHub.<br>
+  * <code>https://api.github.com/repos/tomasbjerre/git-changelog-lib</code>
+  */
+ private String gitHubApi;
+ /**
+  * Pattern to recognize GitHub:s. <code>#([0-9]+)</code>
+  */
+ private String gitHubIssuePattern;
+ /**
+  * Custom issues are added to support any kind of issue management, perhaps
+  * something that is internal to your project. See {@link SettingsIssue}.
+  */
+ private List<SettingsIssue> customIssues;
+ /**
+  * Extended variables is simply a key-value mapping of variables that are made
+  * available in the template. Is used, for example, by the Bitbucket plugin to
+  * supply some internal variables to the changelog context.
+  */
  private Map<String, Object> extendedVariables;
 
  public Settings() {

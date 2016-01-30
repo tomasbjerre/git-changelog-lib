@@ -59,6 +59,14 @@ sourceSets {
  test.java.srcDirs = ['src/test/java' ]
 }
 
+if (JavaVersion.current().isJava8Compatible()) {
+ allprojects {
+  tasks.withType(Javadoc) {
+   options.addStringOption('Xdoclint:none', '-quiet')
+  }
+ }
+}
+
 modifyPom {
  project {
   name 'GIT Changelog'
