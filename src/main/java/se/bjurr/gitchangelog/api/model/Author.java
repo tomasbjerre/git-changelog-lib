@@ -27,4 +27,9 @@ public class Author implements ICommits {
  public List<Commit> getCommits() {
   return commits;
  }
+
+ @Override
+ public String toString() {
+  return "Author: " + authorName;
+ }
 }

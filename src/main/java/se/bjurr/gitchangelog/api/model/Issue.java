@@ -71,4 +71,9 @@ public class Issue implements ICommits, IAuthors {
  public List<Commit> getCommits() {
   return commits;
  }
+
+ @Override
+ public String toString() {
+  return "Issue: " + issue;
+ }
 }

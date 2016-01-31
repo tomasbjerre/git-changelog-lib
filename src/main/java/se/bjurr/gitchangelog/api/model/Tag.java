@@ -45,4 +45,9 @@ public class Tag implements ICommits, IAuthors, IIssues {
  public List<Commit> getCommits() {
   return commits;
  }
+
+ @Override
+ public String toString() {
+  return "name: " + name;
+ }
 }
