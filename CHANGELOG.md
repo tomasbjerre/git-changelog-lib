@@ -2,6 +2,22 @@
 
 Changelog of Git Changelog.
 
+## Next release
+### Other changes
+
+[6b753199a81f9fb](https://github.com/tomasbjerre/git-changelog-lib/commit/6b753199a81f9fb) Tomas Bjerre *2016-01-31 10:30:01*
+
+Sorting tags by committime, not committime formatted string
+
+[283c20a3ae4b7b6](https://github.com/tomasbjerre/git-changelog-lib/commit/283c20a3ae4b7b6) Tomas Bjerre *2016-01-31 10:10:30*
+
+Implementing toString on API mode objects
+
+[e529afb2a911123](https://github.com/tomasbjerre/git-changelog-lib/commit/e529afb2a911123) Tomas Bjerre *2016-01-31 08:04:33*
+
+Lgging exception in rest client
+
+
 ## 1.22
 ### Other changes
 

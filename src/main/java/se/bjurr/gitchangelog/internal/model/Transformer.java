@@ -81,7 +81,7 @@ public class Transformer {
   return Ordering.from(new Comparator<Tag>() {
    @Override
    public int compare(Tag o1, Tag o2) {
-    return o2.getCommit().getCommitTime().compareTo(o1.getCommit().getCommitTime());
+    return o2.getCommit().getCommitTimeLong().compareTo(o1.getCommit().getCommitTimeLong());
    }
   }).sortedCopy(tags);
  }
@@ -174,6 +174,7 @@ public class Transformer {
     gitCommit.getAuthorName(), //
     gitCommit.getAuthorEmailAddress(), //
     format(gitCommit.getCommitTime()), //
+    gitCommit.getCommitTime().getTime(), //
     toMessage(gitCommit.getMessage()), //
     gitCommit.getHash());
  }
