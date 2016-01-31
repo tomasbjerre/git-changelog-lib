@@ -1,6 +1,5 @@
 package se.bjurr.gitchangelog.internal.git;
 
-import static com.google.common.base.Joiner.on;
 import static com.google.common.base.Objects.firstNonNull;
 import static com.google.common.base.Throwables.propagate;
 import static com.google.common.collect.Iterables.filter;
@@ -94,7 +93,7 @@ public class GitRepo {
 
    return newArrayList(transform(diff, TO_GITCOMMIT));
   } catch (Exception e) {
-   throw new RuntimeException("References:\n" + on("\n").join(getAllRefs().keySet()), e);
+   throw new RuntimeException(toString(), e);
   } finally {
    git.close();
   }

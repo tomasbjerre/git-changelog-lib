@@ -5,7 +5,15 @@ Changelog of Git Changelog.
 ## Next release
 ### Other changes
 
-[6b753199a81f9fb](https://github.com/tomasbjerre/git-changelog-lib/commit/6b753199a81f9fb) Tomas Bjerre *2016-01-31 10:30:01*
+[a10bef4d61b05d3](https://github.com/tomasbjerre/git-changelog-lib/commit/a10bef4d61b05d3) Tomas Bjerre *2016-01-31 12:14:45*
+
+Better error message when commit not found
+
+
+## 1.23
+### Other changes
+
+[a9fc5a30a82c320](https://github.com/tomasbjerre/git-changelog-lib/commit/a9fc5a30a82c320) Tomas Bjerre *2016-01-31 10:30:24*
 
 Sorting tags by committime, not committime formatted string
 
