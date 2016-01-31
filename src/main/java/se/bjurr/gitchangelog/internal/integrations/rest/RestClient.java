@@ -63,7 +63,7 @@ public class RestClient {
    }
    return of(getResponse(conn));
   } catch (Exception e) {
-   logger.error("Got:\n" + response);
+   logger.error("Got:\n" + response, e);
    return absent();
   }
  }
