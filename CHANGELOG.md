@@ -5,7 +5,15 @@ Changelog of Git Changelog.
 ## Next release
 ### Other changes
 
-[a10bef4d61b05d3](https://github.com/tomasbjerre/git-changelog-lib/commit/a10bef4d61b05d3) Tomas Bjerre *2016-01-31 12:14:45*
+[04f9efa398d3834](https://github.com/tomasbjerre/git-changelog-lib/commit/04f9efa398d3834) Tomas Bjerre *2016-02-09 19:09:13*
+
+Added variables: messageTitle, messageBody, messageItems
+
+[4e25e7e2cf5d5ec](https://github.com/tomasbjerre/git-changelog-lib/commit/4e25e7e2cf5d5ec) Tomas Bjerre *2016-01-31 21:12:35*
+
+Maven Central version badge in README.md
+
+[1e5cb6c76a681aa](https://github.com/tomasbjerre/git-changelog-lib/commit/1e5cb6c76a681aa) Tomas Bjerre *2016-01-31 12:15:00*
 
 Better error message when commit not found
 

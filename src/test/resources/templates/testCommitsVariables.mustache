@@ -1,0 +1,18 @@
+# Git Changelog changelog
+
+Changelog of Git Changelog.
+
+{{#commits}}
+## Commit {{hash}}
+ Message: {{message}}
+ 
+ Message Title: {{messageTitle}}
+
+ Message Body: {{messageBody}}
+ 
+{{#messageBodyItems}}
+ Item: {{.}}
+ 
+{{/messageBodyItems}}
+
+{{/commits}}

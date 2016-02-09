@@ -36,6 +36,11 @@ public class TemplatesTest {
  }
 
  @Test
+ public void testCommitsVariables() throws Exception {
+  test("testCommitsVariables");
+ }
+
+ @Test
  public void testIssuesCommits() throws Exception {
   test("testIssuesCommits");
  }

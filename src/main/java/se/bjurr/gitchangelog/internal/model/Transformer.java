@@ -1,5 +1,6 @@
 package se.bjurr.gitchangelog.internal.model;
 
+import static com.google.common.base.Joiner.on;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.collect.Iterables.filter;
 import static com.google.common.collect.Iterables.transform;
@@ -32,6 +33,7 @@ import se.bjurr.gitchangelog.internal.settings.IssuesUtil;
 import se.bjurr.gitchangelog.internal.settings.Settings;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
 
+import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Multimap;
@@ -175,17 +177,78 @@ public class Transformer {
     gitCommit.getAuthorEmailAddress(), //
     format(gitCommit.getCommitTime()), //
     gitCommit.getCommitTime().getTime(), //
-    toMessage(gitCommit.getMessage()), //
-    gitCommit.getHash());
+    toMessage(settings.removeIssueFromMessage(), new IssuesUtil(settings).getIssues(), gitCommit.getMessage()), //
+    gitCommit.getHash(),//
+    toMessageTitle(settings.removeIssueFromMessage(), new IssuesUtil(settings).getIssues(), gitCommit.getMessage()),//
+    toMessageBody(settings.removeIssueFromMessage(), new IssuesUtil(settings).getIssues(), gitCommit.getMessage()),//
+    toMessageItems(settings.removeIssueFromMessage(), new IssuesUtil(settings).getIssues(), gitCommit.getMessage()));
  }
 
- private String toMessage(String message) {
-  if (settings.removeIssueFromMessage()) {
-   for (SettingsIssue issue : new IssuesUtil(settings).getIssues()) {
-    message = message.replaceAll(issue.getPattern(), "");
+ @VisibleForTesting
+ List<String> toMessageItems(Boolean removeIssueFromMessage, List<SettingsIssue> issues, String message) {
+  List<String> toReturn = newArrayList();
+  List<String> stringList = toNoEmptyStringsList(removeIssuesFromString(removeIssueFromMessage, issues, message));
+  if (stringList.size() > 1) {
+   List<String> notFirst = notFirst(stringList);
+   for (String part : notFirst) {
+    String candidate = part.trim();
+    if (candidate.startsWith("*")) {
+     candidate = candidate.substring(1).trim();
+    }
+    if (!candidate.isEmpty()) {
+     toReturn.add(candidate);
+    }
    }
   }
-  return message;
+  return toReturn;
+ }
+
+ @VisibleForTesting
+ String toMessageBody(Boolean removeIssueFromMessage, List<SettingsIssue> issues, String message) {
+  List<String> stringList = toNoEmptyStringsList(removeIssuesFromString(removeIssueFromMessage, issues, message));
+  if (stringList.size() > 1) {
+   List<String> notFirst = notFirst(stringList);
+   return on("\n")//
+     .join(notFirst);
+  }
+  return "";
+ }
+
+ @VisibleForTesting
+ String toMessageTitle(Boolean removeIssueFromMessage, List<SettingsIssue> issues, String message) {
+  List<String> stringList = toNoEmptyStringsList(removeIssuesFromString(removeIssueFromMessage, issues, message));
+  if (stringList.size() > 0) {
+   return stringList.get(0);
+  }
+  return "";
+ }
+
+ @VisibleForTesting
+ String toMessage(boolean removeIssueFromMessage, List<SettingsIssue> issues, String message) {
+  return removeIssuesFromString(removeIssueFromMessage, issues, message);
+ }
+
+ private List<String> notFirst(List<String> stringList) {
+  return stringList.subList(1, stringList.size());
+ }
+
+ private List<String> toNoEmptyStringsList(String message) {
+  List<String> toReturn = newArrayList();
+  for (String part : message.split("\n")) {
+   if (!part.isEmpty()) {
+    toReturn.add(part);
+   }
+  }
+  return toReturn;
+ }
+
+ private String removeIssuesFromString(boolean removeIssueFromMessage, List<SettingsIssue> issues, String string) {
+  if (removeIssueFromMessage) {
+   for (SettingsIssue issue : issues) {
+    string = string.replaceAll(issue.getPattern(), "");
+   }
+  }
+  return string;
  }
 
  private String format(Date commitTime) {

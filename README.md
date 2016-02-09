@@ -88,23 +88,32 @@ The template is supplied with a datastructure like:
 * commits
  - authorName
  - authorEmailAddress
- - message
  - commitTime
+ - message (The full message)
+ - messageTitle (Only the first line of the message)
+ - messageBody (Everything, except the title)
+ * messageBodyItems (List of strings, the lines after the title)
 * tags
  - name
  * commits
   - authorName
   - authorEmailAddress
-  - message
   - commitTime
+  - message (The full message)
+  - messageTitle (Only the first line of the message)
+  - messageBody (Everything, except the title)
+  * messageBodyItems (List of strings, the lines after the title)
  * authors
   - authorName
   - authrorEmail
   * commits
    - authorName
    - authorEmailAddress
-   - message
    - commitTime
+   - message (The full message)
+   - messageTitle (Only the first line of the message)
+   - messageBody (Everything, except the title)
+   * messageBodyItems (List of strings, the lines after the title)
  * issues
   - name
   - hasIssue
@@ -116,24 +125,33 @@ The template is supplied with a datastructure like:
   * commits
    - authorName
    - authorEmailAddress
-   - message
    - commitTime
+   - message (The full message)
+   - messageTitle (Only the first line of the message)
+   - messageBody (Everything, except the title)
+   * messageBodyItems (List of strings, the lines after the title)
   * authors
    - authorName
    - authrorEmail
    * commits
     - authorName
     - authorEmailAddress
-    - message
     - commitTime
+    - message (The full message)
+    - messageTitle (Only the first line of the message)
+    - messageBody (Everything, except the title)
+    * messageBodyItems (List of strings, the lines after the title)
 * authors
  - authorName
  - authrorEmail
  * commits
   - authorName
   - authorEmailAddress
-  - message
   - commitTime
+  - message (The full message)
+  - messageTitle (Only the first line of the message)
+  - messageBody (Everything, except the title)
+  * messageBodyItems (List of strings, the lines after the title)
 * issues
  - name
  - hasIssue
@@ -145,16 +163,22 @@ The template is supplied with a datastructure like:
  * commits
   - authorName
   - authorEmailAddress
-  - message
   - commitTime
+  - message (The full message)
+  - messageTitle (Only the first line of the message)
+  - messageBody (Everything, except the title)
+  * messageBodyItems (List of strings, the lines after the title)
  * authors
   - authorName
   - authrorEmail
   * commits
    - authorName
    - authorEmailAddress
-   - message
    - commitTime
+   - message (The full message)
+   - messageTitle (Only the first line of the message)
+   - messageBody (Everything, except the title)
+   * messageBodyItems (List of strings, the lines after the title)
 ```
 
 ## MediaWiki
