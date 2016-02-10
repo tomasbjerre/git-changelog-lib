@@ -47,6 +47,8 @@
 
 <p>It can integrate with Jira and/or GitHub to retrieve the title of issues.</p>
 
+<p>The <a href="https://github.com/tomasbjerre/git-changelog-lib/blob/master/CHANGELOG.md">changelog</a> of this project is automatically generated with <a href="https://github.com/tomasbjerre/git-changelog-lib/blob/master/changelog.mustache">this template</a>.</p>
+
 <p>There are some screenshots <a href="https://github.com/tomasbjerre/git-changelog-lib/tree/screenshots/sandbox">here</a>.</p>
 
 <h2>
@@ -68,29 +70,140 @@
 <pre><code># Git Changelog changelog
 
 Changelog of Git Changelog.
+# Git Changelog changelog
+
+Changelog of Git Changelog.
+
 {{#tags}}
 ## {{name}}
  {{#issues}}
-  {{#hasLink}}
+  {{#hasIssue}}
+   {{#hasLink}}
 ### {{name}} [{{issue}}]({{link}}) {{title}}
-  {{/hasLink}}
-  {{^hasLink}}
-### {{name}} {{title}}
-  {{/hasLink}}
-  {{#authors}}
-* {{authorName}}
-   {{#commits}}
-[{{hash}}](https://server/{{hash}}) *{{commitTime}}*
-{{{message}}}
+   {{/hasLink}}
+   {{^hasLink}}
+### {{name}} {{issue}} {{title}}
+   {{/hasLink}}
+  {{/hasIssue}}
+  {{^hasIssue}}
+### {{name}}
+  {{/hasIssue}}
 
-   {{/commits}}
+  {{#commits}}
+**{{{messageTitle}}}**
 
-  {{/authors}}
+{{#messageBodyItems}}
+ * {{.}} 
+{{/messageBodyItems}}
+
+[{{hash}}](https://github.com/tomasbjerre/git-changelog-lib/commit/{{hash}}) {{authorName}} *{{commitTime}}*
+
+  {{/commits}}
+
  {{/issues}}
 {{/tags}}
 </code></pre>
 
-<p>Settings can be supplied with a JSON config (<a href="https://github.com/tomasbjerre/git-changelog/blob/master/src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java">documented here</a>).</p>
+<h2>
+<a id="supplied-information" class="anchor" href="#supplied-information" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Supplied information</h2>
+
+<p>The template is supplied with a datastructure like:</p>
+
+<pre><code>* commits
+ - authorName
+ - authorEmailAddress
+ - commitTime
+ - message (The full message)
+ - messageTitle (Only the first line of the message)
+ - messageBody (Everything, except the title)
+ * messageBodyItems (List of strings, the lines after the title)
+* tags
+ - name
+ * commits
+  - authorName
+  - authorEmailAddress
+  - commitTime
+  - message (The full message)
+  - messageTitle (Only the first line of the message)
+  - messageBody (Everything, except the title)
+  * messageBodyItems (List of strings, the lines after the title)
+ * authors
+  - authorName
+  - authrorEmail
+  * commits
+   - authorName
+   - authorEmailAddress
+   - commitTime
+   - message (The full message)
+   - messageTitle (Only the first line of the message)
+   - messageBody (Everything, except the title)
+   * messageBodyItems (List of strings, the lines after the title)
+ * issues
+  - name
+  - hasIssue
+  - issue
+  - hasLink
+  - link
+  - hasTitle
+  - title
+  * commits
+   - authorName
+   - authorEmailAddress
+   - commitTime
+   - message (The full message)
+   - messageTitle (Only the first line of the message)
+   - messageBody (Everything, except the title)
+   * messageBodyItems (List of strings, the lines after the title)
+  * authors
+   - authorName
+   - authrorEmail
+   * commits
+    - authorName
+    - authorEmailAddress
+    - commitTime
+    - message (The full message)
+    - messageTitle (Only the first line of the message)
+    - messageBody (Everything, except the title)
+    * messageBodyItems (List of strings, the lines after the title)
+* authors
+ - authorName
+ - authrorEmail
+ * commits
+  - authorName
+  - authorEmailAddress
+  - commitTime
+  - message (The full message)
+  - messageTitle (Only the first line of the message)
+  - messageBody (Everything, except the title)
+  * messageBodyItems (List of strings, the lines after the title)
+* issues
+ - name
+ - hasIssue
+ - issue
+ - hasLink
+ - link
+ - hasTitle
+ - title
+ * commits
+  - authorName
+  - authorEmailAddress
+  - commitTime
+  - message (The full message)
+  - messageTitle (Only the first line of the message)
+  - messageBody (Everything, except the title)
+  * messageBodyItems (List of strings, the lines after the title)
+ * authors
+  - authorName
+  - authrorEmail
+  * commits
+   - authorName
+   - authorEmailAddress
+   - commitTime
+   - message (The full message)
+   - messageTitle (Only the first line of the message)
+   - messageBody (Everything, except the title)
+   * messageBodyItems (List of strings, the lines after the title)
+</code></pre>
 
 <h3>
 <a id="library" class="anchor" href="#library" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Library</h3>
@@ -122,82 +235,7 @@ Changelog of Git Changelog.
   "Title of page");
 </code></pre>
 
-<h2>
-<a id="supplied-information" class="anchor" href="#supplied-information" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Supplied information</h2>
-
-<p>The template is supplied with a datastructure like:</p>
-
-<pre><code>* commits
- - authorName
- - authorEmailAddress
- - message
- - commitTime
-* tags
- - name
- * commits
-  - authorName
-  - authorEmailAddress
-  - message
-  - commitTime
- * authors
-  - authorName
-  - authrorEmail
-  * commits
-   - authorName
-   - authorEmailAddress
-   - message
-   - commitTime
- * issues
-  - name
-  - hasIssue
-  - issue
-  - hasLink
-  - link
-  - hasTitle
-  - title
-  * commits
-   - authorName
-   - authorEmailAddress
-   - message
-   - commitTime
-  * authors
-   - authorName
-   - authrorEmail
-   * commits
-    - authorName
-    - authorEmailAddress
-    - message
-    - commitTime
-* authors
- - authorName
- - authrorEmail
- * commits
-  - authorName
-  - authorEmailAddress
-  - message
-  - commitTime
-* issues
- - name
- - hasIssue
- - issue
- - hasLink
- - link
- - hasTitle
- - title
- * commits
-  - authorName
-  - authorEmailAddress
-  - message
-  - commitTime
- * authors
-  - authorName
-  - authrorEmail
-  * commits
-   - authorName
-   - authorEmailAddress
-   - message
-   - commitTime
-</code></pre>
+<p>Settings can be supplied with a JSON config (<a href="https://github.com/tomasbjerre/git-changelog/blob/master/src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java">documented here</a>).</p>
 
 <h2>
 <a id="mediawiki" class="anchor" href="#mediawiki" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>MediaWiki</h2>
