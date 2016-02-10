@@ -5,7 +5,7 @@ Changelog of Git Changelog.
 ## Commit eb408ddc4fa484e6befdf5954e56a2198c7a9fab
  Message: More stuff tagged with bug
  
- Message Title: More stuff tagged with bug 
+ Message Title: More stuff tagged with bug
 
  Message Body: 
  
@@ -13,7 +13,7 @@ Changelog of Git Changelog.
 ## Commit 9db063f3b5e0adfd0d29a03db0a1c207b3740a94
  Message: Adding stuff with a jira
  
- Message Title: Adding stuff with a jira 
+ Message Title: Adding stuff with a jira
 
  Message Body: 
  
@@ -31,7 +31,7 @@ Changelog of Git Changelog.
 ## Commit 2f086fc767a0dac59a38c67f409b4f74a1eab39f
  Message: Adding cq stuff with CQ
  
- Message Title: Adding cq stuff with CQ 
+ Message Title: Adding cq stuff with CQ
 
  Message Body: 
  
@@ -63,7 +63,7 @@ Changelog of Git Changelog.
 ## Commit 8e146c3c4e33449f95a49679795f74f7ae19ecc1
  Message: Adding stuff with a jira
  
- Message Title: Adding stuff with a jira 
+ Message Title: Adding stuff with a jira
 
  Message Body:   
  
@@ -71,7 +71,7 @@ Changelog of Git Changelog.
 ## Commit 0aaf76f425c6e0f43a36197de768e67d9e035abb
  Message: Adding stuff with gh 20
  
- Message Title: Adding stuff with gh 20 
+ Message Title: Adding stuff with gh 20
 
  Message Body: 
  

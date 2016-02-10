@@ -18,9 +18,13 @@ Changelog of Git Changelog.
   {{/hasIssue}}
 
   {{#commits}}
-[{{hash}}](https://github.com/tomasbjerre/git-changelog-lib/commit/{{hash}}) {{authorName}} *{{commitTime}}*
+**{{{messageTitle}}}**
 
-{{{message}}}
+{{#messageBodyItems}}
+ * {{.}} 
+{{/messageBodyItems}}
+
+[{{hash}}](https://github.com/tomasbjerre/git-changelog-lib/commit/{{hash}}) {{authorName}} *{{commitTime}}*
 
   {{/commits}}
 

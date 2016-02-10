@@ -2,7 +2,6 @@ package se.bjurr.gitchangelog.internal.git;
 
 import static com.google.common.base.Objects.firstNonNull;
 import static com.google.common.base.Throwables.propagate;
-import static com.google.common.collect.Iterables.filter;
 import static com.google.common.collect.Iterables.transform;
 import static com.google.common.collect.Iterators.getLast;
 import static com.google.common.collect.Lists.newArrayList;
@@ -32,7 +31,6 @@ import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 
 import com.google.common.base.Function;
-import com.google.common.base.Predicate;
 
 public class GitRepo {
  private static final Function<RevCommit, GitCommit> TO_GITCOMMIT = new Function<RevCommit, GitCommit>() {
@@ -88,24 +86,17 @@ public class GitRepo {
     return newArrayList(transform(toList, TO_GITCOMMIT));
    }
 
-   List<RevCommit> fromList = newArrayList(git.log().add(from).call()); //
-   Iterable<RevCommit> diff = filter(toList, notIn(fromList));
+   Iterable<RevCommit> itr = git //
+     .log() //
+     .addRange(from, to) //
+     .call();
 
-   return newArrayList(transform(diff, TO_GITCOMMIT));
+   return newArrayList(transform(itr, TO_GITCOMMIT));
   } catch (Exception e) {
    throw new RuntimeException(toString(), e);
   } finally {
    git.close();
   }
- }
-
- private Predicate<RevCommit> notIn(final List<RevCommit> fromList) {
-  return new Predicate<RevCommit>() {
-   @Override
-   public boolean apply(RevCommit input) {
-    return !fromList.contains(input);
-   }
-  };
  }
 
  public List<GitTag> getTags() {

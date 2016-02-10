@@ -66,11 +66,11 @@ public class TransformerTest {
  @Test
  public void testThatMessageTitleCanBeTransformedWithoutIssues() {
   assertThat(transformer.toMessageTitle(true, oneIssue, messageOnlyOneLineAfterTitle))//
-    .isEqualTo(" message title");
+    .isEqualTo("message title");
   assertThat(transformer.toMessageTitle(true, oneIssue, messageOnlyOneLineAfterTitleAndOneEmptyLine))//
-    .isEqualTo(" message title");
+    .isEqualTo("message title");
   assertThat(transformer.toMessageTitle(true, oneIssue, messageOnlyOneLineAfterTitleAndNoStars))//
-    .isEqualTo(" message title");
+    .isEqualTo("message title");
 
   assertThat(transformer.toMessageTitle(true, noIssues, messageOnlyOneLineAfterTitle))//
     .isEqualTo("INC123 message title");

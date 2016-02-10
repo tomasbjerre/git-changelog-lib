@@ -26,59 +26,38 @@ Here is an example template. There are more examples [here](https://github.com/t
 # Git Changelog changelog
 
 Changelog of Git Changelog.
+# Git Changelog changelog
+
+Changelog of Git Changelog.
+
 {{#tags}}
 ## {{name}}
  {{#issues}}
-  {{#hasLink}}
+  {{#hasIssue}}
+   {{#hasLink}}
 ### {{name}} [{{issue}}]({{link}}) {{title}}
-  {{/hasLink}}
-  {{^hasLink}}
-### {{name}} {{title}}
-  {{/hasLink}}
-  {{#authors}}
-* {{authorName}}
-   {{#commits}}
-[{{hash}}](https://server/{{hash}}) *{{commitTime}}*
-{{{message}}}
+   {{/hasLink}}
+   {{^hasLink}}
+### {{name}} {{issue}} {{title}}
+   {{/hasLink}}
+  {{/hasIssue}}
+  {{^hasIssue}}
+### {{name}}
+  {{/hasIssue}}
 
-   {{/commits}}
+  {{#commits}}
+**{{{messageTitle}}}**
 
-  {{/authors}}
+{{#messageBodyItems}}
+ * {{.}} 
+{{/messageBodyItems}}
+
+[{{hash}}](https://github.com/tomasbjerre/git-changelog-lib/commit/{{hash}}) {{authorName}} *{{commitTime}}*
+
+  {{/commits}}
+
  {{/issues}}
 {{/tags}}
-```
-
-Settings can be supplied with a JSON config ([documented here](https://github.com/tomasbjerre/git-changelog/blob/master/src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java)).
-
-### Library
-
-It has a [builder](https://github.com/tomasbjerre/git-changelog/blob/master/src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java) for creating the changelog.
-
-```
-  gitChangelogApiBuilder()
-   .withFromCommit(ZERO_COMMIT)
-   .withToRef("refs/heads/master")
-   .withTemplatePath("changelog.mustache")
-   .toFile("CHANGELOG.md");
-```
-
-It can also create releasenotes. If you are using git flow it may look like this.
-
-```
-  gitChangelogApiBuilder()
-   .withFromRef("refs/heads/dev")
-   .withToRef("refs/heads/master")
-   .withTemplatePath("releasenotes.mustache")
-   .toStdout();
-```
-A page can be created in MediaWiki like this.
-
-```
- .toMediaWiki(
-  "username",
-  "password",
-  "http://host/mediawiki",
-  "Title of page");
 ```
 
 ## Supplied information
@@ -180,6 +159,39 @@ The template is supplied with a datastructure like:
    - messageBody (Everything, except the title)
    * messageBodyItems (List of strings, the lines after the title)
 ```
+
+### Library
+
+It has a [builder](https://github.com/tomasbjerre/git-changelog/blob/master/src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java) for creating the changelog.
+
+```
+  gitChangelogApiBuilder()
+   .withFromCommit(ZERO_COMMIT)
+   .withToRef("refs/heads/master")
+   .withTemplatePath("changelog.mustache")
+   .toFile("CHANGELOG.md");
+```
+
+It can also create releasenotes. If you are using git flow it may look like this.
+
+```
+  gitChangelogApiBuilder()
+   .withFromRef("refs/heads/dev")
+   .withToRef("refs/heads/master")
+   .withTemplatePath("releasenotes.mustache")
+   .toStdout();
+```
+A page can be created in MediaWiki like this.
+
+```
+ .toMediaWiki(
+  "username",
+  "password",
+  "http://host/mediawiki",
+  "Title of page");
+```
+
+Settings can be supplied with a JSON config ([documented here](https://github.com/tomasbjerre/git-changelog/blob/master/src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java)).
 
 ## MediaWiki
 The library can create a wiki page in MediaWiki. To do this, you must enable the API in MediaWiki in `mediawiki/LocalSettings.php` by adding:

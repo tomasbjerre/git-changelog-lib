@@ -218,7 +218,7 @@ public class Transformer {
  String toMessageTitle(Boolean removeIssueFromMessage, List<SettingsIssue> issues, String message) {
   List<String> stringList = toNoEmptyStringsList(removeIssuesFromString(removeIssueFromMessage, issues, message));
   if (stringList.size() > 0) {
-   return stringList.get(0);
+   return stringList.get(0).trim();
   }
   return "";
  }
