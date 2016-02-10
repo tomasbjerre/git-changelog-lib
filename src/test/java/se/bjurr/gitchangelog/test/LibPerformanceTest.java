@@ -1,35 +1,35 @@
-package se.bjurr.gitchangelog.internal.git;
+package se.bjurr.gitchangelog.test;
 
+import static com.google.common.base.Stopwatch.createStarted;
 import static java.util.concurrent.TimeUnit.SECONDS;
+import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
 
 import java.io.File;
 import java.util.List;
 import java.util.logging.Logger;
 
-import org.eclipse.jgit.lib.ObjectId;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.BeforeClass;
 
+import se.bjurr.gitchangelog.api.GitChangelogApi;
+import se.bjurr.gitchangelog.internal.git.GitRepo;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 
 import com.google.common.base.Stopwatch;
 
-public class GitRepoPerformanceTest {
+public class LibPerformanceTest {
+ private static final String GIT_REPO_DIR = "/home/bjerre/workspace/spring-framework";
  private Stopwatch stopwatch;
- private static final Logger LOG = Logger.getLogger(GitRepoPerformanceTest.class.getSimpleName());
+ private GitChangelogApi gitChangelogApiBuilder;
  private GitRepo gitRepo;
-
- @BeforeClass
- public static void beforeClass() {
- }
+ private static final Logger LOG = Logger.getLogger(LibPerformanceTest.class.getSimpleName());
 
  @Before
  public void before() {
-  File gitRepoFile = new File("/home/bjerre/workspace/spring-framework");
-  gitRepo = new GitRepo(gitRepoFile);
-  LOG.info("Using repo:\n" + gitRepo);
-  this.stopwatch = Stopwatch.createStarted();
+  gitChangelogApiBuilder = gitChangelogApiBuilder()//
+    .withFromRepo(GIT_REPO_DIR);
+  gitRepo = new GitRepo(new File(GIT_REPO_DIR));
+  this.stopwatch = createStarted();
  }
 
  @After
@@ -50,11 +50,12 @@ public class GitRepoPerformanceTest {
     if (from.getName().equals(to.getName())) {
      continue;
     }
-    ObjectId fromCommit = gitRepo.getRef(from.getName());
-    ObjectId toCommit = gitRepo.getRef(to.getName());
     String str = from.getName() + " -> " + to.getName();
     LOG.info(str);
-    gitRepo.getDiff(fromCommit, toCommit);
+    gitChangelogApiBuilder//
+      .withFromRef(from.getName())//
+      .withToRef(to.getName())//
+      .render();
    }
   }
  }

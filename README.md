@@ -10,6 +10,8 @@ It is fully configurable with a [Mustache](http://mustache.github.io/) template.
 
 It can integrate with Jira and/or GitHub to retrieve the title of issues.
 
+The [changelog](https://github.com/tomasbjerre/git-changelog-lib/blob/master/CHANGELOG.md) of this project is automatically generated with [this template](https://github.com/tomasbjerre/git-changelog-lib/blob/master/changelog.mustache).
+
 There are some screenshots [here](https://github.com/tomasbjerre/git-changelog-lib/tree/screenshots/sandbox).
 
 ## Usage

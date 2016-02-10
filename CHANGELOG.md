@@ -5,12 +5,22 @@ Changelog of Git Changelog.
 ## Next release
 ### GitHub [#13](https://github.com/tomasbjerre/git-changelog-lib/issues/13) GitRepo getDiff performance
 
+**Identified performance issue as GitRepo:getTags()**
+
+ * Updating performance test to reveal it. 
+
+[e27a4791fb52f33](https://github.com/tomasbjerre/git-changelog-lib/commit/e27a4791fb52f33) Tomas Bjerre *2016-02-11 17:47:00*
+
+
+## 1.25
+### GitHub [#13](https://github.com/tomasbjerre/git-changelog-lib/issues/13) GitRepo getDiff performance
+
 **Letting JGit determine new commits between refs**
 
  * Also changing changelog template. 
  * Also trimming messageTitle variable. 
 
-[946c500d639a41d](https://github.com/tomasbjerre/git-changelog-lib/commit/946c500d639a41d) Tomas Bjerre *2016-02-10 17:27:01*
+[5b307bd00b47e83](https://github.com/tomasbjerre/git-changelog-lib/commit/5b307bd00b47e83) Tomas Bjerre *2016-02-10 17:31:13*
 
 
 ## 1.24
