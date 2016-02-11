@@ -15,6 +15,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import org.slf4j.Logger;
 
+import se.bjurr.gitchangelog.internal.git.GitRepoData;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 
@@ -65,12 +66,14 @@ public class FakeRepo {
       new GitCommit("T B", "tomas.b@example", new Date(DAY_ZERO + TIME_DAY * 10), "More stuff tagged with bug #bug",
         hashes.get(9)));
 
-  fakeGitRepo.withTag(new GitTag("refs/tags/1.0", fakeGitRepo.getDiff(fromString(ZERO_COMMIT),
-    fromString(hashes.get(5)))));
+  fakeGitRepo.withTag(new GitTag("refs/tags/1.0", fakeGitRepo.getGitRepoData(fromString(ZERO_COMMIT),
+    fromString(hashes.get(5))).getGitCommits()));
 
   logger.debug("Created fake repo for testing:");
-  for (GitCommit gitCommit : fakeGitRepo.getDiff(fromString(ZERO_COMMIT), fakeGitRepo.getRef("refs/heads/master"))) {
-   logTag(gitCommit.getHash(), fakeGitRepo.getTags());
+  GitRepoData gitRepoData = fakeGitRepo
+    .getGitRepoData(fromString(ZERO_COMMIT), fakeGitRepo.getRef("refs/heads/master"));
+  for (GitCommit gitCommit : gitRepoData.getGitCommits()) {
+   logTag(gitCommit.getHash(), gitRepoData.getGitTags());
    logger.debug(" " + gitCommit.getHash() + " " + gitCommit.getMessage());
   }
 

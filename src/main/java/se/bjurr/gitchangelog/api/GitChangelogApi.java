@@ -27,6 +27,7 @@ import org.eclipse.jgit.lib.ObjectId;
 import se.bjurr.gitchangelog.api.model.Changelog;
 import se.bjurr.gitchangelog.api.model.Issue;
 import se.bjurr.gitchangelog.internal.git.GitRepo;
+import se.bjurr.gitchangelog.internal.git.GitRepoData;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 import se.bjurr.gitchangelog.internal.integrations.mediawiki.MediaWikiClient;
@@ -53,7 +54,7 @@ public class GitChangelogApi {
  private static GitRepo fakeGitRepo;
 
  @VisibleForTesting
- static void setFakeGitRepo(GitRepo fakeGitRepo) {
+ public static void setFakeGitRepo(GitRepo fakeGitRepo) {
   GitChangelogApi.fakeGitRepo = fakeGitRepo;
  }
 
@@ -341,8 +342,9 @@ public class GitChangelogApi {
     .or(gitRepo.getCommit(ZERO_COMMIT));
   ObjectId toId = getId(gitRepo, settings.getToRef(), settings.getToCommit()) //
     .or(gitRepo.getRef(REF_MASTER));
-  List<GitCommit> diff = gitRepo.getDiff(fromId, toId);
-  List<GitTag> tags = gitRepo.getTags();
+  GitRepoData gitRepoData = gitRepo.getGitRepoData(fromId, toId);
+  List<GitCommit> diff = gitRepoData.getGitCommits();
+  List<GitTag> tags = gitRepoData.getGitTags();
   List<ParsedIssue> issues = new IssueParser(settings, diff).parseForIssues();
   Transformer transformer = new Transformer(settings);
   return new Changelog(//

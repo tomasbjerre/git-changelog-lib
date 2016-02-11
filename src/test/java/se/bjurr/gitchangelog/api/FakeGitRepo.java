@@ -15,6 +15,7 @@ import java.util.Map;
 import org.eclipse.jgit.lib.ObjectId;
 
 import se.bjurr.gitchangelog.internal.git.GitRepo;
+import se.bjurr.gitchangelog.internal.git.GitRepoData;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 
@@ -65,31 +66,26 @@ public class FakeGitRepo extends GitRepo {
     return input.getGitCommit().getHash();
    }
   });
-  return fromString(checkNotNull(tagsMap.get(ref), "Not found: " + ref + " in:\n" + on("\n").join(tagsMap.keySet()))
-    .getGitCommit().getHash());
+  return fromString(checkNotNull(tagsMap.get(ref), //
+    "Not found: " + ref + " in:\n" + on("\n").join(tagsMap.keySet())).getGitCommit().getHash());
  }
 
  @Override
- public List<GitTag> getTags() {
-  return tags;
- }
-
- @Override
- public List<GitCommit> getDiff(ObjectId from, ObjectId to) {
-  List<GitCommit> toReturn = newArrayList();
+ public GitRepoData getGitRepoData(ObjectId from, ObjectId to) {
+  List<GitCommit> gitCommits = newArrayList();
   boolean included = false;
   for (GitCommit gitCommit : reverse(commits)) {
    if (gitCommit.getHash().equals(from.getName())) {
     included = true;
    }
    if (included) {
-    toReturn.add(0, gitCommit);
+    gitCommits.add(0, gitCommit);
    }
    if (gitCommit.getHash().equals(to.getName())) {
     break;
    }
   }
-  return toReturn;
+  return new GitRepoData(gitCommits, tags);
  }
 
 }

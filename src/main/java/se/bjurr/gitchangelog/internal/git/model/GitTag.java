@@ -13,7 +13,7 @@ public class GitTag implements IGitCommitReferer {
  private final List<GitCommit> gitCommits;
 
  public GitTag(String name, List<GitCommit> gitCommits) {
-  checkArgument(!gitCommits.isEmpty(), "commits");
+  checkArgument(!gitCommits.isEmpty(), "No commits in " + name);
   this.name = name;
   this.gitCommits = gitCommits;
  }

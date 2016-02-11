@@ -6,6 +6,7 @@ import static com.google.common.collect.Iterables.transform;
 import static com.google.common.collect.Iterators.getLast;
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Lists.transform;
+import static com.google.common.collect.Maps.uniqueIndex;
 import static org.eclipse.jgit.lib.ObjectId.fromString;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.REF_MASTER;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
@@ -18,7 +19,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.jgit.api.Git;
-import org.eclipse.jgit.api.LogCommand;
 import org.eclipse.jgit.lib.AnyObjectId;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.Ref;
@@ -41,9 +41,15 @@ public class GitRepo {
      input.getAuthorIdent().getEmailAddress(),//
      new Date(input.getCommitTime() * 1000L),//
      input.getFullMessage(),//
-     input.getId().getName().substring(0, 15));
+     toHash(input.getId().getName()));
   }
+
  };
+
+ private static String toHash(String input) {
+  return input.substring(0, 15);
+ }
+
  private final Repository repository;
 
  public GitRepo() {
@@ -77,21 +83,12 @@ public class GitRepo {
   * @param to
   *         To and including this commit.
   */
- public List<GitCommit> getDiff(ObjectId from, ObjectId to) {
+ public GitRepoData getGitRepoData(ObjectId from, ObjectId to) {
   Git git = null;
   try {
    git = new Git(repository);
-   final List<RevCommit> toList = newArrayList(git.log().add(to).call());
-   if (from.name().equals(firstCommit().name())) {
-    return newArrayList(transform(toList, TO_GITCOMMIT));
-   }
-
-   Iterable<RevCommit> itr = git //
-     .log() //
-     .addRange(from, to) //
-     .call();
-
-   return newArrayList(transform(itr, TO_GITCOMMIT));
+   List<GitCommit> gitCommits = getGitCommits(git, from, to);
+   return new GitRepoData(gitCommits, gitTags(git, gitCommits));
   } catch (Exception e) {
    throw new RuntimeException(toString(), e);
   } finally {
@@ -99,35 +96,54 @@ public class GitRepo {
   }
  }
 
- public List<GitTag> getTags() {
-  Git git = null;
-  try {
-   git = new Git(repository);
-   List<GitTag> refs = newArrayList();
-   for (Ref ref : git.tagList().call()) {
-    LogCommand log = git.log();
-
-    Ref peeledRef = repository.peel(ref);
-    if (peeledRef.getPeeledObjectId() != null) {
-     log.add(peeledRef.getPeeledObjectId());
-    } else {
-     log.add(ref.getObjectId());
-    }
-
-    Iterable<RevCommit> itr = log.call();
-
-    List<GitCommit> commits = transform(newArrayList(itr), TO_GITCOMMIT);
-
-    refs.add(new GitTag(//
-      ref.getName(), //
-      commits));
+ private List<GitTag> gitTags(Git git, List<GitCommit> gitCommits) throws Exception {
+  List<GitTag> refs = newArrayList();
+  List<Ref> refList = git.tagList().call();
+  Map<String, Ref> refsPerCommit = uniqueIndex(refList, new Function<Ref, String>() {
+   @Override
+   public String apply(Ref input) {
+    return toHash(getPeeled(input).getName());
    }
+  });
 
-   return refs;
-  } catch (Exception e) {
-   throw propagate(e);
-  } finally {
-   git.close();
+  Ref currentTag = null;
+  List<GitCommit> gitCommitsInCurrentTag = null;
+  for (GitCommit gitCommit : gitCommits) {
+   if (refsPerCommit.containsKey(gitCommit.getHash())) {
+    if (currentTag != null) {
+     refs.add(new GitTag(currentTag.getName(), gitCommitsInCurrentTag));
+    }
+    currentTag = refsPerCommit.get(gitCommit.getHash());
+    gitCommitsInCurrentTag = newArrayList();
+   }
+   if (currentTag != null) {
+    gitCommitsInCurrentTag.add(gitCommit);
+   }
+  }
+
+  return refs;
+ }
+
+ private List<GitCommit> getGitCommits(Git git, ObjectId from, ObjectId to) throws Exception {
+  final List<RevCommit> toList = newArrayList(git.log().add(to).call());
+  if (from.name().equals(firstCommit().name())) {
+   return newArrayList(transform(toList, TO_GITCOMMIT));
+  }
+
+  Iterable<RevCommit> itr = git //
+    .log() //
+    .addRange(from, to) //
+    .call();
+
+  return newArrayList(transform(itr, TO_GITCOMMIT));
+ }
+
+ private ObjectId getPeeled(Ref ref) {
+  Ref peeledRef = repository.peel(ref);
+  if (peeledRef.getPeeledObjectId() != null) {
+   return peeledRef.getPeeledObjectId();
+  } else {
+   return ref.getObjectId();
   }
  }
 

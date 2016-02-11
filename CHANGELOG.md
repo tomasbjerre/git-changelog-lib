@@ -3,17 +3,22 @@
 Changelog of Git Changelog.
 
 ## Next release
-### GitHub [#13](https://github.com/tomasbjerre/git-changelog-lib/issues/13) GitRepo getDiff performance
+### GitHub #13 
+
+**Rewriting GitRepo to make it faster**
+
+
+[68f5840ad2e7668](https://github.com/tomasbjerre/git-changelog-lib/commit/68f5840ad2e7668) Tomas Bjerre *2016-02-13 08:19:55*
 
 **Identified performance issue as GitRepo:getTags()**
 
  * Updating performance test to reveal it. 
 
-[e27a4791fb52f33](https://github.com/tomasbjerre/git-changelog-lib/commit/e27a4791fb52f33) Tomas Bjerre *2016-02-11 17:47:00*
+[be9fb93023f13ad](https://github.com/tomasbjerre/git-changelog-lib/commit/be9fb93023f13ad) Tomas Bjerre *2016-02-11 17:48:06*
 
 
 ## 1.25
-### GitHub [#13](https://github.com/tomasbjerre/git-changelog-lib/issues/13) GitRepo getDiff performance
+### GitHub #13 
 
 **Letting JGit determine new commits between refs**
 
@@ -107,7 +112,7 @@ Changelog of Git Changelog.
 
 
 ## 1.19
-### GitHub [#11](https://github.com/tomasbjerre/git-changelog-lib/issues/11) Move command line to its own repo
+### GitHub #11 
 
 **Removing command line code**
 
@@ -185,7 +190,7 @@ Changelog of Git Changelog.
 
 
 ## 1.12
-### GitHub [#2](https://github.com/tomasbjerre/git-changelog-lib/issues/2) GitHub Integration
+### GitHub #2 
 
 **Integrating with GitHub**
 
@@ -193,7 +198,7 @@ Changelog of Git Changelog.
 [45af766856ac703](https://github.com/tomasbjerre/git-changelog-lib/commit/45af766856ac703) Tomas Bjerre *2015-11-22 19:51:40*
 
 
-### GitHub [#3](https://github.com/tomasbjerre/git-changelog-lib/issues/3) Jira Integration
+### GitHub #3 
 
 **Integrating with Jira**
 
@@ -296,7 +301,7 @@ Changelog of Git Changelog.
 
 
 ## 1.4
-### GitHub [#7](https://github.com/tomasbjerre/git-changelog-lib/issues/7) Add booleans to enable if statements
+### GitHub #7 
 
 **Adding hasIssue hasLink to readme doc**
 
@@ -318,7 +323,7 @@ Changelog of Git Changelog.
 
 
 ## 1.3
-### GitHub [#7](https://github.com/tomasbjerre/git-changelog-lib/issues/7) Add booleans to enable if statements
+### GitHub #7 
 
 **Adding booleans to check if link and/or issue exists in issue**
 
@@ -345,7 +350,7 @@ Changelog of Git Changelog.
 
 
 ## 1.2
-### GitHub [#4](https://github.com/tomasbjerre/git-changelog-lib/issues/4) Mediawiki integration
+### GitHub #4 
 
 **MediaWiki integration**
 
@@ -425,10 +430,6 @@ Changelog of Git Changelog.
  * More testing 
 
 [ba9d565ddd15d1b](https://github.com/tomasbjerre/git-changelog-lib/commit/ba9d565ddd15d1b) Tomas Bjerre *2015-11-15 08:58:00*
-
-
-## 1.0
-### Other changes
 
 **Doc**
 
