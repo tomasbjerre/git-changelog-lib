@@ -3,6 +3,15 @@
 Changelog of Git Changelog.
 
 ## Next release
+### Other changes
+
+**Bugfix, was not including first tag**
+
+
+[00e1658a9a13211](https://github.com/tomasbjerre/git-changelog-lib/commit/00e1658a9a13211) Tomas Bjerre *2016-02-13 08:51:04*
+
+
+## 1.26
 ### GitHub [#13](https://github.com/tomasbjerre/git-changelog-lib/issues/13) Performance
 
 **Rewriting GitRepo to make it faster**
@@ -430,6 +439,10 @@ Changelog of Git Changelog.
  * More testing 
 
 [ba9d565ddd15d1b](https://github.com/tomasbjerre/git-changelog-lib/commit/ba9d565ddd15d1b) Tomas Bjerre *2015-11-15 08:58:00*
+
+
+## 1.0
+### Other changes
 
 **Doc**
 

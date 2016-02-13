@@ -72,9 +72,10 @@ public class GitRepoTest {
   GitRepo gitRepo = getGitRepo();
   ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
   ObjectId lastCommit = gitRepo.getCommit(TAG_1_0_HASH);
-  List<GitCommit> diff = gitRepo.getGitRepoData(firstCommit, lastCommit).getGitCommits();
-  assertThat(diff).as("Commits in first release.").hasSize(6);
-  assertThat(reverse(diff).get(0).getHash()).startsWith(FIRST_COMMIT_HASH);
+  GitRepoData gitRepoData = gitRepo.getGitRepoData(firstCommit, lastCommit);
+  assertThat(gitRepoData.getGitCommits()).as("Commits in first release.").hasSize(6);
+  assertThat(gitRepoData.getGitTags()).as("Tags in first release.").hasSize(1);
+  assertThat(reverse(gitRepoData.getGitCommits()).get(0).getHash()).startsWith(FIRST_COMMIT_HASH);
  }
 
  @Test

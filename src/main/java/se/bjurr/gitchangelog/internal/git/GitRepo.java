@@ -110,9 +110,7 @@ public class GitRepo {
   List<GitCommit> gitCommitsInCurrentTag = null;
   for (GitCommit gitCommit : gitCommits) {
    if (refsPerCommit.containsKey(gitCommit.getHash())) {
-    if (currentTag != null) {
-     refs.add(new GitTag(currentTag.getName(), gitCommitsInCurrentTag));
-    }
+    addTag(refs, currentTag, gitCommitsInCurrentTag);
     currentTag = refsPerCommit.get(gitCommit.getHash());
     gitCommitsInCurrentTag = newArrayList();
    }
@@ -120,8 +118,15 @@ public class GitRepo {
     gitCommitsInCurrentTag.add(gitCommit);
    }
   }
+  addTag(refs, currentTag, gitCommitsInCurrentTag);
 
   return refs;
+ }
+
+ private void addTag(List<GitTag> addTo, Ref theTag, List<GitCommit> commits) {
+  if (theTag != null) {
+   addTo.add(new GitTag(theTag.getName(), commits));
+  }
  }
 
  private List<GitCommit> getGitCommits(Git git, ObjectId from, ObjectId to) throws Exception {
