@@ -2,13 +2,13 @@
 
 Changelog of Git Changelog.
 
-## Next release
+## 1.27
 ### Other changes
 
 **Bugfix, was not including first tag**
 
 
-[00e1658a9a13211](https://github.com/tomasbjerre/git-changelog-lib/commit/00e1658a9a13211) Tomas Bjerre *2016-02-13 08:51:04*
+[ca96998dbd2f376](https://github.com/tomasbjerre/git-changelog-lib/commit/ca96998dbd2f376) Tomas Bjerre *2016-02-13 08:52:27*
 
 
 ## 1.26
