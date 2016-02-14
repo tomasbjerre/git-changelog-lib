@@ -2,7 +2,6 @@ package se.bjurr.gitchangelog.api;
 
 import static com.google.common.base.Charsets.UTF_8;
 import static com.google.common.io.Resources.getResource;
-import static se.bjurr.gitchangelog.api.FakeRepo.fakeRepo;
 import static se.bjurr.gitchangelog.api.GitChangelogApiAsserter.assertThat;
 import static se.bjurr.gitchangelog.internal.integrations.rest.RestClient.mock;
 
@@ -69,8 +68,7 @@ public class TemplatesTest {
       Resources.toString(getResource("jira-issue-jir-5262.json"), UTF_8));
   mock(mockedRestClient);
 
-  assertThat(fakeRepo())//
-    .withTemplate(testcase + ".mustache") //
+  assertThat(testcase + ".mustache")//
     .rendersTo(testcase + ".md");
  }
 }

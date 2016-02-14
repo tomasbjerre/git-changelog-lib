@@ -40,7 +40,6 @@ import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
 import com.github.mustachejava.DefaultMustacheFactory;
 import com.github.mustachejava.Mustache;
 import com.github.mustachejava.MustacheFactory;
-import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Optional;
 import com.google.common.io.Files;
 import com.google.common.io.Resources;
@@ -50,13 +49,6 @@ public class GitChangelogApi {
  private Settings settings;
 
  private String templateContent;
-
- private static GitRepo fakeGitRepo;
-
- @VisibleForTesting
- public static void setFakeGitRepo(GitRepo fakeGitRepo) {
-  GitChangelogApi.fakeGitRepo = fakeGitRepo;
- }
 
  public static GitChangelogApi gitChangelogApiBuilder() {
   return new GitChangelogApi();
@@ -311,11 +303,7 @@ public class GitChangelogApi {
   * Get the changelog as data object.
   */
  public Changelog getChangelog() {
-  if (fakeGitRepo == null) {
-   return getChangelog(new GitRepo(new File(settings.getFromRepo())));
-  } else {
-   return getChangelog(fakeGitRepo);
-  }
+  return getChangelog(new GitRepo(new File(settings.getFromRepo())));
  }
 
  /**

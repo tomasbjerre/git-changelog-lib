@@ -32,7 +32,6 @@ public class LibPerformanceTest {
 
  @Before
  public void before() {
-  GitChangelogApi.setFakeGitRepo(null);
   gitChangelogApiBuilder = gitChangelogApiBuilder()//
     .withFromRepo(GIT_REPO_DIR);
   this.stopwatch = createStarted();

@@ -6,7 +6,7 @@ import static com.google.common.collect.Iterables.transform;
 import static com.google.common.collect.Iterators.getLast;
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Lists.transform;
-import static com.google.common.collect.Maps.uniqueIndex;
+import static com.google.common.collect.Maps.newHashMap;
 import static org.eclipse.jgit.lib.ObjectId.fromString;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.REF_MASTER;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
@@ -99,12 +99,10 @@ public class GitRepo {
  private List<GitTag> gitTags(Git git, List<GitCommit> gitCommits, String untaggedName) throws Exception {
   List<GitTag> refs = newArrayList();
   List<Ref> refList = git.tagList().call();
-  Map<String, Ref> refsPerCommit = uniqueIndex(refList, new Function<Ref, String>() {
-   @Override
-   public String apply(Ref input) {
-    return toHash(getPeeled(input).getName());
-   }
-  });
+  Map<String, Ref> refsPerCommit = newHashMap();
+  for (Ref ref : refList) {
+   refsPerCommit.put(toHash(getPeeled(ref).getName()), ref);
+  }
 
   String currentTagName = untaggedName;
   List<GitCommit> gitCommitsInCurrentTag = newArrayList();

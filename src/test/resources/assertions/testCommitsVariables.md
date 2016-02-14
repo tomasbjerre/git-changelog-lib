@@ -2,7 +2,7 @@
 
 Changelog of Git Changelog.
 
-## Commit eb408ddc4fa484e6befdf5954e56a2198c7a9fab
+## Commit 8e71933b792a8d2
  Message: More stuff tagged with bug
  
  Message Title: More stuff tagged with bug
@@ -10,7 +10,7 @@ Changelog of Git Changelog.
  Message Body: 
  
 
-## Commit 9db063f3b5e0adfd0d29a03db0a1c207b3740a94
+## Commit cc0fbbd8bc63955
  Message: Adding stuff with a jira
  
  Message Title: Adding stuff with a jira
@@ -18,7 +18,7 @@ Changelog of Git Changelog.
  Message Body: 
  
 
-## Commit a454ca483b4a66b83826d061be2859dd79ff0d6c
+## Commit 5607ea23fa8aaf7
  Message: Adding stuff&#10; with gh again
  
  Message Title: Adding stuff
@@ -28,7 +28,7 @@ Changelog of Git Changelog.
  Item: with gh again
  
 
-## Commit 2f086fc767a0dac59a38c67f409b4f74a1eab39f
+## Commit a9bd03b34b255ff
  Message: Adding cq stuff with CQ
  
  Message Title: Adding cq stuff with CQ
@@ -36,7 +36,7 @@ Changelog of Git Changelog.
  Message Body: 
  
 
-## Commit 8098e7dfb09adba3bf783794ba0db81985a814d7
+## Commit 3f62b35d1317311
  Message: This is 1.0 tagged commit
  
  Message Title: This is 1.0 tagged commit
@@ -44,7 +44,7 @@ Changelog of Git Changelog.
  Message Body: 
  
 
-## Commit ddaf0ed54dfc227ce677b5c2b44e3edee7c7db77
+## Commit d50a3e332f9fcba
  Message: Adding stuff  gh 12
  
  Message Title: Adding stuff  gh 12
@@ -52,7 +52,7 @@ Changelog of Git Changelog.
  Message Body: 
  
 
-## Commit d6459ab29c7b9a9fbf0c7c15fa35faa30fbf8cc6
+## Commit 71d845c18924504
  Message: Adding stuff, no issue
  
  Message Title: Adding stuff, no issue
@@ -60,7 +60,7 @@ Changelog of Git Changelog.
  Message Body: 
  
 
-## Commit 8e146c3c4e33449f95a49679795f74f7ae19ecc1
+## Commit 071a14f29020758
  Message: Adding stuff with a jira
  
  Message Title: Adding stuff with a jira
@@ -68,7 +68,7 @@ Changelog of Git Changelog.
  Message Body: 
  
 
-## Commit 0aaf76f425c6e0f43a36197de768e67d9e035abb
+## Commit 326d4d01c0a9415
  Message: Adding stuff with gh 20
  
  Message Title: Adding stuff with gh 20
@@ -76,7 +76,7 @@ Changelog of Git Changelog.
  Message Body: 
  
 
-## Commit 3c585604e87f855973731fea83e21fab9392d2fc
+## Commit 7cd30508cecdc5b
  Message: Adding stuff without issue
  
  Message Title: Adding stuff without issue
@@ -84,9 +84,9 @@ Changelog of Git Changelog.
  Message Body: 
  
 
-## Commit 0000000000000000000000000000000000000000
- Message: First commit!
+## Commit a1aa5ff5b625e63
+ Message: Initial commit
  
- Message Title: First commit!
+ Message Title: Initial commit
 
  Message Body:

@@ -4,8 +4,6 @@ import static com.google.common.base.Charsets.UTF_8;
 import static com.google.common.io.Resources.getResource;
 import static org.junit.Assert.assertEquals;
 import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
-import static se.bjurr.gitchangelog.api.GitChangelogApi.setFakeGitRepo;
-import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.REF_MASTER;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 
 import java.net.URL;
@@ -15,24 +13,19 @@ import com.google.gson.GsonBuilder;
 
 public class GitChangelogApiAsserter {
 
- private String template;
+ private final String template;
  private String settings = "git-changelog-test-settings.json";
 
- private GitChangelogApiAsserter(FakeGitRepo fakeGitRepo) {
-  setFakeGitRepo(fakeGitRepo);
+ public GitChangelogApiAsserter(String template) {
+  this.template = template;
  }
 
- public static GitChangelogApiAsserter assertThat(FakeGitRepo fakeGitRepo) {
-  return new GitChangelogApiAsserter(fakeGitRepo);
+ public static GitChangelogApiAsserter assertThat(String template) {
+  return new GitChangelogApiAsserter(template);
  }
 
  public GitChangelogApiAsserter withSettings(String settings) {
   this.settings = settings;
-  return this;
- }
-
- public GitChangelogApiAsserter withTemplate(String template) {
-  this.template = template;
   return this;
  }
 
@@ -44,6 +37,8 @@ public class GitChangelogApiAsserter {
 
   // Test lib with settings
   GitChangelogApi gitChangelogApiBuilder = gitChangelogApiBuilder()//
+    .withFromCommit(ZERO_COMMIT)//
+    .withToRef("test")//
     .withSettings(settingsFile)//
     .withTemplatePath(templatePath);
 
@@ -58,8 +53,8 @@ public class GitChangelogApiAsserter {
   // Test lib
   assertEquals("With lib: " + file, expected, gitChangelogApiBuilder() //
     .withFromRepo(".") //
-    .withFromCommit(ZERO_COMMIT) //
-    .withToRef(REF_MASTER) //
+    .withFromCommit(ZERO_COMMIT)//
+    .withToRef("test")//
     .withIgnoreCommitsWithMesssage("^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*") //
     .withReadableTagName("/([^/]+?)$") //
     .withDateFormat("YYYY-MM-dd HH:mm:ss") //

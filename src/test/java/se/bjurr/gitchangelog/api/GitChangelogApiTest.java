@@ -6,9 +6,8 @@ import static com.google.common.collect.Maps.newHashMap;
 import static com.google.common.io.Resources.getResource;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
-import static se.bjurr.gitchangelog.api.FakeRepo.fakeRepo;
 import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
-import static se.bjurr.gitchangelog.api.GitChangelogApi.setFakeGitRepo;
+import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 import static se.bjurr.gitchangelog.internal.integrations.rest.RestClient.mock;
 
 import java.net.URL;
@@ -31,7 +30,6 @@ public class GitChangelogApiTest {
   GitHubClientFactory.reset();
   JiraClientFactory.reset();
 
-  setFakeGitRepo(fakeRepo());
   mockedRestClient = new RestClientMock();
   mockedRestClient //
     .addMockedResponse("/repos/tomasbjerre/git-changelog-lib/issues?state=all",
@@ -48,6 +46,8 @@ public class GitChangelogApiTest {
   String templatePath = "templates/testAuthorsCommitsExtended.mustache";
 
   assertThat(gitChangelogApiBuilder()//
+    .withFromCommit(ZERO_COMMIT)//
+    .withToRef("test")//
     .withTemplatePath(templatePath)//
     .withIgnoreCommitsWithMesssage(".*")//
     .render() //
@@ -65,6 +65,8 @@ public class GitChangelogApiTest {
   String templateContent = Resources.toString(getResource(templatePath), UTF_8);
 
   GitChangelogApi changelogApiBuilder = gitChangelogApiBuilder()//
+    .withFromCommit(ZERO_COMMIT)//
+    .withToRef("test")//
     .withSettings(settingsFile)//
     .withRemoveIssueFromMessageArgument(true) //
     .withTemplatePath(templatePath);
@@ -73,17 +75,27 @@ public class GitChangelogApiTest {
     expected, changelogApiBuilder.render().trim());
  }
 
- @Test(expected = RuntimeException.class)
+ @Test
  public void testThatReadableGroupMustExist() throws Exception {
   URL settingsFile = getResource("settings/git-changelog-test-settings.json").toURI().toURL();
   String templatePath = "templates/testIssuesCommits.mustache";
 
-  gitChangelogApiBuilder()//
-    .withSettings(settingsFile)//
-    .withRemoveIssueFromMessageArgument(true) //
-    .withTemplatePath(templatePath)//
-    .withReadableTagName(".*/[0-9]+?\\.[0-9]+?$")//
-    .render();
+  try {
+   String actual = gitChangelogApiBuilder()//
+     .withFromCommit(ZERO_COMMIT)//
+     .withToRef("test")//
+     .withSettings(settingsFile)//
+     .withRemoveIssueFromMessageArgument(true) //
+     .withTemplatePath(templatePath)//
+     .withReadableTagName("[0-9]+?")//
+     .render();
+   assertThat(actual)//
+     .as("Should never happen! But nice to see what was rendered, if it does not crash as expected.")//
+     .isEqualTo("");
+  } catch (RuntimeException e) {
+   assertThat(e.getMessage())//
+     .isEqualTo("Pattern: \"[0-9]+?\" did not match any group in: \"refs/tags/test-lightweight-2\"");
+  }
  }
 
  @Test()
@@ -92,6 +104,8 @@ public class GitChangelogApiTest {
   String templatePath = "templates/testIssuesCommits.mustache";
 
   gitChangelogApiBuilder()//
+    .withFromCommit(ZERO_COMMIT)//
+    .withToRef("test")//
     .withSettings(settingsFile)//
     .withRemoveIssueFromMessageArgument(true) //
     .withTemplatePath(templatePath)//
@@ -107,6 +121,8 @@ public class GitChangelogApiTest {
   String templatePath = "templates/testAuthorsCommitsExtended.mustache";
 
   assertEquals(expected, gitChangelogApiBuilder()//
+    .withFromCommit(ZERO_COMMIT)//
+    .withToRef("test")//
     .withSettings(settingsFile)//
     .withExtendedVariables(newHashMap(of("customVariable", (Object) "the value"))) //
     .withRemoveIssueFromMessageArgument(true) //

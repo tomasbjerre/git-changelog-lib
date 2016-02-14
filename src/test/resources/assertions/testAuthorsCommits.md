@@ -2,63 +2,61 @@
 
 Changelog of Git Changelog.
 
-* T B
+* Tomas Bjerre
 
-[eb408ddc4fa484e6befdf5954e56a2198c7a9fab](https://server/eb408ddc4fa484e6befdf5954e56a2198c7a9fab) T B *1970-01-11 00:00:00*
+[8e71933b792a8d2](https://server/8e71933b792a8d2) Tomas Bjerre *2016-02-15 16:30:35*
 
 More stuff tagged with bug
 
 
-[a454ca483b4a66b83826d061be2859dd79ff0d6c](https://server/a454ca483b4a66b83826d061be2859dd79ff0d6c) T B *1970-01-09 00:00:00*
+[cc0fbbd8bc63955](https://server/cc0fbbd8bc63955) Tomas Bjerre *2016-02-15 16:30:35*
+
+Adding stuff with a jira
+
+
+[5607ea23fa8aaf7](https://server/5607ea23fa8aaf7) Tomas Bjerre *2016-02-15 16:30:35*
 
 Adding stuff
  with gh again
 
 
-[8098e7dfb09adba3bf783794ba0db81985a814d7](https://server/8098e7dfb09adba3bf783794ba0db81985a814d7) T B *1970-01-07 00:00:00*
-
-This is 1.0 tagged commit
-
-
-[d6459ab29c7b9a9fbf0c7c15fa35faa30fbf8cc6](https://server/d6459ab29c7b9a9fbf0c7c15fa35faa30fbf8cc6) T B *1970-01-05 00:00:00*
-
-Adding stuff, no issue
-
-
-[0aaf76f425c6e0f43a36197de768e67d9e035abb](https://server/0aaf76f425c6e0f43a36197de768e67d9e035abb) T B *1970-01-03 00:00:00*
-
-Adding stuff with gh 20
-
-
-* Tomas B
-
-[9db063f3b5e0adfd0d29a03db0a1c207b3740a94](https://server/9db063f3b5e0adfd0d29a03db0a1c207b3740a94) Tomas B *1970-01-10 00:00:00*
-
-Adding stuff with a jira
-
-
-[2f086fc767a0dac59a38c67f409b4f74a1eab39f](https://server/2f086fc767a0dac59a38c67f409b4f74a1eab39f) Tomas B *1970-01-08 00:00:00*
+[a9bd03b34b255ff](https://server/a9bd03b34b255ff) Tomas Bjerre *2016-02-15 16:30:35*
 
 Adding cq stuff with CQ
 
 
-[ddaf0ed54dfc227ce677b5c2b44e3edee7c7db77](https://server/ddaf0ed54dfc227ce677b5c2b44e3edee7c7db77) Tomas B *1970-01-06 00:00:00*
+[3f62b35d1317311](https://server/3f62b35d1317311) Tomas Bjerre *2016-02-15 16:30:35*
+
+This is 1.0 tagged commit
+
+
+[d50a3e332f9fcba](https://server/d50a3e332f9fcba) Tomas Bjerre *2016-02-15 16:30:35*
 
 Adding stuff  gh 12
 
 
-[8e146c3c4e33449f95a49679795f74f7ae19ecc1](https://server/8e146c3c4e33449f95a49679795f74f7ae19ecc1) Tomas B *1970-01-04 00:00:00*
+[071a14f29020758](https://server/071a14f29020758) Tomas Bjerre *2016-02-15 16:12:02*
 
 Adding stuff with a jira
 
 
-[3c585604e87f855973731fea83e21fab9392d2fc](https://server/3c585604e87f855973731fea83e21fab9392d2fc) Tomas B *1970-01-02 00:00:00*
+[7cd30508cecdc5b](https://server/7cd30508cecdc5b) Tomas Bjerre *2016-02-15 16:09:35*
 
 Adding stuff without issue
 
 
-* authorName
+[a1aa5ff5b625e63](https://server/a1aa5ff5b625e63) Tomas Bjerre *2015-11-12 05:29:31*
 
-[0000000000000000000000000000000000000000](https://server/0000000000000000000000000000000000000000) authorName *1970-01-01 00:00:00*
+Initial commit
 
-First commit!
+
+* T B
+
+[71d845c18924504](https://server/71d845c18924504) T B *2016-02-15 16:30:25*
+
+Adding stuff, no issue
+
+
+[326d4d01c0a9415](https://server/326d4d01c0a9415) T B *2016-02-15 16:11:12*
+
+Adding stuff with gh 20

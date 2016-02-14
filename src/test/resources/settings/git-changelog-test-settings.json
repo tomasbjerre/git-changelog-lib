@@ -1,7 +1,7 @@
 {
  "fromRepo": ".",
  "fromCommit": "0000000000000000000000000000000000000000",
- "toRef": "refs/heads/master",
+ "toRef": "test",
  
  "ignoreCommitsIfMessageMatches": "^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*",
  "readableTagName": "/([^/]+?)$",
