@@ -41,7 +41,7 @@ public class Transformer {
 
  public List<Tag> toTags(List<GitTag> gitTags) {
 
-  List<Tag> tags = newArrayList(transform(gitTags, new Function<GitTag, Tag>() {
+  Iterable<Tag> tags = transform(gitTags, new Function<GitTag, Tag>() {
    @Override
    public Tag apply(GitTag input) {
     List<GitCommit> gitCommits = input.getGitCommits();
@@ -51,9 +51,16 @@ public class Transformer {
     List<Issue> issues = toIssues(parsedIssues);
     return new Tag(toReadableTagName(input.getName()), commits, authors, issues);
    }
-  }));
+  });
 
-  return tags;
+  tags = filter(tags, new Predicate<Tag>() {
+   @Override
+   public boolean apply(Tag input) {
+    return !input.getAuthors().isEmpty() && !input.getCommits().isEmpty();
+   }
+  });
+
+  return newArrayList(tags);
  }
 
  private String toReadableTagName(String input) {
@@ -69,8 +76,7 @@ public class Transformer {
  }
 
  public List<Commit> toCommits(Collection<GitCommit> from) {
-  List<GitCommit> filteredCommits = newArrayList(filter(from,
-    ignoreCommits(settings.getIgnoreCommitsIfMessageMatches())));
+  Iterable<GitCommit> filteredCommits = filter(from, ignoreCommits(settings.getIgnoreCommitsIfMessageMatches()));
   return newArrayList(transform(filteredCommits, new Function<GitCommit, Commit>() {
    @Override
    public Commit apply(GitCommit c) {
@@ -99,7 +105,6 @@ public class Transformer {
       input.getIssue(), //
       input.getLink());
    }
-
   }));
  }
 
@@ -141,12 +146,12 @@ public class Transformer {
    }
   });
 
-  List<String> authorsWithCommits = newArrayList(filter(commitsPerAuthor.keySet(), new Predicate<String>() {
+  Iterable<String> authorsWithCommits = filter(commitsPerAuthor.keySet(), new Predicate<String>() {
    @Override
    public boolean apply(String input) {
     return toCommits(commitsPerAuthor.get(input)).size() > 0;
    }
-  }));
+  });
 
   return newArrayList(transform(authorsWithCommits, new Function<String, Author>() {
    @Override

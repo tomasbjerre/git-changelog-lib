@@ -5,6 +5,15 @@ Changelog of Git Changelog.
 ## Next release
 ### Other changes
 
+**Bugfix, crashed if all commits in tag were ignored**
+
+
+[12e7f8dd9e95e7f](https://github.com/tomasbjerre/git-changelog-lib/commit/12e7f8dd9e95e7f) Tomas Bjerre *2016-02-14 17:32:30*
+
+
+## 1.28
+### Other changes
+
 **Optimizations, reducing memory usage**
 
 

@@ -1,7 +1,5 @@
 package se.bjurr.gitchangelog.api.model;
 
-import static com.google.common.base.Preconditions.checkArgument;
-
 import java.util.List;
 
 import se.bjurr.gitchangelog.api.model.interfaces.IAuthors;
@@ -15,8 +13,6 @@ public class Tag implements ICommits, IAuthors, IIssues {
  private final String name;
 
  public Tag(String name, List<Commit> commits, List<Author> authors, List<Issue> issues) {
-  checkArgument(!commits.isEmpty(), "commits is empty!");
-  checkArgument(!authors.isEmpty(), "authors is empty!");
   this.commits = commits;
   this.authors = authors;
   this.issues = issues;

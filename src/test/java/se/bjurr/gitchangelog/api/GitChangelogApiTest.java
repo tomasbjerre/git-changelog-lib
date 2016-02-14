@@ -4,6 +4,7 @@ import static com.google.common.base.Charsets.UTF_8;
 import static com.google.common.collect.ImmutableMap.of;
 import static com.google.common.collect.Maps.newHashMap;
 import static com.google.common.io.Resources.getResource;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 import static se.bjurr.gitchangelog.api.FakeRepo.fakeRepo;
 import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
@@ -40,6 +41,17 @@ public class GitChangelogApiTest {
     .addMockedResponse("/jira/rest/api/2/issue/JIR-5262?fields=parent,summary",
       Resources.toString(getResource("jira-issue-jir-5262.json"), UTF_8));
   mock(mockedRestClient);
+ }
+
+ @Test
+ public void testThatTagsThatAreEmptyAfterCommitsHaveBeenIgnoredAreRemoved() {
+  String templatePath = "templates/testAuthorsCommitsExtended.mustache";
+
+  assertThat(gitChangelogApiBuilder()//
+    .withTemplatePath(templatePath)//
+    .withIgnoreCommitsWithMesssage(".*")//
+    .render() //
+    .trim()).hasSize(74);
  }
 
  @Test
