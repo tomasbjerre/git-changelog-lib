@@ -36,7 +36,8 @@ public class GitRepoTest {
  @Test
  public void testThatTagsCanBeListed() {
   GitRepo gitRepo = getGitRepo();
-  GitRepoData gitRepoData = gitRepo.getGitRepoData(gitRepo.getCommit(ZERO_COMMIT), gitRepo.getRef(REF_MASTER));
+  GitRepoData gitRepoData = gitRepo
+    .getGitRepoData(gitRepo.getCommit(ZERO_COMMIT), gitRepo.getRef(REF_MASTER), "No tag");
   assertThat(gitRepoData.getGitTags()).isNotEmpty();
  }
 
@@ -62,7 +63,7 @@ public class GitRepoTest {
   GitRepo gitRepo = getGitRepo();
   ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
   ObjectId lastCommit = gitRepo.getRef(REF_MASTER);
-  List<GitCommit> diff = gitRepo.getGitRepoData(firstCommit, lastCommit).getGitCommits();
+  List<GitCommit> diff = gitRepo.getGitRepoData(firstCommit, lastCommit, "No tag").getGitCommits();
   assertThat(diff.size()).isGreaterThan(10);
   assertThat(reverse(diff).get(0).getHash()).startsWith(FIRST_COMMIT_HASH);
  }
@@ -72,7 +73,7 @@ public class GitRepoTest {
   GitRepo gitRepo = getGitRepo();
   ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
   ObjectId lastCommit = gitRepo.getCommit(TAG_1_0_HASH);
-  GitRepoData gitRepoData = gitRepo.getGitRepoData(firstCommit, lastCommit);
+  GitRepoData gitRepoData = gitRepo.getGitRepoData(firstCommit, lastCommit, "No tag");
   assertThat(gitRepoData.getGitCommits()).as("Commits in first release.").hasSize(6);
   assertThat(gitRepoData.getGitTags()).as("Tags in first release.").hasSize(1);
   assertThat(reverse(gitRepoData.getGitCommits()).get(0).getHash()).startsWith(FIRST_COMMIT_HASH);
@@ -83,7 +84,7 @@ public class GitRepoTest {
   GitRepo gitRepo = getGitRepo();
   ObjectId firstRelease = gitRepo.getRef("refs/tags/1.0");
   ObjectId secondRelease = gitRepo.getRef("refs/tags/1.1");
-  List<GitCommit> diff = gitRepo.getGitRepoData(firstRelease, secondRelease).getGitCommits();
+  List<GitCommit> diff = gitRepo.getGitRepoData(firstRelease, secondRelease, "No tag").getGitCommits();
   assertThat(diff).as("Commits in second release.").hasSize(8);
   assertThat(reverse(diff).get(0).getHash()).startsWith("3950");
  }
@@ -93,7 +94,7 @@ public class GitRepoTest {
   GitRepo gitRepo = getGitRepo();
   ObjectId firstCommit = gitRepo.getCommit(FIRST_COMMIT_HASH_FULL);
   ObjectId lastCommit = gitRepo.getCommit("e3766e2d4bc6d206475c5d2ed96b3f967a6e157e");
-  List<GitCommit> diff = gitRepo.getGitRepoData(firstCommit, lastCommit).getGitCommits();
+  List<GitCommit> diff = gitRepo.getGitRepoData(firstCommit, lastCommit, "No tag").getGitCommits();
   assertThat(diff).isNotEmpty();
   assertThat(reverse(diff).get(0).getHash())//
     .as("first")//

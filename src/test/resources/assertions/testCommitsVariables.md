@@ -23,7 +23,7 @@ Changelog of Git Changelog.
  
  Message Title: Adding stuff
 
- Message Body:  with gh again 
+ Message Body:  with gh again
  
  Item: with gh again
  
@@ -65,7 +65,7 @@ Changelog of Git Changelog.
  
  Message Title: Adding stuff with a jira
 
- Message Body:   
+ Message Body: 
  
 
 ## Commit 0aaf76f425c6e0f43a36197de768e67d9e035abb

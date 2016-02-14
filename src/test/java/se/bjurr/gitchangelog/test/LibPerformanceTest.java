@@ -23,6 +23,7 @@ import se.bjurr.gitchangelog.internal.git.model.GitTag;
 import com.google.common.base.Stopwatch;
 
 public class LibPerformanceTest {
+ private static final String UNTAGGED_NAME = "Untagged Name";
  private static final String GIT_REPO_DIR = "/home/bjerre/workspace/spring-framework";
  private Stopwatch stopwatch;
  private GitChangelogApi gitChangelogApiBuilder;
@@ -57,7 +58,7 @@ public class LibPerformanceTest {
 
   ObjectId fromId = gitRepo.getCommit(ZERO_COMMIT);
   ObjectId toId = gitRepo.getRef(REF_MASTER);
-  GitRepoData gitRepoData = gitRepo.getGitRepoData(fromId, toId);
+  GitRepoData gitRepoData = gitRepo.getGitRepoData(fromId, toId, UNTAGGED_NAME);
   List<GitTag> allTags = gitRepoData.getGitTags();
   int i = 0;
   for (GitTag from : allTags) {
@@ -65,7 +66,8 @@ public class LibPerformanceTest {
     i++;
     LOG.info(i + "/" + allTags.size() * allTags.size() + " in " + stopwatch.elapsed(SECONDS) + "s, now testing "
       + from.getName() + " -> " + to.getName());
-    if (from.getName().equals(to.getName())) {
+    if (from.getName().equals(to.getName()) || from.getName().equals(UNTAGGED_NAME)
+      || to.getName().equals(UNTAGGED_NAME)) {
      continue;
     }
     String str = from.getName() + " -> " + to.getName();

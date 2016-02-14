@@ -71,7 +71,7 @@ public class FakeGitRepo extends GitRepo {
  }
 
  @Override
- public GitRepoData getGitRepoData(ObjectId from, ObjectId to) {
+ public GitRepoData getGitRepoData(ObjectId from, ObjectId to, String untaggedName) {
   List<GitCommit> gitCommits = newArrayList();
   boolean included = false;
   for (GitCommit gitCommit : reverse(commits)) {

@@ -1,24 +1,18 @@
 package se.bjurr.gitchangelog.internal.model;
 
-import static com.google.common.base.Joiner.on;
-import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.collect.Iterables.filter;
 import static com.google.common.collect.Iterables.transform;
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Lists.transform;
-import static com.google.common.collect.Maps.newHashMap;
 import static com.google.common.collect.Multimaps.index;
 import static java.util.TimeZone.getTimeZone;
 import static java.util.regex.Pattern.compile;
 import static se.bjurr.gitchangelog.internal.common.GitPredicates.ignoreCommits;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 import java.util.regex.Matcher;
 
 import se.bjurr.gitchangelog.api.model.Author;
@@ -28,7 +22,6 @@ import se.bjurr.gitchangelog.api.model.Tag;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 import se.bjurr.gitchangelog.internal.issues.IssueParser;
-import se.bjurr.gitchangelog.internal.model.interfaces.IGitCommitReferer;
 import se.bjurr.gitchangelog.internal.settings.IssuesUtil;
 import se.bjurr.gitchangelog.internal.settings.Settings;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
@@ -37,7 +30,6 @@ import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Multimap;
-import com.google.common.collect.Ordering;
 
 public class Transformer {
 
@@ -47,24 +39,21 @@ public class Transformer {
 
  private final Settings settings;
 
- public List<Tag> toTags(List<GitCommit> allCommits, List<GitTag> gitTags) {
-  final Map<String, List<GitCommit>> commitsPerTag = getCommitsPerGitCommitReferer(allCommits, gitTags);
+ public List<Tag> toTags(List<GitTag> gitTags) {
 
-  List<String> withUnfilteredCommits = withUnfilteredCommits(commitsPerTag);
-
-  List<Tag> tags = newArrayList(transform(withUnfilteredCommits, new Function<String, Tag>() {
+  List<Tag> tags = newArrayList(transform(gitTags, new Function<GitTag, Tag>() {
    @Override
-   public Tag apply(String input) {
-    List<GitCommit> gitCommits = commitsPerTag.get(input);
+   public Tag apply(GitTag input) {
+    List<GitCommit> gitCommits = input.getGitCommits();
     List<Commit> commits = toCommits(gitCommits);
     List<Author> authors = toAuthors(gitCommits);
     List<ParsedIssue> parsedIssues = new IssueParser(settings, gitCommits).parseForIssues();
     List<Issue> issues = toIssues(parsedIssues);
-    return new Tag(toReadableTagName(input), commits, authors, issues);
+    return new Tag(toReadableTagName(input.getName()), commits, authors, issues);
    }
   }));
 
-  return order(tags);
+  return tags;
  }
 
  private String toReadableTagName(String input) {
@@ -77,63 +66,6 @@ public class Transformer {
    return matcher.group(1);
   }
   return input;
- }
-
- private List<Tag> order(Iterable<Tag> tags) {
-  return Ordering.from(new Comparator<Tag>() {
-   @Override
-   public int compare(Tag o1, Tag o2) {
-    return o2.getCommit().getCommitTimeLong().compareTo(o1.getCommit().getCommitTimeLong());
-   }
-  }).sortedCopy(tags);
- }
-
- private List<String> withUnfilteredCommits(final Map<String, List<GitCommit>> commitsPerTag) {
-  List<String> tagsWithCommits = newArrayList(filter(commitsPerTag.keySet(), new Predicate<String>() {
-   @Override
-   public boolean apply(String input) {
-    return toCommits(commitsPerTag.get(input)).size() > 0;
-   }
-  }));
-  return tagsWithCommits;
- }
-
- private <T extends IGitCommitReferer> Map<String, List<GitCommit>> getCommitsPerGitCommitReferer(
-   List<GitCommit> allCommits, List<T> gitCommitReferer) {
-
-  final Map<GitCommit, T> perCommit = newHashMap();
-  for (T referer : gitCommitReferer) {
-   perCommit.put(referer.getGitCommit(), referer);
-  }
-
-  Map<GitCommit, String> stringPerCommit = newHashMap();
-  for (GitCommit input : perCommit.keySet()) {
-   if (perCommit.containsKey(input)) {
-    stringPerCommit.put(input, perCommit.get(input).getName());
-   } else {
-    stringPerCommit.put(null, perCommit.get(input).getName());
-   }
-  }
-
-  return commitsPerString(allCommits, stringPerCommit, settings.getUntaggedName());
- }
-
- private Map<String, List<GitCommit>> commitsPerString(List<GitCommit> allCommits,
-   Map<GitCommit, String> stringPerCommit, String unMappedName) {
-  final Map<String, List<GitCommit>> commitsPerString = newHashMap();
-  String currentName = unMappedName;
-  for (GitCommit gitCommit : allCommits) {
-   String tag = stringPerCommit.get(gitCommit);
-   if (tag != null) {
-    currentName = tag;
-   }
-   if (!commitsPerString.containsKey(currentName)) {
-    commitsPerString.put(checkNotNull(currentName, "currentTagName"), new ArrayList<GitCommit>());
-   }
-
-   commitsPerString.get(currentName).add(gitCommit);
-  }
-  return commitsPerString;
  }
 
  public List<Commit> toCommits(Collection<GitCommit> from) {
@@ -178,68 +110,12 @@ public class Transformer {
     format(gitCommit.getCommitTime()), //
     gitCommit.getCommitTime().getTime(), //
     toMessage(settings.removeIssueFromMessage(), new IssuesUtil(settings).getIssues(), gitCommit.getMessage()), //
-    gitCommit.getHash(),//
-    toMessageTitle(settings.removeIssueFromMessage(), new IssuesUtil(settings).getIssues(), gitCommit.getMessage()),//
-    toMessageBody(settings.removeIssueFromMessage(), new IssuesUtil(settings).getIssues(), gitCommit.getMessage()),//
-    toMessageItems(settings.removeIssueFromMessage(), new IssuesUtil(settings).getIssues(), gitCommit.getMessage()));
- }
-
- @VisibleForTesting
- List<String> toMessageItems(Boolean removeIssueFromMessage, List<SettingsIssue> issues, String message) {
-  List<String> toReturn = newArrayList();
-  List<String> stringList = toNoEmptyStringsList(removeIssuesFromString(removeIssueFromMessage, issues, message));
-  if (stringList.size() > 1) {
-   List<String> notFirst = notFirst(stringList);
-   for (String part : notFirst) {
-    String candidate = part.trim();
-    if (candidate.startsWith("*")) {
-     candidate = candidate.substring(1).trim();
-    }
-    if (!candidate.isEmpty()) {
-     toReturn.add(candidate);
-    }
-   }
-  }
-  return toReturn;
- }
-
- @VisibleForTesting
- String toMessageBody(Boolean removeIssueFromMessage, List<SettingsIssue> issues, String message) {
-  List<String> stringList = toNoEmptyStringsList(removeIssuesFromString(removeIssueFromMessage, issues, message));
-  if (stringList.size() > 1) {
-   List<String> notFirst = notFirst(stringList);
-   return on("\n")//
-     .join(notFirst);
-  }
-  return "";
- }
-
- @VisibleForTesting
- String toMessageTitle(Boolean removeIssueFromMessage, List<SettingsIssue> issues, String message) {
-  List<String> stringList = toNoEmptyStringsList(removeIssuesFromString(removeIssueFromMessage, issues, message));
-  if (stringList.size() > 0) {
-   return stringList.get(0).trim();
-  }
-  return "";
+    gitCommit.getHash());
  }
 
  @VisibleForTesting
  String toMessage(boolean removeIssueFromMessage, List<SettingsIssue> issues, String message) {
   return removeIssuesFromString(removeIssueFromMessage, issues, message);
- }
-
- private List<String> notFirst(List<String> stringList) {
-  return stringList.subList(1, stringList.size());
- }
-
- private List<String> toNoEmptyStringsList(String message) {
-  List<String> toReturn = newArrayList();
-  for (String part : message.split("\n")) {
-   if (!part.isEmpty()) {
-    toReturn.add(part);
-   }
-  }
-  return toReturn;
  }
 
  private String removeIssuesFromString(boolean removeIssueFromMessage, List<SettingsIssue> issues, String string) {

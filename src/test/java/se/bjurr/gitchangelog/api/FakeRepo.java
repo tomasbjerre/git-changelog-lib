@@ -66,12 +66,17 @@ public class FakeRepo {
       new GitCommit("T B", "tomas.b@example", new Date(DAY_ZERO + TIME_DAY * 10), "More stuff tagged with bug #bug",
         hashes.get(9)));
 
-  fakeGitRepo.withTag(new GitTag("refs/tags/1.0", fakeGitRepo.getGitRepoData(fromString(ZERO_COMMIT),
-    fromString(hashes.get(5))).getGitCommits()));
+  fakeGitRepo//
+    .withTag(
+      new GitTag("No tag", //
+        fakeGitRepo.getGitRepoData(fromString(hashes.get(6)), fromString(hashes.get(hashes.size() - 1)), "No tag")
+          .getGitCommits()))//
+    .withTag(new GitTag("refs/tags/1.0", //
+      fakeGitRepo.getGitRepoData(fromString(ZERO_COMMIT), fromString(hashes.get(5)), "No tag").getGitCommits()));
 
   logger.debug("Created fake repo for testing:");
-  GitRepoData gitRepoData = fakeGitRepo
-    .getGitRepoData(fromString(ZERO_COMMIT), fakeGitRepo.getRef("refs/heads/master"));
+  GitRepoData gitRepoData = fakeGitRepo.getGitRepoData(fromString(ZERO_COMMIT),
+    fakeGitRepo.getRef("refs/heads/master"), "Untagged Name");
   for (GitCommit gitCommit : gitRepoData.getGitCommits()) {
    logTag(gitCommit.getHash(), gitRepoData.getGitTags());
    logger.debug(" " + gitCommit.getHash() + " " + gitCommit.getMessage());

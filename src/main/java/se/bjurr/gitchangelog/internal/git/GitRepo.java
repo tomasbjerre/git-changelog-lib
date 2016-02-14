@@ -43,7 +43,6 @@ public class GitRepo {
      input.getFullMessage(),//
      toHash(input.getId().getName()));
   }
-
  };
 
  private static String toHash(String input) {
@@ -82,13 +81,14 @@ public class GitRepo {
   *         {@link GitChangelogApiConstants#ZERO_COMMIT}, it is included.
   * @param to
   *         To and including this commit.
+  * @param untaggedName
   */
- public GitRepoData getGitRepoData(ObjectId from, ObjectId to) {
+ public GitRepoData getGitRepoData(ObjectId from, ObjectId to, String untaggedName) {
   Git git = null;
   try {
    git = new Git(repository);
    List<GitCommit> gitCommits = getGitCommits(git, from, to);
-   return new GitRepoData(gitCommits, gitTags(git, gitCommits));
+   return new GitRepoData(gitCommits, gitTags(git, gitCommits, untaggedName));
   } catch (Exception e) {
    throw new RuntimeException(toString(), e);
   } finally {
@@ -96,7 +96,7 @@ public class GitRepo {
   }
  }
 
- private List<GitTag> gitTags(Git git, List<GitCommit> gitCommits) throws Exception {
+ private List<GitTag> gitTags(Git git, List<GitCommit> gitCommits, String untaggedName) throws Exception {
   List<GitTag> refs = newArrayList();
   List<Ref> refList = git.tagList().call();
   Map<String, Ref> refsPerCommit = uniqueIndex(refList, new Function<Ref, String>() {
@@ -106,27 +106,29 @@ public class GitRepo {
    }
   });
 
-  Ref currentTag = null;
-  List<GitCommit> gitCommitsInCurrentTag = null;
+  String currentTagName = untaggedName;
+  List<GitCommit> gitCommitsInCurrentTag = newArrayList();
   for (GitCommit gitCommit : gitCommits) {
    if (refsPerCommit.containsKey(gitCommit.getHash())) {
-    addTag(refs, currentTag, gitCommitsInCurrentTag);
-    currentTag = refsPerCommit.get(gitCommit.getHash());
-    gitCommitsInCurrentTag = newArrayList();
+    if (!gitCommitsInCurrentTag.isEmpty()) {
+     GitTag newTag = new GitTag(currentTagName, gitCommitsInCurrentTag);
+     refs.add(newTag);
+     gitCommitsInCurrentTag = newArrayList();
+    }
+    if (refsPerCommit.containsKey(gitCommit.getHash())) {
+     currentTagName = refsPerCommit.get(gitCommit.getHash()).getName();
+    } else {
+     currentTagName = untaggedName;
+    }
    }
-   if (currentTag != null) {
-    gitCommitsInCurrentTag.add(gitCommit);
-   }
+   gitCommitsInCurrentTag.add(gitCommit);
   }
-  addTag(refs, currentTag, gitCommitsInCurrentTag);
+  if (!gitCommitsInCurrentTag.isEmpty()) {
+   GitTag newTag = new GitTag(currentTagName, gitCommitsInCurrentTag);
+   refs.add(newTag);
+  }
 
   return refs;
- }
-
- private void addTag(List<GitTag> addTo, Ref theTag, List<GitCommit> commits) {
-  if (theTag != null) {
-   addTo.add(new GitTag(theTag.getName(), commits));
-  }
  }
 
  private List<GitCommit> getGitCommits(Git git, ObjectId from, ObjectId to) throws Exception {

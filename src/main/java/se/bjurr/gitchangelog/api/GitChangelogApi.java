@@ -342,14 +342,14 @@ public class GitChangelogApi {
     .or(gitRepo.getCommit(ZERO_COMMIT));
   ObjectId toId = getId(gitRepo, settings.getToRef(), settings.getToCommit()) //
     .or(gitRepo.getRef(REF_MASTER));
-  GitRepoData gitRepoData = gitRepo.getGitRepoData(fromId, toId);
+  GitRepoData gitRepoData = gitRepo.getGitRepoData(fromId, toId, settings.getUntaggedName());
   List<GitCommit> diff = gitRepoData.getGitCommits();
   List<GitTag> tags = gitRepoData.getGitTags();
   List<ParsedIssue> issues = new IssueParser(settings, diff).parseForIssues();
   Transformer transformer = new Transformer(settings);
   return new Changelog(//
     transformer.toCommits(diff), //
-    transformer.toTags(diff, tags), //
+    transformer.toTags(tags), //
     transformer.toAuthors(diff), //
     transformer.toIssues(issues));
  }
