@@ -10,7 +10,7 @@ Changelog of Git Changelog.
  * Using the last one found. 
  * Also refactoring tests. Added a special test-branch to use real GIT instead of fake repo. 
 
-[8a7eb7fca4598de](https://github.com/tomasbjerre/git-changelog-lib/commit/8a7eb7fca4598de) Tomas Bjerre *2016-02-15 16:57:47*
+[3c794133dcc1d00](https://github.com/tomasbjerre/git-changelog-lib/commit/3c794133dcc1d00) Tomas Bjerre *2016-02-15 17:41:45*
 
 
 ## 1.29
@@ -46,7 +46,7 @@ Changelog of Git Changelog.
 
 
 ## 1.26
-### GitHub #13 
+### GitHub [#13](https://github.com/tomasbjerre/git-changelog-lib/issues/13) Performance
 
 **Rewriting GitRepo to make it faster**
 
@@ -61,7 +61,7 @@ Changelog of Git Changelog.
 
 
 ## 1.25
-### GitHub #13 
+### GitHub [#13](https://github.com/tomasbjerre/git-changelog-lib/issues/13) Performance
 
 **Letting JGit determine new commits between refs**
 
@@ -155,7 +155,7 @@ Changelog of Git Changelog.
 
 
 ## 1.19
-### GitHub #11 
+### GitHub [#11](https://github.com/tomasbjerre/git-changelog-lib/issues/11) Move command line to its own repo
 
 **Removing command line code**
 
@@ -233,7 +233,7 @@ Changelog of Git Changelog.
 
 
 ## 1.12
-### GitHub #2 
+### GitHub [#2](https://github.com/tomasbjerre/git-changelog-lib/issues/2) GitHub Integration
 
 **Integrating with GitHub**
 
@@ -241,7 +241,7 @@ Changelog of Git Changelog.
 [45af766856ac703](https://github.com/tomasbjerre/git-changelog-lib/commit/45af766856ac703) Tomas Bjerre *2015-11-22 19:51:40*
 
 
-### GitHub #3 
+### GitHub [#3](https://github.com/tomasbjerre/git-changelog-lib/issues/3) Jira Integration
 
 **Integrating with Jira**
 
@@ -344,7 +344,7 @@ Changelog of Git Changelog.
 
 
 ## 1.4
-### GitHub #7 
+### GitHub [#7](https://github.com/tomasbjerre/git-changelog-lib/issues/7) Add booleans to enable if statements
 
 **Adding hasIssue hasLink to readme doc**
 
@@ -366,7 +366,7 @@ Changelog of Git Changelog.
 
 
 ## 1.3
-### GitHub #7 
+### GitHub [#7](https://github.com/tomasbjerre/git-changelog-lib/issues/7) Add booleans to enable if statements
 
 **Adding booleans to check if link and/or issue exists in issue**
 
@@ -393,7 +393,7 @@ Changelog of Git Changelog.
 
 
 ## 1.2
-### GitHub #4 
+### GitHub [#4](https://github.com/tomasbjerre/git-changelog-lib/issues/4) Mediawiki integration
 
 **MediaWiki integration**
 
