@@ -1,3 +1,0 @@
-# Git Release Notes [![Build Status](https://travis-ci.org/tomasbjerre/git-release-notes.svg?branch=master)](https://travis-ci.org/tomasbjerre/git-release-notes)
-
-...
