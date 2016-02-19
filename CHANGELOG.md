@@ -5,6 +5,15 @@ Changelog of Git Changelog.
 ## Next release
 ### Other changes
 
+**Enabling custom Jira client**
+
+
+[9894517fa7ec0fa](https://github.com/tomasbjerre/git-changelog-lib/commit/9894517fa7ec0fa) Tomas Bjerre *2016-02-19 18:35:01*
+
+
+## 1.30
+### Other changes
+
 **Bugfix, handling multiple tags on same commit**
 
  * Using the last one found. 
