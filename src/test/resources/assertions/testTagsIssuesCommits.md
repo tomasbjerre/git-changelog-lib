@@ -7,6 +7,14 @@ Changelog of Git Changelog.
 [8e71933b792a8d2](https://server/8e71933b792a8d2) 2016-02-15 16:30:35
 More stuff tagged with bug
 
+### GitHub [#20](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/20) Parameterized Jenkins&#39; job error
+[51db3e296e979d8](https://server/51db3e296e979d8) 2016-02-19 21:50:12
+Multiple issues
+
+### GitHub [#25](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/25) Enable  configuration in per-repository hook screen
+[51db3e296e979d8](https://server/51db3e296e979d8) 2016-02-19 21:50:12
+Multiple issues
+
 ### GitHub 
 [5607ea23fa8aaf7](https://server/5607ea23fa8aaf7) 2016-02-15 16:30:35
 Adding stuff

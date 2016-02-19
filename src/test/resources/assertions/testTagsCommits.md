@@ -3,6 +3,11 @@
 Changelog of Git Changelog.
 
 ## No tag
+### Tomas Bjerre - 2016-02-19 21:50:12
+[51db3e296e979d8](https://server/51db3e296e979d8)
+
+Multiple issues
+
 ### Tomas Bjerre - 2016-02-15 16:30:35
 [8e71933b792a8d2](https://server/8e71933b792a8d2)
 

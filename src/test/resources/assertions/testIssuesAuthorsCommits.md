@@ -21,9 +21,20 @@ Adding stuff  gh 12
 
 
 ## GitHub [#20](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/20) Parameterized Jenkins&#39; job error
+### Tomas Bjerre
+2016-02-19 21:50:12
+Multiple issues
+
+
 ### T B
 2016-02-15 16:11:12
 Adding stuff with gh 20
+
+
+## GitHub [#25](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/25) Enable  configuration in per-repository hook screen
+### Tomas Bjerre
+2016-02-19 21:50:12
+Multiple issues
 
 
 ## GitHub 

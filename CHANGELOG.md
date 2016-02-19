@@ -3,6 +3,23 @@
 Changelog of Git Changelog.
 
 ## Next release
+### GitHub [#16](https://github.com/tomasbjerre/git-changelog-lib/issues/16) Commit not available in all issues mentioned in commit comment
+
+**Supplying commit in each issue mentioned in message**
+
+
+[d5b81c4d747c2f8](https://github.com/tomasbjerre/git-changelog-lib/commit/d5b81c4d747c2f8) Tomas Bjerre *2016-02-19 22:17:33*
+
+
+### Other changes
+
+**Avoiding unnecessary Optional in JiraClient**
+
+
+[feeb61cc1f7ebd3](https://github.com/tomasbjerre/git-changelog-lib/commit/feeb61cc1f7ebd3) Tomas Bjerre *2016-02-19 19:20:56*
+
+
+## 1.31
 ### Other changes
 
 **Enabling custom Jira client**

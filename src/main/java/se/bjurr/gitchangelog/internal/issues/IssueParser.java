@@ -63,33 +63,15 @@ public class IssueParser {
    boolean commitMappedToIssue = false;
    for (SettingsIssue issuePattern : patterns) {
     Matcher matcher = compile(issuePattern.getPattern()).matcher(gitCommit.getMessage());
-    if (matcher.find()) {
+    while (matcher.find()) {
      String matched = matcher.group();
      if (!foundIssues.containsKey(matched)) {
       if (issuePattern.getType() == GITHUB && gitHubClient != null && gitHubClient.getIssue(matched).isPresent()) {
-       GitHubIssue gitHubIssue = gitHubClient.getIssue(matched).get();
-       foundIssues.put(matched, new ParsedIssue(//
-         issuePattern.getName(),//
-         gitHubIssue.getTitle(), //
-         matched,//
-         gitHubIssue.getLink()));
+       putGitHubIssue(foundIssues, gitHubClient, issuePattern, matched);
       } else if (issuePattern.getType() == JIRA && jiraClient != null && jiraClient.getIssue(matched).isPresent()) {
-       JiraIssue jiraIssue = jiraClient.getIssue(matched).get();
-       foundIssues.put(matched, new ParsedIssue(//
-         issuePattern.getName(),//
-         jiraIssue.getTitle(), //
-         matched,//
-         jiraIssue.getLink()));
+       putJiraIssue(foundIssues, jiraClient, issuePattern, matched);
       } else {
-       String link = issuePattern.getLink().or("") //
-         .replaceAll("\\$\\{PATTERN_GROUP\\}", matched);
-       for (int i = 0; i <= matcher.groupCount(); i++) {
-        link = link.replaceAll("\\$\\{PATTERN_GROUP_" + i + "\\}", firstNonNull(matcher.group(i), ""));
-       }
-       foundIssues.put(matched, new ParsedIssue(//
-         issuePattern.getName(),//
-         matched,//
-         link));
+       putCustomIssue(foundIssues, issuePattern, matcher, matched);
       }
      }
      foundIssues.get(matched).addCommit(gitCommit);
@@ -105,5 +87,38 @@ public class IssueParser {
    }
   }
   return usingToString().sortedCopy(foundIssues.values());
+ }
+
+ private void putGitHubIssue(Map<String, ParsedIssue> foundIssues, GitHubClient gitHubClient,
+   SettingsIssue issuePattern, String matched) {
+  GitHubIssue gitHubIssue = gitHubClient.getIssue(matched).get();
+  foundIssues.put(matched, new ParsedIssue(//
+    issuePattern.getName(),//
+    gitHubIssue.getTitle(), //
+    matched,//
+    gitHubIssue.getLink()));
+ }
+
+ private void putJiraIssue(Map<String, ParsedIssue> foundIssues, JiraClient jiraClient, SettingsIssue issuePattern,
+   String matched) {
+  JiraIssue jiraIssue = jiraClient.getIssue(matched).get();
+  foundIssues.put(matched, new ParsedIssue(//
+    issuePattern.getName(),//
+    jiraIssue.getTitle(), //
+    matched,//
+    jiraIssue.getLink()));
+ }
+
+ private void putCustomIssue(Map<String, ParsedIssue> foundIssues, SettingsIssue issuePattern, Matcher matcher,
+   String matched) {
+  String link = issuePattern.getLink().or("") //
+    .replaceAll("\\$\\{PATTERN_GROUP\\}", matched);
+  for (int i = 0; i <= matcher.groupCount(); i++) {
+   link = link.replaceAll("\\$\\{PATTERN_GROUP_" + i + "\\}", firstNonNull(matcher.group(i), ""));
+  }
+  foundIssues.put(matched, new ParsedIssue(//
+    issuePattern.getName(),//
+    matched,//
+    link));
  }
 }
