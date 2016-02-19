@@ -8,7 +8,7 @@ Changelog of Git Changelog.
 **Enabling custom Jira client**
 
 
-[9894517fa7ec0fa](https://github.com/tomasbjerre/git-changelog-lib/commit/9894517fa7ec0fa) Tomas Bjerre *2016-02-19 18:35:01*
+[b078d04fbfb978f](https://github.com/tomasbjerre/git-changelog-lib/commit/b078d04fbfb978f) Tomas Bjerre *2016-02-19 18:55:55*
 
 
 ## 1.30
