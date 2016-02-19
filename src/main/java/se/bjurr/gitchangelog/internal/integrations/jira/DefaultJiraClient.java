@@ -26,7 +26,7 @@ public class DefaultJiraClient extends JiraClient {
   String endpoint = getEndpoint(issue);
   Optional<String> json = client.get(endpoint);
   if (json.isPresent()) {
-   JiraIssue jiraIssue = toJiraIssue(issue, json);
+   JiraIssue jiraIssue = toJiraIssue(issue, json.get());
    return of(jiraIssue);
   }
   return absent();
