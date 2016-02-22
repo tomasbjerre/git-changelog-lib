@@ -162,7 +162,7 @@ The template is supplied with a datastructure like:
    * messageBodyItems (List of strings, the lines after the title)
 ```
 
-### Library
+## Library
 
 It has a [builder](https://github.com/tomasbjerre/git-changelog/blob/master/src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java) for creating the changelog.
 
