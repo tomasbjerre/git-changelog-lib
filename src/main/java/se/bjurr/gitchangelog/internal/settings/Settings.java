@@ -142,6 +142,12 @@ public class Settings {
   */
  private String gitHubApi;
  /**
+  * GitHub authentication token. Configure to avoid low rate limits imposed
+  * by GitHub in case you have a lot of issues and/or pull requests.<br>
+  * <code>https://api.github.com/repos/tomasbjerre/git-changelog-lib</code>
+  */
+ private String gitHubToken;
+ /**
   * Pattern to recognize GitHub:s. <code>#([0-9]+)</code>
   */
  private String gitHubIssuePattern;
@@ -317,8 +323,16 @@ public class Settings {
   return fromNullable(gitHubApi);
  }
 
+ public Optional<String> getGitHubToken() {
+  return fromNullable(gitHubToken);
+ }
+
  public void setGitHubApi(String gitHubApi) {
   this.gitHubApi = gitHubApi;
+ }
+
+ public void setGitHubToken(String gitHubToken) {
+  this.gitHubToken = gitHubToken;
  }
 
  public void setGitHubIssuePattern(String gitHubIssuePattern) {

@@ -251,6 +251,16 @@ public class GitChangelogApi {
  }
 
  /**
+  * GitHub authentication token. Configure to avoid low rate limits imposed
+  * by GitHub in case you have a lot of issues and/or pull requests.<br>
+  * <code>https://api.github.com/repos/tomasbjerre/git-changelog-lib</code>
+  */
+ public GitChangelogApi withGitHubToken(String gitHubToken) {
+  settings.setGitHubToken(gitHubToken);
+  return this;
+ }
+
+ /**
   * Pattern to recognize GitHub:s. <code>#([0-9]+)</code>
   */
  public GitChangelogApi withGitHubIssuePattern(String gitHubIssuePattern) {
@@ -303,7 +313,11 @@ public class GitChangelogApi {
   * Get the changelog as data object.
   */
  public Changelog getChangelog() {
-  return getChangelog(new GitRepo(new File(settings.getFromRepo())));
+  try {
+   return getChangelog(new GitRepo(new File(settings.getFromRepo())));
+  } catch (IOException e) {
+   return null;
+  }
  }
 
  /**
@@ -325,7 +339,7 @@ public class GitChangelogApi {
   }
  }
 
- private Changelog getChangelog(GitRepo gitRepo) {
+ private Changelog getChangelog(GitRepo gitRepo) throws IOException {
   ObjectId fromId = getId(gitRepo, settings.getFromRef(), settings.getFromCommit()) //
     .or(gitRepo.getCommit(ZERO_COMMIT));
   ObjectId toId = getId(gitRepo, settings.getToRef(), settings.getToCommit()) //

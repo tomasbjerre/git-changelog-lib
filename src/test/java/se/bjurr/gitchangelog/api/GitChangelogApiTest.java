@@ -15,7 +15,8 @@ import java.net.URL;
 import org.junit.Before;
 import org.junit.Test;
 
-import se.bjurr.gitchangelog.internal.integrations.github.GitHubClientFactory;
+import se.bjurr.gitchangelog.internal.integrations.github.GitHubMockInterceptor;
+import se.bjurr.gitchangelog.internal.integrations.github.GitHubServiceFactory;
 import se.bjurr.gitchangelog.internal.integrations.jira.JiraClientFactory;
 import se.bjurr.gitchangelog.internal.integrations.rest.RestClientMock;
 
@@ -24,10 +25,10 @@ import com.google.gson.GsonBuilder;
 
 public class GitChangelogApiTest {
  private RestClientMock mockedRestClient;
+ private GitHubMockInterceptor gitHubMockInterceptor;
 
  @Before
  public void before() throws Exception {
-  GitHubClientFactory.reset();
   JiraClientFactory.reset();
 
   mockedRestClient = new RestClientMock();
@@ -39,6 +40,15 @@ public class GitChangelogApiTest {
     .addMockedResponse("/jira/rest/api/2/issue/JIR-5262?fields=parent,summary",
       Resources.toString(getResource("jira-issue-jir-5262.json"), UTF_8));
   mock(mockedRestClient);
+
+  gitHubMockInterceptor = new GitHubMockInterceptor();
+  gitHubMockInterceptor
+    .addMockedResponse("https://api.github.com/repos/tomasbjerre/git-changelog-lib/issues?state=all&per_page=100&page=1",
+      Resources.toString(getResource("github-issues.json"), UTF_8));
+
+  GitHubServiceFactory.reset();
+  GitHubServiceFactory.getGitHubService("https://api.github.com/repos/tomasbjerre/git-changelog-lib", null,
+    gitHubMockInterceptor);
  }
 
  @Test
