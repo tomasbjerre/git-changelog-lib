@@ -3,6 +3,16 @@
 Changelog of Git Changelog.
 
 ## Next release
+### Other changes
+
+**Using okhttp 2.7.5 was using 2.3.0**
+
+ * Which caused ClassNotFoundException for okio/ForwardingTimeout. 
+
+[5e41c6e50d39c39](https://github.com/tomasbjerre/git-changelog-lib/commit/5e41c6e50d39c39) Tomas Bjerre *2016-03-15 20:10:29*
+
+
+## 1.34
 ### GitHub [#18](https://github.com/tomasbjerre/git-changelog-lib/pull/18) Migrate GitHub to RetroFit , add pagination and token support
 
 **Logging error if error invoking GitHub API**

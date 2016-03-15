@@ -84,8 +84,12 @@ public class IssueParser {
        LOG.error("Will ignore issue \"" + matched + "\"", e);
       }
      }
-     foundIssues.get(matched).addCommit(gitCommit);
-     commitMappedToIssue = true;
+     if (foundIssues.containsKey(matched)) {
+      // When an exception was thrown above, the matched key may not have been
+      // added.
+      foundIssues.get(matched).addCommit(gitCommit);
+      commitMappedToIssue = true;
+     }
     }
    }
    if (!commitMappedToIssue) {
