@@ -7,4 +7,8 @@ public class GitChangelogIntegrationException extends Exception {
  public GitChangelogIntegrationException(String message, Throwable throwable) {
   super(message, throwable);
  }
+
+ public GitChangelogIntegrationException(String message) {
+  super(message);
+ }
 }

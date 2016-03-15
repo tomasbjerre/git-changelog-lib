@@ -23,21 +23,6 @@ public class GitHubHelper {
   this.service = service;
  }
 
- public Optional<GitHubIssue> getIssue(String issue) throws IOException {
-  if (issue.startsWith("#")) {
-   issue = issue.substring(1);
-  }
-
-  Call<GitHubIssue> call = service.issue(issue);
-
-  Response<GitHubIssue> response = call.execute();
-  if (response.isSuccessful()) {
-   return of(response.body());
-  } else {
-   return absent();
-  }
- }
-
  public Optional<GitHubIssue> getIssueFromAll(String issue) throws GitChangelogIntegrationException {
   if (issue.startsWith("#")) {
    issue = issue.substring(1);
@@ -52,7 +37,8 @@ public class GitHubHelper {
     Response<List<GitHubIssue>> response = call.execute();
 
     if (!response.isSuccessful()) {
-     return absent();
+     throw new GitChangelogIntegrationException("Request:" + response.raw().request().toString() + "\nError:\n"
+       + response.errorBody().string());
     }
 
     // Pagination
@@ -77,7 +63,6 @@ public class GitHubHelper {
 
     for (GitHubIssue gitHubIssue : response.body()) {
      if (issue.equals(gitHubIssue.getNumber())) {
-      // Done
       return of(gitHubIssue);
      }
     }

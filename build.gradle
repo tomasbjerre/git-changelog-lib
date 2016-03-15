@@ -100,4 +100,4 @@ extraArchive {
  javadoc = true
 }
 
-afterReleaseBuild.dependsOn uploadArchives
+afterReleaseBuild.dependsOn install, uploadArchives

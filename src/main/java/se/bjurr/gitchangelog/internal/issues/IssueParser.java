@@ -80,7 +80,7 @@ public class IssueParser {
        } else {
         putCustomIssue(foundIssues, issuePattern, matcher, matched);
        }
-      } catch (GitChangelogIntegrationException e) {
+      } catch (Exception e) {
        LOG.error("Will ignore issue \"" + matched + "\"", e);
       }
      }

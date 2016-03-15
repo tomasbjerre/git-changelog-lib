@@ -3,12 +3,20 @@
 Changelog of Git Changelog.
 
 ## Next release
+### GitHub [#18](https://github.com/tomasbjerre/git-changelog-lib/pull/18) Migrate GitHub to RetroFit , add pagination and token support
+
+**Logging error if error invoking GitHub API**
+
+
+[a74c6246c14e223](https://github.com/tomasbjerre/git-changelog-lib/commit/a74c6246c14e223) Tomas Bjerre *2016-03-15 18:55:35*
+
+
 ### Other changes
 
 **Updating CHANGELOG.md**
 
 
-[31ed435ff58089b](https://github.com/tomasbjerre/git-changelog-lib/commit/31ed435ff58089b) Tomas Bjerre *2016-03-15 17:49:47*
+[2cf820ce81c7b15](https://github.com/tomasbjerre/git-changelog-lib/commit/2cf820ce81c7b15) Tomas Bjerre *2016-03-15 17:52:18*
 
 
 ## 1.33
