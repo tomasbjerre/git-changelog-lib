@@ -3,12 +3,50 @@
 Changelog of Git Changelog.
 
 ## Next release
+### GitHub [#10](https://github.com/tomasbjerre/git-changelog-lib/issues/10) Authentication with GitHub
+
+**Migrate GitHub REST-API to RetroFit library**
+
+ * Added auth-token support for GitHub, fixes 
+ * Added pagination support for GitHub, fixes 
+
+[d29029a38fad6a4](https://github.com/tomasbjerre/git-changelog-lib/commit/d29029a38fad6a4) Jonas Kalderstam *2016-03-15 00:12:45*
+
+
+### GitHub [#15](https://github.com/tomasbjerre/git-changelog-lib/issues/15) Github, support pagination 
+
+**Migrate GitHub REST-API to RetroFit library**
+
+ * Added auth-token support for GitHub, fixes 
+ * Added pagination support for GitHub, fixes 
+
+[d29029a38fad6a4](https://github.com/tomasbjerre/git-changelog-lib/commit/d29029a38fad6a4) Jonas Kalderstam *2016-03-15 00:12:45*
+
+
+### GitHub [#18](https://github.com/tomasbjerre/git-changelog-lib/pull/18) Migrate GitHub to RetroFit , add pagination and token support
+
+**Introducing custom exceptions**
+
+ * Also fixing some issues from PR . Removing duplicate Gson, System.out, throwing exceptions. 
+
+[ef567e512939e77](https://github.com/tomasbjerre/git-changelog-lib/commit/ef567e512939e77) Tomas Bjerre *2016-03-15 17:11:40*
+
+
+### Other changes
+
+**Update README.md**
+
+
+[e37195ae3a5bb32](https://github.com/tomasbjerre/git-changelog-lib/commit/e37195ae3a5bb32) Tomas Bjerre *2016-02-22 16:28:48*
+
+
+## 1.32
 ### GitHub [#16](https://github.com/tomasbjerre/git-changelog-lib/issues/16) Commit not available in all issues mentioned in commit comment
 
 **Supplying commit in each issue mentioned in message**
 
 
-[d5b81c4d747c2f8](https://github.com/tomasbjerre/git-changelog-lib/commit/d5b81c4d747c2f8) Tomas Bjerre *2016-02-19 22:17:33*
+[102431686668a6c](https://github.com/tomasbjerre/git-changelog-lib/commit/102431686668a6c) Tomas Bjerre *2016-02-19 22:18:39*
 
 
 ### Other changes

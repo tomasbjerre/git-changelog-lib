@@ -9,9 +9,7 @@ import static java.util.TimeZone.getTimeZone;
 import static java.util.regex.Pattern.compile;
 import static se.bjurr.gitchangelog.internal.common.GitPredicates.ignoreCommits;
 
-import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -50,11 +48,7 @@ public class Transformer {
     List<Commit> commits = toCommits(gitCommits);
     List<Author> authors = toAuthors(gitCommits);
     List<ParsedIssue> parsedIssues;
-    try {
-     parsedIssues = new IssueParser(settings, gitCommits).parseForIssues();
-    } catch (IOException e) {
-     parsedIssues = new ArrayList<ParsedIssue>();
-    }
+    parsedIssues = new IssueParser(settings, gitCommits).parseForIssues();
     List<Issue> issues = toIssues(parsedIssues);
     return new Tag(toReadableTagName(input.getName()), commits, authors, issues);
    }

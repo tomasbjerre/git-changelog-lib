@@ -2,14 +2,17 @@ package se.bjurr.gitchangelog.internal.integrations.github;
 
 import static com.google.common.base.Optional.absent;
 import static com.google.common.base.Optional.of;
-import com.google.common.base.Optional;
-import retrofit2.Call;
-import retrofit2.Response;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import retrofit2.Call;
+import retrofit2.Response;
+import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
+
+import com.google.common.base.Optional;
 
 public class GitHubHelper {
 
@@ -35,7 +38,7 @@ public class GitHubHelper {
   }
  }
 
- public Optional<GitHubIssue> getIssueFromAll(String issue) {
+ public Optional<GitHubIssue> getIssueFromAll(String issue) throws GitChangelogIntegrationException {
   if (issue.startsWith("#")) {
    issue = issue.substring(1);
   }
@@ -56,8 +59,7 @@ public class GitHubHelper {
     if (response.headers().get("Link") != null) {
      String link = response.headers().get("Link");
      String parsedPage = null;
-     PART:
-     for (String part : link.split(",")) {
+     PART: for (String part : link.split(",")) {
       for (String piece : part.split(";")) {
        if ("rel=\"next\"".equals(piece.trim()) && parsedPage != null) {
         // Previous piece pointed to next
@@ -73,7 +75,7 @@ public class GitHubHelper {
      }
     }
 
-    for (GitHubIssue gitHubIssue: response.body()) {
+    for (GitHubIssue gitHubIssue : response.body()) {
      if (issue.equals(gitHubIssue.getNumber())) {
       // Done
       return of(gitHubIssue);
@@ -81,8 +83,7 @@ public class GitHubHelper {
     }
 
    } catch (IOException e) {
-    System.out.println(e.getMessage());
-    return absent();
+    throw new GitChangelogIntegrationException(issue, e);
    }
   }
   return absent();

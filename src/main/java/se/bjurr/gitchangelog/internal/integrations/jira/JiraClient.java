@@ -1,6 +1,7 @@
 package se.bjurr.gitchangelog.internal.integrations.jira;
 
 import static com.jayway.jsonpath.JsonPath.read;
+import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 
 import com.google.common.base.Optional;
 
@@ -30,6 +31,6 @@ public abstract class JiraClient {
 
  public abstract void withBasicCredentials(String username, String password);
 
- public abstract Optional<JiraIssue> getIssue(String matched);
+ public abstract Optional<JiraIssue> getIssue(String matched) throws GitChangelogIntegrationException;
 
 }

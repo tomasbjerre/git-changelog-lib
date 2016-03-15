@@ -4,16 +4,19 @@ import static com.google.common.base.Objects.firstNonNull;
 import static com.google.common.collect.Maps.newHashMap;
 import static com.google.common.collect.Ordering.usingToString;
 import static java.util.regex.Pattern.compile;
+import static org.slf4j.LoggerFactory.getLogger;
 import static se.bjurr.gitchangelog.internal.integrations.github.GitHubServiceFactory.getGitHubService;
 import static se.bjurr.gitchangelog.internal.integrations.jira.JiraClientFactory.createJiraClient;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITHUB;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.JIRA;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 
+import org.slf4j.Logger;
+
+import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.integrations.github.GitHubHelper;
 import se.bjurr.gitchangelog.internal.integrations.github.GitHubIssue;
@@ -25,6 +28,7 @@ import se.bjurr.gitchangelog.internal.settings.Settings;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
 
 public class IssueParser {
+ private static final Logger LOG = getLogger(IssueParser.class);
 
  private final List<GitCommit> commits;
  private final Settings settings;
@@ -42,7 +46,7 @@ public class IssueParser {
   return commits;
  }
 
- public List<ParsedIssue> parseForIssues() throws IOException {
+ public List<ParsedIssue> parseForIssues() {
   Map<String, ParsedIssue> foundIssues = newHashMap();
 
   GitHubHelper gitHubHelper = null;
@@ -67,12 +71,17 @@ public class IssueParser {
     while (matcher.find()) {
      String matched = matcher.group();
      if (!foundIssues.containsKey(matched)) {
-      if (issuePattern.getType() == GITHUB && gitHubHelper != null && gitHubHelper.getIssueFromAll(matched).isPresent()) {
+      try {
+       if (issuePattern.getType() == GITHUB && gitHubHelper != null
+         && gitHubHelper.getIssueFromAll(matched).isPresent()) {
         putGitHubIssue(foundIssues, gitHubHelper, issuePattern, matched);
-      } else if (issuePattern.getType() == JIRA && jiraClient != null && jiraClient.getIssue(matched).isPresent()) {
-       putJiraIssue(foundIssues, jiraClient, issuePattern, matched);
-      } else {
-       putCustomIssue(foundIssues, issuePattern, matcher, matched);
+       } else if (issuePattern.getType() == JIRA && jiraClient != null && jiraClient.getIssue(matched).isPresent()) {
+        putJiraIssue(foundIssues, jiraClient, issuePattern, matched);
+       } else {
+        putCustomIssue(foundIssues, issuePattern, matcher, matched);
+       }
+      } catch (GitChangelogIntegrationException e) {
+       LOG.error("Will ignore issue \"" + matched + "\"", e);
       }
      }
      foundIssues.get(matched).addCommit(gitCommit);
@@ -91,7 +100,7 @@ public class IssueParser {
  }
 
  private void putGitHubIssue(Map<String, ParsedIssue> foundIssues, GitHubHelper gitHubHelper,
-                             SettingsIssue issuePattern, String matched) throws IOException {
+   SettingsIssue issuePattern, String matched) throws GitChangelogIntegrationException {
   GitHubIssue gitHubIssue = gitHubHelper.getIssueFromAll(matched).get();
   foundIssues.put(matched, new ParsedIssue(//
     issuePattern.getName(),//
@@ -101,7 +110,7 @@ public class IssueParser {
  }
 
  private void putJiraIssue(Map<String, ParsedIssue> foundIssues, JiraClient jiraClient, SettingsIssue issuePattern,
-   String matched) {
+   String matched) throws GitChangelogIntegrationException {
   JiraIssue jiraIssue = jiraClient.getIssue(matched).get();
   foundIssues.put(matched, new ParsedIssue(//
     issuePattern.getName(),//

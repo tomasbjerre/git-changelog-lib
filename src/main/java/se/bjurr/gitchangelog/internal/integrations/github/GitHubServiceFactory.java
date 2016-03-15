@@ -1,13 +1,17 @@
 package se.bjurr.gitchangelog.internal.integrations.github;
 
+import java.io.File;
+import java.io.IOException;
 
-import com.google.common.base.Optional;
-import okhttp3.*;
+import okhttp3.Cache;
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import java.io.File;
-import java.io.IOException;
+import com.google.common.base.Optional;
 
 public class GitHubServiceFactory {
 
@@ -21,7 +25,8 @@ public class GitHubServiceFactory {
   return getGitHubService(api, token, null);
  }
 
- public static GitHubService getGitHubService(String api, final Optional<String> token, final Interceptor interceptor) {
+ public synchronized static GitHubService getGitHubService(String api, final Optional<String> token,
+   final Interceptor interceptor) {
   if (!api.endsWith("/")) {
    api += "/";
   }
@@ -33,29 +38,28 @@ public class GitHubServiceFactory {
    OkHttpClient.Builder builder = new OkHttpClient.Builder().cache(cache);
 
    if (token != null && token.isPresent() && !token.get().isEmpty()) {
-    builder
-      .addInterceptor(new Interceptor() {
-       @Override
-       public Response intercept(Chain chain) throws IOException {
-        Request original = chain.request();
+    builder.addInterceptor(new Interceptor() {
+     @Override
+     public Response intercept(Chain chain) throws IOException {
+      Request original = chain.request();
 
-        Request request = original.newBuilder()
-          .addHeader("Authorization", "token " + token.get())
-          .method(original.method(), original.body())
-          .build();
-        return chain.proceed(request);
-       }
-      });
+      Request request = original.newBuilder()//
+        .addHeader("Authorization", "token " + token.get())//
+        .method(original.method(), original.body())//
+        .build();
+      return chain.proceed(request);
+     }
+    });
    }
 
    if (interceptor != null) {
     builder.addInterceptor(interceptor);
    }
 
-   Retrofit retrofit = new Retrofit.Builder()
-     .baseUrl(api)
-     .client(builder.build())
-     .addConverterFactory(GsonConverterFactory.create())
+   Retrofit retrofit = new Retrofit.Builder()//
+     .baseUrl(api)//
+     .client(builder.build())//
+     .addConverterFactory(GsonConverterFactory.create())//
      .build();
 
    gitHubService = retrofit.create(GitHubService.class);

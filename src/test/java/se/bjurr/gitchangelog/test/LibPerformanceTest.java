@@ -31,7 +31,7 @@ public class LibPerformanceTest {
  private static final Logger LOG = Logger.getLogger(LibPerformanceTest.class.getSimpleName());
 
  @Before
- public void before() {
+ public void before() throws Exception {
   gitChangelogApiBuilder = gitChangelogApiBuilder()//
     .withFromRepo(GIT_REPO_DIR);
   this.stopwatch = createStarted();
@@ -50,7 +50,7 @@ public class LibPerformanceTest {
  }
 
  @Test
- public void testThatGimmitsBetweenTagsCanBeFound() {
+ public void testThatGimmitsBetweenTagsCanBeFound() throws Exception {
   if (gitRepo == null) {
    return;
   }

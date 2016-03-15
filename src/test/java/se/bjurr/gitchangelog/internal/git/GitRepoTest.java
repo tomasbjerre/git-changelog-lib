@@ -28,13 +28,13 @@ public class GitRepoTest {
  }
 
  @Test
- public void testThatRepoCanBeFound() {
+ public void testThatRepoCanBeFound() throws Exception {
   GitRepo gitRepo = getGitRepo();
   assertThat(gitRepo).isNotNull();
  }
 
  @Test
- public void testThatTagsCanBeListed() {
+ public void testThatTagsCanBeListed() throws Exception {
   GitRepo gitRepo = getGitRepo();
   GitRepoData gitRepoData = gitRepo
     .getGitRepoData(gitRepo.getCommit(ZERO_COMMIT), gitRepo.getRef(REF_MASTER), "No tag");
@@ -42,7 +42,7 @@ public class GitRepoTest {
  }
 
  @Test
- public void testThatZeroCommitCanBeRetrieved() {
+ public void testThatZeroCommitCanBeRetrieved() throws Exception {
   GitRepo gitRepo = getGitRepo();
   ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
   assertThat(firstCommit).as(gitRepo.toString()).isNotNull();
@@ -50,7 +50,7 @@ public class GitRepoTest {
  }
 
  @Test
- public void testThatCommitsCanBeRetrieved() {
+ public void testThatCommitsCanBeRetrieved() throws Exception {
   GitRepo gitRepo = getGitRepo();
   assertThat(gitRepo.getCommit(FIRST_COMMIT_HASH_FULL)).isNotNull();
   assertThat(gitRepo.getCommit(FIRST_COMMIT_HASH_FULL).name()).isEqualTo(FIRST_COMMIT_HASH_FULL);
@@ -59,7 +59,7 @@ public class GitRepoTest {
  }
 
  @Test
- public void testThatCommitsBetweenCommitAndReferenceCanBeListed() {
+ public void testThatCommitsBetweenCommitAndReferenceCanBeListed() throws Exception {
   GitRepo gitRepo = getGitRepo();
   ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
   ObjectId lastCommit = gitRepo.getRef(REF_MASTER);
@@ -69,7 +69,7 @@ public class GitRepoTest {
  }
 
  @Test
- public void testThatCommitsBetweenZeroCommitAndCommitCanBeListed() {
+ public void testThatCommitsBetweenZeroCommitAndCommitCanBeListed() throws Exception {
   GitRepo gitRepo = getGitRepo();
   ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
   ObjectId lastCommit = gitRepo.getCommit(TAG_1_0_HASH);
@@ -80,7 +80,7 @@ public class GitRepoTest {
  }
 
  @Test
- public void testThatCommitsSecondReleaseCommitCanBeListed() {
+ public void testThatCommitsSecondReleaseCommitCanBeListed() throws Exception {
   GitRepo gitRepo = getGitRepo();
   ObjectId firstRelease = gitRepo.getRef("refs/tags/1.0");
   ObjectId secondRelease = gitRepo.getRef("refs/tags/1.1");
@@ -90,7 +90,7 @@ public class GitRepoTest {
  }
 
  @Test
- public void testThatCommitsBetweenCommitAndCommitCanBeListed() {
+ public void testThatCommitsBetweenCommitAndCommitCanBeListed() throws Exception {
   GitRepo gitRepo = getGitRepo();
   ObjectId firstCommit = gitRepo.getCommit(FIRST_COMMIT_HASH_FULL);
   ObjectId lastCommit = gitRepo.getCommit("e3766e2d4bc6d206475c5d2ed96b3f967a6e157e");
@@ -104,7 +104,7 @@ public class GitRepoTest {
     .startsWith("e3766e2d4bc6d20");
  }
 
- private GitRepo getGitRepo() {
+ private GitRepo getGitRepo() throws Exception {
   return new GitRepo(gitRepoFile);
  }
 }

@@ -19,7 +19,7 @@ public class MediaWikiClientTest {
  }
 
  @Test
- public void testWithUser() {
+ public void testWithUser() throws Exception {
   mockedMediaWikiClient
     .addMockedResponse(
       "/api.php?action=login&lgname=username&lgpassword=password&format=json",
@@ -41,7 +41,7 @@ public class MediaWikiClientTest {
  }
 
  @Test
- public void testWithoutUser() {
+ public void testWithoutUser() throws Exception {
   mockedMediaWikiClient.addMockedResponse("/api.php?null",
     "{\"edit\":{\"result\":\"Success\",\"pageid\":3,\"title\":\"Tomas Title\",\"nochange\":\"\"}}");
 

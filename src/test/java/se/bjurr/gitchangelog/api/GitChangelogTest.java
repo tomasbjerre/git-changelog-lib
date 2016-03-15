@@ -1,5 +1,6 @@
 package se.bjurr.gitchangelog.api;
 
+import static com.google.common.base.Strings.padEnd;
 import static com.google.common.io.Resources.getResource;
 import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
 
@@ -9,6 +10,9 @@ import java.util.logging.Logger;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * This test creates the actual changelog of this library.
+ */
 public class GitChangelogTest {
  private static Logger LOG = Logger.getLogger(GitChangelogTest.class.getSimpleName());
 
@@ -22,8 +26,11 @@ public class GitChangelogTest {
  @Test
  public void createFullChangelog() throws Exception {
   String toFile = repoRoot + "/CHANGELOG.md";
+  String gitHubToken = System.getenv("GITHUB_OAUTH2TOKEN");
+  LOG.info("Using token: " + padEnd("", gitHubToken.length(), '*'));
   gitChangelogApiBuilder()//
     .withSettings(new File(repoRoot + "/changelog.json").toURI().toURL())//
+    .withGitHubToken(gitHubToken)//
     .toFile(toFile);
   LOG.info("Wrote " + toFile);
  }

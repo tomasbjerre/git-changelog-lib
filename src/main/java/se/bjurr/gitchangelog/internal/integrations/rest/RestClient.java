@@ -2,7 +2,6 @@ package se.bjurr.gitchangelog.internal.integrations.rest;
 
 import static com.google.common.base.Optional.absent;
 import static com.google.common.base.Optional.of;
-import static com.google.common.base.Throwables.propagate;
 import static com.google.common.cache.CacheBuilder.newBuilder;
 import static com.google.common.io.ByteStreams.toByteArray;
 import static javax.xml.bind.DatatypeConverter.printBase64Binary;
@@ -10,10 +9,11 @@ import static org.slf4j.LoggerFactory.getLogger;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 import org.slf4j.Logger;
+
+import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Optional;
@@ -42,11 +42,11 @@ public class RestClient {
   return this;
  }
 
- public Optional<String> get(String url) {
+ public Optional<String> get(String url) throws GitChangelogIntegrationException {
   try {
    return urlCache.get(url);
-  } catch (ExecutionException e) {
-   throw propagate(e);
+  } catch (Exception e) {
+   throw new GitChangelogIntegrationException("Problems invoking " + url, e);
   }
  }
 

@@ -24,6 +24,8 @@ import java.util.Map;
 
 import org.eclipse.jgit.lib.ObjectId;
 
+import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
+import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 import se.bjurr.gitchangelog.api.model.Changelog;
 import se.bjurr.gitchangelog.api.model.Issue;
 import se.bjurr.gitchangelog.internal.git.GitRepo;
@@ -251,9 +253,13 @@ public class GitChangelogApi {
  }
 
  /**
-  * GitHub authentication token. Configure to avoid low rate limits imposed
-  * by GitHub in case you have a lot of issues and/or pull requests.<br>
-  * <code>https://api.github.com/repos/tomasbjerre/git-changelog-lib</code>
+  * GitHub authentication token. Configure to avoid low rate limits imposed by
+  * GitHub in case you have a lot of issues and/or pull requests.<br>
+  * <br>
+  * You can get one like this:<br>
+  * <code>
+  * curl -u 'yourgithubuser' -d '{"note":"Git Changelog Lib"}' https://api.github.com/authorizations
+  * </code>
   */
  public GitChangelogApi withGitHubToken(String gitHubToken) {
   settings.setGitHubToken(gitHubToken);
@@ -289,21 +295,25 @@ public class GitChangelogApi {
 
  /**
   * Write changelog to file.
+  *
+  * @throws GitChangelogRepositoryException
+  * @throws IOException
+  *          When file cannot be written.
   */
- public void toFile(String filePath) {
-  try {
-   File file = new File(filePath);
-   createParentDirs(file);
-   write(render().getBytes(), file);
-  } catch (IOException e) {
-   propagate(e);
-  }
+ public void toFile(String filePath) throws GitChangelogRepositoryException, IOException {
+  File file = new File(filePath);
+  createParentDirs(file);
+  write(render().getBytes(), file);
  }
 
  /**
   * Create MediaWiki page with changelog.
+  *
+  * @throws GitChangelogRepositoryException
+  * @throws GitChangelogIntegrationException
   */
- public void toMediaWiki(String username, String password, String url, String title) {
+ public void toMediaWiki(String username, String password, String url, String title)
+   throws GitChangelogRepositoryException, GitChangelogIntegrationException {
   new MediaWikiClient(url, title, render()) //
     .withUser(username, password) //
     .createMediaWikiPage();
@@ -311,19 +321,19 @@ public class GitChangelogApi {
 
  /**
   * Get the changelog as data object.
+  *
+  * @throws GitChangelogRepositoryException
   */
- public Changelog getChangelog() {
-  try {
-   return getChangelog(new GitRepo(new File(settings.getFromRepo())));
-  } catch (IOException e) {
-   return null;
-  }
+ public Changelog getChangelog() throws GitChangelogRepositoryException {
+  return getChangelog(new GitRepo(new File(settings.getFromRepo())));
  }
 
  /**
   * Get the changelog as rendered string.
+  *
+  * @throws GitChangelogRepositoryException
   */
- public String render() {
+ public String render() throws GitChangelogRepositoryException {
   try {
    MustacheFactory mf = new DefaultMustacheFactory();
    String templateContent = checkNotNull(getTemplateContent(), "No template!");
@@ -335,11 +345,12 @@ public class GitChangelogApi {
      ).flush();
    return writer.toString();
   } catch (IOException e) {
+   // Should be impossible!
    throw propagate(e);
   }
  }
 
- private Changelog getChangelog(GitRepo gitRepo) throws IOException {
+ private Changelog getChangelog(GitRepo gitRepo) throws GitChangelogRepositoryException {
   ObjectId fromId = getId(gitRepo, settings.getFromRef(), settings.getFromCommit()) //
     .or(gitRepo.getCommit(ZERO_COMMIT));
   ObjectId toId = getId(gitRepo, settings.getToRef(), settings.getToCommit()) //

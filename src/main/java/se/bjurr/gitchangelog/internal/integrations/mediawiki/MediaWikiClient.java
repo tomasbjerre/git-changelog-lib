@@ -4,7 +4,6 @@ import static com.google.common.base.Charsets.UTF_8;
 import static com.google.common.base.Optional.fromNullable;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Strings.isNullOrEmpty;
-import static com.google.common.base.Throwables.propagate;
 import static com.google.common.collect.Maps.newHashMap;
 import static com.jayway.jsonpath.JsonPath.read;
 import static java.net.URLEncoder.encode;
@@ -21,6 +20,7 @@ import net.minidev.json.JSONArray;
 
 import org.slf4j.Logger;
 
+import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 import se.bjurr.gitchangelog.internal.integrations.rest.RestClient;
 
 import com.google.common.base.Optional;
@@ -82,7 +82,7 @@ public class MediaWikiClient extends RestClient {
   return this;
  }
 
- public void createMediaWikiPage() {
+ public void createMediaWikiPage() throws GitChangelogIntegrationException {
   checkNotNull(title, "No title set for MediaWiki");
   try {
    HttpState httpState = new HttpState();
@@ -97,7 +97,7 @@ public class MediaWikiClient extends RestClient {
    createPage(httpState, url, title, text);
    logger.info("Created " + url + "/index.php/" + title);
   } catch (Exception e) {
-   propagate(e);
+   throw new GitChangelogIntegrationException(url + " " + title, e);
   }
  }
 
@@ -179,23 +179,27 @@ public class MediaWikiClient extends RestClient {
   httpState.setWikiToken(token);
  }
 
- private String postToWiki(HttpState httpState, String addr) throws Exception {
-  HttpURLConnection conn = openConnection(new URL(addr));
+ private String postToWiki(HttpState httpState, String addr) throws GitChangelogIntegrationException {
   try {
-   conn.setRequestMethod("POST");
-   if (httpState.getCookieString().isPresent()) {
-    conn.setRequestProperty("Cookie", httpState.getCookieString().get());
-   }
+   HttpURLConnection conn = openConnection(new URL(addr));
+   try {
+    conn.setRequestMethod("POST");
+    if (httpState.getCookieString().isPresent()) {
+     conn.setRequestProperty("Cookie", httpState.getCookieString().get());
+    }
 
-   if (conn.getHeaderFields().get("Set-Cookie") != null && conn.getHeaderFields().get("Set-Cookie").size() > 0
-     && !httpState.getCookieString().isPresent()) {
-    httpState.setCookieString(conn.getHeaderFields().get("Set-Cookie").get(0));
-    logger.info("Got edit cookie: " + httpState.getCookieString().orNull());
-   }
+    if (conn.getHeaderFields().get("Set-Cookie") != null && conn.getHeaderFields().get("Set-Cookie").size() > 0
+      && !httpState.getCookieString().isPresent()) {
+     httpState.setCookieString(conn.getHeaderFields().get("Set-Cookie").get(0));
+     logger.info("Got edit cookie: " + httpState.getCookieString().orNull());
+    }
 
-   return getResponse(conn);
-  } finally {
-   conn.disconnect();
+    return getResponse(conn);
+   } finally {
+    conn.disconnect();
+   }
+  } catch (Exception e) {
+   throw new GitChangelogIntegrationException(addr, e);
   }
  }
 

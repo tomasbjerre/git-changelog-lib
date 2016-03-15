@@ -1,7 +1,6 @@
 package se.bjurr.gitchangelog.internal.git;
 
 import static com.google.common.base.Objects.firstNonNull;
-import static com.google.common.base.Throwables.propagate;
 import static com.google.common.collect.Iterables.transform;
 import static com.google.common.collect.Iterators.getLast;
 import static com.google.common.collect.Lists.newArrayList;
@@ -19,6 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.lib.AnyObjectId;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.Ref;
@@ -27,6 +27,7 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 
 import se.bjurr.gitchangelog.api.GitChangelogApiConstants;
+import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 
@@ -55,7 +56,7 @@ public class GitRepo {
   this.repository = null;
  }
 
- public GitRepo(File repo) {
+ public GitRepo(File repo) throws GitChangelogRepositoryException {
   try {
    File repoFile = new File(repo.getAbsolutePath());
    File gitRepoFile = new File(repo.getAbsolutePath() + "/.git");
@@ -66,11 +67,11 @@ public class GitRepo {
      .findGitDir(repoFile)//
      .readEnvironment();
    if (builder.getGitDir() == null) {
-    throw new RuntimeException("Did not find a GIT repo in " + repo.getAbsolutePath());
+    throw new GitChangelogRepositoryException("Did not find a GIT repo in " + repo.getAbsolutePath());
    }
    this.repository = builder.build();
   } catch (IOException e) {
-   throw propagate(e);
+   throw new GitChangelogRepositoryException("Could not use GIT repo in " + repo.getAbsolutePath(), e);
   }
  }
 
@@ -82,21 +83,23 @@ public class GitRepo {
   * @param to
   *         To and including this commit.
   * @param untaggedName
+  * @throws GitChangelogRepositoryException
   */
- public GitRepoData getGitRepoData(ObjectId from, ObjectId to, String untaggedName) {
+ public GitRepoData getGitRepoData(ObjectId from, ObjectId to, String untaggedName)
+   throws GitChangelogRepositoryException {
   Git git = null;
   try {
    git = new Git(repository);
    List<GitCommit> gitCommits = getGitCommits(git, from, to);
    return new GitRepoData(gitCommits, gitTags(git, gitCommits, untaggedName));
   } catch (Exception e) {
-   throw new RuntimeException(toString(), e);
+   throw new GitChangelogRepositoryException(toString(), e);
   } finally {
    git.close();
   }
  }
 
- private List<GitTag> gitTags(Git git, List<GitCommit> gitCommits, String untaggedName) throws Exception {
+ private List<GitTag> gitTags(Git git, List<GitCommit> gitCommits, String untaggedName) throws GitAPIException {
   List<GitTag> refs = newArrayList();
   List<Ref> refList = git.tagList().call();
   Map<String, Ref> refsPerCommit = newHashMap();
@@ -129,18 +132,22 @@ public class GitRepo {
   return refs;
  }
 
- private List<GitCommit> getGitCommits(Git git, ObjectId from, ObjectId to) throws Exception {
-  final List<RevCommit> toList = newArrayList(git.log().add(to).call());
-  if (from.name().equals(firstCommit().name())) {
-   return newArrayList(transform(toList, TO_GITCOMMIT));
+ private List<GitCommit> getGitCommits(Git git, ObjectId from, ObjectId to) throws GitChangelogRepositoryException {
+  try {
+   final List<RevCommit> toList = newArrayList(git.log().add(to).call());
+   if (from.name().equals(firstCommit().name())) {
+    return newArrayList(transform(toList, TO_GITCOMMIT));
+   }
+
+   Iterable<RevCommit> itr = git //
+     .log() //
+     .addRange(from, to) //
+     .call();
+
+   return newArrayList(transform(itr, TO_GITCOMMIT));
+  } catch (Exception e) {
+   throw new GitChangelogRepositoryException(from.name() + " -> " + to.name(), e);
   }
-
-  Iterable<RevCommit> itr = git //
-    .log() //
-    .addRange(from, to) //
-    .call();
-
-  return newArrayList(transform(itr, TO_GITCOMMIT));
  }
 
  private ObjectId getPeeled(Ref ref) {
