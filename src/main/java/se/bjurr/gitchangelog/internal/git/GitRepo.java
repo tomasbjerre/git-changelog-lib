@@ -1,6 +1,5 @@
 package se.bjurr.gitchangelog.internal.git;
 
-import static com.google.common.base.Objects.firstNonNull;
 import static com.google.common.collect.Iterables.transform;
 import static com.google.common.collect.Iterators.getLast;
 import static com.google.common.collect.Lists.newArrayList;
@@ -211,14 +210,6 @@ public class GitRepo {
 
  @Override
  public String toString() {
-  String s = ""//
-    + "First commit at: " + firstCommit().name() + "\n"//
-    + "Refs: \n";
-  Map<String, Ref> allRefs = getAllRefs();
-  for (String k : allRefs.keySet()) {
-   ObjectId pealed = firstNonNull(allRefs.get(k).getPeeledObjectId(), pealed = allRefs.get(k).getObjectId());
-   s += "Ref: " + k + " -> " + pealed.name() + "\n";
-  }
-  return s;
+  return "First commit at: " + firstCommit().name() + " Repo: " + repository;
  }
 }

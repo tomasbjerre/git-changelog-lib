@@ -5,11 +5,26 @@ Changelog of Git Changelog.
 ## Next release
 ### Other changes
 
+**Fixing infinite loop in GitRepo**
+
+ * Found in 1.19 
+ * at se.bjurr.gitchangelog.internal.git.GitRepo.toString(GitRepo.java:208) 
+ * at se.bjurr.gitchangelog.internal.git.GitRepo.getRef(GitRepo.java:174) 
+ * at se.bjurr.gitchangelog.internal.git.GitRepo.firstCommit(GitRepo.java:195) 
+ * at se.bjurr.gitchangelog.internal.git.GitRepo.toString(GitRepo.java:208) 
+ * at se.bjurr.gitchangelog.internal.git.GitRepo.getRef(GitRepo.java:174) 
+
+[f5b6360a4ad9416](https://github.com/tomasbjerre/git-changelog-lib/commit/f5b6360a4ad9416) Tomas Bjerre *2016-03-15 20:25:52*
+
+
+## 1.35
+### Other changes
+
 **Using okhttp 2.7.5 was using 2.3.0**
 
  * Which caused ClassNotFoundException for okio/ForwardingTimeout. 
 
-[5e41c6e50d39c39](https://github.com/tomasbjerre/git-changelog-lib/commit/5e41c6e50d39c39) Tomas Bjerre *2016-03-15 20:10:29*
+[a4bb6103886b293](https://github.com/tomasbjerre/git-changelog-lib/commit/a4bb6103886b293) Tomas Bjerre *2016-03-15 20:12:47*
 
 
 ## 1.34
