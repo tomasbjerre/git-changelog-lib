@@ -27,7 +27,11 @@ public class GitChangelogTest {
  public void createFullChangelog() throws Exception {
   String toFile = repoRoot + "/CHANGELOG.md";
   String gitHubToken = System.getenv("GITHUB_OAUTH2TOKEN");
-  LOG.info("Using token: " + padEnd("", gitHubToken.length(), '*'));
+  if (gitHubToken == null) {
+   LOG.info("Not using token");
+  } else {
+   LOG.info("Using token: " + padEnd("", gitHubToken.length(), '*'));
+  }
   gitChangelogApiBuilder()//
     .withSettings(new File(repoRoot + "/changelog.json").toURI().toURL())//
     .withGitHubToken(gitHubToken)//

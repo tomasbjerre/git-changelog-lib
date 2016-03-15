@@ -3,6 +3,15 @@
 Changelog of Git Changelog.
 
 ## Next release
+### Other changes
+
+**Updating CHANGELOG.md**
+
+
+[31ed435ff58089b](https://github.com/tomasbjerre/git-changelog-lib/commit/31ed435ff58089b) Tomas Bjerre *2016-03-15 17:49:47*
+
+
+## 1.33
 ### GitHub [#10](https://github.com/tomasbjerre/git-changelog-lib/issues/10) Authentication with GitHub
 
 **Migrate GitHub REST-API to RetroFit library**
@@ -29,7 +38,7 @@ Changelog of Git Changelog.
 
  * Also fixing some issues from PR . Removing duplicate Gson, System.out, throwing exceptions. 
 
-[ef567e512939e77](https://github.com/tomasbjerre/git-changelog-lib/commit/ef567e512939e77) Tomas Bjerre *2016-03-15 17:11:40*
+[4cb3f757f8a6b9f](https://github.com/tomasbjerre/git-changelog-lib/commit/4cb3f757f8a6b9f) Tomas Bjerre *2016-03-15 17:22:33*
 
 
 ### Other changes
