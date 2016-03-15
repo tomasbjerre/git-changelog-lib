@@ -4,17 +4,18 @@ import static com.google.common.base.Objects.firstNonNull;
 import static com.google.common.collect.Maps.newHashMap;
 import static com.google.common.collect.Ordering.usingToString;
 import static java.util.regex.Pattern.compile;
-import static se.bjurr.gitchangelog.internal.integrations.github.GitHubClientFactory.createGitHubClient;
+import static se.bjurr.gitchangelog.internal.integrations.github.GitHubServiceFactory.getGitHubService;
 import static se.bjurr.gitchangelog.internal.integrations.jira.JiraClientFactory.createJiraClient;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITHUB;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.JIRA;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
-import se.bjurr.gitchangelog.internal.integrations.github.GitHubClient;
+import se.bjurr.gitchangelog.internal.integrations.github.GitHubHelper;
 import se.bjurr.gitchangelog.internal.integrations.github.GitHubIssue;
 import se.bjurr.gitchangelog.internal.integrations.jira.JiraClient;
 import se.bjurr.gitchangelog.internal.integrations.jira.JiraIssue;
@@ -41,12 +42,12 @@ public class IssueParser {
   return commits;
  }
 
- public List<ParsedIssue> parseForIssues() {
+ public List<ParsedIssue> parseForIssues() throws IOException {
   Map<String, ParsedIssue> foundIssues = newHashMap();
 
-  GitHubClient gitHubClient = null;
+  GitHubHelper gitHubHelper = null;
   if (settings.getGitHubApi().isPresent()) {
-   gitHubClient = createGitHubClient(settings.getGitHubApi().get());
+   gitHubHelper = new GitHubHelper(getGitHubService(settings.getGitHubApi().get(), settings.getGitHubToken()));
   }
 
   JiraClient jiraClient = null;
@@ -66,8 +67,8 @@ public class IssueParser {
     while (matcher.find()) {
      String matched = matcher.group();
      if (!foundIssues.containsKey(matched)) {
-      if (issuePattern.getType() == GITHUB && gitHubClient != null && gitHubClient.getIssue(matched).isPresent()) {
-       putGitHubIssue(foundIssues, gitHubClient, issuePattern, matched);
+      if (issuePattern.getType() == GITHUB && gitHubHelper != null && gitHubHelper.getIssueFromAll(matched).isPresent()) {
+        putGitHubIssue(foundIssues, gitHubHelper, issuePattern, matched);
       } else if (issuePattern.getType() == JIRA && jiraClient != null && jiraClient.getIssue(matched).isPresent()) {
        putJiraIssue(foundIssues, jiraClient, issuePattern, matched);
       } else {
@@ -89,9 +90,9 @@ public class IssueParser {
   return usingToString().sortedCopy(foundIssues.values());
  }
 
- private void putGitHubIssue(Map<String, ParsedIssue> foundIssues, GitHubClient gitHubClient,
-   SettingsIssue issuePattern, String matched) {
-  GitHubIssue gitHubIssue = gitHubClient.getIssue(matched).get();
+ private void putGitHubIssue(Map<String, ParsedIssue> foundIssues, GitHubHelper gitHubHelper,
+                             SettingsIssue issuePattern, String matched) throws IOException {
+  GitHubIssue gitHubIssue = gitHubHelper.getIssueFromAll(matched).get();
   foundIssues.put(matched, new ParsedIssue(//
     issuePattern.getName(),//
     gitHubIssue.getTitle(), //

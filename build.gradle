@@ -26,6 +26,9 @@ repositories {
 }
 
 dependencies {
+ compile 'com.squareup.retrofit2:retrofit:2.0.0'
+ compile 'com.squareup.retrofit2:converter-gson:2.0.0'
+ compile 'com.squareup.okhttp:okhttp:2.3.0'
  compile 'com.jayway.jsonpath:json-path:2.1.0'
  compile 'com.google.guava:guava:11.0.1'
  compile 'org.eclipse.jgit:org.eclipse.jgit:3.6.2.201501210735-r'

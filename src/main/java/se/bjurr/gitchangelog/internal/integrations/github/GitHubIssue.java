@@ -1,13 +1,13 @@
 package se.bjurr.gitchangelog.internal.integrations.github;
 
 public class GitHubIssue {
- private final String title;
- private final String link;
- private final String number;
+ public final String title;
+ public final String html_url;
+ public final String number;
 
  public GitHubIssue(String title, String link, String number) {
   this.title = title;
-  this.link = link;
+  this.html_url = link;
   this.number = number;
  }
 
@@ -16,7 +16,7 @@ public class GitHubIssue {
  }
 
  public String getLink() {
-  return link;
+  return html_url;
  }
 
  public String getTitle() {
