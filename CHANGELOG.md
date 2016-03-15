@@ -8,7 +8,7 @@ Changelog of Git Changelog.
 **Logging error if error invoking GitHub API**
 
 
-[a74c6246c14e223](https://github.com/tomasbjerre/git-changelog-lib/commit/a74c6246c14e223) Tomas Bjerre *2016-03-15 18:55:35*
+[a040e51847b4f23](https://github.com/tomasbjerre/git-changelog-lib/commit/a040e51847b4f23) Tomas Bjerre *2016-03-15 19:05:58*
 
 
 ### Other changes
