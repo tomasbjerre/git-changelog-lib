@@ -2,7 +2,7 @@
 
 Changelog of Git Changelog.
 
-## Next release
+## 1.36
 ### Other changes
 
 **Fixing infinite loop in GitRepo**
@@ -14,7 +14,7 @@ Changelog of Git Changelog.
  * at se.bjurr.gitchangelog.internal.git.GitRepo.toString(GitRepo.java:208) 
  * at se.bjurr.gitchangelog.internal.git.GitRepo.getRef(GitRepo.java:174) 
 
-[f5b6360a4ad9416](https://github.com/tomasbjerre/git-changelog-lib/commit/f5b6360a4ad9416) Tomas Bjerre *2016-03-15 20:25:52*
+[a4a15094f367c31](https://github.com/tomasbjerre/git-changelog-lib/commit/a4a15094f367c31) Tomas Bjerre *2016-03-15 20:27:41*
 
 
 ## 1.35

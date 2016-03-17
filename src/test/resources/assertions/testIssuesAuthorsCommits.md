@@ -2,13 +2,13 @@
 
 Changelog of Git Changelog.
 
-## Bugs 
+## Bugs Mixed bugs
 ### Tomas Bjerre
 2016-02-15 16:30:35
 More stuff tagged with bug
 
 
-## CQ [CQ1234](http://cq/1234) 
+## CQ [CQ1234](http://cq/1234) 1234
 ### Tomas Bjerre
 2016-02-15 16:30:35
 Adding cq stuff with CQ

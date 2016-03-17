@@ -4,20 +4,24 @@ import static com.google.common.collect.Iterables.filter;
 import static com.google.common.collect.Iterables.transform;
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Lists.transform;
+import static com.google.common.collect.Maps.newTreeMap;
 import static com.google.common.collect.Multimaps.index;
 import static java.util.TimeZone.getTimeZone;
 import static java.util.regex.Pattern.compile;
 import static se.bjurr.gitchangelog.internal.common.GitPredicates.ignoreCommits;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 
 import se.bjurr.gitchangelog.api.model.Author;
 import se.bjurr.gitchangelog.api.model.Commit;
 import se.bjurr.gitchangelog.api.model.Issue;
+import se.bjurr.gitchangelog.api.model.IssueType;
 import se.bjurr.gitchangelog.api.model.Tag;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
@@ -47,10 +51,10 @@ public class Transformer {
     List<GitCommit> gitCommits = input.getGitCommits();
     List<Commit> commits = toCommits(gitCommits);
     List<Author> authors = toAuthors(gitCommits);
-    List<ParsedIssue> parsedIssues;
-    parsedIssues = new IssueParser(settings, gitCommits).parseForIssues();
+    List<ParsedIssue> parsedIssues = new IssueParser(settings, gitCommits).parseForIssues();
     List<Issue> issues = toIssues(parsedIssues);
-    return new Tag(toReadableTagName(input.getName()), commits, authors, issues);
+    List<IssueType> issueTypes = toIssueTypes(parsedIssues);
+    return new Tag(toReadableTagName(input.getName()), commits, authors, issues, issueTypes);
    }
   });
 
@@ -87,14 +91,23 @@ public class Transformer {
  }
 
  public List<Issue> toIssues(List<ParsedIssue> issues) {
+  Iterable<ParsedIssue> issuesWithCommits = filterWithCommits(issues);
+
+  return newArrayList(transform(issuesWithCommits, parsedIssueToIssue()));
+ }
+
+ private Iterable<ParsedIssue> filterWithCommits(List<ParsedIssue> issues) {
   Iterable<ParsedIssue> issuesWithCommits = filter(issues, new Predicate<ParsedIssue>() {
    @Override
    public boolean apply(ParsedIssue input) {
     return !toCommits(input.getGitCommits()).isEmpty();
    }
   });
+  return issuesWithCommits;
+ }
 
-  return newArrayList(transform(issuesWithCommits, new Function<ParsedIssue, Issue>() {
+ private Function<ParsedIssue, Issue> parsedIssueToIssue() {
+  return new Function<ParsedIssue, Issue>() {
    @Override
    public Issue apply(ParsedIssue input) {
     List<GitCommit> gitCommits = input.getGitCommits();
@@ -106,7 +119,7 @@ public class Transformer {
       input.getIssue(), //
       input.getLink());
    }
-  }));
+  };
  }
 
  private Commit toCommit(GitCommit gitCommit) {
@@ -165,5 +178,24 @@ public class Transformer {
       commitsOfSameAuthor);
    }
   }));
+ }
+
+ public List<IssueType> toIssueTypes(List<ParsedIssue> issues) {
+  Map<String, List<Issue>> issuesPerName = newTreeMap();
+
+  for (ParsedIssue parsedIssue : filterWithCommits(issues)) {
+   if (!issuesPerName.containsKey(parsedIssue.getName())) {
+    issuesPerName.put(parsedIssue.getName(), new ArrayList<Issue>());
+   }
+   Issue transformedIssues = parsedIssueToIssue().apply(parsedIssue);
+   issuesPerName.get(parsedIssue.getName())//
+     .add(transformedIssues);
+  }
+
+  List<IssueType> issueTypes = newArrayList();
+  for (String name : issuesPerName.keySet()) {
+   issueTypes.add(new IssueType(issuesPerName.get(name), name));
+  }
+  return issueTypes;
  }
 }

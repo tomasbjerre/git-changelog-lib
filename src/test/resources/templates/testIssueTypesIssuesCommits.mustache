@@ -1,0 +1,41 @@
+# Git Changelog changelog
+
+Changelog of Git Changelog.
+
+{{#tags}}
+## {{name}}
+ {{#issueTypes}}
+### {{name}}
+  {{#issues}}
+   {{#hasTitle}}
+     {{#hasLink}}
+#### [{{issue}}]({{link}}) {{title}}
+     {{/hasLink}}
+   {{/hasTitle}}
+
+   {{#hasTitle}}
+     {{^hasLink}}
+#### {{title}}
+     {{/hasLink}}
+   {{/hasTitle}}
+
+   {{^hasTitle}}
+    {{^hasIssue}}
+These commits has no issue.
+    {{/hasIssue}}
+   {{/hasTitle}}
+
+   {{#commits}}
+**{{{messageTitle}}}**
+
+    {{#messageBodyItems}}
+ * {{.}}
+    {{/messageBodyItems}}
+
+[{{hash}}](https://github.com/tomasbjerre/git-changelog-lib/commit/{{hash}}) {{authorName}} *{{commitTime}}*
+
+   {{/commits}}
+  {{/issues}}
+ {{/issueTypes}}
+{{/tags}}
+ 

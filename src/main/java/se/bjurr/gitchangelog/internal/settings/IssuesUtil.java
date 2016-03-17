@@ -24,7 +24,7 @@ public class IssuesUtil {
  private void addGitHub(List<SettingsIssue> issues) {
   if (!isNullOrEmpty(settings.getGitHubIssuePattern())) {
    if (settings.getGitHubApi().isPresent()) {
-    issues.add(new SettingsIssue(GITHUB, "GitHub", settings.getGitHubIssuePattern(), null));
+    issues.add(new SettingsIssue(GITHUB, "GitHub", settings.getGitHubIssuePattern(), null, null));
    }
   }
  }
@@ -33,9 +33,10 @@ public class IssuesUtil {
   if (!isNullOrEmpty(settings.getJiraIssuePattern())) {
    if (settings.getJiraServer().isPresent()) {
     issues.add(new SettingsIssue(JIRA, "Jira", settings.getJiraIssuePattern(), settings.getJiraServer().or("")
-      + "/browse/${PATTERN_GROUP}"));
+      + "/browse/${PATTERN_GROUP}", null));
    } else {
-    issues.add(new SettingsIssue(JIRA, "Jira", settings.getJiraIssuePattern(), settings.getJiraServer().orNull()));
+    issues
+      .add(new SettingsIssue(JIRA, "Jira", settings.getJiraIssuePattern(), settings.getJiraServer().orNull(), null));
    }
   }
  }

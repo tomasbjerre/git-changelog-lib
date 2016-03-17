@@ -26,7 +26,7 @@ public class ParsedIssue implements IGitCommitReferer {
   this.link = link;
  }
 
- public ParsedIssue(String name, String title, String issue, String link) {
+ public ParsedIssue(String name, String issue, String link, String title) {
   this.name = checkNotNull(name, "name");
   this.title = emptyToNull(title);
   this.issue = issue;

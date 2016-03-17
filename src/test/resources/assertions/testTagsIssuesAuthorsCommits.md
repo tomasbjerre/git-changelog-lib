@@ -3,7 +3,7 @@
 Changelog of Git Changelog.
 
 ## No tag
-### Bugs 
+### Bugs Mixed bugs
 * Tomas Bjerre
 [8e71933b792a8d2](https://server/8e71933b792a8d2) *2016-02-15 16:30:35*
 More stuff tagged with bug
@@ -35,7 +35,7 @@ Adding stuff with a jira
 
 
 ## test-lightweight-2
-### CQ [CQ1234](http://cq/1234) 
+### CQ [CQ1234](http://cq/1234) 1234
 * Tomas Bjerre
 [a9bd03b34b255ff](https://server/a9bd03b34b255ff) *2016-02-15 16:30:35*
 Adding cq stuff with CQ

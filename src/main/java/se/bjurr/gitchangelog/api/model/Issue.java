@@ -13,13 +13,25 @@ import se.bjurr.gitchangelog.api.model.interfaces.ICommits;
 public class Issue implements ICommits, IAuthors {
  private final List<Commit> commits;
  private final List<Author> authors;
+ /**
+  * Like JIRA, or GitHub.
+  */
  private final String name;
- private final boolean hasIssue;
+ /**
+  * Like the title of a Jira.
+  */
  private final String title;
  private final boolean hasTitle;
+ /**
+  * Like the actual Jira, JIR-ABC.
+  */
  private final String issue;
- private final boolean hasLink;
+ private final boolean hasIssue;
+ /**
+  * A link to the issue, http://.....
+  */
  private final String link;
+ private final boolean hasLink;
 
  public Issue(List<Commit> commits, List<Author> authors, String name, String title, String issue, String link) {
   checkState(!commits.isEmpty(), "commits");
@@ -74,6 +86,6 @@ public class Issue implements ICommits, IAuthors {
 
  @Override
  public String toString() {
-  return "Issue: " + issue;
+  return "Issue: " + issue + " Title: " + title;
  }
 }

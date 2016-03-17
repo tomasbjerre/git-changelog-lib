@@ -18,6 +18,11 @@ public class SettingsIssue {
   */
  private final String name;
  /**
+  * Title of the issues. Optional and can, for example, be used when when
+  * grouping issues per issue type.
+  */
+ private final String title;
+ /**
   * Regular expression that is evaluated in commit comment. If true, the commit
   * is available in {@link Issue#getCommits()}.
   */
@@ -29,18 +34,20 @@ public class SettingsIssue {
   */
  private final String link;
 
- public SettingsIssue(String name, String pattern, String link) {
+ public SettingsIssue(String name, String pattern, String link, String title) {
   this.type = CUSTOM;
   this.name = checkNotNull(name, "name");
   this.pattern = checkNotNull(pattern, "pattern");
   this.link = link;
+  this.title = title;
  }
 
- public SettingsIssue(SettingsIssueType type, String name, String pattern, String link) {
+ public SettingsIssue(SettingsIssueType type, String name, String pattern, String link, String title) {
   this.type = checkNotNull(type, "type");
   this.name = checkNotNull(name, "name");
   this.pattern = checkNotNull(pattern, "pattern");
   this.link = link;
+  this.title = title;
  }
 
  public SettingsIssueType getType() {
@@ -49,6 +56,10 @@ public class SettingsIssue {
 
  public Optional<String> getLink() {
   return fromNullable(link);
+ }
+
+ public Optional<String> getTitle() {
+  return fromNullable(title);
  }
 
  public String getName() {

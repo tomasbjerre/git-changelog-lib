@@ -13,12 +13,15 @@ public class Changelog implements ICommits, IAuthors, IIssues {
  private final List<Tag> tags;
  private final List<Author> authors;
  private final List<Issue> issues;
+ private final List<IssueType> issueTypes;
 
- public Changelog(List<Commit> commits, List<Tag> tags, List<Author> authors, List<Issue> issues) {
+ public Changelog(List<Commit> commits, List<Tag> tags, List<Author> authors, List<Issue> issues,
+   List<IssueType> issueTypes) {
   this.commits = checkNotNull(commits, "commits");
   this.tags = checkNotNull(tags, "tags");
   this.authors = checkNotNull(authors, "authors");
   this.issues = checkNotNull(issues, "issues");
+  this.issueTypes = checkNotNull(issueTypes, "issueTypes");
  }
 
  @Override
@@ -38,5 +41,9 @@ public class Changelog implements ICommits, IAuthors, IIssues {
 
  public List<Tag> getTags() {
   return tags;
+ }
+
+ public List<IssueType> getIssueTypes() {
+  return issueTypes;
  }
 }

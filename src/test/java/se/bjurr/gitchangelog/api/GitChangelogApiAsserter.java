@@ -68,9 +68,9 @@ public class GitChangelogApiAsserter {
     .withJiraPassword("code") //
     .withGitHubApi("https://api.github.com/repos/tomasbjerre/git-changelog-lib") //
     .withGitHubIssuePattern("#([0-9]+)") //
-    .withCustomIssue("Incident", "INC[0-9]*", "http://inc/${PATTERN_GROUP}") //
-    .withCustomIssue("CQ", "CQ([0-9]+)", "http://cq/${PATTERN_GROUP_1}") //
-    .withCustomIssue("Bugs", "#bug", null) //
+    .withCustomIssue("Incident", "INC[0-9]*", "http://inc/${PATTERN_GROUP}", "${PATTERN_GROUP}") //
+    .withCustomIssue("CQ", "CQ([0-9]+)", "http://cq/${PATTERN_GROUP_1}", "${PATTERN_GROUP_1}") //
+    .withCustomIssue("Bugs", "#bug", null, "Mixed bugs") //
     .withTemplatePath(templatePath) //
     .render() //
     .trim());

@@ -6,6 +6,7 @@ jdk:
 git:
   depth: 9999999
 before_script:
+  - git fetch origin master:master
   - git fetch origin test:test
   - git pull
   - git log --graph --full-history --all --color --date=short --pretty=format:"%Cred%x09%h %Creset%ad%Cgreen%d %Creset %s %C(bold)(%an)%Creset"
