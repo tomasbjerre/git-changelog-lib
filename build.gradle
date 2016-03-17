@@ -30,7 +30,7 @@ dependencies {
  compile 'com.squareup.retrofit2:converter-gson:2.0.0'
  compile 'com.squareup.okhttp:okhttp:2.7.5'
  compile 'com.jayway.jsonpath:json-path:2.1.0'
- compile 'com.google.guava:guava:11.0.1'
+ compile 'com.google.guava:guava:16.0.1'
  compile 'org.eclipse.jgit:org.eclipse.jgit:3.6.2.201501210735-r'
  compile 'com.github.spullara.mustache.java:compiler:0.8.18'
  testCompile 'junit:junit:4.12'

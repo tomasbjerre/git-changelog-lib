@@ -10,13 +10,15 @@ public class Tag implements ICommits, IAuthors, IIssues {
  private final List<Commit> commits;
  private final List<Author> authors;
  private final List<Issue> issues;
+ private final List<IssueType> issueTypes;
  private final String name;
 
- public Tag(String name, List<Commit> commits, List<Author> authors, List<Issue> issues) {
+ public Tag(String name, List<Commit> commits, List<Author> authors, List<Issue> issues, List<IssueType> issueTypes) {
   this.commits = commits;
   this.authors = authors;
   this.issues = issues;
   this.name = name;
+  this.issueTypes = issueTypes;
  }
 
  @Override
@@ -45,5 +47,9 @@ public class Tag implements ICommits, IAuthors, IIssues {
  @Override
  public String toString() {
   return "name: " + name;
+ }
+
+ public List<IssueType> getIssueTypes() {
+  return issueTypes;
  }
 }

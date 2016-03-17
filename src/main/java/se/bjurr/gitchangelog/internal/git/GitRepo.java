@@ -210,6 +210,6 @@ public class GitRepo {
 
  @Override
  public String toString() {
-  return "First commit at: " + firstCommit().name() + " Repo: " + repository;
+  return "Repo: " + repository;
  }
 }

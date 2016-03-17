@@ -95,6 +95,35 @@ The template is supplied with a datastructure like:
    - messageTitle (Only the first line of the message)
    - messageBody (Everything, except the title)
    * messageBodyItems (List of strings, the lines after the title)
+ * issueTypes
+  - name (Like GitHub, Jira, ...)
+  * issues
+   - name
+   - hasIssue
+   - issue
+   - hasLink
+   - link
+   - hasTitle
+   - title
+   * commits
+    - authorName
+    - authorEmailAddress
+    - commitTime
+    - message (The full message)
+    - messageTitle (Only the first line of the message)
+    - messageBody (Everything, except the title)
+    * messageBodyItems (List of strings, the lines after the title)
+   * authors
+    - authorName
+    - authrorEmail
+    * commits
+     - authorName
+     - authorEmailAddress
+     - commitTime
+     - message (The full message)
+     - messageTitle (Only the first line of the message)
+     - messageBody (Everything, except the title)
+     * messageBodyItems (List of strings, the lines after the title)
  * issues
   - name
   - hasIssue

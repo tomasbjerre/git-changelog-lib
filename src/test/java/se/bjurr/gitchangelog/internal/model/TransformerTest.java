@@ -21,7 +21,7 @@ public class TransformerTest {
  @Before
  public void before() {
   noIssues = newArrayList();
-  SettingsIssue issue1 = new SettingsIssue("Issue Name", "INC[0-9]*", "http://inc/${PATTERN_GROUP}");
+  SettingsIssue issue1 = new SettingsIssue("Issue Name", "INC[0-9]*", "http://inc/${PATTERN_GROUP}", null);
   oneIssue = newArrayList(issue1);
   transformer = new Transformer(new Settings());
  }

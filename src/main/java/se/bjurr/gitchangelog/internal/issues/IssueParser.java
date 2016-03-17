@@ -108,9 +108,9 @@ public class IssueParser {
   GitHubIssue gitHubIssue = gitHubHelper.getIssueFromAll(matched).get();
   foundIssues.put(matched, new ParsedIssue(//
     issuePattern.getName(),//
-    gitHubIssue.getTitle(), //
     matched,//
-    gitHubIssue.getLink()));
+    gitHubIssue.getLink(), //
+    gitHubIssue.getTitle()));
  }
 
  private void putJiraIssue(Map<String, ParsedIssue> foundIssues, JiraClient jiraClient, SettingsIssue issuePattern,
@@ -118,21 +118,27 @@ public class IssueParser {
   JiraIssue jiraIssue = jiraClient.getIssue(matched).get();
   foundIssues.put(matched, new ParsedIssue(//
     issuePattern.getName(),//
-    jiraIssue.getTitle(), //
     matched,//
-    jiraIssue.getLink()));
+    jiraIssue.getLink(), //
+    jiraIssue.getTitle()));
  }
 
  private void putCustomIssue(Map<String, ParsedIssue> foundIssues, SettingsIssue issuePattern, Matcher matcher,
    String matched) {
-  String link = issuePattern.getLink().or("") //
-    .replaceAll("\\$\\{PATTERN_GROUP\\}", matched);
-  for (int i = 0; i <= matcher.groupCount(); i++) {
-   link = link.replaceAll("\\$\\{PATTERN_GROUP_" + i + "\\}", firstNonNull(matcher.group(i), ""));
-  }
+  String link = render(issuePattern.getLink().or(""), matcher, matched);
+  String title = render(issuePattern.getTitle().or(""), matcher, matched);
   foundIssues.put(matched, new ParsedIssue(//
     issuePattern.getName(),//
     matched,//
-    link));
+    link,//
+    title));
+ }
+
+ private String render(String string, Matcher matcher, String matched) {
+  string = string.replaceAll("\\$\\{PATTERN_GROUP\\}", matched);
+  for (int i = 0; i <= matcher.groupCount(); i++) {
+   string = string.replaceAll("\\$\\{PATTERN_GROUP_" + i + "\\}", firstNonNull(matcher.group(i), ""));
+  }
+  return string;
  }
 }

@@ -2,14 +2,14 @@
 
 Changelog of Git Changelog.
 
-## Bugs 
+## Bugs Mixed bugs
   
 ### Tomas Bjerre - 2016-02-15 16:30:35
 [8e71933b792a8d2](https://server/8e71933b792a8d2)
 
 More stuff tagged with bug
 
-## CQ [CQ1234](http://cq/1234) 
+## CQ [CQ1234](http://cq/1234) 1234
   
 ### Tomas Bjerre - 2016-02-15 16:30:35
 [a9bd03b34b255ff](https://server/a9bd03b34b255ff)
