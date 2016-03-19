@@ -6,7 +6,6 @@ import static com.google.common.collect.Ordering.usingToString;
 import static java.util.regex.Pattern.compile;
 import static org.slf4j.LoggerFactory.getLogger;
 import static se.bjurr.gitchangelog.internal.integrations.github.GitHubServiceFactory.getGitHubService;
-import static se.bjurr.gitchangelog.internal.integrations.jira.JiraClientFactory.createJiraClient;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITHUB;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.JIRA;
 
@@ -21,6 +20,7 @@ import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.integrations.github.GitHubHelper;
 import se.bjurr.gitchangelog.internal.integrations.github.GitHubIssue;
 import se.bjurr.gitchangelog.internal.integrations.jira.JiraClient;
+import se.bjurr.gitchangelog.internal.integrations.jira.JiraClientFactory;
 import se.bjurr.gitchangelog.internal.integrations.jira.JiraIssue;
 import se.bjurr.gitchangelog.internal.model.ParsedIssue;
 import se.bjurr.gitchangelog.internal.settings.IssuesUtil;
@@ -47,91 +47,105 @@ public class IssueParser {
  }
 
  public List<ParsedIssue> parseForIssues() {
-  Map<String, ParsedIssue> foundIssues = newHashMap();
+  Map<String, ParsedIssue> parsedIssuePerIssue = newHashMap();
 
-  GitHubHelper gitHubHelper = null;
-  if (settings.getGitHubApi().isPresent()) {
-   gitHubHelper = new GitHubHelper(getGitHubService(settings.getGitHubApi().get(), settings.getGitHubToken()));
-  }
-
-  JiraClient jiraClient = null;
-  if (settings.getJiraServer().isPresent()) {
-   jiraClient = createJiraClient(settings.getJiraServer().get());
-   if (settings.getJiraUsername().isPresent()) {
-    jiraClient.withBasicCredentials(settings.getJiraUsername().get(), settings.getJiraPassword().get());
-   }
-  }
+  GitHubHelper gitHubHelper = createGitHubClient();
+  JiraClient jiraClient = createJiraClient();
 
   List<SettingsIssue> patterns = new IssuesUtil(settings).getIssues();
 
   for (GitCommit gitCommit : commits) {
-   boolean commitMappedToIssue = false;
+   boolean commitMappedToAtLeastOneIssue = false;
    for (SettingsIssue issuePattern : patterns) {
-    Matcher matcher = compile(issuePattern.getPattern()).matcher(gitCommit.getMessage());
-    while (matcher.find()) {
-     String matched = matcher.group();
-     if (!foundIssues.containsKey(matched)) {
-      try {
-       if (issuePattern.getType() == GITHUB && gitHubHelper != null
-         && gitHubHelper.getIssueFromAll(matched).isPresent()) {
-        putGitHubIssue(foundIssues, gitHubHelper, issuePattern, matched);
-       } else if (issuePattern.getType() == JIRA && jiraClient != null && jiraClient.getIssue(matched).isPresent()) {
-        putJiraIssue(foundIssues, jiraClient, issuePattern, matched);
-       } else {
-        putCustomIssue(foundIssues, issuePattern, matcher, matched);
-       }
-      } catch (Exception e) {
-       LOG.error("Will ignore issue \"" + matched + "\"", e);
-      }
+    Matcher issueMatcher = compile(issuePattern.getPattern()).matcher(gitCommit.getMessage());
+    while (issueMatcher.find()) {
+     String matchedIssue = issueMatcher.group();
+     if (!parsedIssuePerIssue.containsKey(matchedIssue)) {
+      ParsedIssue parsedIssue = getParsedIssue(gitHubHelper, jiraClient, gitCommit, issuePattern, issueMatcher,
+        matchedIssue);
+      parsedIssuePerIssue.put(matchedIssue, parsedIssue);
      }
-     if (foundIssues.containsKey(matched)) {
-      // When an exception was thrown above, the matched key may not have been
-      // added.
-      foundIssues.get(matched).addCommit(gitCommit);
-      commitMappedToIssue = true;
+     if (!parsedIssuePerIssue.get(matchedIssue).getGitCommits().contains(gitCommit)) {
+      parsedIssuePerIssue.get(matchedIssue).getGitCommits().add(gitCommit);
      }
+     commitMappedToAtLeastOneIssue = true;
     }
    }
-   if (!commitMappedToIssue) {
+   if (!commitMappedToAtLeastOneIssue) {
     ParsedIssue noIssue = new ParsedIssue(settings.getNoIssueName(), null, null);
-    if (!foundIssues.containsKey(noIssue.getName())) {
-     foundIssues.put(noIssue.getName(), noIssue);
+    if (!parsedIssuePerIssue.containsKey(noIssue.getName())) {
+     parsedIssuePerIssue.put(noIssue.getName(), noIssue);
     }
-    foundIssues.get(noIssue.getName()).addCommit(gitCommit);
+    parsedIssuePerIssue.get(noIssue.getName()).addCommit(gitCommit);
    }
   }
-  return usingToString().sortedCopy(foundIssues.values());
+  return usingToString().sortedCopy(parsedIssuePerIssue.values());
  }
 
- private void putGitHubIssue(Map<String, ParsedIssue> foundIssues, GitHubHelper gitHubHelper,
-   SettingsIssue issuePattern, String matched) throws GitChangelogIntegrationException {
-  GitHubIssue gitHubIssue = gitHubHelper.getIssueFromAll(matched).get();
-  foundIssues.put(matched, new ParsedIssue(//
-    issuePattern.getName(),//
-    matched,//
-    gitHubIssue.getLink(), //
-    gitHubIssue.getTitle()));
+ private JiraClient createJiraClient() {
+  JiraClient jiraClient = null;
+  if (settings.getJiraServer().isPresent()) {
+   jiraClient = JiraClientFactory.createJiraClient(settings.getJiraServer().get());
+   if (settings.getJiraUsername().isPresent()) {
+    jiraClient.withBasicCredentials(settings.getJiraUsername().get(), settings.getJiraPassword().get());
+   }
+  }
+  return jiraClient;
  }
 
- private void putJiraIssue(Map<String, ParsedIssue> foundIssues, JiraClient jiraClient, SettingsIssue issuePattern,
-   String matched) throws GitChangelogIntegrationException {
-  JiraIssue jiraIssue = jiraClient.getIssue(matched).get();
-  foundIssues.put(matched, new ParsedIssue(//
-    issuePattern.getName(),//
-    matched,//
-    jiraIssue.getLink(), //
-    jiraIssue.getTitle()));
+ private GitHubHelper createGitHubClient() {
+  GitHubHelper gitHubHelper = null;
+  if (settings.getGitHubApi().isPresent()) {
+   gitHubHelper = new GitHubHelper(getGitHubService(settings.getGitHubApi().get(), settings.getGitHubToken()));
+  }
+  return gitHubHelper;
  }
 
- private void putCustomIssue(Map<String, ParsedIssue> foundIssues, SettingsIssue issuePattern, Matcher matcher,
-   String matched) {
-  String link = render(issuePattern.getLink().or(""), matcher, matched);
-  String title = render(issuePattern.getTitle().or(""), matcher, matched);
-  foundIssues.put(matched, new ParsedIssue(//
-    issuePattern.getName(),//
-    matched,//
-    link,//
-    title));
+ private ParsedIssue getParsedIssue(GitHubHelper gitHubHelper, JiraClient jiraClient, GitCommit gitCommit,
+   SettingsIssue issuePattern, Matcher issueMatcher, String matchedIssue) {
+  if (issuePattern.getType() == GITHUB) {
+   String link = "";
+   String title = "";
+   try {
+    if (gitHubHelper != null && gitHubHelper.getIssueFromAll(matchedIssue).isPresent()) {
+     GitHubIssue gitHubIssue = gitHubHelper.getIssueFromAll(matchedIssue).get();
+     link = gitHubIssue.getLink();
+     title = gitHubIssue.getTitle();
+    }
+   } catch (GitChangelogIntegrationException e) {
+    LOG.error(matchedIssue, e);
+   }
+   return new ParsedIssue(//
+     issuePattern.getName(),//
+     matchedIssue,//
+     link, //
+     title);
+  } else if (issuePattern.getType() == JIRA) {
+   String link = "";
+   String title = "";
+   try {
+    if (jiraClient != null && jiraClient.getIssue(matchedIssue).isPresent()) {
+     JiraIssue jiraIssue = jiraClient.getIssue(matchedIssue).get();
+     link = jiraIssue.getLink();
+     title = jiraIssue.getTitle();
+    }
+   } catch (GitChangelogIntegrationException e) {
+    LOG.error(matchedIssue, e);
+   }
+   return new ParsedIssue(//
+     issuePattern.getName(),//
+     matchedIssue,//
+     link, //
+     title);
+  } else {
+   String link = render(issuePattern.getLink().or(""), issueMatcher, matchedIssue);
+   String title = render(issuePattern.getTitle().or(""), issueMatcher, matchedIssue);
+   return new ParsedIssue(//
+     issuePattern.getName(),//
+     matchedIssue,//
+     link,//
+     title);
+  }
  }
 
  private String render(String string, Matcher matcher, String matched) {

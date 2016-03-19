@@ -13,11 +13,6 @@ Changelog of Git Changelog.
 
 [20e333f8e108f77](https://github.com/tomasbjerre/git-changelog-lib/commit/20e333f8e108f77) Tomas Bjerre *2016-03-19 20:32:19*
 
-**More stuff tagged with  twice**
-
-
-[20e333f8e108f77](https://github.com/tomasbjerre/git-changelog-lib/commit/20e333f8e108f77) Tomas Bjerre *2016-03-19 20:32:19*
-
 ### GitHub
 #### [#20](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/20) Parameterized Jenkins&#39; job error
 

@@ -11,6 +11,22 @@ Changelog of Git Changelog.
 [a025adfc759313f](https://github.com/tomasbjerre/git-changelog-lib/commit/a025adfc759313f) Tomas Bjerre *2016-03-19 20:33:11*
 
 
+### GitHub [#21](https://github.com/tomasbjerre/git-changelog-lib/issues/21) Commits can be listed multiple times
+
+**Avoiding adding commit twice in same issue**
+
+
+[80632492f8be88f](https://github.com/tomasbjerre/git-changelog-lib/commit/80632492f8be88f) Tomas Bjerre *2016-03-19 22:16:13*
+
+
+### Other changes
+
+**Updating test cases after changing test-branch**
+
+
+[ca6ee75dc629894](https://github.com/tomasbjerre/git-changelog-lib/commit/ca6ee75dc629894) Tomas Bjerre *2016-03-19 20:56:45*
+
+
 ## 1.36
 ### Other changes
 

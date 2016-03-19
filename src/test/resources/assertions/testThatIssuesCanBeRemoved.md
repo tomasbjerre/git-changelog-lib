@@ -9,11 +9,6 @@ Changelog of Git Changelog.
 
 More stuff tagged with  twice
 
-### Tomas Bjerre - 2016-03-19 20:32:19
-[20e333f8e108f77](https://server/20e333f8e108f77)
-
-More stuff tagged with  twice
-
 ## CQ [CQ1234](http://cq/1234) 1234
   
 ### Tomas Bjerre - 2016-02-15 16:30:35
