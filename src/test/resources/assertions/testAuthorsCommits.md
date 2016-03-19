@@ -4,14 +4,14 @@ Changelog of Git Changelog.
 
 * Tomas Bjerre
 
-[51db3e296e979d8](https://server/51db3e296e979d8) Tomas Bjerre *2016-02-19 21:50:12*
+[87c0d7288896171](https://server/87c0d7288896171) Tomas Bjerre *2016-03-19 20:32:32*
 
 Multiple issues
 
 
-[8e71933b792a8d2](https://server/8e71933b792a8d2) Tomas Bjerre *2016-02-15 16:30:35*
+[20e333f8e108f77](https://server/20e333f8e108f77) Tomas Bjerre *2016-03-19 20:32:19*
 
-More stuff tagged with bug
+More stuff tagged with  twice
 
 
 [cc0fbbd8bc63955](https://server/cc0fbbd8bc63955) Tomas Bjerre *2016-02-15 16:30:35*

@@ -3,15 +3,15 @@
 Changelog of Git Changelog.
 
 ## No tag
-### Tomas Bjerre - 2016-02-19 21:50:12
-[51db3e296e979d8](https://server/51db3e296e979d8)
+### Tomas Bjerre - 2016-03-19 20:32:32
+[87c0d7288896171](https://server/87c0d7288896171)
 
 Multiple issues
 
-### Tomas Bjerre - 2016-02-15 16:30:35
-[8e71933b792a8d2](https://server/8e71933b792a8d2)
+### Tomas Bjerre - 2016-03-19 20:32:19
+[20e333f8e108f77](https://server/20e333f8e108f77)
 
-More stuff tagged with bug
+More stuff tagged with  twice
 
 ### Tomas Bjerre - 2016-02-15 16:30:35
 [cc0fbbd8bc63955](https://server/cc0fbbd8bc63955)

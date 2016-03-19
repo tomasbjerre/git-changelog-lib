@@ -2,7 +2,7 @@
 
 Changelog of Git Changelog.
 
-## Commit 51db3e296e979d8
+## Commit 87c0d7288896171
  Message: Multiple issues
  
  Message Title: Multiple issues
@@ -10,10 +10,10 @@ Changelog of Git Changelog.
  Message Body: 
  
 
-## Commit 8e71933b792a8d2
- Message: More stuff tagged with bug
+## Commit 20e333f8e108f77
+ Message: More stuff tagged with  twice
  
- Message Title: More stuff tagged with bug
+ Message Title: More stuff tagged with  twice
 
  Message Body: 
  

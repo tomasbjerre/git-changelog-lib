@@ -2,6 +2,15 @@
 
 Changelog of Git Changelog.
 
+## Next release
+### GitHub [#19](https://github.com/tomasbjerre/git-changelog-lib/issues/19) Feature-request (or question): Issues by category
+
+**Adding issueTypes in context**
+
+
+[a025adfc759313f](https://github.com/tomasbjerre/git-changelog-lib/commit/a025adfc759313f) Tomas Bjerre *2016-03-19 20:33:11*
+
+
 ## 1.36
 ### Other changes
 

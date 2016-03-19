@@ -8,10 +8,15 @@ Changelog of Git Changelog.
 #### Mixed bugs
 
 
-**More stuff tagged with bug**
+**More stuff tagged with  twice**
 
 
-[8e71933b792a8d2](https://github.com/tomasbjerre/git-changelog-lib/commit/8e71933b792a8d2) Tomas Bjerre *2016-02-15 16:30:35*
+[20e333f8e108f77](https://github.com/tomasbjerre/git-changelog-lib/commit/20e333f8e108f77) Tomas Bjerre *2016-03-19 20:32:19*
+
+**More stuff tagged with  twice**
+
+
+[20e333f8e108f77](https://github.com/tomasbjerre/git-changelog-lib/commit/20e333f8e108f77) Tomas Bjerre *2016-03-19 20:32:19*
 
 ### GitHub
 #### [#20](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/20) Parameterized Jenkins&#39; job error
@@ -21,7 +26,7 @@ Changelog of Git Changelog.
 **Multiple issues**
 
 
-[51db3e296e979d8](https://github.com/tomasbjerre/git-changelog-lib/commit/51db3e296e979d8) Tomas Bjerre *2016-02-19 21:50:12*
+[87c0d7288896171](https://github.com/tomasbjerre/git-changelog-lib/commit/87c0d7288896171) Tomas Bjerre *2016-03-19 20:32:32*
 
 #### [#25](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/25) Enable  configuration in per-repository hook screen
 
@@ -30,7 +35,7 @@ Changelog of Git Changelog.
 **Multiple issues**
 
 
-[51db3e296e979d8](https://github.com/tomasbjerre/git-changelog-lib/commit/51db3e296e979d8) Tomas Bjerre *2016-02-19 21:50:12*
+[87c0d7288896171](https://github.com/tomasbjerre/git-changelog-lib/commit/87c0d7288896171) Tomas Bjerre *2016-03-19 20:32:32*
 
 
 

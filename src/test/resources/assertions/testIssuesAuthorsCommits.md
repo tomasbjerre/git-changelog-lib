@@ -4,8 +4,11 @@ Changelog of Git Changelog.
 
 ## Bugs Mixed bugs
 ### Tomas Bjerre
-2016-02-15 16:30:35
-More stuff tagged with bug
+2016-03-19 20:32:19
+More stuff tagged with  twice
+
+2016-03-19 20:32:19
+More stuff tagged with  twice
 
 
 ## CQ [CQ1234](http://cq/1234) 1234
@@ -22,7 +25,7 @@ Adding stuff  gh 12
 
 ## GitHub [#20](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/20) Parameterized Jenkins&#39; job error
 ### Tomas Bjerre
-2016-02-19 21:50:12
+2016-03-19 20:32:32
 Multiple issues
 
 
@@ -33,7 +36,7 @@ Adding stuff with gh 20
 
 ## GitHub [#25](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/25) Enable  configuration in per-repository hook screen
 ### Tomas Bjerre
-2016-02-19 21:50:12
+2016-03-19 20:32:32
 Multiple issues
 
 

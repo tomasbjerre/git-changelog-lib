@@ -4,15 +4,18 @@ Changelog of Git Changelog.
 
 ## No tag
 ### Bugs Mixed bugs
-[8e71933b792a8d2](https://server/8e71933b792a8d2) 2016-02-15 16:30:35
-More stuff tagged with bug
+[20e333f8e108f77](https://server/20e333f8e108f77) 2016-03-19 20:32:19
+More stuff tagged with  twice
+
+[20e333f8e108f77](https://server/20e333f8e108f77) 2016-03-19 20:32:19
+More stuff tagged with  twice
 
 ### GitHub [#20](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/20) Parameterized Jenkins&#39; job error
-[51db3e296e979d8](https://server/51db3e296e979d8) 2016-02-19 21:50:12
+[87c0d7288896171](https://server/87c0d7288896171) 2016-03-19 20:32:32
 Multiple issues
 
 ### GitHub [#25](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/25) Enable  configuration in per-repository hook screen
-[51db3e296e979d8](https://server/51db3e296e979d8) 2016-02-19 21:50:12
+[87c0d7288896171](https://server/87c0d7288896171) 2016-03-19 20:32:32
 Multiple issues
 
 ### GitHub 
