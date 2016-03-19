@@ -87,6 +87,28 @@ public class GitChangelogApiTest {
  }
 
  @Test
+ public void testThatCommitsWithoutIssueCanBeIgnored() throws Exception {
+
+  String expected = Resources.toString(getResource("assertions/testThatCommitsWithoutIssueCanBeIgnored.md"), UTF_8)
+    .trim();
+
+  URL settingsFile = getResource("settings/git-changelog-test-settings.json").toURI().toURL();
+  String templatePath = "templates/testIssuesCommits.mustache";
+
+  String templateContent = Resources.toString(getResource(templatePath), UTF_8);
+
+  GitChangelogApi changelogApiBuilder = gitChangelogApiBuilder()//
+    .withFromCommit(ZERO_COMMIT)//
+    .withToRef("test")//
+    .withSettings(settingsFile)//
+    .withIgnoreCommitsWithoutIssue(true) //
+    .withTemplatePath(templatePath);
+
+  assertEquals("templateContent:\n" + templateContent + "\nContext:\n" + toJson(changelogApiBuilder.getChangelog()),
+    expected, changelogApiBuilder.render().trim());
+ }
+
+ @Test
  public void testThatReadableGroupMustExist() throws Exception {
   URL settingsFile = getResource("settings/git-changelog-test-settings.json").toURI().toURL();
   String templatePath = "templates/testIssuesCommits.mustache";

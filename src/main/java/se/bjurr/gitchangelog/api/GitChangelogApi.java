@@ -187,6 +187,20 @@ public class GitChangelogApi {
  }
 
  /**
+  * If a commit cannot be mapped to any issue, it can be added to the virtual "
+  * {@link GitChangelogApi#withNoIssueName no issue}"-issue.<br>
+  * <br>
+  * True means that this issue will be created and populated.<br>
+  * <br>
+  * False means that it will not be created and commits that cannot be mapped to
+  * any issue will not be included in the changelog.
+  */
+ public GitChangelogApi withIgnoreCommitsWithoutIssue(boolean ignoreCommitsWithoutIssue) {
+  settings.setIgnoreCommitsWithoutIssue(ignoreCommitsWithoutIssue);
+  return this;
+ }
+
+ /**
   * When date of commits are translated to a string, this timezone is used.<br>
   * <code>UTC</code>
   */

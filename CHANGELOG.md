@@ -5,6 +5,11 @@ Changelog of Git Changelog.
 ## Next release
 ### GitHub [#19](https://github.com/tomasbjerre/git-changelog-lib/issues/19) Feature-request (or question): Issues by category
 
+**Ignore commits without issue**
+
+
+[87aaf706d2531cc](https://github.com/tomasbjerre/git-changelog-lib/commit/87aaf706d2531cc) Tomas Bjerre *2016-03-19 22:48:29*
+
 **Adding issueTypes in context**
 
 
@@ -16,7 +21,7 @@ Changelog of Git Changelog.
 **Avoiding adding commit twice in same issue**
 
 
-[80632492f8be88f](https://github.com/tomasbjerre/git-changelog-lib/commit/80632492f8be88f) Tomas Bjerre *2016-03-19 22:16:13*
+[414348773e3d658](https://github.com/tomasbjerre/git-changelog-lib/commit/414348773e3d658) Tomas Bjerre *2016-03-19 22:16:40*
 
 
 ### Other changes
@@ -412,7 +417,7 @@ Changelog of Git Changelog.
 
 
 ## 1.9
-### Bugs #bug 
+### Bugs #bug Mixed bugs
 
 **Adding custom issues correctly fix**
 
@@ -429,7 +434,7 @@ Changelog of Git Changelog.
 
 
 ## 1.8
-### Bugs #bug 
+### Bugs #bug Mixed bugs
 
 **Setting default setting of ignore commits regexp fix**
 
@@ -438,7 +443,7 @@ Changelog of Git Changelog.
 
 
 ## 1.7
-### Bugs #bug 
+### Bugs #bug Mixed bugs
 
 **Using correct reference fix**
 
@@ -567,7 +572,7 @@ Changelog of Git Changelog.
 
 
 ## 1.1
-### Bugs #bug 
+### Bugs #bug Mixed bugs
 
 **Adding generated CHANGELOG.md #feature**
 

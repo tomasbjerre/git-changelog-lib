@@ -142,8 +142,8 @@ public class Settings {
   */
  private String gitHubApi;
  /**
-  * GitHub authentication token. Configure to avoid low rate limits imposed
-  * by GitHub in case you have a lot of issues and/or pull requests.<br>
+  * GitHub authentication token. Configure to avoid low rate limits imposed by
+  * GitHub in case you have a lot of issues and/or pull requests.<br>
   * <code>https://api.github.com/repos/tomasbjerre/git-changelog-lib</code>
   */
  private String gitHubToken;
@@ -162,6 +162,8 @@ public class Settings {
   * supply some internal variables to the changelog context.
   */
  private Map<String, Object> extendedVariables;
+
+ private boolean ignoreCommitsWithoutIssue;
 
  public Settings() {
  }
@@ -365,5 +367,13 @@ public class Settings {
 
  public Map<String, Object> getExtendedVariables() {
   return extendedVariables;
+ }
+
+ public void setIgnoreCommitsWithoutIssue(boolean ignoreCommitsWithoutIssue) {
+  this.ignoreCommitsWithoutIssue = ignoreCommitsWithoutIssue;
+ }
+
+ public boolean ignoreCommitsWithoutIssue() {
+  return ignoreCommitsWithoutIssue;
  }
 }

@@ -71,7 +71,7 @@ public class IssueParser {
      commitMappedToAtLeastOneIssue = true;
     }
    }
-   if (!commitMappedToAtLeastOneIssue) {
+   if (!commitMappedToAtLeastOneIssue && !settings.ignoreCommitsWithoutIssue()) {
     ParsedIssue noIssue = new ParsedIssue(settings.getNoIssueName(), null, null);
     if (!parsedIssuePerIssue.containsKey(noIssue.getName())) {
      parsedIssuePerIssue.put(noIssue.getName(), noIssue);
