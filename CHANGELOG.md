@@ -8,7 +8,7 @@ Changelog of Git Changelog.
 **Ignore commits without issue**
 
 
-[87aaf706d2531cc](https://github.com/tomasbjerre/git-changelog-lib/commit/87aaf706d2531cc) Tomas Bjerre *2016-03-19 22:48:29*
+[0b70db9921da8dd](https://github.com/tomasbjerre/git-changelog-lib/commit/0b70db9921da8dd) Tomas Bjerre *2016-03-19 22:53:07*
 
 **Adding issueTypes in context**
 
@@ -25,6 +25,11 @@ Changelog of Git Changelog.
 
 
 ### Other changes
+
+**Avoiding parsing commits twice**
+
+
+[8d25dfd11b7d63c](https://github.com/tomasbjerre/git-changelog-lib/commit/8d25dfd11b7d63c) Tomas Bjerre *2016-03-19 23:22:31*
 
 **Updating test cases after changing test-branch**
 

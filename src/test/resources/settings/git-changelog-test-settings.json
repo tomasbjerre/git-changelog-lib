@@ -8,6 +8,7 @@
  "dateFormat": "YYYY-MM-dd HH:mm:ss",
  "untaggedName": "No tag",
  "noIssueName": "No issue supplied",
+ "ignoreCommitsWithoutIssue": "false",
  "templatePath": "git-changelog-template.mustache",
  "timeZone": "UTC",
  "removeIssueFromMessage": "true",

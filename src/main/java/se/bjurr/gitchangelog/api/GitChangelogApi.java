@@ -376,7 +376,7 @@ public class GitChangelogApi {
   Transformer transformer = new Transformer(settings);
   return new Changelog(//
     transformer.toCommits(diff), //
-    transformer.toTags(tags), //
+    transformer.toTags(tags, issues), //
     transformer.toAuthors(diff), //
     transformer.toIssues(issues),//
     transformer.toIssueTypes(issues));

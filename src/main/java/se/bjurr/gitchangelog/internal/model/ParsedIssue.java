@@ -80,4 +80,8 @@ public class ParsedIssue implements IGitCommitReferer {
  public String getIssue() {
   return issue;
  }
+
+ public void addCommits(List<GitCommit> commits) {
+  this.gitCommits.addAll(commits);
+ }
 }

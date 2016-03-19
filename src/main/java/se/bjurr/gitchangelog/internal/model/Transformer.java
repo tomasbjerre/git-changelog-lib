@@ -1,5 +1,6 @@
 package se.bjurr.gitchangelog.internal.model;
 
+import static com.google.common.base.Predicates.in;
 import static com.google.common.collect.Iterables.filter;
 import static com.google.common.collect.Iterables.transform;
 import static com.google.common.collect.Lists.newArrayList;
@@ -25,7 +26,6 @@ import se.bjurr.gitchangelog.api.model.IssueType;
 import se.bjurr.gitchangelog.api.model.Tag;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
-import se.bjurr.gitchangelog.internal.issues.IssueParser;
 import se.bjurr.gitchangelog.internal.settings.IssuesUtil;
 import se.bjurr.gitchangelog.internal.settings.Settings;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
@@ -43,18 +43,33 @@ public class Transformer {
 
  private final Settings settings;
 
- public List<Tag> toTags(List<GitTag> gitTags) {
+ public List<Tag> toTags(List<GitTag> gitTags, final List<ParsedIssue> allParsedIssues) {
 
   Iterable<Tag> tags = transform(gitTags, new Function<GitTag, Tag>() {
    @Override
    public Tag apply(GitTag input) {
     List<GitCommit> gitCommits = input.getGitCommits();
+    List<ParsedIssue> parsedIssues = reduceParsedIssuesToOnlyGitCommits(allParsedIssues, gitCommits);
     List<Commit> commits = toCommits(gitCommits);
     List<Author> authors = toAuthors(gitCommits);
-    List<ParsedIssue> parsedIssues = new IssueParser(settings, gitCommits).parseForIssues();
     List<Issue> issues = toIssues(parsedIssues);
     List<IssueType> issueTypes = toIssueTypes(parsedIssues);
     return new Tag(toReadableTagName(input.getName()), commits, authors, issues, issueTypes);
+   }
+
+   private List<ParsedIssue> reduceParsedIssuesToOnlyGitCommits(final List<ParsedIssue> allParsedIssues,
+     List<GitCommit> gitCommits) {
+    List<ParsedIssue> parsedIssues = newArrayList();
+    for (ParsedIssue candidate : allParsedIssues) {
+     List<GitCommit> candidateCommits = newArrayList(filter(candidate.getGitCommits(), in(gitCommits)));
+     if (!candidateCommits.isEmpty()) {
+      ParsedIssue parsedIssue = new ParsedIssue(candidate.getName(), candidate.getIssue(), candidate.getLink(),
+        candidate.getTitle().orNull());
+      parsedIssue.addCommits(candidateCommits);
+      parsedIssues.add(parsedIssue);
+     }
+    }
+    return parsedIssues;
    }
   });
 
