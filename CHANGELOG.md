@@ -5,6 +5,15 @@ Changelog of Git Changelog.
 ## Next release
 ### GitHub [#19](https://github.com/tomasbjerre/git-changelog-lib/issues/19) Feature-request (or question): Issues by category
 
+**Removing commits without issue, from tags**
+
+
+[43d69441f467ae2](https://github.com/tomasbjerre/git-changelog-lib/commit/43d69441f467ae2) Tomas Bjerre *2016-03-20 08:37:54*
+
+
+## 1.37
+### GitHub [#19](https://github.com/tomasbjerre/git-changelog-lib/issues/19) Feature-request (or question): Issues by category
+
 **Ignore commits without issue**
 
 
@@ -29,7 +38,7 @@ Changelog of Git Changelog.
 **Avoiding parsing commits twice**
 
 
-[8d25dfd11b7d63c](https://github.com/tomasbjerre/git-changelog-lib/commit/8d25dfd11b7d63c) Tomas Bjerre *2016-03-19 23:22:31*
+[cb23e700107d5c1](https://github.com/tomasbjerre/git-changelog-lib/commit/cb23e700107d5c1) Tomas Bjerre *2016-03-20 06:52:21*
 
 **Updating test cases after changing test-branch**
 

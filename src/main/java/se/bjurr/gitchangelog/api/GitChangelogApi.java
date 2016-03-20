@@ -11,6 +11,7 @@ import static com.google.common.io.Files.write;
 import static com.google.common.io.Resources.getResource;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.REF_MASTER;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
+import static se.bjurr.gitchangelog.internal.git.GitRepoDataHelper.removeCommitsWithoutIssue;
 import static se.bjurr.gitchangelog.internal.settings.Settings.fromFile;
 
 import java.io.File;
@@ -371,8 +372,12 @@ public class GitChangelogApi {
     .or(gitRepo.getRef(REF_MASTER));
   GitRepoData gitRepoData = gitRepo.getGitRepoData(fromId, toId, settings.getUntaggedName());
   List<GitCommit> diff = gitRepoData.getGitCommits();
-  List<GitTag> tags = gitRepoData.getGitTags();
   List<ParsedIssue> issues = new IssueParser(settings, diff).parseForIssues();
+  if (settings.ignoreCommitsWithoutIssue()) {
+   gitRepoData = removeCommitsWithoutIssue(issues, gitRepoData);
+   diff = gitRepoData.getGitCommits();
+  }
+  List<GitTag> tags = gitRepoData.getGitTags();
   Transformer transformer = new Transformer(settings);
   return new Changelog(//
     transformer.toCommits(diff), //

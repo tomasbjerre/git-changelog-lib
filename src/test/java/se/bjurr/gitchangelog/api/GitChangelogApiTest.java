@@ -87,10 +87,10 @@ public class GitChangelogApiTest {
  }
 
  @Test
- public void testThatCommitsWithoutIssueCanBeIgnored() throws Exception {
+ public void testThatCommitsWithoutIssueCanBeIgnoredIssuesCommits() throws Exception {
 
-  String expected = Resources.toString(getResource("assertions/testThatCommitsWithoutIssueCanBeIgnored.md"), UTF_8)
-    .trim();
+  String expected = Resources.toString(
+    getResource("assertions/testThatCommitsWithoutIssueCanBeIgnoredIssuesCommits.md"), UTF_8).trim();
 
   URL settingsFile = getResource("settings/git-changelog-test-settings.json").toURI().toURL();
   String templatePath = "templates/testIssuesCommits.mustache";
@@ -101,6 +101,31 @@ public class GitChangelogApiTest {
     .withFromCommit(ZERO_COMMIT)//
     .withToRef("test")//
     .withSettings(settingsFile)//
+    .withIgnoreCommitsWithoutIssue(true) //
+    .withTemplatePath(templatePath);
+
+  assertEquals("templateContent:\n" + templateContent + "\nContext:\n" + toJson(changelogApiBuilder.getChangelog()),
+    expected, changelogApiBuilder.render().trim());
+ }
+
+ /**
+  * The test-lightweight-2 should be ignored here.
+  */
+ @Test
+ public void testThatCommitsWithoutIssueCanBeIgnoredTagsIssuesCommits() throws Exception {
+
+  String expected = Resources.toString(
+    getResource("assertions/testThatCommitsWithoutIssueCanBeIgnoredTagsIssuesCommits.md"), UTF_8).trim();
+
+  getResource("settings/git-changelog-test-settings.json").toURI().toURL();
+  String templatePath = "templates/testThatCommitsWithoutIssueCanBeIgnoredTagsIssuesCommits.mustache";
+
+  String templateContent = Resources.toString(getResource(templatePath), UTF_8);
+
+  GitChangelogApi changelogApiBuilder = gitChangelogApiBuilder()//
+    .withFromCommit(ZERO_COMMIT)//
+    .withToRef("test")//
+    .withCustomIssue("JIRA", "JIR-[0-9]*", "http://${PATTERN_GROUP}", "${PATTERN_GROUP}")//
     .withIgnoreCommitsWithoutIssue(true) //
     .withTemplatePath(templatePath);
 
