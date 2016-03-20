@@ -2,7 +2,7 @@
 
 Changelog of Git Changelog.
 
-## Next release
+## 1.39
 ### Other changes
 
 **Sorting filtered commits, was random from hash**
