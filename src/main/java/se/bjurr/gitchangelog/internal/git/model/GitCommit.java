@@ -4,7 +4,7 @@ import static com.google.common.base.Objects.toStringHelper;
 
 import java.util.Date;
 
-public class GitCommit {
+public class GitCommit implements Comparable<GitCommit> {
  private final String authorName;
  private final String authorEmailAddress;
  private final Date commitTime;
@@ -61,5 +61,14 @@ public class GitCommit {
    return ((GitCommit) obj).getHash().equals(hash);
   }
   return false;
+ }
+
+ @Override
+ public int compareTo(GitCommit o) {
+  int compareTo = o.commitTime.compareTo(commitTime);
+  if (compareTo == 0) {
+   return o.hash.compareTo(hash);
+  }
+  return compareTo;
  }
 }

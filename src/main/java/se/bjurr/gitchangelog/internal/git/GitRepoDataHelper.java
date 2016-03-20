@@ -4,7 +4,7 @@ import static com.google.common.base.Predicates.in;
 import static com.google.common.collect.Iterables.filter;
 import static com.google.common.collect.Iterables.isEmpty;
 import static com.google.common.collect.Lists.newArrayList;
-import static com.google.common.collect.Sets.newHashSet;
+import static com.google.common.collect.Sets.newTreeSet;
 
 import java.util.List;
 import java.util.Set;
@@ -18,7 +18,7 @@ public class GitRepoDataHelper {
  }
 
  public static GitRepoData removeCommitsWithoutIssue(List<ParsedIssue> allParsedIssues, GitRepoData gitRepoData) {
-  Set<GitCommit> commitsWithIssues = newHashSet();
+  Set<GitCommit> commitsWithIssues = newTreeSet();
   for (ParsedIssue parsedIssue : allParsedIssues) {
    for (GitCommit gitCommit : parsedIssue.getGitCommits()) {
     commitsWithIssues.add(gitCommit);

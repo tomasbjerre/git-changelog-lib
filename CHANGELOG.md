@@ -3,16 +3,26 @@
 Changelog of Git Changelog.
 
 ## Next release
-### GitHub [#19](https://github.com/tomasbjerre/git-changelog-lib/issues/19) Feature-request (or question): Issues by category
+### Other changes
+
+**Sorting filtered commits, was random from hash**
+
+ * Building with OpenJDK7 in Travis 
+
+[b4907672ab0a2ba](https://github.com/tomasbjerre/git-changelog-lib/commit/b4907672ab0a2ba) Tomas Bjerre *2016-03-20 09:37:58*
+
+
+## 1.38
+### GitHub #19 
 
 **Removing commits without issue, from tags**
 
 
-[43d69441f467ae2](https://github.com/tomasbjerre/git-changelog-lib/commit/43d69441f467ae2) Tomas Bjerre *2016-03-20 08:37:54*
+[22a2c55c44b6b4d](https://github.com/tomasbjerre/git-changelog-lib/commit/22a2c55c44b6b4d) Tomas Bjerre *2016-03-20 08:38:27*
 
 
 ## 1.37
-### GitHub [#19](https://github.com/tomasbjerre/git-changelog-lib/issues/19) Feature-request (or question): Issues by category
+### GitHub #19 
 
 **Ignore commits without issue**
 
@@ -25,7 +35,7 @@ Changelog of Git Changelog.
 [a025adfc759313f](https://github.com/tomasbjerre/git-changelog-lib/commit/a025adfc759313f) Tomas Bjerre *2016-03-19 20:33:11*
 
 
-### GitHub [#21](https://github.com/tomasbjerre/git-changelog-lib/issues/21) Commits can be listed multiple times
+### GitHub #21 
 
 **Avoiding adding commit twice in same issue**
 
@@ -72,7 +82,7 @@ Changelog of Git Changelog.
 
 
 ## 1.34
-### GitHub [#18](https://github.com/tomasbjerre/git-changelog-lib/pull/18) Migrate GitHub to RetroFit , add pagination and token support
+### GitHub #18 
 
 **Logging error if error invoking GitHub API**
 
@@ -89,7 +99,7 @@ Changelog of Git Changelog.
 
 
 ## 1.33
-### GitHub [#10](https://github.com/tomasbjerre/git-changelog-lib/issues/10) Authentication with GitHub
+### GitHub #10 
 
 **Migrate GitHub REST-API to RetroFit library**
 
@@ -99,7 +109,7 @@ Changelog of Git Changelog.
 [d29029a38fad6a4](https://github.com/tomasbjerre/git-changelog-lib/commit/d29029a38fad6a4) Jonas Kalderstam *2016-03-15 00:12:45*
 
 
-### GitHub [#15](https://github.com/tomasbjerre/git-changelog-lib/issues/15) Github, support pagination 
+### GitHub #15 
 
 **Migrate GitHub REST-API to RetroFit library**
 
@@ -109,7 +119,7 @@ Changelog of Git Changelog.
 [d29029a38fad6a4](https://github.com/tomasbjerre/git-changelog-lib/commit/d29029a38fad6a4) Jonas Kalderstam *2016-03-15 00:12:45*
 
 
-### GitHub [#18](https://github.com/tomasbjerre/git-changelog-lib/pull/18) Migrate GitHub to RetroFit , add pagination and token support
+### GitHub #18 
 
 **Introducing custom exceptions**
 
@@ -127,7 +137,7 @@ Changelog of Git Changelog.
 
 
 ## 1.32
-### GitHub [#16](https://github.com/tomasbjerre/git-changelog-lib/issues/16) Commit not available in all issues mentioned in commit comment
+### GitHub #16 
 
 **Supplying commit in each issue mentioned in message**
 
@@ -196,7 +206,7 @@ Changelog of Git Changelog.
 
 
 ## 1.26
-### GitHub [#13](https://github.com/tomasbjerre/git-changelog-lib/issues/13) Performance
+### GitHub #13 
 
 **Rewriting GitRepo to make it faster**
 
@@ -211,7 +221,7 @@ Changelog of Git Changelog.
 
 
 ## 1.25
-### GitHub [#13](https://github.com/tomasbjerre/git-changelog-lib/issues/13) Performance
+### GitHub #13 
 
 **Letting JGit determine new commits between refs**
 
@@ -305,7 +315,7 @@ Changelog of Git Changelog.
 
 
 ## 1.19
-### GitHub [#11](https://github.com/tomasbjerre/git-changelog-lib/issues/11) Move command line to its own repo
+### GitHub #11 
 
 **Removing command line code**
 
@@ -383,7 +393,7 @@ Changelog of Git Changelog.
 
 
 ## 1.12
-### GitHub [#2](https://github.com/tomasbjerre/git-changelog-lib/issues/2) GitHub Integration
+### GitHub #2 
 
 **Integrating with GitHub**
 
@@ -391,7 +401,7 @@ Changelog of Git Changelog.
 [45af766856ac703](https://github.com/tomasbjerre/git-changelog-lib/commit/45af766856ac703) Tomas Bjerre *2015-11-22 19:51:40*
 
 
-### GitHub [#3](https://github.com/tomasbjerre/git-changelog-lib/issues/3) Jira Integration
+### GitHub #3 
 
 **Integrating with Jira**
 
@@ -494,7 +504,7 @@ Changelog of Git Changelog.
 
 
 ## 1.4
-### GitHub [#7](https://github.com/tomasbjerre/git-changelog-lib/issues/7) Add booleans to enable if statements
+### GitHub #7 
 
 **Adding hasIssue hasLink to readme doc**
 
@@ -516,7 +526,7 @@ Changelog of Git Changelog.
 
 
 ## 1.3
-### GitHub [#7](https://github.com/tomasbjerre/git-changelog-lib/issues/7) Add booleans to enable if statements
+### GitHub #7 
 
 **Adding booleans to check if link and/or issue exists in issue**
 
@@ -543,7 +553,7 @@ Changelog of Git Changelog.
 
 
 ## 1.2
-### GitHub [#4](https://github.com/tomasbjerre/git-changelog-lib/issues/4) Mediawiki integration
+### GitHub #4 
 
 **MediaWiki integration**
 
