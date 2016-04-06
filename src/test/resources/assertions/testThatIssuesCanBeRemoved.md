@@ -66,6 +66,21 @@ Adding stuff with a jira
 
 ## No issue supplied 
   
+### Tomas Bjerre - 2016-04-06 18:40:51
+[8371342ad0d887d](https://server/8371342ad0d887d)
+
+Some stuff in test again
+
+### Tomas Bjerre - 2016-04-06 15:13:04
+[090e7f4b11223c4](https://server/090e7f4b11223c4)
+
+Some stuff in test-feature
+
+### Tomas Bjerre - 2016-04-06 15:12:12
+[c5d37f5e964afd5](https://server/c5d37f5e964afd5)
+
+some stuff in test branch
+
 ### Tomas Bjerre - 2016-02-15 16:30:35
 [3f62b35d1317311](https://server/3f62b35d1317311)
 

@@ -34,6 +34,18 @@ Adding stuff
 Adding stuff with a jira
 
 
+### No issue supplied 
+* Tomas Bjerre
+[8371342ad0d887d](https://server/8371342ad0d887d) *2016-04-06 18:40:51*
+Some stuff in test again
+
+[090e7f4b11223c4](https://server/090e7f4b11223c4) *2016-04-06 15:13:04*
+Some stuff in test-feature
+
+[c5d37f5e964afd5](https://server/c5d37f5e964afd5) *2016-04-06 15:12:12*
+some stuff in test branch
+
+
 ## test-lightweight-2
 ### CQ [CQ1234](http://cq/1234) 1234
 * Tomas Bjerre

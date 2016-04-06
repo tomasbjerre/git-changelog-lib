@@ -56,6 +56,7 @@ public class GitChangelogApiAsserter {
     .withFromCommit(ZERO_COMMIT)//
     .withToRef("test")//
     .withIgnoreCommitsWithMesssage("^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*") //
+    .withIgnoreTagsIfNameMatches(".*tag-in-test-feature$") //
     .withReadableTagName("/([^/]+?)$") //
     .withDateFormat("YYYY-MM-dd HH:mm:ss") //
     .withUntaggedName("No tag") //

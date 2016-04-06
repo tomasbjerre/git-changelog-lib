@@ -58,6 +58,15 @@ Adding stuff with a jira
 
 ## No issue supplied 
 ### Tomas Bjerre
+2016-04-06 18:40:51
+Some stuff in test again
+
+2016-04-06 15:13:04
+Some stuff in test-feature
+
+2016-04-06 15:12:12
+some stuff in test branch
+
 2016-02-15 16:30:35
 This is 1.0 tagged commit
 

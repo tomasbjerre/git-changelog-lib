@@ -2,6 +2,30 @@
 
 Changelog of Git Changelog.
 
+## Commit 8371342ad0d887d
+ Message: Some stuff in test again
+ 
+ Message Title: Some stuff in test again
+
+ Message Body: 
+ 
+
+## Commit 090e7f4b11223c4
+ Message: Some stuff in test-feature
+ 
+ Message Title: Some stuff in test-feature
+
+ Message Body: 
+ 
+
+## Commit c5d37f5e964afd5
+ Message: some stuff in test branch
+ 
+ Message Title: some stuff in test branch
+
+ Message Body: 
+ 
+
 ## Commit 87c0d7288896171
  Message: Multiple issues
  

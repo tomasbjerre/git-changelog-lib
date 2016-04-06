@@ -129,6 +129,15 @@ public class GitChangelogApi {
  }
 
  /**
+  * A regular expression that is evaluated on each tag. If it matches, the tag
+  * will be filtered out and not included in the changelog.
+  */
+ public GitChangelogApi withIgnoreTagsIfNameMatches(String ignoreTagsIfNameMatches) {
+  settings.setIgnoreTagsIfNameMatches(ignoreTagsIfNameMatches);
+  return this;
+ }
+
+ /**
   * Some commits may not be included in any tag. Commits that not released yet
   * may not be tagged. This is a "virtual tag", added to
   * {@link Changelog#getTags()}, that includes those commits. A fitting value
@@ -370,7 +379,8 @@ public class GitChangelogApi {
     .or(gitRepo.getCommit(ZERO_COMMIT));
   ObjectId toId = getId(gitRepo, settings.getToRef(), settings.getToCommit()) //
     .or(gitRepo.getRef(REF_MASTER));
-  GitRepoData gitRepoData = gitRepo.getGitRepoData(fromId, toId, settings.getUntaggedName());
+  GitRepoData gitRepoData = gitRepo.getGitRepoData(fromId, toId, settings.getUntaggedName(),
+    settings.getIgnoreTagsIfNameMatches());
   List<GitCommit> diff = gitRepoData.getGitCommits();
   List<ParsedIssue> issues = new IssueParser(settings, diff).parseForIssues();
   if (settings.ignoreCommitsWithoutIssue()) {

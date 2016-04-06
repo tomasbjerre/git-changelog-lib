@@ -56,6 +56,11 @@ public class Settings {
   */
  private String toCommit;
  /**
+  * A regular expression that is evaluated on each tag. If it matches, the tag
+  * will be filtered out and not included in the changelog.
+  */
+ private String ignoreTagsIfNameMatches;
+ /**
   * A regular expression that is evaluated on the commit message of each commit.
   * If it matches, the commit will be filtered out and not included in the
   * changelog.<br>
@@ -200,6 +205,10 @@ public class Settings {
   this.ignoreCommitsIfMessageMatches = ignoreCommitsIfMessageMatches;
  }
 
+ public void setIgnoreTagsIfNameMatches(String ignoreTagsIfNameMatches) {
+  this.ignoreTagsIfNameMatches = ignoreTagsIfNameMatches;
+ }
+
  public void setJiraIssuePattern(String jiraIssuePattern) {
   this.jiraIssuePattern = jiraIssuePattern;
  }
@@ -257,6 +266,10 @@ public class Settings {
 
  public String getUntaggedName() {
   return fromNullable(untaggedName).or(DEFAULT_UNTAGGED_NAME);
+ }
+
+ public Optional<String> getIgnoreTagsIfNameMatches() {
+  return fromNullable(ignoreTagsIfNameMatches);
  }
 
  public void setUntaggedName(String untaggedName) {

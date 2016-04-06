@@ -51,6 +51,26 @@ Changelog of Git Changelog.
 
 [cc0fbbd8bc63955](https://github.com/tomasbjerre/git-changelog-lib/commit/cc0fbbd8bc63955) Tomas Bjerre *2016-02-15 16:30:35*
 
+### No issue supplied
+
+
+These commits has no issue.
+
+**Some stuff in test again**
+
+
+[8371342ad0d887d](https://github.com/tomasbjerre/git-changelog-lib/commit/8371342ad0d887d) Tomas Bjerre *2016-04-06 18:40:51*
+
+**Some stuff in test-feature**
+
+
+[090e7f4b11223c4](https://github.com/tomasbjerre/git-changelog-lib/commit/090e7f4b11223c4) Tomas Bjerre *2016-04-06 15:13:04*
+
+**some stuff in test branch**
+
+
+[c5d37f5e964afd5](https://github.com/tomasbjerre/git-changelog-lib/commit/c5d37f5e964afd5) Tomas Bjerre *2016-04-06 15:12:12*
+
 ## test-lightweight-2
 ### CQ
 #### [CQ1234](http://cq/1234) 1234

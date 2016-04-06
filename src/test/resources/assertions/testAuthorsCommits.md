@@ -4,6 +4,21 @@ Changelog of Git Changelog.
 
 * Tomas Bjerre
 
+[8371342ad0d887d](https://server/8371342ad0d887d) Tomas Bjerre *2016-04-06 18:40:51*
+
+Some stuff in test again
+
+
+[090e7f4b11223c4](https://server/090e7f4b11223c4) Tomas Bjerre *2016-04-06 15:13:04*
+
+Some stuff in test-feature
+
+
+[c5d37f5e964afd5](https://server/c5d37f5e964afd5) Tomas Bjerre *2016-04-06 15:12:12*
+
+some stuff in test branch
+
+
 [87c0d7288896171](https://server/87c0d7288896171) Tomas Bjerre *2016-03-19 20:32:32*
 
 Multiple issues

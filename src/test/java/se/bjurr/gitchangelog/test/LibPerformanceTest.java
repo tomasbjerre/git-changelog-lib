@@ -20,6 +20,7 @@ import se.bjurr.gitchangelog.internal.git.GitRepo;
 import se.bjurr.gitchangelog.internal.git.GitRepoData;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 
+import com.google.common.base.Optional;
 import com.google.common.base.Stopwatch;
 
 public class LibPerformanceTest {
@@ -57,7 +58,7 @@ public class LibPerformanceTest {
 
   ObjectId fromId = gitRepo.getCommit(ZERO_COMMIT);
   ObjectId toId = gitRepo.getRef(REF_MASTER);
-  GitRepoData gitRepoData = gitRepo.getGitRepoData(fromId, toId, UNTAGGED_NAME);
+  GitRepoData gitRepoData = gitRepo.getGitRepoData(fromId, toId, UNTAGGED_NAME, Optional.<String> absent());
   List<GitTag> allTags = gitRepoData.getGitTags();
   int i = 0;
   for (GitTag from : allTags) {

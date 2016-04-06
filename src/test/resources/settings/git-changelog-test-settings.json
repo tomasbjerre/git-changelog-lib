@@ -4,6 +4,7 @@
  "toRef": "test",
  
  "ignoreCommitsIfMessageMatches": "^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*",
+ "ignoreTagsIfNameMatches": ".*tag-in-test-feature$",
  "readableTagName": "/([^/]+?)$",
  "dateFormat": "YYYY-MM-dd HH:mm:ss",
  "untaggedName": "No tag",

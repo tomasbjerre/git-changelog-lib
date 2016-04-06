@@ -5,6 +5,7 @@ import static com.google.common.collect.Iterators.getLast;
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Lists.transform;
 import static com.google.common.collect.Maps.newHashMap;
+import static java.util.regex.Pattern.compile;
 import static org.eclipse.jgit.lib.ObjectId.fromString;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.REF_MASTER;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
@@ -31,6 +32,7 @@ import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 
 import com.google.common.base.Function;
+import com.google.common.base.Optional;
 
 public class GitRepo {
  private static final Function<RevCommit, GitCommit> TO_GITCOMMIT = new Function<RevCommit, GitCommit>() {
@@ -81,16 +83,14 @@ public class GitRepo {
   *         {@link GitChangelogApiConstants#ZERO_COMMIT}, it is included.
   * @param to
   *         To and including this commit.
-  * @param untaggedName
-  * @throws GitChangelogRepositoryException
   */
- public GitRepoData getGitRepoData(ObjectId from, ObjectId to, String untaggedName)
-   throws GitChangelogRepositoryException {
+ public GitRepoData getGitRepoData(ObjectId from, ObjectId to, String untaggedName,
+   Optional<String> ignoreTagsIfNameMatches) throws GitChangelogRepositoryException {
   Git git = null;
   try {
    git = new Git(repository);
    List<GitCommit> gitCommits = getGitCommits(git, from, to);
-   return new GitRepoData(gitCommits, gitTags(git, gitCommits, untaggedName));
+   return new GitRepoData(gitCommits, gitTags(git, gitCommits, untaggedName, ignoreTagsIfNameMatches));
   } catch (Exception e) {
    throw new GitChangelogRepositoryException(toString(), e);
   } finally {
@@ -98,11 +98,17 @@ public class GitRepo {
   }
  }
 
- private List<GitTag> gitTags(Git git, List<GitCommit> gitCommits, String untaggedName) throws GitAPIException {
+ private List<GitTag> gitTags(Git git, List<GitCommit> gitCommits, String untaggedName,
+   Optional<String> ignoreTagsIfNameMatches) throws GitAPIException {
   List<GitTag> refs = newArrayList();
   List<Ref> refList = git.tagList().call();
   Map<String, Ref> refsPerCommit = newHashMap();
   for (Ref ref : refList) {
+   if (ignoreTagsIfNameMatches.isPresent()) {
+    if (compile(ignoreTagsIfNameMatches.get()).matcher(ref.getName()).matches()) {
+     continue;
+    }
+   }
    refsPerCommit.put(toHash(getPeeled(ref).getName()), ref);
   }
 
@@ -133,8 +139,8 @@ public class GitRepo {
 
  private List<GitCommit> getGitCommits(Git git, ObjectId from, ObjectId to) throws GitChangelogRepositoryException {
   try {
-   final List<RevCommit> toList = newArrayList(git.log().add(to).call());
    if (from.name().equals(firstCommit().name())) {
+    final List<RevCommit> toList = newArrayList(git.log().add(to).call());
     return newArrayList(transform(toList, TO_GITCOMMIT));
    }
 
