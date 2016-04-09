@@ -47,14 +47,14 @@ Adding cq stuff with CQ
 
 ## test-1.0
 ### Tomas Bjerre - 2016-02-15 16:30:35
-[3f62b35d1317311](https://server/3f62b35d1317311)
-
-This is 1.0 tagged commit
-
-### Tomas Bjerre - 2016-02-15 16:30:35
 [d50a3e332f9fcba](https://server/d50a3e332f9fcba)
 
 Adding stuff  gh 12
+
+### Tomas Bjerre - 2016-02-15 16:30:35
+[3f62b35d1317311](https://server/3f62b35d1317311)
+
+This is 1.0 tagged commit
 
 ### T B - 2016-02-15 16:30:25
 [71d845c18924504](https://server/71d845c18924504)

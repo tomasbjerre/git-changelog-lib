@@ -23,7 +23,7 @@ public class Commit {
   this.message = checkNotNull(message, "message").trim();
   this.commitTime = checkNotNull(commitTime, "commitTime");
   this.commitTimeLong = checkNotNull(commitTimeLong, "commitTimeLong");
-  this.hash = checkNotNull(hash, "hash");
+  this.hash = toHash(checkNotNull(hash, "hash"));
  }
 
  public String getHash() {
@@ -118,5 +118,9 @@ public class Commit {
  @Override
  public String toString() {
   return "hash: " + hash + " message: " + message;
+ }
+
+ private static String toHash(String input) {
+  return input.substring(0, 15);
  }
 }

@@ -1,7 +1,8 @@
 package se.bjurr.gitchangelog.internal.git;
 
+import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Lists.reverse;
-import static com.google.common.collect.Maps.newHashMap;
+import static com.google.common.collect.Maps.newTreeMap;
 import static org.assertj.core.api.Assertions.assertThat;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.REF_MASTER;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
@@ -62,7 +63,7 @@ public class GitRepoTest {
   assertThat(gitRepo.getCommit(TAG_1_0_HASH).name()).isEqualTo(TAG_1_0_HASH);
  }
 
- // @Test
+ @Test
  public void testThatTagInFeatureBranchDoesNotIncludeCommitsInItsMainBranch() throws Exception {
   GitRepo gitRepo = getGitRepo();
   ObjectId from = gitRepo.getCommit("87c0d72888961712d4d63dd6298c24c1133a6b51");
@@ -70,30 +71,25 @@ public class GitRepoTest {
 
   GitRepoData gitRepoData = gitRepo.getGitRepoData(from, to, "No tag", Optional.<String> absent());
   Map<String, GitTag> perTag = perTag(gitRepoData.getGitTags());
-  assertThat(gitRepoData.getGitTags())//
-    .hasSize(2);
-  assertThat(gitRepoData.getGitTags())//
-    .hasSize(2);
   assertThat(perTag.keySet())//
     .hasSize(2)//
-    .contains("No tag");
+    .containsExactly(//
+      "No tag",//
+      "refs/tags/tag-in-test-feature");
   GitTag noTagTag = perTag.get("No tag");
+  List<String> noTagNames = messages(noTagTag.getGitCommits());
+  assertThat(noTagNames)//
+    .containsExactly(//
+      "Some stuff in test again",//
+      "Merge branch 'test-feature' into test",//
+      "some stuff in test branch");
 
-  assertThat(noTagTag.getGitCommits())//
-    .hasSize(2);
-  assertThat(noTagTag.getGitCommits().get(0).getMessage().trim())//
-    .isEqualTo("Some stuff in test again");
-  assertThat(noTagTag.getGitCommits().get(1).getMessage().trim())//
-    .isEqualTo("Merge branch 'test-feature' into test");
-
-  // TODO: Its a bit random with 1 or 2 commits here!
   GitTag testFeatureTag = perTag.get("refs/tags/tag-in-test-feature");
-  assertThat(testFeatureTag.getGitCommits())//
-    .hasSize(2);
-  assertThat(testFeatureTag.getGitCommits().get(0).getMessage().trim())//
-    .isEqualTo("Some stuff in test-feature");
-  assertThat(testFeatureTag.getGitCommits().get(1).getMessage().trim())//
-    .isEqualTo("some stuff in test branch");
+  List<String> testFeatureTagMessages = messages(testFeatureTag.getGitCommits());
+  assertThat(testFeatureTagMessages)//
+    .containsExactly(//
+      "Some stuff in test-feature",//
+      "Multiple issues #25 #20");
  }
 
  @Test
@@ -113,16 +109,14 @@ public class GitRepoTest {
     .contains("No tag");
   GitTag noTagTag = perTag.get("No tag");
 
-  assertThat(noTagTag.getGitCommits())//
-    .hasSize(4);
-  assertThat(noTagTag.getGitCommits().get(0).getMessage().trim())//
-    .isEqualTo("Some stuff in test again");
-  assertThat(noTagTag.getGitCommits().get(1).getMessage().trim())//
-    .isEqualTo("Merge branch 'test-feature' into test");
-  assertThat(noTagTag.getGitCommits().get(2).getMessage().trim())//
-    .isEqualTo("Some stuff in test-feature");
-  assertThat(noTagTag.getGitCommits().get(3).getMessage().trim())//
-    .isEqualTo("some stuff in test branch");
+  List<String> noTagTagMessages = messages(noTagTag.getGitCommits());
+  assertThat(noTagTagMessages)//
+    .containsExactly(//
+      "Some stuff in test again",//
+      "Merge branch 'test-feature' into test",//
+      "Some stuff in test-feature",//
+      "some stuff in test branch",//
+      "Multiple issues #25 #20");
  }
 
  @Test
@@ -155,16 +149,24 @@ public class GitRepoTest {
   ObjectId secondRelease = gitRepo.getRef("refs/tags/1.1");
   List<GitCommit> diff = gitRepo.getGitRepoData(firstRelease, secondRelease, "No tag",
     Optional.of(".*tag-in-test-feature$")).getGitCommits();
-  assertThat(diff).as("Commits in second release from 1.0.").hasSize(8);
-  assertThat(diff.get(7).getHash()).startsWith("3950");
-  assertThat(diff.get(0).getHash()).startsWith(secondRelease.getName().substring(0, 10));
+  assertThat(diff)//
+    .as("Commits in second release from 1.0.")//
+    .hasSize(9);
+  assertThat(diff.get(8).getHash())//
+    .startsWith("014");
+  assertThat(diff.get(0).getHash())//
+    .startsWith(secondRelease.getName().substring(0, 10));
 
   ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
   diff = gitRepo.getGitRepoData(firstCommit, secondRelease, "No tag", Optional.of(".*tag-in-test-feature$"))
     .getGitCommits();
-  assertThat(diff).as("Commits in second release from zero commit.").hasSize(14);
-  assertThat(diff.get(7).getHash()).startsWith("3950");
-  assertThat(diff.get(0).getHash()).startsWith(secondRelease.getName().substring(0, 10));
+  assertThat(diff)//
+    .as("Commits in second release from zero commit.")//
+    .hasSize(14);
+  assertThat(diff.get(7).getHash())//
+    .startsWith("3950");
+  assertThat(diff.get(0).getHash())//
+    .startsWith(secondRelease.getName().substring(0, 10));
  }
 
  @Test
@@ -184,11 +186,19 @@ public class GitRepoTest {
  }
 
  private Map<String, GitTag> perTag(List<GitTag> gitTags) {
-  Map<String, GitTag> map = newHashMap();
+  Map<String, GitTag> map = newTreeMap();
   for (GitTag gitTag : gitTags) {
    map.put(gitTag.getName(), gitTag);
   }
   return map;
+ }
+
+ private List<String> messages(List<GitCommit> gitCommits) {
+  List<String> messages = newArrayList();
+  for (GitCommit gc : gitCommits) {
+   messages.add(gc.getMessage().trim());
+  }
+  return messages;
  }
 
  private GitRepo getGitRepo() throws Exception {
