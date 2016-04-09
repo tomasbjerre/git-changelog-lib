@@ -349,7 +349,11 @@ public class GitChangelogApi {
   * @throws GitChangelogRepositoryException
   */
  public Changelog getChangelog() throws GitChangelogRepositoryException {
-  return getChangelog(new GitRepo(new File(settings.getFromRepo())));
+  try (GitRepo gitRepo = new GitRepo(new File(settings.getFromRepo()))) {
+   return getChangelog(gitRepo);
+  } catch (IOException e) {
+   throw new GitChangelogRepositoryException("", e);
+  }
  }
 
  /**
@@ -368,7 +372,7 @@ public class GitChangelogApi {
      new Object[] { this.getChangelog(), settings.getExtendedVariables() } //
      ).flush();
    return writer.toString();
-  } catch (IOException e) {
+  } catch (Exception e) {
    // Should be impossible!
    throw propagate(e);
   }

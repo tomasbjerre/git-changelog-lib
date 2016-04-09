@@ -34,7 +34,7 @@ public class GitRepoDataHelper {
    }
   }
 
-  return new GitRepoData(reducedGitCommits, reducedGitTags);
+  return new GitRepoData(reducedGitTags);
  }
 
 }

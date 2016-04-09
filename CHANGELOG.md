@@ -2,14 +2,14 @@
 
 Changelog of Git Changelog.
 
-## Next release
+## 1.40
 ### GitHub [#23](https://github.com/tomasbjerre/git-changelog-lib/issues/23) changelog is generating incorrect order of commits/Issues
 
 **Adding feature to ignore tags by regexp**
 
  * Also testing tag in feature branch 
 
-[19aa174570e2d5e](https://github.com/tomasbjerre/git-changelog-lib/commit/19aa174570e2d5e) Tomas Bjerre *2016-04-06 20:34:01*
+[8166ec7dfd456df](https://github.com/tomasbjerre/git-changelog-lib/commit/8166ec7dfd456df) Tomas Bjerre *2016-04-06 20:39:27*
 
 
 ### Other changes

@@ -150,13 +150,14 @@ public class GitChangelogApiTest {
    assertThat(actual)//
      .as("Should never happen! But nice to see what was rendered, if it does not crash as expected.")//
      .isEqualTo("");
-  } catch (RuntimeException e) {
-   assertThat(e.getMessage())//
-     .isEqualTo("Pattern: \"[0-9]+?\" did not match any group in: \"refs/tags/test-lightweight-2\"");
+  } catch (Exception e) {
+   if (!e.getMessage().equals("Pattern: \"[0-9]+?\" did not match any group in: \"refs/tags/test-lightweight-2\"")) {
+    throw new AssertionError("Got: \"" + e.getMessage() + "\"", e);
+   }
   }
  }
 
- @Test()
+ @Test
  public void testThatReadableGroupCanBeSet() throws Exception {
   URL settingsFile = getResource("settings/git-changelog-test-settings.json").toURI().toURL();
   String templatePath = "templates/testIssuesCommits.mustache";
@@ -171,7 +172,7 @@ public class GitChangelogApiTest {
     .render();
  }
 
- @Test()
+ @Test
  public void testThatCustomVariablesCanBeUsed() throws Exception {
   String expected = Resources.toString(getResource("assertions/testAuthorsCommitsExtended.md"), UTF_8).trim();
 

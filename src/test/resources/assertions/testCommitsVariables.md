@@ -42,10 +42,26 @@ Changelog of Git Changelog.
  Message Body: 
  
 
+## Commit d50a3e332f9fcba
+ Message: Adding stuff  gh 12
+ 
+ Message Title: Adding stuff  gh 12
+
+ Message Body: 
+ 
+
 ## Commit cc0fbbd8bc63955
  Message: Adding stuff with a jira
  
  Message Title: Adding stuff with a jira
+
+ Message Body: 
+ 
+
+## Commit a9bd03b34b255ff
+ Message: Adding cq stuff with CQ
+ 
+ Message Title: Adding cq stuff with CQ
 
  Message Body: 
  
@@ -60,26 +76,10 @@ Changelog of Git Changelog.
  Item: with gh again
  
 
-## Commit a9bd03b34b255ff
- Message: Adding cq stuff with CQ
- 
- Message Title: Adding cq stuff with CQ
-
- Message Body: 
- 
-
 ## Commit 3f62b35d1317311
  Message: This is 1.0 tagged commit
  
  Message Title: This is 1.0 tagged commit
-
- Message Body: 
- 
-
-## Commit d50a3e332f9fcba
- Message: Adding stuff  gh 12
- 
- Message Title: Adding stuff  gh 12
 
  Message Body: 
  

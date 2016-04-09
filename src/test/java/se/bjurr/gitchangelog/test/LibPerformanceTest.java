@@ -70,8 +70,6 @@ public class LibPerformanceTest {
       || to.getName().equals(UNTAGGED_NAME)) {
      continue;
     }
-    String str = from.getName() + " -> " + to.getName();
-    LOG.info(str);
     gitChangelogApiBuilder//
       .withFromRef(from.getName())//
       .withToRef(to.getName())//

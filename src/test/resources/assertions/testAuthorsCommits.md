@@ -29,9 +29,19 @@ Multiple issues
 More stuff tagged with  twice
 
 
+[d50a3e332f9fcba](https://server/d50a3e332f9fcba) Tomas Bjerre *2016-02-15 16:30:35*
+
+Adding stuff  gh 12
+
+
 [cc0fbbd8bc63955](https://server/cc0fbbd8bc63955) Tomas Bjerre *2016-02-15 16:30:35*
 
 Adding stuff with a jira
+
+
+[a9bd03b34b255ff](https://server/a9bd03b34b255ff) Tomas Bjerre *2016-02-15 16:30:35*
+
+Adding cq stuff with CQ
 
 
 [5607ea23fa8aaf7](https://server/5607ea23fa8aaf7) Tomas Bjerre *2016-02-15 16:30:35*
@@ -40,19 +50,9 @@ Adding stuff
  with gh again
 
 
-[a9bd03b34b255ff](https://server/a9bd03b34b255ff) Tomas Bjerre *2016-02-15 16:30:35*
-
-Adding cq stuff with CQ
-
-
 [3f62b35d1317311](https://server/3f62b35d1317311) Tomas Bjerre *2016-02-15 16:30:35*
 
 This is 1.0 tagged commit
-
-
-[d50a3e332f9fcba](https://server/d50a3e332f9fcba) Tomas Bjerre *2016-02-15 16:30:35*
-
-Adding stuff  gh 12
 
 
 [071a14f29020758](https://server/071a14f29020758) Tomas Bjerre *2016-02-15 16:12:02*
