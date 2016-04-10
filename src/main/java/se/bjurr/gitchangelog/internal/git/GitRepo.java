@@ -4,7 +4,6 @@ import static com.google.common.base.Throwables.propagate;
 import static com.google.common.collect.Iterators.getLast;
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
-import static com.google.common.collect.Sets.newHashSet;
 import static com.google.common.collect.Sets.newTreeSet;
 import static java.util.regex.Pattern.compile;
 import static org.eclipse.jgit.lib.ObjectId.fromString;
@@ -226,14 +225,14 @@ public class GitRepo implements Closeable {
     noteThatTheCommitWasMapped(tagPerCommitsHash, currentTagName, thisCommitHash);
    }
    if (notFirstIncludedCommit(from, to)) {
-    Set<TraversalWork> work = newHashSet();
+    Set<TraversalWork> work = newTreeSet();
     for (RevCommit parent : thisCommit.getParents()) {
      work.add(new TraversalWork(parent, currentTagName));
     }
     return work;
    }
   }
-  return newHashSet();
+  return newTreeSet();
  }
 
  private boolean thisIsANewTag(Map<String, Ref> tagsPerCommitHash, String thisCommitHash) {

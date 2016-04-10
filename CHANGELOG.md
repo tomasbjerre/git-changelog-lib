@@ -3,23 +3,22 @@
 Changelog of Git Changelog.
 
 ## Next release
+### Other changes
+
+**Parsing commits, oldest first**
+
+
+[999149aa04f0e38](https://github.com/tomasbjerre/git-changelog-lib/commit/999149aa04f0e38) Tomas Bjerre *2016-04-10 09:07:51*
+
+
+## 1.42
 ### GitHub [#23](https://github.com/tomasbjerre/git-changelog-lib/issues/23) changelog is generating incorrect order of commits/Issues
 
 **Parsing commits, oldest first**
 
  * To avoid random behaviour. 
 
-[8a6a4ad4f545975](https://github.com/tomasbjerre/git-changelog-lib/commit/8a6a4ad4f545975) Tomas Bjerre *2016-04-10 08:48:59*
-
-
-## 1.41
-### GitHub [#23](https://github.com/tomasbjerre/git-changelog-lib/issues/23) changelog is generating incorrect order of commits/Issues
-
-**Traversing commit tree by parents**
-
- * To find all commits in all tags. 
-
-[9dcba5d33fc2e44](https://github.com/tomasbjerre/git-changelog-lib/commit/9dcba5d33fc2e44) Tomas Bjerre *2016-04-09 20:21:58*
+[9817cdf6a1fbe91](https://github.com/tomasbjerre/git-changelog-lib/commit/9817cdf6a1fbe91) Tomas Bjerre *2016-04-10 08:49:45*
 
 
 ## 1.40
