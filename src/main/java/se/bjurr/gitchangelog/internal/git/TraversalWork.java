@@ -2,7 +2,9 @@ package se.bjurr.gitchangelog.internal.git;
 
 import org.eclipse.jgit.revwalk.RevCommit;
 
-class TraversalWork {
+import com.google.common.annotations.VisibleForTesting;
+
+class TraversalWork implements Comparable<TraversalWork> {
  private final RevCommit to;
  private final String currentTagName;
 
@@ -55,5 +57,17 @@ class TraversalWork {
    return false;
   }
   return true;
+ }
+
+ @Override
+ public int compareTo(TraversalWork o) {
+  int otherCommitTime = o.getTo().getCommitTime();
+  return compareTo(to.getCommitTime(), otherCommitTime);
+ }
+
+ @VisibleForTesting
+ int compareTo(int selfCommitTime, int otherCommitTime) {
+  return new Integer(selfCommitTime)//
+    .compareTo(otherCommitTime);
  }
 }

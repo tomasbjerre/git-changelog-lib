@@ -36,6 +36,7 @@ dependencies {
  testCompile 'junit:junit:4.12'
  testCompile 'org.slf4j:slf4j-simple:1.7.13'
  testCompile 'org.assertj:assertj-core:2.3.0'
+ testCompile 'org.mockito:mockito-all:1.8.5'
 }
 
 test {

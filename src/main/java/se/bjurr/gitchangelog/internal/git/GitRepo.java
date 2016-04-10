@@ -5,6 +5,7 @@ import static com.google.common.collect.Iterators.getLast;
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
 import static com.google.common.collect.Sets.newHashSet;
+import static com.google.common.collect.Sets.newTreeSet;
 import static java.util.regex.Pattern.compile;
 import static org.eclipse.jgit.lib.ObjectId.fromString;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.REF_MASTER;
@@ -159,7 +160,7 @@ public class GitRepo implements Closeable {
   Set<TraversalWork> moreWork = populateCommitPerTag(from, to, commitsPerTag, tagPerCommitHash, tagPerCommitsHash,
     startingTagName);
   do {
-   Set<TraversalWork> evenMoreWork = newHashSet();
+   Set<TraversalWork> evenMoreWork = newTreeSet();
    for (TraversalWork tw : newArrayList(moreWork)) {
     moreWork.remove(tw);
     evenMoreWork.addAll(populateCommitPerTag(from, tw.getTo(), commitsPerTag, tagPerCommitHash, tagPerCommitsHash,
