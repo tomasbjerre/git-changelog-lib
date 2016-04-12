@@ -5,15 +5,14 @@ import static com.google.common.collect.Iterators.getLast;
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
 import static com.google.common.collect.Sets.newTreeSet;
+import static java.util.Collections.sort;
 import static java.util.regex.Pattern.compile;
-import static org.eclipse.jgit.lib.ObjectId.fromString;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.REF_MASTER;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 
 import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.Iterator;
@@ -89,7 +88,7 @@ public class GitRepo implements Closeable {
   }
  }
 
- public ObjectId getRef(String fromRef) {
+ public ObjectId getRef(String fromRef) throws GitChangelogRepositoryException {
   try {
    for (Ref foundRef : getAllRefs().values()) {
     if (foundRef.getName().endsWith(fromRef)) {
@@ -102,17 +101,21 @@ public class GitRepo implements Closeable {
      }
     }
    }
-   throw new RuntimeException(fromRef + " not found in:\n" + toString());
+   throw new GitChangelogRepositoryException(fromRef + " not found in:\n" + toString());
   } catch (Exception e) {
-   throw new RuntimeException("", e);
+   throw new GitChangelogRepositoryException("", e);
   }
  }
 
- public ObjectId getCommit(String fromCommit) {
+ public ObjectId getCommit(String fromCommit) throws GitChangelogRepositoryException {
   if (fromCommit.startsWith(ZERO_COMMIT)) {
    return firstCommit();
   }
-  return fromString(fromCommit);
+  try {
+   return repository.resolve(fromCommit);
+  } catch (Exception e) {
+   throw new GitChangelogRepositoryException("", e);
+  }
  }
 
  private List<GitTag> gitTags(ObjectId from, ObjectId to, String untaggedName, Optional<String> ignoreTagsIfNameMatches)
@@ -185,7 +188,7 @@ public class GitRepo implements Closeable {
 
  private List<String> tagCommitHashSortedByCommitTime(Set<String> commitHashes) {
   List<String> sorted = newArrayList(commitHashes);
-  Collections.sort(sorted, new Comparator<String>() {
+  sort(sorted, new Comparator<String>() {
    @Override
    public int compare(String hash1, String hash2) {
     try {
@@ -194,7 +197,7 @@ public class GitRepo implements Closeable {
      RevCommit revCommit2 = revWalk.lookupCommit(getCommit(hash2));
      revWalk.parseHeaders(revCommit2);
      return toGitCommit(revCommit1).compareTo(toGitCommit(revCommit2));
-    } catch (IOException e) {
+    } catch (Exception e) {
      throw propagate(e);
     }
    }

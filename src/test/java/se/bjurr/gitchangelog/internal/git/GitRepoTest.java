@@ -33,6 +33,15 @@ public class GitRepoTest {
  }
 
  @Test
+ public void testThatShortHashCanBeUsedToFindCommits() throws Exception {
+  GitRepo gitRepo = getGitRepo();
+  assertThat(gitRepo.getCommit("5a50ad3672c9f5a273c04711ed9b3daebf1f9b07").getName())//
+    .isEqualTo("5a50ad3672c9f5a273c04711ed9b3daebf1f9b07");
+  assertThat(gitRepo.getCommit("5a50ad3").getName())//
+    .isEqualTo("5a50ad3672c9f5a273c04711ed9b3daebf1f9b07");
+ }
+
+ @Test
  public void testThatRepoCanBeFound() throws Exception {
   GitRepo gitRepo = getGitRepo();
   assertThat(gitRepo).isNotNull();

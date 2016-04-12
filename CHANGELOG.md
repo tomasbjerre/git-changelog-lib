@@ -3,12 +3,21 @@
 Changelog of Git Changelog.
 
 ## Next release
+### Jira JENKINS-34155 
+
+**Support short SHA**
+
+
+[2f97304d72498c1](https://github.com/tomasbjerre/git-changelog-lib/commit/2f97304d72498c1) Tomas Bjerre *2016-04-12 16:41:40*
+
+
+## 1.43
 ### Other changes
 
 **Parsing commits, oldest first**
 
 
-[999149aa04f0e38](https://github.com/tomasbjerre/git-changelog-lib/commit/999149aa04f0e38) Tomas Bjerre *2016-04-10 09:07:51*
+[f6a768567dc03d3](https://github.com/tomasbjerre/git-changelog-lib/commit/f6a768567dc03d3) Tomas Bjerre *2016-04-10 09:08:26*
 
 
 ## 1.42

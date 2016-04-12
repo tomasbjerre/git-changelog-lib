@@ -5,7 +5,6 @@ import static com.google.common.base.Optional.absent;
 import static com.google.common.base.Optional.of;
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
-import static com.google.common.base.Throwables.propagate;
 import static com.google.common.io.Files.createParentDirs;
 import static com.google.common.io.Files.write;
 import static com.google.common.io.Resources.getResource;
@@ -362,20 +361,20 @@ public class GitChangelogApi {
   * @throws GitChangelogRepositoryException
   */
  public String render() throws GitChangelogRepositoryException {
+  MustacheFactory mf = new DefaultMustacheFactory();
+  String templateContent = checkNotNull(getTemplateContent(), "No template!");
+  StringReader reader = new StringReader(templateContent);
+  Mustache mustache = mf.compile(reader, settings.getTemplatePath());
+  StringWriter writer = new StringWriter();
   try {
-   MustacheFactory mf = new DefaultMustacheFactory();
-   String templateContent = checkNotNull(getTemplateContent(), "No template!");
-   StringReader reader = new StringReader(templateContent);
-   Mustache mustache = mf.compile(reader, settings.getTemplatePath());
-   StringWriter writer = new StringWriter();
    mustache.execute(writer, //
      new Object[] { this.getChangelog(), settings.getExtendedVariables() } //
      ).flush();
-   return writer.toString();
-  } catch (Exception e) {
+  } catch (IOException e) {
    // Should be impossible!
-   throw propagate(e);
+   throw new GitChangelogRepositoryException("", e);
   }
+  return writer.toString();
  }
 
  private Changelog getChangelog(GitRepo gitRepo) throws GitChangelogRepositoryException {
@@ -420,7 +419,8 @@ public class GitChangelogApi {
   }
  }
 
- private Optional<ObjectId> getId(GitRepo gitRepo, Optional<String> ref, Optional<String> commit) {
+ private Optional<ObjectId> getId(GitRepo gitRepo, Optional<String> ref, Optional<String> commit)
+   throws GitChangelogRepositoryException {
   if (ref.isPresent()) {
    return of(gitRepo.getRef(ref.get()));
   }
