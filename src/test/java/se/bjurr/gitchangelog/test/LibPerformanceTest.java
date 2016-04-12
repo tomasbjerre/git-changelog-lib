@@ -55,17 +55,20 @@ public class LibPerformanceTest {
   if (gitRepo == null) {
    return;
   }
+  LOG.info("Running performance test");
 
   ObjectId fromId = gitRepo.getCommit(ZERO_COMMIT);
   ObjectId toId = gitRepo.getRef(REF_MASTER);
   GitRepoData gitRepoData = gitRepo.getGitRepoData(fromId, toId, UNTAGGED_NAME, Optional.<String> absent());
+  LOG.info(stopwatch.elapsed(SECONDS) + "s. Done zero to master.");
   List<GitTag> allTags = gitRepoData.getGitTags();
   int i = 0;
   for (GitTag from : allTags) {
+   LOG.info(stopwatch.elapsed(SECONDS) + "s. From " + from.getName());
    for (GitTag to : allTags) {
     i++;
-    LOG.info(i + "/" + allTags.size() * allTags.size() + " in " + stopwatch.elapsed(SECONDS) + "s, now testing "
-      + from.getName() + " -> " + to.getName());
+    LOG.info(stopwatch.elapsed(SECONDS) + "s.  --> " + to.getName());
+    LOG.info(stopwatch.elapsed(SECONDS) + "s.      " + i + "/" + allTags.size() * allTags.size());
     if (from.getName().equals(to.getName()) || from.getName().equals(UNTAGGED_NAME)
       || to.getName().equals(UNTAGGED_NAME)) {
      continue;
@@ -74,6 +77,7 @@ public class LibPerformanceTest {
       .withFromRef(from.getName())//
       .withToRef(to.getName())//
       .render();
+    LOG.info(stopwatch.elapsed(SECONDS) + "s.      Done");
    }
   }
  }

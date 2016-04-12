@@ -3,12 +3,33 @@
 Changelog of Git Changelog.
 
 ## Next release
+### GitHub [#26](https://github.com/tomasbjerre/git-changelog-lib/issues/26) Excluded commits are included JENKINS-34156
+
+**Including correct commits + performance**
+
+ * Found major performance problem when sorting tags by commit time, fixed. 
+ * Now not following parents, unless *from* is merged into them. 
+
+[f705914a7c62ac7](https://github.com/tomasbjerre/git-changelog-lib/commit/f705914a7c62ac7) Tomas Bjerre *2016-04-13 18:27:53*
+
+
+### Jira JENKINS-34156 
+
+**Including correct commits + performance**
+
+ * Found major performance problem when sorting tags by commit time, fixed. 
+ * Now not following parents, unless *from* is merged into them. 
+
+[f705914a7c62ac7](https://github.com/tomasbjerre/git-changelog-lib/commit/f705914a7c62ac7) Tomas Bjerre *2016-04-13 18:27:53*
+
+
+## 1.44
 ### Jira JENKINS-34155 
 
 **Support short SHA**
 
 
-[2f97304d72498c1](https://github.com/tomasbjerre/git-changelog-lib/commit/2f97304d72498c1) Tomas Bjerre *2016-04-12 16:41:40*
+[27642e3db66e67c](https://github.com/tomasbjerre/git-changelog-lib/commit/27642e3db66e67c) Tomas Bjerre *2016-04-12 16:43:21*
 
 
 ## 1.43
@@ -28,6 +49,16 @@ Changelog of Git Changelog.
  * To avoid random behaviour. 
 
 [9817cdf6a1fbe91](https://github.com/tomasbjerre/git-changelog-lib/commit/9817cdf6a1fbe91) Tomas Bjerre *2016-04-10 08:49:45*
+
+
+## 1.41
+### GitHub [#23](https://github.com/tomasbjerre/git-changelog-lib/issues/23) changelog is generating incorrect order of commits/Issues
+
+**Traversing commit tree by parents**
+
+ * To find all commits in all tags. 
+
+[9dcba5d33fc2e44](https://github.com/tomasbjerre/git-changelog-lib/commit/9dcba5d33fc2e44) Tomas Bjerre *2016-04-09 20:21:58*
 
 
 ## 1.40
@@ -145,6 +176,26 @@ Changelog of Git Changelog.
 
 
 ## 1.33
+### GitHub [#10](https://github.com/tomasbjerre/git-changelog-lib/issues/10) Authentication with GitHub
+
+**Migrate GitHub REST-API to RetroFit library**
+
+ * Added auth-token support for GitHub, fixes 
+ * Added pagination support for GitHub, fixes 
+
+[d29029a38fad6a4](https://github.com/tomasbjerre/git-changelog-lib/commit/d29029a38fad6a4) Jonas Kalderstam *2016-03-15 00:12:45*
+
+
+### GitHub [#15](https://github.com/tomasbjerre/git-changelog-lib/issues/15) Github, support pagination 
+
+**Migrate GitHub REST-API to RetroFit library**
+
+ * Added auth-token support for GitHub, fixes 
+ * Added pagination support for GitHub, fixes 
+
+[d29029a38fad6a4](https://github.com/tomasbjerre/git-changelog-lib/commit/d29029a38fad6a4) Jonas Kalderstam *2016-03-15 00:12:45*
+
+
 ### GitHub [#18](https://github.com/tomasbjerre/git-changelog-lib/pull/18) Migrate GitHub to RetroFit , add pagination and token support
 
 **Introducing custom exceptions**

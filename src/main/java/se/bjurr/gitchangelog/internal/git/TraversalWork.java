@@ -62,7 +62,11 @@ class TraversalWork implements Comparable<TraversalWork> {
  @Override
  public int compareTo(TraversalWork o) {
   int otherCommitTime = o.getTo().getCommitTime();
-  return compareTo(to.getCommitTime(), otherCommitTime);
+  int compareTo = compareTo(to.getCommitTime(), otherCommitTime);
+  if (compareTo == 0) {
+   return (to.getName() + currentTagName).compareTo(o.getTo().getName() + o.getCurrentTagName());
+  }
+  return compareTo;
  }
 
  @VisibleForTesting
@@ -70,4 +74,10 @@ class TraversalWork implements Comparable<TraversalWork> {
   return new Integer(selfCommitTime)//
     .compareTo(otherCommitTime);
  }
+
+ @Override
+ public String toString() {
+  return "TraversalWork [to=" + to + ", currentTagName=" + currentTagName + "]";
+ }
+
 }

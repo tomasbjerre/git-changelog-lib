@@ -35,6 +35,7 @@ public class GitChangelogTest {
   gitChangelogApiBuilder()//
     .withSettings(new File(repoRoot + "/changelog.json").toURI().toURL())//
     .withGitHubToken(gitHubToken)//
+    .withJiraServer(null)//
     .toFile(toFile);
   LOG.info("Wrote " + toFile);
  }

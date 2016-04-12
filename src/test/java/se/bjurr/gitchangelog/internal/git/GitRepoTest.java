@@ -73,7 +73,29 @@ public class GitRepoTest {
  }
 
  @Test
- public void testThatTagInFeatureBranchDoesNotIncludeCommitsInItsMainBranch() throws Exception {
+ public void testThatTagInFeatureBranchDoesNotIncludeNewUnmergedCommitsInItsMainBranchWhenFeatureLaterMerged()
+   throws Exception {
+  GitRepo gitRepo = getGitRepo();
+  ObjectId from = gitRepo.getCommit("090e7f4");
+  ObjectId to = gitRepo.getCommit("8371342");
+
+  GitRepoData gitRepoData = gitRepo.getGitRepoData(from, to, "No tag", Optional.<String> absent());
+  Map<String, GitTag> perTag = perTag(gitRepoData.getGitTags());
+  assertThat(perTag.keySet())//
+    .hasSize(1)//
+    .containsExactly(//
+      "No tag");
+  GitTag noTagTag = perTag.get("No tag");
+  List<String> noTagNames = messages(noTagTag.getGitCommits());
+  assertThat(noTagNames)//
+    .containsExactly(//
+      "Some stuff in test again",//
+      "Merge branch 'test-feature' into test",//
+      "Some stuff in test-feature");
+ }
+
+ @Test
+ public void testThatTagInFeatureBranchAndMainBranchIsNotMixed() throws Exception {
   GitRepo gitRepo = getGitRepo();
   ObjectId from = gitRepo.getCommit("87c0d72888961712d4d63dd6298c24c1133a6b51");
   ObjectId to = gitRepo.getRef("test");
