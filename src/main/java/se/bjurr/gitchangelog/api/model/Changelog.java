@@ -2,13 +2,15 @@ package se.bjurr.gitchangelog.api.model;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import java.io.Serializable;
 import java.util.List;
 
 import se.bjurr.gitchangelog.api.model.interfaces.IAuthors;
 import se.bjurr.gitchangelog.api.model.interfaces.ICommits;
 import se.bjurr.gitchangelog.api.model.interfaces.IIssues;
 
-public class Changelog implements ICommits, IAuthors, IIssues {
+public class Changelog implements ICommits, IAuthors, IIssues, Serializable {
+ private static final long serialVersionUID = 2193789018496738737L;
  private final List<Commit> commits;
  private final List<Tag> tags;
  private final List<Author> authors;

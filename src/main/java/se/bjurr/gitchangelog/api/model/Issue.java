@@ -5,12 +5,14 @@ import static com.google.common.base.Preconditions.checkState;
 import static com.google.common.base.Strings.isNullOrEmpty;
 import static com.google.common.base.Strings.nullToEmpty;
 
+import java.io.Serializable;
 import java.util.List;
 
 import se.bjurr.gitchangelog.api.model.interfaces.IAuthors;
 import se.bjurr.gitchangelog.api.model.interfaces.ICommits;
 
-public class Issue implements ICommits, IAuthors {
+public class Issue implements ICommits, IAuthors, Serializable {
+ private static final long serialVersionUID = -7571341639024417199L;
  private final List<Commit> commits;
  private final List<Author> authors;
  /**

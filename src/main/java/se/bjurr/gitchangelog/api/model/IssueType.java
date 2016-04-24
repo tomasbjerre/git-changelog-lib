@@ -2,9 +2,12 @@ package se.bjurr.gitchangelog.api.model;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class IssueType {
+public class IssueType implements Serializable {
+
+ private static final long serialVersionUID = 8850522973130773606L;
  private final String name;
  private final List<Issue> issues;
 

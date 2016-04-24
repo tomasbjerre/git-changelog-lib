@@ -17,6 +17,7 @@ import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_REMOVE_
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_TIMEZONE;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_UNTAGGED_NAME;
 
+import java.io.Serializable;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,7 +31,9 @@ import com.google.common.base.Optional;
 import com.google.common.io.Resources;
 import com.google.gson.Gson;
 
-public class Settings {
+public class Settings implements Serializable {
+ private static final long serialVersionUID = 4565886594381385244L;
+
  private static Gson gson = new Gson();
 
  /**

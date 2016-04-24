@@ -1,12 +1,14 @@
 package se.bjurr.gitchangelog.api.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import se.bjurr.gitchangelog.api.model.interfaces.IAuthors;
 import se.bjurr.gitchangelog.api.model.interfaces.ICommits;
 import se.bjurr.gitchangelog.api.model.interfaces.IIssues;
 
-public class Tag implements ICommits, IAuthors, IIssues {
+public class Tag implements ICommits, IAuthors, IIssues, Serializable {
+ private static final long serialVersionUID = 2140208294219785889L;
  private final List<Commit> commits;
  private final List<Author> authors;
  private final List<Issue> issues;

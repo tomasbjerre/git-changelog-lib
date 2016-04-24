@@ -3,11 +3,15 @@ package se.bjurr.gitchangelog.internal.settings;
 import static com.google.common.base.Optional.fromNullable;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.CUSTOM;
+
+import java.io.Serializable;
+
 import se.bjurr.gitchangelog.api.model.Issue;
 
 import com.google.common.base.Optional;
 
-public class SettingsIssue {
+public class SettingsIssue implements Serializable {
+ private static final long serialVersionUID = -658106272421601880L;
  /**
   * Use {@link SettingsIssueType#CUSTOM} when adding custom issues.
   */

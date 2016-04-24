@@ -4,11 +4,13 @@ import static com.google.common.base.Joiner.on;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.collect.Lists.newArrayList;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.google.common.annotations.VisibleForTesting;
 
-public class Commit {
+public class Commit implements Serializable {
+ private static final long serialVersionUID = 6622555148468372816L;
  private final String authorName;
  private final String authorEmailAddress;
  private final String commitTime;

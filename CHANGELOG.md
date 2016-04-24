@@ -3,6 +3,15 @@
 Changelog of Git Changelog.
 
 ## Next release
+### Other changes
+
+**Making API model serializable**
+
+
+[63fbadfe4b91659](https://github.com/tomasbjerre/git-changelog-lib/commit/63fbadfe4b91659) Tomas Bjerre *2016-04-24 07:29:27*
+
+
+## 1.45
 ### GitHub [#26](https://github.com/tomasbjerre/git-changelog-lib/issues/26) Excluded commits are included JENKINS-34156
 
 **Including correct commits + performance**
@@ -10,7 +19,7 @@ Changelog of Git Changelog.
  * Found major performance problem when sorting tags by commit time, fixed. 
  * Now not following parents, unless *from* is merged into them. 
 
-[f705914a7c62ac7](https://github.com/tomasbjerre/git-changelog-lib/commit/f705914a7c62ac7) Tomas Bjerre *2016-04-13 18:27:53*
+[e3106df640b693b](https://github.com/tomasbjerre/git-changelog-lib/commit/e3106df640b693b) Tomas Bjerre *2016-04-13 18:30:26*
 
 
 ### Jira JENKINS-34156 
@@ -20,7 +29,7 @@ Changelog of Git Changelog.
  * Found major performance problem when sorting tags by commit time, fixed. 
  * Now not following parents, unless *from* is merged into them. 
 
-[f705914a7c62ac7](https://github.com/tomasbjerre/git-changelog-lib/commit/f705914a7c62ac7) Tomas Bjerre *2016-04-13 18:27:53*
+[e3106df640b693b](https://github.com/tomasbjerre/git-changelog-lib/commit/e3106df640b693b) Tomas Bjerre *2016-04-13 18:30:26*
 
 
 ## 1.44
