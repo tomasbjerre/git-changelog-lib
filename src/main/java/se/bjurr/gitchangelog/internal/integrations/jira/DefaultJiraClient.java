@@ -18,8 +18,9 @@ public class DefaultJiraClient extends JiraClient {
  }
 
  @Override
- public void withBasicCredentials(String username, String password) {
+ public JiraClient withBasicCredentials(String username, String password) {
   this.client = client.withBasicAuthCredentials(username, password);
+  return this;
  }
 
  @Override

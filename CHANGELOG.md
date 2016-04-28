@@ -5,10 +5,20 @@ Changelog of Git Changelog.
 ## Next release
 ### Other changes
 
+**Removing trailing slash from Jira API URL**
+
+ * If it is specified. 
+
+[9e6b89d48e51dd3](https://github.com/tomasbjerre/git-changelog-lib/commit/9e6b89d48e51dd3) Tomas Bjerre *2016-04-28 16:17:56*
+
+
+## 1.46
+### Other changes
+
 **Making API model serializable**
 
 
-[63fbadfe4b91659](https://github.com/tomasbjerre/git-changelog-lib/commit/63fbadfe4b91659) Tomas Bjerre *2016-04-24 07:29:27*
+[0e0ce5e0c5df526](https://github.com/tomasbjerre/git-changelog-lib/commit/0e0ce5e0c5df526) Tomas Bjerre *2016-04-24 07:29:47*
 
 
 ## 1.45

@@ -10,7 +10,11 @@ public abstract class JiraClient {
  private final String api;
 
  public JiraClient(String api) {
-  this.api = api;
+  if (api.endsWith("/")) {
+   this.api = api.substring(0, api.length() - 1);
+  } else {
+   this.api = api;
+  }
  }
 
  public String getApi() {
@@ -29,7 +33,7 @@ public abstract class JiraClient {
   return jiraIssue;
  }
 
- public abstract void withBasicCredentials(String username, String password);
+ public abstract JiraClient withBasicCredentials(String username, String password);
 
  public abstract Optional<JiraIssue> getIssue(String matched) throws GitChangelogIntegrationException;
 
