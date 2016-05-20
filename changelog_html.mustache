@@ -23,7 +23,11 @@ Changelog of Git Changelog.
    {{#commits}}
 <a href="https://github.com/tomasbjerre/git-changelog-lib/commit/{{hash}}">{{hash}}</a> {{authorName}} <i>{{commitTime}}</i>
 <p>
-{{{message}}}
+<h3>{{{messageTitle}}}</h3>
+
+{{#messageBodyItems}}
+ <li> {{.}}</li> 
+{{/messageBodyItems}}
 </p>
 
 

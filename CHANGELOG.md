@@ -5,6 +5,15 @@ Changelog of Git Changelog.
 ## Next release
 ### Other changes
 
+**Adjusting example html template**
+
+
+[358efe6f31701b1](https://github.com/tomasbjerre/git-changelog-lib/commit/358efe6f31701b1) Tomas Bjerre *2016-05-20 19:05:11*
+
+
+## 1.48
+### Other changes
+
 **Testing trailing slash in Jira**
 
 
