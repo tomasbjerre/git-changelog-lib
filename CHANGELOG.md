@@ -5,11 +5,20 @@ Changelog of Git Changelog.
 ## Next release
 ### Other changes
 
+**Testing trailing slash in Jira**
+
+
+[0c85c4276ac3dce](https://github.com/tomasbjerre/git-changelog-lib/commit/0c85c4276ac3dce) Tomas Bjerre *2016-04-28 16:33:44*
+
+
+## 1.47
+### Other changes
+
 **Removing trailing slash from Jira API URL**
 
  * If it is specified. 
 
-[9e6b89d48e51dd3](https://github.com/tomasbjerre/git-changelog-lib/commit/9e6b89d48e51dd3) Tomas Bjerre *2016-04-28 16:17:56*
+[a94d576b6fd706e](https://github.com/tomasbjerre/git-changelog-lib/commit/a94d576b6fd706e) Tomas Bjerre *2016-04-28 16:18:20*
 
 
 ## 1.46
