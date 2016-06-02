@@ -3,12 +3,21 @@
 Changelog of Git Changelog.
 
 ## Next release
+### GitHub [#28](https://github.com/tomasbjerre/git-changelog-lib/issues/28) Crash when git repo has no master branch
+
+**Finding first commit in repo as parents of HEAD**
+
+ * Was looking at parents of master, which may not exist. 
+
+[afe82368a25accc](https://github.com/tomasbjerre/git-changelog-lib/commit/afe82368a25accc) Tomas Bjerre *2016-06-02 17:54:26*
+
+
 ### Other changes
 
 **Adjusting example html template**
 
 
-[358efe6f31701b1](https://github.com/tomasbjerre/git-changelog-lib/commit/358efe6f31701b1) Tomas Bjerre *2016-05-20 19:05:11*
+[7ea087fdbbc9820](https://github.com/tomasbjerre/git-changelog-lib/commit/7ea087fdbbc9820) Tomas Bjerre *2016-05-20 19:05:36*
 
 
 ## 1.48
