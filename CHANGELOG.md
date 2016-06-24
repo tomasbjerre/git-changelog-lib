@@ -3,12 +3,26 @@
 Changelog of Git Changelog.
 
 ## Next release
+### Other changes
+
+**Show found refs when not finding ref**
+
+
+[aef7ce6729a1b82](https://github.com/tomasbjerre/git-changelog-lib/commit/aef7ce6729a1b82) Tomas Bjerre *2016-06-24 12:26:00*
+
+**Some more debugging**
+
+
+[0c59757f08f5eb3](https://github.com/tomasbjerre/git-changelog-lib/commit/0c59757f08f5eb3) Tomas Bjerre *2016-06-24 09:18:35*
+
+
+## 1.50
 ### GitHub [#29](https://github.com/tomasbjerre/git-changelog-lib/issues/29) Not, always, including merged in commits
 
 **Including commits frmo merges**
 
 
-[4f74f4d5e35e253](https://github.com/tomasbjerre/git-changelog-lib/commit/4f74f4d5e35e253) Tomas Bjerre *2016-06-24 08:54:09*
+[a723e0a230e3f38](https://github.com/tomasbjerre/git-changelog-lib/commit/a723e0a230e3f38) Tomas Bjerre *2016-06-24 08:56:47*
 
 
 ## 1.49
