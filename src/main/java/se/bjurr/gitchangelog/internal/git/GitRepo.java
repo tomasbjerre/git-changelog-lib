@@ -128,7 +128,11 @@ public class GitRepo implements Closeable {
 
  @Override
  public String toString() {
-  return "Repo: " + this.repository;
+  StringBuilder sb = new StringBuilder();
+  for (Ref foundRef : getAllRefs().values()) {
+   sb.append(foundRef.getName() + "\n");
+  }
+  return "Repo: " + this.repository + "\n" + sb.toString();
  }
 
  private void addCommitToCurrentTag(Map<String, Set<GitCommit>> commitsPerTagName, String currentTagName,
