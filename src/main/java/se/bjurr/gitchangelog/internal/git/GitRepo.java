@@ -1,6 +1,9 @@
 package se.bjurr.gitchangelog.internal.git;
 
+import static com.google.common.base.Predicates.in;
+import static com.google.common.base.Predicates.not;
 import static com.google.common.base.Throwables.propagate;
+import static com.google.common.collect.Iterables.filter;
 import static com.google.common.collect.Iterators.getLast;
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
@@ -42,9 +45,8 @@ import com.google.common.collect.Ordering;
 
 public class GitRepo implements Closeable {
  private static final Logger LOG = LoggerFactory.getLogger(GitRepo.class);
+ private List<RevCommit> commitsToInclude;
  private Git git;
- private RevCommit originalFrom;
- private RevCommit originalTo;
  private final Repository repository;
  private final RevWalk revWalk;
 
@@ -172,6 +174,13 @@ public class GitRepo implements Closeable {
   return this.repository.getAllRefs();
  }
 
+ private List<RevCommit> getDiffingCommits(RevCommit from, RevCommit to) throws Exception {
+  RevCommit firstCommit = firstCommit();
+  List<RevCommit> allInFrom = newArrayList(this.git.log().addRange(firstCommit, from).call());
+  List<RevCommit> allInTo = newArrayList(this.git.log().addRange(firstCommit, to).call());
+  return newArrayList(filter(allInTo, not(in(allInFrom))));
+ }
+
  private ObjectId getPeeled(Ref tag) {
   Ref peeledTag = this.repository.peel(tag);
   if (peeledTag.getPeeledObjectId() != null) {
@@ -221,8 +230,7 @@ public class GitRepo implements Closeable {
   RevCommit from = this.revWalk.lookupCommit(fromObjectId);
   RevCommit to = this.revWalk.lookupCommit(toObjectId);
 
-  this.originalFrom = from;
-  this.originalTo = to;
+  this.commitsToInclude = getDiffingCommits(from, to);
 
   List<Ref> tagList = tagsBetweenFromAndTo(from, to);
   /**
@@ -317,12 +325,7 @@ public class GitRepo implements Closeable {
  }
 
  private boolean shouldInclude(RevCommit candidate) throws Exception {
-  boolean isInFrom = this.revWalk.isMergedInto(candidate, this.originalFrom);
-  if (!isInFrom) {
-   return true;
-  }
-  boolean isInTo = this.revWalk.isMergedInto(candidate, this.originalTo);
-  return !isInTo;
+  return this.commitsToInclude.contains(candidate);
  }
 
  private List<Ref> tagsBetweenFromAndTo(ObjectId from, ObjectId to) throws Exception {

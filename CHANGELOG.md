@@ -2,8 +2,13 @@
 
 Changelog of Git Changelog.
 
-## Next release
+## 1.52
 ### GitHub [#29](https://github.com/tomasbjerre/git-changelog-lib/issues/29) Not, always, including merged in commits
+
+**Correcting how to find diffing commits #**
+
+
+[2589bd16e3d959b](https://github.com/tomasbjerre/git-changelog-lib/commit/2589bd16e3d959b) Tomas Bjerre *2016-06-24 15:46:01*
 
 **Correcting how to find diffing commits**
 
