@@ -131,8 +131,3 @@ These commits has no issue.
 
 
 [7cd30508cecdc5b](https://github.com/tomasbjerre/git-changelog-lib/commit/7cd30508cecdc5b) Tomas Bjerre *2016-02-15 16:09:35*
-
-**Initial commit**
-
-
-[a1aa5ff5b625e63](https://github.com/tomasbjerre/git-changelog-lib/commit/a1aa5ff5b625e63) Tomas Bjerre *2015-11-12 05:29:31*

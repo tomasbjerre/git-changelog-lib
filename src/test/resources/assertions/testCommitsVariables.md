@@ -113,12 +113,4 @@ Changelog of Git Changelog.
  
  Message Title: Adding stuff without issue
 
- Message Body: 
- 
-
-## Commit a1aa5ff5b625e63
- Message: Initial commit
- 
- Message Title: Initial commit
-
  Message Body:

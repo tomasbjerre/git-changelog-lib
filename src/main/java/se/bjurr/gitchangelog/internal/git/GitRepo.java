@@ -43,6 +43,8 @@ import com.google.common.collect.Ordering;
 public class GitRepo implements Closeable {
  private static final Logger LOG = LoggerFactory.getLogger(GitRepo.class);
  private Git git;
+ private RevCommit originalFrom;
+ private RevCommit originalTo;
  private final Repository repository;
  private final RevWalk revWalk;
 
@@ -219,6 +221,9 @@ public class GitRepo implements Closeable {
   RevCommit from = this.revWalk.lookupCommit(fromObjectId);
   RevCommit to = this.revWalk.lookupCommit(toObjectId);
 
+  this.originalFrom = from;
+  this.originalTo = to;
+
   List<Ref> tagList = tagsBetweenFromAndTo(from, to);
   /**
    * What: Contains only the commits that are directly referred to by tags.<br>
@@ -250,10 +255,6 @@ public class GitRepo implements Closeable {
 
  private boolean isMappedToAnotherTag(Map<String, String> tagPerCommitsHash, String thisCommitHash) {
   return tagPerCommitsHash.containsKey(thisCommitHash);
- }
-
- private boolean isMerge(RevCommit thisCommit) {
-  return thisCommit.getParents().length > 1;
  }
 
  private String noteThatTheCommitWasMapped(Map<String, String> tagPerCommitsHash, String currentTagName,
@@ -306,17 +307,22 @@ public class GitRepo implements Closeable {
   if (notFirstIncludedCommit(from, to)) {
    Set<TraversalWork> work = newTreeSet();
    for (RevCommit parent : thisCommit.getParents()) {
-    if (isMerge(thisCommit)) {
-     if (this.revWalk.isMergedInto(from, parent)) {
-      work.add(new TraversalWork(parent, currentTagName));
-     }
-    } else {
+    if (shouldInclude(parent)) {
      work.add(new TraversalWork(parent, currentTagName));
     }
    }
    return work;
   }
   return newTreeSet();
+ }
+
+ private boolean shouldInclude(RevCommit candidate) throws Exception {
+  boolean isInFrom = this.revWalk.isMergedInto(candidate, this.originalFrom);
+  if (!isInFrom) {
+   return true;
+  }
+  boolean isInTo = this.revWalk.isMergedInto(candidate, this.originalTo);
+  return !isInTo;
  }
 
  private List<Ref> tagsBetweenFromAndTo(ObjectId from, ObjectId to) throws Exception {

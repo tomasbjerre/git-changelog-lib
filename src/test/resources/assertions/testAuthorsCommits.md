@@ -65,11 +65,6 @@ Adding stuff with a jira
 Adding stuff without issue
 
 
-[a1aa5ff5b625e63](https://server/a1aa5ff5b625e63) Tomas Bjerre *2015-11-12 05:29:31*
-
-Initial commit
-
-
 * T B
 
 [71d845c18924504](https://server/71d845c18924504) T B *2016-02-15 16:30:25*

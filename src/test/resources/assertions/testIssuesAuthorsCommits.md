@@ -73,9 +73,6 @@ This is 1.0 tagged commit
 2016-02-15 16:09:35
 Adding stuff without issue
 
-2015-11-12 05:29:31
-Initial commit
-
 
 ### T B
 2016-02-15 16:30:25

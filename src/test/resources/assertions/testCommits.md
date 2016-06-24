@@ -72,8 +72,3 @@ Adding stuff with gh 20
 [7cd30508cecdc5b](https://server/7cd30508cecdc5b)
 
 Adding stuff without issue
-
-## Tomas Bjerre - 2015-11-12 05:29:31
-[a1aa5ff5b625e63](https://server/a1aa5ff5b625e63)
-
-Initial commit

@@ -61,6 +61,3 @@ Adding stuff, no issue
 
 [7cd30508cecdc5b](https://server/7cd30508cecdc5b) 2016-02-15 16:09:35
 Adding stuff without issue
-
-[a1aa5ff5b625e63](https://server/a1aa5ff5b625e63) 2015-11-12 05:29:31
-Initial commit

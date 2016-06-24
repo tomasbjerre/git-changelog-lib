@@ -24,60 +24,60 @@ import com.google.common.base.Optional;
 import com.google.common.base.Stopwatch;
 
 public class LibPerformanceTest {
- private static final String UNTAGGED_NAME = "Untagged Name";
  private static final String GIT_REPO_DIR = "/home/bjerre/workspace/spring-framework";
- private Stopwatch stopwatch;
+ private static final Logger LOG = Logger.getLogger(LibPerformanceTest.class.getSimpleName());
+ private static final String UNTAGGED_NAME = "Untagged Name";
  private GitChangelogApi gitChangelogApiBuilder;
  private GitRepo gitRepo;
- private static final Logger LOG = Logger.getLogger(LibPerformanceTest.class.getSimpleName());
+ private Stopwatch stopwatch;
+
+ @After
+ public void after() {
+  long elapsedSeconds = this.stopwatch.elapsed(SECONDS);
+  LOG.info("Took: " + elapsedSeconds + "s");
+ }
 
  @Before
  public void before() throws Exception {
-  gitChangelogApiBuilder = gitChangelogApiBuilder()//
+  this.gitChangelogApiBuilder = gitChangelogApiBuilder()//
     .withFromRepo(GIT_REPO_DIR);
   this.stopwatch = createStarted();
   File file = new File(GIT_REPO_DIR);
   if (file.exists()) {
-   gitRepo = new GitRepo(file);
+   this.gitRepo = new GitRepo(file);
   } else {
    LOG.info("Did not find " + GIT_REPO_DIR + " will not run performance test.");
   }
  }
 
- @After
- public void after() {
-  long elapsedSeconds = stopwatch.elapsed(SECONDS);
-  LOG.info("Took: " + elapsedSeconds + "s");
- }
-
  @Test
  public void testThatGimmitsBetweenTagsCanBeFound() throws Exception {
-  if (gitRepo == null) {
+  if (this.gitRepo == null) {
    return;
   }
   LOG.info("Running performance test");
 
-  ObjectId fromId = gitRepo.getCommit(ZERO_COMMIT);
-  ObjectId toId = gitRepo.getRef(REF_MASTER);
-  GitRepoData gitRepoData = gitRepo.getGitRepoData(fromId, toId, UNTAGGED_NAME, Optional.<String> absent());
-  LOG.info(stopwatch.elapsed(SECONDS) + "s. Done zero to master.");
+  ObjectId fromId = this.gitRepo.getCommit(ZERO_COMMIT);
+  ObjectId toId = this.gitRepo.getRef(REF_MASTER);
+  GitRepoData gitRepoData = this.gitRepo.getGitRepoData(fromId, toId, UNTAGGED_NAME, Optional.<String> absent());
+  LOG.info(this.stopwatch.elapsed(SECONDS) + "s. Done zero to master.");
   List<GitTag> allTags = gitRepoData.getGitTags();
   int i = 0;
   for (GitTag from : allTags) {
-   LOG.info(stopwatch.elapsed(SECONDS) + "s. From " + from.getName());
+   LOG.info(this.stopwatch.elapsed(SECONDS) + "s. From " + from.getName());
    for (GitTag to : allTags) {
     i++;
-    LOG.info(stopwatch.elapsed(SECONDS) + "s.  --> " + to.getName());
-    LOG.info(stopwatch.elapsed(SECONDS) + "s.      " + i + "/" + allTags.size() * allTags.size());
+    LOG.info(this.stopwatch.elapsed(SECONDS) + "s.  --> " + to.getName());
+    LOG.info(this.stopwatch.elapsed(SECONDS) + "s.      " + i + "/" + allTags.size() * allTags.size());
     if (from.getName().equals(to.getName()) || from.getName().equals(UNTAGGED_NAME)
       || to.getName().equals(UNTAGGED_NAME)) {
      continue;
     }
-    gitChangelogApiBuilder//
+    this.gitChangelogApiBuilder//
       .withFromRef(from.getName())//
       .withToRef(to.getName())//
       .render();
-    LOG.info(stopwatch.elapsed(SECONDS) + "s.      Done");
+    LOG.info(this.stopwatch.elapsed(SECONDS) + "s.      Done");
    }
   }
  }
