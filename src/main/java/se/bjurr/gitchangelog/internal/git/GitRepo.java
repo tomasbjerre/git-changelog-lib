@@ -217,6 +217,12 @@ public class GitRepo implements Closeable {
   RevCommit to = this.revWalk.lookupCommit(toObjectId);
 
   this.includedCommits = newArrayList(this.git.log().addRange(from, to).call());
+  if (LOG.isDebugEnabled()) {
+   LOG.debug("Included commits " + from.getName() + " -> " + to.getName());
+   for (RevCommit inc : this.includedCommits) {
+    LOG.debug(inc.getName());
+   }
+  }
 
   List<Ref> tagList = tagsBetweenFromAndTo(from, to);
   /**

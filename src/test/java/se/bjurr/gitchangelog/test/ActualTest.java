@@ -24,8 +24,8 @@ public class ActualTest {
 
   String changelogString = gitChangelogApiBuilder()//
     .withFromRepo(GIT_REPO_DIR)//
-    .withFromCommit("d7d2404")//
-    .withToCommit("644ae2c")//
+    .withFromCommit("9bbde5b")//
+    .withToCommit("cc2f6f4")//
     .withTemplateContent("{{#commits}}{{hash}}\n\n{{/commits}}")//
     .render();
 
