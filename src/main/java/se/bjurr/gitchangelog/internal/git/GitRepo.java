@@ -43,7 +43,6 @@ import com.google.common.collect.Ordering;
 public class GitRepo implements Closeable {
  private static final Logger LOG = LoggerFactory.getLogger(GitRepo.class);
  private Git git;
- private List<RevCommit> includedCommits;
  private final Repository repository;
  private final RevWalk revWalk;
 
@@ -122,7 +121,7 @@ public class GitRepo implements Closeable {
    }
    throw new GitChangelogRepositoryException(fromRef + " not found in:\n" + toString());
   } catch (Exception e) {
-   throw new GitChangelogRepositoryException(e.getMessage(), e);
+   throw new GitChangelogRepositoryException("", e);
   }
  }
 
@@ -217,16 +216,8 @@ public class GitRepo implements Closeable {
 
  private List<GitTag> gitTags(ObjectId fromObjectId, ObjectId toObjectId, String untaggedName,
    Optional<String> ignoreTagsIfNameMatches) throws Exception {
-  final RevCommit from = this.revWalk.lookupCommit(fromObjectId);
+  RevCommit from = this.revWalk.lookupCommit(fromObjectId);
   RevCommit to = this.revWalk.lookupCommit(toObjectId);
-
-  this.includedCommits = newArrayList(this.git.log().addRange(from, to).call());
-  if (LOG.isDebugEnabled()) {
-   LOG.debug("Included commits " + from.getName() + " -> " + to.getName());
-   for (RevCommit inc : this.includedCommits) {
-    LOG.debug(inc.getName());
-   }
-  }
 
   List<Ref> tagList = tagsBetweenFromAndTo(from, to);
   /**
@@ -259,6 +250,10 @@ public class GitRepo implements Closeable {
 
  private boolean isMappedToAnotherTag(Map<String, String> tagPerCommitsHash, String thisCommitHash) {
   return tagPerCommitsHash.containsKey(thisCommitHash);
+ }
+
+ private boolean isMerge(RevCommit thisCommit) {
+  return thisCommit.getParents().length > 1;
  }
 
  private String noteThatTheCommitWasMapped(Map<String, String> tagPerCommitsHash, String currentTagName,
@@ -311,7 +306,11 @@ public class GitRepo implements Closeable {
   if (notFirstIncludedCommit(from, to)) {
    Set<TraversalWork> work = newTreeSet();
    for (RevCommit parent : thisCommit.getParents()) {
-    if (shouldInclude(thisCommit)) {
+    if (isMerge(thisCommit)) {
+     if (this.revWalk.isMergedInto(from, parent)) {
+      work.add(new TraversalWork(parent, currentTagName));
+     }
+    } else {
      work.add(new TraversalWork(parent, currentTagName));
     }
    }
@@ -320,16 +319,13 @@ public class GitRepo implements Closeable {
   return newTreeSet();
  }
 
- private boolean shouldInclude(RevCommit thisCommit) {
-  return this.includedCommits.contains(thisCommit);
- }
-
  private List<Ref> tagsBetweenFromAndTo(ObjectId from, ObjectId to) throws Exception {
   List<Ref> tagList = this.git.tagList().call();
+  List<RevCommit> icludedCommits = newArrayList(this.git.log().addRange(from, to).call());
   List<Ref> includedTags = newArrayList();
   for (Ref tag : tagList) {
    ObjectId peeledTag = getPeeled(tag);
-   if (this.includedCommits.contains(peeledTag)) {
+   if (icludedCommits.contains(peeledTag)) {
     includedTags.add(tag);
    }
   }

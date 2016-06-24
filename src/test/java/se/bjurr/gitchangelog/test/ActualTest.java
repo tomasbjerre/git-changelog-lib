@@ -11,7 +11,7 @@ public class ActualTest {
  /**
   * The actual repo to test!
   */
- private static final String GIT_REPO_DIR = "/home/bjerre/workspace/spring-boot";
+ private static final String GIT_REPO_DIR = "/home/bjerre/workspace/git-changelog-lib";
  private static final Logger LOG = Logger.getLogger(ActualTest.class.getSimpleName());
 
  @Test
@@ -24,9 +24,9 @@ public class ActualTest {
 
   String changelogString = gitChangelogApiBuilder()//
     .withFromRepo(GIT_REPO_DIR)//
-    .withFromCommit("9bbde5b")//
-    .withToCommit("cc2f6f4")//
-    .withTemplateContent("{{#commits}}{{hash}}\n\n{{/commits}}")//
+    .withFromCommit("191fc35")//
+    .withToCommit("7ae6a94")//
+    .withTemplateContent("{{#commits}}{{hash}} {{messageTitle}}\n\n{{/commits}}")//
     .render();
 
   LOG.info(changelogString);
