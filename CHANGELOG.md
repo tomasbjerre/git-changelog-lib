@@ -3,13 +3,22 @@
 Changelog of Git Changelog.
 
 ## Next release
+### GitHub [#29](https://github.com/tomasbjerre/git-changelog-lib/issues/29) Not, always, including merged in commits
+
+**Including commits frmo merges**
+
+
+[4f74f4d5e35e253](https://github.com/tomasbjerre/git-changelog-lib/commit/4f74f4d5e35e253) Tomas Bjerre *2016-06-24 08:54:09*
+
+
+## 1.49
 ### GitHub [#28](https://github.com/tomasbjerre/git-changelog-lib/issues/28) Crash when git repo has no master branch
 
 **Finding first commit in repo as parents of HEAD**
 
  * Was looking at parents of master, which may not exist. 
 
-[afe82368a25accc](https://github.com/tomasbjerre/git-changelog-lib/commit/afe82368a25accc) Tomas Bjerre *2016-06-02 17:54:26*
+[87fe4044e587b1b](https://github.com/tomasbjerre/git-changelog-lib/commit/87fe4044e587b1b) Tomas Bjerre *2016-06-02 17:55:59*
 
 
 ### Other changes
