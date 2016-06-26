@@ -84,6 +84,20 @@ public class GitRepoTest {
  }
 
  @Test
+ public void testThatCommitsFromMergeNotInFromAreIncluded() throws Exception {
+  GitRepo gitRepo = getGitRepo();
+  ObjectId from = gitRepo.getCommit("c5d37f5");
+  ObjectId to = gitRepo.getCommit("bb2f35b");
+
+  GitRepoData gitRepoData = gitRepo.getGitRepoData(from, to, "No tag", Optional.<String> absent());
+  List<String> noTagNames = messages(gitRepoData.getGitCommits());
+  assertThat(noTagNames)//
+    .containsExactly(//
+      "Merge branch 'test-feature' into test",//
+      "Some stuff in test-feature");
+ }
+
+ @Test
  public void testThatCommitsSecondReleaseCommitCanBeListed() throws Exception {
   GitRepo gitRepo = getGitRepo();
   ObjectId firstRelease = gitRepo.getRef("refs/tags/1.0");
