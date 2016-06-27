@@ -2,6 +2,32 @@
 
 Changelog of Git Changelog.
 
+## Next release
+### GitHub [#28](https://github.com/tomasbjerre/git-changelog-lib/issues/28) Crash when git repo has no master branch
+
+**Allowing master branch to be absent**
+
+
+[ccd3800c8929d45](https://github.com/tomasbjerre/git-changelog-lib/commit/ccd3800c8929d45) Tomas Bjerre *2016-06-27 17:25:54*
+
+
+### Other changes
+
+**More testing**
+
+
+[2ae18a51778cb90](https://github.com/tomasbjerre/git-changelog-lib/commit/2ae18a51778cb90) Tomas Bjerre *2016-06-26 17:59:45*
+
+
+## 1.53
+### Other changes
+
+**Faster**
+
+
+[9580c7f449e576c](https://github.com/tomasbjerre/git-changelog-lib/commit/9580c7f449e576c) Tomas Bjerre *2016-06-24 23:59:39*
+
+
 ## 1.52
 ### GitHub [#29](https://github.com/tomasbjerre/git-changelog-lib/issues/29) Not, always, including merged in commits
 
