@@ -3,12 +3,21 @@
 Changelog of Git Changelog.
 
 ## Next release
+### GitHub [#30](https://github.com/tomasbjerre/git-changelog-lib/issues/30) Getting full hash from Commit object
+
+**Adding {{hashFull}} variable with full commit hash**
+
+
+[69b5371f7d43868](https://github.com/tomasbjerre/git-changelog-lib/commit/69b5371f7d43868) Tomas Bjerre *2016-08-02 16:59:48*
+
+
+## 1.54
 ### GitHub [#28](https://github.com/tomasbjerre/git-changelog-lib/issues/28) Crash when git repo has no master branch
 
 **Allowing master branch to be absent**
 
 
-[ccd3800c8929d45](https://github.com/tomasbjerre/git-changelog-lib/commit/ccd3800c8929d45) Tomas Bjerre *2016-06-27 17:25:54*
+[dd4633ba627695d](https://github.com/tomasbjerre/git-changelog-lib/commit/dd4633ba627695d) Tomas Bjerre *2016-06-27 17:26:30*
 
 
 ### Other changes

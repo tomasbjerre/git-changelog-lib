@@ -70,6 +70,8 @@ The template is supplied with a datastructure like:
  - authorName
  - authorEmailAddress
  - commitTime
+ - hash
+ - hashFull
  - message (The full message)
  - messageTitle (Only the first line of the message)
  - messageBody (Everything, except the title)
@@ -80,6 +82,8 @@ The template is supplied with a datastructure like:
   - authorName
   - authorEmailAddress
   - commitTime
+  - hash
+  - hashFull
   - message (The full message)
   - messageTitle (Only the first line of the message)
   - messageBody (Everything, except the title)
@@ -91,6 +95,8 @@ The template is supplied with a datastructure like:
    - authorName
    - authorEmailAddress
    - commitTime
+   - hash
+   - hashFull
    - message (The full message)
    - messageTitle (Only the first line of the message)
    - messageBody (Everything, except the title)
@@ -109,6 +115,8 @@ The template is supplied with a datastructure like:
     - authorName
     - authorEmailAddress
     - commitTime
+    - hash
+    - hashFull
     - message (The full message)
     - messageTitle (Only the first line of the message)
     - messageBody (Everything, except the title)
@@ -120,6 +128,8 @@ The template is supplied with a datastructure like:
      - authorName
      - authorEmailAddress
      - commitTime
+     - hash
+     - hashFull
      - message (The full message)
      - messageTitle (Only the first line of the message)
      - messageBody (Everything, except the title)
@@ -136,6 +146,8 @@ The template is supplied with a datastructure like:
    - authorName
    - authorEmailAddress
    - commitTime
+   - hash
+   - hashFull
    - message (The full message)
    - messageTitle (Only the first line of the message)
    - messageBody (Everything, except the title)
@@ -147,6 +159,8 @@ The template is supplied with a datastructure like:
     - authorName
     - authorEmailAddress
     - commitTime
+    - hash
+    - hashFull
     - message (The full message)
     - messageTitle (Only the first line of the message)
     - messageBody (Everything, except the title)
@@ -158,6 +172,8 @@ The template is supplied with a datastructure like:
   - authorName
   - authorEmailAddress
   - commitTime
+  - hash
+  - hashFull
   - message (The full message)
   - messageTitle (Only the first line of the message)
   - messageBody (Everything, except the title)
@@ -174,6 +190,8 @@ The template is supplied with a datastructure like:
   - authorName
   - authorEmailAddress
   - commitTime
+  - hash
+  - hashFull
   - message (The full message)
   - messageTitle (Only the first line of the message)
   - messageBody (Everything, except the title)
@@ -185,6 +203,8 @@ The template is supplied with a datastructure like:
    - authorName
    - authorEmailAddress
    - commitTime
+   - hash
+   - hashFull
    - message (The full message)
    - messageTitle (Only the first line of the message)
    - messageBody (Everything, except the title)

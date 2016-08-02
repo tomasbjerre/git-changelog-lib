@@ -11,57 +11,34 @@ import com.google.common.annotations.VisibleForTesting;
 
 public class Commit implements Serializable {
  private static final long serialVersionUID = 6622555148468372816L;
- private final String authorName;
- private final String authorEmailAddress;
- private final String commitTime;
- private final Long commitTimeLong;
- private final String message;
- private final String hash;
 
- public Commit(String authorName, String authorEmailAddress, String commitTime, Long commitTimeLong, String message,
-   String hash) {
-  this.authorName = checkNotNull(authorName, "authorName");
-  this.authorEmailAddress = checkNotNull(authorEmailAddress, "authorEmailAddress");
-  this.message = checkNotNull(message, "message").trim();
-  this.commitTime = checkNotNull(commitTime, "commitTime");
-  this.commitTimeLong = checkNotNull(commitTimeLong, "commitTimeLong");
-  this.hash = toHash(checkNotNull(hash, "hash"));
+ static private List<String> notFirst(List<String> stringList) {
+  return stringList.subList(1, stringList.size());
  }
 
- public String getHash() {
-  return hash;
+ private static String toHash(String input) {
+  return input.substring(0, 15);
  }
 
- public String getMessageBody() {
-  return toMessageBody(message);
+ static private List<String> toNoEmptyStringsList(String message) {
+  List<String> toReturn = newArrayList();
+  for (String part : message.split("\n")) {
+   if (!part.isEmpty()) {
+    toReturn.add(part);
+   }
+  }
+  return toReturn;
  }
 
- public List<String> getMessageBodyItems() {
-  return toMessageItems(message);
- }
-
- public String getMessageTitle() {
-  return toMessageTitle(message);
- }
-
- public String getAuthorEmailAddress() {
-  return authorEmailAddress;
- }
-
- public String getAuthorName() {
-  return authorName;
- }
-
- public String getCommitTime() {
-  return commitTime;
- }
-
- public Long getCommitTimeLong() {
-  return commitTimeLong;
- }
-
- public String getMessage() {
-  return message;
+ @VisibleForTesting
+ static String toMessageBody(String message) {
+  List<String> stringList = toNoEmptyStringsList(message);
+  if (stringList.size() > 1) {
+   List<String> notFirst = notFirst(stringList);
+   return on("\n")//
+     .join(notFirst);
+  }
+  return "";
  }
 
  @VisibleForTesting
@@ -84,17 +61,6 @@ public class Commit implements Serializable {
  }
 
  @VisibleForTesting
- static String toMessageBody(String message) {
-  List<String> stringList = toNoEmptyStringsList(message);
-  if (stringList.size() > 1) {
-   List<String> notFirst = notFirst(stringList);
-   return on("\n")//
-     .join(notFirst);
-  }
-  return "";
- }
-
- @VisibleForTesting
  static String toMessageTitle(String message) {
   List<String> stringList = toNoEmptyStringsList(message);
   if (stringList.size() > 0) {
@@ -103,26 +69,67 @@ public class Commit implements Serializable {
   return "";
  }
 
- static private List<String> notFirst(List<String> stringList) {
-  return stringList.subList(1, stringList.size());
+ private final String authorEmailAddress;
+ private final String authorName;
+ private final String commitTime;
+ private final Long commitTimeLong;
+ private final String hash;
+ private final String hashFull;
+ private final String message;
+
+ public Commit(String authorName, String authorEmailAddress, String commitTime, Long commitTimeLong, String message,
+   String hash) {
+  this.authorName = checkNotNull(authorName, "authorName");
+  this.authorEmailAddress = checkNotNull(authorEmailAddress, "authorEmailAddress");
+  this.message = checkNotNull(message, "message").trim();
+  this.commitTime = checkNotNull(commitTime, "commitTime");
+  this.commitTimeLong = checkNotNull(commitTimeLong, "commitTimeLong");
+  this.hash = toHash(checkNotNull(hash, "hash"));
+  this.hashFull = checkNotNull(hash, "hashFull");
  }
 
- static private List<String> toNoEmptyStringsList(String message) {
-  List<String> toReturn = newArrayList();
-  for (String part : message.split("\n")) {
-   if (!part.isEmpty()) {
-    toReturn.add(part);
-   }
-  }
-  return toReturn;
+ public String getAuthorEmailAddress() {
+  return this.authorEmailAddress;
+ }
+
+ public String getAuthorName() {
+  return this.authorName;
+ }
+
+ public String getCommitTime() {
+  return this.commitTime;
+ }
+
+ public Long getCommitTimeLong() {
+  return this.commitTimeLong;
+ }
+
+ public String getHash() {
+  return this.hash;
+ }
+
+ public String getHashFull() {
+  return this.hashFull;
+ }
+
+ public String getMessage() {
+  return this.message;
+ }
+
+ public String getMessageBody() {
+  return toMessageBody(this.message);
+ }
+
+ public List<String> getMessageBodyItems() {
+  return toMessageItems(this.message);
+ }
+
+ public String getMessageTitle() {
+  return toMessageTitle(this.message);
  }
 
  @Override
  public String toString() {
-  return "hash: " + hash + " message: " + message;
- }
-
- private static String toHash(String input) {
-  return input.substring(0, 15);
+  return "hash: " + this.hash + " message: " + this.message;
  }
 }
