@@ -50,14 +50,14 @@ Multiple issues
 Adding stuff
  with gh again
 
-## Jira [JIR-1234](https://jiraserver/jira/browse/) Title of jira 1234
+## Jira [JIR-1234](https://jiraserver/jira/browse/JIR-1234) Title of jira 1234
   
 ### Tomas Bjerre - 2016-02-15 16:30:35
 [cc0fbbd8bc63955](https://server/cc0fbbd8bc63955)
 
 Adding stuff with a jira
 
-## Jira [JIR-5262](https://jiraserver/jira/browse/) The Title of jira 5262
+## Jira [JIR-5262](https://jiraserver/jira/browse/JIR-5262) The Title of jira 5262
   
 ### Tomas Bjerre - 2016-02-15 16:12:02
 [071a14f29020758](https://server/071a14f29020758)

@@ -42,7 +42,7 @@ Changelog of Git Changelog.
 [5607ea23fa8aaf7](https://github.com/tomasbjerre/git-changelog-lib/commit/5607ea23fa8aaf7) Tomas Bjerre *2016-02-15 16:30:35*
 
 ### Jira
-#### [JIR-1234](https://jiraserver/jira/browse/) Title of jira 1234
+#### [JIR-1234](https://jiraserver/jira/browse/JIR-1234) Title of jira 1234
 
 
 
@@ -103,7 +103,7 @@ These commits has no issue.
 [326d4d01c0a9415](https://github.com/tomasbjerre/git-changelog-lib/commit/326d4d01c0a9415) T B *2016-02-15 16:11:12*
 
 ### Jira
-#### [JIR-5262](https://jiraserver/jira/browse/) The Title of jira 5262
+#### [JIR-5262](https://jiraserver/jira/browse/JIR-5262) The Title of jira 5262
 
 
 

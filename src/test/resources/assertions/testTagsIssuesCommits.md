@@ -20,7 +20,7 @@ Multiple issues
 Adding stuff
  with gh again
 
-### Jira [JIR-1234](https://jiraserver/jira/browse/) Title of jira 1234
+### Jira [JIR-1234](https://jiraserver/jira/browse/JIR-1234) Title of jira 1234
 [cc0fbbd8bc63955](https://server/cc0fbbd8bc63955) 2016-02-15 16:30:35
 Adding stuff with a jira
 
@@ -48,7 +48,7 @@ Adding stuff  gh 12
 [326d4d01c0a9415](https://server/326d4d01c0a9415) 2016-02-15 16:11:12
 Adding stuff with gh 20
 
-### Jira [JIR-5262](https://jiraserver/jira/browse/) The Title of jira 5262
+### Jira [JIR-5262](https://jiraserver/jira/browse/JIR-5262) The Title of jira 5262
 [071a14f29020758](https://server/071a14f29020758) 2016-02-15 16:12:02
 Adding stuff with a jira
 

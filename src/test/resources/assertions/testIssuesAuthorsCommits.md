@@ -44,13 +44,13 @@ Adding stuff
  with gh again
 
 
-## Jira [JIR-1234](https://jiraserver/jira/browse/) Title of jira 1234
+## Jira [JIR-1234](https://jiraserver/jira/browse/JIR-1234) Title of jira 1234
 ### Tomas Bjerre
 2016-02-15 16:30:35
 Adding stuff with a jira
 
 
-## Jira [JIR-5262](https://jiraserver/jira/browse/) The Title of jira 5262
+## Jira [JIR-5262](https://jiraserver/jira/browse/JIR-5262) The Title of jira 5262
 ### Tomas Bjerre
 2016-02-15 16:12:02
 Adding stuff with a jira
