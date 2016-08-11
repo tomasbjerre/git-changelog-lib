@@ -28,7 +28,7 @@ public abstract class JiraClient {
 
  protected JiraIssue toJiraIssue(String issue, String json) {
   String title = read(json, "$.fields.summary");
-  String link = api + "/browse/";
+  String link = api + "/browse/" + issue;
   JiraIssue jiraIssue = new JiraIssue(title, link, issue);
   return jiraIssue;
  }
