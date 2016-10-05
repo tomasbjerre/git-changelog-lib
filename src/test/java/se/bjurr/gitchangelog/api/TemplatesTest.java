@@ -8,12 +8,12 @@ import static se.bjurr.gitchangelog.internal.integrations.rest.RestClient.mock;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.google.common.io.Resources;
+
 import se.bjurr.gitchangelog.internal.integrations.github.GitHubMockInterceptor;
 import se.bjurr.gitchangelog.internal.integrations.github.GitHubServiceFactory;
 import se.bjurr.gitchangelog.internal.integrations.jira.JiraClientFactory;
 import se.bjurr.gitchangelog.internal.integrations.rest.RestClientMock;
-
-import com.google.common.io.Resources;
 
 public class TemplatesTest {
  @Before
@@ -41,18 +41,8 @@ public class TemplatesTest {
  }
 
  @Test
- public void testTagsIssuesAuthorsCommits() throws Exception {
-  test("testTagsIssuesAuthorsCommits");
- }
-
- @Test
- public void testTagsIssuesCommits() throws Exception {
-  test("testTagsIssuesCommits");
- }
-
- @Test
- public void testTagsCommits() throws Exception {
-  test("testTagsCommits");
+ public void testAuthorsCommits() throws Exception {
+  test("testAuthorsCommits");
  }
 
  @Test
@@ -66,13 +56,13 @@ public class TemplatesTest {
  }
 
  @Test
- public void testIssuesCommits() throws Exception {
-  test("testIssuesCommits");
+ public void testIssuesAuthorsCommits() throws Exception {
+  test("testIssuesAuthorsCommits");
  }
 
  @Test
- public void testIssueTypesIssuesCommits() throws Exception {
-  test("testIssueTypesIssuesCommits");
+ public void testIssuesCommits() throws Exception {
+  test("testIssuesCommits");
  }
 
  @Test
@@ -81,13 +71,32 @@ public class TemplatesTest {
  }
 
  @Test
- public void testIssuesAuthorsCommits() throws Exception {
-  test("testIssuesAuthorsCommits");
+ public void testIssueTypesIssuesCommits() throws Exception {
+  test("testIssueTypesIssuesCommits");
  }
 
  @Test
- public void testAuthorsCommits() throws Exception {
-  test("testAuthorsCommits");
+ public void testMerges() throws Exception {
+  String testcase = "testMerges";
+  assertThat(testcase + ".mustache")//
+    .setIgnoreCommitsIfMessageMatches("")//
+    .rendersTo(testcase + ".md");
+
+ }
+
+ @Test
+ public void testTagsCommits() throws Exception {
+  test("testTagsCommits");
+ }
+
+ @Test
+ public void testTagsIssuesAuthorsCommits() throws Exception {
+  test("testTagsIssuesAuthorsCommits");
+ }
+
+ @Test
+ public void testTagsIssuesCommits() throws Exception {
+  test("testTagsIssuesCommits");
  }
 
  private void test(String testcase) throws Exception {

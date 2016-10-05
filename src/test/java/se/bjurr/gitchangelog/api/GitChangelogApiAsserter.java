@@ -13,27 +13,23 @@ import com.google.gson.GsonBuilder;
 
 public class GitChangelogApiAsserter {
 
- private final String template;
+ public static GitChangelogApiAsserter assertThat(String template) {
+  return new GitChangelogApiAsserter(template);
+ }
+
+ private String ignoreCommitsIfMessageMatches;
  private String settings = "git-changelog-test-settings.json";
+ private final String template;
 
  public GitChangelogApiAsserter(String template) {
   this.template = template;
  }
 
- public static GitChangelogApiAsserter assertThat(String template) {
-  return new GitChangelogApiAsserter(template);
- }
-
- public GitChangelogApiAsserter withSettings(String settings) {
-  this.settings = settings;
-  return this;
- }
-
  public void rendersTo(String file) throws Exception {
   String expected = Resources.toString(getResource("assertions/" + file), UTF_8).trim();
 
-  URL settingsFile = getResource("settings/" + settings).toURI().toURL();
-  String templatePath = "templates/" + template;
+  URL settingsFile = getResource("settings/" + this.settings).toURI().toURL();
+  String templatePath = "templates/" + this.template;
 
   // Test lib with settings
   GitChangelogApi gitChangelogApiBuilder = gitChangelogApiBuilder()//
@@ -42,16 +38,22 @@ public class GitChangelogApiAsserter {
     .withSettings(settingsFile)//
     .withTemplatePath(templatePath);
 
+  if (this.ignoreCommitsIfMessageMatches != null) {
+   gitChangelogApiBuilder//
+     .withIgnoreCommitsWithMesssage(this.ignoreCommitsIfMessageMatches);
+  }
+
   String changelog = toJson(gitChangelogApiBuilder.getChangelog());
   String settings = toJson(gitChangelogApiBuilder.getSettings());
   String templateContent = Resources.toString(getResource(templatePath), UTF_8);
 
-  assertEquals("Test:\n" + file + "\nTemplate:\n" + templateContent + "\nChangelog: " + changelog + "\nSettings: "
-    + settings, expected, gitChangelogApiBuilder //
-    .render().trim());
+  assertEquals(
+    "Test:\n" + file + "\nTemplate:\n" + templateContent + "\nChangelog: " + changelog + "\nSettings: " + settings,
+    expected, gitChangelogApiBuilder //
+      .render().trim());
 
   // Test lib
-  assertEquals("With lib: " + file, expected, gitChangelogApiBuilder() //
+  GitChangelogApi withTemplatePath = gitChangelogApiBuilder() //
     .withFromRepo(".") //
     .withFromCommit(ZERO_COMMIT)//
     .withToRef("test")//
@@ -72,9 +74,27 @@ public class GitChangelogApiAsserter {
     .withCustomIssue("Incident", "INC[0-9]*", "http://inc/${PATTERN_GROUP}", "${PATTERN_GROUP}") //
     .withCustomIssue("CQ", "CQ([0-9]+)", "http://cq/${PATTERN_GROUP_1}", "${PATTERN_GROUP_1}") //
     .withCustomIssue("Bugs", "#bug", null, "Mixed bugs") //
-    .withTemplatePath(templatePath) //
-    .render() //
-    .trim());
+    .withTemplatePath(templatePath);
+
+  if (this.ignoreCommitsIfMessageMatches != null) {
+   withTemplatePath//
+     .withIgnoreCommitsWithMesssage(this.ignoreCommitsIfMessageMatches);
+  }
+
+  assertEquals("With lib: " + file, expected,
+    withTemplatePath //
+      .render() //
+      .trim());
+ }
+
+ public GitChangelogApiAsserter setIgnoreCommitsIfMessageMatches(String ignoreCommitsIfMessageMatches) {
+  this.ignoreCommitsIfMessageMatches = ignoreCommitsIfMessageMatches;
+  return this;
+ }
+
+ public GitChangelogApiAsserter withSettings(String settings) {
+  this.settings = settings;
+  return this;
  }
 
  private String toJson(Object object) {

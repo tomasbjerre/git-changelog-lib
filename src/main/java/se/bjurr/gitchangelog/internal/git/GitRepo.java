@@ -35,13 +35,13 @@ import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.common.base.Optional;
+import com.google.common.collect.Ordering;
+
 import se.bjurr.gitchangelog.api.GitChangelogApiConstants;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
-
-import com.google.common.base.Optional;
-import com.google.common.collect.Ordering;
 
 public class GitRepo implements Closeable {
  private static final Logger LOG = LoggerFactory.getLogger(GitRepo.class);
@@ -346,11 +346,13 @@ public class GitRepo implements Closeable {
  }
 
  private GitCommit toGitCommit(RevCommit revCommit) {
+  Boolean merge = revCommit.getParentCount() > 1;
   return new GitCommit( //
-    revCommit.getAuthorIdent().getName(),//
-    revCommit.getAuthorIdent().getEmailAddress(),//
-    new Date(revCommit.getCommitTime() * 1000L),//
-    revCommit.getFullMessage(),//
-    revCommit.getId().getName());
+    revCommit.getAuthorIdent().getName(), //
+    revCommit.getAuthorIdent().getEmailAddress(), //
+    new Date(revCommit.getCommitTime() * 1000L), //
+    revCommit.getFullMessage(), //
+    revCommit.getId().getName(), //
+    merge);
  }
 }

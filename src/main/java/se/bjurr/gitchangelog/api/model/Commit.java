@@ -75,10 +75,11 @@ public class Commit implements Serializable {
  private final Long commitTimeLong;
  private final String hash;
  private final String hashFull;
+ private final Boolean merge;
  private final String message;
 
  public Commit(String authorName, String authorEmailAddress, String commitTime, Long commitTimeLong, String message,
-   String hash) {
+   String hash, Boolean merge) {
   this.authorName = checkNotNull(authorName, "authorName");
   this.authorEmailAddress = checkNotNull(authorEmailAddress, "authorEmailAddress");
   this.message = checkNotNull(message, "message").trim();
@@ -86,6 +87,7 @@ public class Commit implements Serializable {
   this.commitTimeLong = checkNotNull(commitTimeLong, "commitTimeLong");
   this.hash = toHash(checkNotNull(hash, "hash"));
   this.hashFull = checkNotNull(hash, "hashFull");
+  this.merge = checkNotNull(merge, "merge");
  }
 
  public String getAuthorEmailAddress() {
@@ -126,6 +128,10 @@ public class Commit implements Serializable {
 
  public String getMessageTitle() {
   return toMessageTitle(this.message);
+ }
+
+ public Boolean isMerge() {
+  return this.merge;
  }
 
  @Override

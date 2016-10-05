@@ -72,6 +72,7 @@ The template is supplied with a datastructure like:
  - commitTime
  - hash
  - hashFull
+ - merge (True if this is a merge-commit)
  - message (The full message)
  - messageTitle (Only the first line of the message)
  - messageBody (Everything, except the title)
@@ -84,6 +85,7 @@ The template is supplied with a datastructure like:
   - commitTime
   - hash
   - hashFull
+  - merge (True if this is a merge-commit)
   - message (The full message)
   - messageTitle (Only the first line of the message)
   - messageBody (Everything, except the title)
@@ -97,6 +99,7 @@ The template is supplied with a datastructure like:
    - commitTime
    - hash
    - hashFull
+   - merge (True if this is a merge-commit)
    - message (The full message)
    - messageTitle (Only the first line of the message)
    - messageBody (Everything, except the title)
@@ -117,6 +120,7 @@ The template is supplied with a datastructure like:
     - commitTime
     - hash
     - hashFull
+    - merge (True if this is a merge-commit)
     - message (The full message)
     - messageTitle (Only the first line of the message)
     - messageBody (Everything, except the title)
@@ -130,6 +134,7 @@ The template is supplied with a datastructure like:
      - commitTime
      - hash
      - hashFull
+     - merge (True if this is a merge-commit)
      - message (The full message)
      - messageTitle (Only the first line of the message)
      - messageBody (Everything, except the title)
@@ -148,6 +153,7 @@ The template is supplied with a datastructure like:
    - commitTime
    - hash
    - hashFull
+   - merge (True if this is a merge-commit)
    - message (The full message)
    - messageTitle (Only the first line of the message)
    - messageBody (Everything, except the title)
@@ -161,6 +167,7 @@ The template is supplied with a datastructure like:
     - commitTime
     - hash
     - hashFull
+    - merge (True if this is a merge-commit)
     - message (The full message)
     - messageTitle (Only the first line of the message)
     - messageBody (Everything, except the title)
@@ -174,6 +181,7 @@ The template is supplied with a datastructure like:
   - commitTime
   - hash
   - hashFull
+  - merge (True if this is a merge-commit)
   - message (The full message)
   - messageTitle (Only the first line of the message)
   - messageBody (Everything, except the title)
@@ -192,6 +200,7 @@ The template is supplied with a datastructure like:
   - commitTime
   - hash
   - hashFull
+  - merge (True if this is a merge-commit)
   - message (The full message)
   - messageTitle (Only the first line of the message)
   - messageBody (Everything, except the title)
@@ -205,6 +214,7 @@ The template is supplied with a datastructure like:
    - commitTime
    - hash
    - hashFull
+   - merge (True if this is a merge-commit)
    - message (The full message)
    - messageTitle (Only the first line of the message)
    - messageBody (Everything, except the title)

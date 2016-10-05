@@ -3,6 +3,15 @@
 Changelog of Git Changelog.
 
 ## Next release
+### GitHub [#35](https://github.com/tomasbjerre/git-changelog-lib/issues/35) Git Change log show only Merges or have Merge as its own Tag
+
+**Adding merge boolean to commits**
+
+
+[96618d725d4b57f](https://github.com/tomasbjerre/git-changelog-lib/commit/96618d725d4b57f) Tomas Bjerre *2016-10-05 17:03:40*
+
+
+## 1.56
 ### GitHub [#31](https://github.com/tomasbjerre/git-changelog-lib/pull/31) issue key was missing in issue link
 
 **Fixing testcases after merge of**
