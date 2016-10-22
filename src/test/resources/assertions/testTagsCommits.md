@@ -3,6 +3,7 @@
 Changelog of Git Changelog.
 
 ## No tag
+
 ### Tomas Bjerre - 2016-04-06 18:40:51
 [8371342ad0d887d](https://server/8371342ad0d887d)
 
@@ -40,12 +41,14 @@ Adding stuff
  with gh again
 
 ## test-lightweight-2
+
 ### Tomas Bjerre - 2016-02-15 16:30:35
 [a9bd03b34b255ff](https://server/a9bd03b34b255ff)
 
 Adding cq stuff with CQ
 
 ## test-1.0
+this is the tag for test-1.0&#10;
 ### Tomas Bjerre - 2016-02-15 16:30:35
 [d50a3e332f9fcba](https://server/d50a3e332f9fcba)
 

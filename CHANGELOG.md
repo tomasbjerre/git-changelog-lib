@@ -3,12 +3,21 @@
 Changelog of Git Changelog.
 
 ## Next release
+### GitHub [#36](https://github.com/tomasbjerre/git-changelog-lib/issues/36) Annotated tags support
+
+**Adding annotation to context of tag**
+
+
+[e9db23559b58597](https://github.com/tomasbjerre/git-changelog-lib/commit/e9db23559b58597) Tomas Bjerre *2016-10-22 07:23:01*
+
+
+## 1.57
 ### GitHub [#35](https://github.com/tomasbjerre/git-changelog-lib/issues/35) Git Change log show only Merges or have Merge as its own Tag
 
 **Adding merge boolean to commits**
 
 
-[96618d725d4b57f](https://github.com/tomasbjerre/git-changelog-lib/commit/96618d725d4b57f) Tomas Bjerre *2016-10-05 17:03:40*
+[2d9189f421254f2](https://github.com/tomasbjerre/git-changelog-lib/commit/2d9189f421254f2) Tomas Bjerre *2016-10-05 17:04:13*
 
 
 ## 1.56

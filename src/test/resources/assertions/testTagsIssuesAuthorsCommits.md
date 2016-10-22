@@ -3,6 +3,7 @@
 Changelog of Git Changelog.
 
 ## No tag
+
 ### Bugs Mixed bugs
 * Tomas Bjerre
 [20e333f8e108f77](https://server/20e333f8e108f77) *2016-03-19 20:32:19*
@@ -47,6 +48,7 @@ some stuff in test branch
 
 
 ## test-lightweight-2
+
 ### CQ [CQ1234](http://cq/1234) 1234
 * Tomas Bjerre
 [a9bd03b34b255ff](https://server/a9bd03b34b255ff) *2016-02-15 16:30:35*
@@ -54,6 +56,7 @@ Adding cq stuff with CQ
 
 
 ## test-1.0
+this is the tag for test-1.0&#10;
 ### GitHub [#12](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/12) Strange chars in PULL_REQUEST_URL
 * Tomas Bjerre
 [d50a3e332f9fcba](https://server/d50a3e332f9fcba) *2016-02-15 16:30:35*

@@ -30,6 +30,7 @@ import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevTag;
 import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 import org.slf4j.Logger;
@@ -148,10 +149,17 @@ public class GitRepo implements Closeable {
   gitCommitsInCurrentTag.add(gitCommit);
  }
 
- private void addToTags(Map<String, Set<GitCommit>> commitsPerTag, String tagName, List<GitTag> addTo) {
+ private void addToTags(Map<String, Set<GitCommit>> commitsPerTag, String tagName, List<GitTag> addTo,
+   Map<String, RevTag> annotatedTagPerTagName) {
   if (commitsPerTag.containsKey(tagName)) {
    Set<GitCommit> gitCommits = commitsPerTag.get(tagName);
-   GitTag gitTag = new GitTag(tagName, newArrayList(gitCommits));
+   boolean isAnnotated = annotatedTagPerTagName.containsKey(tagName);
+   String annotation = null;
+   if (isAnnotated) {
+    annotation = annotatedTagPerTagName.get(tagName).getFullMessage();
+   }
+
+   GitTag gitTag = new GitTag(tagName, annotation, newArrayList(gitCommits));
    addTo.add(gitTag);
   }
  }
@@ -172,6 +180,27 @@ public class GitRepo implements Closeable {
 
  private Map<String, Ref> getAllRefs() {
   return this.repository.getAllRefs();
+ }
+
+ private Map<String, RevTag> getAnnotatedTagPerTagName(Optional<String> ignoreTagsIfNameMatches, List<Ref> tagList) {
+  Map<String, RevTag> tagPerCommit = newHashMap();
+  for (Ref tag : tagList) {
+   if (ignoreTagsIfNameMatches.isPresent()) {
+    if (compile(ignoreTagsIfNameMatches.get()).matcher(tag.getName()).matches()) {
+     continue;
+    }
+   }
+   Ref peeledTag = this.repository.peel(tag);
+   if (peeledTag.getPeeledObjectId() != null) {
+    try {
+     RevTag revTag = RevTag.parse(this.repository.open(tag.getObjectId()).getBytes());
+     tagPerCommit.put(tag.getName(), revTag);
+    } catch (IOException e) {
+     LOG.error(e.getMessage(), e);
+    }
+   }
+  }
+  return tagPerCommit;
  }
 
  private List<RevCommit> getDiffingCommits(RevCommit from, RevCommit to) throws Exception {
@@ -238,6 +267,13 @@ public class GitRepo implements Closeable {
    * Why: To know if a new tag was found when walking up through the parents.
    */
   Map<String, Ref> tagPerCommitHash = getTagPerCommitHash(ignoreTagsIfNameMatches, tagList);
+
+  /**
+   * What: Contains only the tags that are annotated.<br>
+   * Why: To populate tag message, for annotated tags.
+   */
+  Map<String, RevTag> annotatedTagPerTagName = getAnnotatedTagPerTagName(ignoreTagsIfNameMatches, tagList);
+
   /**
    * What: Populated with all included commits, referring to there tags.<br>
    * Why: To know if a commit is already mapped to a tag, or not.
@@ -253,10 +289,10 @@ public class GitRepo implements Closeable {
   populateComitPerTag(from, to, tagPerCommitHash, tagPerCommitsHash, commitsPerTag, untaggedName);
 
   List<GitTag> tags = newArrayList();
-  addToTags(commitsPerTag, untaggedName, tags);
+  addToTags(commitsPerTag, untaggedName, tags, annotatedTagPerTagName);
   List<Ref> tagCommitHashSortedByCommitTime = getTagCommitHashSortedByCommitTime(tagPerCommitHash.values());
   for (Ref tag : tagCommitHashSortedByCommitTime) {
-   addToTags(commitsPerTag, tag.getName(), tags);
+   addToTags(commitsPerTag, tag.getName(), tags, annotatedTagPerTagName);
   }
   return tags;
  }

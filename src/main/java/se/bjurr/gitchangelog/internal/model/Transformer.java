@@ -117,7 +117,8 @@ public class Transformer {
     List<Author> authors = toAuthors(gitCommits);
     List<Issue> issues = toIssues(parsedIssues);
     List<IssueType> issueTypes = toIssueTypes(parsedIssues);
-    return new Tag(toReadableTagName(input.getName()), commits, authors, issues, issueTypes);
+    return new Tag(toReadableTagName(input.getName()), input.findAnnotation().orNull(), commits, authors, issues,
+      issueTypes);
    }
 
    private List<ParsedIssue> reduceParsedIssuesToOnlyGitCommits(final List<ParsedIssue> allParsedIssues,

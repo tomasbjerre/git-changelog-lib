@@ -79,6 +79,7 @@ The template is supplied with a datastructure like:
  * messageBodyItems (List of strings, the lines after the title)
 * tags
  - name
+ - annotation
  * commits
   - authorName
   - authorEmailAddress

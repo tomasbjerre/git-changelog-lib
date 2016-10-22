@@ -14,9 +14,6 @@ import se.bjurr.gitchangelog.internal.git.model.GitTag;
 import se.bjurr.gitchangelog.internal.model.ParsedIssue;
 
 public class GitRepoDataHelper {
- private GitRepoDataHelper() {
- }
-
  public static GitRepoData removeCommitsWithoutIssue(List<ParsedIssue> allParsedIssues, GitRepoData gitRepoData) {
   Set<GitCommit> commitsWithIssues = newTreeSet();
   for (ParsedIssue parsedIssue : allParsedIssues) {
@@ -30,11 +27,15 @@ public class GitRepoDataHelper {
   for (GitTag gitTag : gitRepoData.getGitTags()) {
    Iterable<GitCommit> reducedCommitsInTag = filter(gitTag.getGitCommits(), in(reducedGitCommits));
    if (!isEmpty(reducedCommitsInTag)) {
-    reducedGitTags.add(new GitTag(gitTag.getName(), newArrayList(reducedCommitsInTag)));
+    reducedGitTags
+      .add(new GitTag(gitTag.getName(), gitTag.findAnnotation().orNull(), newArrayList(reducedCommitsInTag)));
    }
   }
 
   return new GitRepoData(reducedGitTags);
+ }
+
+ private GitRepoDataHelper() {
  }
 
 }
