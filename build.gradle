@@ -76,6 +76,10 @@ shadowJar {
  relocate 'okhttp3', 'gitchangeloglibshadow.okhttp3'
 }
 
+artifacts {
+ archives shadowJar
+}
+
 modifyPom {
  project {
   name 'GIT Changelog'
