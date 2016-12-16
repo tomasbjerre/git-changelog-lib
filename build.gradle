@@ -70,6 +70,10 @@ if (JavaVersion.current().isJava8Compatible()) {
 shadowJar {
  relocate 'com', 'gitchangeloglibshadow.com'
  relocate 'org', 'gitchangeloglibshadow.org'
+ relocate 'retrofit2', 'gitchangeloglibshadow.retrofit2'
+ relocate 'net', 'gitchangeloglibshadow.net'
+ relocate 'okio', 'gitchangeloglibshadow.okio'
+ relocate 'okhttp3', 'gitchangeloglibshadow.okhttp3'
 }
 
 modifyPom {

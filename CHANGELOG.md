@@ -2,7 +2,7 @@
 
 Changelog of Git Changelog.
 
-## Next release
+## 1.59
 ### GitHub [#38](https://github.com/tomasbjerre/git-changelog-lib/issues/38) Relocate packages to avoid classpath issues
 
 **Relocate packages to avoid classpath issues**
