@@ -2,13 +2,13 @@
 
 Changelog of Git Changelog.
 
-## Next release
+## 1.58
 ### GitHub [#36](https://github.com/tomasbjerre/git-changelog-lib/issues/36) Annotated tags support
 
 **Adding annotation to context of tag**
 
 
-[e9db23559b58597](https://github.com/tomasbjerre/git-changelog-lib/commit/e9db23559b58597) Tomas Bjerre *2016-10-22 07:23:01*
+[ecd852cfa40b0a7](https://github.com/tomasbjerre/git-changelog-lib/commit/ecd852cfa40b0a7) Tomas Bjerre *2016-10-22 07:23:29*
 
 
 ## 1.57

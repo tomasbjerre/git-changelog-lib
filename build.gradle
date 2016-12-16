@@ -5,6 +5,7 @@ buildscript {
  dependencies {
   classpath 'com.bmuschko:gradle-nexus-plugin:2.3.1'
   classpath 'net.researchgate:gradle-release:2.2.2'
+  classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.4'
  }
 }
 
@@ -14,6 +15,7 @@ apply plugin: 'eclipse'
 apply plugin: 'signing'
 apply plugin: 'com.bmuschko.nexus'
 apply plugin: 'net.researchgate.release'
+apply plugin: 'com.github.johnrengelman.shadow'
 
 group = 'se.bjurr.gitchangelog'
 
@@ -65,6 +67,11 @@ if (JavaVersion.current().isJava8Compatible()) {
  }
 }
 
+shadowJar {
+ relocate 'com', 'gitchangeloglibshadow.com'
+ relocate 'org', 'gitchangeloglibshadow.org'
+}
+
 modifyPom {
  project {
   name 'GIT Changelog'
@@ -100,5 +107,7 @@ extraArchive {
  tests = true
  javadoc = true
 }
+
+build.dependsOn shadowJar
 
 afterReleaseBuild.dependsOn install, uploadArchives
