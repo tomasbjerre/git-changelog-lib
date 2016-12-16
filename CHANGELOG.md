@@ -8,6 +8,15 @@ Changelog of Git Changelog.
 **Relocate packages to avoid classpath issues**
 
 
+[79f56692487b731](https://github.com/tomasbjerre/git-changelog-lib/commit/79f56692487b731) Tomas Bjerre *2016-12-16 20:02:28*
+
+
+## 1.60
+### GitHub [#38](https://github.com/tomasbjerre/git-changelog-lib/issues/38) Relocate packages to avoid classpath issues
+
+**Relocate packages to avoid classpath issues**
+
+
 [8d2aac7c6c174f1](https://github.com/tomasbjerre/git-changelog-lib/commit/8d2aac7c6c174f1) Tomas Bjerre *2016-12-16 16:35:06*
 
 
