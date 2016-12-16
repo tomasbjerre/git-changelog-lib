@@ -2,6 +2,15 @@
 
 Changelog of Git Changelog.
 
+## Next release
+### GitHub [#38](https://github.com/tomasbjerre/git-changelog-lib/issues/38) Relocate packages to avoid classpath issues
+
+**Relocate packages to avoid classpath issues**
+
+
+[653720603542acb](https://github.com/tomasbjerre/git-changelog-lib/commit/653720603542acb) Tomas Bjerre *2016-12-16 16:26:45*
+
+
 ## 1.58
 ### GitHub [#36](https://github.com/tomasbjerre/git-changelog-lib/issues/36) Annotated tags support
 
