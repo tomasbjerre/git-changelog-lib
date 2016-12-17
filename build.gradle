@@ -68,6 +68,7 @@ if (JavaVersion.current().isJava8Compatible()) {
 }
 
 shadowJar {
+ mergeServiceFiles()
  relocate 'com', 'gitchangeloglibshadow.com'
  relocate 'org', 'gitchangeloglibshadow.org'
  relocate 'retrofit2', 'gitchangeloglibshadow.retrofit2'
