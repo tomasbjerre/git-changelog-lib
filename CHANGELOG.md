@@ -2,6 +2,15 @@
 
 Changelog of Git Changelog.
 
+## 1.62
+### Other changes
+
+**mergeServiceFiles in fat jar**
+
+
+[8b2fb9b3219ba47](https://github.com/tomasbjerre/git-changelog-lib/commit/8b2fb9b3219ba47) Tomas Bjerre *2016-12-17 14:29:25*
+
+
 ## 1.61
 ### GitHub [#38](https://github.com/tomasbjerre/git-changelog-lib/issues/38) Relocate packages to avoid classpath issues
 

@@ -23,7 +23,7 @@ This software can be used:
  * From [command line](https://github.com/tomasbjerre/git-changelog-command-line).
  * As a library [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22git-changelog-lib%22).
 
-Here is an example template. There are more examples [here](https://github.com/tomasbjerre/git-changelog/tree/master/src/test/resources/templates).
+Here is an example template. 
 ```
 # Git Changelog changelog
 
@@ -61,6 +61,10 @@ Changelog of Git Changelog.
  {{/issues}}
 {{/tags}}
 ```
+
+There are some examples [here](https://github.com/tomasbjerre/git-changelog/tree/master/examples) that are ready to use.
+
+There are also different variations [here](https://github.com/tomasbjerre/git-changelog/tree/master/src/test/resources/templates) that are used for testing.
 
 ## Supplied information
 

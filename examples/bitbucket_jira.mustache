@@ -1,0 +1,96 @@
+{{! 
+This is a mustache template suitable for creating a HTML change log
+for git projects where bitbucket and Jira are used and integrated.
+
+It assumes that the git branches are created from Jira (the branch
+name always start with the Jira Issue ID) and that the branches
+are merged back to master (or the main branch that you would like
+to create the log on).
+
+NOTE! You need to set the ignore commits if message matches pattern to:
+^(?!Merged).*
+}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Change Log</title>
+<style>
+h2 {
+  text-decoration: underline;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #0099cc;
+  color: white;
+}
+</style>  
+</head>
+
+<h1> Change Log </h1>
+
+{{#tags}}
+
+  <h2> {{name}} </h2>
+
+  <table>
+  <tr>
+  <th>Jira ID</th>
+  <th>Jira Title</th>
+  <th>Git merges</th>
+  </tr>
+
+  {{#issues}}
+    {{#hasIssue}}
+      <tr>
+      <td>
+      <a href="https://vanadisdx.atlassian.net/browse/{{issue}}">{{issue}}</a>
+      </td>
+      <td>
+      {{title}}
+      </td>
+      <td>
+      {{#commits}}
+        {{{messageTitle}}}
+        <br/>
+        <a href="https://bitbucket.org/vanadisdx/vass/commits/{{hash}}">{{hash}}</a> {{authorName}} <i>{{commitTime}}</i>
+        <p/>
+      {{/commits}}
+      </td>
+      </tr>
+    {{/hasIssue}}
+    {{^hasIssue}}
+      {{#commits}}
+        <tr>
+        <td>
+        N/A
+        </td>
+        <td>
+        N/A
+        </td>
+        <td>
+        {{{messageTitle}}}
+        <br/>
+        <a href="https://bitbucket.org/vanadisdx/vass/commits/{{hash}}">{{hash}}</a> {{authorName}} <i>{{commitTime}}</i>
+        </td>
+        </tr>
+      {{/commits}}
+    {{/hasIssue}}
+  {{/issues}}
+  
+  </table>
+  
+{{/tags}}
+
+</html>
