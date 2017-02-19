@@ -28,9 +28,6 @@ Here is an example template.
 # Git Changelog changelog
 
 Changelog of Git Changelog.
-# Git Changelog changelog
-
-Changelog of Git Changelog.
 
 {{#tags}}
 ## {{name}}
