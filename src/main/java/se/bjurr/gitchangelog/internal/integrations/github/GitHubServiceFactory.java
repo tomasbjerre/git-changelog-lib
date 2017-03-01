@@ -1,7 +1,11 @@
 package se.bjurr.gitchangelog.internal.integrations.github;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+
 import java.io.File;
 import java.io.IOException;
+
+import com.google.common.base.Optional;
 
 import okhttp3.Cache;
 import okhttp3.Interceptor;
@@ -10,8 +14,6 @@ import okhttp3.Request;
 import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
-import com.google.common.base.Optional;
 
 public class GitHubServiceFactory {
 
@@ -35,7 +37,7 @@ public class GitHubServiceFactory {
    cacheDir.mkdir();
    Cache cache = new Cache(cacheDir, 1024 * 1024 * 10);
 
-   OkHttpClient.Builder builder = new OkHttpClient.Builder().cache(cache);
+   OkHttpClient.Builder builder = new OkHttpClient.Builder().cache(cache).connectTimeout(10, SECONDS);
 
    if (token != null && token.isPresent() && !token.get().isEmpty()) {
     builder.addInterceptor(new Interceptor() {

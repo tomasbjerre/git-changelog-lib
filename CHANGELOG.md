@@ -2,6 +2,26 @@
 
 Changelog of Git Changelog.
 
+## Next release
+### Other changes
+
+**doc**
+
+
+[4de5c284efe8c52](https://github.com/tomasbjerre/git-changelog-lib/commit/4de5c284efe8c52) Tomas Bjerre *2017-02-19 07:21:42*
+
+**Set theme jekyll-theme-slate**
+
+
+[e569b0c8dfe5957](https://github.com/tomasbjerre/git-changelog-lib/commit/e569b0c8dfe5957) Tomas Bjerre *2017-01-12 03:04:46*
+
+**Adding HTML example supplied by Joel Eriksson**
+
+ * Also moving example templates to examples folder. 
+
+[4c554557c16f68d](https://github.com/tomasbjerre/git-changelog-lib/commit/4c554557c16f68d) Tomas Bjerre *2016-12-21 16:29:21*
+
+
 ## 1.62
 ### Other changes
 
