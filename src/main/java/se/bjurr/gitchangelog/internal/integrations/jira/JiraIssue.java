@@ -4,11 +4,13 @@ public class JiraIssue {
  private final String title;
  private final String link;
  private final String issue;
+ private final String type;
 
- public JiraIssue(String title, String link, String issue) {
+ public JiraIssue(String title, String link, String issue, String type) {
   this.title = title;
   this.link = link;
   this.issue = issue;
+  this.type = type;
  }
 
  public String getIssue() {
@@ -22,4 +24,6 @@ public class JiraIssue {
  public String getTitle() {
   return title;
  }
+
+ public String getType() { return type; }
 }

@@ -22,14 +22,15 @@ public abstract class JiraClient {
  }
 
  protected String getEndpoint(String issue) {
-  String endpoint = api + "/rest/api/2/issue/" + issue + "?fields=parent,summary";
+  String endpoint = api + "/rest/api/2/issue/" + issue + "?fields=parent,summary,issuetype";
   return endpoint;
  }
 
  protected JiraIssue toJiraIssue(String issue, String json) {
   String title = read(json, "$.fields.summary");
+  String type = read(json, "$.fields.issuetype.name");
   String link = api + "/browse/" + issue;
-  JiraIssue jiraIssue = new JiraIssue(title, link, issue);
+  JiraIssue jiraIssue = new JiraIssue(title, link, issue, type);
   return jiraIssue;
  }
 

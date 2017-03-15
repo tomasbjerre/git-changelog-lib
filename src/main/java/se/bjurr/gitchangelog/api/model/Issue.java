@@ -35,7 +35,12 @@ public class Issue implements ICommits, IAuthors, Serializable {
  private final String link;
  private final boolean hasLink;
 
- public Issue(List<Commit> commits, List<Author> authors, String name, String title, String issue, String link) {
+ /**
+  * Type of issue, perhaps Story, Bug and etc
+  */
+ private final String type;
+
+ public Issue(List<Commit> commits, List<Author> authors, String name, String title, String issue, String link, String type) {
   checkState(!commits.isEmpty(), "commits");
   this.commits = commits;
   this.authors = checkNotNull(authors, "authors");
@@ -46,6 +51,7 @@ public class Issue implements ICommits, IAuthors, Serializable {
   this.hasIssue = !isNullOrEmpty(issue);
   this.link = nullToEmpty(link);
   this.hasLink = !isNullOrEmpty(link);
+  this.type = nullToEmpty(type);
  }
 
  public String getTitle() {
@@ -75,6 +81,8 @@ public class Issue implements ICommits, IAuthors, Serializable {
  public String getName() {
   return name;
  }
+
+ public String getType() { return type; }
 
  @Override
  public List<Author> getAuthors() {

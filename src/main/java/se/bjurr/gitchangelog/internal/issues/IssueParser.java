@@ -123,11 +123,13 @@ public class IssueParser {
   } else if (issuePattern.getType() == JIRA) {
    String link = "";
    String title = "";
+   String type = "";
    try {
     if (jiraClient != null && jiraClient.getIssue(matchedIssue).isPresent()) {
      JiraIssue jiraIssue = jiraClient.getIssue(matchedIssue).get();
      link = jiraIssue.getLink();
      title = jiraIssue.getTitle();
+     type = jiraIssue.getType();
     }
    } catch (GitChangelogIntegrationException e) {
     LOG.error(matchedIssue, e);
@@ -136,7 +138,8 @@ public class IssueParser {
      issuePattern.getName(),//
      matchedIssue,//
      link, //
-     title);
+     title, //
+     type);
   } else {
    String link = render(issuePattern.getLink().or(""), issueMatcher, matchedIssue);
    String title = render(issuePattern.getTitle().or(""), issueMatcher, matchedIssue);
