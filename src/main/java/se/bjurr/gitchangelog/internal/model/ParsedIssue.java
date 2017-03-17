@@ -18,12 +18,14 @@ public class ParsedIssue implements IGitCommitReferer {
  private final String title;
  private final String link;
  private final String issue;
+ private final String type;
 
  public ParsedIssue(String name, String issue, String link) {
   this.name = checkNotNull(name, "name");
   this.title = null;
   this.issue = issue;
   this.link = link;
+  this.type = null;
  }
 
  public ParsedIssue(String name, String issue, String link, String title) {
@@ -31,6 +33,15 @@ public class ParsedIssue implements IGitCommitReferer {
   this.title = emptyToNull(title);
   this.issue = issue;
   this.link = link;
+  this.type = null;
+ }
+
+ public ParsedIssue(String name, String issue, String link, String title, String type) {
+  this.name = checkNotNull(name, "name");
+  this.title = emptyToNull(title);
+  this.issue = issue;
+  this.link = link;
+  this.type = type;
  }
 
  public Optional<String> getTitle() {
@@ -49,6 +60,8 @@ public class ParsedIssue implements IGitCommitReferer {
  public String getLink() {
   return link;
  }
+
+ public String getType() { return type; }
 
  @Override
  public String getName() {

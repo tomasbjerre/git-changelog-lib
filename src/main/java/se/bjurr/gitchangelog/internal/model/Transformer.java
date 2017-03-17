@@ -174,7 +174,8 @@ public class Transformer {
       input.getName(), //
       input.getTitle().or(""), //
       input.getIssue(), //
-      input.getLink());
+      input.getLink(), //
+      input.getType());
    }
   };
  }
