@@ -4,138 +4,143 @@ import static com.google.common.base.Joiner.on;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.collect.Lists.newArrayList;
 
+import com.google.common.annotations.VisibleForTesting;
 import java.io.Serializable;
 import java.util.List;
 
-import com.google.common.annotations.VisibleForTesting;
-
 public class Commit implements Serializable {
- private static final long serialVersionUID = 6622555148468372816L;
+  private static final long serialVersionUID = 6622555148468372816L;
 
- static private List<String> notFirst(List<String> stringList) {
-  return stringList.subList(1, stringList.size());
- }
-
- private static String toHash(String input) {
-  return input.substring(0, 15);
- }
-
- static private List<String> toNoEmptyStringsList(String message) {
-  List<String> toReturn = newArrayList();
-  for (String part : message.split("\n")) {
-   if (!part.isEmpty()) {
-    toReturn.add(part);
-   }
+  private static List<String> notFirst(List<String> stringList) {
+    return stringList.subList(1, stringList.size());
   }
-  return toReturn;
- }
 
- @VisibleForTesting
- static String toMessageBody(String message) {
-  List<String> stringList = toNoEmptyStringsList(message);
-  if (stringList.size() > 1) {
-   List<String> notFirst = notFirst(stringList);
-   return on("\n")//
-     .join(notFirst);
+  private static String toHash(String input) {
+    return input.substring(0, 15);
   }
-  return "";
- }
 
- @VisibleForTesting
- static List<String> toMessageItems(String message) {
-  List<String> toReturn = newArrayList();
-  List<String> stringList = toNoEmptyStringsList(message);
-  if (stringList.size() > 1) {
-   List<String> notFirst = notFirst(stringList);
-   for (String part : notFirst) {
-    String candidate = part.trim();
-    if (candidate.startsWith("*")) {
-     candidate = candidate.substring(1).trim();
+  private static List<String> toNoEmptyStringsList(String message) {
+    List<String> toReturn = newArrayList();
+    for (String part : message.split("\n")) {
+      if (!part.isEmpty()) {
+        toReturn.add(part);
+      }
     }
-    if (!candidate.isEmpty()) {
-     toReturn.add(candidate);
+    return toReturn;
+  }
+
+  @VisibleForTesting
+  static String toMessageBody(String message) {
+    List<String> stringList = toNoEmptyStringsList(message);
+    if (stringList.size() > 1) {
+      List<String> notFirst = notFirst(stringList);
+      return on("\n") //
+          .join(notFirst);
     }
-   }
+    return "";
   }
-  return toReturn;
- }
 
- @VisibleForTesting
- static String toMessageTitle(String message) {
-  List<String> stringList = toNoEmptyStringsList(message);
-  if (stringList.size() > 0) {
-   return stringList.get(0).trim();
+  @VisibleForTesting
+  static List<String> toMessageItems(String message) {
+    List<String> toReturn = newArrayList();
+    List<String> stringList = toNoEmptyStringsList(message);
+    if (stringList.size() > 1) {
+      List<String> notFirst = notFirst(stringList);
+      for (String part : notFirst) {
+        String candidate = part.trim();
+        if (candidate.startsWith("*")) {
+          candidate = candidate.substring(1).trim();
+        }
+        if (!candidate.isEmpty()) {
+          toReturn.add(candidate);
+        }
+      }
+    }
+    return toReturn;
   }
-  return "";
- }
 
- private final String authorEmailAddress;
- private final String authorName;
- private final String commitTime;
- private final Long commitTimeLong;
- private final String hash;
- private final String hashFull;
- private final Boolean merge;
- private final String message;
+  @VisibleForTesting
+  static String toMessageTitle(String message) {
+    List<String> stringList = toNoEmptyStringsList(message);
+    if (stringList.size() > 0) {
+      return stringList.get(0).trim();
+    }
+    return "";
+  }
 
- public Commit(String authorName, String authorEmailAddress, String commitTime, Long commitTimeLong, String message,
-   String hash, Boolean merge) {
-  this.authorName = checkNotNull(authorName, "authorName");
-  this.authorEmailAddress = checkNotNull(authorEmailAddress, "authorEmailAddress");
-  this.message = checkNotNull(message, "message").trim();
-  this.commitTime = checkNotNull(commitTime, "commitTime");
-  this.commitTimeLong = checkNotNull(commitTimeLong, "commitTimeLong");
-  this.hash = toHash(checkNotNull(hash, "hash"));
-  this.hashFull = checkNotNull(hash, "hashFull");
-  this.merge = checkNotNull(merge, "merge");
- }
+  private final String authorEmailAddress;
+  private final String authorName;
+  private final String commitTime;
+  private final Long commitTimeLong;
+  private final String hash;
+  private final String hashFull;
+  private final Boolean merge;
+  private final String message;
 
- public String getAuthorEmailAddress() {
-  return this.authorEmailAddress;
- }
+  public Commit(
+      String authorName,
+      String authorEmailAddress,
+      String commitTime,
+      Long commitTimeLong,
+      String message,
+      String hash,
+      Boolean merge) {
+    this.authorName = checkNotNull(authorName, "authorName");
+    this.authorEmailAddress = checkNotNull(authorEmailAddress, "authorEmailAddress");
+    this.message = checkNotNull(message, "message").trim();
+    this.commitTime = checkNotNull(commitTime, "commitTime");
+    this.commitTimeLong = checkNotNull(commitTimeLong, "commitTimeLong");
+    this.hash = toHash(checkNotNull(hash, "hash"));
+    this.hashFull = checkNotNull(hash, "hashFull");
+    this.merge = checkNotNull(merge, "merge");
+  }
 
- public String getAuthorName() {
-  return this.authorName;
- }
+  public String getAuthorEmailAddress() {
+    return this.authorEmailAddress;
+  }
 
- public String getCommitTime() {
-  return this.commitTime;
- }
+  public String getAuthorName() {
+    return this.authorName;
+  }
 
- public Long getCommitTimeLong() {
-  return this.commitTimeLong;
- }
+  public String getCommitTime() {
+    return this.commitTime;
+  }
 
- public String getHash() {
-  return this.hash;
- }
+  public Long getCommitTimeLong() {
+    return this.commitTimeLong;
+  }
 
- public String getHashFull() {
-  return this.hashFull;
- }
+  public String getHash() {
+    return this.hash;
+  }
 
- public String getMessage() {
-  return this.message;
- }
+  public String getHashFull() {
+    return this.hashFull;
+  }
 
- public String getMessageBody() {
-  return toMessageBody(this.message);
- }
+  public String getMessage() {
+    return this.message;
+  }
 
- public List<String> getMessageBodyItems() {
-  return toMessageItems(this.message);
- }
+  public String getMessageBody() {
+    return toMessageBody(this.message);
+  }
 
- public String getMessageTitle() {
-  return toMessageTitle(this.message);
- }
+  public List<String> getMessageBodyItems() {
+    return toMessageItems(this.message);
+  }
 
- public Boolean isMerge() {
-  return this.merge;
- }
+  public String getMessageTitle() {
+    return toMessageTitle(this.message);
+  }
 
- @Override
- public String toString() {
-  return "hash: " + this.hash + " message: " + this.message;
- }
+  public Boolean isMerge() {
+    return this.merge;
+  }
+
+  @Override
+  public String toString() {
+    return "hash: " + this.hash + " message: " + this.message;
+  }
 }

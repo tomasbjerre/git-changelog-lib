@@ -7,25 +7,25 @@ import java.util.List;
 
 public class IssueType implements Serializable {
 
- private static final long serialVersionUID = 8850522973130773606L;
- private final String name;
- private final List<Issue> issues;
+  private static final long serialVersionUID = 8850522973130773606L;
+  private final String name;
+  private final List<Issue> issues;
 
- public IssueType(List<Issue> issues, String name) {
-  this.name = checkNotNull(name, "name");
-  this.issues = checkNotNull(issues, "issues");
- }
+  public IssueType(List<Issue> issues, String name) {
+    this.name = checkNotNull(name, "name");
+    this.issues = checkNotNull(issues, "issues");
+  }
 
- public String getName() {
-  return name;
- }
+  public String getName() {
+    return name;
+  }
 
- public List<Issue> getIssues() {
-  return issues;
- }
+  public List<Issue> getIssues() {
+    return issues;
+  }
 
- @Override
- public String toString() {
-  return "IssueType: " + name;
- }
+  @Override
+  public String toString() {
+    return "IssueType: " + name;
+  }
 }

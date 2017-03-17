@@ -5,6 +5,20 @@ Changelog of Git Changelog.
 ## Next release
 ### Other changes
 
+**jira issue type feature**
+
+
+[fdd7229f9b2f183](https://github.com/tomasbjerre/git-changelog-lib/commit/fdd7229f9b2f183) Heorhi Bisiaryn *2017-03-15 11:54:01*
+
+
+## 1.63
+### Other changes
+
+**Adding timeout, 10 seconds**
+
+
+[1c3ca2cf2d1e598](https://github.com/tomasbjerre/git-changelog-lib/commit/1c3ca2cf2d1e598) Tomas Bjerre *2017-03-01 18:13:14*
+
 **doc**
 
 

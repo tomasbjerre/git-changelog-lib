@@ -7,95 +7,96 @@ import static com.google.common.base.Strings.nullToEmpty;
 
 import java.io.Serializable;
 import java.util.List;
-
 import se.bjurr.gitchangelog.api.model.interfaces.IAuthors;
 import se.bjurr.gitchangelog.api.model.interfaces.ICommits;
 
 public class Issue implements ICommits, IAuthors, Serializable {
- private static final long serialVersionUID = -7571341639024417199L;
- private final List<Commit> commits;
- private final List<Author> authors;
- /**
-  * Like JIRA, or GitHub.
-  */
- private final String name;
- /**
-  * Like the title of a Jira.
-  */
- private final String title;
- private final boolean hasTitle;
- /**
-  * Like the actual Jira, JIR-ABC.
-  */
- private final String issue;
- private final boolean hasIssue;
- /**
-  * A link to the issue, http://.....
-  */
- private final String link;
- private final boolean hasLink;
+  private static final long serialVersionUID = -7571341639024417199L;
+  private final List<Commit> commits;
+  private final List<Author> authors;
+  /** Like JIRA, or GitHub. */
+  private final String name;
+  /** Like the title of a Jira. */
+  private final String title;
 
- /**
-  * Type of issue, perhaps Story, Bug and etc
-  */
- private final String type;
+  private final boolean hasTitle;
+  /** Like the actual Jira, JIR-ABC. */
+  private final String issue;
 
- public Issue(List<Commit> commits, List<Author> authors, String name, String title, String issue, String link, String type) {
-  checkState(!commits.isEmpty(), "commits");
-  this.commits = commits;
-  this.authors = checkNotNull(authors, "authors");
-  this.name = checkNotNull(name, "name");
-  this.title = nullToEmpty(title);
-  this.hasTitle = !isNullOrEmpty(title);
-  this.issue = nullToEmpty(issue);
-  this.hasIssue = !isNullOrEmpty(issue);
-  this.link = nullToEmpty(link);
-  this.hasLink = !isNullOrEmpty(link);
-  this.type = nullToEmpty(type);
- }
+  private final boolean hasIssue;
+  /** A link to the issue, http://..... */
+  private final String link;
 
- public String getTitle() {
-  return title;
- }
+  private final boolean hasLink;
 
- public boolean hasTitle() {
-  return hasTitle;
- }
+  /** Type of issue, perhaps Story, Bug and etc */
+  private final String type;
 
- public boolean hasIssue() {
-  return hasIssue;
- }
+  public Issue(
+      List<Commit> commits,
+      List<Author> authors,
+      String name,
+      String title,
+      String issue,
+      String link,
+      String type) {
+    checkState(!commits.isEmpty(), "commits");
+    this.commits = commits;
+    this.authors = checkNotNull(authors, "authors");
+    this.name = checkNotNull(name, "name");
+    this.title = nullToEmpty(title);
+    this.hasTitle = !isNullOrEmpty(title);
+    this.issue = nullToEmpty(issue);
+    this.hasIssue = !isNullOrEmpty(issue);
+    this.link = nullToEmpty(link);
+    this.hasLink = !isNullOrEmpty(link);
+    this.type = nullToEmpty(type);
+  }
 
- public boolean hasLink() {
-  return hasLink;
- }
+  public String getTitle() {
+    return title;
+  }
 
- public String getIssue() {
-  return issue;
- }
+  public boolean hasTitle() {
+    return hasTitle;
+  }
 
- public String getLink() {
-  return link;
- }
+  public boolean hasIssue() {
+    return hasIssue;
+  }
 
- public String getName() {
-  return name;
- }
+  public boolean hasLink() {
+    return hasLink;
+  }
 
- public String getType() { return type; }
+  public String getIssue() {
+    return issue;
+  }
 
- @Override
- public List<Author> getAuthors() {
-  return authors;
- }
+  public String getLink() {
+    return link;
+  }
 
- @Override
- public List<Commit> getCommits() {
-  return commits;
- }
+  public String getName() {
+    return name;
+  }
 
- @Override
- public String toString() {
-  return "Issue: " + issue + " Title: " + title;
- }
+  public String getType() {
+    return type;
+  }
+
+  @Override
+  public List<Author> getAuthors() {
+    return authors;
+  }
+
+  @Override
+  public List<Commit> getCommits() {
+    return commits;
+  }
+
+  @Override
+  public String toString() {
+    return "Issue: " + issue + " Title: " + title;
+  }
 }

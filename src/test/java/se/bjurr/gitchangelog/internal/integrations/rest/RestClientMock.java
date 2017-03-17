@@ -13,59 +13,59 @@ import java.util.List;
 import java.util.Map;
 
 public class RestClientMock extends RestClient {
- private final Map<String, String> mockedResponses = newHashMap();
+  private final Map<String, String> mockedResponses = newHashMap();
 
- public RestClientMock() {
-  super(0, MINUTES);
- }
-
- public RestClientMock addMockedResponse(String url, String response) {
-  mockedResponses.put(url, response);
-  return this;
- }
-
- @Override
- public String getResponse(HttpURLConnection conn) throws Exception {
-  String key = conn.getURL().getPath() + "?" + conn.getURL().getQuery();
-  if (mockedResponses.containsKey(key)) {
-   return mockedResponses.get(key);
-  } else {
-   throw new RuntimeException("Could not find mock for \"" + key + "\" available mocks are:\n"
-     + on("\n").join(mockedResponses.keySet()));
+  public RestClientMock() {
+    super(0, MINUTES);
   }
- }
 
- @Override
- public HttpURLConnection openConnection(URL addr) throws Exception {
-  return new HttpURLConnection(addr) {
-   @Override
-   public Map<String, List<String>> getHeaderFields() {
-    Map<String, List<String>> map = newHashMap();
-    map.put("Set-Cookie", newArrayList("thesetcookie"));
-    return map;
-   }
+  public RestClientMock addMockedResponse(String url, String response) {
+    mockedResponses.put(url, response);
+    return this;
+  }
 
-   @Override
-   public void connect() throws IOException {
-   }
+  @Override
+  public String getResponse(HttpURLConnection conn) throws Exception {
+    String key = conn.getURL().getPath() + "?" + conn.getURL().getQuery();
+    if (mockedResponses.containsKey(key)) {
+      return mockedResponses.get(key);
+    } else {
+      throw new RuntimeException(
+          "Could not find mock for \""
+              + key
+              + "\" available mocks are:\n"
+              + on("\n").join(mockedResponses.keySet()));
+    }
+  }
 
-   @Override
-   public boolean usingProxy() {
-    return false;
-   }
+  @Override
+  public HttpURLConnection openConnection(URL addr) throws Exception {
+    return new HttpURLConnection(addr) {
+      @Override
+      public Map<String, List<String>> getHeaderFields() {
+        Map<String, List<String>> map = newHashMap();
+        map.put("Set-Cookie", newArrayList("thesetcookie"));
+        return map;
+      }
 
-   @Override
-   public void disconnect() {
-   }
+      @Override
+      public void connect() throws IOException {}
 
-   @Override
-   public OutputStream getOutputStream() throws IOException {
-    return new OutputStream() {
-     @Override
-     public void write(int b) throws IOException {
-     }
+      @Override
+      public boolean usingProxy() {
+        return false;
+      }
+
+      @Override
+      public void disconnect() {}
+
+      @Override
+      public OutputStream getOutputStream() throws IOException {
+        return new OutputStream() {
+          @Override
+          public void write(int b) throws IOException {}
+        };
+      }
     };
-   }
-  };
- }
+  }
 }
