@@ -16,14 +16,17 @@ public class Issue implements ICommits, IAuthors, Serializable {
   private final List<Author> authors;
   /** Like JIRA, or GitHub. */
   private final String name;
+
   /** Like the title of a Jira. */
   private final String title;
 
   private final boolean hasTitle;
+
   /** Like the actual Jira, JIR-ABC. */
   private final String issue;
 
   private final boolean hasIssue;
+
   /** A link to the issue, http://..... */
   private final String link;
 
@@ -32,6 +35,13 @@ public class Issue implements ICommits, IAuthors, Serializable {
   /** Type of issue, perhaps Story, Bug and etc */
   private final String type;
 
+  private final boolean hasType;
+
+  /** Labels on the issue, for GitHub it may be bug, enhancement, ... */
+  private final List<String> labels;
+
+  private final boolean hasLabels;
+
   public Issue(
       List<Commit> commits,
       List<Author> authors,
@@ -39,7 +49,8 @@ public class Issue implements ICommits, IAuthors, Serializable {
       String title,
       String issue,
       String link,
-      String type) {
+      String type,
+      List<String> labels) {
     checkState(!commits.isEmpty(), "commits");
     this.commits = commits;
     this.authors = checkNotNull(authors, "authors");
@@ -50,7 +61,10 @@ public class Issue implements ICommits, IAuthors, Serializable {
     this.hasIssue = !isNullOrEmpty(issue);
     this.link = nullToEmpty(link);
     this.hasLink = !isNullOrEmpty(link);
+    this.hasType = !isNullOrEmpty(type);
     this.type = nullToEmpty(type);
+    this.hasLabels = labels != null && !labels.isEmpty();
+    this.labels = labels;
   }
 
   public String getTitle() {
@@ -63,6 +77,14 @@ public class Issue implements ICommits, IAuthors, Serializable {
 
   public boolean hasIssue() {
     return hasIssue;
+  }
+
+  public boolean hasLabels() {
+    return hasLabels;
+  }
+
+  public boolean hasType() {
+    return hasType;
   }
 
   public boolean hasLink() {
@@ -93,6 +115,10 @@ public class Issue implements ICommits, IAuthors, Serializable {
   @Override
   public List<Commit> getCommits() {
     return commits;
+  }
+
+  public List<String> getLabels() {
+    return labels;
   }
 
   @Override

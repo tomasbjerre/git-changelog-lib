@@ -72,6 +72,16 @@ public class TemplatesTest {
   }
 
   @Test
+  public void testIssueType() throws Exception {
+    test("testIssueType");
+  }
+
+  @Test
+  public void testIssueLabels() throws Exception {
+    test("testIssueLabels");
+  }
+
+  @Test
   public void testIssueTypesIssuesCommits() throws Exception {
     test("testIssueTypesIssuesCommits");
   }

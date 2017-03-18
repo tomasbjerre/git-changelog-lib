@@ -7,6 +7,10 @@
   "summary":"Title of jira 1234",
   "issuetype": {
    "name": "Bug"
-  }
+  },
+  "labels":[  
+   "label1",
+   "label2"
+  ]
  }
 }

@@ -3,6 +3,8 @@ package se.bjurr.gitchangelog.internal.integrations.jira;
 import static com.jayway.jsonpath.JsonPath.read;
 
 import com.google.common.base.Optional;
+import com.jayway.jsonpath.JsonPath;
+import java.util.List;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 
 public abstract class JiraClient {
@@ -30,7 +32,8 @@ public abstract class JiraClient {
     String title = read(json, "$.fields.summary");
     String type = read(json, "$.fields.issuetype.name");
     String link = api + "/browse/" + issue;
-    JiraIssue jiraIssue = new JiraIssue(title, link, issue, type);
+    List<String> labels = JsonPath.read(json, "$.fields.labels");
+    JiraIssue jiraIssue = new JiraIssue(title, link, issue, type, labels);
     return jiraIssue;
   }
 

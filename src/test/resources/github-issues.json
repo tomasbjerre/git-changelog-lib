@@ -73,11 +73,6 @@
       "site_admin": false
     },
     "labels": [
-      {
-        "url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/labels/bug",
-        "name": "bug",
-        "color": "fc2929"
-      }
     ],
     "state": "open",
     "locked": false,

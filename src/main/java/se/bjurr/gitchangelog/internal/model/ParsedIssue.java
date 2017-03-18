@@ -16,30 +16,17 @@ public class ParsedIssue implements IGitCommitReferer {
   private final String title;
   private final String link;
   private final String issue;
-  private final String type;
+  private final String issueType;
+  private final List<String> labels;
 
-  public ParsedIssue(String name, String issue, String link) {
-    this.name = checkNotNull(name, "name");
-    this.title = null;
-    this.issue = issue;
-    this.link = link;
-    this.type = null;
-  }
-
-  public ParsedIssue(String name, String issue, String link, String title) {
+  public ParsedIssue(
+      String name, String issue, String link, String title, String issueType, List<String> labels) {
     this.name = checkNotNull(name, "name");
     this.title = emptyToNull(title);
     this.issue = issue;
     this.link = link;
-    this.type = null;
-  }
-
-  public ParsedIssue(String name, String issue, String link, String title, String type) {
-    this.name = checkNotNull(name, "name");
-    this.title = emptyToNull(title);
-    this.issue = issue;
-    this.link = link;
-    this.type = type;
+    this.issueType = issueType;
+    this.labels = labels;
   }
 
   public Optional<String> getTitle() {
@@ -59,8 +46,8 @@ public class ParsedIssue implements IGitCommitReferer {
     return link;
   }
 
-  public String getType() {
-    return type;
+  public String getIssueType() {
+    return issueType;
   }
 
   @Override
@@ -96,5 +83,9 @@ public class ParsedIssue implements IGitCommitReferer {
 
   public void addCommits(List<GitCommit> commits) {
     this.gitCommits.addAll(commits);
+  }
+
+  public List<String> getLabels() {
+    return labels;
   }
 }

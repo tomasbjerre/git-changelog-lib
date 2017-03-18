@@ -154,7 +154,9 @@ public class Transformer {
                             candidate.getName(),
                             candidate.getIssue(),
                             candidate.getLink(),
-                            candidate.getTitle().orNull());
+                            candidate.getTitle().orNull(),
+                            candidate.getIssueType(),
+                            candidate.getLabels());
                     parsedIssue.addCommits(candidateCommits);
                     parsedIssues.add(parsedIssue);
                   }
@@ -207,7 +209,8 @@ public class Transformer {
             input.getTitle().or(""), //
             input.getIssue(), //
             input.getLink(), //
-            input.getType());
+            input.getIssueType(), //
+            input.getLabels());
       }
     };
   }

@@ -34,10 +34,10 @@ Changelog of Git Changelog.
  {{#issues}}
   {{#hasIssue}}
    {{#hasLink}}
-### {{name}} [{{issue}}]({{link}}) {{title}}
+### {{name}} [{{issue}}]({{link}}) {{title}} {{#hasIssueType}} *{{issueType}}* {{/hasIssueType}} {{#hasLabels}} {{#labels}} *{{.}}* {{/labels}} {{/hasLabels}}
    {{/hasLink}}
    {{^hasLink}}
-### {{name}} {{issue}} {{title}}
+### {{name}} {{issue}} {{title}} {{#hasIssueType}} *{{issueType}}* {{/hasIssueType}} {{#hasLabels}} {{#labels}} *{{.}}* {{/labels}} {{/hasLabels}}
    {{/hasLink}}
   {{/hasIssue}}
   {{^hasIssue}}
@@ -116,6 +116,10 @@ The template is supplied with a datastructure like:
    - link
    - hasTitle
    - title
+   - hasIssueType
+   - issueType
+   - hasLabels
+   - labels
    * commits
     - authorName
     - authorEmailAddress
@@ -149,6 +153,10 @@ The template is supplied with a datastructure like:
   - link
   - hasTitle
   - title
+  - hasIssueType
+  - issueType
+  - hasLabels
+  - labels
   * commits
    - authorName
    - authorEmailAddress
@@ -196,6 +204,10 @@ The template is supplied with a datastructure like:
  - link
  - hasTitle
  - title
+ - hasIssueType
+ - issueType
+ - hasLabels
+ - labels
  * commits
   - authorName
   - authorEmailAddress
