@@ -3,12 +3,21 @@
 Changelog of Git Changelog.
 
 ## Next release
+### Other changes
+
+**fix jira labels**
+
+
+[dbf309010fbcd76](https://github.com/tomasbjerre/git-changelog-lib/commit/dbf309010fbcd76) Heorhi Bisiaryn *2017-03-20 15:23:57*
+
+
+## 1.64
 ### GitHub [#40](https://github.com/tomasbjerre/git-changelog-lib/pull/40) add jira issue type    *enhancement*  
 
 **Adding issueType and labels attributes**
 
 
-[e31d891c28adc1e](https://github.com/tomasbjerre/git-changelog-lib/commit/e31d891c28adc1e) Tomas Bjerre *2017-03-18 09:08:29*
+[6db44d44152f5da](https://github.com/tomasbjerre/git-changelog-lib/commit/6db44d44152f5da) Tomas Bjerre *2017-03-18 09:10:13*
 
 
 ### Other changes
