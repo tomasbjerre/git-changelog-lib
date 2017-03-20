@@ -24,7 +24,8 @@ public abstract class JiraClient {
   }
 
   protected String getEndpoint(String issue) {
-    String endpoint = api + "/rest/api/2/issue/" + issue + "?fields=parent,summary,issuetype";
+    String endpoint =
+        api + "/rest/api/2/issue/" + issue + "?fields=parent,summary,issuetype,labels";
     return endpoint;
   }
 
