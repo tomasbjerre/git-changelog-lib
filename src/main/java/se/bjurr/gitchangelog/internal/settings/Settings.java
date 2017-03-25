@@ -9,6 +9,7 @@ import static com.google.common.io.Resources.getResource;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_DATEFORMAT;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_FILE;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_GITHUB_ISSUE_PATTERN;
+import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_GITLAB_ISSUE_PATTERN;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_IGNORE_COMMITS_REGEXP;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_JIRA_ISSUE_PATTEN;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_NO_ISSUE_NAME;
@@ -405,8 +406,8 @@ public class Settings implements Serializable {
     return fromNullable(gitLabToken);
   }
 
-  public Optional<String> getGitLabIssuePattern() {
-    return fromNullable(gitLabIssuePattern);
+  public String getGitLabIssuePattern() {
+    return fromNullable(gitLabIssuePattern).or(DEFAULT_GITLAB_ISSUE_PATTERN);
   }
 
   public Optional<String> getGitLabProjectName() {

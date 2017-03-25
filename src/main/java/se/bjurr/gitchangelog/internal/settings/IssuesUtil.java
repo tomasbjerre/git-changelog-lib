@@ -33,11 +33,10 @@ public class IssuesUtil {
   }
 
   private void addGitLab(List<SettingsIssue> issues) {
-    if (settings.getGitLabIssuePattern().isPresent()) {
+    if (!isNullOrEmpty(settings.getGitLabIssuePattern())) {
       if (settings.getGitLabServer().isPresent()) {
         issues.add(
-            new SettingsIssue(
-                GITLAB, "GitLab", settings.getGitLabIssuePattern().get(), null, null));
+            new SettingsIssue(GITLAB, "GitLab", settings.getGitLabIssuePattern(), null, null));
       }
     }
   }

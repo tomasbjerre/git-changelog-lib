@@ -114,6 +114,9 @@ public class IssueParser {
     String link = "";
     String title = "";
     List<String> labels = new ArrayList<>();
+    if (matchedIssueString.startsWith("#")) {
+      matchedIssueString = matchedIssueString.substring(1);
+    }
     Integer matchedIssue = Integer.parseInt(matchedIssueString);
     try {
       if (gitLabClient != null && gitLabClient.getIssue(projectName, matchedIssue).isPresent()) {

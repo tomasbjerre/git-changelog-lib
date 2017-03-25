@@ -204,6 +204,33 @@ public class GitChangelogApi {
     return this;
   }
 
+  /** Pattern to recognize GitHub:s. <code>#([0-9]+)</code> */
+  public GitChangelogApi withGitLabIssuePattern(String gitLabIssuePattern) {
+    this.settings.setGitLabIssuePattern(gitLabIssuePattern);
+    return this;
+  }
+
+  /**
+   * In this URL: <code>https://gitlab.com/tomas.bjerre85/violations-test/issues</code> it would be
+   * <code>violations-test</code>.
+   */
+  public GitChangelogApi withGitLabProjectName(String gitLabProjectName) {
+    this.settings.setGitLabProjectName(gitLabProjectName);
+    return this;
+  }
+
+  /** Example: https://gitlab.com/ */
+  public GitChangelogApi withGitLabServer(String gitLabServer) {
+    this.settings.setGitLabServer(gitLabServer);
+    return this;
+  }
+
+  /** You can create it in the project settings page. */
+  public GitChangelogApi withGitLabToken(String gitLabToken) {
+    this.settings.setGitLabToken(gitLabToken);
+    return this;
+  }
+
   /**
    * A regular expression that is evaluated on the commit message of each commit. If it matches, the
    * commit will be filtered out and not included in the changelog.<br>
