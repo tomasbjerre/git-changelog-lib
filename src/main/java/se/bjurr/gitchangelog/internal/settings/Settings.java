@@ -149,7 +149,18 @@ public class Settings implements Serializable {
    */
   private Map<String, Object> extendedVariables;
 
+  /** Commits that don't have any issue in their commit message will not be included. */
   private boolean ignoreCommitsWithoutIssue;
+
+  /** GitLab server URL, like https://gitlab.com/. */
+  private String gitLabServer;
+
+  private String gitLabToken;
+
+  /** Pattern to recognize GitLab:s. <code>#([0-9]+)</code> */
+  private String gitLabIssuePattern;
+
+  private String gitLabProjectName;
 
   public Settings() {}
 
@@ -368,5 +379,37 @@ public class Settings implements Serializable {
 
   public boolean ignoreCommitsWithoutIssue() {
     return ignoreCommitsWithoutIssue;
+  }
+
+  public void setGitLabIssuePattern(String gitLabIssuePattern) {
+    this.gitLabIssuePattern = gitLabIssuePattern;
+  }
+
+  public void setGitLabProjectName(String gitLabProjectName) {
+    this.gitLabProjectName = gitLabProjectName;
+  }
+
+  public void setGitLabServer(String gitLabServer) {
+    this.gitLabServer = gitLabServer;
+  }
+
+  public void setGitLabToken(String gitLabToken) {
+    this.gitLabToken = gitLabToken;
+  }
+
+  public Optional<String> getGitLabServer() {
+    return fromNullable(gitLabServer);
+  }
+
+  public Optional<String> getGitLabToken() {
+    return fromNullable(gitLabToken);
+  }
+
+  public Optional<String> getGitLabIssuePattern() {
+    return fromNullable(gitLabIssuePattern);
+  }
+
+  public Optional<String> getGitLabProjectName() {
+    return fromNullable(gitLabProjectName);
   }
 }

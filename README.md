@@ -107,7 +107,7 @@ The template is supplied with a datastructure like:
    - messageBody (Everything, except the title)
    * messageBodyItems (List of strings, the lines after the title)
  * issueTypes
-  - name (Like GitHub, Jira, ...)
+  - name (Like GitHub, GitLab, Jira, ...)
   * issues
    - name
    - hasIssue

@@ -3,7 +3,21 @@
 Changelog of Git Changelog.
 
 ## Next release
+### GitHub [#2](https://github.com/tomasbjerre/git-changelog-lib/issues/2) GitHub Integration    *enhancement*  
+
+**GitLab integration**
+
+
+[67cb62982dd83ce](https://github.com/tomasbjerre/git-changelog-lib/commit/67cb62982dd83ce) Tomas Bjerre *2017-03-25 14:03:47*
+
+
+## 1.65
 ### Other changes
+
+**doc**
+
+
+[9b2d45154695881](https://github.com/tomasbjerre/git-changelog-lib/commit/9b2d45154695881) Tomas Bjerre *2017-03-20 18:14:10*
 
 **fix jira labels**
 
