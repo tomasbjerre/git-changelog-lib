@@ -2,6 +2,16 @@
 
 Changelog of Git Changelog.
 
+## Next release
+### GitHub [#2](https://github.com/tomasbjerre/git-changelog-lib/issues/2) GitHub Integration    *enhancement*  
+
+**GitLab integration**
+
+ * Adding it to the API. 
+
+[743ab5566d39083](https://github.com/tomasbjerre/git-changelog-lib/commit/743ab5566d39083) Tomas Bjerre *2017-03-25 16:31:51*
+
+
 ## 1.66
 ### GitHub [#42](https://github.com/tomasbjerre/git-changelog-lib/issues/42) GitLab integration    *enhancement*  
 
