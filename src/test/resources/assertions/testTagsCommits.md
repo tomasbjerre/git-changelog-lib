@@ -40,14 +40,14 @@ Adding stuff with a jira
 Adding stuff
  with gh again
 
-## test-lightweight-2
+## test-lightweight-2 (2016-02-15 16:30:35)
 
 ### Tomas Bjerre - 2016-02-15 16:30:35
 [a9bd03b34b255ff](https://server/a9bd03b34b255ff)
 
 Adding cq stuff with CQ
 
-## test-1.0
+## test-1.0 (2016-02-15 16:30:35)
 this is the tag for test-1.0&#10;
 ### Tomas Bjerre - 2016-02-15 16:30:35
 [d50a3e332f9fcba](https://server/d50a3e332f9fcba)

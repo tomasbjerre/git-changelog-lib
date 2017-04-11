@@ -6,6 +6,8 @@ import se.bjurr.gitchangelog.api.model.interfaces.IAuthors;
 import se.bjurr.gitchangelog.api.model.interfaces.ICommits;
 import se.bjurr.gitchangelog.api.model.interfaces.IIssues;
 
+import static com.google.common.base.Strings.isNullOrEmpty;
+
 public class Tag implements ICommits, IAuthors, IIssues, Serializable {
   private static final long serialVersionUID = 2140208294219785889L;
   private final String annotation;
@@ -14,6 +16,9 @@ public class Tag implements ICommits, IAuthors, IIssues, Serializable {
   private final List<Issue> issues;
   private final List<IssueType> issueTypes;
   private final String name;
+  private final String tagTime;
+  private final Long tagTimeLong;
+  private final boolean hasTagTime;
 
   public Tag(
       String name,
@@ -21,13 +26,18 @@ public class Tag implements ICommits, IAuthors, IIssues, Serializable {
       List<Commit> commits,
       List<Author> authors,
       List<Issue> issues,
-      List<IssueType> issueTypes) {
+      List<IssueType> issueTypes,
+      String tagTime,
+      Long tagTimeLong) {
     this.commits = commits;
     this.authors = authors;
     this.issues = issues;
     this.name = name;
     this.annotation = annotation;
     this.issueTypes = issueTypes;
+    this.tagTime = tagTime;
+    this.tagTimeLong = tagTimeLong;
+    this.hasTagTime = !isNullOrEmpty(tagTime);
   }
 
   public String getAnnotation() {
@@ -59,6 +69,18 @@ public class Tag implements ICommits, IAuthors, IIssues, Serializable {
 
   public String getName() {
     return this.name;
+  }
+
+  public String getTagTime() {
+    return this.tagTime;
+  }
+
+  public Long getTagTimeLong() {
+    return this.tagTimeLong;
+  }
+
+  public boolean isHasTagTime() {
+    return this.hasTagTime;
   }
 
   @Override

@@ -32,7 +32,8 @@ public class GitRepoDataHelper {
             new GitTag(
                 gitTag.getName(),
                 gitTag.findAnnotation().orNull(),
-                newArrayList(reducedCommitsInTag)));
+                newArrayList(reducedCommitsInTag),
+                gitTag.getTagTime()));
       }
     }
 
