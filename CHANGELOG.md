@@ -3,6 +3,15 @@
 Changelog of Git Changelog.
 
 ## Next release
+### Other changes
+
+**tag time added to tag model**
+
+
+[8c5837402c4a802](https://github.com/tomasbjerre/git-changelog-lib/commit/8c5837402c4a802) Alik Kurdyukov *2017-04-11 18:33:29*
+
+
+## 1.67
 ### GitHub [#2](https://github.com/tomasbjerre/git-changelog-lib/issues/2) GitHub Integration    *enhancement*  
 
 **GitLab integration**

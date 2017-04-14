@@ -1,12 +1,12 @@
 package se.bjurr.gitchangelog.api.model;
 
+import static com.google.common.base.Strings.isNullOrEmpty;
+
 import java.io.Serializable;
 import java.util.List;
 import se.bjurr.gitchangelog.api.model.interfaces.IAuthors;
 import se.bjurr.gitchangelog.api.model.interfaces.ICommits;
 import se.bjurr.gitchangelog.api.model.interfaces.IIssues;
-
-import static com.google.common.base.Strings.isNullOrEmpty;
 
 public class Tag implements ICommits, IAuthors, IIssues, Serializable {
   private static final long serialVersionUID = 2140208294219785889L;

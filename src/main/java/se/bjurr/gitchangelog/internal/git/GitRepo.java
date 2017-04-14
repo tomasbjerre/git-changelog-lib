@@ -299,15 +299,22 @@ public class GitRepo implements Closeable {
     Map<String, Set<GitCommit>> commitsPerTag = newHashMap();
     Map<String, Date> datePerTag = newHashMap();
 
-    populateComitPerTag(from, to, tagPerCommitHash, tagPerCommitsHash, commitsPerTag, datePerTag, null);
-    populateComitPerTag(from, to, tagPerCommitHash, tagPerCommitsHash, commitsPerTag, datePerTag, untaggedName);
+    populateComitPerTag(
+        from, to, tagPerCommitHash, tagPerCommitsHash, commitsPerTag, datePerTag, null);
+    populateComitPerTag(
+        from, to, tagPerCommitHash, tagPerCommitsHash, commitsPerTag, datePerTag, untaggedName);
 
     List<GitTag> tags = newArrayList();
     addToTags(commitsPerTag, untaggedName, null, tags, annotatedTagPerTagName);
     List<Ref> tagCommitHashSortedByCommitTime =
         getTagCommitHashSortedByCommitTime(tagPerCommitHash.values());
     for (Ref tag : tagCommitHashSortedByCommitTime) {
-      addToTags(commitsPerTag, tag.getName(), datePerTag.get(tag.getName()), tags, annotatedTagPerTagName);
+      addToTags(
+          commitsPerTag,
+          tag.getName(),
+          datePerTag.get(tag.getName()),
+          tags,
+          annotatedTagPerTagName);
     }
     return tags;
   }
@@ -338,7 +345,13 @@ public class GitRepo implements Closeable {
       throws Exception {
     Set<TraversalWork> moreWork =
         populateCommitPerTag(
-            from, to, commitsPerTag, tagPerCommitHash, tagPerCommitsHash, datePerTag, startingTagName);
+            from,
+            to,
+            commitsPerTag,
+            tagPerCommitHash,
+            tagPerCommitsHash,
+            datePerTag,
+            startingTagName);
     do {
       Set<TraversalWork> evenMoreWork = newTreeSet();
       for (TraversalWork tw : newArrayList(moreWork)) {
