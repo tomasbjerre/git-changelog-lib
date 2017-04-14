@@ -137,19 +137,23 @@ public class GitRepo implements Closeable {
     return "Repo: " + this.repository + "\n" + sb.toString();
   }
 
-  private void addCommitToCurrentTag(
+  private boolean addCommitToCurrentTag(
       Map<String, Set<GitCommit>> commitsPerTagName, String currentTagName, RevCommit thisCommit) {
     GitCommit gitCommit = toGitCommit(thisCommit);
+    boolean newTagFound = false;
     if (!commitsPerTagName.containsKey(currentTagName)) {
       commitsPerTagName.put(currentTagName, new TreeSet<GitCommit>());
+      newTagFound = true;
     }
     Set<GitCommit> gitCommitsInCurrentTag = commitsPerTagName.get(currentTagName);
     gitCommitsInCurrentTag.add(gitCommit);
+    return newTagFound;
   }
 
   private void addToTags(
       Map<String, Set<GitCommit>> commitsPerTag,
       String tagName,
+      Date tagTime,
       List<GitTag> addTo,
       Map<String, RevTag> annotatedTagPerTagName) {
     if (commitsPerTag.containsKey(tagName)) {
@@ -160,7 +164,7 @@ public class GitRepo implements Closeable {
         annotation = annotatedTagPerTagName.get(tagName).getFullMessage();
       }
 
-      GitTag gitTag = new GitTag(tagName, annotation, newArrayList(gitCommits));
+      GitTag gitTag = new GitTag(tagName, annotation, newArrayList(gitCommits), tagTime);
       addTo.add(gitTag);
     }
   }
@@ -293,16 +297,17 @@ public class GitRepo implements Closeable {
      * Why: Its what we are here for! =)
      */
     Map<String, Set<GitCommit>> commitsPerTag = newHashMap();
+    Map<String, Date> datePerTag = newHashMap();
 
-    populateComitPerTag(from, to, tagPerCommitHash, tagPerCommitsHash, commitsPerTag, null);
-    populateComitPerTag(from, to, tagPerCommitHash, tagPerCommitsHash, commitsPerTag, untaggedName);
+    populateComitPerTag(from, to, tagPerCommitHash, tagPerCommitsHash, commitsPerTag, datePerTag, null);
+    populateComitPerTag(from, to, tagPerCommitHash, tagPerCommitsHash, commitsPerTag, datePerTag, untaggedName);
 
     List<GitTag> tags = newArrayList();
-    addToTags(commitsPerTag, untaggedName, tags, annotatedTagPerTagName);
+    addToTags(commitsPerTag, untaggedName, null, tags, annotatedTagPerTagName);
     List<Ref> tagCommitHashSortedByCommitTime =
         getTagCommitHashSortedByCommitTime(tagPerCommitHash.values());
     for (Ref tag : tagCommitHashSortedByCommitTime) {
-      addToTags(commitsPerTag, tag.getName(), tags, annotatedTagPerTagName);
+      addToTags(commitsPerTag, tag.getName(), datePerTag.get(tag.getName()), tags, annotatedTagPerTagName);
     }
     return tags;
   }
@@ -328,11 +333,12 @@ public class GitRepo implements Closeable {
       Map<String, Ref> tagPerCommitHash,
       Map<String, String> tagPerCommitsHash,
       Map<String, Set<GitCommit>> commitsPerTag,
+      Map<String, Date> datePerTag,
       String startingTagName)
       throws Exception {
     Set<TraversalWork> moreWork =
         populateCommitPerTag(
-            from, to, commitsPerTag, tagPerCommitHash, tagPerCommitsHash, startingTagName);
+            from, to, commitsPerTag, tagPerCommitHash, tagPerCommitsHash, datePerTag, startingTagName);
     do {
       Set<TraversalWork> evenMoreWork = newTreeSet();
       for (TraversalWork tw : newArrayList(moreWork)) {
@@ -344,6 +350,7 @@ public class GitRepo implements Closeable {
                 commitsPerTag,
                 tagPerCommitHash,
                 tagPerCommitsHash,
+                datePerTag,
                 tw.getCurrentTagName());
         evenMoreWork.addAll(newWork);
       }
@@ -358,6 +365,7 @@ public class GitRepo implements Closeable {
       Map<String, Set<GitCommit>> commitsPerTagName,
       Map<String, Ref> tagPerCommitHash,
       Map<String, String> tagPerCommitsHash,
+      Map<String, Date> datePerTag,
       String currentTagName)
       throws Exception {
     String thisCommitHash = to.getName();
@@ -370,7 +378,9 @@ public class GitRepo implements Closeable {
       currentTagName = getTagName(tagPerCommitHash, thisCommitHash);
     }
     if (currentTagName != null) {
-      addCommitToCurrentTag(commitsPerTagName, currentTagName, thisCommit);
+      if (addCommitToCurrentTag(commitsPerTagName, currentTagName, thisCommit)) {
+        datePerTag.put(currentTagName, new Date(thisCommit.getCommitTime() * 1000L));
+      }
       noteThatTheCommitWasMapped(tagPerCommitsHash, currentTagName, thisCommitHash);
     }
     if (notFirstIncludedCommit(from, to)) {

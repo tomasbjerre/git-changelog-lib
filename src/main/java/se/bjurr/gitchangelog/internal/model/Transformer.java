@@ -139,7 +139,9 @@ public class Transformer {
                     commits,
                     authors,
                     issues,
-                    issueTypes);
+                    issueTypes,
+                    input.getTagTime() != null ? format(input.getTagTime()) : "",
+                    input.getTagTime() != null ? input.getTagTime().getTime() : -1);
               }
 
               private List<ParsedIssue> reduceParsedIssuesToOnlyGitCommits(

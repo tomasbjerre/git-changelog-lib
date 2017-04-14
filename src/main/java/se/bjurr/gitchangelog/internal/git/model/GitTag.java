@@ -5,6 +5,8 @@ import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import com.google.common.base.Optional;
+
+import java.util.Date;
 import java.util.List;
 import se.bjurr.gitchangelog.internal.model.interfaces.IGitCommitReferer;
 
@@ -13,12 +15,14 @@ public class GitTag implements IGitCommitReferer {
   private final String annotation;
   private final List<GitCommit> gitCommits;
   private final String name;
+  private final Date tagTime;
 
-  public GitTag(String name, String annotation, List<GitCommit> gitCommits) {
+  public GitTag(String name, String annotation, List<GitCommit> gitCommits, Date tagTime) {
     checkArgument(!gitCommits.isEmpty(), "No commits in " + name);
     this.name = checkNotNull(name, "name");
     this.annotation = annotation;
     this.gitCommits = gitCommits;
+    this.tagTime = tagTime;
   }
 
   public Optional<String> findAnnotation() {
@@ -37,6 +41,10 @@ public class GitTag implements IGitCommitReferer {
   @Override
   public String getName() {
     return this.name;
+  }
+
+  public Date getTagTime() {
+    return this.tagTime;
   }
 
   @Override

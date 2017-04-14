@@ -30,7 +30,7 @@ Here is an example template.
 Changelog of Git Changelog.
 
 {{#tags}}
-## {{name}}
+## {{name}}{{#hasTagTime}} ({{tagTime}}){{/hasTagTime}}
  {{#issues}}
   {{#hasIssue}}
    {{#hasLink}}
@@ -81,6 +81,8 @@ The template is supplied with a datastructure like:
 * tags
  - name
  - annotation
+ - tagTime
+ - hasTagTime
  * commits
   - authorName
   - authorEmailAddress
