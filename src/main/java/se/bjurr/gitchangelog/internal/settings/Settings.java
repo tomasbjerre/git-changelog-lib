@@ -86,7 +86,7 @@ public class Settings implements Serializable {
    * Your tags may look something like <code>git-changelog-maven-plugin-1.6</code>. But in the
    * changelog you just want <code>1.6</code>. With this regular expression, the numbering can be
    * extracted from the tag name.<br>
-   * <code>/([^/]+?)$</code>
+   * <code>/([^-]+?)$</code>
    */
   private String readableTagName;
   /** Format of dates, see {@link SimpleDateFormat}. */
