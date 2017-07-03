@@ -10,6 +10,7 @@ public final class GitChangelogApiConstants {
   public static final String DEFAULT_DATEFORMAT = "YYYY-MM-dd HH:mm:ss";
   public static final String DEFAULT_IGNORE_COMMITS_REGEXP =
       "^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*";
+  public static final String DEFAULT_IGNORE_COMMITS_DATE = "";
   public static final String DEFAULT_UNTAGGED_NAME = "Unreleased";
   public static final String DEFAULT_READABLE_TAG_NAME = "/([^/]+?)$";
   public static final String DEFAULT_NO_ISSUE_NAME = "No issue";
