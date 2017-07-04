@@ -245,7 +245,7 @@ public class GitChangelogApi {
    * ^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*
    * </code>
    */
-  public GitChangelogApi withIgnoreCommitsWithMesssage(String ignoreCommitsIfMessageMatches) {
+  public GitChangelogApi withIgnoreCommitsWithMessage(String ignoreCommitsIfMessageMatches) {
     this.settings.setIgnoreCommitsIfMessageMatches(ignoreCommitsIfMessageMatches);
     return this;
   }

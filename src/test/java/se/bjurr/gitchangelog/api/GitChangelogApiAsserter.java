@@ -40,7 +40,7 @@ public class GitChangelogApiAsserter {
 
     if (this.ignoreCommitsIfMessageMatches != null) {
       gitChangelogApiBuilder //
-          .withIgnoreCommitsWithMesssage(this.ignoreCommitsIfMessageMatches);
+          .withIgnoreCommitsWithMessage(this.ignoreCommitsIfMessageMatches);
     }
 
     String changelog = toJson(gitChangelogApiBuilder.getChangelog());
@@ -67,7 +67,7 @@ public class GitChangelogApiAsserter {
             .withFromRepo(".") //
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
-            .withIgnoreCommitsWithMesssage(
+            .withIgnoreCommitsWithMessage(
                 "^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*") //
             .withIgnoreTagsIfNameMatches(".*tag-in-test-feature$") //
             .withReadableTagName("/([^/]+?)$") //
@@ -91,7 +91,7 @@ public class GitChangelogApiAsserter {
 
     if (this.ignoreCommitsIfMessageMatches != null) {
       withTemplatePath //
-          .withIgnoreCommitsWithMesssage(this.ignoreCommitsIfMessageMatches);
+          .withIgnoreCommitsWithMessage(this.ignoreCommitsIfMessageMatches);
     }
 
     assertEquals(
