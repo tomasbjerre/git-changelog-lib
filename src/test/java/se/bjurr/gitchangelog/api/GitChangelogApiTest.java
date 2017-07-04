@@ -62,7 +62,7 @@ public class GitChangelogApiTest {
                 .withFromCommit(ZERO_COMMIT) //
                 .withToRef("test") //
                 .withTemplatePath(templatePath) //
-                .withIgnoreCommitsWithMesssage(".*") //
+                .withIgnoreCommitsWithMessage(".*") //
                 .render() //
                 .trim())
         .hasSize(74);
