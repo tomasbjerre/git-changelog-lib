@@ -33,7 +33,7 @@ public class GitChangelogTest {
         .withSettings(new File(repoRoot + "/changelog.json").toURI().toURL()) //
         .withGitHubToken(gitHubToken) //
         .withJiraServer(null) //
-        .toFile(toFile);
+        .toFile(new File(toFile));
     LOG.info("Wrote " + toFile);
   }
 

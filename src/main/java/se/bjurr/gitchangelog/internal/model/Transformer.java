@@ -79,13 +79,7 @@ public class Transformer {
   }
 
   public List<Commit> toCommits(Collection<GitCommit> from) {
-    Iterable<GitCommit> filteredCommits =
-        filter(
-            from,
-            ignoreCommits(
-                this.settings.getIgnoreCommitsIfMessageMatches(),
-                this.settings.getIgnoreCommitsIfOlderThan(),
-                this.settings.getDateFormat()));
+    Iterable<GitCommit> filteredCommits = filter(from, ignoreCommits(settings));
     return newArrayList(
         transform(
             filteredCommits,

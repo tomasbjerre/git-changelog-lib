@@ -3,7 +3,47 @@
 Changelog of Git Changelog.
 
 ## Next release
+### GitHub [#47](https://github.com/tomasbjerre/git-changelog-lib/pull/47) Add ignoreCommitsOlderThan date limiting    *enhancement*  
+
+**Adjustments after merge of**
+
+ * Using the Date data type instead of String to supply ignoreCommitsOlderThan. 
+ * Making ignoreCommits more effective. 
+ * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer. 
+
+[94ab68796f7d271](https://github.com/tomasbjerre/git-changelog-lib/commit/94ab68796f7d271) Tomas Bjerre *2017-07-07 20:03:46*
+
+
 ### Other changes
+
+**Fix CommitsWithMesssage typo -> CommitsWithMessage**
+
+
+[67667ba3a5258fd](https://github.com/tomasbjerre/git-changelog-lib/commit/67667ba3a5258fd) jakob *2017-07-04 00:16:47*
+
+**Add ignoreCommitsOlderThan date limiting**
+
+ * The rationale is that perhaps projects might: 
+ * use a git-based changelog to inform coworkers, rather than 
+ * customers, making a more short-lived &quot;news&quot;-style log desirable, 
+ * not (yet?) use frequent-enough tags in their repository, 
+ * want to provide a sense for the liveliness of a project 
+
+[671816d3dc3d60a](https://github.com/tomasbjerre/git-changelog-lib/commit/671816d3dc3d60a) jakob *2017-07-03 23:53:47*
+
+**Fix typo in readableTagName javadoc**
+
+
+[6310062f7a0470c](https://github.com/tomasbjerre/git-changelog-lib/commit/6310062f7a0470c) jakob *2017-05-31 18:45:11*
+
+
+## 1.68
+### Other changes
+
+**doc**
+
+
+[92fca3cfbb690ae](https://github.com/tomasbjerre/git-changelog-lib/commit/92fca3cfbb690ae) Tomas Bjerre *2017-04-14 09:08:25*
 
 **tag time added to tag model**
 

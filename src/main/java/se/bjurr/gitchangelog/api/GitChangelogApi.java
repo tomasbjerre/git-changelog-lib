@@ -23,8 +23,10 @@ import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.io.Writer;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import org.eclipse.jgit.lib.ObjectId;
@@ -79,16 +81,15 @@ public class GitChangelogApi {
   }
 
   /**
-   * Get the changelog as rendered string.
+   * Get the changelog.
    *
    * @throws GitChangelogRepositoryException
    */
-  public String render() throws GitChangelogRepositoryException {
+  public void render(Writer writer) throws GitChangelogRepositoryException {
     MustacheFactory mf = new DefaultMustacheFactory();
     String templateContent = checkNotNull(getTemplateContent(), "No template!");
     StringReader reader = new StringReader(templateContent);
     Mustache mustache = mf.compile(reader, this.settings.getTemplatePath());
-    StringWriter writer = new StringWriter();
     try {
       mustache
           .execute(
@@ -100,6 +101,12 @@ public class GitChangelogApi {
       // Should be impossible!
       throw new GitChangelogRepositoryException("", e);
     }
+  }
+
+  /** Get the changelog. */
+  public String render() throws GitChangelogRepositoryException {
+    Writer writer = new StringWriter();
+    render(writer);
     return writer.toString();
   }
 
@@ -109,8 +116,7 @@ public class GitChangelogApi {
    * @throws GitChangelogRepositoryException
    * @throws IOException When file cannot be written.
    */
-  public void toFile(String filePath) throws GitChangelogRepositoryException, IOException {
-    File file = new File(filePath);
+  public void toFile(File file) throws GitChangelogRepositoryException, IOException {
     createParentDirs(file);
     write(render().getBytes(), file);
   }
@@ -251,12 +257,11 @@ public class GitChangelogApi {
   }
 
   /**
-   * A date in the format given by {@link Changelog#setDateFormat()} that is evaluated on the author
-   * date of each commit. If the commit is older than the point in time given, then it will be
-   * filtered out and not included in the changelog. <br>
+   * A date that is evaluated on the author date of each commit. If the commit is older than the
+   * point in time given, then it will be filtered out and not included in the changelog. <br>
    * See {@link SimpleDateFormat}.
    */
-  public GitChangelogApi withIgnoreCommitsOlderThan(String ignoreCommitsIfOlderThan) {
+  public GitChangelogApi withIgnoreCommitsOlderThan(Date ignoreCommitsIfOlderThan) {
     this.settings.setIgnoreCommitsIfOlderThan(ignoreCommitsIfOlderThan);
     return this;
   }
