@@ -251,6 +251,17 @@ public class GitChangelogApi {
   }
 
   /**
+   * A date in the format given by {@link Changelog#setDateFormat()} that is evaluated on the author
+   * date of each commit. If the commit is older than the point in time given, then it will be
+   * filtered out and not included in the changelog. <br>
+   * See {@link SimpleDateFormat}.
+   */
+  public GitChangelogApi withIgnoreCommitsOlderThan(String ignoreCommitsIfOlderThan) {
+    this.settings.setIgnoreCommitsIfOlderThan(ignoreCommitsIfOlderThan);
+    return this;
+  }
+
+  /**
    * If a commit cannot be mapped to any issue, it can be added to the virtual " {@link
    * GitChangelogApi#withNoIssueName no issue}"-issue.<br>
    * <br>

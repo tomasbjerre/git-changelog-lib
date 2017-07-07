@@ -10,6 +10,7 @@ import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_DATEFOR
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_FILE;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_GITHUB_ISSUE_PATTERN;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_GITLAB_ISSUE_PATTERN;
+import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_IGNORE_COMMITS_DATE;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_IGNORE_COMMITS_REGEXP;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_JIRA_ISSUE_PATTEN;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_NO_ISSUE_NAME;
@@ -71,6 +72,13 @@ public class Settings implements Serializable {
    * </code>
    */
   private String ignoreCommitsIfMessageMatches;
+  /**
+   * A date in the format given by {@link Changelog#setDateFormat()} that is evaluated on the author
+   * date of each commit. If the commit is older than the point in time given, then it will be
+   * filtered out and not included in the changelog. <br>
+   * See {@link SimpleDateFormat}.
+   */
+  private String ignoreCommitsIfOlderThan;
   /**
    * Some commits may not be included in any tag. Commits that not released yet may not be tagged.
    * This is a "virtual tag", added to {@link Changelog#getTags()}, that includes those commits. A
@@ -201,6 +209,10 @@ public class Settings implements Serializable {
     this.ignoreTagsIfNameMatches = ignoreTagsIfNameMatches;
   }
 
+  public void setIgnoreCommitsIfOlderThan(String ignoreCommitsIfOlderThan) {
+    this.ignoreCommitsIfOlderThan = ignoreCommitsIfOlderThan;
+  }
+
   public void setJiraIssuePattern(String jiraIssuePattern) {
     this.jiraIssuePattern = jiraIssuePattern;
   }
@@ -222,6 +234,10 @@ public class Settings implements Serializable {
 
   public String getIgnoreCommitsIfMessageMatches() {
     return fromNullable(ignoreCommitsIfMessageMatches).or(DEFAULT_IGNORE_COMMITS_REGEXP);
+  }
+
+  public String getIgnoreCommitsIfOlderThan() {
+    return fromNullable(ignoreCommitsIfOlderThan).or(DEFAULT_IGNORE_COMMITS_DATE);
   }
 
   public String getJiraIssuePattern() {
