@@ -425,6 +425,15 @@ public class GitChangelogApi {
             toId,
             this.settings.getUntaggedName(),
             this.settings.getIgnoreTagsIfNameMatches());
+
+    if (!settings.getGitHubApi().isPresent()) {
+      settings.setGitHubApi(gitRepoData.findGitHubApi().orNull());
+    }
+    if (!settings.getGitLabServer().isPresent()) {
+      settings.setGitLabServer(gitRepoData.findGitLabServer().orNull());
+      settings.setGitLabProjectName(gitRepoData.findOwnerName().orNull());
+    }
+
     List<GitCommit> diff = gitRepoData.getGitCommits();
     List<ParsedIssue> issues = new IssueParser(this.settings, diff).parseForIssues();
     if (this.settings.ignoreCommitsWithoutIssue()) {
@@ -438,7 +447,9 @@ public class GitChangelogApi {
         transformer.toTags(tags, issues), //
         transformer.toAuthors(diff), //
         transformer.toIssues(issues), //
-        transformer.toIssueTypes(issues));
+        transformer.toIssueTypes(issues), //
+        gitRepoData.findOwnerName().orNull(), //
+        gitRepoData.findRepoName().orNull());
   }
 
   private Optional<ObjectId> getId(GitRepo gitRepo, Optional<String> ref, Optional<String> commit)

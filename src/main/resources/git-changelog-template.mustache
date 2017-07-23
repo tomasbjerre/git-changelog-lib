@@ -1,19 +1,32 @@
-# Git Changelog changelog
+# Changelog
 
-Changelog of Git Changelog.
+Changelog for {{ownerName}} {{repoName}}.
 
 {{#tags}}
 ## {{name}}
  {{#issues}}
-### {{name}} {{issue}}
-  {{#authors}}
-* {{authorName}}
-   {{#commits}}
-{{commitTime}}
-{{{message}}}
+  {{#hasIssue}}
+   {{#hasLink}}
+### {{name}} [{{issue}}]({{link}}) {{title}} {{#hasIssueType}} *{{issueType}}* {{/hasIssueType}} {{#hasLabels}} {{#labels}} *{{.}}* {{/labels}} {{/hasLabels}}
+   {{/hasLink}}
+   {{^hasLink}}
+### {{name}} {{issue}} {{title}} {{#hasIssueType}} *{{issueType}}* {{/hasIssueType}} {{#hasLabels}} {{#labels}} *{{.}}* {{/labels}} {{/hasLabels}}
+   {{/hasLink}}
+  {{/hasIssue}}
+  {{^hasIssue}}
+### {{name}}
+  {{/hasIssue}}
 
-   {{/commits}}
+  {{#commits}}
+**{{{messageTitle}}}**
 
-  {{/authors}}
+{{#messageBodyItems}}
+ * {{.}} 
+{{/messageBodyItems}}
+
+[{{hash}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}} *{{commitTime}}*
+
+  {{/commits}}
+
  {{/issues}}
 {{/tags}}

@@ -15,18 +15,24 @@ public class Changelog implements ICommits, IAuthors, IIssues, Serializable {
   private final List<Author> authors;
   private final List<Issue> issues;
   private final List<IssueType> issueTypes;
+  private final String ownerName;
+  private final String repoName;
 
   public Changelog(
       List<Commit> commits,
       List<Tag> tags,
       List<Author> authors,
       List<Issue> issues,
-      List<IssueType> issueTypes) {
+      List<IssueType> issueTypes,
+      String ownerName,
+      String repoName) {
     this.commits = checkNotNull(commits, "commits");
     this.tags = checkNotNull(tags, "tags");
     this.authors = checkNotNull(authors, "authors");
     this.issues = checkNotNull(issues, "issues");
     this.issueTypes = checkNotNull(issueTypes, "issueTypes");
+    this.ownerName = ownerName;
+    this.repoName = repoName;
   }
 
   @Override
@@ -42,6 +48,14 @@ public class Changelog implements ICommits, IAuthors, IIssues, Serializable {
   @Override
   public List<Commit> getCommits() {
     return commits;
+  }
+
+  public String getOwnerName() {
+    return ownerName;
+  }
+
+  public String getRepoName() {
+    return repoName;
   }
 
   public List<Tag> getTags() {

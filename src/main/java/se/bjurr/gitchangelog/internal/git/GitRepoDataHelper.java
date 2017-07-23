@@ -37,7 +37,8 @@ public class GitRepoDataHelper {
       }
     }
 
-    return new GitRepoData(reducedGitTags);
+    String originCloneUrl = gitRepoData.getOriginCloneUrl();
+    return new GitRepoData(originCloneUrl, reducedGitTags);
   }
 
   private GitRepoDataHelper() {}

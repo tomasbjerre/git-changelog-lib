@@ -148,6 +148,8 @@ public class GitChangelogApiTest {
         gitChangelogApiBuilder() //
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
+            .withGitHubIssuePattern("nooo") //
+            .withGitLabIssuePattern("nooo") //
             .withCustomIssue("JIRA", "JIR-[0-9]*", "http://${PATTERN_GROUP}", "${PATTERN_GROUP}") //
             .withIgnoreCommitsWithoutIssue(true) //
             .withTemplatePath(templatePath);

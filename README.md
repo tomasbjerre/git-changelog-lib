@@ -25,12 +25,12 @@ This software can be used:
 
 Here is an example template. 
 ```
-# Git Changelog changelog
+# Changelog
 
-Changelog of Git Changelog.
+Changelog for {{ownerName}} {{repoName}}.
 
 {{#tags}}
-## {{name}}{{#hasTagTime}} ({{tagTime}}){{/hasTagTime}}
+## {{name}}
  {{#issues}}
   {{#hasIssue}}
    {{#hasLink}}
@@ -51,7 +51,7 @@ Changelog of Git Changelog.
  * {{.}} 
 {{/messageBodyItems}}
 
-[{{hash}}](https://github.com/tomasbjerre/git-changelog-lib/commit/{{hash}}) {{authorName}} *{{commitTime}}*
+[{{hash}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}} *{{commitTime}}*
 
   {{/commits}}
 
@@ -65,8 +65,10 @@ There are also different variations [here](https://github.com/tomasbjerre/git-ch
 
 ## Supplied information
 
-The template is supplied with a datastructure like:
+The template is supplied with this context:
 ```
+- ownerName (Derived from the clone URL, for this repo it would be "tomasbjerre")
+- repoName (Derived from the clone URL, for this repo it would be "git-changelog-lib")
 * commits
  - authorName
  - authorEmailAddress

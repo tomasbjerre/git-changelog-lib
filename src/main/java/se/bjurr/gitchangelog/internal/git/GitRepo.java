@@ -103,7 +103,9 @@ public class GitRepo implements Closeable {
       ObjectId from, ObjectId to, String untaggedName, Optional<String> ignoreTagsIfNameMatches)
       throws GitChangelogRepositoryException {
     try {
-      return new GitRepoData(gitTags(from, to, untaggedName, ignoreTagsIfNameMatches));
+      String originUrl = this.git.getRepository().getConfig().getString("remote", "origin", "url");
+      List<GitTag> gitTags = gitTags(from, to, untaggedName, ignoreTagsIfNameMatches);
+      return new GitRepoData(originUrl, gitTags);
     } catch (Exception e) {
       throw new GitChangelogRepositoryException(toString(), e);
     }

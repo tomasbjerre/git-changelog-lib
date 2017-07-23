@@ -1,8 +1,27 @@
-# Git Changelog changelog
+# Changelog
 
-Changelog of Git Changelog.
+Changelog for tomasbjerre git-changelog-lib.
 
 ## Next release
+### GitHub [#49](https://github.com/tomasbjerre/git-changelog-lib/issues/49) Ability to grab the url from the git config.    *enhancement*  
+
+**Gathering repo provider information**
+
+ * Getting ownerName and repoName from clone URL. 
+ * Setting GitLab server and GitHub API from clone URL. 
+
+[a78e4cdcbe3ae07](https://github.com/tomasbjerre/git-changelog-lib/commit/a78e4cdcbe3ae07) Tomas Bjerre *2017-07-23 18:42:04*
+
+
+### Other changes
+
+**Cleaning**
+
+
+[3c0bf2f7885bff3](https://github.com/tomasbjerre/git-changelog-lib/commit/3c0bf2f7885bff3) Tomas Bjerre *2017-07-16 05:55:55*
+
+
+## 1.69
 ### GitHub [#47](https://github.com/tomasbjerre/git-changelog-lib/pull/47) Add ignoreCommitsOlderThan date limiting    *enhancement*  
 
 **Adjustments after merge of**
@@ -11,7 +30,7 @@ Changelog of Git Changelog.
  * Making ignoreCommits more effective. 
  * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer. 
 
-[94ab68796f7d271](https://github.com/tomasbjerre/git-changelog-lib/commit/94ab68796f7d271) Tomas Bjerre *2017-07-07 20:03:46*
+[121e65493ec764b](https://github.com/tomasbjerre/git-changelog-lib/commit/121e65493ec764b) Tomas Bjerre *2017-07-07 20:04:00*
 
 
 ### Other changes
