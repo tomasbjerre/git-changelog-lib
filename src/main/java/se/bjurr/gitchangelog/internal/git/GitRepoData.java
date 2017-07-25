@@ -4,13 +4,11 @@ import static com.google.common.base.Optional.absent;
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Sets.newTreeSet;
 
+import com.google.common.base.Optional;
 import java.util.List;
 import java.util.Set;
-
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
-
-import com.google.common.base.Optional;
 
 public class GitRepoData {
   private final List<GitCommit> gitCommits;
@@ -72,9 +70,10 @@ public class GitRepoData {
     if (originCloneUrl == null) {
       return absent();
     }
-    String[] parts = this.originCloneUrl//
-    		.replaceAll("\\.git$", "")//
-    		.split("[/:\\.]");
+    String[] parts =
+        this.originCloneUrl //
+            .replaceAll("\\.git$", "") //
+            .split("[/:\\.]");
     if (parts.length > i) {
       return Optional.of(parts[parts.length - i - 1]);
     }
