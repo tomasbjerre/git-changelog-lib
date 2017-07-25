@@ -4,7 +4,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.junit.Test;
+
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 
 public class GitRepoDataTest {
@@ -25,6 +27,21 @@ public class GitRepoDataTest {
 
     assertThat(sut.findGitHubApi().orNull()) //
         .isEqualTo("https://api.github.com/repos/tomasbjerre/git-changelog-lib");
+    assertThat(sut.findGitLabServer().orNull()) //
+        .isEqualTo(null);
+  }
+
+  @Test
+  public void testGitHubRepoNoDotGit() {
+    GitRepoData sut = newGitRepoData("https://github.com/VoltzEngine-Project/Build");
+
+    assertThat(sut.findOwnerName().orNull()) //
+        .isEqualTo("VoltzEngine-Project");
+    assertThat(sut.findRepoName().orNull()) //
+        .isEqualTo("Build");
+
+    assertThat(sut.findGitHubApi().orNull()) //
+        .isEqualTo("https://api.github.com/repos/VoltzEngine-Project/Build");
     assertThat(sut.findGitLabServer().orNull()) //
         .isEqualTo(null);
   }

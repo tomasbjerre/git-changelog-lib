@@ -2,7 +2,7 @@
 
 Changelog for tomasbjerre git-changelog-lib.
 
-## Next release
+## 1.70
 ### GitHub [#49](https://github.com/tomasbjerre/git-changelog-lib/issues/49) Ability to grab the url from the git config.    *enhancement*  
 
 **Gathering repo provider information**
@@ -10,7 +10,7 @@ Changelog for tomasbjerre git-changelog-lib.
  * Getting ownerName and repoName from clone URL. 
  * Setting GitLab server and GitHub API from clone URL. 
 
-[a78e4cdcbe3ae07](https://github.com/tomasbjerre/git-changelog-lib/commit/a78e4cdcbe3ae07) Tomas Bjerre *2017-07-23 18:42:04*
+[dd8497034624b12](https://github.com/tomasbjerre/git-changelog-lib/commit/dd8497034624b12) Tomas Bjerre *2017-07-23 19:10:43*
 
 
 ### Other changes
