@@ -10,16 +10,21 @@ import static java.net.URLEncoder.encode;
 import static java.util.concurrent.TimeUnit.MINUTES;
 import static org.slf4j.LoggerFactory.getLogger;
 
-import com.google.common.base.Optional;
+import java.io.DataOutputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
 import java.util.Map.Entry;
+
 import net.minidev.json.JSONArray;
+
 import org.slf4j.Logger;
+
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 import se.bjurr.gitchangelog.internal.integrations.rest.RestClient;
+
+import com.google.common.base.Optional;
 
 public class MediaWikiClient extends RestClient {
 
@@ -29,7 +34,7 @@ public class MediaWikiClient extends RestClient {
   private static class HttpState {
     private String cookieString;
     private String editToken;
-    private String wikiToken;
+    private String loginToken;
 
     public HttpState() {}
 
@@ -41,10 +46,6 @@ public class MediaWikiClient extends RestClient {
       return fromNullable(cookieString);
     }
 
-    public void setWikiToken(String wikiToken) {
-      this.wikiToken = wikiToken;
-    }
-
     public String getEditToken() {
       return editToken;
     }
@@ -53,8 +54,12 @@ public class MediaWikiClient extends RestClient {
       this.editToken = token;
     }
 
-    public String getWikiToken() {
-      return wikiToken;
+    public String getLoginToken() {
+      return loginToken;
+    }
+
+    public void setLoginToken(String loginToken) {
+      this.loginToken = loginToken;
     }
   }
 
@@ -80,7 +85,7 @@ public class MediaWikiClient extends RestClient {
   public void createMediaWikiPage() throws GitChangelogIntegrationException {
     checkNotNull(title, "No title set for MediaWiki");
     try {
-      HttpState httpState = new HttpState();
+      final HttpState httpState = new HttpState();
       if (shouldAuthenticate(username, password)) {
         logger.info("Authenticating to " + url);
         doAuthenticate(httpState, url, username, password);
@@ -91,7 +96,7 @@ public class MediaWikiClient extends RestClient {
       logger.info("Using edit token " + httpState.getEditToken());
       createPage(httpState, url, title, text);
       logger.info("Created " + url + "/index.php/" + title);
-    } catch (Exception e) {
+    } catch (final Exception e) {
       throw new GitChangelogIntegrationException(url + " " + title, e);
     }
   }
@@ -102,12 +107,12 @@ public class MediaWikiClient extends RestClient {
 
   private void createPage(HttpState httpState, String url, String title, String text)
       throws Exception {
-    URL wikiurl = new URL(url + "/api.php");
-    HttpURLConnection conn = openConnection(wikiurl);
+    final URL wikiurl = new URL(url + "/api.php");
+    final HttpURLConnection conn = openConnection(wikiurl);
     try {
       conn.setRequestMethod("POST");
 
-      Map<String, String> params = newHashMap();
+      final Map<String, String> params = newHashMap();
       params.put("format", "json");
       params.put("token", httpState.getEditToken());
       params.put("action", "edit");
@@ -120,15 +125,15 @@ public class MediaWikiClient extends RestClient {
       conn.setDoOutput(true);
       conn.connect();
 
-      StringBuilder querySb = new StringBuilder();
-      for (Entry<String, String> e : params.entrySet()) {
+      final StringBuilder querySb = new StringBuilder();
+      for (final Entry<String, String> e : params.entrySet()) {
         querySb.append("&" + e.getKey() + "=" + encode(e.getValue(), UTF_8.name()));
       }
-      String query = querySb.toString().substring(1);
+      final String query = querySb.toString().substring(1);
 
-      OutputStream output = conn.getOutputStream();
+      final OutputStream output = conn.getOutputStream();
       output.write(query.getBytes(UTF_8.name()));
-      String response = getResponse(conn);
+      final String response = getResponse(conn);
       logger.info("Got: " + response);
     } finally {
       conn.disconnect();
@@ -136,15 +141,15 @@ public class MediaWikiClient extends RestClient {
   }
 
   private void getEditToken(HttpState httpState, String url, String title) throws Exception {
-    String response =
+    final String response =
         postToWiki(
             httpState,
             url
-                + "/api.php?action=query&prop=info%7Crevisions&intoken=edit&rvprop=timestamp&titles="
+                + "/api.php?action=query&meta=tokens&prop=info%7Crevisions&meta=tokens&rvprop=timestamp&titles="
                 + encode(title, UTF_8.name())
                 + "&format=json");
-    logger.info("Response:\n" + response);
-    String token = ((JSONArray) read(response, "$.query.pages.*.edittoken")).get(0).toString();
+    logger.info("Response edit:\n" + response);
+    final String token = doReadFirst(response, "$..csrftoken");
     httpState.setEditToken(unEscapeJson(token));
   }
 
@@ -166,58 +171,90 @@ public class MediaWikiClient extends RestClient {
   private void doAuthenticate(HttpState httpState, String url, String username, String password)
       throws Exception {
     String response =
-        postToWiki(
-            httpState,
-            url
-                + "/api.php?action=login&lgname="
-                + username
-                + "&lgpassword="
-                + password
-                + "&format=json");
-    getWikiToken(httpState, response);
-    response =
-        postToWiki(
-            httpState,
-            url
-                + "/api.php?action=login&lgname="
-                + username
-                + "&lgpassword="
-                + password
-                + "&format=json&lgtoken="
-                + httpState.getWikiToken());
+        postToWiki(httpState, url + "/api.php?action=query&meta=tokens&format=json&type=login");
+    getLoginToken(httpState, response);
+
+    final String postContent =
+        "lgname="
+            + encode(username, UTF_8.name())
+            + "&lgpassword="
+            + encode(password, UTF_8.name())
+            + "&lgtoken="
+            + encode(httpState.getLoginToken(), UTF_8.name());
+    response = postToWiki(httpState, url + "/api.php?action=login&format=json", postContent);
+    doRead(response, "$.login.token");
   }
 
-  private void getWikiToken(HttpState httpState, String response) {
-    logger.info("Response:\n" + response);
-    String token = read(response, "$.login.token");
-    logger.info("Using wikitoken: " + token);
-    httpState.setWikiToken(token);
+  private void getLoginToken(HttpState httpState, String response) {
+    final String firstElementString = doReadFirst(response, "$..logintoken");
+    logger.info("Using logintoken: " + firstElementString);
+    httpState.setLoginToken(firstElementString);
   }
 
-  private String postToWiki(HttpState httpState, String addr)
+  private String doReadFirst(String response, String jsonPath) {
+    try {
+      final JSONArray tokens = read(response, jsonPath);
+      final String firstElementString = tokens.get(0).toString();
+      return firstElementString;
+    } catch (final Exception e) {
+      throw new RuntimeException(response + " " + jsonPath, e);
+    }
+  }
+
+  private String doRead(String response, String jsonPath) {
+    try {
+      return read(response, jsonPath);
+    } catch (final Exception e) {
+      throw new RuntimeException(response + " " + jsonPath, e);
+    }
+  }
+
+  private String postToWiki(HttpState httpState, String addr, String postContent)
       throws GitChangelogIntegrationException {
     try {
-      HttpURLConnection conn = openConnection(new URL(addr));
+    	logger.info("Posting to: "+addr);
+      final HttpURLConnection conn = openConnection(new URL(addr));
       try {
         conn.setRequestMethod("POST");
         if (httpState.getCookieString().isPresent()) {
+            logger.info("Using cookie: " + httpState.getCookieString().get());
           conn.setRequestProperty("Cookie", httpState.getCookieString().get());
+        }
+
+        if (postContent != null) {
+        	final String postContentObf = postContent.replaceAll("lgpassword=([^&]+)", "lgpassword=*");
+			logger.info("Post content: "+postContentObf );
+          conn.setDoOutput(true);
+          conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+          conn.setRequestProperty("charset", "utf-8");
+          conn.setRequestProperty("Content-Length", postContent.length() + "");
+          conn.setUseCaches(false);
+          try (DataOutputStream wr = new DataOutputStream(conn.getOutputStream())) {
+            wr.writeUTF(postContent);
+          }
         }
 
         if (conn.getHeaderFields().get("Set-Cookie") != null
             && conn.getHeaderFields().get("Set-Cookie").size() > 0
             && !httpState.getCookieString().isPresent()) {
           httpState.setCookieString(conn.getHeaderFields().get("Set-Cookie").get(0));
-          logger.info("Got edit cookie: " + httpState.getCookieString().orNull());
+          logger.info("Got cookie: " + httpState.getCookieString().orNull());
         }
 
-        return getResponse(conn);
+        final String response = getResponse(conn);
+        logger.info("Response: "+response);
+        return response;
       } finally {
         conn.disconnect();
       }
-    } catch (Exception e) {
+    } catch (final Exception e) {
       throw new GitChangelogIntegrationException(addr, e);
     }
+  }
+
+  private String postToWiki(HttpState httpState, String addr)
+      throws GitChangelogIntegrationException {
+    return postToWiki(httpState, addr, null);
   }
 
   private boolean shouldAuthenticate(String username, String password) {

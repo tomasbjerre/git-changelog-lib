@@ -44,24 +44,24 @@ public class RestClient {
   public Optional<String> get(String url) throws GitChangelogIntegrationException {
     try {
       return urlCache.get(url);
-    } catch (Exception e) {
+    } catch (final Exception e) {
       throw new GitChangelogIntegrationException("Problems invoking " + url, e);
     }
   }
 
   private Optional<String> doGet(String urlParam) {
-    String response = null;
+    final String response = null;
     try {
       logger.info("GET:\n" + urlParam);
-      URL url = new URL(urlParam);
-      HttpURLConnection conn = openConnection(url);
+      final URL url = new URL(urlParam);
+      final HttpURLConnection conn = openConnection(url);
       conn.setRequestProperty("Content-Type", "application/json");
       conn.setRequestProperty("Accept", "application/json");
       if (this.basicAuthString != null) {
         conn.setRequestProperty("Authorization", "Basic " + basicAuthString);
       }
       return of(getResponse(conn));
-    } catch (Exception e) {
+    } catch (final Exception e) {
       logger.error("Got:\n" + response, e);
       return absent();
     }

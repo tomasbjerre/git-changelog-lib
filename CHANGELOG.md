@@ -2,7 +2,7 @@
 
 Changelog for tomasbjerre git-changelog-lib.
 
-## Next release
+## 1.71
 ### Other changes
 
 **Correcting owner/repo name cloneUrl without dot git**

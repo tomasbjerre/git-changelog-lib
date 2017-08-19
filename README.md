@@ -273,11 +273,18 @@ A page can be created in MediaWiki like this.
 Settings can be supplied with a JSON config ([documented here](https://github.com/tomasbjerre/git-changelog/blob/master/src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java)).
 
 ## MediaWiki
-The library can create a wiki page in MediaWiki. To do this, you must enable the API in MediaWiki in `mediawiki/LocalSettings.php` by adding:
+
+The library can create a wiki page in MediaWiki.
+
+You must enable the API in MediaWiki in `mediawiki/LocalSettings.php` by adding:
 ```
 $wgEnableAPI = true;
 $wgEnableWriteAPI = true;
 ```
+
+The user has to be a Bot User. You can add one http://mediawikihost/wiki/Special:BotPasswords
+
+You may use this compose to fiddle with this and tun the test cases: https://github.com/pastakhov/compose-mediawiki-ubuntu
 
 ## Developer instructions
 
