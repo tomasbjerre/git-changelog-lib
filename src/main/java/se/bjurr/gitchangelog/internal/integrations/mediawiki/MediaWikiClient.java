@@ -10,21 +10,17 @@ import static java.net.URLEncoder.encode;
 import static java.util.concurrent.TimeUnit.MINUTES;
 import static org.slf4j.LoggerFactory.getLogger;
 
+import com.google.common.base.Optional;
 import java.io.DataOutputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
 import java.util.Map.Entry;
-
 import net.minidev.json.JSONArray;
-
 import org.slf4j.Logger;
-
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 import se.bjurr.gitchangelog.internal.integrations.rest.RestClient;
-
-import com.google.common.base.Optional;
 
 public class MediaWikiClient extends RestClient {
 
@@ -212,18 +208,19 @@ public class MediaWikiClient extends RestClient {
   private String postToWiki(HttpState httpState, String addr, String postContent)
       throws GitChangelogIntegrationException {
     try {
-    	logger.info("Posting to: "+addr);
+      logger.info("Posting to: " + addr);
       final HttpURLConnection conn = openConnection(new URL(addr));
       try {
         conn.setRequestMethod("POST");
         if (httpState.getCookieString().isPresent()) {
-            logger.info("Using cookie: " + httpState.getCookieString().get());
+          logger.info("Using cookie: " + httpState.getCookieString().get());
           conn.setRequestProperty("Cookie", httpState.getCookieString().get());
         }
 
         if (postContent != null) {
-        	final String postContentObf = postContent.replaceAll("lgpassword=([^&]+)", "lgpassword=*");
-			logger.info("Post content: "+postContentObf );
+          final String postContentObf =
+              postContent.replaceAll("lgpassword=([^&]+)", "lgpassword=*");
+          logger.info("Post content: " + postContentObf);
           conn.setDoOutput(true);
           conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
           conn.setRequestProperty("charset", "utf-8");
@@ -242,7 +239,7 @@ public class MediaWikiClient extends RestClient {
         }
 
         final String response = getResponse(conn);
-        logger.info("Response: "+response);
+        logger.info("Response: " + response);
         return response;
       } finally {
         conn.disconnect();
