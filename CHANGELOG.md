@@ -2,6 +2,28 @@
 
 Changelog for tomasbjerre git-changelog-lib.
 
+## Next release
+### GitHub #51   
+
+**Rewrite MediaWiki Client for Botuser**
+
+
+[9cd8d1dfa42aea1](https://github.com/tomasbjerre/git-changelog-lib/commit/9cd8d1dfa42aea1) Tomas Bjerre *2017-08-31 17:23:58*
+
+
+### Other changes
+
+**Disabling MediaWiki integration tests**
+
+
+[b82e25da5b3d681](https://github.com/tomasbjerre/git-changelog-lib/commit/b82e25da5b3d681) Tomas Bjerre *2017-09-03 09:15:28*
+
+**Travis with JDK8**
+
+
+[db79d0fb4f7a33d](https://github.com/tomasbjerre/git-changelog-lib/commit/db79d0fb4f7a33d) Tomas Bjerre *2017-09-01 19:25:13*
+
+
 ## 1.71
 ### Other changes
 
