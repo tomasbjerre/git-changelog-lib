@@ -1,6 +1,5 @@
 package se.bjurr.gitchangelog.internal.issues;
 
-import static com.google.common.base.Objects.firstNonNull;
 import static com.google.common.collect.Maps.newHashMap;
 import static com.google.common.collect.Ordering.usingToString;
 import static java.util.regex.Pattern.compile;
@@ -51,20 +50,21 @@ public class IssueParser {
   }
 
   public List<ParsedIssue> parseForIssues() {
-    Map<String, ParsedIssue> parsedIssuePerIssue = newHashMap();
+    final Map<String, ParsedIssue> parsedIssuePerIssue = newHashMap();
 
-    GitHubHelper gitHubHelper = createGitHubClient();
-    JiraClient jiraClient = createJiraClient();
-    GitLabClient gitLabClient = createGitLabClient();
+    final GitHubHelper gitHubHelper = createGitHubClient();
+    final JiraClient jiraClient = createJiraClient();
+    final GitLabClient gitLabClient = createGitLabClient();
 
-    List<SettingsIssue> patterns = new IssuesUtil(settings).getIssues();
+    final List<SettingsIssue> patterns = new IssuesUtil(settings).getIssues();
 
-    for (GitCommit gitCommit : commits) {
+    for (final GitCommit gitCommit : commits) {
       boolean commitMappedToAtLeastOneIssue = false;
-      for (SettingsIssue issuePattern : patterns) {
-        Matcher issueMatcher = compile(issuePattern.getPattern()).matcher(gitCommit.getMessage());
+      for (final SettingsIssue issuePattern : patterns) {
+        final Matcher issueMatcher =
+            compile(issuePattern.getPattern()).matcher(gitCommit.getMessage());
         while (issueMatcher.find()) {
-          String matchedIssue = issueMatcher.group();
+          final String matchedIssue = issueMatcher.group();
           if (matchedIssue.isEmpty()) {
             continue;
           }
@@ -73,7 +73,7 @@ public class IssueParser {
             if (issuePattern.getType() == GITHUB) {
               parsedIssue = createParsedIssue(gitHubHelper, issuePattern, matchedIssue);
             } else if (issuePattern.getType() == GITLAB) {
-              String projectName = settings.getGitLabProjectName().get();
+              final String projectName = settings.getGitLabProjectName().get();
               parsedIssue =
                   createParsedIssue(gitLabClient, projectName, issuePattern, matchedIssue);
             } else if (issuePattern.getType() == JIRA) {
@@ -90,12 +90,12 @@ public class IssueParser {
         }
       }
       if (!commitMappedToAtLeastOneIssue && !settings.ignoreCommitsWithoutIssue()) {
-        String issue = null;
-        String link = null;
-        String title = null;
-        String issueType = null;
-        List<String> labels = null;
-        ParsedIssue noIssue =
+        final String issue = null;
+        final String link = null;
+        final String title = null;
+        final String issueType = null;
+        final List<String> labels = null;
+        final ParsedIssue noIssue =
             new ParsedIssue(settings.getNoIssueName(), issue, link, title, issueType, labels);
         if (!parsedIssuePerIssue.containsKey(noIssue.getName())) {
           parsedIssuePerIssue.put(noIssue.getName(), noIssue);
@@ -117,18 +117,18 @@ public class IssueParser {
     if (matchedIssueString.startsWith("#")) {
       matchedIssueString = matchedIssueString.substring(1);
     }
-    Integer matchedIssue = Integer.parseInt(matchedIssueString);
+    final Integer matchedIssue = Integer.parseInt(matchedIssueString);
     try {
       if (gitLabClient != null && gitLabClient.getIssue(projectName, matchedIssue).isPresent()) {
-        GitLabIssue gitLabIssue = gitLabClient.getIssue(projectName, matchedIssue).get();
+        final GitLabIssue gitLabIssue = gitLabClient.getIssue(projectName, matchedIssue).get();
         link = gitLabIssue.getLink();
         title = gitLabIssue.getTitle();
         labels = gitLabIssue.getLabels();
       }
-    } catch (GitChangelogIntegrationException e) {
+    } catch (final GitChangelogIntegrationException e) {
       LOG.error(matchedIssueString, e);
     }
-    String issueType = null;
+    final String issueType = null;
     return new ParsedIssue( //
         issuePattern.getName(), //
         matchedIssueString, //
@@ -141,8 +141,8 @@ public class IssueParser {
   private GitLabClient createGitLabClient() {
     GitLabClient client = null;
     if (settings.getGitLabServer().isPresent()) {
-      String server = settings.getGitLabServer().get();
-      String token = settings.getGitLabToken().orNull();
+      final String server = settings.getGitLabServer().get();
+      final String token = settings.getGitLabToken().orNull();
       client = new GitLabClient(server, token);
     }
     return client;
@@ -172,10 +172,10 @@ public class IssueParser {
 
   private ParsedIssue createParsedIssue(
       SettingsIssue issuePattern, Matcher issueMatcher, String matchedIssue) {
-    String link = render(issuePattern.getLink().or(""), issueMatcher, matchedIssue);
-    String title = render(issuePattern.getTitle().or(""), issueMatcher, matchedIssue);
-    String issueType = null;
-    List<String> labels = null;
+    final String link = render(issuePattern.getLink().or(""), issueMatcher, matchedIssue);
+    final String title = render(issuePattern.getTitle().or(""), issueMatcher, matchedIssue);
+    final String issueType = null;
+    final List<String> labels = null;
     return new ParsedIssue( //
         issuePattern.getName(), //
         matchedIssue, //
@@ -193,13 +193,13 @@ public class IssueParser {
     List<String> labels = null;
     try {
       if (jiraClient != null && jiraClient.getIssue(matchedIssue).isPresent()) {
-        JiraIssue jiraIssue = jiraClient.getIssue(matchedIssue).get();
+        final JiraIssue jiraIssue = jiraClient.getIssue(matchedIssue).get();
         link = jiraIssue.getLink();
         title = jiraIssue.getTitle();
         issueType = jiraIssue.getIssueType();
         labels = jiraIssue.getLabels();
       }
-    } catch (GitChangelogIntegrationException e) {
+    } catch (final GitChangelogIntegrationException e) {
       LOG.error(matchedIssue, e);
     }
     return new ParsedIssue( //
@@ -215,20 +215,20 @@ public class IssueParser {
       GitHubHelper gitHubHelper, SettingsIssue issuePattern, String matchedIssue) {
     String link = "";
     String title = "";
-    List<String> labels = Lists.newArrayList();
+    final List<String> labels = Lists.newArrayList();
     try {
       if (gitHubHelper != null && gitHubHelper.getIssueFromAll(matchedIssue).isPresent()) {
-        GitHubIssue gitHubIssue = gitHubHelper.getIssueFromAll(matchedIssue).get();
+        final GitHubIssue gitHubIssue = gitHubHelper.getIssueFromAll(matchedIssue).get();
         link = gitHubIssue.getLink();
         title = gitHubIssue.getTitle();
-        for (GitHubLabel label : gitHubIssue.getLabels()) {
+        for (final GitHubLabel label : gitHubIssue.getLabels()) {
           labels.add(label.getName());
         }
       }
-    } catch (GitChangelogIntegrationException e) {
+    } catch (final GitChangelogIntegrationException e) {
       LOG.error(matchedIssue, e);
     }
-    String issueType = null;
+    final String issueType = null;
     return new ParsedIssue( //
         issuePattern.getName(), //
         matchedIssue, //
@@ -245,5 +245,12 @@ public class IssueParser {
           string.replaceAll("\\$\\{PATTERN_GROUP_" + i + "\\}", firstNonNull(matcher.group(i), ""));
     }
     return string;
+  }
+
+  private String firstNonNull(String a, String b) {
+    if (a == null) {
+      return b;
+    }
+    return a;
   }
 }

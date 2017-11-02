@@ -2,7 +2,7 @@
 
 Changelog for tomasbjerre git-changelog-lib.
 
-## Next release
+## 1.72
 ### GitHub #51   
 
 **Rewrite MediaWiki Client for Botuser**

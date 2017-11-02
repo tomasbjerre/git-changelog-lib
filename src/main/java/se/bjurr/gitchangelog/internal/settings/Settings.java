@@ -1,7 +1,6 @@
 package se.bjurr.gitchangelog.internal.settings;
 
 import static com.google.common.base.Charsets.UTF_8;
-import static com.google.common.base.Objects.firstNonNull;
 import static com.google.common.base.Optional.fromNullable;
 import static com.google.common.base.Strings.emptyToNull;
 import static com.google.common.collect.Lists.newArrayList;
@@ -228,7 +227,10 @@ public class Settings implements Serializable {
   }
 
   public List<SettingsIssue> getCustomIssues() {
-    return firstNonNull(customIssues, new ArrayList<SettingsIssue>());
+    if (customIssues == null) {
+      return new ArrayList<SettingsIssue>();
+    }
+    return customIssues;
   }
 
   public String getIgnoreCommitsIfMessageMatches() {
@@ -250,7 +252,7 @@ public class Settings implements Serializable {
   public static Settings fromFile(URL url) {
     try {
       return gson.fromJson(Resources.toString(url, UTF_8), Settings.class);
-    } catch (Exception e) {
+    } catch (final Exception e) {
       throw new RuntimeException("Cannot read " + url, e);
     }
   }
@@ -328,7 +330,7 @@ public class Settings implements Serializable {
     try {
       resource = getResource(DEFAULT_FILE);
       return fromFile(resource.toURI().toURL());
-    } catch (Exception e) {
+    } catch (final Exception e) {
       throw new RuntimeException("Cannot find default config in " + resource, e);
     }
   }
