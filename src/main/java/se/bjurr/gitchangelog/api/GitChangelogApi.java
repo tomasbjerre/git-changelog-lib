@@ -444,7 +444,24 @@ public class GitChangelogApi {
             this.settings.getIgnoreTagsIfNameMatches());
 
     if (!settings.getGitHubApi().isPresent()) {
-      settings.setGitHubApi(gitRepoData.findGitHubApi().orNull());
+      Optional<String> gitHubApi = gitRepoData.findGitHubApi().orNull();
+      if (gitHubApi.isPresent()) {
+        // Test if the repo is private
+        GitHubService service = getGitHubService(gitHubApi.get(), settings.getGitHubToken());
+        Call<List<GitHubIssue>> call = service.issues(1);
+
+        try {
+          Response<List<GitHubIssue>> response = call.execute();
+
+          if (response.isSuccessful()) {
+            settings.setGitHubApi(gitHubApi);
+          } else {
+            settings.setGitHubApi(null);
+          }
+        } catch (IOException e) {
+          settings.setGitHubApi(null);
+        }
+      }
     }
     if (!settings.getGitLabServer().isPresent()) {
       settings.setGitLabServer(gitRepoData.findGitLabServer().orNull());
