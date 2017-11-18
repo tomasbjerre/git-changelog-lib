@@ -16,6 +16,7 @@ import static se.bjurr.gitchangelog.internal.settings.Settings.fromFile;
 import com.github.mustachejava.DefaultMustacheFactory;
 import com.github.mustachejava.Mustache;
 import com.github.mustachejava.MustacheFactory;
+import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Optional;
 import com.google.common.io.Files;
 import com.google.common.io.Resources;
@@ -59,19 +60,22 @@ public class GitChangelogApi {
     this.settings = new Settings();
   }
 
-  private GitChangelogApi(Settings settings) {
+  private GitChangelogApi(final Settings settings) {
     this.settings = settings;
   }
 
   /**
    * Get the changelog as data object.
    *
+   * @param useIntegrationIfConfigured true if title/link/labels/issueType should be fetched from
+   *     integrations (GitHub, GitLab, Jira) if that is configured.
    * @throws GitChangelogRepositoryException
    */
-  public Changelog getChangelog() throws GitChangelogRepositoryException {
+  public Changelog getChangelog(final boolean useIntegrationIfConfigured)
+      throws GitChangelogRepositoryException {
     try (GitRepo gitRepo = new GitRepo(new File(this.settings.getFromRepo()))) {
-      return getChangelog(gitRepo);
-    } catch (IOException e) {
+      return getChangelog(gitRepo, useIntegrationIfConfigured);
+    } catch (final IOException e) {
       throw new GitChangelogRepositoryException("", e);
     }
   }
@@ -85,27 +89,37 @@ public class GitChangelogApi {
    *
    * @throws GitChangelogRepositoryException
    */
-  public void render(Writer writer) throws GitChangelogRepositoryException {
-    MustacheFactory mf = new DefaultMustacheFactory();
-    String templateContent = checkNotNull(getTemplateContent(), "No template!");
-    StringReader reader = new StringReader(templateContent);
-    Mustache mustache = mf.compile(reader, this.settings.getTemplatePath());
+  public void render(final Writer writer) throws GitChangelogRepositoryException {
+    final MustacheFactory mf = new DefaultMustacheFactory();
+    final String templateContent = checkNotNull(getTemplateContent(), "No template!");
+    final StringReader reader = new StringReader(templateContent);
+    final Mustache mustache = mf.compile(reader, this.settings.getTemplatePath());
     try {
+      final boolean useIntegrationIfConfigured = shouldUseIntegrationIfConfigured(templateContent);
+      final Changelog changelog = this.getChangelog(useIntegrationIfConfigured);
       mustache
           .execute(
               writer, //
-              new Object[] {this.getChangelog(), this.settings.getExtendedVariables()} //
+              new Object[] {changelog, this.settings.getExtendedVariables()} //
               )
           .flush();
-    } catch (IOException e) {
+    } catch (final IOException e) {
       // Should be impossible!
       throw new GitChangelogRepositoryException("", e);
     }
   }
 
+  @VisibleForTesting
+  static boolean shouldUseIntegrationIfConfigured(final String templateContent) {
+    return templateContent.contains("{{type}}") //
+        || templateContent.contains("{{link}}") //
+        || templateContent.contains("{{title}}") //
+        || templateContent.replaceAll("\\r?\\n", " ").matches(".*\\{\\{#?labels\\}\\}.*");
+  }
+
   /** Get the changelog. */
   public String render() throws GitChangelogRepositoryException {
-    Writer writer = new StringWriter();
+    final Writer writer = new StringWriter();
     render(writer);
     return writer.toString();
   }
@@ -116,7 +130,7 @@ public class GitChangelogApi {
    * @throws GitChangelogRepositoryException
    * @throws IOException When file cannot be written.
    */
-  public void toFile(File file) throws GitChangelogRepositoryException, IOException {
+  public void toFile(final File file) throws GitChangelogRepositoryException, IOException {
     createParentDirs(file);
     write(render().getBytes(), file);
   }
@@ -127,7 +141,8 @@ public class GitChangelogApi {
    * @throws GitChangelogRepositoryException
    * @throws GitChangelogIntegrationException
    */
-  public void toMediaWiki(String username, String password, String url, String title)
+  public void toMediaWiki(
+      final String username, final String password, final String url, final String title)
       throws GitChangelogRepositoryException, GitChangelogIntegrationException {
     new MediaWikiClient(url, title, render()) //
         .withUser(username, password) //
@@ -138,13 +153,14 @@ public class GitChangelogApi {
    * Custom issues are added to support any kind of issue management, perhaps something that is
    * internal to your project. See {@link SettingsIssue}.
    */
-  public GitChangelogApi withCustomIssue(String name, String pattern, String link, String title) {
+  public GitChangelogApi withCustomIssue(
+      final String name, final String pattern, final String link, final String title) {
     this.settings.addCustomIssue(new SettingsIssue(name, pattern, link, title));
     return this;
   }
 
   /** Format of dates, see {@link SimpleDateFormat}. */
-  public GitChangelogApi withDateFormat(String dateFormat) {
+  public GitChangelogApi withDateFormat(final String dateFormat) {
     this.settings.setDateFormat(dateFormat);
     return this;
   }
@@ -154,7 +170,7 @@ public class GitChangelogApi {
    * template. Is used, for example, by the Bitbucket plugin to supply some internal variables to
    * the changelog context.
    */
-  public GitChangelogApi withExtendedVariables(Map<String, Object> extendedVariables) {
+  public GitChangelogApi withExtendedVariables(final Map<String, Object> extendedVariables) {
     this.settings.setExtendedVariables(extendedVariables);
     return this;
   }
@@ -163,19 +179,19 @@ public class GitChangelogApi {
    * Include all commits from here. Any commit hash. There is a constant pointing at the first
    * commit here: reference{GitChangelogApiConstants#ZERO_COMMIT}.
    */
-  public GitChangelogApi withFromCommit(String fromCommit) {
+  public GitChangelogApi withFromCommit(final String fromCommit) {
     this.settings.setFromCommit(fromCommit);
     return this;
   }
 
   /** Include all commits from here. Any tag or branch name. */
-  public GitChangelogApi withFromRef(String fromBranch) {
+  public GitChangelogApi withFromRef(final String fromBranch) {
     this.settings.setFromRef(fromBranch);
     return this;
   }
 
   /** Folder where repo lives. */
-  public GitChangelogApi withFromRepo(String fromRepo) {
+  public GitChangelogApi withFromRepo(final String fromRepo) {
     this.settings.setFromRepo(fromRepo);
     return this;
   }
@@ -185,13 +201,13 @@ public class GitChangelogApi {
    * with title from GitHub.<br>
    * <code>https://api.github.com/repos/tomasbjerre/git-changelog-lib</code>
    */
-  public GitChangelogApi withGitHubApi(String gitHubApi) {
+  public GitChangelogApi withGitHubApi(final String gitHubApi) {
     this.settings.setGitHubApi(gitHubApi);
     return this;
   }
 
   /** Pattern to recognize GitHub:s. <code>#([0-9]+)</code> */
-  public GitChangelogApi withGitHubIssuePattern(String gitHubIssuePattern) {
+  public GitChangelogApi withGitHubIssuePattern(final String gitHubIssuePattern) {
     this.settings.setGitHubIssuePattern(gitHubIssuePattern);
     return this;
   }
@@ -205,13 +221,13 @@ public class GitChangelogApi {
    * curl -u 'yourgithubuser' -d '{"note":"Git Changelog Lib"}' https://api.github.com/authorizations
    * </code>
    */
-  public GitChangelogApi withGitHubToken(String gitHubToken) {
+  public GitChangelogApi withGitHubToken(final String gitHubToken) {
     this.settings.setGitHubToken(gitHubToken);
     return this;
   }
 
   /** Pattern to recognize GitHub:s. <code>#([0-9]+)</code> */
-  public GitChangelogApi withGitLabIssuePattern(String gitLabIssuePattern) {
+  public GitChangelogApi withGitLabIssuePattern(final String gitLabIssuePattern) {
     this.settings.setGitLabIssuePattern(gitLabIssuePattern);
     return this;
   }
@@ -220,19 +236,19 @@ public class GitChangelogApi {
    * In this URL: <code>https://gitlab.com/tomas.bjerre85/violations-test/issues</code> it would be
    * <code>violations-test</code>.
    */
-  public GitChangelogApi withGitLabProjectName(String gitLabProjectName) {
+  public GitChangelogApi withGitLabProjectName(final String gitLabProjectName) {
     this.settings.setGitLabProjectName(gitLabProjectName);
     return this;
   }
 
   /** Example: https://gitlab.com/ */
-  public GitChangelogApi withGitLabServer(String gitLabServer) {
+  public GitChangelogApi withGitLabServer(final String gitLabServer) {
     this.settings.setGitLabServer(gitLabServer);
     return this;
   }
 
   /** You can create it in the project settings page. */
-  public GitChangelogApi withGitLabToken(String gitLabToken) {
+  public GitChangelogApi withGitLabToken(final String gitLabToken) {
     this.settings.setGitLabToken(gitLabToken);
     return this;
   }
@@ -251,7 +267,7 @@ public class GitChangelogApi {
    * ^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*
    * </code>
    */
-  public GitChangelogApi withIgnoreCommitsWithMessage(String ignoreCommitsIfMessageMatches) {
+  public GitChangelogApi withIgnoreCommitsWithMessage(final String ignoreCommitsIfMessageMatches) {
     this.settings.setIgnoreCommitsIfMessageMatches(ignoreCommitsIfMessageMatches);
     return this;
   }
@@ -261,7 +277,7 @@ public class GitChangelogApi {
    * point in time given, then it will be filtered out and not included in the changelog. <br>
    * See {@link SimpleDateFormat}.
    */
-  public GitChangelogApi withIgnoreCommitsOlderThan(Date ignoreCommitsIfOlderThan) {
+  public GitChangelogApi withIgnoreCommitsOlderThan(final Date ignoreCommitsIfOlderThan) {
     this.settings.setIgnoreCommitsIfOlderThan(ignoreCommitsIfOlderThan);
     return this;
   }
@@ -275,7 +291,7 @@ public class GitChangelogApi {
    * False means that it will not be created and commits that cannot be mapped to any issue will not
    * be included in the changelog.
    */
-  public GitChangelogApi withIgnoreCommitsWithoutIssue(boolean ignoreCommitsWithoutIssue) {
+  public GitChangelogApi withIgnoreCommitsWithoutIssue(final boolean ignoreCommitsWithoutIssue) {
     this.settings.setIgnoreCommitsWithoutIssue(ignoreCommitsWithoutIssue);
     return this;
   }
@@ -284,7 +300,7 @@ public class GitChangelogApi {
    * A regular expression that is evaluated on each tag. If it matches, the tag will be filtered out
    * and not included in the changelog.
    */
-  public GitChangelogApi withIgnoreTagsIfNameMatches(String ignoreTagsIfNameMatches) {
+  public GitChangelogApi withIgnoreTagsIfNameMatches(final String ignoreTagsIfNameMatches) {
     this.settings.setIgnoreTagsIfNameMatches(ignoreTagsIfNameMatches);
     return this;
   }
@@ -295,13 +311,13 @@ public class GitChangelogApi {
    * Or escaped if added to json-file:<br>
    * <code>\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b</code>
    */
-  public GitChangelogApi withJiraIssuePattern(String jiraIssuePattern) {
+  public GitChangelogApi withJiraIssuePattern(final String jiraIssuePattern) {
     this.settings.setJiraIssuePattern(jiraIssuePattern);
     return this;
   }
 
   /** Authenticate to JIRA. */
-  public GitChangelogApi withJiraPassword(String string) {
+  public GitChangelogApi withJiraPassword(final String string) {
     this.settings.setJiraPassword(string);
     return this;
   }
@@ -311,13 +327,13 @@ public class GitChangelogApi {
    * populated with title from JIRA.<br>
    * <code>https://jiraserver/jira</code>
    */
-  public GitChangelogApi withJiraServer(String jiraServer) {
+  public GitChangelogApi withJiraServer(final String jiraServer) {
     this.settings.setJiraServer(jiraServer);
     return this;
   }
 
   /** Authenticate to JIRA. */
-  public GitChangelogApi withJiraUsername(String string) {
+  public GitChangelogApi withJiraUsername(final String string) {
     this.settings.setJiraUsername(string);
     return this;
   }
@@ -327,7 +343,7 @@ public class GitChangelogApi {
    * commits that has no issue in the commit comment. This could be used as a "wall of shame"
    * listing commiters that did not tag there commits with an issue.
    */
-  public GitChangelogApi withNoIssueName(String noIssueName) {
+  public GitChangelogApi withNoIssueName(final String noIssueName) {
     this.settings.setNoIssueName(noIssueName);
     return this;
   }
@@ -338,7 +354,7 @@ public class GitChangelogApi {
    * extracted from the tag name.<br>
    * <code>/([^/]+?)$</code>
    */
-  public GitChangelogApi withReadableTagName(String readableTagName) {
+  public GitChangelogApi withReadableTagName(final String readableTagName) {
     this.settings.setReadableTagName(readableTagName);
     return this;
   }
@@ -347,19 +363,19 @@ public class GitChangelogApi {
    * If true, the changelog will not contain the issue in the commit comment. If your changelog is
    * grouped by issues, you may want this to be true. If not grouped by issue, perhaps false.
    */
-  public GitChangelogApi withRemoveIssueFromMessageArgument(boolean removeIssueFromMessage) {
+  public GitChangelogApi withRemoveIssueFromMessageArgument(final boolean removeIssueFromMessage) {
     this.settings.setRemoveIssueFromMessage(removeIssueFromMessage);
     return this;
   }
 
   /** {@link Settings}. */
-  public GitChangelogApi withSettings(URL url) {
+  public GitChangelogApi withSettings(final URL url) {
     this.settings = fromFile(url);
     return this;
   }
 
   /** Use string as template. {@link #withTemplatePath}. */
-  public GitChangelogApi withTemplateContent(String templateContent) {
+  public GitChangelogApi withTemplateContent(final String templateContent) {
     this.templateContent = templateContent;
     return this;
   }
@@ -368,7 +384,7 @@ public class GitChangelogApi {
    * Path of template-file to use. It is a Mustache (https://mustache.github.io/) template. Supplied
    * with the context of {@link Changelog}.
    */
-  public GitChangelogApi withTemplatePath(String templatePath) {
+  public GitChangelogApi withTemplatePath(final String templatePath) {
     this.settings.setTemplatePath(templatePath);
     return this;
   }
@@ -377,13 +393,13 @@ public class GitChangelogApi {
    * When date of commits are translated to a string, this timezone is used.<br>
    * <code>UTC</code>
    */
-  public GitChangelogApi withTimeZone(String timeZone) {
+  public GitChangelogApi withTimeZone(final String timeZone) {
     this.settings.setTimeZone(timeZone);
     return this;
   }
 
   /** Include all commits to here. Any commit hash. */
-  public GitChangelogApi withToCommit(String toCommit) {
+  public GitChangelogApi withToCommit(final String toCommit) {
     this.settings.setToCommit(toCommit);
     return this;
   }
@@ -392,7 +408,7 @@ public class GitChangelogApi {
    * Include all commits to this reference. Any tag or branch name. There is a constant for master
    * here: reference{GitChangelogApiConstants#REF_MASTER}.
    */
-  public GitChangelogApi withToRef(String toBranch) {
+  public GitChangelogApi withToRef(final String toBranch) {
     this.settings.setToRef(toBranch);
     return this;
   }
@@ -402,16 +418,17 @@ public class GitChangelogApi {
    * This is a "virtual tag", added to {@link Changelog#getTags()}, that includes those commits. A
    * fitting value may be "Next release".
    */
-  public GitChangelogApi withUntaggedName(String untaggedName) {
+  public GitChangelogApi withUntaggedName(final String untaggedName) {
     this.settings.setUntaggedName(untaggedName);
     return this;
   }
 
-  private Changelog getChangelog(GitRepo gitRepo) throws GitChangelogRepositoryException {
-    ObjectId fromId =
+  private Changelog getChangelog(final GitRepo gitRepo, final boolean useIntegrationIfConfigured)
+      throws GitChangelogRepositoryException {
+    final ObjectId fromId =
         getId(gitRepo, this.settings.getFromRef(), this.settings.getFromCommit()) //
             .or(gitRepo.getCommit(ZERO_COMMIT));
-    Optional<ObjectId> toIdOpt =
+    final Optional<ObjectId> toIdOpt =
         getId(gitRepo, this.settings.getToRef(), this.settings.getToCommit());
     ObjectId toId;
     if (toIdOpt.isPresent()) {
@@ -435,13 +452,14 @@ public class GitChangelogApi {
     }
 
     List<GitCommit> diff = gitRepoData.getGitCommits();
-    List<ParsedIssue> issues = new IssueParser(this.settings, diff).parseForIssues();
+    final List<ParsedIssue> issues =
+        new IssueParser(this.settings, diff).parseForIssues(useIntegrationIfConfigured);
     if (this.settings.ignoreCommitsWithoutIssue()) {
       gitRepoData = removeCommitsWithoutIssue(issues, gitRepoData);
       diff = gitRepoData.getGitCommits();
     }
-    List<GitTag> tags = gitRepoData.getGitTags();
-    Transformer transformer = new Transformer(this.settings);
+    final List<GitTag> tags = gitRepoData.getGitTags();
+    final Transformer transformer = new Transformer(this.settings);
     return new Changelog( //
         transformer.toCommits(diff), //
         transformer.toTags(tags, issues), //
@@ -452,7 +470,8 @@ public class GitChangelogApi {
         gitRepoData.findRepoName().orNull());
   }
 
-  private Optional<ObjectId> getId(GitRepo gitRepo, Optional<String> ref, Optional<String> commit)
+  private Optional<ObjectId> getId(
+      final GitRepo gitRepo, final Optional<String> ref, final Optional<String> commit)
       throws GitChangelogRepositoryException {
     if (ref.isPresent()) {
       return of(gitRepo.getRef(ref.get()));
@@ -470,12 +489,12 @@ public class GitChangelogApi {
     checkArgument(this.settings.getTemplatePath() != null, "You must specify a template!");
     try {
       return Resources.toString(getResource(this.settings.getTemplatePath()), UTF_8);
-    } catch (Exception e) {
+    } catch (final Exception e) {
       File file = null;
       try {
         file = new File(this.settings.getTemplatePath());
         return Files.toString(file, UTF_8);
-      } catch (IOException e2) {
+      } catch (final IOException e2) {
         throw new RuntimeException(
             "Cannot find on classpath ("
                 + this.settings.getTemplatePath()

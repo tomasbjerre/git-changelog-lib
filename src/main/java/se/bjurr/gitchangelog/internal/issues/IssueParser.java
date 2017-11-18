@@ -36,7 +36,7 @@ public class IssueParser {
   private final List<GitCommit> commits;
   private final Settings settings;
 
-  public IssueParser(Settings settings, List<GitCommit> commits) {
+  public IssueParser(final Settings settings, final List<GitCommit> commits) {
     this.settings = settings;
     this.commits = commits;
   }
@@ -49,12 +49,12 @@ public class IssueParser {
     return commits;
   }
 
-  public List<ParsedIssue> parseForIssues() {
+  public List<ParsedIssue> parseForIssues(final boolean useIntegrationIfConfigured) {
     final Map<String, ParsedIssue> parsedIssuePerIssue = newHashMap();
 
-    final GitHubHelper gitHubHelper = createGitHubClient();
-    final JiraClient jiraClient = createJiraClient();
-    final GitLabClient gitLabClient = createGitLabClient();
+    final GitHubHelper gitHubHelper = useIntegrationIfConfigured ? createGitHubClient() : null;
+    final JiraClient jiraClient = useIntegrationIfConfigured ? createJiraClient() : null;
+    final GitLabClient gitLabClient = useIntegrationIfConfigured ? createGitLabClient() : null;
 
     final List<SettingsIssue> patterns = new IssuesUtil(settings).getIssues();
 
@@ -107,9 +107,9 @@ public class IssueParser {
   }
 
   private ParsedIssue createParsedIssue(
-      GitLabClient gitLabClient,
-      String projectName,
-      SettingsIssue issuePattern,
+      final GitLabClient gitLabClient,
+      final String projectName,
+      final SettingsIssue issuePattern,
       String matchedIssueString) {
     String link = "";
     String title = "";
@@ -171,7 +171,7 @@ public class IssueParser {
   }
 
   private ParsedIssue createParsedIssue(
-      SettingsIssue issuePattern, Matcher issueMatcher, String matchedIssue) {
+      final SettingsIssue issuePattern, final Matcher issueMatcher, final String matchedIssue) {
     final String link = render(issuePattern.getLink().or(""), issueMatcher, matchedIssue);
     final String title = render(issuePattern.getTitle().or(""), issueMatcher, matchedIssue);
     final String issueType = null;
@@ -186,7 +186,7 @@ public class IssueParser {
   }
 
   private ParsedIssue createParsedIssue(
-      JiraClient jiraClient, SettingsIssue issuePattern, String matchedIssue) {
+      final JiraClient jiraClient, final SettingsIssue issuePattern, final String matchedIssue) {
     String link = "";
     String title = "";
     String issueType = null;
@@ -212,7 +212,9 @@ public class IssueParser {
   }
 
   private ParsedIssue createParsedIssue(
-      GitHubHelper gitHubHelper, SettingsIssue issuePattern, String matchedIssue) {
+      final GitHubHelper gitHubHelper,
+      final SettingsIssue issuePattern,
+      final String matchedIssue) {
     String link = "";
     String title = "";
     final List<String> labels = Lists.newArrayList();
@@ -238,7 +240,7 @@ public class IssueParser {
         labels);
   }
 
-  private String render(String string, Matcher matcher, String matched) {
+  private String render(String string, final Matcher matcher, final String matched) {
     string = string.replaceAll("\\$\\{PATTERN_GROUP\\}", matched);
     for (int i = 0; i <= matcher.groupCount(); i++) {
       string =
@@ -247,7 +249,7 @@ public class IssueParser {
     return string;
   }
 
-  private String firstNonNull(String a, String b) {
+  private String firstNonNull(final String a, final String b) {
     if (a == null) {
       return b;
     }

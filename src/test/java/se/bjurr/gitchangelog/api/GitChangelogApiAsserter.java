@@ -12,7 +12,7 @@ import java.net.URL;
 
 public class GitChangelogApiAsserter {
 
-  public static GitChangelogApiAsserter assertThat(String template) {
+  public static GitChangelogApiAsserter assertThat(final String template) {
     return new GitChangelogApiAsserter(template);
   }
 
@@ -20,18 +20,18 @@ public class GitChangelogApiAsserter {
   private String settings = "git-changelog-test-settings.json";
   private final String template;
 
-  public GitChangelogApiAsserter(String template) {
+  public GitChangelogApiAsserter(final String template) {
     this.template = template;
   }
 
-  public void rendersTo(String file) throws Exception {
-    String expected = Resources.toString(getResource("assertions/" + file), UTF_8).trim();
+  public void rendersTo(final String file) throws Exception {
+    final String expected = Resources.toString(getResource("assertions/" + file), UTF_8).trim();
 
-    URL settingsFile = getResource("settings/" + this.settings).toURI().toURL();
-    String templatePath = "templates/" + this.template;
+    final URL settingsFile = getResource("settings/" + this.settings).toURI().toURL();
+    final String templatePath = "templates/" + this.template;
 
     // Test lib with settings
-    GitChangelogApi gitChangelogApiBuilder =
+    final GitChangelogApi gitChangelogApiBuilder =
         gitChangelogApiBuilder() //
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
@@ -43,9 +43,9 @@ public class GitChangelogApiAsserter {
           .withIgnoreCommitsWithMessage(this.ignoreCommitsIfMessageMatches);
     }
 
-    String changelog = toJson(gitChangelogApiBuilder.getChangelog());
-    String settings = toJson(gitChangelogApiBuilder.getSettings());
-    String templateContent = Resources.toString(getResource(templatePath), UTF_8);
+    final String changelog = toJson(gitChangelogApiBuilder.getChangelog(true));
+    final String settings = toJson(gitChangelogApiBuilder.getSettings());
+    final String templateContent = Resources.toString(getResource(templatePath), UTF_8);
 
     assertEquals(
         "Test:\n"
@@ -62,7 +62,7 @@ public class GitChangelogApiAsserter {
             .trim());
 
     // Test lib
-    GitChangelogApi withTemplatePath =
+    final GitChangelogApi withTemplatePath =
         gitChangelogApiBuilder() //
             .withFromRepo(".") //
             .withFromCommit(ZERO_COMMIT) //
@@ -103,17 +103,17 @@ public class GitChangelogApiAsserter {
   }
 
   public GitChangelogApiAsserter setIgnoreCommitsIfMessageMatches(
-      String ignoreCommitsIfMessageMatches) {
+      final String ignoreCommitsIfMessageMatches) {
     this.ignoreCommitsIfMessageMatches = ignoreCommitsIfMessageMatches;
     return this;
   }
 
-  public GitChangelogApiAsserter withSettings(String settings) {
+  public GitChangelogApiAsserter withSettings(final String settings) {
     this.settings = settings;
     return this;
   }
 
-  private String toJson(Object object) {
+  private String toJson(final Object object) {
     return new GsonBuilder().setPrettyPrinting().create().toJson(object);
   }
 }

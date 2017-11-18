@@ -120,8 +120,8 @@ The template is supplied with this context:
    - link
    - hasTitle
    - title
-   - hasIssueType
-   - issueType
+   - hasType
+   - type
    - hasLabels
    - labels
    * commits
@@ -157,8 +157,8 @@ The template is supplied with this context:
   - link
   - hasTitle
   - title
-  - hasIssueType
-  - issueType
+  - hasType
+  - type
   - hasLabels
   - labels
   * commits
@@ -208,8 +208,8 @@ The template is supplied with this context:
  - link
  - hasTitle
  - title
- - hasIssueType
- - issueType
+ - hasType
+ - type
  - hasLabels
  - labels
  * commits
