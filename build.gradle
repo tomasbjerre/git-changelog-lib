@@ -1,34 +1,23 @@
+apply plugin: 'java'
+
+project.ext.tags = ['git', 'changelog', 'releasenotes', 'patchnotes']
+group = 'se.bjurr.gitchangelog'
+description = 'Library that generates changelog from a GIT repository.'
+
+
 buildscript {
  repositories {
   jcenter()
-  maven {
-   url "https://plugins.gradle.org/m2/"
-  }
+  maven { url "https://jitpack.io" }
  }
  dependencies {
-  classpath 'com.bmuschko:gradle-nexus-plugin:2.3.1'
-  classpath 'net.researchgate:gradle-release:2.4.0'
-  classpath 'gradle.plugin.com.github.sherter.google-java-format:google-java-format-gradle-plugin:0.6'
+  classpath 'com.github.tomasbjerre:gradle-scripts:master-SNAPSHOT'
  }
 }
+apply from: project.buildscript.classLoader.getResource('java.gradle').toURI()
+apply from: project.buildscript.classLoader.getResource('changelog.gradle').toURI()
+apply from: project.buildscript.classLoader.getResource('release.gradle').toURI()
 
-apply plugin: 'java'
-apply plugin: 'maven'
-apply plugin: 'eclipse'
-apply plugin: 'signing'
-apply plugin: 'com.bmuschko.nexus'
-apply plugin: 'net.researchgate.release'
-apply plugin: 'com.github.sherter.google-java-format'
-
-group = 'se.bjurr.gitchangelog'
-
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
-
-repositories {
- mavenLocal()
- mavenCentral()
-}
 
 dependencies {
  compile 'com.squareup.retrofit2:retrofit:2.0.0'
@@ -44,69 +33,3 @@ dependencies {
  testCompile 'org.assertj:assertj-core:2.3.0'
  testCompile 'org.mockito:mockito-all:1.8.5'
 }
-
-test {
- if (System.getProperty('DEBUG', 'false') == 'true') {
-  jvmArgs '-Xdebug', '-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=9009'
- }
-}
-
-eclipse {
- classpath {
-  downloadSources = true
-  downloadJavadoc = true
- }
-}
-
-sourceSets {
- main.java.srcDirs = ['src/main/java' ]
- test.java.srcDirs = ['src/test/java' ]
-}
-
-if (JavaVersion.current().isJava8Compatible()) {
- allprojects {
-  tasks.withType(Javadoc) {
-   options.addStringOption('Xdoclint:none', '-quiet')
-  }
- }
-}
-
-modifyPom {
- project {
-  name 'GIT Changelog'
-  description 'Library that generates changelog from a GIT repository.'
-  url 'https://github.com/tomasbjerre/git-changelog-lib'
-  inceptionYear '2015'
-   scm {
-   url 'https://github.com/tomasbjerre/git-changelog-lib'
-   connection 'scm:https://tomasbjerre@github.com/tomasbjerre/git-changelog-lib.git'
-   developerConnection 'scm:git://github.com/tomasbjerre/git-changelog-lib.git'
-  }
-
-  licenses {
-   license {
-    name 'The Apache Software License, Version 2.0'
-    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    distribution 'repo'
-   }
-  }
-
-  developers {
-   developer {
-    id 'tomasbjerre'
-    name 'Tomas Bjerre'
-    email 'tomas.bjerre85@gmail.com'
-   }
-  }
- }
-}
-
-extraArchive {
- sources = true
- tests = true
- javadoc = true
-}
-
-compileJava.dependsOn 'googleJavaFormat'
-
-afterReleaseBuild.dependsOn install, uploadArchives
