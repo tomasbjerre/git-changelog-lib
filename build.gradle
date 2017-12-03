@@ -7,7 +7,6 @@ description = 'Library that generates changelog from a GIT repository.'
 
 buildscript {
  repositories {
-  jcenter()
   maven { url "https://jitpack.io" }
  }
  dependencies {
@@ -15,7 +14,6 @@ buildscript {
  }
 }
 apply from: project.buildscript.classLoader.getResource('java.gradle').toURI()
-apply from: project.buildscript.classLoader.getResource('changelog.gradle').toURI()
 apply from: project.buildscript.classLoader.getResource('release.gradle').toURI()
 
 
