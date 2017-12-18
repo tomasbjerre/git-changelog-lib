@@ -11,6 +11,7 @@ import se.bjurr.gitchangelog.api.model.interfaces.IAuthors;
 import se.bjurr.gitchangelog.api.model.interfaces.ICommits;
 
 public class Issue implements ICommits, IAuthors, Serializable {
+
   private static final long serialVersionUID = -7571341639024417199L;
   private final List<Commit> commits;
   private final List<Author> authors;
@@ -37,6 +38,8 @@ public class Issue implements ICommits, IAuthors, Serializable {
 
   private final boolean hasType;
 
+  private final boolean hasDescription;
+  private final String description;
   /** Labels on the issue, for GitHub it may be bug, enhancement, ... */
   private final List<String> labels;
 
@@ -48,6 +51,7 @@ public class Issue implements ICommits, IAuthors, Serializable {
       String name,
       String title,
       String issue,
+      String description,
       String link,
       String type,
       List<String> labels) {
@@ -57,6 +61,8 @@ public class Issue implements ICommits, IAuthors, Serializable {
     this.name = checkNotNull(name, "name");
     this.title = nullToEmpty(title);
     this.hasTitle = !isNullOrEmpty(title);
+    this.description = nullToEmpty(description);
+    this.hasDescription = !isNullOrEmpty(description);
     this.issue = nullToEmpty(issue);
     this.hasIssue = !isNullOrEmpty(issue);
     this.link = nullToEmpty(link);
@@ -105,6 +111,14 @@ public class Issue implements ICommits, IAuthors, Serializable {
 
   public String getType() {
     return type;
+  }
+
+  public boolean hasDescription() {
+    return hasDescription;
+  }
+
+  public String getDescription() {
+    return description;
   }
 
   @Override
