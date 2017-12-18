@@ -3,18 +3,27 @@ package se.bjurr.gitchangelog.internal.integrations.jira;
 import java.util.List;
 
 public class JiraIssue {
+
   private final String title;
   private final String link;
   private final String issue;
   private final String issueType;
+  private final String description;
   private final List<String> labels;
 
-  public JiraIssue(String title, String link, String issue, String issueType, List<String> labels) {
+  public JiraIssue(
+      String title,
+      String description,
+      String link,
+      String issue,
+      String issueType,
+      List<String> labels) {
     this.title = title;
     this.link = link;
     this.issue = issue;
     this.issueType = issueType;
     this.labels = labels;
+    this.description = description;
   }
 
   public String getIssue() {
@@ -35,6 +44,11 @@ public class JiraIssue {
 
   public List<String> getLabels() {
     return labels;
+  }
+
+  public String getDescription() {
+
+    return description;
   }
 
   @Override

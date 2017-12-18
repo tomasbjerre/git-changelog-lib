@@ -25,16 +25,17 @@ public abstract class JiraClient {
 
   protected String getEndpoint(String issue) {
     String endpoint =
-        api + "/rest/api/2/issue/" + issue + "?fields=parent,summary,issuetype,labels";
+        api + "/rest/api/2/issue/" + issue + "?fields=parent,summary,issuetype,labels,description";
     return endpoint;
   }
 
   protected JiraIssue toJiraIssue(String issue, String json) {
     String title = read(json, "$.fields.summary");
+    String description = read(json, "$.fields.description");
     String type = read(json, "$.fields.issuetype.name");
     String link = api + "/browse/" + issue;
     List<String> labels = JsonPath.read(json, "$.fields.labels");
-    JiraIssue jiraIssue = new JiraIssue(title, link, issue, type, labels);
+    JiraIssue jiraIssue = new JiraIssue(title, description, link, issue, type, labels);
     return jiraIssue;
   }
 

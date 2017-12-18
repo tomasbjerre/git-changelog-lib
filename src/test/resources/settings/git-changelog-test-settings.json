@@ -23,8 +23,8 @@
  "gitHubIssuePattern": "#([0-9]+)",
 
  "customIssues": [
-  { "name": "Incidents", title: "${PATTERN_GROUP_1}", "pattern": "INC([0-9]*)", "link": "http://inc/${PATTERN_GROUP}" },
-  { "name": "CQ", title: "${PATTERN_GROUP_1}", "pattern": "CQ([0-9]+)", "link": "http://cq/${PATTERN_GROUP_1}" },
-  { "name": "Bugs", title: "Mixed bugs", "pattern": "#bug" }
+  { "name": "Incidents", "title": "${PATTERN_GROUP_1}", "pattern": "INC([0-9]*)", "link": "http://inc/${PATTERN_GROUP}" },
+  { "name": "CQ", "title": "${PATTERN_GROUP_1}", "pattern": "CQ([0-9]+)", "link": "http://cq/${PATTERN_GROUP_1}" },
+  { "name": "Bugs", "title": "Mixed bugs", "pattern": "#bug" }
  ]
 }
