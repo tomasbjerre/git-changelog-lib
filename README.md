@@ -120,6 +120,8 @@ The template is supplied with this context:
    - link
    - hasTitle
    - title
+   - hasDescription
+   - description
    - hasType
    - type
    - hasLabels
@@ -157,6 +159,8 @@ The template is supplied with this context:
   - link
   - hasTitle
   - title
+  - hasDescription
+  - description
   - hasType
   - type
   - hasLabels
@@ -208,6 +212,8 @@ The template is supplied with this context:
  - link
  - hasTitle
  - title
+ - hasDescription
+ - description
  - hasType
  - type
  - hasLabels
