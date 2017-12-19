@@ -14,3 +14,4 @@ couscous.phar
 classes
 *.iml
 
+/.nb-gradle/

@@ -31,6 +31,7 @@ import se.bjurr.gitchangelog.internal.settings.Settings;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
 
 public class IssueParser {
+
   private static final Logger LOG = getLogger(IssueParser.class);
 
   private final List<GitCommit> commits;
@@ -96,7 +97,7 @@ public class IssueParser {
         final String issueType = null;
         final List<String> labels = null;
         final ParsedIssue noIssue =
-            new ParsedIssue(settings.getNoIssueName(), issue, link, title, issueType, labels);
+            new ParsedIssue(settings.getNoIssueName(), issue, "", link, title, issueType, labels);
         if (!parsedIssuePerIssue.containsKey(noIssue.getName())) {
           parsedIssuePerIssue.put(noIssue.getName(), noIssue);
         }
@@ -132,6 +133,7 @@ public class IssueParser {
     return new ParsedIssue( //
         issuePattern.getName(), //
         matchedIssueString, //
+        "",
         link, //
         title, //
         issueType, //
@@ -179,6 +181,7 @@ public class IssueParser {
     return new ParsedIssue( //
         issuePattern.getName(), //
         matchedIssue, //
+        "",
         link, //
         title, //
         issueType, //
@@ -189,6 +192,7 @@ public class IssueParser {
       final JiraClient jiraClient, final SettingsIssue issuePattern, final String matchedIssue) {
     String link = "";
     String title = "";
+    String desc = "";
     String issueType = null;
     List<String> labels = null;
     try {
@@ -198,6 +202,7 @@ public class IssueParser {
         title = jiraIssue.getTitle();
         issueType = jiraIssue.getIssueType();
         labels = jiraIssue.getLabels();
+        desc = jiraIssue.getDescription();
       }
     } catch (final GitChangelogIntegrationException e) {
       LOG.error(matchedIssue, e);
@@ -205,6 +210,7 @@ public class IssueParser {
     return new ParsedIssue( //
         issuePattern.getName(), //
         matchedIssue, //
+        desc,
         link, //
         title, //
         issueType, //
@@ -234,6 +240,7 @@ public class IssueParser {
     return new ParsedIssue( //
         issuePattern.getName(), //
         matchedIssue, //
+        "",
         link, //
         title, //
         issueType, //

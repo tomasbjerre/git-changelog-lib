@@ -18,15 +18,23 @@ public class ParsedIssue implements IGitCommitReferer {
   private final String issue;
   private final String issueType;
   private final List<String> labels;
+  private final String description;
 
   public ParsedIssue(
-      String name, String issue, String link, String title, String issueType, List<String> labels) {
+      String name,
+      String issue,
+      String description,
+      String link,
+      String title,
+      String issueType,
+      List<String> labels) {
     this.name = checkNotNull(name, "name");
     this.title = emptyToNull(title);
     this.issue = issue;
     this.link = link;
     this.issueType = issueType;
     this.labels = labels;
+    this.description = description;
   }
 
   public Optional<String> getTitle() {
@@ -79,6 +87,10 @@ public class ParsedIssue implements IGitCommitReferer {
 
   public String getIssue() {
     return issue;
+  }
+
+  public String getDescription() {
+    return description;
   }
 
   public void addCommits(List<GitCommit> commits) {

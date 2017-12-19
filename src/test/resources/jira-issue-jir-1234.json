@@ -4,13 +4,13 @@
  "self":"https://domain/jira/rest/api/2/issue/139925",
  "key":"JIR-1234",
  "fields":{
-  "summary":"Title of jira 1234",
+  "summary":"Title of jira 1234",    
   "issuetype": {
    "name": "Bug"
   },
   "labels":[  
    "label1",
    "label2"
-  ]
+  ],"description": "Description"
  }
 }

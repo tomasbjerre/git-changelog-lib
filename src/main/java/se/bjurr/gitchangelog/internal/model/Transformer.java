@@ -154,6 +154,7 @@ public class Transformer {
                         new ParsedIssue(
                             candidate.getName(),
                             candidate.getIssue(),
+                            candidate.getDescription(),
                             candidate.getLink(),
                             candidate.getTitle().orNull(),
                             candidate.getIssueType(),
@@ -209,6 +210,7 @@ public class Transformer {
             input.getName(), //
             input.getTitle().or(""), //
             input.getIssue(), //
+            input.getDescription(),
             input.getLink(), //
             input.getIssueType(), //
             input.getLabels());
