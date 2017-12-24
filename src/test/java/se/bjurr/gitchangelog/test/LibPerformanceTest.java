@@ -30,7 +30,7 @@ public class LibPerformanceTest {
 
   @After
   public void after() {
-    long elapsedSeconds = this.stopwatch.elapsed(SECONDS);
+    final long elapsedSeconds = this.stopwatch.elapsed(SECONDS);
     LOG.info("Took: " + elapsedSeconds + "s");
   }
 
@@ -40,7 +40,7 @@ public class LibPerformanceTest {
         gitChangelogApiBuilder() //
             .withFromRepo(GIT_REPO_DIR);
     this.stopwatch = createStarted();
-    File file = new File(GIT_REPO_DIR);
+    final File file = new File(GIT_REPO_DIR);
     if (file.exists()) {
       this.gitRepo = new GitRepo(file);
     } else {
@@ -55,16 +55,16 @@ public class LibPerformanceTest {
     }
     LOG.info("Running performance test");
 
-    ObjectId fromId = this.gitRepo.getCommit(ZERO_COMMIT);
-    ObjectId toId = this.gitRepo.getRef(REF_MASTER);
-    GitRepoData gitRepoData =
+    final ObjectId fromId = this.gitRepo.getCommit(ZERO_COMMIT);
+    final ObjectId toId = this.gitRepo.getRef(REF_MASTER);
+    final GitRepoData gitRepoData =
         this.gitRepo.getGitRepoData(fromId, toId, UNTAGGED_NAME, Optional.<String>absent());
     LOG.info(this.stopwatch.elapsed(SECONDS) + "s. Done zero to master.");
-    List<GitTag> allTags = gitRepoData.getGitTags();
+    final List<GitTag> allTags = gitRepoData.getGitTags();
     int i = 0;
-    for (GitTag from : allTags) {
+    for (final GitTag from : allTags) {
       LOG.info(this.stopwatch.elapsed(SECONDS) + "s. From " + from.getName());
-      for (GitTag to : allTags) {
+      for (final GitTag to : allTags) {
         i++;
         LOG.info(this.stopwatch.elapsed(SECONDS) + "s.  --> " + to.getName());
         LOG.info(

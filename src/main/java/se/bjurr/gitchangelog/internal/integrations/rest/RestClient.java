@@ -11,6 +11,7 @@ import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Optional;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
@@ -37,7 +38,12 @@ public class RestClient {
   }
 
   public RestClient withBasicAuthCredentials(String username, String password) {
-    this.basicAuthString = new String(printBase64Binary((username + ":" + password).getBytes()));
+    try {
+      this.basicAuthString =
+          new String(printBase64Binary((username + ":" + password).getBytes("UTF-8")));
+    } catch (final UnsupportedEncodingException e) {
+      throw new RuntimeException(e);
+    }
     return this;
   }
 
@@ -78,7 +84,7 @@ public class RestClient {
   @VisibleForTesting
   protected String getResponse(HttpURLConnection conn) throws Exception {
     if (mockedRestClient == null) {
-      return new String(toByteArray(conn.getInputStream()));
+      return new String(toByteArray(conn.getInputStream()), "UTF-8");
     }
     return mockedRestClient.getResponse(conn);
   }

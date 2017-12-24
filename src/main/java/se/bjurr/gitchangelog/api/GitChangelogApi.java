@@ -132,7 +132,7 @@ public class GitChangelogApi {
    */
   public void toFile(final File file) throws GitChangelogRepositoryException, IOException {
     createParentDirs(file);
-    write(render().getBytes(), file);
+    write(render().getBytes("UTF-8"), file);
   }
 
   /**
