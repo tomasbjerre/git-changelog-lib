@@ -53,14 +53,14 @@ public class GitRepo implements Closeable {
     this.revWalk = null;
   }
 
-  public GitRepo(File repo) throws GitChangelogRepositoryException {
+  public GitRepo(final File repo) throws GitChangelogRepositoryException {
     try {
       File repoFile = new File(repo.getAbsolutePath());
-      File gitRepoFile = new File(repo.getAbsolutePath() + "/.git");
+      final File gitRepoFile = new File(repo.getAbsolutePath() + "/.git");
       if (gitRepoFile.exists()) {
         repoFile = gitRepoFile;
       }
-      FileRepositoryBuilder builder =
+      final FileRepositoryBuilder builder =
           new FileRepositoryBuilder() //
               .findGitDir(repoFile) //
               .readEnvironment();
@@ -71,7 +71,7 @@ public class GitRepo implements Closeable {
       this.repository = builder.build();
       this.revWalk = new RevWalk(this.repository);
       this.git = new Git(this.repository);
-    } catch (IOException e) {
+    } catch (final IOException e) {
       throw new GitChangelogRepositoryException(
           "Could not use GIT repo in " + repo.getAbsolutePath(), e);
     }
@@ -81,15 +81,23 @@ public class GitRepo implements Closeable {
   public void close() throws IOException {
     this.git.close();
     this.repository.close();
+    revWalk.dispose();
+    if (revWalk instanceof AutoCloseable) {
+      try {
+        ((AutoCloseable) revWalk).close();
+      } catch (final Exception e) {
+        LOG.error(e.getMessage(), e);
+      }
+    }
   }
 
-  public ObjectId getCommit(String fromCommit) throws GitChangelogRepositoryException {
+  public ObjectId getCommit(final String fromCommit) throws GitChangelogRepositoryException {
     if (fromCommit.startsWith(ZERO_COMMIT)) {
       return firstCommit();
     }
     try {
       return this.repository.resolve(fromCommit);
-    } catch (Exception e) {
+    } catch (final Exception e) {
       throw new GitChangelogRepositoryException("", e);
     }
   }
@@ -100,23 +108,27 @@ public class GitRepo implements Closeable {
    * @param to To and including this commit.
    */
   public GitRepoData getGitRepoData(
-      ObjectId from, ObjectId to, String untaggedName, Optional<String> ignoreTagsIfNameMatches)
+      final ObjectId from,
+      final ObjectId to,
+      final String untaggedName,
+      final Optional<String> ignoreTagsIfNameMatches)
       throws GitChangelogRepositoryException {
     try {
-      String originUrl = this.git.getRepository().getConfig().getString("remote", "origin", "url");
-      List<GitTag> gitTags = gitTags(from, to, untaggedName, ignoreTagsIfNameMatches);
+      final String originUrl =
+          this.git.getRepository().getConfig().getString("remote", "origin", "url");
+      final List<GitTag> gitTags = gitTags(from, to, untaggedName, ignoreTagsIfNameMatches);
       return new GitRepoData(originUrl, gitTags);
-    } catch (Exception e) {
+    } catch (final Exception e) {
       throw new GitChangelogRepositoryException(toString(), e);
     }
   }
 
-  public ObjectId getRef(String fromRef) throws GitChangelogRepositoryException {
+  public ObjectId getRef(final String fromRef) throws GitChangelogRepositoryException {
     try {
-      for (Ref foundRef : getAllRefs().values()) {
+      for (final Ref foundRef : getAllRefs().values()) {
         if (foundRef.getName().endsWith(fromRef)) {
-          Ref ref = getAllRefs().get(foundRef.getName());
-          Ref peeledRef = this.repository.peel(ref);
+          final Ref ref = getAllRefs().get(foundRef.getName());
+          final Ref peeledRef = this.repository.peel(ref);
           if (peeledRef.getPeeledObjectId() != null) {
             return peeledRef.getPeeledObjectId();
           } else {
@@ -125,48 +137,50 @@ public class GitRepo implements Closeable {
         }
       }
       throw new GitChangelogRepositoryException(fromRef + " not found in:\n" + toString());
-    } catch (Exception e) {
+    } catch (final Exception e) {
       throw new GitChangelogRepositoryException("", e);
     }
   }
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    for (Ref foundRef : getAllRefs().values()) {
+    final StringBuilder sb = new StringBuilder();
+    for (final Ref foundRef : getAllRefs().values()) {
       sb.append(foundRef.getName() + "\n");
     }
     return "Repo: " + this.repository + "\n" + sb.toString();
   }
 
   private boolean addCommitToCurrentTag(
-      Map<String, Set<GitCommit>> commitsPerTagName, String currentTagName, RevCommit thisCommit) {
-    GitCommit gitCommit = toGitCommit(thisCommit);
+      final Map<String, Set<GitCommit>> commitsPerTagName,
+      final String currentTagName,
+      final RevCommit thisCommit) {
+    final GitCommit gitCommit = toGitCommit(thisCommit);
     boolean newTagFound = false;
     if (!commitsPerTagName.containsKey(currentTagName)) {
       commitsPerTagName.put(currentTagName, new TreeSet<GitCommit>());
       newTagFound = true;
     }
-    Set<GitCommit> gitCommitsInCurrentTag = commitsPerTagName.get(currentTagName);
+    final Set<GitCommit> gitCommitsInCurrentTag = commitsPerTagName.get(currentTagName);
     gitCommitsInCurrentTag.add(gitCommit);
     return newTagFound;
   }
 
   private void addToTags(
-      Map<String, Set<GitCommit>> commitsPerTag,
-      String tagName,
-      Date tagTime,
-      List<GitTag> addTo,
-      Map<String, RevTag> annotatedTagPerTagName) {
+      final Map<String, Set<GitCommit>> commitsPerTag,
+      final String tagName,
+      final Date tagTime,
+      final List<GitTag> addTo,
+      final Map<String, RevTag> annotatedTagPerTagName) {
     if (commitsPerTag.containsKey(tagName)) {
-      Set<GitCommit> gitCommits = commitsPerTag.get(tagName);
-      boolean isAnnotated = annotatedTagPerTagName.containsKey(tagName);
+      final Set<GitCommit> gitCommits = commitsPerTag.get(tagName);
+      final boolean isAnnotated = annotatedTagPerTagName.containsKey(tagName);
       String annotation = null;
       if (isAnnotated) {
         annotation = annotatedTagPerTagName.get(tagName).getFullMessage();
       }
 
-      GitTag gitTag = new GitTag(tagName, annotation, newArrayList(gitCommits), tagTime);
+      final GitTag gitTag = new GitTag(tagName, annotation, newArrayList(gitCommits), tagTime);
       addTo.add(gitTag);
     }
   }
@@ -175,10 +189,10 @@ public class GitRepo implements Closeable {
     Git git = null;
     try {
       git = new Git(this.repository);
-      AnyObjectId master = getRef(HEAD);
-      Iterator<RevCommit> itr = git.log().add(master).call().iterator();
+      final AnyObjectId master = getRef(HEAD);
+      final Iterator<RevCommit> itr = git.log().add(master).call().iterator();
       return getLast(itr);
-    } catch (Exception e) {
+    } catch (final Exception e) {
       throw new RuntimeException("First commit not found in " + this.repository.getDirectory(), e);
     } finally {
       git.close();
@@ -190,20 +204,20 @@ public class GitRepo implements Closeable {
   }
 
   private Map<String, RevTag> getAnnotatedTagPerTagName(
-      Optional<String> ignoreTagsIfNameMatches, List<Ref> tagList) {
-    Map<String, RevTag> tagPerCommit = newHashMap();
-    for (Ref tag : tagList) {
+      final Optional<String> ignoreTagsIfNameMatches, final List<Ref> tagList) {
+    final Map<String, RevTag> tagPerCommit = newHashMap();
+    for (final Ref tag : tagList) {
       if (ignoreTagsIfNameMatches.isPresent()) {
         if (compile(ignoreTagsIfNameMatches.get()).matcher(tag.getName()).matches()) {
           continue;
         }
       }
-      Ref peeledTag = this.repository.peel(tag);
+      final Ref peeledTag = this.repository.peel(tag);
       if (peeledTag.getPeeledObjectId() != null) {
         try {
-          RevTag revTag = RevTag.parse(this.repository.open(tag.getObjectId()).getBytes());
+          final RevTag revTag = RevTag.parse(this.repository.open(tag.getObjectId()).getBytes());
           tagPerCommit.put(tag.getName(), revTag);
-        } catch (IOException e) {
+        } catch (final IOException e) {
           LOG.error(e.getMessage(), e);
         }
       }
@@ -211,15 +225,17 @@ public class GitRepo implements Closeable {
     return tagPerCommit;
   }
 
-  private List<RevCommit> getDiffingCommits(RevCommit from, RevCommit to) throws Exception {
-    RevCommit firstCommit = firstCommit();
-    List<RevCommit> allInFrom = newArrayList(this.git.log().addRange(firstCommit, from).call());
-    List<RevCommit> allInTo = newArrayList(this.git.log().addRange(firstCommit, to).call());
+  private List<RevCommit> getDiffingCommits(final RevCommit from, final RevCommit to)
+      throws Exception {
+    final RevCommit firstCommit = firstCommit();
+    final List<RevCommit> allInFrom =
+        newArrayList(this.git.log().addRange(firstCommit, from).call());
+    final List<RevCommit> allInTo = newArrayList(this.git.log().addRange(firstCommit, to).call());
     return newArrayList(filter(allInTo, not(in(allInFrom))));
   }
 
-  private ObjectId getPeeled(Ref tag) {
-    Ref peeledTag = this.repository.peel(tag);
+  private ObjectId getPeeled(final Ref tag) {
+    final Ref peeledTag = this.repository.peel(tag);
     if (peeledTag.getPeeledObjectId() != null) {
       return peeledTag.getPeeledObjectId();
     } else {
@@ -227,18 +243,18 @@ public class GitRepo implements Closeable {
     }
   }
 
-  private List<Ref> getTagCommitHashSortedByCommitTime(Collection<Ref> refs) {
+  private List<Ref> getTagCommitHashSortedByCommitTime(final Collection<Ref> refs) {
     return Ordering.from(
             new Comparator<Ref>() {
               @Override
-              public int compare(Ref o1, Ref o2) {
-                RevCommit revCommit1 = GitRepo.this.revWalk.lookupCommit(getPeeled(o1));
+              public int compare(final Ref o1, final Ref o2) {
+                final RevCommit revCommit1 = GitRepo.this.revWalk.lookupCommit(getPeeled(o1));
                 try {
                   GitRepo.this.revWalk.parseHeaders(revCommit1);
-                  RevCommit revCommit2 = GitRepo.this.revWalk.lookupCommit(getPeeled(o2));
+                  final RevCommit revCommit2 = GitRepo.this.revWalk.lookupCommit(getPeeled(o2));
                   GitRepo.this.revWalk.parseHeaders(revCommit2);
                   return toGitCommit(revCommit1).compareTo(toGitCommit(revCommit2));
-                } catch (Exception e) {
+                } catch (final Exception e) {
                   throw propagate(e);
                 }
               }
@@ -246,14 +262,14 @@ public class GitRepo implements Closeable {
         .sortedCopy(refs);
   }
 
-  private String getTagName(Map<String, Ref> tagPerCommitHash, String thisCommitHash) {
+  private String getTagName(final Map<String, Ref> tagPerCommitHash, final String thisCommitHash) {
     return tagPerCommitHash.get(thisCommitHash).getName();
   }
 
   private Map<String, Ref> getTagPerCommitHash(
-      Optional<String> ignoreTagsIfNameMatches, List<Ref> tagList) {
-    Map<String, Ref> tagPerCommit = newHashMap();
-    for (Ref tag : tagList) {
+      final Optional<String> ignoreTagsIfNameMatches, final List<Ref> tagList) {
+    final Map<String, Ref> tagPerCommit = newHashMap();
+    for (final Ref tag : tagList) {
       if (ignoreTagsIfNameMatches.isPresent()) {
         if (compile(ignoreTagsIfNameMatches.get()).matcher(tag.getName()).matches()) {
           continue;
@@ -265,52 +281,52 @@ public class GitRepo implements Closeable {
   }
 
   private List<GitTag> gitTags(
-      ObjectId fromObjectId,
-      ObjectId toObjectId,
-      String untaggedName,
-      Optional<String> ignoreTagsIfNameMatches)
+      final ObjectId fromObjectId,
+      final ObjectId toObjectId,
+      final String untaggedName,
+      final Optional<String> ignoreTagsIfNameMatches)
       throws Exception {
-    RevCommit from = this.revWalk.lookupCommit(fromObjectId);
-    RevCommit to = this.revWalk.lookupCommit(toObjectId);
+    final RevCommit from = this.revWalk.lookupCommit(fromObjectId);
+    final RevCommit to = this.revWalk.lookupCommit(toObjectId);
 
     this.commitsToInclude = getDiffingCommits(from, to);
 
-    List<Ref> tagList = tagsBetweenFromAndTo(from, to);
+    final List<Ref> tagList = tagsBetweenFromAndTo(from, to);
     /**
      * What: Contains only the commits that are directly referred to by tags.<br>
      * Why: To know if a new tag was found when walking up through the parents.
      */
-    Map<String, Ref> tagPerCommitHash = getTagPerCommitHash(ignoreTagsIfNameMatches, tagList);
+    final Map<String, Ref> tagPerCommitHash = getTagPerCommitHash(ignoreTagsIfNameMatches, tagList);
 
     /**
      * What: Contains only the tags that are annotated.<br>
      * Why: To populate tag message, for annotated tags.
      */
-    Map<String, RevTag> annotatedTagPerTagName =
+    final Map<String, RevTag> annotatedTagPerTagName =
         getAnnotatedTagPerTagName(ignoreTagsIfNameMatches, tagList);
 
     /**
      * What: Populated with all included commits, referring to there tags.<br>
      * Why: To know if a commit is already mapped to a tag, or not.
      */
-    Map<String, String> tagPerCommitsHash = newHashMap();
+    final Map<String, String> tagPerCommitsHash = newHashMap();
     /**
      * What: Commits per tag.<br>
      * Why: Its what we are here for! =)
      */
-    Map<String, Set<GitCommit>> commitsPerTag = newHashMap();
-    Map<String, Date> datePerTag = newHashMap();
+    final Map<String, Set<GitCommit>> commitsPerTag = newHashMap();
+    final Map<String, Date> datePerTag = newHashMap();
 
     populateComitPerTag(
         from, to, tagPerCommitHash, tagPerCommitsHash, commitsPerTag, datePerTag, null);
     populateComitPerTag(
         from, to, tagPerCommitHash, tagPerCommitsHash, commitsPerTag, datePerTag, untaggedName);
 
-    List<GitTag> tags = newArrayList();
+    final List<GitTag> tags = newArrayList();
     addToTags(commitsPerTag, untaggedName, null, tags, annotatedTagPerTagName);
-    List<Ref> tagCommitHashSortedByCommitTime =
+    final List<Ref> tagCommitHashSortedByCommitTime =
         getTagCommitHashSortedByCommitTime(tagPerCommitHash.values());
-    for (Ref tag : tagCommitHashSortedByCommitTime) {
+    for (final Ref tag : tagCommitHashSortedByCommitTime) {
       addToTags(
           commitsPerTag,
           tag.getName(),
@@ -322,30 +338,32 @@ public class GitRepo implements Closeable {
   }
 
   private boolean isMappedToAnotherTag(
-      Map<String, String> tagPerCommitsHash, String thisCommitHash) {
+      final Map<String, String> tagPerCommitsHash, final String thisCommitHash) {
     return tagPerCommitsHash.containsKey(thisCommitHash);
   }
 
   private String noteThatTheCommitWasMapped(
-      Map<String, String> tagPerCommitsHash, String currentTagName, String thisCommitHash) {
+      final Map<String, String> tagPerCommitsHash,
+      final String currentTagName,
+      final String thisCommitHash) {
     return tagPerCommitsHash.put(thisCommitHash, currentTagName);
   }
 
-  private boolean notFirstIncludedCommit(ObjectId from, ObjectId to) {
+  private boolean notFirstIncludedCommit(final ObjectId from, final ObjectId to) {
     return !from.getName().equals(to.getName());
   }
 
   /** This can be done recursively but will result in {@link StackOverflowError} for large repos. */
   private void populateComitPerTag(
-      RevCommit from,
-      ObjectId to,
-      Map<String, Ref> tagPerCommitHash,
-      Map<String, String> tagPerCommitsHash,
-      Map<String, Set<GitCommit>> commitsPerTag,
-      Map<String, Date> datePerTag,
-      String startingTagName)
+      final RevCommit from,
+      final ObjectId to,
+      final Map<String, Ref> tagPerCommitHash,
+      final Map<String, String> tagPerCommitsHash,
+      final Map<String, Set<GitCommit>> commitsPerTag,
+      final Map<String, Date> datePerTag,
+      final String startingTagName)
       throws Exception {
-    Set<TraversalWork> moreWork =
+    final Set<TraversalWork> moreWork =
         populateCommitPerTag(
             from,
             to,
@@ -355,10 +373,10 @@ public class GitRepo implements Closeable {
             datePerTag,
             startingTagName);
     do {
-      Set<TraversalWork> evenMoreWork = newTreeSet();
-      for (TraversalWork tw : newArrayList(moreWork)) {
+      final Set<TraversalWork> evenMoreWork = newTreeSet();
+      for (final TraversalWork tw : newArrayList(moreWork)) {
         moreWork.remove(tw);
-        Set<TraversalWork> newWork =
+        final Set<TraversalWork> newWork =
             populateCommitPerTag(
                 from,
                 tw.getTo(),
@@ -375,19 +393,19 @@ public class GitRepo implements Closeable {
   }
 
   private Set<TraversalWork> populateCommitPerTag(
-      RevCommit from,
-      ObjectId to,
-      Map<String, Set<GitCommit>> commitsPerTagName,
-      Map<String, Ref> tagPerCommitHash,
-      Map<String, String> tagPerCommitsHash,
-      Map<String, Date> datePerTag,
+      final RevCommit from,
+      final ObjectId to,
+      final Map<String, Set<GitCommit>> commitsPerTagName,
+      final Map<String, Ref> tagPerCommitHash,
+      final Map<String, String> tagPerCommitsHash,
+      final Map<String, Date> datePerTag,
       String currentTagName)
       throws Exception {
-    String thisCommitHash = to.getName();
+    final String thisCommitHash = to.getName();
     if (isMappedToAnotherTag(tagPerCommitsHash, thisCommitHash)) {
       return newTreeSet();
     }
-    RevCommit thisCommit = this.revWalk.lookupCommit(to);
+    final RevCommit thisCommit = this.revWalk.lookupCommit(to);
     this.revWalk.parseHeaders(thisCommit);
     if (thisIsANewTag(tagPerCommitHash, thisCommitHash)) {
       currentTagName = getTagName(tagPerCommitHash, thisCommitHash);
@@ -399,8 +417,8 @@ public class GitRepo implements Closeable {
       noteThatTheCommitWasMapped(tagPerCommitsHash, currentTagName, thisCommitHash);
     }
     if (notFirstIncludedCommit(from, to)) {
-      Set<TraversalWork> work = newTreeSet();
-      for (RevCommit parent : thisCommit.getParents()) {
+      final Set<TraversalWork> work = newTreeSet();
+      for (final RevCommit parent : thisCommit.getParents()) {
         if (shouldInclude(parent)) {
           work.add(new TraversalWork(parent, currentTagName));
         }
@@ -410,16 +428,16 @@ public class GitRepo implements Closeable {
     return newTreeSet();
   }
 
-  private boolean shouldInclude(RevCommit candidate) throws Exception {
+  private boolean shouldInclude(final RevCommit candidate) throws Exception {
     return this.commitsToInclude.contains(candidate);
   }
 
-  private List<Ref> tagsBetweenFromAndTo(ObjectId from, ObjectId to) throws Exception {
-    List<Ref> tagList = this.git.tagList().call();
-    List<RevCommit> icludedCommits = newArrayList(this.git.log().addRange(from, to).call());
-    List<Ref> includedTags = newArrayList();
-    for (Ref tag : tagList) {
-      ObjectId peeledTag = getPeeled(tag);
+  private List<Ref> tagsBetweenFromAndTo(final ObjectId from, final ObjectId to) throws Exception {
+    final List<Ref> tagList = this.git.tagList().call();
+    final List<RevCommit> icludedCommits = newArrayList(this.git.log().addRange(from, to).call());
+    final List<Ref> includedTags = newArrayList();
+    for (final Ref tag : tagList) {
+      final ObjectId peeledTag = getPeeled(tag);
       if (icludedCommits.contains(peeledTag)) {
         includedTags.add(tag);
       }
@@ -427,12 +445,13 @@ public class GitRepo implements Closeable {
     return includedTags;
   }
 
-  private boolean thisIsANewTag(Map<String, Ref> tagsPerCommitHash, String thisCommitHash) {
+  private boolean thisIsANewTag(
+      final Map<String, Ref> tagsPerCommitHash, final String thisCommitHash) {
     return tagsPerCommitHash.containsKey(thisCommitHash);
   }
 
-  private GitCommit toGitCommit(RevCommit revCommit) {
-    Boolean merge = revCommit.getParentCount() > 1;
+  private GitCommit toGitCommit(final RevCommit revCommit) {
+    final Boolean merge = revCommit.getParentCount() > 1;
     return new GitCommit( //
         revCommit.getAuthorIdent().getName(), //
         revCommit.getAuthorIdent().getEmailAddress(), //

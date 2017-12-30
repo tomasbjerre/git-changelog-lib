@@ -8,7 +8,7 @@ Changelog for tomasbjerre git-changelog-lib.
 **Using , instead of default**
 
 
-[68b195045c0a24f](https://github.com/tomasbjerre/git-changelog-lib/commit/68b195045c0a24f) Tomas Bjerre *2017-12-24 21:31:29*
+[7fe5f6b9860efe7](https://github.com/tomasbjerre/git-changelog-lib/commit/7fe5f6b9860efe7) Tomas Bjerre *2017-12-24 21:59:34*
 
 
 ## 1.76
