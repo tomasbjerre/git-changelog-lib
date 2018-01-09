@@ -2,6 +2,26 @@
 
 Changelog for tomasbjerre git-changelog-lib.
 
+## 1.79
+### Other changes
+
+**Bumping version to fix faulty release**
+
+
+[df186edf843a598](https://github.com/tomasbjerre/git-changelog-lib/commit/df186edf843a598) Tomas Bjerre *2018-01-09 20:53:41*
+
+**Removing state from GitHub Client**
+
+ * The client was created once, with one API, and kept for all future invcations. So that if a changelog was created for one repo (A) and then for a repo (B), then B would use the API from A. Resulting in wrong issue information in B. 
+
+[8ef76f5c6653ab3](https://github.com/tomasbjerre/git-changelog-lib/commit/8ef76f5c6653ab3) Tomas Bjerre *2018-01-09 20:46:33*
+
+**changelog.json: Fix invalid JSON**
+
+
+[46d37d70e2f9ffe](https://github.com/tomasbjerre/git-changelog-lib/commit/46d37d70e2f9ffe) Chad Horohoe *2018-01-03 02:31:13*
+
+
 ## 1.77
 ### Jira JENKINS-19994   
 
