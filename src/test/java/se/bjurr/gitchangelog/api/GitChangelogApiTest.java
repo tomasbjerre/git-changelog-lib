@@ -47,10 +47,8 @@ public class GitChangelogApiTest {
         "https://api.github.com/repos/tomasbjerre/git-changelog-lib/issues?state=all&per_page=100&page=1",
         Resources.toString(getResource("github-issues.json"), UTF_8));
 
-    GitHubServiceFactory.reset();
     GitHubServiceFactory //
-        .getGitHubService(
-        "https://api.github.com/repos/tomasbjerre/git-changelog-lib", null, gitHubMockInterceptor);
+        .setInterceptor(gitHubMockInterceptor);
   }
 
   @Test
