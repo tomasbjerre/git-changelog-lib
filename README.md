@@ -63,7 +63,7 @@ There are some examples [here](https://github.com/tomasbjerre/git-changelog/tree
 
 There are also different variations [here](https://github.com/tomasbjerre/git-changelog/tree/master/src/test/resources/templates) that are used for testing.
 
-## Supplied information
+## Context
 
 The template is supplied with this context:
 ```
