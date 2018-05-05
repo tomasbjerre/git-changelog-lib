@@ -24,20 +24,20 @@ public class RestClient {
   private final LoadingCache<String, Optional<String>> urlCache;
   private String basicAuthString;
 
-  public RestClient(long duration, TimeUnit cacheExpireAfterAccess) {
+  public RestClient(final long duration, final TimeUnit cacheExpireAfterAccess) {
     urlCache =
         newBuilder() //
             .expireAfterAccess(duration, cacheExpireAfterAccess) //
             .build(
                 new CacheLoader<String, Optional<String>>() {
                   @Override
-                  public Optional<String> load(String url) throws Exception {
+                  public Optional<String> load(final String url) throws Exception {
                     return doGet(url);
                   }
                 });
   }
 
-  public RestClient withBasicAuthCredentials(String username, String password) {
+  public RestClient withBasicAuthCredentials(final String username, final String password) {
     try {
       this.basicAuthString =
           new String(printBase64Binary((username + ":" + password).getBytes("UTF-8")));
@@ -47,7 +47,7 @@ public class RestClient {
     return this;
   }
 
-  public Optional<String> get(String url) throws GitChangelogIntegrationException {
+  public Optional<String> get(final String url) throws GitChangelogIntegrationException {
     try {
       return urlCache.get(url);
     } catch (final Exception e) {
@@ -55,12 +55,13 @@ public class RestClient {
     }
   }
 
-  private Optional<String> doGet(String urlParam) {
+  private Optional<String> doGet(final String urlParam) {
     final String response = null;
+    HttpURLConnection conn = null;
     try {
       logger.info("GET:\n" + urlParam);
       final URL url = new URL(urlParam);
-      final HttpURLConnection conn = openConnection(url);
+      conn = openConnection(url);
       conn.setRequestProperty("Content-Type", "application/json");
       conn.setRequestProperty("Accept", "application/json");
       if (this.basicAuthString != null) {
@@ -70,11 +71,13 @@ public class RestClient {
     } catch (final Exception e) {
       logger.error("Got:\n" + response, e);
       return absent();
+    } finally {
+      conn.disconnect();
     }
   }
 
   @VisibleForTesting
-  protected HttpURLConnection openConnection(URL url) throws Exception {
+  protected HttpURLConnection openConnection(final URL url) throws Exception {
     if (mockedRestClient == null) {
       return (HttpURLConnection) url.openConnection();
     }
@@ -82,14 +85,14 @@ public class RestClient {
   }
 
   @VisibleForTesting
-  protected String getResponse(HttpURLConnection conn) throws Exception {
+  protected String getResponse(final HttpURLConnection conn) throws Exception {
     if (mockedRestClient == null) {
       return new String(toByteArray(conn.getInputStream()), "UTF-8");
     }
     return mockedRestClient.getResponse(conn);
   }
 
-  public static void mock(RestClient mock) {
+  public static void mock(final RestClient mock) {
     mockedRestClient = mock;
   }
 }
