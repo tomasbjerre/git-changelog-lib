@@ -17,9 +17,6 @@ import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_REMOVE_
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_TIMEZONE;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_UNTAGGED_NAME;
 
-import com.google.common.base.Optional;
-import com.google.common.io.Resources;
-import com.google.gson.Gson;
 import java.io.Serializable;
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -27,6 +24,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
+import com.google.common.base.Optional;
+import com.google.common.io.Resources;
+import com.google.gson.Gson;
+
 import se.bjurr.gitchangelog.api.model.Changelog;
 import se.bjurr.gitchangelog.api.model.Issue;
 
@@ -171,27 +173,33 @@ public class Settings implements Serializable {
 
   public Settings() {}
 
-  public void setCustomIssues(List<SettingsIssue> customIssues) {
+  public void setCustomIssues(final List<SettingsIssue> customIssues) {
     this.customIssues = customIssues;
   }
 
-  public void setFromRef(String fromRef) {
-    this.fromRef = fromRef;
+  public void setFromRef(final String fromRef) {
+	  if (fromRef == null || fromRef.trim().isEmpty()) {
+		this.fromRef = null;
+	}
+    this.fromRef = fromRef.trim();
   }
 
-  public void setToRef(String toRef) {
-    this.toRef = toRef;
+  public void setToRef(final String toRef) {
+	  if (toRef == null || toRef.trim().isEmpty()) {
+		this.toRef = null;
+	}
+    this.toRef = toRef.trim();
   }
 
   public Optional<String> getFromRef() {
-    return fromNullable(emptyToNull(fromRef));
+    return fromNullable(fromRef);
   }
 
   public Optional<String> getToRef() {
-    return fromNullable(emptyToNull(toRef));
+    return fromNullable(toRef);
   }
 
-  public void setFromRepo(String fromRepo) {
+  public void setFromRepo(final String fromRepo) {
     this.fromRepo = fromRepo;
   }
 
@@ -199,27 +207,27 @@ public class Settings implements Serializable {
     return fromNullable(fromRepo).or(".");
   }
 
-  public void setIgnoreCommitsIfMessageMatches(String ignoreCommitsIfMessageMatches) {
+  public void setIgnoreCommitsIfMessageMatches(final String ignoreCommitsIfMessageMatches) {
     this.ignoreCommitsIfMessageMatches = ignoreCommitsIfMessageMatches;
   }
 
-  public void setIgnoreTagsIfNameMatches(String ignoreTagsIfNameMatches) {
+  public void setIgnoreTagsIfNameMatches(final String ignoreTagsIfNameMatches) {
     this.ignoreTagsIfNameMatches = ignoreTagsIfNameMatches;
   }
 
-  public void setIgnoreCommitsIfOlderThan(Date ignoreCommitsIfOlderThan) {
+  public void setIgnoreCommitsIfOlderThan(final Date ignoreCommitsIfOlderThan) {
     this.ignoreCommitsIfOlderThan = ignoreCommitsIfOlderThan;
   }
 
-  public void setJiraIssuePattern(String jiraIssuePattern) {
+  public void setJiraIssuePattern(final String jiraIssuePattern) {
     this.jiraIssuePattern = jiraIssuePattern;
   }
 
-  public void setJiraServer(String jiraServer) {
+  public void setJiraServer(final String jiraServer) {
     this.jiraServer = jiraServer;
   }
 
-  public void addCustomIssue(SettingsIssue customIssue) {
+  public void addCustomIssue(final SettingsIssue customIssue) {
     if (customIssues == null) {
       customIssues = newArrayList();
     }
@@ -228,7 +236,7 @@ public class Settings implements Serializable {
 
   public List<SettingsIssue> getCustomIssues() {
     if (customIssues == null) {
-      return new ArrayList<SettingsIssue>();
+      return new ArrayList<>();
     }
     return customIssues;
   }
@@ -249,7 +257,7 @@ public class Settings implements Serializable {
     return fromNullable(jiraServer);
   }
 
-  public static Settings fromFile(URL url) {
+  public static Settings fromFile(final URL url) {
     try {
       return gson.fromJson(Resources.toString(url, UTF_8), Settings.class);
     } catch (final Exception e) {
@@ -257,11 +265,11 @@ public class Settings implements Serializable {
     }
   }
 
-  public void setFromCommit(String fromCommit) {
+  public void setFromCommit(final String fromCommit) {
     this.fromCommit = fromCommit;
   }
 
-  public void setToCommit(String toCommit) {
+  public void setToCommit(final String toCommit) {
     this.toCommit = toCommit;
   }
 
@@ -281,7 +289,7 @@ public class Settings implements Serializable {
     return fromNullable(ignoreTagsIfNameMatches);
   }
 
-  public void setUntaggedName(String untaggedName) {
+  public void setUntaggedName(final String untaggedName) {
     this.untaggedName = untaggedName;
   }
 
@@ -289,7 +297,7 @@ public class Settings implements Serializable {
     return fromNullable(templatePath).or("changelog.mustache");
   }
 
-  public void setTemplatePath(String templatePath) {
+  public void setTemplatePath(final String templatePath) {
     this.templatePath = templatePath;
   }
 
@@ -301,15 +309,15 @@ public class Settings implements Serializable {
     return fromNullable(dateFormat).or(DEFAULT_DATEFORMAT);
   }
 
-  public void setDateFormat(String dateFormat) {
+  public void setDateFormat(final String dateFormat) {
     this.dateFormat = dateFormat;
   }
 
-  public void setNoIssueName(String noIssueName) {
+  public void setNoIssueName(final String noIssueName) {
     this.noIssueName = noIssueName;
   }
 
-  public void setReadableTagName(String readableTagName) {
+  public void setReadableTagName(final String readableTagName) {
     this.readableTagName = readableTagName;
   }
 
@@ -317,7 +325,7 @@ public class Settings implements Serializable {
     return fromNullable(noIssueName).or(DEFAULT_NO_ISSUE_NAME);
   }
 
-  public void setTimeZone(String timeZone) {
+  public void setTimeZone(final String timeZone) {
     this.timeZone = timeZone;
   }
 
@@ -335,7 +343,7 @@ public class Settings implements Serializable {
     }
   }
 
-  public void setRemoveIssueFromMessage(boolean removeIssueFromMessage) {
+  public void setRemoveIssueFromMessage(final boolean removeIssueFromMessage) {
     this.removeIssueFromMessage = removeIssueFromMessage;
   }
 
@@ -351,15 +359,15 @@ public class Settings implements Serializable {
     return fromNullable(gitHubToken);
   }
 
-  public void setGitHubApi(String gitHubApi) {
+  public void setGitHubApi(final String gitHubApi) {
     this.gitHubApi = gitHubApi;
   }
 
-  public void setGitHubToken(String gitHubToken) {
+  public void setGitHubToken(final String gitHubToken) {
     this.gitHubToken = gitHubToken;
   }
 
-  public void setGitHubIssuePattern(String gitHubIssuePattern) {
+  public void setGitHubIssuePattern(final String gitHubIssuePattern) {
     this.gitHubIssuePattern = gitHubIssuePattern;
   }
 
@@ -371,11 +379,11 @@ public class Settings implements Serializable {
     return fromNullable(jiraUsername);
   }
 
-  public void setJiraPassword(String jiraPassword) {
+  public void setJiraPassword(final String jiraPassword) {
     this.jiraPassword = jiraPassword;
   }
 
-  public void setJiraUsername(String jiraUsername) {
+  public void setJiraUsername(final String jiraUsername) {
     this.jiraUsername = jiraUsername;
   }
 
@@ -383,7 +391,7 @@ public class Settings implements Serializable {
     return fromNullable(jiraPassword);
   }
 
-  public void setExtendedVariables(Map<String, Object> extendedVariables) {
+  public void setExtendedVariables(final Map<String, Object> extendedVariables) {
     this.extendedVariables = extendedVariables;
   }
 
@@ -391,7 +399,7 @@ public class Settings implements Serializable {
     return extendedVariables;
   }
 
-  public void setIgnoreCommitsWithoutIssue(boolean ignoreCommitsWithoutIssue) {
+  public void setIgnoreCommitsWithoutIssue(final boolean ignoreCommitsWithoutIssue) {
     this.ignoreCommitsWithoutIssue = ignoreCommitsWithoutIssue;
   }
 
@@ -399,19 +407,19 @@ public class Settings implements Serializable {
     return ignoreCommitsWithoutIssue;
   }
 
-  public void setGitLabIssuePattern(String gitLabIssuePattern) {
+  public void setGitLabIssuePattern(final String gitLabIssuePattern) {
     this.gitLabIssuePattern = gitLabIssuePattern;
   }
 
-  public void setGitLabProjectName(String gitLabProjectName) {
+  public void setGitLabProjectName(final String gitLabProjectName) {
     this.gitLabProjectName = gitLabProjectName;
   }
 
-  public void setGitLabServer(String gitLabServer) {
+  public void setGitLabServer(final String gitLabServer) {
     this.gitLabServer = gitLabServer;
   }
 
-  public void setGitLabToken(String gitLabToken) {
+  public void setGitLabToken(final String gitLabToken) {
     this.gitLabToken = gitLabToken;
   }
 
