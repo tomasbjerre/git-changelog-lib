@@ -5,6 +5,11 @@ Changelog for tomasbjerre git-changelog-lib.
 ## Next release
 ### Other changes
 
+**Correcting ownerName when dot in repo name**
+
+
+[56f23fe9eff5487](https://github.com/tomasbjerre/git-changelog-lib/commit/56f23fe9eff5487) Tomas Bjerre *2018-09-12 14:41:21*
+
 **Trimming from/to refs**
 
 
@@ -63,7 +68,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.76
-### GitHub [#59](https://github.com/tomasbjerre/git-changelog-lib/pull/59) Adding support for Jira Issue Description  
+### GitHub #59   
 
 **Updating Doc after merge of**
 
@@ -109,7 +114,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.74
-### GitHub [#58](https://github.com/tomasbjerre/git-changelog-lib/issues/58) Avoid using integrations if fetched information is not used in the template    *enhancement*  
+### GitHub [#58](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/58) [feature] trigger button: reply message    *enhancement*  
 
 **Avoid fetching from integrations if not used**
 
@@ -137,7 +142,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.72
-### GitHub [#51](https://github.com/tomasbjerre/git-changelog-lib/issues/51) Error while trying to create the changelog file.  
+### GitHub #51   
 
 **Rewrite MediaWiki Client for Botuser**
 
@@ -168,7 +173,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.70
-### GitHub [#49](https://github.com/tomasbjerre/git-changelog-lib/issues/49) Ability to grab the url from the git config.    *enhancement*  
+### GitHub #49   
 
 **Gathering repo provider information**
 
@@ -187,7 +192,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.69
-### GitHub [#47](https://github.com/tomasbjerre/git-changelog-lib/pull/47) Add ignoreCommitsOlderThan date limiting    *enhancement*  
+### GitHub #47   
 
 **Adjustments after merge of**
 
@@ -236,7 +241,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.67
-### GitHub [#2](https://github.com/tomasbjerre/git-changelog-lib/issues/2) GitHub Integration    *enhancement*  
+### GitHub #2   
 
 **GitLab integration**
 
@@ -246,7 +251,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.66
-### GitHub [#42](https://github.com/tomasbjerre/git-changelog-lib/issues/42) GitLab integration    *enhancement*  
+### GitHub #42   
 
 **GitLab integration**
 
@@ -269,7 +274,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.64
-### GitHub [#40](https://github.com/tomasbjerre/git-changelog-lib/pull/40) add jira issue type    *enhancement*  
+### GitHub #40   
 
 **Adding issueType and labels attributes**
 
@@ -325,7 +330,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.61
-### GitHub [#38](https://github.com/tomasbjerre/git-changelog-lib/issues/38) Relocate packages to avoid classpath issues    *enhancement*  
+### GitHub #38   
 
 **Relocate packages to avoid classpath issues**
 
@@ -334,7 +339,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.60
-### GitHub [#38](https://github.com/tomasbjerre/git-changelog-lib/issues/38) Relocate packages to avoid classpath issues    *enhancement*  
+### GitHub #38   
 
 **Relocate packages to avoid classpath issues**
 
@@ -343,7 +348,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.59
-### GitHub [#38](https://github.com/tomasbjerre/git-changelog-lib/issues/38) Relocate packages to avoid classpath issues    *enhancement*  
+### GitHub #38   
 
 **Relocate packages to avoid classpath issues**
 
@@ -352,7 +357,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.58
-### GitHub [#36](https://github.com/tomasbjerre/git-changelog-lib/issues/36) Annotated tags support    *enhancement*  
+### GitHub #36   
 
 **Adding annotation to context of tag**
 
@@ -361,7 +366,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.57
-### GitHub [#35](https://github.com/tomasbjerre/git-changelog-lib/issues/35) Git Change log show only Merges or have Merge as its own Tag  
+### GitHub [#35](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/35) Encrypt authentication credentials    *enhancement*  
 
 **Adding merge boolean to commits**
 
@@ -370,7 +375,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.56
-### GitHub [#31](https://github.com/tomasbjerre/git-changelog-lib/pull/31) issue key was missing in issue link  
+### GitHub #31   
 
 **Fixing testcases after merge of**
 
@@ -387,7 +392,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.55
-### GitHub [#30](https://github.com/tomasbjerre/git-changelog-lib/issues/30) Getting full hash from Commit object    *enhancement*  
+### GitHub #30   
 
 **Adding {{hashFull}} variable with full commit hash**
 
@@ -396,7 +401,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.54
-### GitHub [#28](https://github.com/tomasbjerre/git-changelog-lib/issues/28) Crash when git repo has no master branch    *bug*  
+### GitHub #28   
 
 **Allowing master branch to be absent**
 
@@ -422,7 +427,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.52
-### GitHub [#29](https://github.com/tomasbjerre/git-changelog-lib/issues/29) Not, always, including merged in commits    *bug*  
+### GitHub #29   
 
 **Correcting how to find diffing commits #**
 
@@ -458,7 +463,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.50
-### GitHub [#29](https://github.com/tomasbjerre/git-changelog-lib/issues/29) Not, always, including merged in commits    *bug*  
+### GitHub #29   
 
 **Including commits frmo merges**
 
@@ -467,7 +472,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.49
-### GitHub [#28](https://github.com/tomasbjerre/git-changelog-lib/issues/28) Crash when git repo has no master branch    *bug*  
+### GitHub #28   
 
 **Finding first commit in repo as parents of HEAD**
 
@@ -513,7 +518,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.45
-### GitHub [#26](https://github.com/tomasbjerre/git-changelog-lib/issues/26) Excluded commits are included JENKINS-34156    *bug*  
+### GitHub #26   
 
 **Including correct commits + performance**
 
@@ -552,7 +557,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.42
-### GitHub [#23](https://github.com/tomasbjerre/git-changelog-lib/issues/23) changelog is generating incorrect order of commits/Issues    *bug*  
+### GitHub [#23](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/23) Add the ability to be notified for commits    *enhancement*  
 
 **Parsing commits, oldest first**
 
@@ -562,7 +567,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.41
-### GitHub [#23](https://github.com/tomasbjerre/git-changelog-lib/issues/23) changelog is generating incorrect order of commits/Issues    *bug*  
+### GitHub [#23](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/23) Add the ability to be notified for commits    *enhancement*  
 
 **Traversing commit tree by parents**
 
@@ -572,7 +577,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.40
-### GitHub [#23](https://github.com/tomasbjerre/git-changelog-lib/issues/23) changelog is generating incorrect order of commits/Issues    *bug*  
+### GitHub [#23](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/23) Add the ability to be notified for commits    *enhancement*  
 
 **Adding feature to ignore tags by regexp**
 
@@ -600,7 +605,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.38
-### GitHub [#19](https://github.com/tomasbjerre/git-changelog-lib/issues/19) Feature-request (or question): Issues by category    *enhancement*  
+### GitHub #19   
 
 **Removing commits without issue, from tags**
 
@@ -609,7 +614,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.37
-### GitHub [#19](https://github.com/tomasbjerre/git-changelog-lib/issues/19) Feature-request (or question): Issues by category    *enhancement*  
+### GitHub #19   
 
 **Ignore commits without issue**
 
@@ -622,7 +627,7 @@ Changelog for tomasbjerre git-changelog-lib.
 [a025adfc759313f](https://github.com/tomasbjerre/git-changelog-lib/commit/a025adfc759313f) Tomas Bjerre *2016-03-19 20:33:11*
 
 
-### GitHub [#21](https://github.com/tomasbjerre/git-changelog-lib/issues/21) Commits can be listed multiple times    *bug*  
+### GitHub #21   
 
 **Avoiding adding commit twice in same issue**
 
@@ -669,7 +674,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.34
-### GitHub [#18](https://github.com/tomasbjerre/git-changelog-lib/pull/18) Migrate GitHub to RetroFit , add pagination and token support  
+### GitHub #18   
 
 **Logging error if error invoking GitHub API**
 
@@ -686,7 +691,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.33
-### GitHub [#10](https://github.com/tomasbjerre/git-changelog-lib/issues/10) Authentication with GitHub    *enhancement*  
+### GitHub #10   
 
 **Migrate GitHub REST-API to RetroFit library**
 
@@ -696,7 +701,7 @@ Changelog for tomasbjerre git-changelog-lib.
 [d29029a38fad6a4](https://github.com/tomasbjerre/git-changelog-lib/commit/d29029a38fad6a4) Jonas Kalderstam *2016-03-15 00:12:45*
 
 
-### GitHub [#15](https://github.com/tomasbjerre/git-changelog-lib/issues/15) Github, support pagination     *enhancement*  
+### GitHub #15   
 
 **Migrate GitHub REST-API to RetroFit library**
 
@@ -706,7 +711,7 @@ Changelog for tomasbjerre git-changelog-lib.
 [d29029a38fad6a4](https://github.com/tomasbjerre/git-changelog-lib/commit/d29029a38fad6a4) Jonas Kalderstam *2016-03-15 00:12:45*
 
 
-### GitHub [#18](https://github.com/tomasbjerre/git-changelog-lib/pull/18) Migrate GitHub to RetroFit , add pagination and token support  
+### GitHub #18   
 
 **Introducing custom exceptions**
 
@@ -724,7 +729,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.32
-### GitHub [#16](https://github.com/tomasbjerre/git-changelog-lib/issues/16) Commit not available in all issues mentioned in commit comment    *bug*  
+### GitHub #16   
 
 **Supplying commit in each issue mentioned in message**
 
@@ -793,7 +798,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.26
-### GitHub [#13](https://github.com/tomasbjerre/git-changelog-lib/issues/13) Performance    *enhancement*  
+### GitHub #13   
 
 **Rewriting GitRepo to make it faster**
 
@@ -808,7 +813,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.25
-### GitHub [#13](https://github.com/tomasbjerre/git-changelog-lib/issues/13) Performance    *enhancement*  
+### GitHub #13   
 
 **Letting JGit determine new commits between refs**
 
@@ -902,7 +907,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.19
-### GitHub [#11](https://github.com/tomasbjerre/git-changelog-lib/issues/11) Move command line to its own repo    *enhancement*  
+### GitHub #11   
 
 **Removing command line code**
 
@@ -980,7 +985,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.12
-### GitHub [#2](https://github.com/tomasbjerre/git-changelog-lib/issues/2) GitHub Integration    *enhancement*  
+### GitHub #2   
 
 **Integrating with GitHub**
 
@@ -988,7 +993,7 @@ Changelog for tomasbjerre git-changelog-lib.
 [45af766856ac703](https://github.com/tomasbjerre/git-changelog-lib/commit/45af766856ac703) Tomas Bjerre *2015-11-22 19:51:40*
 
 
-### GitHub [#3](https://github.com/tomasbjerre/git-changelog-lib/issues/3) Jira Integration    *enhancement*  
+### GitHub #3   
 
 **Integrating with Jira**
 
@@ -1091,7 +1096,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.4
-### GitHub [#7](https://github.com/tomasbjerre/git-changelog-lib/issues/7) Add booleans to enable if statements    *enhancement*  
+### GitHub #7   
 
 **Adding hasIssue hasLink to readme doc**
 
@@ -1113,7 +1118,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.3
-### GitHub [#7](https://github.com/tomasbjerre/git-changelog-lib/issues/7) Add booleans to enable if statements    *enhancement*  
+### GitHub #7   
 
 **Adding booleans to check if link and/or issue exists in issue**
 
@@ -1140,7 +1145,7 @@ Changelog for tomasbjerre git-changelog-lib.
 
 
 ## 1.2
-### GitHub [#4](https://github.com/tomasbjerre/git-changelog-lib/issues/4) Mediawiki integration    *enhancement*  
+### GitHub #4   
 
 **MediaWiki integration**
 
