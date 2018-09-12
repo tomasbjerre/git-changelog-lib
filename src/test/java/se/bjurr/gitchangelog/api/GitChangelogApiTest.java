@@ -13,6 +13,7 @@ import static se.bjurr.gitchangelog.internal.integrations.rest.RestClient.mock;
 import com.google.common.io.Resources;
 import com.google.gson.GsonBuilder;
 import java.net.URL;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import se.bjurr.gitchangelog.internal.integrations.github.GitHubMockInterceptor;
@@ -49,6 +50,13 @@ public class GitChangelogApiTest {
 
     GitHubServiceFactory //
         .setInterceptor(gitHubMockInterceptor);
+  }
+
+  @After
+  public void after() {
+    JiraClientFactory.reset();
+    GitHubServiceFactory.setInterceptor(null);
+    mock(null);
   }
 
   @Test

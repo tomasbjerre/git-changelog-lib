@@ -1,10 +1,10 @@
 [
   {
-    "url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/84",
-    "labels_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/84/labels{/name}",
-    "comments_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/84/comments",
-    "events_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/84/events",
-    "html_url": "https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/20",
+    "url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/84",
+    "labels_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/84/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/84/comments",
+    "events_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/84/events",
+    "html_url": "https://github.com/tomasbjerre/made-up-mocked-repo/issues/20",
     "id": 115446887,
     "number": 20,
     "title": "Parameterized Jenkins' job error",
@@ -29,7 +29,7 @@
     },
     "labels": [
       {
-        "url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/labels/bug",
+        "url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/labels/bug",
         "name": "bug",
         "color": "fc2929"
       }
@@ -45,11 +45,11 @@
     "body": "Hi Tomas\r\n\r\nJenkins' job has active setting _This build is parameterized_. There is one string parameter. The parameter has some default value.\r\n\r\nWhen this job starts manually or from [Stash Webhook](https://marketplace.atlassian.com/plugins/com.nerdwin15.stash-stash-webhook-jenkins) or from git poll timer, this parameter is initialized by correct default value.\r\n\r\nWhen this job starts from [PR Notifier for Stash](https://marketplace.atlassian.com/plugins/se.bjurr.prnfs.pull-request-notifier-for-stash), this parameter is absent in list of environment variables of build. And this breaks the build."
   },
   {
-    "url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/83",
-    "labels_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/83/labels{/name}",
-    "comments_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/83/comments",
-    "events_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/83/events",
-    "html_url": "https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/12",
+    "url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/83",
+    "labels_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/83/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/83/comments",
+    "events_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/83/events",
+    "html_url": "https://github.com/tomasbjerre/made-up-mocked-repo/issues/12",
     "id": 115443657,
     "number": 12,
     "title": "Strange chars in PULL_REQUEST_URL",
@@ -82,14 +82,14 @@
     "created_at": "2015-11-06T06:15:49Z",
     "updated_at": "2015-11-09T10:21:46Z",
     "closed_at": null,
-    "body": "Hi Tomas\r\n\r\nI do not know why, but when I copy URL from build description (see attached screen), and replace [spaces with dashes](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/82), I'm trying to open this URL in browser. And I'm getting 404.\r\n\r\nAfter some investigations, I found strange chars in url\r\n```\r\nhttps://example.com/projec%E2%80%8Bts/PROJ/repos/some-repo/pull-requests/2\r\n```\r\nGoogle says E2 80 8B is a zero-width-space.\r\n\r\n![url-from-build-description](https://cloud.githubusercontent.com/assets/5917898/10990266/7666db42-847b-11e5-8052-570714c26046.png)"
+    "body": "Hi Tomas\r\n\r\nI do not know why, but when I copy URL from build description (see attached screen), and replace [spaces with dashes](https://github.com/tomasbjerre/made-up-mocked-repo/issues/82), I'm trying to open this URL in browser. And I'm getting 404.\r\n\r\nAfter some investigations, I found strange chars in url\r\n```\r\nhttps://example.com/projec%E2%80%8Bts/PROJ/repos/some-repo/pull-requests/2\r\n```\r\nGoogle says E2 80 8B is a zero-width-space.\r\n\r\n![url-from-build-description](https://cloud.githubusercontent.com/assets/5917898/10990266/7666db42-847b-11e5-8052-570714c26046.png)"
   },
   {
-    "url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/80",
-    "labels_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/80/labels{/name}",
-    "comments_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/80/comments",
-    "events_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/80/events",
-    "html_url": "https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/80",
+    "url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/80",
+    "labels_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/80/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/80/comments",
+    "events_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/80/events",
+    "html_url": "https://github.com/tomasbjerre/made-up-mocked-repo/issues/80",
     "id": 112442003,
     "number": 80,
     "title": "Create resource that can be invoked from scripts to trigger events",
@@ -114,7 +114,7 @@
     },
     "labels": [
       {
-        "url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/labels/enhancement",
+        "url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/labels/enhancement",
         "name": "enhancement",
         "color": "84b6eb"
       }
@@ -127,14 +127,14 @@
     "created_at": "2015-10-20T19:23:27Z",
     "updated_at": "2015-10-20T19:23:27Z",
     "closed_at": null,
-    "body": "https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/79\r\n"
+    "body": "https://github.com/tomasbjerre/made-up-mocked-repo/issues/79\r\n"
   },
   {
-    "url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/58",
-    "labels_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/58/labels{/name}",
-    "comments_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/58/comments",
-    "events_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/58/events",
-    "html_url": "https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/58",
+    "url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/58",
+    "labels_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/58/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/58/comments",
+    "events_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/58/events",
+    "html_url": "https://github.com/tomasbjerre/made-up-mocked-repo/issues/58",
     "id": 103462394,
     "number": 58,
     "title": "[feature] trigger button: reply message",
@@ -159,7 +159,7 @@
     },
     "labels": [
       {
-        "url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/labels/enhancement",
+        "url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/labels/enhancement",
         "name": "enhancement",
         "color": "84b6eb"
       }
@@ -175,11 +175,11 @@
     "body": "right now there is no \"reply\" message, anything to tell the user that the URL got called and all is ok\r\n\r\nwould be great if the HTTP reply (status, headers and body) would be shown in a dialog to the user"
   },
   {
-    "url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/57",
-    "labels_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/57/labels{/name}",
-    "comments_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/57/comments",
-    "events_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/57/events",
-    "html_url": "https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/57",
+    "url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/57",
+    "labels_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/57/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/57/comments",
+    "events_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/57/events",
+    "html_url": "https://github.com/tomasbjerre/made-up-mocked-repo/issues/57",
     "id": 103462181,
     "number": 57,
     "title": "[feature] trigger button: confirmation dialog ",
@@ -204,7 +204,7 @@
     },
     "labels": [
       {
-        "url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/labels/enhancement",
+        "url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/labels/enhancement",
         "name": "enhancement",
         "color": "84b6eb"
       }
@@ -220,11 +220,11 @@
     "body": "i have a button which might be seen as unsafe consequence wise,\r\nthus users should only press it when they really need to, and not by mistake"
   },
   {
-    "url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/55",
-    "labels_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/55/labels{/name}",
-    "comments_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/55/comments",
-    "events_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/55/events",
-    "html_url": "https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/55",
+    "url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/55",
+    "labels_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/55/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/55/comments",
+    "events_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/55/events",
+    "html_url": "https://github.com/tomasbjerre/made-up-mocked-repo/issues/55",
     "id": 102152901,
     "number": 55,
     "title": "remove width limit",
@@ -249,7 +249,7 @@
     },
     "labels": [
       {
-        "url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/labels/enhancement",
+        "url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/labels/enhancement",
         "name": "enhancement",
         "color": "84b6eb"
       }
@@ -265,11 +265,11 @@
     "body": "is there a good reason for limiting the width of form.config-area?\r\n\r\nfilters, URLs (and POST content) can get really long\r\n\r\nPS: similarly, the triggers can just be\r\n\r\n```\r\n<fieldset>\r\n<label>...</label>\r\n<label>...</label>\r\n...\r\n</fielset>\r\n```\r\n\r\nwith CSS for label `float: left`"
   },
   {
-    "url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/53",
-    "labels_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/53/labels{/name}",
-    "comments_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/53/comments",
-    "events_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/53/events",
-    "html_url": "https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/53",
+    "url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/53",
+    "labels_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/53/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/53/comments",
+    "events_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/53/events",
+    "html_url": "https://github.com/tomasbjerre/made-up-mocked-repo/issues/53",
     "id": 101821680,
     "number": 53,
     "title": "feature: clone a rule (alternative to #44)",
@@ -294,7 +294,7 @@
     },
     "labels": [
       {
-        "url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/labels/enhancement",
+        "url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/labels/enhancement",
         "name": "enhancement",
         "color": "84b6eb"
       }
@@ -310,11 +310,11 @@
     "body": "rather than going down the route of #44, I think it's simpler and more generic to add the possibility to clone a \"rule\" (correct terminology?)"
   },
   {
-    "url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/44",
-    "labels_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/44/labels{/name}",
-    "comments_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/44/comments",
-    "events_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/44/events",
-    "html_url": "https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/44",
+    "url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/44",
+    "labels_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/44/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/44/comments",
+    "events_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/44/events",
+    "html_url": "https://github.com/tomasbjerre/made-up-mocked-repo/issues/44",
     "id": 99164853,
     "number": 44,
     "title": "Possibility to invoke more than one URL",
@@ -339,7 +339,7 @@
     },
     "labels": [
       {
-        "url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/labels/enhancement",
+        "url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/labels/enhancement",
         "name": "enhancement",
         "color": "84b6eb"
       }
@@ -355,11 +355,11 @@
     "body": "Perhaps a bit to Jenkins specific but...\r\nI have a number of projects that runs several jobs in Jenkins. It would be nice to be able to launch the jobs all in one go. Of course I can setup a triggered chain of jobs in Jenkins instead but this seems to be a nice addition to an already great plugin!\r\n\r\nPerhaps make it possible to configure either like this:\r\n\r\nbase-URL: http://jenkins\r\nparams: token=TOKEN_NAME&another_parm=ANOTHER_PARM_VAL\r\n * job/job-1\r\n * job/job-2\r\n * job/job-3\r\n\r\n\r\nOR even more extendable:\r\n\r\nURL-setup 1:\r\n----------------------------------------------------\r\nbase-URL: http://jenkins\r\nparams: token=TOKEN_NAME&another_parm=ANOTHER_PARM_VAL\r\n * job/job-1\r\n * job/job-2\r\n * job/job-3\r\n\r\nURL-setup 2:\r\n----------------------------------------------------\r\nbase-URL: http://jenkins2\r\nparams: token=TOKEN_NAME\r\n * job/job-1\r\n * job/job-2\r\n * job/job-3\r\n"
   },
   {
-    "url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/35",
-    "labels_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/35/labels{/name}",
-    "comments_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/35/comments",
-    "events_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/35/events",
-    "html_url": "https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/35",
+    "url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/35",
+    "labels_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/35/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/35/comments",
+    "events_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/35/events",
+    "html_url": "https://github.com/tomasbjerre/made-up-mocked-repo/issues/35",
     "id": 72541072,
     "number": 35,
     "title": "Encrypt authentication credentials",
@@ -384,7 +384,7 @@
     },
     "labels": [
       {
-        "url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/labels/enhancement",
+        "url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/labels/enhancement",
         "name": "enhancement",
         "color": "84b6eb"
       }
@@ -400,11 +400,11 @@
     "body": "Would it be possible to add encryption for the credentials?  In the database lob_data, the credentials are stored as plain text.  Thanks."
   },
   {
-    "url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/25",
-    "labels_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/25/labels{/name}",
-    "comments_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/25/comments",
-    "events_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/25/events",
-    "html_url": "https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/25",
+    "url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/25",
+    "labels_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/25/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/25/comments",
+    "events_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/25/events",
+    "html_url": "https://github.com/tomasbjerre/made-up-mocked-repo/issues/25",
     "id": 68804669,
     "number": 25,
     "title": "Enable  configuration in per-repository hook screen",
@@ -429,7 +429,7 @@
     },
     "labels": [
       {
-        "url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/labels/enhancement",
+        "url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/labels/enhancement",
         "name": "enhancement",
         "color": "84b6eb"
       }
@@ -445,11 +445,11 @@
     "body": "It's a bit odd that the configuration is done globally and you have to explicitly \"filter\" out your repository. It would be nice if you could also edit configuration in the per-repository hook setup screen, which would automatically be filtered out for that repository.\r\n\r\nYou would keep the global config too, in case someone wanted to define a global rule."
   },
   {
-    "url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/23",
-    "labels_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/23/labels{/name}",
-    "comments_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/23/comments",
-    "events_url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/issues/23/events",
-    "html_url": "https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/23",
+    "url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/23",
+    "labels_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/23/labels{/name}",
+    "comments_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/23/comments",
+    "events_url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/issues/23/events",
+    "html_url": "https://github.com/tomasbjerre/made-up-mocked-repo/issues/23",
     "id": 68803766,
     "number": 23,
     "title": "Add the ability to be notified for commits",
@@ -474,7 +474,7 @@
     },
     "labels": [
       {
-        "url": "https://api.github.com/repos/tomasbjerre/pull-request-notifier-for-bitbucket/labels/enhancement",
+        "url": "https://api.github.com/repos/tomasbjerre/made-up-mocked-repo/labels/enhancement",
         "name": "enhancement",
         "color": "84b6eb"
       }

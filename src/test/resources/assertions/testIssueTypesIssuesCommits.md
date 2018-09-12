@@ -14,7 +14,7 @@ Changelog of Git Changelog.
 [20e333f8e108f77](https://github.com/tomasbjerre/git-changelog-lib/commit/20e333f8e108f77) Tomas Bjerre *2016-03-19 20:32:19*
 
 ### GitHub
-#### [#20](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/20) Parameterized Jenkins&#39; job error
+#### [#20](https://github.com/tomasbjerre/made-up-mocked-repo/issues/20) Parameterized Jenkins&#39; job error
 
 
 
@@ -23,7 +23,7 @@ Changelog of Git Changelog.
 
 [87c0d7288896171](https://github.com/tomasbjerre/git-changelog-lib/commit/87c0d7288896171) Tomas Bjerre *2016-03-19 20:32:32*
 
-#### [#25](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/25) Enable  configuration in per-repository hook screen
+#### [#25](https://github.com/tomasbjerre/made-up-mocked-repo/issues/25) Enable  configuration in per-repository hook screen
 
 
 
@@ -84,7 +84,7 @@ These commits has no issue.
 
 ## test-1.0
 ### GitHub
-#### [#12](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/12) Strange chars in PULL_REQUEST_URL
+#### [#12](https://github.com/tomasbjerre/made-up-mocked-repo/issues/12) Strange chars in PULL_REQUEST_URL
 
 
 
@@ -93,7 +93,7 @@ These commits has no issue.
 
 [d50a3e332f9fcba](https://github.com/tomasbjerre/git-changelog-lib/commit/d50a3e332f9fcba) Tomas Bjerre *2016-02-15 16:30:35*
 
-#### [#20](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/20) Parameterized Jenkins&#39; job error
+#### [#20](https://github.com/tomasbjerre/made-up-mocked-repo/issues/20) Parameterized Jenkins&#39; job error
 
 
 

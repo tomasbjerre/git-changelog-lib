@@ -14,13 +14,13 @@ More stuff tagged with  twice
 Adding cq stuff with CQ
 
 
-## GitHub [#12](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/12) Strange chars in PULL_REQUEST_URL
+## GitHub [#12](https://github.com/tomasbjerre/made-up-mocked-repo/issues/12) Strange chars in PULL_REQUEST_URL
 ### Tomas Bjerre
 2016-02-15 16:30:35
 Adding stuff  gh 12
 
 
-## GitHub [#20](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/20) Parameterized Jenkins&#39; job error
+## GitHub [#20](https://github.com/tomasbjerre/made-up-mocked-repo/issues/20) Parameterized Jenkins&#39; job error
 ### Tomas Bjerre
 2016-03-19 20:32:32
 Multiple issues
@@ -31,7 +31,7 @@ Multiple issues
 Adding stuff with gh 20
 
 
-## GitHub [#25](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/25) Enable  configuration in per-repository hook screen
+## GitHub [#25](https://github.com/tomasbjerre/made-up-mocked-repo/issues/25) Enable  configuration in per-repository hook screen
 ### Tomas Bjerre
 2016-03-19 20:32:32
 Multiple issues

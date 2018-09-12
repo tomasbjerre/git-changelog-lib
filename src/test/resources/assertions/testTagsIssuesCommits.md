@@ -8,11 +8,11 @@ Changelog of Git Changelog.
 [20e333f8e108f77](https://server/20e333f8e108f77) 2016-03-19 20:32:19
 More stuff tagged with  twice
 
-### GitHub [#20](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/20) Parameterized Jenkins&#39; job error
+### GitHub [#20](https://github.com/tomasbjerre/made-up-mocked-repo/issues/20) Parameterized Jenkins&#39; job error
 [87c0d7288896171](https://server/87c0d7288896171) 2016-03-19 20:32:32
 Multiple issues
 
-### GitHub [#25](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/25) Enable  configuration in per-repository hook screen
+### GitHub [#25](https://github.com/tomasbjerre/made-up-mocked-repo/issues/25) Enable  configuration in per-repository hook screen
 [87c0d7288896171](https://server/87c0d7288896171) 2016-03-19 20:32:32
 Multiple issues
 
@@ -43,11 +43,11 @@ Adding cq stuff with CQ
 
 ## test-1.0
 this is the tag for test-1.0&#10;
-### GitHub [#12](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/12) Strange chars in PULL_REQUEST_URL
+### GitHub [#12](https://github.com/tomasbjerre/made-up-mocked-repo/issues/12) Strange chars in PULL_REQUEST_URL
 [d50a3e332f9fcba](https://server/d50a3e332f9fcba) 2016-02-15 16:30:35
 Adding stuff  gh 12
 
-### GitHub [#20](https://github.com/tomasbjerre/pull-request-notifier-for-bitbucket/issues/20) Parameterized Jenkins&#39; job error
+### GitHub [#20](https://github.com/tomasbjerre/made-up-mocked-repo/issues/20) Parameterized Jenkins&#39; job error
 [326d4d01c0a9415](https://server/326d4d01c0a9415) 2016-02-15 16:11:12
 Adding stuff with gh 20
 
