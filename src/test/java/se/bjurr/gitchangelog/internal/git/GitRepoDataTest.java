@@ -30,6 +30,21 @@ public class GitRepoDataTest {
   }
 
   @Test
+  public void testGitHubRepoTwoDots() {
+    GitRepoData sut = newGitRepoData("git@github.com:tomasbjerre/git-changelog-lib-1.0.git");
+
+    assertThat(sut.findOwnerName().orNull()) //
+        .isEqualTo("tomasbjerre");
+    assertThat(sut.findRepoName().orNull()) //
+        .isEqualTo("git-changelog-lib-1.0");
+
+    assertThat(sut.findGitHubApi().orNull()) //
+        .isEqualTo("https://api.github.com/repos/tomasbjerre/git-changelog-lib-1.0");
+    assertThat(sut.findGitLabServer().orNull()) //
+        .isEqualTo(null);
+  }
+
+  @Test
   public void testGitHubRepoNoDotGit() {
     GitRepoData sut = newGitRepoData("https://github.com/VoltzEngine-Project/Build");
 

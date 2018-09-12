@@ -17,6 +17,9 @@ import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_REMOVE_
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_TIMEZONE;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_UNTAGGED_NAME;
 
+import com.google.common.base.Optional;
+import com.google.common.io.Resources;
+import com.google.gson.Gson;
 import java.io.Serializable;
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -24,11 +27,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-
-import com.google.common.base.Optional;
-import com.google.common.io.Resources;
-import com.google.gson.Gson;
-
 import se.bjurr.gitchangelog.api.model.Changelog;
 import se.bjurr.gitchangelog.api.model.Issue;
 
@@ -178,16 +176,16 @@ public class Settings implements Serializable {
   }
 
   public void setFromRef(final String fromRef) {
-	  if (fromRef == null || fromRef.trim().isEmpty()) {
-		this.fromRef = null;
-	}
+    if (fromRef == null || fromRef.trim().isEmpty()) {
+      this.fromRef = null;
+    }
     this.fromRef = fromRef.trim();
   }
 
   public void setToRef(final String toRef) {
-	  if (toRef == null || toRef.trim().isEmpty()) {
-		this.toRef = null;
-	}
+    if (toRef == null || toRef.trim().isEmpty()) {
+      this.toRef = null;
+    }
     this.toRef = toRef.trim();
   }
 

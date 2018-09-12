@@ -73,7 +73,7 @@ public class GitRepoData {
     String[] parts =
         this.originCloneUrl //
             .replaceAll("\\.git$", "") //
-            .split("[/:\\.]");
+            .split("[/:]");
     if (parts.length > i) {
       return Optional.of(parts[parts.length - i - 1]);
     }

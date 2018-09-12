@@ -12,7 +12,7 @@ public class MediaWikiClientTest {
   @Before
   public void before() {}
 
-  //@Test
+  // @Test
   public void testWithUser() throws Exception {
     final MediaWikiClient mediaWikiClient =
         new MediaWikiClient(
@@ -24,7 +24,7 @@ public class MediaWikiClientTest {
         .createMediaWikiPage();
   }
 
-  //@Test
+  // @Test
   public void testWithoutUser() throws Exception {
     final MediaWikiClient mediaWikiClient =
         new MediaWikiClient(

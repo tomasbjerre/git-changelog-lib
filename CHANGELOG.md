@@ -2,6 +2,15 @@
 
 Changelog for tomasbjerre git-changelog-lib.
 
+## Next release
+### Other changes
+
+**Trimming from/to refs**
+
+
+[b594b083087c90c](https://github.com/tomasbjerre/git-changelog-lib/commit/b594b083087c90c) Tomas Bjerre *2018-07-16 11:54:58*
+
+
 ## 1.80
 ### Other changes
 
