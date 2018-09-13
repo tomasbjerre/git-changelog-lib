@@ -2,7 +2,7 @@
 
 Changelog for tomasbjerre git-changelog-lib.
 
-## Next release
+## 1.82
 ### Other changes
 
 **Avoiding NPE:s and some refactoring**
