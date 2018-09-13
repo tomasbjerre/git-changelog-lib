@@ -70,7 +70,7 @@ class TraversalWork implements Comparable<TraversalWork> {
 
   @VisibleForTesting
   int compareTo(int selfCommitTime, int otherCommitTime) {
-    return new Integer(selfCommitTime) //
+    return Integer.valueOf(selfCommitTime) //
         .compareTo(otherCommitTime);
   }
 

@@ -72,7 +72,9 @@ public class RestClient {
       logger.error("Got:\n" + response, e);
       return absent();
     } finally {
-      conn.disconnect();
+      if (conn != null) {
+        conn.disconnect();
+      }
     }
   }
 

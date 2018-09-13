@@ -146,7 +146,6 @@ public class GitChangelogApiTest {
                 UTF_8)
             .trim();
 
-    getResource("settings/git-changelog-test-settings.json").toURI().toURL();
     final String templatePath =
         "templates/testThatCommitsWithoutIssueCanBeIgnoredTagsIssuesCommits.mustache";
 

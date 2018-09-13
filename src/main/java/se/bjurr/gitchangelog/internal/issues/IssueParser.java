@@ -9,6 +9,7 @@ import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITHUB;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITLAB;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.JIRA;
 
+import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 import java.util.ArrayList;
 import java.util.List;
@@ -225,12 +226,15 @@ public class IssueParser {
     String title = "";
     final List<String> labels = Lists.newArrayList();
     try {
-      if (gitHubHelper != null && gitHubHelper.getIssueFromAll(matchedIssue).isPresent()) {
-        final GitHubIssue gitHubIssue = gitHubHelper.getIssueFromAll(matchedIssue).get();
-        link = gitHubIssue.getLink();
-        title = gitHubIssue.getTitle();
-        for (final GitHubLabel label : gitHubIssue.getLabels()) {
-          labels.add(label.getName());
+      if (gitHubHelper != null) {
+        Optional<GitHubIssue> issues = gitHubHelper.getIssueFromAll(matchedIssue);
+        if (issues.isPresent()) {
+          final GitHubIssue gitHubIssue = issues.get();
+          link = gitHubIssue.getLink();
+          title = gitHubIssue.getTitle();
+          for (final GitHubLabel label : gitHubIssue.getLabels()) {
+            labels.add(label.getName());
+          }
         }
       }
     } catch (final GitChangelogIntegrationException e) {

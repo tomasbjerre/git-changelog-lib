@@ -5,6 +5,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.collect.Lists.newArrayList;
 
 import com.google.common.annotations.VisibleForTesting;
+import com.google.common.base.Splitter;
 import java.io.Serializable;
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class Commit implements Serializable {
 
   private static List<String> toNoEmptyStringsList(String message) {
     List<String> toReturn = newArrayList();
-    for (String part : message.split("\n")) {
+    for (String part : Splitter.on("\n").split(message)) {
       if (!part.isEmpty()) {
         toReturn.add(part);
       }

@@ -5,8 +5,10 @@ import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Sets.newTreeSet;
 
 import com.google.common.base.Optional;
+import com.google.common.base.Splitter;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Pattern;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 
@@ -70,12 +72,12 @@ public class GitRepoData {
     if (originCloneUrl == null) {
       return absent();
     }
-    String[] parts =
-        this.originCloneUrl //
-            .replaceAll("\\.git$", "") //
-            .split("[/:]");
-    if (parts.length > i) {
-      return Optional.of(parts[parts.length - i - 1]);
+    String sequence = originCloneUrl.replaceAll("\\.git$", "");
+    Pattern pattern = Pattern.compile("[/:]");
+    final Iterable<String> parts = Splitter.on(pattern).split(sequence);
+    final List<String> partsList = newArrayList(parts);
+    if (partsList.size() > i) {
+      return Optional.of(partsList.get(partsList.size() - i - 1));
     }
     return absent();
   }

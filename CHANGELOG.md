@@ -2,6 +2,15 @@
 
 Changelog for tomasbjerre git-changelog-lib.
 
+## Next release
+### Other changes
+
+**Avoiding NPE:s and some refactoring**
+
+
+[e32d00b3394c334](https://github.com/tomasbjerre/git-changelog-lib/commit/e32d00b3394c334) Tomas Bjerre *2018-09-13 06:45:41*
+
+
 ## 1.81
 ### Other changes
 

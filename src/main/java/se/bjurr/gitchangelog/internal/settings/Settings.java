@@ -178,15 +178,17 @@ public class Settings implements Serializable {
   public void setFromRef(final String fromRef) {
     if (fromRef == null || fromRef.trim().isEmpty()) {
       this.fromRef = null;
+    } else {
+      this.fromRef = fromRef.trim();
     }
-    this.fromRef = fromRef.trim();
   }
 
   public void setToRef(final String toRef) {
     if (toRef == null || toRef.trim().isEmpty()) {
       this.toRef = null;
+    } else {
+      this.toRef = toRef.trim();
     }
-    this.toRef = toRef.trim();
   }
 
   public Optional<String> getFromRef() {
@@ -214,7 +216,11 @@ public class Settings implements Serializable {
   }
 
   public void setIgnoreCommitsIfOlderThan(final Date ignoreCommitsIfOlderThan) {
-    this.ignoreCommitsIfOlderThan = ignoreCommitsIfOlderThan;
+    if (ignoreCommitsIfOlderThan != null) {
+      this.ignoreCommitsIfOlderThan = new Date(ignoreCommitsIfOlderThan.getTime());
+    } else {
+      this.ignoreCommitsIfOlderThan = null;
+    }
   }
 
   public void setJiraIssuePattern(final String jiraIssuePattern) {
@@ -235,8 +241,9 @@ public class Settings implements Serializable {
   public List<SettingsIssue> getCustomIssues() {
     if (customIssues == null) {
       return new ArrayList<>();
+    } else {
+      return customIssues;
     }
-    return customIssues;
   }
 
   public String getIgnoreCommitsIfMessageMatches() {

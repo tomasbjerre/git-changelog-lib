@@ -2,6 +2,7 @@ package se.bjurr.gitchangelog.internal.integrations.github;
 
 import static com.google.common.base.Optional.absent;
 import static com.google.common.base.Optional.of;
+import static com.google.common.base.Splitter.on;
 
 import com.google.common.base.Optional;
 import java.io.IOException;
@@ -48,8 +49,8 @@ public class GitHubHelper {
           final String link = response.headers().get("Link");
           String parsedPage = null;
           PART:
-          for (final String part : link.split(",")) {
-            for (final String piece : part.split(";")) {
+          for (final String part : on(',').split(link)) {
+            for (final String piece : on(';').split(part)) {
               if ("rel=\"next\"".equals(piece.trim()) && parsedPage != null) {
                 // Previous piece pointed to next
                 page = Integer.parseInt(parsedPage);

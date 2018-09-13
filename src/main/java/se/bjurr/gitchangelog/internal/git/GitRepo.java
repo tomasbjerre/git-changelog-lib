@@ -195,7 +195,9 @@ public class GitRepo implements Closeable {
     } catch (final Exception e) {
       throw new RuntimeException("First commit not found in " + this.repository.getDirectory(), e);
     } finally {
-      git.close();
+      if (git != null) {
+        git.close();
+      }
     }
   }
 

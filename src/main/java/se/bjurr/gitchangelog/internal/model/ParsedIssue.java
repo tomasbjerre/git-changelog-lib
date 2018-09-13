@@ -75,6 +75,9 @@ public class ParsedIssue implements IGitCommitReferer {
 
   @Override
   public boolean equals(Object obj) {
+    if (obj == null) {
+      return false;
+    }
     if (obj.getClass() != ParsedIssue.class) {
       return false;
     }
