@@ -8,7 +8,7 @@ Changelog for tomasbjerre git-changelog-lib.
 **Avoiding NPE:s and some refactoring**
 
 
-[e32d00b3394c334](https://github.com/tomasbjerre/git-changelog-lib/commit/e32d00b3394c334) Tomas Bjerre *2018-09-13 06:45:41*
+[07a0e34440540b6](https://github.com/tomasbjerre/git-changelog-lib/commit/07a0e34440540b6) Tomas Bjerre *2018-09-13 06:54:32*
 
 
 ## 1.81
