@@ -98,7 +98,7 @@ The template is supplied with this context:
   * messageBodyItems (List of strings, the lines after the title)
  * authors
   - authorName
-  - authrorEmail
+  - authorEmail
   * commits
    - authorName
    - authorEmailAddress
@@ -139,7 +139,7 @@ The template is supplied with this context:
     * messageBodyItems (List of strings, the lines after the title)
    * authors
     - authorName
-    - authrorEmail
+    - authorEmail
     * commits
      - authorName
      - authorEmailAddress
@@ -178,7 +178,7 @@ The template is supplied with this context:
    * messageBodyItems (List of strings, the lines after the title)
   * authors
    - authorName
-   - authrorEmail
+   - authorEmail
    * commits
     - authorName
     - authorEmailAddress
@@ -192,7 +192,7 @@ The template is supplied with this context:
     * messageBodyItems (List of strings, the lines after the title)
 * authors
  - authorName
- - authrorEmail
+ - authorEmail
  * commits
   - authorName
   - authorEmailAddress
@@ -231,7 +231,7 @@ The template is supplied with this context:
   * messageBodyItems (List of strings, the lines after the title)
  * authors
   - authorName
-  - authrorEmail
+  - authorEmail
   * commits
    - authorName
    - authorEmailAddress
