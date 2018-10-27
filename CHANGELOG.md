@@ -11,6 +11,20 @@ Changelog for tomasbjerre git-changelog-lib.
 [d812191c55684be](https://github.com/tomasbjerre/git-changelog-lib/commit/d812191c55684be) Tomas Bjerre *2018-10-27 10:32:47*
 
 
+### Other changes
+
+**upgrade gitlab dependency**
+
+ * Gitlab v3 has been deprecated (see https://about.gitlab.com/2018/06/01/api-v3-removal-impending/) and a new version was released. 
+
+[f125a10ae48f178](https://github.com/tomasbjerre/git-changelog-lib/commit/f125a10ae48f178) Jorge *2018-10-27 16:14:52*
+
+**Moving some test cases**
+
+
+[055401cd6153ef1](https://github.com/tomasbjerre/git-changelog-lib/commit/055401cd6153ef1) Tomas Bjerre *2018-10-27 14:56:58*
+
+
 ## 1.83
 ### GitHub [#68](https://github.com/tomasbjerre/git-changelog-lib/issues/68) Allow jira link to be constructed without a Jira server integration    *enhancement*  
 
