@@ -124,6 +124,11 @@ The template is supplied with this context:
    - description
    - hasType
    - type
+   - isJira
+   - isGitHub
+   - isGitLab
+   - isCustom
+   - isNoIssue
    - hasLabels
    - labels
    * commits
@@ -163,6 +168,11 @@ The template is supplied with this context:
   - description
   - hasType
   - type
+  - isJira
+  - isGitHub
+  - isGitLab
+  - isCustom
+  - isNoIssue
   - hasLabels
   - labels
   * commits
@@ -216,6 +226,11 @@ The template is supplied with this context:
  - description
  - hasType
  - type
+ - isJira
+ - isGitHub
+ - isGitLab
+ - isCustom
+ - isNoIssue
  - hasLabels
  - labels
  * commits

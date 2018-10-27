@@ -9,6 +9,7 @@ import com.google.common.base.Optional;
 import java.util.List;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.model.interfaces.IGitCommitReferer;
+import se.bjurr.gitchangelog.internal.settings.SettingsIssueType;
 
 public class ParsedIssue implements IGitCommitReferer {
   private final List<GitCommit> gitCommits = newArrayList();
@@ -19,8 +20,10 @@ public class ParsedIssue implements IGitCommitReferer {
   private final String issueType;
   private final List<String> labels;
   private final String description;
+  private final SettingsIssueType settingsIssueType;
 
   public ParsedIssue(
+      SettingsIssueType settingsIssueType,
       String name,
       String issue,
       String description,
@@ -33,8 +36,13 @@ public class ParsedIssue implements IGitCommitReferer {
     this.issue = issue;
     this.link = link;
     this.issueType = issueType;
+    this.settingsIssueType = settingsIssueType;
     this.labels = labels;
     this.description = description;
+  }
+
+  public SettingsIssueType getSettingsIssueType() {
+    return settingsIssueType;
   }
 
   public Optional<String> getTitle() {

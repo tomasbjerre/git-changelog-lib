@@ -2,6 +2,15 @@
 
 Changelog for tomasbjerre git-changelog-lib.
 
+## Next release
+### Other changes
+
+**Doc - correct typo in authorEmail**
+
+
+[f06cc266d41e4d6](https://github.com/tomasbjerre/git-changelog-lib/commit/f06cc266d41e4d6) Beth Skurrie *2018-10-09 01:21:11*
+
+
 ## 1.82
 ### Other changes
 

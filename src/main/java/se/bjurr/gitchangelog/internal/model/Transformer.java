@@ -152,6 +152,7 @@ public class Transformer {
                   if (!candidateCommits.isEmpty()) {
                     ParsedIssue parsedIssue =
                         new ParsedIssue(
+                            candidate.getSettingsIssueType(),
                             candidate.getName(),
                             candidate.getIssue(),
                             candidate.getDescription(),
@@ -210,6 +211,7 @@ public class Transformer {
             input.getName(), //
             input.getTitle().or(""), //
             input.getIssue(), //
+            input.getSettingsIssueType(), //
             input.getDescription(),
             input.getLink(), //
             input.getIssueType(), //

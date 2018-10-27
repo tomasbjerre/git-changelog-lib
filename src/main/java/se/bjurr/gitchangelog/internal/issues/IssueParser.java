@@ -5,9 +5,11 @@ import static com.google.common.collect.Ordering.usingToString;
 import static java.util.regex.Pattern.compile;
 import static org.slf4j.LoggerFactory.getLogger;
 import static se.bjurr.gitchangelog.internal.integrations.github.GitHubServiceFactory.getGitHubService;
+import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.CUSTOM;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITHUB;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITLAB;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.JIRA;
+import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.NOISSUE;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
@@ -98,7 +100,8 @@ public class IssueParser {
         final String issueType = null;
         final List<String> labels = null;
         final ParsedIssue noIssue =
-            new ParsedIssue(settings.getNoIssueName(), issue, "", link, title, issueType, labels);
+            new ParsedIssue(
+                NOISSUE, settings.getNoIssueName(), issue, "", link, title, issueType, labels);
         if (!parsedIssuePerIssue.containsKey(noIssue.getName())) {
           parsedIssuePerIssue.put(noIssue.getName(), noIssue);
         }
@@ -132,6 +135,7 @@ public class IssueParser {
     }
     final String issueType = null;
     return new ParsedIssue( //
+        GITLAB, //
         issuePattern.getName(), //
         matchedIssueString, //
         "",
@@ -180,6 +184,7 @@ public class IssueParser {
     final String issueType = null;
     final List<String> labels = null;
     return new ParsedIssue( //
+        CUSTOM, //
         issuePattern.getName(), //
         matchedIssue, //
         "",
@@ -209,6 +214,7 @@ public class IssueParser {
       LOG.error(matchedIssue, e);
     }
     return new ParsedIssue( //
+        JIRA, //
         issuePattern.getName(), //
         matchedIssue, //
         desc,
@@ -242,6 +248,7 @@ public class IssueParser {
     }
     final String issueType = null;
     return new ParsedIssue( //
+        GITHUB, //
         issuePattern.getName(), //
         matchedIssue, //
         "",

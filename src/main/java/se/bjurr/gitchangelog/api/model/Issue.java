@@ -4,11 +4,17 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Preconditions.checkState;
 import static com.google.common.base.Strings.isNullOrEmpty;
 import static com.google.common.base.Strings.nullToEmpty;
+import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.CUSTOM;
+import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITHUB;
+import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITLAB;
+import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.JIRA;
+import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.NOISSUE;
 
 import java.io.Serializable;
 import java.util.List;
 import se.bjurr.gitchangelog.api.model.interfaces.IAuthors;
 import se.bjurr.gitchangelog.api.model.interfaces.ICommits;
+import se.bjurr.gitchangelog.internal.settings.SettingsIssueType;
 
 public class Issue implements ICommits, IAuthors, Serializable {
 
@@ -44,6 +50,7 @@ public class Issue implements ICommits, IAuthors, Serializable {
   private final List<String> labels;
 
   private final boolean hasLabels;
+  private final SettingsIssueType issueType;
 
   public Issue(
       List<Commit> commits,
@@ -51,6 +58,7 @@ public class Issue implements ICommits, IAuthors, Serializable {
       String name,
       String title,
       String issue,
+      SettingsIssueType issueType,
       String description,
       String link,
       String type,
@@ -64,6 +72,7 @@ public class Issue implements ICommits, IAuthors, Serializable {
     this.description = nullToEmpty(description);
     this.hasDescription = !isNullOrEmpty(description);
     this.issue = nullToEmpty(issue);
+    this.issueType = checkNotNull(issueType, "issueType");
     this.hasIssue = !isNullOrEmpty(issue);
     this.link = nullToEmpty(link);
     this.hasLink = !isNullOrEmpty(link);
@@ -71,6 +80,30 @@ public class Issue implements ICommits, IAuthors, Serializable {
     this.type = nullToEmpty(type);
     this.hasLabels = labels != null && !labels.isEmpty();
     this.labels = labels;
+  }
+
+  public SettingsIssueType getIssueType() {
+    return issueType;
+  }
+
+  public boolean isJira() {
+    return issueType == JIRA;
+  }
+
+  public boolean isGitHub() {
+    return issueType == GITHUB;
+  }
+
+  public boolean isGitLab() {
+    return issueType == GITLAB;
+  }
+
+  public boolean isCustom() {
+    return issueType == CUSTOM;
+  }
+
+  public boolean isNoIssue() {
+    return issueType == NOISSUE;
   }
 
   public String getTitle() {
