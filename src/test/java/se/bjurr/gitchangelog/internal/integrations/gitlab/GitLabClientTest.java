@@ -9,9 +9,12 @@ import java.io.File;
 import java.io.IOException;
 import org.junit.Before;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 
 public class GitLabClientTest {
+  private static Logger LOG = LoggerFactory.getLogger(GitLabClientTest.class);
 
   private GitLabClient sut;
   private boolean disabled;
@@ -34,7 +37,7 @@ public class GitLabClientTest {
     if (disabled) {
       return;
     }
-    String projectName = "violations-test";
+    String projectName = "tomas.bjerre85/violations-test";
     int issueId = 1;
 
     Optional<GitLabIssue> issueOpt = sut.getIssue(projectName, issueId);
@@ -43,6 +46,7 @@ public class GitLabClientTest {
         .isTrue();
 
     GitLabIssue issue = issueOpt.get();
+    LOG.info("\n" + issue.getTitle() + " " + issue.getLink() + " " + issue.getLabels());
     assertThat(issue.getLabels()) //
         .containsOnly("bug", "l1");
     assertThat(issue.getTitle()) //

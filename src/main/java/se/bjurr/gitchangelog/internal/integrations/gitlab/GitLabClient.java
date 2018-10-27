@@ -38,22 +38,25 @@ public class GitLabClient {
 
   public Optional<GitLabIssue> getIssue(String projectName, Integer matchedIssue)
       throws GitChangelogIntegrationException {
+    GitlabAPI gitLabApi = GitlabAPI.connect(hostUrl, apiToken);
+    GitlabProject project;
     try {
-
-      GitlabAPI gitLabApi = GitlabAPI.connect(hostUrl, apiToken);
-      GitlabProject project = null;
-      for (GitlabProject glp : gitLabApi.getProjects()) {
-        if (glp.getName().equals(projectName)) {
-          project = glp;
-        }
-      }
-
-      Integer projectId = project.getId();
+      project = gitLabApi.getProject(projectName);
+    } catch (Exception e) {
+      throw new GitChangelogIntegrationException(
+          "Unable to find project \""
+              + projectName
+              + "\". It should be \"tomas.bjerre85/violations-test\" for a repo like: https://gitlab.com/tomas.bjerre85/violations-test",
+          e);
+    }
+    Integer projectId = project.getId();
+    String httpUrl = project.getHttpUrl();
+    try {
       List<GitlabIssue> issues =
           cache.get(new GitLabProjectIssuesCacheKey(hostUrl, apiToken, projectId));
       for (GitlabIssue candidate : issues) {
         if (candidate.getIid() == matchedIssue) {
-          return Optional.of(createGitLabIssue(project.getHttpUrl(), candidate));
+          return Optional.of(createGitLabIssue(httpUrl, candidate));
         }
       }
       return Optional.absent();

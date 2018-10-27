@@ -167,6 +167,10 @@ public class Settings implements Serializable {
   /** Pattern to recognize GitLab:s. <code>#([0-9]+)</code> */
   private String gitLabIssuePattern;
 
+  /**
+   * Like: tomas.bjerre85/violations-test for this repo:
+   * https://gitlab.com/tomas.bjerre85/violations-test
+   */
   private String gitLabProjectName;
 
   public Settings() {}
