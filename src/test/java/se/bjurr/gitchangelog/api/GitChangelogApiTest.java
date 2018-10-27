@@ -61,7 +61,7 @@ public class GitChangelogApiTest {
 
   @Test
   public void testThatTagsThatAreEmptyAfterCommitsHaveBeenIgnoredAreRemoved() throws Exception {
-    final String templatePath = "templates/testAuthorsCommitsExtended.mustache";
+    final String templatePath = "templatetest/testAuthorsCommitsExtended.mustache";
 
     assertThat(
             gitChangelogApiBuilder() //
@@ -78,11 +78,11 @@ public class GitChangelogApiTest {
   public void testThatIssuesCanBeRemoved() throws Exception {
 
     final String expected =
-        Resources.toString(getResource("assertions/testThatIssuesCanBeRemoved.md"), UTF_8).trim();
+        Resources.toString(getResource("templatetest/testThatIssuesCanBeRemoved.md"), UTF_8).trim();
 
     final URL settingsFile =
         getResource("settings/git-changelog-test-settings.json").toURI().toURL();
-    final String templatePath = "templates/testIssuesCommits.mustache";
+    final String templatePath = "templatetest/testIssuesCommits.mustache";
 
     final String templateContent = Resources.toString(getResource(templatePath), UTF_8);
 
@@ -108,13 +108,13 @@ public class GitChangelogApiTest {
 
     final String expected =
         Resources.toString(
-                getResource("assertions/testThatCommitsWithoutIssueCanBeIgnoredIssuesCommits.md"),
+                getResource("templatetest/testThatCommitsWithoutIssueCanBeIgnoredIssuesCommits.md"),
                 UTF_8)
             .trim();
 
     final URL settingsFile =
         getResource("settings/git-changelog-test-settings.json").toURI().toURL();
-    final String templatePath = "templates/testIssuesCommits.mustache";
+    final String templatePath = "templatetest/testIssuesCommits.mustache";
 
     final String templateContent = Resources.toString(getResource(templatePath), UTF_8);
 
@@ -142,12 +142,12 @@ public class GitChangelogApiTest {
     final String expected =
         Resources.toString(
                 getResource(
-                    "assertions/testThatCommitsWithoutIssueCanBeIgnoredTagsIssuesCommits.md"),
+                    "templatetest/testThatCommitsWithoutIssueCanBeIgnoredTagsIssuesCommits.md"),
                 UTF_8)
             .trim();
 
     final String templatePath =
-        "templates/testThatCommitsWithoutIssueCanBeIgnoredTagsIssuesCommits.mustache";
+        "templatetest/testThatCommitsWithoutIssueCanBeIgnoredTagsIssuesCommits.mustache";
 
     final String templateContent = Resources.toString(getResource(templatePath), UTF_8);
 
@@ -175,7 +175,7 @@ public class GitChangelogApiTest {
   public void testThatReadableGroupMustExist() throws Exception {
     final URL settingsFile =
         getResource("settings/git-changelog-test-settings.json").toURI().toURL();
-    final String templatePath = "templates/testIssuesCommits.mustache";
+    final String templatePath = "templatetest/testIssuesCommits.mustache";
 
     try {
       final String actual =
@@ -204,7 +204,7 @@ public class GitChangelogApiTest {
   public void testThatReadableGroupCanBeSet() throws Exception {
     final URL settingsFile =
         getResource("settings/git-changelog-test-settings.json").toURI().toURL();
-    final String templatePath = "templates/testIssuesCommits.mustache";
+    final String templatePath = "templatetest/testIssuesCommits.mustache";
 
     gitChangelogApiBuilder() //
         .withFromCommit(ZERO_COMMIT) //
@@ -219,11 +219,11 @@ public class GitChangelogApiTest {
   @Test
   public void testThatCustomVariablesCanBeUsed() throws Exception {
     final String expected =
-        Resources.toString(getResource("assertions/testAuthorsCommitsExtended.md"), UTF_8).trim();
+        Resources.toString(getResource("templatetest/testAuthorsCommitsExtended.md"), UTF_8).trim();
 
     final URL settingsFile =
         getResource("settings/git-changelog-test-settings.json").toURI().toURL();
-    final String templatePath = "templates/testAuthorsCommitsExtended.mustache";
+    final String templatePath = "templatetest/testAuthorsCommitsExtended.mustache";
 
     assertEquals(
         expected,

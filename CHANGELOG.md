@@ -2,6 +2,15 @@
 
 Changelog for tomasbjerre git-changelog-lib.
 
+## Next release
+### GitHub [#68](https://github.com/tomasbjerre/git-changelog-lib/issues/68) Allow jira link to be constructed without a Jira server integration    *enhancement*  
+
+**Testing issue types**
+
+
+[d812191c55684be](https://github.com/tomasbjerre/git-changelog-lib/commit/d812191c55684be) Tomas Bjerre *2018-10-27 10:32:47*
+
+
 ## 1.83
 ### GitHub [#68](https://github.com/tomasbjerre/git-changelog-lib/issues/68) Allow jira link to be constructed without a Jira server integration    *enhancement*  
 

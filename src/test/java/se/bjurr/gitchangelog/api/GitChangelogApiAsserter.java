@@ -25,10 +25,11 @@ public class GitChangelogApiAsserter {
   }
 
   public void rendersTo(final String file) throws Exception {
-    final String expected = Resources.toString(getResource("assertions/" + file), UTF_8).trim();
+    final URL expectedUrl = getResource(file);
+    final String expected = Resources.toString(expectedUrl, UTF_8).trim();
 
     final URL settingsFile = getResource("settings/" + this.settings).toURI().toURL();
-    final String templatePath = "templates/" + this.template;
+    final String templatePath = this.template;
 
     // Test lib with settings
     final GitChangelogApi gitChangelogApiBuilder =
@@ -47,6 +48,10 @@ public class GitChangelogApiAsserter {
     final String settings = toJson(gitChangelogApiBuilder.getSettings());
     final String templateContent = Resources.toString(getResource(templatePath), UTF_8);
 
+    String actual =
+        gitChangelogApiBuilder //
+            .render()
+            .trim();
     assertEquals(
         "Test:\n"
             + file
@@ -57,10 +62,7 @@ public class GitChangelogApiAsserter {
             + "\nSettings: "
             + settings,
         expected,
-        gitChangelogApiBuilder //
-            .render()
-            .trim());
-
+        actual);
     // Test lib
     final GitChangelogApi withTemplatePath =
         gitChangelogApiBuilder() //

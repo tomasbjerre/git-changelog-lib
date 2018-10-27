@@ -93,14 +93,6 @@ public class TemplatesTest {
   }
 
   @Test
-  public void testMerges() throws Exception {
-    final String testcase = "testMerges";
-    assertThat(testcase + ".mustache") //
-        .setIgnoreCommitsIfMessageMatches("") //
-        .rendersTo(testcase + ".md");
-  }
-
-  @Test
   public void testTagsCommits() throws Exception {
     test("testTagsCommits");
   }
@@ -116,7 +108,16 @@ public class TemplatesTest {
   }
 
   private void test(String testcase) throws Exception {
+    assertThat("templatetest/" + testcase + ".mustache") //
+        .rendersTo("templatetest/" + testcase + ".md");
+  }
+
+  @Test
+  public void testThatIgnoreCommitsIfMessageMatchesCanBeEmptyToDisableTheFeature()
+      throws Exception {
+    final String testcase = "mix/testMerges";
     assertThat(testcase + ".mustache") //
+        .setIgnoreCommitsIfMessageMatches("") //
         .rendersTo(testcase + ".md");
   }
 }

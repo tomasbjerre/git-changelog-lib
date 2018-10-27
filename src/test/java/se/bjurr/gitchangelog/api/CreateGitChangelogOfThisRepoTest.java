@@ -10,8 +10,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 /** This test creates the actual changelog of this library. */
-public class GitChangelogTest {
-  private static Logger LOG = Logger.getLogger(GitChangelogTest.class.getSimpleName());
+public class CreateGitChangelogOfThisRepoTest {
+  private static Logger LOG =
+      Logger.getLogger(CreateGitChangelogOfThisRepoTest.class.getSimpleName());
 
   private String repoRoot;
 
