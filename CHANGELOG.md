@@ -2,6 +2,15 @@
 
 Changelog for tomasbjerre git-changelog-lib.
 
+## 1.85
+### GitHub [#70](https://github.com/tomasbjerre/git-changelog-lib/pull/70) upgrade gitlab dependency  
+
+**Correcting GitLab integration after**
+
+
+[7d1e69bf235452e](https://github.com/tomasbjerre/git-changelog-lib/commit/7d1e69bf235452e) Tomas Bjerre *2018-10-27 17:48:50*
+
+
 ## 1.84
 ### GitHub [#68](https://github.com/tomasbjerre/git-changelog-lib/issues/68) Allow jira link to be constructed without a Jira server integration    *enhancement*  
 
