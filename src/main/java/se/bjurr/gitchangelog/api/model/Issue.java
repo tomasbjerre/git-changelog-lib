@@ -50,19 +50,22 @@ public class Issue implements ICommits, IAuthors, Serializable {
   private final List<String> labels;
 
   private final boolean hasLabels;
+  private boolean hasLinkedIssues;
   private final SettingsIssueType issueType;
+  private List<String> linkedIssues;
 
   public Issue(
-      List<Commit> commits,
-      List<Author> authors,
-      String name,
-      String title,
-      String issue,
-      SettingsIssueType issueType,
-      String description,
-      String link,
-      String type,
-      List<String> labels) {
+          List<Commit> commits,
+          List<Author> authors,
+          String name,
+          String title,
+          String issue,
+          SettingsIssueType issueType,
+          String description,
+          String link,
+          String type,
+          List<String> linkedIssues,
+          List<String> labels) {
     checkState(!commits.isEmpty(), "commits");
     this.commits = commits;
     this.authors = checkNotNull(authors, "authors");
@@ -79,6 +82,8 @@ public class Issue implements ICommits, IAuthors, Serializable {
     this.hasType = !isNullOrEmpty(type);
     this.type = nullToEmpty(type);
     this.hasLabels = labels != null && !labels.isEmpty();
+    this.hasLinkedIssues = linkedIssues != null && !linkedIssues.isEmpty();
+    this.linkedIssues = linkedIssues;
     this.labels = labels;
   }
 
@@ -166,6 +171,14 @@ public class Issue implements ICommits, IAuthors, Serializable {
 
   public List<String> getLabels() {
     return labels;
+  }
+
+  public List<String> getLinkedIssues() {
+    return linkedIssues;
+  }
+
+  public boolean hasLinkedIssues() {
+    return hasLinkedIssues;
   }
 
   @Override

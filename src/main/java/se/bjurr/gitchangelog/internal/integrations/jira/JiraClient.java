@@ -4,6 +4,8 @@ import static com.jayway.jsonpath.JsonPath.read;
 
 import com.google.common.base.Optional;
 import com.jayway.jsonpath.JsonPath;
+
+import java.util.ArrayList;
 import java.util.List;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 
@@ -24,8 +26,7 @@ public abstract class JiraClient {
   }
 
   protected String getEndpoint(String issue) {
-    String endpoint =
-        api + "/rest/api/2/issue/" + issue + "?fields=parent,summary,issuetype,labels,description";
+    String endpoint = api + "/rest/api/2/issue/" + issue + "?fields=parent,summary,issuetype,labels,description,issuelinks";
     return endpoint;
   }
 
@@ -35,7 +36,13 @@ public abstract class JiraClient {
     String type = read(json, "$.fields.issuetype.name");
     String link = api + "/browse/" + issue;
     List<String> labels = JsonPath.read(json, "$.fields.labels");
-    JiraIssue jiraIssue = new JiraIssue(title, description, link, issue, type, labels);
+    List<String> linkedIssues = new ArrayList<>();
+    List<String> inwardKey = JsonPath.read(json, "$.fields.issuelinks[*].inwardIssue.key");
+    List<String> outwardKey = JsonPath.read(json, "$.fields.issuelinks[*].outwardIssue.key");
+    linkedIssues.addAll(inwardKey);
+    linkedIssues.addAll(outwardKey);
+
+    JiraIssue jiraIssue = new JiraIssue(title, description, link, issue, type, linkedIssues, labels);
     return jiraIssue;
   }
 

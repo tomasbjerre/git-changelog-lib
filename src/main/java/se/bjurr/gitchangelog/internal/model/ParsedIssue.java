@@ -18,6 +18,7 @@ public class ParsedIssue implements IGitCommitReferer {
   private final String link;
   private final String issue;
   private final String issueType;
+  private List<String> linkedIssues;
   private final List<String> labels;
   private final String description;
   private final SettingsIssueType settingsIssueType;
@@ -30,6 +31,7 @@ public class ParsedIssue implements IGitCommitReferer {
       String link,
       String title,
       String issueType,
+      List<String> linkedIssues,
       List<String> labels) {
     this.name = checkNotNull(name, "name");
     this.title = emptyToNull(title);
@@ -37,6 +39,7 @@ public class ParsedIssue implements IGitCommitReferer {
     this.link = link;
     this.issueType = issueType;
     this.settingsIssueType = settingsIssueType;
+    this.linkedIssues = linkedIssues;
     this.labels = labels;
     this.description = description;
   }
@@ -110,5 +113,9 @@ public class ParsedIssue implements IGitCommitReferer {
 
   public List<String> getLabels() {
     return labels;
+  }
+
+  public List<String> getLinkedIssues() {
+    return linkedIssues;
   }
 }
