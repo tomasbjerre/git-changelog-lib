@@ -35,10 +35,10 @@ public class GitChangelogApiTest {
             "/repos/tomasbjerre/git-changelog-lib/issues?state=all",
             Resources.toString(getResource("github-issues.json"), UTF_8)) //
         .addMockedResponse(
-            "/jira/rest/api/2/issue/JIR-1234?fields=parent,summary,issuetype,labels,description",
+            "/jira/rest/api/2/issue/JIR-1234?fields=parent,summary,issuetype,labels,description,issuelinks",
             Resources.toString(getResource("jira-issue-jir-1234.json"), UTF_8)) //
         .addMockedResponse(
-            "/jira/rest/api/2/issue/JIR-5262?fields=parent,summary,issuetype,labels,description",
+            "/jira/rest/api/2/issue/JIR-5262?fields=parent,summary,issuetype,labels,description,issuelinks",
             Resources.toString(getResource("jira-issue-jir-5262.json"), UTF_8));
     mock(mockedRestClient);
 
