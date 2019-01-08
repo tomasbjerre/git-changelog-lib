@@ -2,6 +2,25 @@
 
 Changelog for tomasbjerre git-changelog-lib.
 
+## Next release
+### Other changes
+
+**update README**
+
+
+[7a0565cf32c0504](https://github.com/tomasbjerre/git-changelog-lib/commit/7a0565cf32c0504) Lukas Läderach *2019-01-07 21:16:05*
+
+**add unit tests for jira linked issues**
+
+
+[c7e0aa691c5f26b](https://github.com/tomasbjerre/git-changelog-lib/commit/c7e0aa691c5f26b) Lukas Läderach *2019-01-07 21:03:00*
+
+**Add support for LinkedIssues (inward, outward) in Jira (caused by, references)**
+
+
+[794eb3af4173fdc](https://github.com/tomasbjerre/git-changelog-lib/commit/794eb3af4173fdc) Lukas Läderach *2018-12-13 09:41:39*
+
+
 ## 1.85
 ### GitHub [#70](https://github.com/tomasbjerre/git-changelog-lib/pull/70) upgrade gitlab dependency  
 

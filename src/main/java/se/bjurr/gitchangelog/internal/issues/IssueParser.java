@@ -102,7 +102,15 @@ public class IssueParser {
         final List<String> labels = null;
         final ParsedIssue noIssue =
             new ParsedIssue(
-                NOISSUE, settings.getNoIssueName(), issue, "", link, title, issueType, linkedIssues , labels);
+                NOISSUE,
+                settings.getNoIssueName(),
+                issue,
+                "",
+                link,
+                title,
+                issueType,
+                linkedIssues,
+                labels);
         if (!parsedIssuePerIssue.containsKey(noIssue.getName())) {
           parsedIssuePerIssue.put(noIssue.getName(), noIssue);
         }

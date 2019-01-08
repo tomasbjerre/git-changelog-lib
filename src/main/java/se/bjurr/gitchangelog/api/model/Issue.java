@@ -55,17 +55,17 @@ public class Issue implements ICommits, IAuthors, Serializable {
   private List<String> linkedIssues;
 
   public Issue(
-          List<Commit> commits,
-          List<Author> authors,
-          String name,
-          String title,
-          String issue,
-          SettingsIssueType issueType,
-          String description,
-          String link,
-          String type,
-          List<String> linkedIssues,
-          List<String> labels) {
+      List<Commit> commits,
+      List<Author> authors,
+      String name,
+      String title,
+      String issue,
+      SettingsIssueType issueType,
+      String description,
+      String link,
+      String type,
+      List<String> linkedIssues,
+      List<String> labels) {
     checkState(!commits.isEmpty(), "commits");
     this.commits = commits;
     this.authors = checkNotNull(authors, "authors");
