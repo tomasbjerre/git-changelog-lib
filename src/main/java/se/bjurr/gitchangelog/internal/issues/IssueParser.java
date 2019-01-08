@@ -98,10 +98,11 @@ public class IssueParser {
         final String link = null;
         final String title = null;
         final String issueType = null;
+        final List<String> linkedIssues = null;
         final List<String> labels = null;
         final ParsedIssue noIssue =
             new ParsedIssue(
-                NOISSUE, settings.getNoIssueName(), issue, "", link, title, issueType, labels);
+                NOISSUE, settings.getNoIssueName(), issue, "", link, title, issueType, linkedIssues , labels);
         if (!parsedIssuePerIssue.containsKey(noIssue.getName())) {
           parsedIssuePerIssue.put(noIssue.getName(), noIssue);
         }
@@ -118,6 +119,7 @@ public class IssueParser {
       String matchedIssueString) {
     String link = "";
     String title = "";
+    List<String> linkedIssues = new ArrayList<>();
     List<String> labels = new ArrayList<>();
     if (matchedIssueString.startsWith("#")) {
       matchedIssueString = matchedIssueString.substring(1);
@@ -142,6 +144,7 @@ public class IssueParser {
         link, //
         title, //
         issueType, //
+        linkedIssues, //
         labels);
   }
 
@@ -182,6 +185,7 @@ public class IssueParser {
     final String link = render(issuePattern.getLink().or(""), issueMatcher, matchedIssue);
     final String title = render(issuePattern.getTitle().or(""), issueMatcher, matchedIssue);
     final String issueType = null;
+    final List<String> linkedIssues = null;
     final List<String> labels = null;
     return new ParsedIssue( //
         CUSTOM, //
@@ -191,6 +195,7 @@ public class IssueParser {
         link, //
         title, //
         issueType, //
+        linkedIssues, //
         labels);
   }
 
@@ -200,6 +205,7 @@ public class IssueParser {
     String title = "";
     String desc = "";
     String issueType = null;
+    List<String> linkedIssues = null;
     List<String> labels = null;
     try {
       if (jiraClient != null && jiraClient.getIssue(matchedIssue).isPresent()) {
@@ -207,6 +213,7 @@ public class IssueParser {
         link = jiraIssue.getLink();
         title = jiraIssue.getTitle();
         issueType = jiraIssue.getIssueType();
+        linkedIssues = jiraIssue.getLinkedIssues();
         labels = jiraIssue.getLabels();
         desc = jiraIssue.getDescription();
       }
@@ -221,6 +228,7 @@ public class IssueParser {
         link, //
         title, //
         issueType, //
+        linkedIssues,
         labels);
   }
 
@@ -230,6 +238,7 @@ public class IssueParser {
       final String matchedIssue) {
     String link = "";
     String title = "";
+    final List<String> linkedIssues = Lists.newArrayList();
     final List<String> labels = Lists.newArrayList();
     try {
       if (gitHubHelper != null) {
@@ -255,6 +264,7 @@ public class IssueParser {
         link, //
         title, //
         issueType, //
+        linkedIssues, //
         labels);
   }
 

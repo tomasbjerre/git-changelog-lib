@@ -131,6 +131,8 @@ The template is supplied with this context:
    - isNoIssue
    - hasLabels
    - labels
+   - hasLinkedIssues
+   - linkedIssues
    * commits
     - authorName
     - authorEmailAddress
@@ -175,6 +177,8 @@ The template is supplied with this context:
   - isNoIssue
   - hasLabels
   - labels
+  - hasLinkedIssues
+  - linkedIssues
   * commits
    - authorName
    - authorEmailAddress
@@ -233,6 +237,8 @@ The template is supplied with this context:
  - isNoIssue
  - hasLabels
  - labels
+ - hasLinkedIssues
+ - linkedIssues
  * commits
   - authorName
   - authorEmailAddress

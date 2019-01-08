@@ -9,6 +9,7 @@ public class JiraIssue {
   private final String issue;
   private final String issueType;
   private final String description;
+  private final List<String> linkedIssues;
   private final List<String> labels;
 
   public JiraIssue(
@@ -17,11 +18,13 @@ public class JiraIssue {
       String link,
       String issue,
       String issueType,
+      List<String> linkedIssues,
       List<String> labels) {
     this.title = title;
     this.link = link;
     this.issue = issue;
     this.issueType = issueType;
+    this.linkedIssues = linkedIssues;
     this.labels = labels;
     this.description = description;
   }
@@ -40,6 +43,10 @@ public class JiraIssue {
 
   public String getIssueType() {
     return issueType;
+  }
+
+  public List<String> getLinkedIssues() {
+    return linkedIssues;
   }
 
   public List<String> getLabels() {
@@ -61,6 +68,8 @@ public class JiraIssue {
         + issue
         + ", issueType="
         + issueType
+        + ", linkedIssues="
+        + linkedIssues
         + ", labels="
         + labels
         + "]";
