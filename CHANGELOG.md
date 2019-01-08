@@ -2,8 +2,18 @@
 
 Changelog for tomasbjerre git-changelog-lib.
 
-## Next release
+## 1.88
 ### Other changes
+
+**Setting version to fix faulty release**
+
+
+[a562becc5f40a2f](https://github.com/tomasbjerre/git-changelog-lib/commit/a562becc5f40a2f) Tomas Bjerre *2019-01-08 17:02:29*
+
+**Setting version to fix faulty release**
+
+
+[10545b0bd17a01f](https://github.com/tomasbjerre/git-changelog-lib/commit/10545b0bd17a01f) Tomas Bjerre *2019-01-08 16:46:06*
 
 **update README**
 
