@@ -2,6 +2,15 @@
 
 Changelog for tomasbjerre git-changelog-lib.
 
+## 1.89
+### Other changes
+
+**Avoiding global state in JiraClientFactory**
+
+
+[1aa1c4ca13d06a9](https://github.com/tomasbjerre/git-changelog-lib/commit/1aa1c4ca13d06a9) Tomas Bjerre *2019-02-16 17:08:53*
+
+
 ## 1.88
 ### Other changes
 
