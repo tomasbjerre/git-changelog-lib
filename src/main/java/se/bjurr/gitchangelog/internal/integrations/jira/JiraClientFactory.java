@@ -9,14 +9,14 @@ public class JiraClientFactory {
   }
 
   /** The Bitbucket Server plugin uses this method to inject the Atlassian Client. */
-  public static void setJiraClient(JiraClient jiraClient) {
+  public static void setJiraClient(final JiraClient jiraClient) {
     JiraClientFactory.jiraClient = jiraClient;
   }
 
-  public static JiraClient createJiraClient(String apiUrl) {
-    if (jiraClient == null) {
-      jiraClient = new DefaultJiraClient(apiUrl);
+  public static JiraClient createJiraClient(final String apiUrl) {
+    if (jiraClient != null) {
+      return jiraClient;
     }
-    return jiraClient;
+    return new DefaultJiraClient(apiUrl);
   }
 }
