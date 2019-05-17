@@ -136,10 +136,10 @@ public class GitRepo implements Closeable {
           }
         }
       }
-      throw new GitChangelogRepositoryException(fromRef + " not found in:\n" + toString());
     } catch (final Exception e) {
-      throw new GitChangelogRepositoryException("", e);
+      throw new GitChangelogRepositoryException(fromRef + " not found in:\n" + toString(), e);
     }
+    throw new GitChangelogRepositoryException(fromRef + " not found in:\n" + toString());
   }
 
   @Override
