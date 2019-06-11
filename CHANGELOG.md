@@ -2,7 +2,7 @@
 
 Changelog for tomasbjerre git-changelog-lib.
 
-## Next release
+## 1.90
 ### GitHub [#73](https://github.com/tomasbjerre/git-changelog-lib/issues/73) git log showing a commit bit plugin saying commit not found.   
 
 **Clearer exception stacktrace**
