@@ -13,10 +13,15 @@ Changelog for tomasbjerre git-changelog-lib.
 
 ### Other changes
 
+**JDK 11 compatible**
+
+
+[cd9162d9035e450](https://github.com/tomasbjerre/git-changelog-lib/commit/cd9162d9035e450) Tomas Bjerre *2019-06-11 16:21:57*
+
 **OpenJDK 11 in Travis**
 
 
-[210bab5c7fd865f](https://github.com/tomasbjerre/git-changelog-lib/commit/210bab5c7fd865f) Tomas Bjerre *2019-06-11 16:02:02*
+[ba751250bef78f1](https://github.com/tomasbjerre/git-changelog-lib/commit/ba751250bef78f1) Tomas Bjerre *2019-06-11 16:15:19*
 
 
 ## 1.89
