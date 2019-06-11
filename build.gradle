@@ -26,7 +26,6 @@ dependencies {
  compile 'org.eclipse.jgit:org.eclipse.jgit:3.6.2.201501210735-r'
  compile 'com.github.spullara.mustache.java:compiler:0.8.18'
  compile 'org.gitlab:java-gitlab-api:4.1.0'
- compile 'javax.xml.bind:jaxb-api:2.3.1'
  testCompile 'junit:junit:4.12'
  testCompile 'org.slf4j:slf4j-simple:1.7.13'
  testCompile 'org.assertj:assertj-core:2.3.0'
