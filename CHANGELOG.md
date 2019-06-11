@@ -2,6 +2,15 @@
 
 Changelog for tomasbjerre git-changelog-lib.
 
+## 1.91
+### Other changes
+
+**Removing dependency on javax.xml**
+
+
+[6515299f938c982](https://github.com/tomasbjerre/git-changelog-lib/commit/6515299f938c982) Tomas Bjerre *2019-06-11 16:54:48*
+
+
 ## 1.90
 ### GitHub [#73](https://github.com/tomasbjerre/git-changelog-lib/issues/73) git log showing a commit bit plugin saying commit not found.   
 
