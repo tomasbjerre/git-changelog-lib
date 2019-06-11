@@ -2,6 +2,23 @@
 
 Changelog for tomasbjerre git-changelog-lib.
 
+## Next release
+### GitHub [#73](https://github.com/tomasbjerre/git-changelog-lib/issues/73) git log showing a commit bit plugin saying commit not found.   
+
+**Clearer exception stacktrace**
+
+
+[0a8d3dc6aa79b1d](https://github.com/tomasbjerre/git-changelog-lib/commit/0a8d3dc6aa79b1d) Tomas Bjerre *2019-05-17 05:03:23*
+
+
+### Other changes
+
+**OpenJDK 11 in Travis**
+
+
+[210bab5c7fd865f](https://github.com/tomasbjerre/git-changelog-lib/commit/210bab5c7fd865f) Tomas Bjerre *2019-06-11 16:02:02*
+
+
 ## 1.89
 ### Other changes
 

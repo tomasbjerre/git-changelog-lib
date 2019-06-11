@@ -10,7 +10,7 @@ buildscript {
   maven { url "https://jitpack.io" }
  }
  dependencies {
-  classpath 'com.github.tomasbjerre:gradle-scripts:master-SNAPSHOT'
+  classpath 'com.github.tomasbjerre:gradle-scripts:gradle5-SNAPSHOT'
  }
 }
 apply from: project.buildscript.classLoader.getResource('java.gradle').toURI()
