@@ -10,7 +10,7 @@ buildscript {
   maven { url "https://jitpack.io" }
  }
  dependencies {
-  classpath 'com.github.tomasbjerre:gradle-scripts:gradle5-SNAPSHOT'
+  classpath 'com.github.tomasbjerre:gradle-scripts:master-SNAPSHOT'
  }
 }
 apply from: project.buildscript.classLoader.getResource('java.gradle').toURI()
@@ -26,6 +26,9 @@ dependencies {
  compile 'org.eclipse.jgit:org.eclipse.jgit:3.6.2.201501210735-r'
  compile 'com.github.spullara.mustache.java:compiler:0.8.18'
  compile 'org.gitlab:java-gitlab-api:4.1.0'
+
+ compileOnly 'com.github.spotbugs:spotbugs-annotations:3.1.12'
+
  testCompile 'junit:junit:4.12'
  testCompile 'org.slf4j:slf4j-simple:1.7.13'
  testCompile 'org.assertj:assertj-core:2.3.0'

@@ -2,6 +2,15 @@
 
 Changelog for tomasbjerre git-changelog-lib.
 
+## Next release
+### Other changes
+
+**Create FUNDING.yml**
+
+
+[f00b0e46124db77](https://github.com/tomasbjerre/git-changelog-lib/commit/f00b0e46124db77) Tomas Bjerre *2019-09-28 07:06:44*
+
+
 ## 1.91
 ### Other changes
 
