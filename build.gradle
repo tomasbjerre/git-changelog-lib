@@ -1,5 +1,6 @@
 apply plugin: 'java'
 
+project.ext.useShadowJar = true
 project.ext.tags = ['git', 'changelog', 'releasenotes', 'patchnotes']
 group = 'se.bjurr.gitchangelog'
 description = 'Library that generates changelog from a GIT repository.'
@@ -23,7 +24,7 @@ dependencies {
  compile 'com.squareup.okhttp:okhttp:2.7.5'
  compile 'com.jayway.jsonpath:json-path:2.1.0'
  compile 'com.google.guava:guava:16.0.1'
- compile 'org.eclipse.jgit:org.eclipse.jgit:3.6.2.201501210735-r'
+ compile 'org.eclipse.jgit:org.eclipse.jgit:5.6.0.201912101111-r'
  compile 'com.github.spullara.mustache.java:compiler:0.8.18'
  compile 'org.gitlab:java-gitlab-api:4.1.0'
 
@@ -33,4 +34,14 @@ dependencies {
  testCompile 'org.slf4j:slf4j-simple:1.7.13'
  testCompile 'org.assertj:assertj-core:2.3.0'
  testCompile 'org.mockito:mockito-all:1.8.5'
+}
+
+
+shadowJar {
+ relocate 'com', 'se.bjurr.gitchangelog.com'
+ relocate 'org', 'se.bjurr.gitchangelog.org'
+ relocate 'net', 'se.bjurr.gitchangelog.net'
+ relocate 'commons-codec', 'se.bjurr.gitchangelog.commons-codec'
+ relocate 'commons-logging', 'se.bjurr.gitchangelog.commons-logging'
+ relocate 'commons-io', 'se.bjurr.gitchangelog.commons-io'
 }

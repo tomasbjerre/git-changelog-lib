@@ -16,3 +16,4 @@ classes
 *.iml
 
 /.nb-gradle/
+.vscode
