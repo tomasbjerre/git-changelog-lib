@@ -2,7 +2,15 @@
 
 Changelog for tomasbjerre git-changelog-lib.
 
-## Next release
+## 1.92
+### GitHub [#78](https://github.com/tomasbjerre/git-changelog-lib/pull/78) add support for jira tokens  
+
+**naming in api tomasbjerre/git-changelog-lib**
+
+
+[21ef6027c82814e](https://github.com/tomasbjerre/git-changelog-lib/commit/21ef6027c82814e) Tomas Bjerre *2020-02-20 16:31:35*
+
+
 ### Other changes
 
 **add support for jira tokens**
