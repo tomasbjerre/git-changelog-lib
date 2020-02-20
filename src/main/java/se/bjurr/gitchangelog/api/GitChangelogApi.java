@@ -322,6 +322,12 @@ public class GitChangelogApi {
     return this;
   }
 
+  /** Authenticate to JIRA. */
+  public GitChangelogApi withJiraToken(final String string) {
+    this.settings.setJiraToken(string);
+    return this;
+  }
+
   /**
    * URL pointing at your JIRA server. When configured, the {@link Issue#getTitle()} will be
    * populated with title from JIRA.<br>

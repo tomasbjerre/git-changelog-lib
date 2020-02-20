@@ -130,6 +130,8 @@ public class Settings implements Serializable {
   private String jiraUsername;
   /** Authenticate to JIRA. */
   private String jiraPassword;
+  /** Authenticate to JIRA. */
+  private String jiraToken;
   /**
    * URL pointing at GitHub API. When configured, the {@link Issue#getTitle()} will be populated
    * with title from GitHub.<br>
@@ -392,12 +394,20 @@ public class Settings implements Serializable {
     this.jiraPassword = jiraPassword;
   }
 
+  public void setJiraToken(final String jiraToken) {
+    this.jiraToken = jiraToken;
+  }
+
   public void setJiraUsername(final String jiraUsername) {
     this.jiraUsername = jiraUsername;
   }
 
   public Optional<String> getJiraPassword() {
     return fromNullable(jiraPassword);
+  }
+
+  public Optional<String> getJiraToken() {
+    return fromNullable(jiraToken);
   }
 
   public void setExtendedVariables(final Map<String, Object> extendedVariables) {
