@@ -47,6 +47,11 @@ public class RestClient {
     return this;
   }
 
+  public RestClient withTokenAuthCredentials(final String token) {
+    this.basicAuthString = token;
+    return this;
+  }
+
   public Optional<String> get(final String url) throws GitChangelogIntegrationException {
     try {
       return urlCache.get(url);

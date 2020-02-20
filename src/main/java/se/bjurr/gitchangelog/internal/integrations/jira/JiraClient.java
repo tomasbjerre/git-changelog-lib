@@ -52,6 +52,8 @@ public abstract class JiraClient {
 
   public abstract JiraClient withBasicCredentials(String username, String password);
 
+  public abstract JiraClient withTokenCredentials(String token);
+
   public abstract Optional<JiraIssue> getIssue(String matched)
       throws GitChangelogIntegrationException;
 }

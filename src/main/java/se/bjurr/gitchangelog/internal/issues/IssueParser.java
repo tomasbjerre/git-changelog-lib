@@ -173,6 +173,8 @@ public class IssueParser {
       if (settings.getJiraUsername().isPresent()) {
         jiraClient.withBasicCredentials(
             settings.getJiraUsername().get(), settings.getJiraPassword().get());
+      } else if (settings.getJiraToken().isPresent()) {
+        jiraClient.withTokenCredentials(settings.getJiraToken().get());
       }
     }
     return jiraClient;

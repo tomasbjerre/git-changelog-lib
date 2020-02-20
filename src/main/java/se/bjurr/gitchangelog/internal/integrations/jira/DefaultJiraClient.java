@@ -24,6 +24,12 @@ public class DefaultJiraClient extends JiraClient {
   }
 
   @Override
+  public JiraClient withTokenCredentials(String token) {
+    this.client = client.withTokenAuthCredentials(token);
+    return this;
+  }
+
+  @Override
   public Optional<JiraIssue> getIssue(String issue) throws GitChangelogIntegrationException {
     String endpoint = getEndpoint(issue);
     Optional<String> json = client.get(endpoint);

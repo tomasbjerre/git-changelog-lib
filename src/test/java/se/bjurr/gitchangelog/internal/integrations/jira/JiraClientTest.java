@@ -31,6 +31,11 @@ public class JiraClientTest {
       }
 
       @Override
+      public JiraClient withTokenCredentials(String token) {
+        return null;
+      }
+
+      @Override
       public Optional<JiraIssue> getIssue(String matched) throws GitChangelogIntegrationException {
         return null;
       }
