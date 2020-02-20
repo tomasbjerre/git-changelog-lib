@@ -323,7 +323,7 @@ public class GitChangelogApi {
   }
 
   /** Authenticate to JIRA. */
-  public GitChangelogApi withJiraToken(final String string) {
+  public GitChangelogApi withJiraBasicAuthString(final String string) {
     this.settings.setJiraToken(string);
     return this;
   }

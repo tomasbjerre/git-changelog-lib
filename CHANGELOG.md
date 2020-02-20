@@ -5,6 +5,16 @@ Changelog for tomasbjerre git-changelog-lib.
 ## Next release
 ### Other changes
 
+**add support for jira tokens**
+
+
+[fc75402ade75684](https://github.com/tomasbjerre/git-changelog-lib/commit/fc75402ade75684) Dmitry Mamchur *2020-02-20 15:43:30*
+
+**Spotbugs**
+
+
+[3149f34c0b2a8e5](https://github.com/tomasbjerre/git-changelog-lib/commit/3149f34c0b2a8e5) Tomas Bjerre *2019-10-08 19:39:27*
+
 **Create FUNDING.yml**
 
 
