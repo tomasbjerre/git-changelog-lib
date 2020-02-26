@@ -17,14 +17,7 @@ import com.google.common.collect.Ordering;
 import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.lib.AnyObjectId;
 import org.eclipse.jgit.lib.ObjectId;
@@ -34,6 +27,7 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevTag;
 import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
+import org.eclipse.jgit.submodule.SubmoduleWalk;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import se.bjurr.gitchangelog.api.GitChangelogApiConstants;
@@ -47,10 +41,12 @@ public class GitRepo implements Closeable {
   private Git git;
   private final Repository repository;
   private final RevWalk revWalk;
+  public final List<GitRepo> submodules;
 
   public GitRepo() {
     this.repository = null;
     this.revWalk = null;
+    this.submodules = null;
   }
 
   public GitRepo(final File repo) throws GitChangelogRepositoryException {
@@ -71,6 +67,19 @@ public class GitRepo implements Closeable {
       this.repository = builder.build();
       this.revWalk = new RevWalk(this.repository);
       this.git = new Git(this.repository);
+
+      if (SubmoduleWalk.containsGitModulesFile(repository)) {
+        this.submodules = new ArrayList<>();
+        final SubmoduleWalk submoduleWalk = SubmoduleWalk.forIndex(repository);
+        while (submoduleWalk.next()) {
+          final Repository submoduleRepository = submoduleWalk.getRepository();
+          this.submodules.add(new GitRepo(submoduleRepository.getDirectory()));
+          submoduleRepository.close();
+        }
+      } else {
+        this.submodules = null;
+      }
+
     } catch (final IOException e) {
       throw new GitChangelogRepositoryException(
           "Could not use GIT repo in " + repo.getAbsolutePath(), e);
@@ -87,6 +96,11 @@ public class GitRepo implements Closeable {
         ((AutoCloseable) revWalk).close();
       } catch (final Exception e) {
         LOG.error(e.getMessage(), e);
+      }
+    }
+    if (submodules != null) {
+      for (GitRepo submodule : submodules) {
+        submodule.close();
       }
     }
   }
@@ -123,6 +137,20 @@ public class GitRepo implements Closeable {
     }
   }
 
+  public GitRepoData getGitRepoDataSubmodule(
+      final GitRepo submodule,
+      final ObjectId from,
+      final ObjectId to,
+      final String untaggedName,
+      final Optional<String> ignoreTagsIfNameMatches)
+      throws GitChangelogRepositoryException {
+    try {
+      return submodule.getGitRepoData(from, to, untaggedName, ignoreTagsIfNameMatches);
+    } catch (final Exception e) {
+      throw new GitChangelogRepositoryException(toString(), e);
+    }
+  }
+
   public ObjectId getRef(final String fromRef) throws GitChangelogRepositoryException {
     try {
       for (final Ref foundRef : getAllRefs().values()) {
@@ -140,6 +168,10 @@ public class GitRepo implements Closeable {
       throw new GitChangelogRepositoryException(fromRef + " not found in:\n" + toString(), e);
     }
     throw new GitChangelogRepositoryException(fromRef + " not found in:\n" + toString());
+  }
+
+  public boolean hasSubmodules() {
+    return submodules != null;
   }
 
   @Override

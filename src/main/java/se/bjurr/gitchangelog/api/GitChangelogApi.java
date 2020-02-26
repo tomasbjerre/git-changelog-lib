@@ -27,10 +27,13 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import org.eclipse.jgit.lib.ObjectId;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
 import se.bjurr.gitchangelog.api.model.Changelog;
@@ -47,6 +50,8 @@ import se.bjurr.gitchangelog.internal.settings.Settings;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
 
 public class GitChangelogApi {
+
+  private static final Logger LOG = LoggerFactory.getLogger(GitChangelogApi.class);
 
   public static GitChangelogApi gitChangelogApiBuilder() {
     return new GitChangelogApi();
@@ -431,17 +436,10 @@ public class GitChangelogApi {
 
   private Changelog getChangelog(final GitRepo gitRepo, final boolean useIntegrationIfConfigured)
       throws GitChangelogRepositoryException {
-    final ObjectId fromId =
-        getId(gitRepo, this.settings.getFromRef(), this.settings.getFromCommit()) //
-            .or(gitRepo.getCommit(ZERO_COMMIT));
-    final Optional<ObjectId> toIdOpt =
-        getId(gitRepo, this.settings.getToRef(), this.settings.getToCommit());
-    ObjectId toId;
-    if (toIdOpt.isPresent()) {
-      toId = toIdOpt.get();
-    } else {
-      toId = gitRepo.getRef(REF_MASTER);
-    }
+    final ObjectId[] fromToParent = getFromTo(gitRepo);
+    final ObjectId fromId = fromToParent[0];
+    final ObjectId toId = fromToParent[1];
+
     GitRepoData gitRepoData =
         gitRepo.getGitRepoData(
             fromId,
@@ -465,6 +463,36 @@ public class GitChangelogApi {
       diff = gitRepoData.getGitCommits();
     }
     final List<GitTag> tags = gitRepoData.getGitTags();
+
+    if (gitRepo.hasSubmodules()) {
+      final List<GitRepoData> submoduleGitRepoData = new ArrayList<>();
+
+      for (GitRepo submodule : gitRepo.submodules) {
+        final ObjectId[] fromToSubmodule = getFromTo(submodule);
+        final ObjectId fromIdSubmodule = fromToSubmodule[0];
+        final ObjectId toIdSubmodule = fromToSubmodule[1];
+        submoduleGitRepoData.add(
+            gitRepo.getGitRepoDataSubmodule(
+                submodule,
+                fromIdSubmodule,
+                toIdSubmodule,
+                this.settings.getUntaggedName(),
+                this.settings.getIgnoreTagsIfNameMatches()));
+      }
+
+      for (GitTag tag : tags) {
+        for (GitRepoData sGitRepoData : submoduleGitRepoData) {
+          final List<GitTag> stags = sGitRepoData.getGitTags();
+          for (GitTag stag : stags) {
+            LOG.info("Submodule tag " + stag.getName());
+            if (stag.getName().equals(tag.getName())) {
+              LOG.info("Found tag in submodules: " + stag.getName());
+            }
+          }
+        }
+      }
+    }
+
     final Transformer transformer = new Transformer(this.settings);
     return new Changelog( //
         transformer.toCommits(diff), //
@@ -474,6 +502,21 @@ public class GitChangelogApi {
         transformer.toIssueTypes(issues), //
         gitRepoData.findOwnerName().orNull(), //
         gitRepoData.findRepoName().orNull());
+  }
+
+  private ObjectId[] getFromTo(final GitRepo gitRepo) throws GitChangelogRepositoryException {
+    final ObjectId fromId =
+        getId(gitRepo, this.settings.getFromRef(), this.settings.getFromCommit()) //
+            .or(gitRepo.getCommit(ZERO_COMMIT));
+    final Optional<ObjectId> toIdOpt =
+        getId(gitRepo, this.settings.getToRef(), this.settings.getToCommit());
+    ObjectId toId;
+    if (toIdOpt.isPresent()) {
+      toId = toIdOpt.get();
+    } else {
+      toId = gitRepo.getRef(REF_MASTER);
+    }
+    return new ObjectId[] {fromId, toId};
   }
 
   private Optional<ObjectId> getId(
