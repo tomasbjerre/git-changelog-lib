@@ -16,17 +16,11 @@ import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Multimap;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Matcher;
-import se.bjurr.gitchangelog.api.model.Author;
-import se.bjurr.gitchangelog.api.model.Commit;
-import se.bjurr.gitchangelog.api.model.Issue;
-import se.bjurr.gitchangelog.api.model.IssueType;
-import se.bjurr.gitchangelog.api.model.Tag;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import se.bjurr.gitchangelog.api.model.*;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 import se.bjurr.gitchangelog.internal.settings.IssuesUtil;
@@ -34,6 +28,7 @@ import se.bjurr.gitchangelog.internal.settings.Settings;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
 
 public class Transformer {
+  private static final Logger LOG = LoggerFactory.getLogger(Transformer.class);
 
   private final Settings settings;
 
@@ -117,7 +112,10 @@ public class Transformer {
     return issueTypes;
   }
 
-  public List<Tag> toTags(List<GitTag> gitTags, final List<ParsedIssue> allParsedIssues) {
+  public List<Tag> toTags(
+      List<GitTag> gitTags,
+      final List<ParsedIssue> allParsedIssues,
+      final List<List<SubmoduleSection>> allSubmoduleSections) {
 
     Iterable<Tag> tags =
         transform(
@@ -126,21 +124,25 @@ public class Transformer {
               @Override
               public Tag apply(GitTag input) {
                 List<GitCommit> gitCommits = input.getGitCommits();
+                final String readableName = toReadableTagName(input.getName());
                 List<ParsedIssue> parsedIssues =
                     reduceParsedIssuesToOnlyGitCommits(allParsedIssues, gitCommits);
+                List<SubmoduleSection> submoduleSections =
+                    reduceSubmoduleSectionsToOnlyGitTag(allSubmoduleSections, readableName);
                 List<Commit> commits = toCommits(gitCommits);
                 List<Author> authors = toAuthors(gitCommits);
                 List<Issue> issues = toIssues(parsedIssues);
                 List<IssueType> issueTypes = toIssueTypes(parsedIssues);
                 return new Tag(
-                    toReadableTagName(input.getName()),
+                    readableName,
                     input.findAnnotation().orNull(),
                     commits,
                     authors,
                     issues,
                     issueTypes,
                     input.getTagTime() != null ? format(input.getTagTime()) : "",
-                    input.getTagTime() != null ? input.getTagTime().getTime() : -1);
+                    input.getTagTime() != null ? input.getTagTime().getTime() : -1,
+                    submoduleSections);
               }
 
               private List<ParsedIssue> reduceParsedIssuesToOnlyGitCommits(
@@ -166,6 +168,30 @@ public class Transformer {
                   }
                 }
                 return parsedIssues;
+              }
+
+              private List<SubmoduleSection> reduceSubmoduleSectionsToOnlyGitTag(
+                  List<List<SubmoduleSection>> allSubmoduleSections, String tagName) {
+                List<SubmoduleSection> result = newArrayList();
+                if (allSubmoduleSections == null) {
+                  return null;
+                }
+                for (List<SubmoduleSection> submoduleSections : allSubmoduleSections) {
+                  for (SubmoduleSection submoduleSection : submoduleSections) {
+                    LOG.info(
+                        "Compare section "
+                            + submoduleSection.getRepoName()
+                            + " "
+                            + submoduleSection.getTagName()
+                            + " and "
+                            + tagName);
+                    if (submoduleSection.getTagName().equals(tagName)) {
+                      LOG.info("Add section");
+                      result.add(submoduleSection);
+                    }
+                  }
+                }
+                return result;
               }
             });
 

@@ -38,6 +38,8 @@ import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
 import se.bjurr.gitchangelog.api.model.Changelog;
 import se.bjurr.gitchangelog.api.model.Issue;
+import se.bjurr.gitchangelog.api.model.SubmoduleSection;
+import se.bjurr.gitchangelog.api.model.Tag;
 import se.bjurr.gitchangelog.internal.git.GitRepo;
 import se.bjurr.gitchangelog.internal.git.GitRepoData;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
@@ -464,39 +466,30 @@ public class GitChangelogApi {
     }
     final List<GitTag> tags = gitRepoData.getGitTags();
 
+    List<List<SubmoduleSection>> allSubmoduleSections = null;
     if (gitRepo.hasSubmodules()) {
-      final List<GitRepoData> submoduleGitRepoData = new ArrayList<>();
+      allSubmoduleSections = new ArrayList<>();
 
       for (GitRepo submodule : gitRepo.submodules) {
-        final ObjectId[] fromToSubmodule = getFromTo(submodule);
-        final ObjectId fromIdSubmodule = fromToSubmodule[0];
-        final ObjectId toIdSubmodule = fromToSubmodule[1];
-        submoduleGitRepoData.add(
-            gitRepo.getGitRepoDataSubmodule(
-                submodule,
-                fromIdSubmodule,
-                toIdSubmodule,
-                this.settings.getUntaggedName(),
-                this.settings.getIgnoreTagsIfNameMatches()));
-      }
+        final Changelog submoduleChangelog = getChangelog(submodule, useIntegrationIfConfigured);
 
-      for (GitTag tag : tags) {
-        for (GitRepoData sGitRepoData : submoduleGitRepoData) {
-          final List<GitTag> stags = sGitRepoData.getGitTags();
-          for (GitTag stag : stags) {
-            LOG.info("Submodule tag " + stag.getName());
-            if (stag.getName().equals(tag.getName())) {
-              LOG.info("Found tag in submodules: " + stag.getName());
-            }
-          }
+        List<SubmoduleSection> submoduleSections = new ArrayList<>();
+        for (Tag tag : submoduleChangelog.getTags()) {
+          submoduleSections.add(
+              new SubmoduleSection(
+                  submoduleChangelog.getOwnerName(),
+                  submoduleChangelog.getRepoName(),
+                  tag.getName(),
+                  tag.getIssues()));
         }
+        allSubmoduleSections.add(submoduleSections);
       }
     }
 
     final Transformer transformer = new Transformer(this.settings);
     return new Changelog( //
         transformer.toCommits(diff), //
-        transformer.toTags(tags, issues), //
+        transformer.toTags(tags, issues, allSubmoduleSections), //
         transformer.toAuthors(diff), //
         transformer.toIssues(issues), //
         transformer.toIssueTypes(issues), //

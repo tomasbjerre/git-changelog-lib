@@ -9,11 +9,12 @@ import se.bjurr.gitchangelog.api.model.interfaces.ICommits;
 import se.bjurr.gitchangelog.api.model.interfaces.IIssues;
 
 public class Tag implements ICommits, IAuthors, IIssues, Serializable {
-  private static final long serialVersionUID = 2140208294219785889L;
+  private static final long serialVersionUID = 2140208294219785899L;
   private final String annotation;
   private final List<Author> authors;
   private final List<Commit> commits;
   private final List<Issue> issues;
+  private final List<SubmoduleSection> submoduleSections;
   private final List<IssueType> issueTypes;
   private final String name;
   private final String tagTime;
@@ -28,7 +29,8 @@ public class Tag implements ICommits, IAuthors, IIssues, Serializable {
       List<Issue> issues,
       List<IssueType> issueTypes,
       String tagTime,
-      Long tagTimeLong) {
+      Long tagTimeLong,
+      List<SubmoduleSection> submoduleSections) {
     this.commits = commits;
     this.authors = authors;
     this.issues = issues;
@@ -38,6 +40,7 @@ public class Tag implements ICommits, IAuthors, IIssues, Serializable {
     this.tagTime = tagTime;
     this.tagTimeLong = tagTimeLong;
     this.hasTagTime = !isNullOrEmpty(tagTime);
+    this.submoduleSections = submoduleSections;
   }
 
   public String getAnnotation() {
@@ -61,6 +64,10 @@ public class Tag implements ICommits, IAuthors, IIssues, Serializable {
   @Override
   public List<Issue> getIssues() {
     return this.issues;
+  }
+
+  public List<SubmoduleSection> getSubmoduleSections() {
+    return this.submoduleSections;
   }
 
   public List<IssueType> getIssueTypes() {
