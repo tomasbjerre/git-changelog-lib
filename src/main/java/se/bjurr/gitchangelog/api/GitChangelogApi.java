@@ -438,9 +438,17 @@ public class GitChangelogApi {
 
   private Changelog getChangelog(final GitRepo gitRepo, final boolean useIntegrationIfConfigured)
       throws GitChangelogRepositoryException {
-    final ObjectId[] fromToParent = getFromTo(gitRepo);
-    final ObjectId fromId = fromToParent[0];
-    final ObjectId toId = fromToParent[1];
+    final ObjectId fromId =
+      getId(gitRepo, this.settings.getFromRef(), this.settings.getFromCommit()) //
+        .or(gitRepo.getCommit(ZERO_COMMIT));
+    final Optional<ObjectId> toIdOpt =
+      getId(gitRepo, this.settings.getToRef(), this.settings.getToCommit());
+    ObjectId toId;
+    if (toIdOpt.isPresent()) {
+      toId = toIdOpt.get();
+    } else {
+      toId = gitRepo.getRef(REF_MASTER);
+    }
 
     GitRepoData gitRepoData =
         gitRepo.getGitRepoData(
@@ -495,21 +503,6 @@ public class GitChangelogApi {
         transformer.toIssueTypes(issues), //
         gitRepoData.findOwnerName().orNull(), //
         gitRepoData.findRepoName().orNull());
-  }
-
-  private ObjectId[] getFromTo(final GitRepo gitRepo) throws GitChangelogRepositoryException {
-    final ObjectId fromId =
-        getId(gitRepo, this.settings.getFromRef(), this.settings.getFromCommit()) //
-            .or(gitRepo.getCommit(ZERO_COMMIT));
-    final Optional<ObjectId> toIdOpt =
-        getId(gitRepo, this.settings.getToRef(), this.settings.getToCommit());
-    ObjectId toId;
-    if (toIdOpt.isPresent()) {
-      toId = toIdOpt.get();
-    } else {
-      toId = gitRepo.getRef(REF_MASTER);
-    }
-    return new ObjectId[] {fromId, toId};
   }
 
   private Optional<ObjectId> getId(
