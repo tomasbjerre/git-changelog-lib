@@ -445,7 +445,6 @@ public class GitChangelogApi {
     } else {
       toId = gitRepo.getRef(REF_MASTER);
     }
-
     GitRepoData gitRepoData =
         gitRepo.getGitRepoData(
             fromId,
