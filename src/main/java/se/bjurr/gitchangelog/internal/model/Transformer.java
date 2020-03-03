@@ -16,11 +16,18 @@ import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Multimap;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import se.bjurr.gitchangelog.api.model.*;
+import se.bjurr.gitchangelog.api.model.Author;
+import se.bjurr.gitchangelog.api.model.Commit;
+import se.bjurr.gitchangelog.api.model.Issue;
+import se.bjurr.gitchangelog.api.model.IssueType;
+import se.bjurr.gitchangelog.api.model.SubmoduleSection;
+import se.bjurr.gitchangelog.api.model.Tag;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 import se.bjurr.gitchangelog.internal.settings.IssuesUtil;
@@ -28,7 +35,6 @@ import se.bjurr.gitchangelog.internal.settings.Settings;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
 
 public class Transformer {
-  private static final Logger LOG = LoggerFactory.getLogger(Transformer.class);
 
   private final Settings settings;
 
@@ -178,15 +184,7 @@ public class Transformer {
                 }
                 for (List<SubmoduleSection> submoduleSections : allSubmoduleSections) {
                   for (SubmoduleSection submoduleSection : submoduleSections) {
-                    LOG.info(
-                        "Compare section "
-                            + submoduleSection.getRepoName()
-                            + " "
-                            + submoduleSection.getTagName()
-                            + " and "
-                            + tagName);
                     if (submoduleSection.getTagName().equals(tagName)) {
-                      LOG.info("Add section");
                       result.add(submoduleSection);
                     }
                   }
