@@ -323,6 +323,10 @@ public class GitRepo implements Closeable {
     final RevCommit from = this.revWalk.lookupCommit(fromObjectId);
     final RevCommit to = this.revWalk.lookupCommit(toObjectId);
 
+    if (from == to) {
+      return newArrayList();
+    }
+
     this.commitsToInclude = getDiffingCommits(from, to);
 
     final List<Ref> tagList = tagsBetweenFromAndTo(from, to);
