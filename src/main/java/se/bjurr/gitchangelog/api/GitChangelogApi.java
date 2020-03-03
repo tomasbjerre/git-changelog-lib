@@ -32,8 +32,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import org.eclipse.jgit.lib.ObjectId;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
 import se.bjurr.gitchangelog.api.model.Changelog;
@@ -52,8 +50,6 @@ import se.bjurr.gitchangelog.internal.settings.Settings;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
 
 public class GitChangelogApi {
-
-  private static final Logger LOG = LoggerFactory.getLogger(GitChangelogApi.class);
 
   public static GitChangelogApi gitChangelogApiBuilder() {
     return new GitChangelogApi();
@@ -478,7 +474,7 @@ public class GitChangelogApi {
     if (gitRepo.hasSubmodules()) {
       allSubmoduleSections = new ArrayList<>();
 
-      for (GitRepo submodule : gitRepo.submodules) {
+      for (GitRepo submodule : gitRepo.getSubmodules()) {
         final Changelog submoduleChangelog = getChangelog(submodule, useIntegrationIfConfigured);
 
         List<SubmoduleSection> submoduleSections = new ArrayList<>();

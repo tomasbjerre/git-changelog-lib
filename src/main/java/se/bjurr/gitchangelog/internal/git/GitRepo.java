@@ -17,7 +17,15 @@ import com.google.common.collect.Ordering;
 import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.lib.AnyObjectId;
 import org.eclipse.jgit.lib.ObjectId;
@@ -41,7 +49,7 @@ public class GitRepo implements Closeable {
   private Git git;
   private final Repository repository;
   private final RevWalk revWalk;
-  public final List<GitRepo> submodules;
+  private final List<GitRepo> submodules;
 
   public GitRepo() {
     this.repository = null;
@@ -137,20 +145,6 @@ public class GitRepo implements Closeable {
     }
   }
 
-  public GitRepoData getGitRepoDataSubmodule(
-      final GitRepo submodule,
-      final ObjectId from,
-      final ObjectId to,
-      final String untaggedName,
-      final Optional<String> ignoreTagsIfNameMatches)
-      throws GitChangelogRepositoryException {
-    try {
-      return submodule.getGitRepoData(from, to, untaggedName, ignoreTagsIfNameMatches);
-    } catch (final Exception e) {
-      throw new GitChangelogRepositoryException(toString(), e);
-    }
-  }
-
   public ObjectId getRef(final String fromRef) throws GitChangelogRepositoryException {
     try {
       for (final Ref foundRef : getAllRefs().values()) {
@@ -171,7 +165,11 @@ public class GitRepo implements Closeable {
   }
 
   public boolean hasSubmodules() {
-    return submodules != null;
+    return submodules != null && submodules.size() > 0;
+  }
+
+  public List<GitRepo> getSubmodules() {
+    return submodules;
   }
 
   @Override
