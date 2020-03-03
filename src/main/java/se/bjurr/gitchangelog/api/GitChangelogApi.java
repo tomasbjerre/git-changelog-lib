@@ -439,10 +439,10 @@ public class GitChangelogApi {
   private Changelog getChangelog(final GitRepo gitRepo, final boolean useIntegrationIfConfigured)
       throws GitChangelogRepositoryException {
     final ObjectId fromId =
-      getId(gitRepo, this.settings.getFromRef(), this.settings.getFromCommit()) //
-        .or(gitRepo.getCommit(ZERO_COMMIT));
+        getId(gitRepo, this.settings.getFromRef(), this.settings.getFromCommit()) //
+            .or(gitRepo.getCommit(ZERO_COMMIT));
     final Optional<ObjectId> toIdOpt =
-      getId(gitRepo, this.settings.getToRef(), this.settings.getToCommit());
+        getId(gitRepo, this.settings.getToRef(), this.settings.getToCommit());
     ObjectId toId;
     if (toIdOpt.isPresent()) {
       toId = toIdOpt.get();
