@@ -81,8 +81,10 @@ public class GitRepo implements Closeable {
         final SubmoduleWalk submoduleWalk = SubmoduleWalk.forIndex(repository);
         while (submoduleWalk.next()) {
           final Repository submoduleRepository = submoduleWalk.getRepository();
-          this.submodules.add(new GitRepo(submoduleRepository.getDirectory()));
-          submoduleRepository.close();
+          if (submoduleRepository != null) {
+            this.submodules.add(new GitRepo(submoduleRepository.getDirectory()));
+            submoduleRepository.close();
+          }
         }
       } else {
         this.submodules = null;
