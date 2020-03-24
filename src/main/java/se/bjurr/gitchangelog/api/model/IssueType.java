@@ -14,7 +14,7 @@ import se.bjurr.gitchangelog.internal.settings.SettingsIssueType;
 
 public class IssueType implements Serializable {
 
-  private static final long serialVersionUID = 8850522973130773606L;
+  private static final long serialVersionUID = 8850522973130773607L;
   private final String name;
   private final List<Issue> issues;
   private final SettingsIssueType type;

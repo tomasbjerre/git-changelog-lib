@@ -14,7 +14,6 @@ public class Tag implements ICommits, IAuthors, IIssues, Serializable {
   private final List<Author> authors;
   private final List<Commit> commits;
   private final List<Issue> issues;
-  private final List<SubmoduleSection> submoduleSections;
   private final List<IssueType> issueTypes;
   private final String name;
   private final String tagTime;
@@ -29,8 +28,7 @@ public class Tag implements ICommits, IAuthors, IIssues, Serializable {
       List<Issue> issues,
       List<IssueType> issueTypes,
       String tagTime,
-      Long tagTimeLong,
-      List<SubmoduleSection> submoduleSections) {
+      Long tagTimeLong) {
     this.commits = commits;
     this.authors = authors;
     this.issues = issues;
@@ -40,7 +38,6 @@ public class Tag implements ICommits, IAuthors, IIssues, Serializable {
     this.tagTime = tagTime;
     this.tagTimeLong = tagTimeLong;
     this.hasTagTime = !isNullOrEmpty(tagTime);
-    this.submoduleSections = submoduleSections;
   }
 
   public String getAnnotation() {
@@ -64,10 +61,6 @@ public class Tag implements ICommits, IAuthors, IIssues, Serializable {
   @Override
   public List<Issue> getIssues() {
     return this.issues;
-  }
-
-  public List<SubmoduleSection> getSubmoduleSections() {
-    return this.submoduleSections;
   }
 
   public List<IssueType> getIssueTypes() {

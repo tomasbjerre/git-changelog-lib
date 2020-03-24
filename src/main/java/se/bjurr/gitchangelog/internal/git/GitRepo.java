@@ -14,28 +14,20 @@ import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.Ordering;
-import java.io.Closeable;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
+import java.io.*;
+import java.util.*;
 import org.eclipse.jgit.api.Git;
-import org.eclipse.jgit.lib.AnyObjectId;
-import org.eclipse.jgit.lib.ObjectId;
-import org.eclipse.jgit.lib.Ref;
-import org.eclipse.jgit.lib.Repository;
+import org.eclipse.jgit.diff.DiffEntry;
+import org.eclipse.jgit.diff.DiffFormatter;
+import org.eclipse.jgit.errors.ConfigInvalidException;
+import org.eclipse.jgit.lib.*;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevTag;
+import org.eclipse.jgit.revwalk.RevTree;
 import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 import org.eclipse.jgit.submodule.SubmoduleWalk;
+import org.eclipse.jgit.treewalk.CanonicalTreeParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import se.bjurr.gitchangelog.api.GitChangelogApiConstants;
@@ -49,7 +41,7 @@ public class GitRepo implements Closeable {
   private Git git;
   private final Repository repository;
   private final RevWalk revWalk;
-  private final List<GitRepo> submodules;
+  private final HashMap<String, GitRepo> submodules;
 
   public GitRepo() {
     this.repository = null;
@@ -77,12 +69,17 @@ public class GitRepo implements Closeable {
       this.git = new Git(this.repository);
 
       if (SubmoduleWalk.containsGitModulesFile(repository)) {
-        this.submodules = new ArrayList<>();
+        this.submodules = new HashMap<>();
         final SubmoduleWalk submoduleWalk = SubmoduleWalk.forIndex(repository);
         while (submoduleWalk.next()) {
           final Repository submoduleRepository = submoduleWalk.getRepository();
           if (submoduleRepository != null) {
-            this.submodules.add(new GitRepo(submoduleRepository.getDirectory()));
+            try {
+              String submodulePath = submoduleWalk.getModulesPath();
+              this.submodules.put(submodulePath, new GitRepo(submoduleRepository.getDirectory()));
+            } catch (ConfigInvalidException e) {
+              LOG.warn("invalid submodule configuration; skipping submodule\n" + e);
+            }
             submoduleRepository.close();
           }
         }
@@ -109,8 +106,8 @@ public class GitRepo implements Closeable {
       }
     }
     if (submodules != null) {
-      for (GitRepo submodule : submodules) {
-        submodule.close();
+      for (Map.Entry<String, GitRepo> submodule : submodules.entrySet()) {
+        submodule.getValue().close();
       }
     }
   }
@@ -170,8 +167,39 @@ public class GitRepo implements Closeable {
     return submodules != null && submodules.size() > 0;
   }
 
-  public List<GitRepo> getSubmodules() {
-    return submodules;
+  public GitRepo getSubmodule(String submodulePath) {
+    return submodules.getOrDefault(submodulePath, null);
+  }
+
+  public String getDiff(String commitHash) {
+    RevCommit commit = null;
+    RevCommit prevCommit = null;
+
+    try {
+      commit = this.revWalk.parseCommit(getCommit(commitHash));
+      prevCommit = commit.getParentCount() > 0 ? commit.getParent(0) : null;
+    } catch (GitChangelogRepositoryException | IOException e) {
+      e.printStackTrace();
+    }
+
+    OutputStream outputStream = new ByteArrayOutputStream();
+    DiffFormatter diffFormatter = new DiffFormatter(outputStream);
+    diffFormatter.setRepository(this.repository);
+    diffFormatter.setAbbreviationLength(10);
+
+    try {
+      for (DiffEntry entry : diffFormatter.scan(prevCommit, commit)) {
+        diffFormatter.format(diffFormatter.toFileHeader(entry));
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    return outputStream.toString();
+  }
+
+  public String getDirectory() {
+    return this.repository.getDirectory().getAbsolutePath();
   }
 
   @Override
@@ -181,6 +209,23 @@ public class GitRepo implements Closeable {
       sb.append(foundRef.getName() + "\n");
     }
     return "Repo: " + this.repository + "\n" + sb.toString();
+  }
+
+  private CanonicalTreeParser getTreeParser(RevCommit commit) {
+    LOG.info("getTreeParser for " + commit.toString());
+    RevTree revTree = commit.getTree();
+    if (revTree == null) {
+      LOG.info("revTree is null");
+      return null;
+    }
+    ObjectId treeId = commit.getTree().getId();
+    ObjectReader reader = this.repository.newObjectReader();
+    try {
+      return new CanonicalTreeParser(null, reader, treeId);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    return null;
   }
 
   private boolean addCommitToCurrentTag(

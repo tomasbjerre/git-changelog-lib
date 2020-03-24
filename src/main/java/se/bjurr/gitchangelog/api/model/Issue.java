@@ -18,7 +18,7 @@ import se.bjurr.gitchangelog.internal.settings.SettingsIssueType;
 
 public class Issue implements ICommits, IAuthors, Serializable {
 
-  private static final long serialVersionUID = -7571341639024417199L;
+  private static final long serialVersionUID = -7571341639024417200L;
   private final List<Commit> commits;
   private final List<Author> authors;
   /** Like JIRA, or GitHub. */

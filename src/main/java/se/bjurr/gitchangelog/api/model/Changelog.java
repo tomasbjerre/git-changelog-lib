@@ -9,7 +9,7 @@ import se.bjurr.gitchangelog.api.model.interfaces.ICommits;
 import se.bjurr.gitchangelog.api.model.interfaces.IIssues;
 
 public class Changelog implements ICommits, IAuthors, IIssues, Serializable {
-  private static final long serialVersionUID = 2193789018496738737L;
+  private static final long serialVersionUID = 2193789018496738738L;
   private final List<Commit> commits;
   private final List<Tag> tags;
   private final List<Author> authors;
