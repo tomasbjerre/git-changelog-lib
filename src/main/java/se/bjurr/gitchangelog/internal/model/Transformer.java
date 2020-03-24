@@ -34,7 +34,7 @@ public class Transformer {
   }
 
   public List<Author> toAuthors(
-      List<GitCommit> gitCommits, final HashMap<GitCommit, List<Changelog>> submoduleSections) {
+      List<GitCommit> gitCommits, final HashMap<String, List<Changelog>> submoduleSections) {
     final Multimap<String, GitCommit> commitsPerAuthor =
         index(
             gitCommits,
@@ -73,7 +73,7 @@ public class Transformer {
   }
 
   public List<Commit> toCommits(
-      Collection<GitCommit> from, final HashMap<GitCommit, List<Changelog>> submoduleSections) {
+      Collection<GitCommit> from, final HashMap<String, List<Changelog>> submoduleSections) {
     Iterable<GitCommit> filteredCommits = filter(from, ignoreCommits(settings));
     return newArrayList(
         transform(
@@ -82,20 +82,23 @@ public class Transformer {
               @Override
               public Commit apply(GitCommit c) {
                 return toCommit(
-                    c, submoduleSections == null ? null : submoduleSections.getOrDefault(c, null));
+                    c,
+                    submoduleSections == null
+                        ? null
+                        : submoduleSections.getOrDefault(c.getHash(), null));
               }
             }));
   }
 
   public List<Issue> toIssues(
-      List<ParsedIssue> issues, final HashMap<GitCommit, List<Changelog>> submoduleSections) {
+      List<ParsedIssue> issues, final HashMap<String, List<Changelog>> submoduleSections) {
     Iterable<ParsedIssue> issuesWithCommits = filterWithCommits(issues, submoduleSections);
 
     return newArrayList(transform(issuesWithCommits, parsedIssueToIssue(submoduleSections)));
   }
 
   public List<IssueType> toIssueTypes(
-      List<ParsedIssue> issues, final HashMap<GitCommit, List<Changelog>> submoduleSections) {
+      List<ParsedIssue> issues, final HashMap<String, List<Changelog>> submoduleSections) {
     Map<String, List<Issue>> issuesPerName = newTreeMap();
 
     for (ParsedIssue parsedIssue : filterWithCommits(issues, submoduleSections)) {
@@ -118,7 +121,7 @@ public class Transformer {
   public List<Tag> toTags(
       List<GitTag> gitTags,
       final List<ParsedIssue> allParsedIssues,
-      final HashMap<GitCommit, List<Changelog>> submoduleSections) {
+      final HashMap<String, List<Changelog>> submoduleSections) {
 
     Iterable<Tag> tags =
         transform(
@@ -185,7 +188,7 @@ public class Transformer {
   }
 
   private Iterable<ParsedIssue> filterWithCommits(
-      List<ParsedIssue> issues, final HashMap<GitCommit, List<Changelog>> submoduleSections) {
+      List<ParsedIssue> issues, final HashMap<String, List<Changelog>> submoduleSections) {
     Iterable<ParsedIssue> issuesWithCommits =
         filter(
             issues,
@@ -205,7 +208,7 @@ public class Transformer {
   }
 
   private Function<ParsedIssue, Issue> parsedIssueToIssue(
-      final HashMap<GitCommit, List<Changelog>> submoduleSections) {
+      final HashMap<String, List<Changelog>> submoduleSections) {
     return new Function<ParsedIssue, Issue>() {
       @Override
       public Issue apply(ParsedIssue input) {

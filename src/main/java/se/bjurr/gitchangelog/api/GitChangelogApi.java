@@ -474,7 +474,7 @@ public class GitChangelogApi {
     }
     final List<GitTag> tags = gitRepoData.getGitTags();
 
-    HashMap<GitCommit, List<Changelog>> submoduleMap = null;
+    HashMap<String, List<Changelog>> submoduleMap = null;
     if (gitRepo.hasSubmodules()) {
       submoduleMap =
           new GitSubmoduleParser()

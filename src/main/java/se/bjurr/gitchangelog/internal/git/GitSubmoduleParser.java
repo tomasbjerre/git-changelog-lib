@@ -20,13 +20,13 @@ public class GitSubmoduleParser {
 
   public GitSubmoduleParser() {}
 
-  public HashMap<GitCommit, List<Changelog>> parseForSubmodules(
+  public HashMap<String, List<Changelog>> parseForSubmodules(
       final GitChangelogApi gitChangelogApi,
       final boolean useIntegrationIfConfigured,
       final GitRepo gitRepo,
       final List<GitCommit> commits) {
 
-    HashMap<GitCommit, List<Changelog>> submoduleSections = new HashMap<>();
+    HashMap<String, List<Changelog>> submoduleSections = new HashMap<>();
     Pattern submoduleNamePattern =
         Pattern.compile(
             "(?m)^\\+{3} b/([\\w/\\s-]+)$\\n-Subproject commit (\\w+)$\\n\\+Subproject commit (\\w+)$");
@@ -57,10 +57,11 @@ public class GitSubmoduleParser {
         settings.setToRef(null);
         settings.setFromRepo(submodule.getDirectory());
 
-        if (!submoduleSections.containsKey(commit)) {
-          submoduleSections.put(commit, new ArrayList<>());
+        String commitHash = commit.getHash();
+        if (!submoduleSections.containsKey(commitHash)) {
+          submoduleSections.put(commitHash, new ArrayList<>());
         }
-        List<Changelog> submoduleSectionList = submoduleSections.get(commit);
+        List<Changelog> submoduleSectionList = submoduleSections.get(commitHash);
         try {
           submoduleSectionList.add(
               GitChangelogApi.gitChangelogApiBuilder()
