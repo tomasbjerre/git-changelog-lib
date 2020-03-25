@@ -29,7 +29,7 @@ public class GitSubmoduleParser {
     HashMap<String, List<Changelog>> submoduleSections = new HashMap<>();
     Pattern submoduleNamePattern =
         Pattern.compile(
-            "(?m)^\\+{3} b/([\\w/\\s-]+)$\\n-Subproject commit (\\w+)$\\n\\+Subproject commit (\\w+)$");
+            "(?m)^\\+{3} b/([\\w/\\s-]+)$\\n@.+\\n-Subproject commit (\\w+)$\\n\\+Subproject commit (\\w+)$");
 
     Settings settings = gitChangelogApi.getSettings();
 
@@ -73,18 +73,10 @@ public class GitSubmoduleParser {
       }
     }
 
-    if (cachedFromCommit.isPresent()) {
-      settings.setFromCommit(cachedFromCommit.get());
-    }
-    if (cachedToCommit.isPresent()) {
-      settings.setToCommit(cachedToCommit.get());
-    }
-    if (cachedFromRef.isPresent()) {
-      settings.setFromRef(cachedFromRef.get());
-    }
-    if (cachedToRef.isPresent()) {
-      settings.setToRef(cachedToRef.get());
-    }
+    settings.setFromCommit(cachedFromCommit.orNull());
+    settings.setToCommit(cachedToCommit.orNull());
+    settings.setFromRef(cachedFromRef.orNull());
+    settings.setToRef(cachedToRef.orNull());
     settings.setFromRepo(cachedFromRepo);
 
     return submoduleSections;
