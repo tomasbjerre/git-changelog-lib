@@ -8,7 +8,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.io.Files.createParentDirs;
 import static com.google.common.io.Files.write;
 import static com.google.common.io.Resources.getResource;
-import static org.slf4j.LoggerFactory.getLogger;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.REF_MASTER;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 import static se.bjurr.gitchangelog.internal.git.GitRepoDataHelper.removeCommitsWithoutIssue;
@@ -30,7 +29,6 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import org.eclipse.jgit.lib.ObjectId;
-import org.slf4j.Logger;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
 import se.bjurr.gitchangelog.api.model.Changelog;
@@ -48,7 +46,6 @@ import se.bjurr.gitchangelog.internal.settings.Settings;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
 
 public class GitChangelogApi {
-  private static final Logger LOG = getLogger(GitChangelogApi.class);
 
   public static GitChangelogApi gitChangelogApiBuilder() {
     return new GitChangelogApi();

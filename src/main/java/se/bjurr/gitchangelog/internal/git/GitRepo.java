@@ -212,10 +212,8 @@ public class GitRepo implements Closeable {
   }
 
   private CanonicalTreeParser getTreeParser(RevCommit commit) {
-    LOG.info("getTreeParser for " + commit.toString());
     RevTree revTree = commit.getTree();
     if (revTree == null) {
-      LOG.info("revTree is null");
       return null;
     }
     ObjectId treeId = commit.getTree().getId();
