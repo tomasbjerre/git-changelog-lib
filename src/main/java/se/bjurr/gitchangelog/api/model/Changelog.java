@@ -15,6 +15,7 @@ public class Changelog implements ICommits, IAuthors, IIssues, Serializable {
   private final List<Author> authors;
   private final List<Issue> issues;
   private final List<IssueType> issueTypes;
+  private final List<Changelog> submodules;
   private final String ownerName;
   private final String repoName;
 
@@ -24,6 +25,7 @@ public class Changelog implements ICommits, IAuthors, IIssues, Serializable {
       List<Author> authors,
       List<Issue> issues,
       List<IssueType> issueTypes,
+      List<Changelog> submodules,
       String ownerName,
       String repoName) {
     this.commits = checkNotNull(commits, "commits");
@@ -31,6 +33,7 @@ public class Changelog implements ICommits, IAuthors, IIssues, Serializable {
     this.authors = checkNotNull(authors, "authors");
     this.issues = checkNotNull(issues, "issues");
     this.issueTypes = checkNotNull(issueTypes, "issueTypes");
+    this.submodules = checkNotNull(submodules, "submodules");
     this.ownerName = ownerName;
     this.repoName = repoName;
   }
@@ -64,5 +67,9 @@ public class Changelog implements ICommits, IAuthors, IIssues, Serializable {
 
   public List<IssueType> getIssueTypes() {
     return issueTypes;
+  }
+
+  public List<Changelog> getSubmodules() {
+    return submodules;
   }
 }

@@ -471,20 +471,21 @@ public class GitChangelogApi {
     }
     final List<GitTag> tags = gitRepoData.getGitTags();
 
-    HashMap<String, List<Changelog>> submoduleMap = null;
+    List<Changelog> submodules = new ArrayList<>();
     if (gitRepo.hasSubmodules()) {
-      submoduleMap =
+      submodules =
           new GitSubmoduleParser()
               .parseForSubmodules(this, useIntegrationIfConfigured, gitRepo, diff);
     }
 
     final Transformer transformer = new Transformer(this.settings);
     return new Changelog( //
-        transformer.toCommits(diff, submoduleMap), //
-        transformer.toTags(tags, issues, submoduleMap), //
-        transformer.toAuthors(diff, submoduleMap), //
-        transformer.toIssues(issues, submoduleMap), //
-        transformer.toIssueTypes(issues, submoduleMap), //
+        transformer.toCommits(diff), //
+        transformer.toTags(tags, issues), //
+        transformer.toAuthors(diff), //
+        transformer.toIssues(issues), //
+        transformer.toIssueTypes(issues), //
+        submodules, //
         gitRepoData.findOwnerName().orNull(), //
         gitRepoData.findRepoName().orNull());
   }

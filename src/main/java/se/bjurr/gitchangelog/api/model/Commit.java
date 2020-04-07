@@ -77,7 +77,6 @@ public class Commit implements Serializable {
   private final String hashFull;
   private final Boolean merge;
   private final String message;
-  private final List<Changelog> submoduleSections;
 
   public Commit(
       String authorName,
@@ -86,8 +85,7 @@ public class Commit implements Serializable {
       Long commitTimeLong,
       String message,
       String hash,
-      Boolean merge,
-      List<Changelog> submoduleSections) {
+      Boolean merge) {
     this.authorName = checkNotNull(authorName, "authorName");
     this.authorEmailAddress = checkNotNull(authorEmailAddress, "authorEmailAddress");
     this.message = checkNotNull(message, "message").trim();
@@ -96,7 +94,6 @@ public class Commit implements Serializable {
     this.hash = toHash(checkNotNull(hash, "hash"));
     this.hashFull = checkNotNull(hash, "hashFull");
     this.merge = checkNotNull(merge, "merge");
-    this.submoduleSections = submoduleSections;
   }
 
   public String getAuthorEmailAddress() {
@@ -141,10 +138,6 @@ public class Commit implements Serializable {
 
   public Boolean isMerge() {
     return this.merge;
-  }
-
-  public List<Changelog> getSubmoduleSections() {
-    return this.submoduleSections;
   }
 
   @Override

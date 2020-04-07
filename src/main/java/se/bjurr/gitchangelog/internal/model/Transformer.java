@@ -33,8 +33,7 @@ public class Transformer {
     this.settings = settings;
   }
 
-  public List<Author> toAuthors(
-      List<GitCommit> gitCommits, final HashMap<String, List<Changelog>> submoduleSections) {
+  public List<Author> toAuthors(List<GitCommit> gitCommits) {
     final Multimap<String, GitCommit> commitsPerAuthor =
         index(
             gitCommits,
@@ -51,7 +50,7 @@ public class Transformer {
             new Predicate<String>() {
               @Override
               public boolean apply(String input) {
-                return toCommits(commitsPerAuthor.get(input), submoduleSections).size() > 0;
+                return toCommits(commitsPerAuthor.get(input)).size() > 0;
               }
             });
 
@@ -62,8 +61,7 @@ public class Transformer {
               @Override
               public Author apply(String input) {
                 List<GitCommit> gitCommitsOfSameAuthor = newArrayList(commitsPerAuthor.get(input));
-                List<Commit> commitsOfSameAuthor =
-                    toCommits(gitCommitsOfSameAuthor, submoduleSections);
+                List<Commit> commitsOfSameAuthor = toCommits(gitCommitsOfSameAuthor);
                 return new Author( //
                     commitsOfSameAuthor.get(0).getAuthorName(), //
                     commitsOfSameAuthor.get(0).getAuthorEmailAddress(), //
@@ -72,8 +70,7 @@ public class Transformer {
             }));
   }
 
-  public List<Commit> toCommits(
-      Collection<GitCommit> from, final HashMap<String, List<Changelog>> submoduleSections) {
+  public List<Commit> toCommits(Collection<GitCommit> from) {
     Iterable<GitCommit> filteredCommits = filter(from, ignoreCommits(settings));
     return newArrayList(
         transform(
@@ -81,31 +78,25 @@ public class Transformer {
             new Function<GitCommit, Commit>() {
               @Override
               public Commit apply(GitCommit c) {
-                return toCommit(
-                    c,
-                    submoduleSections == null
-                        ? null
-                        : submoduleSections.getOrDefault(c.getHash(), null));
+                return toCommit(c);
               }
             }));
   }
 
-  public List<Issue> toIssues(
-      List<ParsedIssue> issues, final HashMap<String, List<Changelog>> submoduleSections) {
-    Iterable<ParsedIssue> issuesWithCommits = filterWithCommits(issues, submoduleSections);
+  public List<Issue> toIssues(List<ParsedIssue> issues) {
+    Iterable<ParsedIssue> issuesWithCommits = filterWithCommits(issues);
 
-    return newArrayList(transform(issuesWithCommits, parsedIssueToIssue(submoduleSections)));
+    return newArrayList(transform(issuesWithCommits, parsedIssueToIssue()));
   }
 
-  public List<IssueType> toIssueTypes(
-      List<ParsedIssue> issues, final HashMap<String, List<Changelog>> submoduleSections) {
+  public List<IssueType> toIssueTypes(List<ParsedIssue> issues) {
     Map<String, List<Issue>> issuesPerName = newTreeMap();
 
-    for (ParsedIssue parsedIssue : filterWithCommits(issues, submoduleSections)) {
+    for (ParsedIssue parsedIssue : filterWithCommits(issues)) {
       if (!issuesPerName.containsKey(parsedIssue.getName())) {
         issuesPerName.put(parsedIssue.getName(), new ArrayList<Issue>());
       }
-      Issue transformedIssues = parsedIssueToIssue(submoduleSections).apply(parsedIssue);
+      Issue transformedIssues = parsedIssueToIssue().apply(parsedIssue);
       issuesPerName
           .get(parsedIssue.getName()) //
           .add(transformedIssues);
@@ -118,10 +109,7 @@ public class Transformer {
     return issueTypes;
   }
 
-  public List<Tag> toTags(
-      List<GitTag> gitTags,
-      final List<ParsedIssue> allParsedIssues,
-      final HashMap<String, List<Changelog>> submoduleSections) {
+  public List<Tag> toTags(List<GitTag> gitTags, final List<ParsedIssue> allParsedIssues) {
 
     Iterable<Tag> tags =
         transform(
@@ -133,10 +121,10 @@ public class Transformer {
                 final String readableName = toReadableTagName(input.getName());
                 List<ParsedIssue> parsedIssues =
                     reduceParsedIssuesToOnlyGitCommits(allParsedIssues, gitCommits);
-                List<Commit> commits = toCommits(gitCommits, submoduleSections);
-                List<Author> authors = toAuthors(gitCommits, submoduleSections);
-                List<Issue> issues = toIssues(parsedIssues, submoduleSections);
-                List<IssueType> issueTypes = toIssueTypes(parsedIssues, submoduleSections);
+                List<Commit> commits = toCommits(gitCommits);
+                List<Author> authors = toAuthors(gitCommits);
+                List<Issue> issues = toIssues(parsedIssues);
+                List<IssueType> issueTypes = toIssueTypes(parsedIssues);
                 return new Tag(
                     readableName,
                     input.findAnnotation().orNull(),
@@ -187,15 +175,14 @@ public class Transformer {
     return newArrayList(tags);
   }
 
-  private Iterable<ParsedIssue> filterWithCommits(
-      List<ParsedIssue> issues, final HashMap<String, List<Changelog>> submoduleSections) {
+  private Iterable<ParsedIssue> filterWithCommits(List<ParsedIssue> issues) {
     Iterable<ParsedIssue> issuesWithCommits =
         filter(
             issues,
             new Predicate<ParsedIssue>() {
               @Override
               public boolean apply(ParsedIssue input) {
-                return !toCommits(input.getGitCommits(), submoduleSections).isEmpty();
+                return !toCommits(input.getGitCommits()).isEmpty();
               }
             });
     return issuesWithCommits;
@@ -207,15 +194,14 @@ public class Transformer {
     return df.format(commitTime);
   }
 
-  private Function<ParsedIssue, Issue> parsedIssueToIssue(
-      final HashMap<String, List<Changelog>> submoduleSections) {
+  private Function<ParsedIssue, Issue> parsedIssueToIssue() {
     return new Function<ParsedIssue, Issue>() {
       @Override
       public Issue apply(ParsedIssue input) {
         List<GitCommit> gitCommits = input.getGitCommits();
         return new Issue( //
-            toCommits(gitCommits, submoduleSections), //
-            toAuthors(gitCommits, submoduleSections), //
+            toCommits(gitCommits), //
+            toAuthors(gitCommits), //
             input.getName(), //
             input.getTitle().or(""), //
             input.getIssue(), //
@@ -239,7 +225,7 @@ public class Transformer {
     return string;
   }
 
-  private Commit toCommit(GitCommit gitCommit, List<Changelog> submoduleSections) {
+  private Commit toCommit(GitCommit gitCommit) {
     return new Commit( //
         gitCommit.getAuthorName(), //
         gitCommit.getAuthorEmailAddress(), //
@@ -250,8 +236,7 @@ public class Transformer {
             new IssuesUtil(this.settings).getIssues(),
             gitCommit.getMessage()), //
         gitCommit.getHash(), //
-        gitCommit.isMerge(),
-        submoduleSections);
+        gitCommit.isMerge());
   }
 
   private String toReadableTagName(String input) {

@@ -3,9 +3,7 @@ package se.bjurr.gitchangelog.internal.git;
 import static org.slf4j.LoggerFactory.getLogger;
 
 import com.google.common.base.Optional;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.slf4j.Logger;
@@ -20,16 +18,17 @@ public class GitSubmoduleParser {
 
   public GitSubmoduleParser() {}
 
-  public HashMap<String, List<Changelog>> parseForSubmodules(
+  public List<Changelog> parseForSubmodules(
       final GitChangelogApi gitChangelogApi,
       final boolean useIntegrationIfConfigured,
       final GitRepo gitRepo,
       final List<GitCommit> commits) {
 
-    HashMap<String, List<Changelog>> submoduleSections = new HashMap<>();
+    List<Changelog> submodules = new ArrayList<>();
+    Map<String, SubmoduleEntry> submoduleEntries = new TreeMap<>();
     Pattern submoduleNamePattern =
         Pattern.compile(
-            "(?m)^\\+{3} b/([\\w/\\s-]+)$\\n@.+\\n-Subproject commit (\\w+)$\\n\\+Subproject commit (\\w+)$");
+            "(?m)^\\+{3} b/([\\w/\\s-]+)($\\n@.+)?\\n-Subproject commit (\\w+)$\\n\\+Subproject commit (\\w+)$");
 
     Settings settings = gitChangelogApi.getSettings();
 
@@ -44,32 +43,41 @@ public class GitSubmoduleParser {
       Matcher submoduleMatch = submoduleNamePattern.matcher(diff);
       while (submoduleMatch.find()) {
         String submoduleName = submoduleMatch.group(1);
-        String previousSubmoduleHash = submoduleMatch.group(2);
-        String currentSubmoduleHash = submoduleMatch.group(3);
+        String previousSubmoduleHash = submoduleMatch.group(3);
+        String currentSubmoduleHash = submoduleMatch.group(4);
         GitRepo submodule = gitRepo.getSubmodule(submoduleName);
+
         if (submodule == null) {
           continue;
         }
 
-        settings.setFromCommit(previousSubmoduleHash);
-        settings.setToCommit(currentSubmoduleHash);
-        settings.setFromRef(null);
-        settings.setToRef(null);
-        settings.setFromRepo(submodule.getDirectory());
+        SubmoduleEntry submoduleEntry =
+            new SubmoduleEntry(
+                submoduleName, previousSubmoduleHash, currentSubmoduleHash, submodule);
 
-        String commitHash = commit.getHash();
-        if (!submoduleSections.containsKey(commitHash)) {
-          submoduleSections.put(commitHash, new ArrayList<>());
+        if (!submoduleEntries.containsKey(submoduleName)) {
+          submoduleEntries.put(submoduleName, submoduleEntry);
         }
-        List<Changelog> submoduleSectionList = submoduleSections.get(commitHash);
-        try {
-          submoduleSectionList.add(
-              GitChangelogApi.gitChangelogApiBuilder()
-                  .withSettings(settings)
-                  .getChangelog(useIntegrationIfConfigured));
-        } catch (GitChangelogRepositoryException e) {
-          e.printStackTrace();
-        }
+
+        SubmoduleEntry existingEntry = submoduleEntries.getOrDefault(submoduleName, submoduleEntry);
+        existingEntry.previousSubmoduleHash = submoduleEntry.previousSubmoduleHash;
+      }
+    }
+
+    for (Map.Entry<String, SubmoduleEntry> submoduleEntry : submoduleEntries.entrySet()) {
+      settings.setFromCommit(submoduleEntry.getValue().previousSubmoduleHash);
+      settings.setToCommit(submoduleEntry.getValue().currentSubmoduleHash);
+      settings.setFromRef(null);
+      settings.setToRef(null);
+      settings.setFromRepo(submoduleEntry.getValue().gitRepo.getDirectory());
+
+      try {
+        submodules.add(
+            GitChangelogApi.gitChangelogApiBuilder()
+                .withSettings(settings)
+                .getChangelog(useIntegrationIfConfigured));
+      } catch (GitChangelogRepositoryException e) {
+        e.printStackTrace();
       }
     }
 
@@ -79,6 +87,24 @@ public class GitSubmoduleParser {
     settings.setToRef(cachedToRef.orNull());
     settings.setFromRepo(cachedFromRepo);
 
-    return submoduleSections;
+    return submodules;
+  }
+
+  private class SubmoduleEntry {
+    public final String name;
+    public String previousSubmoduleHash;
+    public final String currentSubmoduleHash;
+    public final GitRepo gitRepo;
+
+    public SubmoduleEntry(
+        final String name,
+        final String previousSubmoduleHash,
+        final String currentSubmoduleHash,
+        final GitRepo gitRepo) {
+      this.name = name;
+      this.previousSubmoduleHash = previousSubmoduleHash;
+      this.currentSubmoduleHash = currentSubmoduleHash;
+      this.gitRepo = gitRepo;
+    }
   }
 }
