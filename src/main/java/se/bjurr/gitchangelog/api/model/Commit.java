@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Commit implements Serializable {
-  private static final long serialVersionUID = 6622555148468372817L;
+  private static final long serialVersionUID = 6622555148468372816L;
 
   private static List<String> notFirst(List<String> stringList) {
     return stringList.subList(1, stringList.size());

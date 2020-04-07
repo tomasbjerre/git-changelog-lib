@@ -5,7 +5,7 @@ import java.util.List;
 import se.bjurr.gitchangelog.api.model.interfaces.ICommits;
 
 public class Author implements ICommits, Serializable {
-  private static final long serialVersionUID = -672028657732998143L;
+  private static final long serialVersionUID = -672028657732998142L;
   private final List<Commit> commits;
   private final String authorName;
   private final String authorEmail;

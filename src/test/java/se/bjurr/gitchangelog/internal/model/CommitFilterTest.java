@@ -57,7 +57,7 @@ public class CommitFilterTest {
   @Test
   public void testThatFilterWithIgnoreCommitsWithMessageWorks() throws Exception {
     settings.setIgnoreCommitsIfMessageMatches(TEST_COMMIT_MESSAGE_PATTERN);
-    List<String> transformedCommits = hashes(new Transformer(settings).toCommits(commits, null));
+    List<String> transformedCommits = hashes(new Transformer(settings).toCommits(commits));
     assertThat(transformedCommits).contains(NONMATCHING_COMMIT_HASH);
     assertThat(transformedCommits).doesNotContain(MATCHING_COMMIT_1_HASH, MATCHING_COMMIT_2_HASH);
   }
@@ -66,7 +66,7 @@ public class CommitFilterTest {
   public void testThatFilterWithIgnoreCommitsOlderThanWorks() throws Exception {
     settings.setIgnoreCommitsIfMessageMatches("");
     settings.setIgnoreCommitsIfOlderThan(date2017);
-    List<String> transformedCommits = hashes(new Transformer(settings).toCommits(commits, null));
+    List<String> transformedCommits = hashes(new Transformer(settings).toCommits(commits));
     assertThat(transformedCommits).doesNotContain(LATEST_2016_COMMIT_HASH);
     assertThat(transformedCommits)
         .contains(FIRST_2017_COMMIT_HASH, A_2017_COMMIT_HASH_MATCHING_MESSAGE_PATTERN);
@@ -76,7 +76,7 @@ public class CommitFilterTest {
   public void testThatFilterWithIgnoreCommitsWithMessageAndOlderThanWorks() throws Exception {
     settings.setIgnoreCommitsIfOlderThan(date2017);
     settings.setIgnoreCommitsIfMessageMatches(TEST_COMMIT_MESSAGE_PATTERN);
-    List<String> transformedCommits = hashes(new Transformer(settings).toCommits(commits, null));
+    List<String> transformedCommits = hashes(new Transformer(settings).toCommits(commits));
     assertThat(transformedCommits).contains(FIRST_2017_COMMIT_HASH);
     assertThat(transformedCommits)
         .doesNotContain(LATEST_2016_COMMIT_HASH, A_2017_COMMIT_HASH_MATCHING_MESSAGE_PATTERN);

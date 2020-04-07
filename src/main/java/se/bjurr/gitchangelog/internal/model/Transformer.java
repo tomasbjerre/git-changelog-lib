@@ -118,7 +118,6 @@ public class Transformer {
               @Override
               public Tag apply(GitTag input) {
                 List<GitCommit> gitCommits = input.getGitCommits();
-                final String readableName = toReadableTagName(input.getName());
                 List<ParsedIssue> parsedIssues =
                     reduceParsedIssuesToOnlyGitCommits(allParsedIssues, gitCommits);
                 List<Commit> commits = toCommits(gitCommits);
@@ -126,7 +125,7 @@ public class Transformer {
                 List<Issue> issues = toIssues(parsedIssues);
                 List<IssueType> issueTypes = toIssueTypes(parsedIssues);
                 return new Tag(
-                    readableName,
+                    toReadableTagName(input.getName()),
                     input.findAnnotation().orNull(),
                     commits,
                     authors,
