@@ -1,0 +1,44 @@
+# Git Changelog changelog
+
+Changelog of Git Changelog.
+{{#tags}}
+    {{name}}
+    {{#issues}}
+      {{#hasLink}}
+    ## {{name}} [{{issue}}]({{link}}) {{title}}
+      {{/hasLink}}
+      {{^hasLink}}
+    ## {{name}} {{title}}
+      {{/hasLink}}
+
+     {{#commits}}
+    ### {{authorName}} - {{commitTime}}
+    [{{hash}}](https://server/{{hash}})
+
+    {{{message}}}
+
+     {{/commits}}
+    {{/issues}}
+{{/tags}}
+{{#submodules}}
+    {{repoName}}
+    {{#tags}}
+        {{name}}
+        {{#issues}}
+          {{#hasLink}}
+        ## {{name}} [{{issue}}]({{link}}) {{title}}
+          {{/hasLink}}
+          {{^hasLink}}
+        ## {{name}} {{title}}
+          {{/hasLink}}
+
+         {{#commits}}
+        ### {{authorName}} - {{commitTime}}
+        [{{hash}}](https://server/{{hash}})
+
+        {{{message}}}
+
+         {{/commits}}
+        {{/issues}}
+    {{/tags}}
+{{/submodules}}
