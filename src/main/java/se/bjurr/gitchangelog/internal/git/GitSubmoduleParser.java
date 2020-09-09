@@ -3,6 +3,7 @@ package se.bjurr.gitchangelog.internal.git;
 import static org.slf4j.LoggerFactory.getLogger;
 
 import com.google.common.base.Optional;
+import org.apache.commons.lang3.SerializationUtils;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -30,14 +31,6 @@ public class GitSubmoduleParser {
         Pattern.compile(
             "(?m)^\\+{3} b/([\\w/\\s-]+)($\\n@.+)?\\n-Subproject commit (\\w+)$\\n\\+Subproject commit (\\w+)$");
 
-    Settings settings = gitChangelogApi.getSettings();
-
-    Optional<String> cachedFromCommit = settings.getFromCommit();
-    Optional<String> cachedToCommit = settings.getToCommit();
-    Optional<String> cachedFromRef = settings.getFromRef();
-    Optional<String> cachedToRef = settings.getToRef();
-    String cachedFromRepo = settings.getFromRepo();
-
     for (GitCommit commit : commits) {
       String diff = gitRepo.getDiff(commit.getHash());
       Matcher submoduleMatch = submoduleNamePattern.matcher(diff);
@@ -64,28 +57,25 @@ public class GitSubmoduleParser {
       }
     }
 
+    Settings settings = gitChangelogApi.getSettings();
     for (Map.Entry<String, SubmoduleEntry> submoduleEntry : submoduleEntries.entrySet()) {
-      settings.setFromCommit(submoduleEntry.getValue().previousSubmoduleHash);
-      settings.setToCommit(submoduleEntry.getValue().currentSubmoduleHash);
-      settings.setFromRef(null);
-      settings.setToRef(null);
-      settings.setFromRepo(submoduleEntry.getValue().gitRepo.getDirectory());
+      Settings submoduleSettings = SerializationUtils.clone(settings);
+
+      submoduleSettings.setFromCommit(submoduleEntry.getValue().previousSubmoduleHash);
+      submoduleSettings.setToCommit(submoduleEntry.getValue().currentSubmoduleHash);
+      submoduleSettings.setFromRef(null);
+      submoduleSettings.setToRef(null);
+      submoduleSettings.setFromRepo(submoduleEntry.getValue().gitRepo.getDirectory());
 
       try {
         submodules.add(
             GitChangelogApi.gitChangelogApiBuilder()
-                .withSettings(settings)
+                .withSettings(submoduleSettings)
                 .getChangelog(useIntegrationIfConfigured));
       } catch (GitChangelogRepositoryException e) {
         throw new GitChangelogRepositoryException("", e);
       }
     }
-
-    settings.setFromCommit(cachedFromCommit.orNull());
-    settings.setToCommit(cachedToCommit.orNull());
-    settings.setFromRef(cachedFromRef.orNull());
-    settings.setToRef(cachedToRef.orNull());
-    settings.setFromRepo(cachedFromRepo);
 
     return submodules;
   }
