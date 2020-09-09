@@ -22,7 +22,7 @@ public class GitSubmoduleParser {
       final GitChangelogApi gitChangelogApi,
       final boolean useIntegrationIfConfigured,
       final GitRepo gitRepo,
-      final List<GitCommit> commits) {
+      final List<GitCommit> commits) throws GitChangelogRepositoryException {
 
     List<Changelog> submodules = new ArrayList<>();
     Map<String, SubmoduleEntry> submoduleEntries = new TreeMap<>();
@@ -77,7 +77,7 @@ public class GitSubmoduleParser {
                 .withSettings(settings)
                 .getChangelog(useIntegrationIfConfigured));
       } catch (GitChangelogRepositoryException e) {
-        e.printStackTrace();
+        throw new GitChangelogRepositoryException("", e);
       }
     }
 

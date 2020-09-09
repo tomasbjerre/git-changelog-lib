@@ -46,7 +46,7 @@ public class GitRepo implements Closeable {
   public GitRepo() {
     this.repository = null;
     this.revWalk = null;
-    this.submodules = null;
+    this.submodules = new HashMap<>();
   }
 
   public GitRepo(final File repo) throws GitChangelogRepositoryException {
@@ -68,8 +68,8 @@ public class GitRepo implements Closeable {
       this.revWalk = new RevWalk(this.repository);
       this.git = new Git(this.repository);
 
+      this.submodules = new HashMap<>();
       if (SubmoduleWalk.containsGitModulesFile(repository)) {
-        this.submodules = new HashMap<>();
         final SubmoduleWalk submoduleWalk = SubmoduleWalk.forIndex(repository);
         while (submoduleWalk.next()) {
           final Repository submoduleRepository = submoduleWalk.getRepository();
@@ -83,10 +83,7 @@ public class GitRepo implements Closeable {
             submoduleRepository.close();
           }
         }
-      } else {
-        this.submodules = null;
       }
-
     } catch (final IOException e) {
       throw new GitChangelogRepositoryException(
           "Could not use GIT repo in " + repo.getAbsolutePath(), e);
@@ -105,10 +102,9 @@ public class GitRepo implements Closeable {
         LOG.error(e.getMessage(), e);
       }
     }
-    if (submodules != null) {
-      for (Map.Entry<String, GitRepo> submodule : submodules.entrySet()) {
-        submodule.getValue().close();
-      }
+
+    for (Map.Entry<String, GitRepo> submodule : submodules.entrySet()) {
+      submodule.getValue().close();
     }
   }
 
@@ -164,22 +160,22 @@ public class GitRepo implements Closeable {
   }
 
   public boolean hasSubmodules() {
-    return submodules != null && submodules.size() > 0;
+    return submodules.size() > 0;
   }
 
   public GitRepo getSubmodule(String submodulePath) {
     return submodules.getOrDefault(submodulePath, null);
   }
 
-  public String getDiff(String commitHash) {
-    RevCommit commit = null;
-    RevCommit prevCommit = null;
+  public String getDiff(String commitHash) throws GitChangelogRepositoryException {
+    RevCommit commit;
+    RevCommit prevCommit;
 
     try {
       commit = this.revWalk.parseCommit(getCommit(commitHash));
       prevCommit = commit.getParentCount() > 0 ? commit.getParent(0) : null;
     } catch (GitChangelogRepositoryException | IOException e) {
-      e.printStackTrace();
+      throw new GitChangelogRepositoryException("", e);
     }
 
     OutputStream outputStream = new ByteArrayOutputStream();
@@ -192,7 +188,7 @@ public class GitRepo implements Closeable {
         diffFormatter.format(diffFormatter.toFileHeader(entry));
       }
     } catch (IOException e) {
-      e.printStackTrace();
+      throw new GitChangelogRepositoryException("", e);
     }
 
     return outputStream.toString();
@@ -211,7 +207,7 @@ public class GitRepo implements Closeable {
     return "Repo: " + this.repository + "\n" + sb.toString();
   }
 
-  private CanonicalTreeParser getTreeParser(RevCommit commit) {
+  private CanonicalTreeParser getTreeParser(RevCommit commit) throws GitChangelogRepositoryException{
     RevTree revTree = commit.getTree();
     if (revTree == null) {
       return null;
@@ -221,9 +217,8 @@ public class GitRepo implements Closeable {
     try {
       return new CanonicalTreeParser(null, reader, treeId);
     } catch (IOException e) {
-      e.printStackTrace();
+      throw new GitChangelogRepositoryException("", e);
     }
-    return null;
   }
 
   private boolean addCommitToCurrentTag(
