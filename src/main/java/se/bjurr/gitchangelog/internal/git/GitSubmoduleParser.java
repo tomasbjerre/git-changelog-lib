@@ -1,8 +1,6 @@
 package se.bjurr.gitchangelog.internal.git;
 
 import static org.slf4j.LoggerFactory.getLogger;
-
-import com.google.common.base.Optional;
 import org.apache.commons.lang3.SerializationUtils;
 import java.util.*;
 import java.util.regex.Matcher;
