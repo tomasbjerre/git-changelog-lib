@@ -27,9 +27,7 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.net.URL;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import org.eclipse.jgit.lib.ObjectId;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
@@ -37,6 +35,7 @@ import se.bjurr.gitchangelog.api.model.Changelog;
 import se.bjurr.gitchangelog.api.model.Issue;
 import se.bjurr.gitchangelog.internal.git.GitRepo;
 import se.bjurr.gitchangelog.internal.git.GitRepoData;
+import se.bjurr.gitchangelog.internal.git.GitSubmoduleParser;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 import se.bjurr.gitchangelog.internal.integrations.mediawiki.MediaWikiClient;
@@ -380,6 +379,12 @@ public class GitChangelogApi {
     return this;
   }
 
+  /** {@link Settings}. */
+  public GitChangelogApi withSettings(final Settings settings) {
+    this.settings = settings;
+    return this;
+  }
+
   /** Use string as template. {@link #withTemplatePath}. */
   public GitChangelogApi withTemplateContent(final String templateContent) {
     this.templateContent = templateContent;
@@ -465,6 +470,14 @@ public class GitChangelogApi {
       diff = gitRepoData.getGitCommits();
     }
     final List<GitTag> tags = gitRepoData.getGitTags();
+
+    List<Changelog> submodules = new ArrayList<>();
+    if (gitRepo.hasSubmodules()) {
+      submodules =
+          new GitSubmoduleParser()
+              .parseForSubmodules(this, useIntegrationIfConfigured, gitRepo, diff);
+    }
+
     final Transformer transformer = new Transformer(this.settings);
     return new Changelog( //
         transformer.toCommits(diff), //
@@ -472,6 +485,7 @@ public class GitChangelogApi {
         transformer.toAuthors(diff), //
         transformer.toIssues(issues), //
         transformer.toIssueTypes(issues), //
+        submodules, //
         gitRepoData.findOwnerName().orNull(), //
         gitRepoData.findRepoName().orNull());
   }
