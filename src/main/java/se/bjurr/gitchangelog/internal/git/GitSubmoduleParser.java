@@ -1,10 +1,11 @@
 package se.bjurr.gitchangelog.internal.git;
 
 import static org.slf4j.LoggerFactory.getLogger;
-import org.apache.commons.lang3.SerializationUtils;
+
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.apache.commons.lang3.SerializationUtils;
 import org.slf4j.Logger;
 import se.bjurr.gitchangelog.api.GitChangelogApi;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
@@ -21,7 +22,8 @@ public class GitSubmoduleParser {
       final GitChangelogApi gitChangelogApi,
       final boolean useIntegrationIfConfigured,
       final GitRepo gitRepo,
-      final List<GitCommit> commits) throws GitChangelogRepositoryException {
+      final List<GitCommit> commits)
+      throws GitChangelogRepositoryException {
 
     List<Changelog> submodules = new ArrayList<>();
     Map<String, SubmoduleEntry> submoduleEntries = new TreeMap<>();

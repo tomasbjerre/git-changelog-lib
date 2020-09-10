@@ -207,7 +207,8 @@ public class GitRepo implements Closeable {
     return "Repo: " + this.repository + "\n" + sb.toString();
   }
 
-  private CanonicalTreeParser getTreeParser(RevCommit commit) throws GitChangelogRepositoryException{
+  private CanonicalTreeParser getTreeParser(RevCommit commit)
+      throws GitChangelogRepositoryException {
     RevTree revTree = commit.getTree();
     if (revTree == null) {
       return null;

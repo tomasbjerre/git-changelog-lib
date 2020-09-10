@@ -8,18 +8,16 @@ import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 
 import com.google.common.io.Resources;
-
+import com.google.gson.GsonBuilder;
 import java.io.*;
 import java.net.URL;
-
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 import org.apache.commons.io.FileUtils;
 import org.eclipse.jgit.api.Git;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
-import com.google.gson.GsonBuilder;
 
 public class GitChangelogWithSubmodulesApiTest {
   private static final String REPOSITORY_PATH = "submodule-test-repo";
@@ -28,8 +26,9 @@ public class GitChangelogWithSubmodulesApiTest {
   @Before
   public void before() {
 
-    File fileZip = new File(Resources.getResource(String.format("%s.zip", REPOSITORY_PATH)).getFile());
-    File destDir =  fileZip.getParentFile();
+    File fileZip =
+        new File(Resources.getResource(String.format("%s.zip", REPOSITORY_PATH)).getFile());
+    File destDir = fileZip.getParentFile();
     byte[] buffer = new byte[1024];
     try {
       ZipInputStream zis = new ZipInputStream(new FileInputStream(fileZip));
@@ -71,38 +70,43 @@ public class GitChangelogWithSubmodulesApiTest {
   @Test
   public void testThatSubmoduleChangesAreListed() throws Exception {
     final String expected =
-      Resources.toString(getResource("templatetest/testThatSubmoduleChangesAreListed.md"), UTF_8).trim();
+        Resources.toString(getResource("templatetest/testThatSubmoduleChangesAreListed.md"), UTF_8)
+            .trim();
 
     final URL settingsFile =
-      getResource("settings/git-changelog-test-settings.json").toURI().toURL();
+        getResource("settings/git-changelog-test-settings.json").toURI().toURL();
     final String templatePath = "templatetest/testSubmodules.mustache";
 
     final String templateContent = Resources.toString(getResource(templatePath), UTF_8);
 
     final GitChangelogApi changelogApiBuilder =
-      gitChangelogApiBuilder()
-        .withSettings(settingsFile)
-        .withFromRepo(gitRepoFile.getAbsolutePath())
-        .withFromCommit(ZERO_COMMIT)
-        .withToRef("master")
-        .withTemplatePath(templatePath);
+        gitChangelogApiBuilder()
+            .withSettings(settingsFile)
+            .withFromRepo(gitRepoFile.getAbsolutePath())
+            .withFromCommit(ZERO_COMMIT)
+            .withToRef("master")
+            .withTemplatePath(templatePath);
 
     assertEquals(
-      "templateContent:\n"
-        + templateContent
-        + "\nContext:\n"
-        + toJson(changelogApiBuilder.getChangelog(true)),
-      expected,
-      changelogApiBuilder.render().trim());
+        "templateContent:\n"
+            + templateContent
+            + "\nContext:\n"
+            + toJson(changelogApiBuilder.getChangelog(true)),
+        expected,
+        changelogApiBuilder.render().trim());
   }
 
   @Test
   public void testThatSubmoduleChangesAreNotListedWhenSubmoduleIsRemoved() throws Exception {
     final String expected =
-      Resources.toString(getResource("templatetest/testThatSubmoduleChangesAreNotListedWhenSubmoduleIsRemoved.md"), UTF_8).trim();
+        Resources.toString(
+                getResource(
+                    "templatetest/testThatSubmoduleChangesAreNotListedWhenSubmoduleIsRemoved.md"),
+                UTF_8)
+            .trim();
 
     final URL settingsFile =
-      getResource("settings/git-changelog-test-settings.json").toURI().toURL();
+        getResource("settings/git-changelog-test-settings.json").toURI().toURL();
     final String templatePath = "templatetest/testSubmodules.mustache";
 
     final String templateContent = Resources.toString(getResource(templatePath), UTF_8);
@@ -111,20 +115,20 @@ public class GitChangelogWithSubmodulesApiTest {
     git.checkout().setName("RemovedSubmodule").call();
 
     final GitChangelogApi changelogApiBuilder =
-      gitChangelogApiBuilder()
-        .withSettings(settingsFile)
-        .withFromRepo(gitRepoFile.getAbsolutePath())
-        .withFromCommit(ZERO_COMMIT)
-        .withToRef("RemovedSubmodule")
-        .withTemplatePath(templatePath);
+        gitChangelogApiBuilder()
+            .withSettings(settingsFile)
+            .withFromRepo(gitRepoFile.getAbsolutePath())
+            .withFromCommit(ZERO_COMMIT)
+            .withToRef("RemovedSubmodule")
+            .withTemplatePath(templatePath);
 
     assertEquals(
-      "templateContent:\n"
-        + templateContent
-        + "\nContext:\n"
-        + toJson(changelogApiBuilder.getChangelog(true)),
-      expected,
-      changelogApiBuilder.render().trim());
+        "templateContent:\n"
+            + templateContent
+            + "\nContext:\n"
+            + toJson(changelogApiBuilder.getChangelog(true)),
+        expected,
+        changelogApiBuilder.render().trim());
   }
 
   private String toJson(final Object object) {
