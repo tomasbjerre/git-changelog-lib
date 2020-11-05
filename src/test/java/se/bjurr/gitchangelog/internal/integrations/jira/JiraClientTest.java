@@ -3,6 +3,7 @@ package se.bjurr.gitchangelog.internal.integrations.jira;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.common.base.Optional;
+import java.util.Map;
 import org.junit.Test;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 
@@ -32,6 +33,11 @@ public class JiraClientTest {
 
       @Override
       public JiraClient withTokenCredentials(String token) {
+        return null;
+      }
+
+      @Override
+      public JiraClient withHeaders(final Map<String, String> headers) {
         return null;
       }
 

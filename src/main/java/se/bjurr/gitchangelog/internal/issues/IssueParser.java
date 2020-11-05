@@ -176,6 +176,9 @@ public class IssueParser {
       } else if (settings.getJiraToken().isPresent()) {
         jiraClient.withTokenCredentials(settings.getJiraToken().get());
       }
+      if (settings.getExtendedRestHeaders() != null) {
+        jiraClient.withHeaders(settings.getExtendedRestHeaders());
+      }
     }
     return jiraClient;
   }

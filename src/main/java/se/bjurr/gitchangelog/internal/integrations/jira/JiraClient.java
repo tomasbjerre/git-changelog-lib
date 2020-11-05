@@ -6,6 +6,7 @@ import com.google.common.base.Optional;
 import com.jayway.jsonpath.JsonPath;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 
 public abstract class JiraClient {
@@ -53,6 +54,8 @@ public abstract class JiraClient {
   public abstract JiraClient withBasicCredentials(String username, String password);
 
   public abstract JiraClient withTokenCredentials(String token);
+
+  public abstract JiraClient withHeaders(Map<String, String> headers);
 
   public abstract Optional<JiraIssue> getIssue(String matched)
       throws GitChangelogIntegrationException;

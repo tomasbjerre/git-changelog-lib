@@ -14,6 +14,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Base64;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
@@ -23,6 +25,8 @@ public class RestClient {
   private static RestClient mockedRestClient;
   private final LoadingCache<String, Optional<String>> urlCache;
   private String basicAuthString;
+
+  private Map<String, String> headers;
 
   public RestClient(final long duration, final TimeUnit cacheExpireAfterAccess) {
     urlCache =
@@ -52,6 +56,11 @@ public class RestClient {
     return this;
   }
 
+  public RestClient withHeaders(final Map<String, String> headers) {
+    this.headers = headers;
+    return this;
+  }
+
   public Optional<String> get(final String url) throws GitChangelogIntegrationException {
     try {
       return urlCache.get(url);
@@ -69,6 +78,11 @@ public class RestClient {
       conn = openConnection(url);
       conn.setRequestProperty("Content-Type", "application/json");
       conn.setRequestProperty("Accept", "application/json");
+      if (this.headers != null) {
+        for (Entry<String, String> entry : this.headers.entrySet()) {
+          conn.setRequestProperty(entry.getKey(), entry.getValue());
+        }
+      }
       if (this.basicAuthString != null) {
         conn.setRequestProperty("Authorization", "Basic " + basicAuthString);
       }
