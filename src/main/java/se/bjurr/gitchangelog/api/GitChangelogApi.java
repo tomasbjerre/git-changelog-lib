@@ -176,6 +176,15 @@ public class GitChangelogApi {
   }
 
   /**
+   * Extended headers is simply a key-value mapping of headers that will be passed to REST request.
+   * Is used, for example, to bypass 2-factor authentication.
+   */
+  public GitChangelogApi withExtendedHeaders(final Map<String, String> extendedHeaders) {
+    this.settings.setExtendedRestHeaders(extendedHeaders);
+    return this;
+  }
+
+  /**
    * Include all commits from here. Any commit hash. There is a constant pointing at the first
    * commit here: reference{GitChangelogApiConstants#ZERO_COMMIT}.
    */

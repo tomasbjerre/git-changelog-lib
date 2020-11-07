@@ -158,6 +158,12 @@ public class Settings implements Serializable {
    */
   private Map<String, Object> extendedVariables;
 
+  /**
+   * Extended headers is simply a key-value mapping of headers that will be passed to REST request.
+   * Is used, for example, to bypass 2-factor authentication.
+   */
+  private Map<String, String> extendedRestHeaders;
+
   /** Commits that don't have any issue in their commit message will not be included. */
   private boolean ignoreCommitsWithoutIssue;
 
@@ -416,6 +422,14 @@ public class Settings implements Serializable {
 
   public Map<String, Object> getExtendedVariables() {
     return extendedVariables;
+  }
+
+  public Map<String, String> getExtendedRestHeaders() {
+    return extendedRestHeaders;
+  }
+
+  public void setExtendedRestHeaders(final Map<String, String> extendedRestHeaders) {
+    this.extendedRestHeaders = extendedRestHeaders;
   }
 
   public void setIgnoreCommitsWithoutIssue(final boolean ignoreCommitsWithoutIssue) {

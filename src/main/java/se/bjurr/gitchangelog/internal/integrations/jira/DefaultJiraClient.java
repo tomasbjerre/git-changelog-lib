@@ -5,6 +5,7 @@ import static com.google.common.base.Optional.of;
 import static java.util.concurrent.TimeUnit.MINUTES;
 
 import com.google.common.base.Optional;
+import java.util.Map;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 import se.bjurr.gitchangelog.internal.integrations.rest.RestClient;
 
@@ -26,6 +27,12 @@ public class DefaultJiraClient extends JiraClient {
   @Override
   public JiraClient withTokenCredentials(String token) {
     this.client = client.withTokenAuthCredentials(token);
+    return this;
+  }
+
+  @Override
+  public JiraClient withHeaders(Map<String, String> headers) {
+    this.client = client.withHeaders(headers);
     return this;
   }
 
