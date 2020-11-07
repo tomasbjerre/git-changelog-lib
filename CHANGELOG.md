@@ -2,6 +2,15 @@
 
 Changelog for tomasbjerre git-changelog-lib.
 
+## Next release
+### Other changes
+
+**Support custom headers to JIRA to bypass 2 factor auth**
+
+
+[c43070c5cd20162](https://github.com/tomasbjerre/git-changelog-lib/commit/c43070c5cd20162) Yauheni Biruk *2020-11-07 13:53:10*
+
+
 ## 1.92
 ### GitHub [#78](https://github.com/tomasbjerre/git-changelog-lib/pull/78) add support for jira tokens  
 
