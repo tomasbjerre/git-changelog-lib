@@ -2,7 +2,7 @@
 
 Changelog for tomasbjerre git-changelog-lib.
 
-## Next release
+## 1.93
 ### Other changes
 
 **Support custom headers to JIRA to bypass 2 factor auth**
