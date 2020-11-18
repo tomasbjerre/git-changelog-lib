@@ -429,6 +429,15 @@ public class GitChangelogApi {
   }
 
   /**
+   * Filter commits using the provided path filter, analogous to using the cli command git log --
+   * 'pathFilter'
+   */
+  public GitChangelogApi withPathFilter(final String pathFilter) {
+    this.settings.setPathFilter(pathFilter);
+    return this;
+  }
+
+  /**
    * Some commits may not be included in any tag. Commits that not released yet may not be tagged.
    * This is a "virtual tag", added to {@link Changelog#getTags()}, that includes those commits. A
    * fitting value may be "Next release".
@@ -440,6 +449,7 @@ public class GitChangelogApi {
 
   private Changelog getChangelog(final GitRepo gitRepo, final boolean useIntegrationIfConfigured)
       throws GitChangelogRepositoryException {
+    gitRepo.setTreeFilter(settings.getSubDirFilter());
     final ObjectId fromId =
         getId(gitRepo, this.settings.getFromRef(), this.settings.getFromCommit()) //
             .or(gitRepo.getCommit(ZERO_COMMIT));

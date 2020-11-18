@@ -270,6 +270,26 @@ public class GitRepoTest {
     assertThat(firstCommit.name()).as(gitRepo.toString()).startsWith(FIRST_COMMIT_HASH);
   }
 
+  @Test
+  public void testThatRepoFilterReducesTheNumberOfCommits() throws Exception {
+    GitRepo gitRepo = getGitRepo();
+    gitRepo.setTreeFilter("src/");
+    ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
+    ObjectId lastCommit = gitRepo.getRef("1.71");
+
+    GitRepoData gitRepoData =
+        gitRepo.getGitRepoData(
+            firstCommit, lastCommit, "No tag", Optional.of(".*tag-in-test-feature$"));
+
+    List<GitCommit> gitCommits = gitRepoData.getGitCommits();
+    assertThat(gitCommits)
+        .as("Commits in first release.") //
+        .hasSize(104);
+
+    assertThat(gitCommits.get(0).getHash()).startsWith("a394e04");
+    assertThat(reverse(gitCommits).get(0).getHash()).startsWith("5aaeb907");
+  }
+
   private GitRepo getGitRepo() throws Exception {
     return new GitRepo(this.gitRepoFile);
   }

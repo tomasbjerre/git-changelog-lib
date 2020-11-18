@@ -17,15 +17,10 @@ import com.google.common.collect.Ordering;
 import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
+import java.util.stream.Collectors;
 import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.api.LogCommand;
 import org.eclipse.jgit.lib.AnyObjectId;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.Ref;
@@ -47,6 +42,7 @@ public class GitRepo implements Closeable {
   private Git git;
   private final Repository repository;
   private final RevWalk revWalk;
+  private String pathFilter = "";
 
   public GitRepo() {
     this.repository = null;
@@ -230,10 +226,17 @@ public class GitRepo implements Closeable {
   private List<RevCommit> getDiffingCommits(final RevCommit from, final RevCommit to)
       throws Exception {
     final RevCommit firstCommit = firstCommit();
-    final List<RevCommit> allInFrom =
-        newArrayList(this.git.log().addRange(firstCommit, from).call());
-    final List<RevCommit> allInTo = newArrayList(this.git.log().addRange(firstCommit, to).call());
+    final List<RevCommit> allInFrom = getCommitList(firstCommit, from);
+    final List<RevCommit> allInTo = getCommitList(firstCommit, to);
     return newArrayList(filter(allInTo, not(in(allInFrom))));
+  }
+
+  private ArrayList<RevCommit> getCommitList(RevCommit from, RevCommit to) throws Exception {
+    LogCommand logCommand = this.git.log().addRange(from, to);
+    if (!pathFilter.isEmpty()) {
+      logCommand.addPath(pathFilter);
+    }
+    return newArrayList(logCommand.call());
   }
 
   private ObjectId getPeeled(final Ref tag) {
@@ -324,6 +327,10 @@ public class GitRepo implements Closeable {
     populateComitPerTag(
         from, to, tagPerCommitHash, tagPerCommitsHash, commitsPerTag, datePerTag, untaggedName);
 
+    if (!this.pathFilter.isEmpty()) {
+      pruneCommitsPerTag(commitsPerTag);
+    }
+
     final List<GitTag> tags = newArrayList();
     addToTags(commitsPerTag, untaggedName, null, tags, annotatedTagPerTagName);
     final List<Ref> tagCommitHashSortedByCommitTime =
@@ -337,6 +344,31 @@ public class GitRepo implements Closeable {
           annotatedTagPerTagName);
     }
     return tags;
+  }
+
+  /**
+   * prunes commits that have been added in addition to the desired ones
+   *
+   * @param commitsPerTag
+   */
+  private void pruneCommitsPerTag(Map<String, Set<GitCommit>> commitsPerTag) {
+    Set<String> toIncludeSet =
+        commitsToInclude.stream().map(AnyObjectId::name).collect(Collectors.toSet());
+    List<String> tagsToRemove = new ArrayList<>();
+
+    commitsPerTag.forEach(
+        (tag, commits) -> {
+          List<GitCommit> removeList =
+              commits
+                  .stream()
+                  .filter(c -> !toIncludeSet.contains(c.getHash()))
+                  .collect(Collectors.toList());
+          commits.removeAll(removeList);
+          if (commits.size() == 0) {
+            tagsToRemove.add(tag);
+          }
+        });
+    tagsToRemove.forEach(commitsPerTag::remove);
   }
 
   private boolean isMappedToAnotherTag(
@@ -431,7 +463,9 @@ public class GitRepo implements Closeable {
   }
 
   private boolean shouldInclude(final RevCommit candidate) throws Exception {
-    return this.commitsToInclude.contains(candidate);
+    // If we use a path filter we can't skip parent commits, as their grandparents might be included
+    // again
+    return !this.pathFilter.isEmpty() || this.commitsToInclude.contains(candidate);
   }
 
   private List<Ref> tagsBetweenFromAndTo(final ObjectId from, final ObjectId to) throws Exception {
@@ -461,5 +495,10 @@ public class GitRepo implements Closeable {
         revCommit.getFullMessage(), //
         revCommit.getId().getName(), //
         merge);
+  }
+
+  /** @param pathFilter use when filtering commits */
+  public void setTreeFilter(String pathFilter) {
+    this.pathFilter = pathFilter == null ? "" : pathFilter;
   }
 }
