@@ -2,7 +2,15 @@
 
 Changelog for tomasbjerre git-changelog-lib.
 
-## Next release
+## 1.94
+### GitHub [#94](https://github.com/tomasbjerre/git-changelog-lib/pull/94) Add an option to filter the commits using a path filter string  
+
+**Adjustments after merge of PR**
+
+
+[6e07d0b76da227e](https://github.com/tomasbjerre/git-changelog-lib/commit/6e07d0b76da227e) Tomas Bjerre *2020-11-18 17:14:10*
+
+
 ### Other changes
 
 **Add an option to filter the commits using a path filter string**
