@@ -181,6 +181,16 @@ public class Settings implements Serializable {
    */
   private String gitLabProjectName;
 
+  public String getSubDirFilter() {
+    return fromNullable(subDirFilter).or("");
+  }
+
+  public void setPathFilter(String subDirFilter) {
+    this.subDirFilter = subDirFilter;
+  }
+
+  private String subDirFilter;
+
   public Settings() {}
 
   public void setCustomIssues(final List<SettingsIssue> customIssues) {

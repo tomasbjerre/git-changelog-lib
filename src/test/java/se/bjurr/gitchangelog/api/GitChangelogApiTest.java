@@ -75,6 +75,21 @@ public class GitChangelogApiTest {
   }
 
   @Test
+  public void testPathFilterCanBeSpecified() throws Exception {
+    final String templatePath = "templatetest/testAuthorsCommitsExtended.mustache";
+
+    assertThat(
+            gitChangelogApiBuilder() //
+                .withFromCommit(ZERO_COMMIT) //
+                .withToRef("1.71") //
+                .withTemplatePath(templatePath) //
+                .withPathFilter("src") //
+                .render() //
+                .trim())
+        .hasSize(168);
+  }
+
+  @Test
   public void testThatIssuesCanBeRemoved() throws Exception {
 
     final String expected =
