@@ -233,10 +233,14 @@ public class GitRepo implements Closeable {
 
   private ArrayList<RevCommit> getCommitList(RevCommit from, RevCommit to) throws Exception {
     LogCommand logCommand = this.git.log().addRange(from, to);
-    if (!pathFilter.isEmpty()) {
+    if (hasPathFilter()) {
       logCommand.addPath(pathFilter);
     }
     return newArrayList(logCommand.call());
+  }
+
+  private boolean hasPathFilter() {
+    return this.pathFilter != null && !pathFilter.isEmpty();
   }
 
   private ObjectId getPeeled(final Ref tag) {
@@ -327,7 +331,7 @@ public class GitRepo implements Closeable {
     populateComitPerTag(
         from, to, tagPerCommitHash, tagPerCommitsHash, commitsPerTag, datePerTag, untaggedName);
 
-    if (!this.pathFilter.isEmpty()) {
+    if (hasPathFilter()) {
       pruneCommitsPerTag(commitsPerTag);
     }
 
@@ -465,7 +469,7 @@ public class GitRepo implements Closeable {
   private boolean shouldInclude(final RevCommit candidate) throws Exception {
     // If we use a path filter we can't skip parent commits, as their grandparents might be included
     // again
-    return !this.pathFilter.isEmpty() || this.commitsToInclude.contains(candidate);
+    return hasPathFilter() || this.commitsToInclude.contains(candidate);
   }
 
   private List<Ref> tagsBetweenFromAndTo(final ObjectId from, final ObjectId to) throws Exception {

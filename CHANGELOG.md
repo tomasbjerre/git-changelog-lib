@@ -2,6 +2,16 @@
 
 Changelog for tomasbjerre git-changelog-lib.
 
+## Next release
+### Other changes
+
+**Add an option to filter the commits using a path filter string**
+
+ * This works exactly like `git log -- path` 
+
+[94df887471f9f97](https://github.com/tomasbjerre/git-changelog-lib/commit/94df887471f9f97) Gabriel Einsdorf *2020-11-18 13:48:10*
+
+
 ## 1.93
 ### Other changes
 
