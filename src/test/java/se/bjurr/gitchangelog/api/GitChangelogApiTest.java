@@ -5,13 +5,11 @@ import static com.google.common.collect.ImmutableMap.of;
 import static com.google.common.collect.Maps.newHashMap;
 import static com.google.common.io.Resources.getResource;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertEquals;
 import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 import static se.bjurr.gitchangelog.internal.integrations.rest.RestClient.mock;
 
 import com.google.common.io.Resources;
-import com.google.gson.GsonBuilder;
 import java.net.URL;
 import org.junit.After;
 import org.junit.Before;
@@ -20,6 +18,7 @@ import se.bjurr.gitchangelog.internal.integrations.github.GitHubMockInterceptor;
 import se.bjurr.gitchangelog.internal.integrations.github.GitHubServiceFactory;
 import se.bjurr.gitchangelog.internal.integrations.jira.JiraClientFactory;
 import se.bjurr.gitchangelog.internal.integrations.rest.RestClientMock;
+import se.bjurr.gitchangelog.test.ApprovalsWrapper;
 
 public class GitChangelogApiTest {
   private RestClientMock mockedRestClient;
@@ -86,22 +85,17 @@ public class GitChangelogApiTest {
                 .withPathFilter("src") //
                 .render() //
                 .trim())
-        .hasSize(168);
+        .hasSize(174);
   }
 
   @Test
   public void testThatIssuesCanBeRemoved() throws Exception {
 
-    final String expected =
-        Resources.toString(getResource("templatetest/testThatIssuesCanBeRemoved.md"), UTF_8).trim();
-
     final URL settingsFile =
         getResource("settings/git-changelog-test-settings.json").toURI().toURL();
     final String templatePath = "templatetest/testIssuesCommits.mustache";
 
-    final String templateContent = Resources.toString(getResource(templatePath), UTF_8);
-
-    final GitChangelogApi changelogApiBuilder =
+    final GitChangelogApi given =
         gitChangelogApiBuilder() //
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
@@ -109,31 +103,19 @@ public class GitChangelogApiTest {
             .withRemoveIssueFromMessageArgument(true) //
             .withTemplatePath(templatePath);
 
-    assertEquals(
-        "templateContent:\n"
-            + templateContent
-            + "\nContext:\n"
-            + toJson(changelogApiBuilder.getChangelog(true)),
-        expected,
-        changelogApiBuilder.render().trim());
+    ApprovalsWrapper.verify(given);
   }
 
   @Test
   public void testThatCommitsWithoutIssueCanBeIgnoredIssuesCommits() throws Exception {
 
-    final String expected =
-        Resources.toString(
-                getResource("templatetest/testThatCommitsWithoutIssueCanBeIgnoredIssuesCommits.md"),
-                UTF_8)
-            .trim();
-
     final URL settingsFile =
         getResource("settings/git-changelog-test-settings.json").toURI().toURL();
     final String templatePath = "templatetest/testIssuesCommits.mustache";
 
-    final String templateContent = Resources.toString(getResource(templatePath), UTF_8);
+    Resources.toString(getResource(templatePath), UTF_8);
 
-    final GitChangelogApi changelogApiBuilder =
+    final GitChangelogApi given =
         gitChangelogApiBuilder() //
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
@@ -141,32 +123,17 @@ public class GitChangelogApiTest {
             .withIgnoreCommitsWithoutIssue(true) //
             .withTemplatePath(templatePath);
 
-    assertEquals(
-        "templateContent:\n"
-            + templateContent
-            + "\nContext:\n"
-            + toJson(changelogApiBuilder.getChangelog(true)),
-        expected,
-        changelogApiBuilder.render().trim());
+    ApprovalsWrapper.verify(given);
   }
 
   /** The test-lightweight-2 should be ignored here. */
   @Test
   public void testThatCommitsWithoutIssueCanBeIgnoredTagsIssuesCommits() throws Exception {
 
-    final String expected =
-        Resources.toString(
-                getResource(
-                    "templatetest/testThatCommitsWithoutIssueCanBeIgnoredTagsIssuesCommits.md"),
-                UTF_8)
-            .trim();
-
     final String templatePath =
         "templatetest/testThatCommitsWithoutIssueCanBeIgnoredTagsIssuesCommits.mustache";
 
-    final String templateContent = Resources.toString(getResource(templatePath), UTF_8);
-
-    final GitChangelogApi changelogApiBuilder =
+    final GitChangelogApi given =
         gitChangelogApiBuilder() //
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
@@ -177,13 +144,7 @@ public class GitChangelogApiTest {
             .withIgnoreCommitsWithoutIssue(true) //
             .withTemplatePath(templatePath);
 
-    assertEquals(
-        "templateContent:\n"
-            + templateContent
-            + "\nContext:\n"
-            + toJson(changelogApiBuilder.getChangelog(true)),
-        expected,
-        changelogApiBuilder.render().trim());
+    ApprovalsWrapper.verify(given);
   }
 
   @Test
@@ -233,24 +194,20 @@ public class GitChangelogApiTest {
 
   @Test
   public void testThatCustomVariablesCanBeUsed() throws Exception {
-    final String expected =
-        Resources.toString(getResource("templatetest/testAuthorsCommitsExtended.md"), UTF_8).trim();
-
     final URL settingsFile =
         getResource("settings/git-changelog-test-settings.json").toURI().toURL();
     final String templatePath = "templatetest/testAuthorsCommitsExtended.mustache";
 
-    assertEquals(
-        expected,
+    GitChangelogApi given =
         gitChangelogApiBuilder() //
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
             .withSettings(settingsFile) //
             .withExtendedVariables(newHashMap(of("customVariable", (Object) "the value"))) //
             .withRemoveIssueFromMessageArgument(true) //
-            .withTemplatePath(templatePath) //
-            .render() //
-            .trim());
+            .withTemplatePath(templatePath);
+
+    ApprovalsWrapper.verify(given);
   }
 
   @Test
@@ -273,9 +230,5 @@ public class GitChangelogApiTest {
         .isTrue();
     assertThat(GitChangelogApi.shouldUseIntegrationIfConfigured("a\nsd{{labels}}asd\nsdasd")) //
         .isTrue();
-  }
-
-  private String toJson(final Object object) {
-    return new GsonBuilder().setPrettyPrinting().create().toJson(object);
   }
 }

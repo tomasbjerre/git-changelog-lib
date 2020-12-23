@@ -1,37 +1,35 @@
 package se.bjurr.gitchangelog.api;
 
-import static com.google.common.base.Charsets.UTF_8;
 import static com.google.common.base.Optional.absent;
 import static com.google.common.base.Optional.of;
-import static com.google.common.base.Preconditions.checkArgument;
-import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.io.Files.createParentDirs;
 import static com.google.common.io.Files.write;
-import static com.google.common.io.Resources.getResource;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.REF_MASTER;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 import static se.bjurr.gitchangelog.internal.git.GitRepoDataHelper.removeCommitsWithoutIssue;
 import static se.bjurr.gitchangelog.internal.settings.Settings.fromFile;
 
-import com.github.mustachejava.DefaultMustacheFactory;
-import com.github.mustachejava.Mustache;
-import com.github.mustachejava.MustacheFactory;
+import com.github.jknack.handlebars.Context;
+import com.github.jknack.handlebars.Handlebars;
+import com.github.jknack.handlebars.Template;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Optional;
-import com.google.common.io.Files;
 import com.google.common.io.Resources;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import org.eclipse.jgit.lib.ObjectId;
-import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
 import se.bjurr.gitchangelog.api.model.Changelog;
 import se.bjurr.gitchangelog.api.model.Issue;
@@ -39,7 +37,6 @@ import se.bjurr.gitchangelog.internal.git.GitRepo;
 import se.bjurr.gitchangelog.internal.git.GitRepoData;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
-import se.bjurr.gitchangelog.internal.integrations.mediawiki.MediaWikiClient;
 import se.bjurr.gitchangelog.internal.issues.IssueParser;
 import se.bjurr.gitchangelog.internal.model.ParsedIssue;
 import se.bjurr.gitchangelog.internal.model.Transformer;
@@ -53,7 +50,6 @@ public class GitChangelogApi {
   }
 
   private Settings settings;
-
   private String templateContent;
 
   private GitChangelogApi() {
@@ -67,14 +63,16 @@ public class GitChangelogApi {
   /**
    * Get the changelog as data object.
    *
-   * @param useIntegrationIfConfigured true if title/link/labels/issueType should be fetched from
-   *     integrations (GitHub, GitLab, Jira) if that is configured.
    * @throws GitChangelogRepositoryException
    */
-  public Changelog getChangelog(final boolean useIntegrationIfConfigured)
+  public Changelog getChangelog() throws GitChangelogRepositoryException {
+    return this.getChangelog(true);
+  }
+
+  private Changelog getChangelog(boolean shouldUseIntegrationIfConfigured)
       throws GitChangelogRepositoryException {
     try (GitRepo gitRepo = new GitRepo(new File(this.settings.getFromRepo()))) {
-      return getChangelog(gitRepo, useIntegrationIfConfigured);
+      return getChangelog(gitRepo, shouldUseIntegrationIfConfigured);
     } catch (final IOException e) {
       throw new GitChangelogRepositoryException("", e);
     }
@@ -90,23 +88,56 @@ public class GitChangelogApi {
    * @throws GitChangelogRepositoryException
    */
   public void render(final Writer writer) throws GitChangelogRepositoryException {
-    final MustacheFactory mf = new DefaultMustacheFactory();
-    final String templateContent = checkNotNull(getTemplateContent(), "No template!");
-    final StringReader reader = new StringReader(templateContent);
-    final Mustache mustache = mf.compile(reader, this.settings.getTemplatePath());
+    Handlebars handlebars = new Handlebars();
+    Template template = null;
+    String templateString = getTemplateString();
     try {
-      final boolean useIntegrationIfConfigured = shouldUseIntegrationIfConfigured(templateContent);
-      final Changelog changelog = this.getChangelog(useIntegrationIfConfigured);
-      mustache
-          .execute(
-              writer, //
-              new Object[] {changelog, this.settings.getExtendedVariables()} //
-              )
-          .flush();
+      template = handlebars.compileInline(templateString);
+    } catch (IOException e) {
+      throw new RuntimeException("Cannot render:\n\n" + templateString, e);
+    }
+
+    try {
+      final Changelog changelog =
+          this.getChangelog(shouldUseIntegrationIfConfigured(templateString));
+      Map<String, Object> extendedVariables = this.settings.getExtendedVariables();
+      if (extendedVariables == null) {
+        throw new IllegalStateException("extendedVariables cannot be null");
+      }
+      Context changelogContext = Context.newContext(changelog).combine(extendedVariables);
+      template.apply(changelogContext, writer);
     } catch (final IOException e) {
       // Should be impossible!
       throw new GitChangelogRepositoryException("", e);
     }
+  }
+
+  public String getTemplateString() {
+    if (this.templateContent != null) {
+      return templateContent;
+    }
+    String templateString;
+    try {
+      byte[] templateBytes = null;
+      Path templatePath = Paths.get(this.settings.getTemplatePath());
+      if (templatePath.toFile().exists()) {
+        templateBytes = Files.readAllBytes(templatePath);
+      } else {
+        URL templateUrl = GitChangelogApi.class.getResource(settings.getTemplatePath());
+        if (templateUrl == null) {
+          templateUrl = GitChangelogApi.class.getResource("/" + settings.getTemplatePath());
+          if (templateUrl == null) {
+            throw new FileNotFoundException(
+                "Was unable to find file, or resouce, \"" + settings.getTemplatePath() + "\"");
+          }
+        }
+        templateBytes = Resources.toByteArray(templateUrl);
+      }
+      templateString = new String(templateBytes, StandardCharsets.UTF_8);
+    } catch (IOException e) {
+      throw new RuntimeException(this.settings.getTemplatePath(), e);
+    }
+    return templateString;
   }
 
   @VisibleForTesting
@@ -133,20 +164,6 @@ public class GitChangelogApi {
   public void toFile(final File file) throws GitChangelogRepositoryException, IOException {
     createParentDirs(file);
     write(render().getBytes("UTF-8"), file);
-  }
-
-  /**
-   * Create MediaWiki page with changelog.
-   *
-   * @throws GitChangelogRepositoryException
-   * @throws GitChangelogIntegrationException
-   */
-  public void toMediaWiki(
-      final String username, final String password, final String url, final String title)
-      throws GitChangelogRepositoryException, GitChangelogIntegrationException {
-    new MediaWikiClient(url, title, render()) //
-        .withUser(username, password) //
-        .createMediaWikiPage();
   }
 
   /**
@@ -447,7 +464,7 @@ public class GitChangelogApi {
     return this;
   }
 
-  private Changelog getChangelog(final GitRepo gitRepo, final boolean useIntegrationIfConfigured)
+  private Changelog getChangelog(final GitRepo gitRepo, boolean shouldUseIntegrationIfConfigured)
       throws GitChangelogRepositoryException {
     gitRepo.setTreeFilter(settings.getSubDirFilter());
     final ObjectId fromId =
@@ -478,7 +495,7 @@ public class GitChangelogApi {
 
     List<GitCommit> diff = gitRepoData.getGitCommits();
     final List<ParsedIssue> issues =
-        new IssueParser(this.settings, diff).parseForIssues(useIntegrationIfConfigured);
+        new IssueParser(this.settings, diff).parseForIssues(shouldUseIntegrationIfConfigured);
     if (this.settings.ignoreCommitsWithoutIssue()) {
       gitRepoData = removeCommitsWithoutIssue(issues, gitRepoData);
       diff = gitRepoData.getGitCommits();
@@ -505,29 +522,5 @@ public class GitChangelogApi {
       return of(gitRepo.getCommit(commit.get()));
     }
     return absent();
-  }
-
-  private String getTemplateContent() {
-    if (this.templateContent != null) {
-      return this.templateContent;
-    }
-    checkArgument(this.settings.getTemplatePath() != null, "You must specify a template!");
-    try {
-      return Resources.toString(getResource(this.settings.getTemplatePath()), UTF_8);
-    } catch (final Exception e) {
-      File file = null;
-      try {
-        file = new File(this.settings.getTemplatePath());
-        return Files.toString(file, UTF_8);
-      } catch (final IOException e2) {
-        throw new RuntimeException(
-            "Cannot find on classpath ("
-                + this.settings.getTemplatePath()
-                + ") or filesystem ("
-                + file.getAbsolutePath()
-                + ").",
-            e2);
-      }
-    }
   }
 }
