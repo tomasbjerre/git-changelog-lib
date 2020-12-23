@@ -4,27 +4,23 @@ This is a library for generating a changelog, or releasenotes, from a GIT reposi
 
 It is fully configurable with a [Mustache](http://mustache.github.io/) template. That can:
 
- * Be stored to file, like `CHANGELOG.md`. There are some templates used for testing available [here](https://github.com/tomasbjerre/git-changelog/tree/master/src/test/resources/templatestest).
- * Be posted to MediaWiki ([here](https://github.com/tomasbjerre/git-changelog-lib/tree/screenshots/sandbox) is an example)
+ * Be stored to file, like `CHANGELOG.md`. There are some templates used for testing available [here](/src/test/resources/templatetest).
  * Or just rendered to a `String`.
 
 It can integrate with Jira and/or GitHub to retrieve the title of issues.
 
-The [changelog](https://github.com/tomasbjerre/git-changelog-lib/blob/master/CHANGELOG.md) of this project is automatically generated with [this template](https://github.com/tomasbjerre/git-changelog-lib/blob/master/changelog.mustache).
-
-There are some screenshots [here](https://github.com/tomasbjerre/git-changelog-lib/tree/screenshots/sandbox).
+The [changelog](/CHANGELOG.md) of this project is automatically generated with [this template](/changelog.mustache).
 
 ## Usage
 This software can be used:
  * With a [Gradle plugin](https://github.com/tomasbjerre/git-changelog-gradle-plugin).
  * With a [Maven plugin](https://github.com/tomasbjerre/git-changelog-maven-plugin).
  * With a [Jenkins plugin](https://github.com/jenkinsci/git-changelog-plugin).
- * With a [Bitbucket Server plugin](https://github.com/tomasbjerre/git-changelog-bitbucket-plugin).
  * From [command line](https://github.com/tomasbjerre/git-changelog-command-line).
  * As a library [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22git-changelog-lib%22).
 
 Here is an example template. 
-```
+```hbs
 # Changelog
 
 Changelog for {{ownerName}} {{repoName}}.
@@ -59,13 +55,17 @@ Changelog for {{ownerName}} {{repoName}}.
 {{/tags}}
 ```
 
-There are some examples [here](https://github.com/tomasbjerre/git-changelog/tree/master/examples) that are ready to use.
+There are some examples [here](/examples) that are ready to use.
 
-There are also different variations [here](https://github.com/tomasbjerre/git-changelog/tree/master/src/test/resources/templates) that are used for testing.
+There are also different variations [here](/src/test/resources/templates) that are used for testing.
 
 ## Context
 
 The template is supplied with this context:
+
+<details><summary>Click here to show context</summary>
+<p>
+
 ```
 - ownerName (Derived from the clone URL, for this repo it would be "tomasbjerre")
 - repoName (Derived from the clone URL, for this repo it would be "git-changelog-lib")
@@ -266,11 +266,14 @@ The template is supplied with this context:
    * messageBodyItems (List of strings, the lines after the title)
 ```
 
+</p>
+</details>
+
 ## Library
 
-It has a [builder](https://github.com/tomasbjerre/git-changelog/blob/master/src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java) for creating the changelog.
+It has a [builder](/src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java) for creating the changelog.
 
-```
+```java
   gitChangelogApiBuilder()
    .withFromCommit(ZERO_COMMIT)
    .withToRef("refs/heads/master")
@@ -280,41 +283,13 @@ It has a [builder](https://github.com/tomasbjerre/git-changelog/blob/master/src/
 
 It can also create releasenotes. If you are using git flow it may look like this.
 
-```
+```java
   gitChangelogApiBuilder()
    .withFromRef("refs/heads/dev")
    .withToRef("refs/heads/master")
    .withTemplatePath("releasenotes.mustache")
    .toStdout();
 ```
-A page can be created in MediaWiki like this.
 
-```
- .toMediaWiki(
-  "username",
-  "password",
-  "http://host/mediawiki",
-  "Title of page");
-```
+Settings can be supplied with a JSON config ([documented here](/src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java)).
 
-Settings can be supplied with a JSON config ([documented here](https://github.com/tomasbjerre/git-changelog/blob/master/src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java)).
-
-## MediaWiki
-
-The library can create a wiki page in MediaWiki.
-
-You must enable the API in MediaWiki in `mediawiki/LocalSettings.php` by adding:
-```
-$wgEnableAPI = true;
-$wgEnableWriteAPI = true;
-```
-
-The user has to be a Bot User. You can add one http://mediawikihost/wiki/Special:BotPasswords
-
-You may use this compose to fiddle with this and tun the test cases: https://github.com/pastakhov/compose-mediawiki-ubuntu
-
-## Developer instructions
-
-To build the code, have a look at `.travis.yml`.
-
-To do a release you need to do `./gradlew release` and release the artifact from [staging](https://oss.sonatype.org/#stagingRepositories). More information [here](http://central.sonatype.org/pages/releasing-the-deployment.html).

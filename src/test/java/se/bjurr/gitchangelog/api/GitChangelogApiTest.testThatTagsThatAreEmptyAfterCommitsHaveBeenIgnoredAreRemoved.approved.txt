@@ -1,0 +1,55 @@
+template:
+
+# Git Changelog changelog
+
+Changelog of Git Changelog.
+
+Extended variable: {{customVariable}}
+
+{{#authors}}
+* {{authorName}}
+{{/authors}}
+
+
+---------------------------------------------
+
+settings:
+
+{
+  "toRef": "test",
+  "fromCommit": "0000000000000000000000000000000000000000",
+  "ignoreCommitsIfMessageMatches": ".*",
+  "templatePath": "templatetest/testAuthorsCommitsExtended.mustache",
+  "removeIssueFromMessage": false,
+  "gitHubApi": "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
+  "extendedVariables": {},
+  "ignoreCommitsWithoutIssue": false,
+  "gitLabProjectName": "tomasbjerre"
+}
+
+---------------------------------------------
+
+changelog:
+
+# Git Changelog changelog
+
+Changelog of Git Changelog.
+
+Extended variable: 
+
+
+
+
+---------------------------------------------
+
+context:
+
+{
+  "commits": [],
+  "tags": [],
+  "authors": [],
+  "issues": [],
+  "issueTypes": [],
+  "ownerName": "tomasbjerre",
+  "repoName": "git-changelog-lib"
+}

@@ -25,6 +25,7 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import se.bjurr.gitchangelog.api.model.Changelog;
@@ -156,7 +157,7 @@ public class Settings implements Serializable {
    * template. Is used, for example, by the Bitbucket plugin to supply some internal variables to
    * the changelog context.
    */
-  private Map<String, Object> extendedVariables;
+  private Map<String, Object> extendedVariables = new HashMap<>();
 
   /**
    * Extended headers is simply a key-value mapping of headers that will be passed to REST request.

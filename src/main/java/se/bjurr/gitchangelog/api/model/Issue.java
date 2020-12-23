@@ -50,9 +50,9 @@ public class Issue implements ICommits, IAuthors, Serializable {
   private final List<String> labels;
 
   private final boolean hasLabels;
-  private boolean hasLinkedIssues;
+  private final boolean hasLinkedIssues;
   private final SettingsIssueType issueType;
-  private List<String> linkedIssues;
+  private final List<String> linkedIssues;
 
   public Issue(
       List<Commit> commits,
@@ -115,23 +115,23 @@ public class Issue implements ICommits, IAuthors, Serializable {
     return title;
   }
 
-  public boolean hasTitle() {
+  public boolean getHasTitle() {
     return hasTitle;
   }
 
-  public boolean hasIssue() {
+  public boolean getHasIssue() {
     return hasIssue;
   }
 
-  public boolean hasLabels() {
+  public boolean getHasLabels() {
     return hasLabels;
   }
 
-  public boolean hasType() {
+  public boolean getHasType() {
     return hasType;
   }
 
-  public boolean hasLink() {
+  public boolean getHasLink() {
     return hasLink;
   }
 
@@ -151,7 +151,7 @@ public class Issue implements ICommits, IAuthors, Serializable {
     return type;
   }
 
-  public boolean hasDescription() {
+  public boolean getHasDescription() {
     return hasDescription;
   }
 
@@ -177,7 +177,7 @@ public class Issue implements ICommits, IAuthors, Serializable {
     return linkedIssues;
   }
 
-  public boolean hasLinkedIssues() {
+  public boolean getHasLinkedIssues() {
     return hasLinkedIssues;
   }
 
