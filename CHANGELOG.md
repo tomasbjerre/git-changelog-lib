@@ -3,7 +3,7 @@
 Changelog for tomasbjerre git-changelog-lib.
 
 
-## Next release
+## 1.95
  
   
    
