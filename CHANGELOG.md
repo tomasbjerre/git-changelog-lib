@@ -29,6 +29,25 @@ Changelog for tomasbjerre git-changelog-lib.
   
 
  
+  
+  
+### Other changes
+  
+
+  
+**Removing default ignore filter on message**
+
+
+ * It was: &#x60;^\[maven-release-plugin\].*|^\[Gradle Release Plugin\].*|^Merge.*&quot;&#x60; 
+
+ * But users are confused by this and it is probably better to have no filter by default. 
+
+
+[a57e321f08cea10](https://github.com/tomasbjerre/git-changelog-lib/commit/a57e321f08cea10) Tomas Bjerre *2021-01-18 16:46:13*
+
+  
+
+ 
 
 ## 1.94
  
