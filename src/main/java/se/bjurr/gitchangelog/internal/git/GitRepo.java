@@ -1,9 +1,6 @@
 package se.bjurr.gitchangelog.internal.git;
 
-import static com.google.common.base.Predicates.in;
-import static com.google.common.base.Predicates.not;
 import static com.google.common.base.Throwables.propagate;
-import static com.google.common.collect.Iterables.filter;
 import static com.google.common.collect.Iterators.getLast;
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
@@ -225,10 +222,7 @@ public class GitRepo implements Closeable {
 
   private List<RevCommit> getDiffingCommits(final RevCommit from, final RevCommit to)
       throws Exception {
-    final RevCommit firstCommit = firstCommit();
-    final List<RevCommit> allInFrom = getCommitList(firstCommit, from);
-    final List<RevCommit> allInTo = getCommitList(firstCommit, to);
-    return newArrayList(filter(allInTo, not(in(allInFrom))));
+    return getCommitList(from, to);
   }
 
   private ArrayList<RevCommit> getCommitList(RevCommit from, RevCommit to) throws Exception {

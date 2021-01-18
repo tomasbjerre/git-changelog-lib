@@ -24,7 +24,7 @@ Changelog for tomasbjerre git-changelog-lib.
  * Refactoring tests to use Approvals. 
 
 
-[75266a84df92932](https://github.com/tomasbjerre/git-changelog-lib/commit/75266a84df92932) Tomas Bjerre *2020-12-24 06:50:34*
+[7eba3d038b884b8](https://github.com/tomasbjerre/git-changelog-lib/commit/7eba3d038b884b8) Tomas Bjerre *2020-12-24 07:11:41*
 
   
 

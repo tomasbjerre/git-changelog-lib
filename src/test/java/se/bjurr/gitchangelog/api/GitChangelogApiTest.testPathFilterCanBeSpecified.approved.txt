@@ -61,6 +61,16 @@ context:
     {
       "authorEmailAddress": "tomas.bjerre85@gmail.com",
       "authorName": "Tomas Bjerre",
+      "commitTime": "2017-07-25 18:24:16",
+      "commitTimeLong": 1501007056000,
+      "hash": "a394e04a0ff292d",
+      "hashFull": "a394e04a0ff292d3d755988b93bb31bd54c7dbf5",
+      "merge": false,
+      "message": "[Gradle Release Plugin] - pre tag commit:  \u00271.71\u0027."
+    },
+    {
+      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+      "authorName": "Tomas Bjerre",
       "commitTime": "2017-07-25 18:21:50",
       "commitTimeLong": 1501006910000,
       "hash": "eac21b71186099b",
@@ -87,6 +97,16 @@ context:
       "hashFull": "121e65493ec764b4cf01d35f2cff9a6cb0d64d2b",
       "merge": false,
       "message": "Adjustments after merge of #47\n\n * Using the Date data type instead of String to supply ignoreCommitsOlderThan.\n * Making ignoreCommits more effective.\n * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer."
+    },
+    {
+      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+      "authorName": "Tomas Bjerre",
+      "commitTime": "2017-07-07 18:46:16",
+      "commitTimeLong": 1499453176000,
+      "hash": "3b6cf6124370238",
+      "hashFull": "3b6cf6124370238fed92bb7ff6731fd0b8c73bc4",
+      "merge": true,
+      "message": "Merge pull request #47 from grandchild/ignoreCommitsOlderThan\n\nAdd ignoreCommitsOlderThan date limiting"
     },
     {
       "authorEmailAddress": "grandchild@gmx.net",
@@ -1088,6 +1108,16 @@ context:
             {
               "authorEmailAddress": "tomas.bjerre85@gmail.com",
               "authorName": "Tomas Bjerre",
+              "commitTime": "2017-07-25 18:24:16",
+              "commitTimeLong": 1501007056000,
+              "hash": "a394e04a0ff292d",
+              "hashFull": "a394e04a0ff292d3d755988b93bb31bd54c7dbf5",
+              "merge": false,
+              "message": "[Gradle Release Plugin] - pre tag commit:  \u00271.71\u0027."
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
               "commitTime": "2017-07-25 18:21:50",
               "commitTimeLong": 1501006910000,
               "hash": "eac21b71186099b",
@@ -1101,6 +1131,16 @@ context:
         }
       ],
       "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2017-07-25 18:24:16",
+          "commitTimeLong": 1501007056000,
+          "hash": "a394e04a0ff292d",
+          "hashFull": "a394e04a0ff292d3d755988b93bb31bd54c7dbf5",
+          "merge": false,
+          "message": "[Gradle Release Plugin] - pre tag commit:  \u00271.71\u0027."
+        },
         {
           "authorEmailAddress": "tomas.bjerre85@gmail.com",
           "authorName": "Tomas Bjerre",
@@ -1118,6 +1158,16 @@ context:
             {
               "authorEmailAddress": "tomas.bjerre85@gmail.com",
               "authorName": "Tomas Bjerre",
+              "commitTime": "2017-07-25 18:24:16",
+              "commitTimeLong": 1501007056000,
+              "hash": "a394e04a0ff292d",
+              "hashFull": "a394e04a0ff292d3d755988b93bb31bd54c7dbf5",
+              "merge": false,
+              "message": "[Gradle Release Plugin] - pre tag commit:  \u00271.71\u0027."
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
               "commitTime": "2017-07-25 18:21:50",
               "commitTimeLong": 1501006910000,
               "hash": "eac21b71186099b",
@@ -1129,6 +1179,16 @@ context:
           "authors": [
             {
               "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2017-07-25 18:24:16",
+                  "commitTimeLong": 1501007056000,
+                  "hash": "a394e04a0ff292d",
+                  "hashFull": "a394e04a0ff292d3d755988b93bb31bd54c7dbf5",
+                  "merge": false,
+                  "message": "[Gradle Release Plugin] - pre tag commit:  \u00271.71\u0027."
+                },
                 {
                   "authorEmailAddress": "tomas.bjerre85@gmail.com",
                   "authorName": "Tomas Bjerre",
@@ -1169,6 +1229,16 @@ context:
                 {
                   "authorEmailAddress": "tomas.bjerre85@gmail.com",
                   "authorName": "Tomas Bjerre",
+                  "commitTime": "2017-07-25 18:24:16",
+                  "commitTimeLong": 1501007056000,
+                  "hash": "a394e04a0ff292d",
+                  "hashFull": "a394e04a0ff292d3d755988b93bb31bd54c7dbf5",
+                  "merge": false,
+                  "message": "[Gradle Release Plugin] - pre tag commit:  \u00271.71\u0027."
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
                   "commitTime": "2017-07-25 18:21:50",
                   "commitTimeLong": 1501006910000,
                   "hash": "eac21b71186099b",
@@ -1180,6 +1250,16 @@ context:
               "authors": [
                 {
                   "commits": [
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2017-07-25 18:24:16",
+                      "commitTimeLong": 1501007056000,
+                      "hash": "a394e04a0ff292d",
+                      "hashFull": "a394e04a0ff292d3d755988b93bb31bd54c7dbf5",
+                      "merge": false,
+                      "message": "[Gradle Release Plugin] - pre tag commit:  \u00271.71\u0027."
+                    },
                     {
                       "authorEmailAddress": "tomas.bjerre85@gmail.com",
                       "authorName": "Tomas Bjerre",
@@ -1376,6 +1456,16 @@ context:
               "hashFull": "121e65493ec764b4cf01d35f2cff9a6cb0d64d2b",
               "merge": false,
               "message": "Adjustments after merge of #47\n\n * Using the Date data type instead of String to supply ignoreCommitsOlderThan.\n * Making ignoreCommits more effective.\n * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer."
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2017-07-07 18:46:16",
+              "commitTimeLong": 1499453176000,
+              "hash": "3b6cf6124370238",
+              "hashFull": "3b6cf6124370238fed92bb7ff6731fd0b8c73bc4",
+              "merge": true,
+              "message": "Merge pull request #47 from grandchild/ignoreCommitsOlderThan\n\nAdd ignoreCommitsOlderThan date limiting"
             }
           ],
           "authorName": "Tomas Bjerre",
@@ -1430,6 +1520,16 @@ context:
           "message": "Adjustments after merge of #47\n\n * Using the Date data type instead of String to supply ignoreCommitsOlderThan.\n * Making ignoreCommits more effective.\n * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer."
         },
         {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2017-07-07 18:46:16",
+          "commitTimeLong": 1499453176000,
+          "hash": "3b6cf6124370238",
+          "hashFull": "3b6cf6124370238fed92bb7ff6731fd0b8c73bc4",
+          "merge": true,
+          "message": "Merge pull request #47 from grandchild/ignoreCommitsOlderThan\n\nAdd ignoreCommitsOlderThan date limiting"
+        },
+        {
           "authorEmailAddress": "grandchild@gmx.net",
           "authorName": "jakob",
           "commitTime": "2017-07-04 00:16:47",
@@ -1472,6 +1572,16 @@ context:
               "hashFull": "121e65493ec764b4cf01d35f2cff9a6cb0d64d2b",
               "merge": false,
               "message": "Adjustments after merge of #47\n\n * Using the Date data type instead of String to supply ignoreCommitsOlderThan.\n * Making ignoreCommits more effective.\n * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer."
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2017-07-07 18:46:16",
+              "commitTimeLong": 1499453176000,
+              "hash": "3b6cf6124370238",
+              "hashFull": "3b6cf6124370238fed92bb7ff6731fd0b8c73bc4",
+              "merge": true,
+              "message": "Merge pull request #47 from grandchild/ignoreCommitsOlderThan\n\nAdd ignoreCommitsOlderThan date limiting"
             }
           ],
           "authors": [
@@ -1486,6 +1596,16 @@ context:
                   "hashFull": "121e65493ec764b4cf01d35f2cff9a6cb0d64d2b",
                   "merge": false,
                   "message": "Adjustments after merge of #47\n\n * Using the Date data type instead of String to supply ignoreCommitsOlderThan.\n * Making ignoreCommits more effective.\n * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer."
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2017-07-07 18:46:16",
+                  "commitTimeLong": 1499453176000,
+                  "hash": "3b6cf6124370238",
+                  "hashFull": "3b6cf6124370238fed92bb7ff6731fd0b8c73bc4",
+                  "merge": true,
+                  "message": "Merge pull request #47 from grandchild/ignoreCommitsOlderThan\n\nAdd ignoreCommitsOlderThan date limiting"
                 }
               ],
               "authorName": "Tomas Bjerre",
@@ -1611,6 +1731,16 @@ context:
                   "hashFull": "121e65493ec764b4cf01d35f2cff9a6cb0d64d2b",
                   "merge": false,
                   "message": "Adjustments after merge of #47\n\n * Using the Date data type instead of String to supply ignoreCommitsOlderThan.\n * Making ignoreCommits more effective.\n * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer."
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2017-07-07 18:46:16",
+                  "commitTimeLong": 1499453176000,
+                  "hash": "3b6cf6124370238",
+                  "hashFull": "3b6cf6124370238fed92bb7ff6731fd0b8c73bc4",
+                  "merge": true,
+                  "message": "Merge pull request #47 from grandchild/ignoreCommitsOlderThan\n\nAdd ignoreCommitsOlderThan date limiting"
                 }
               ],
               "authors": [
@@ -1625,6 +1755,16 @@ context:
                       "hashFull": "121e65493ec764b4cf01d35f2cff9a6cb0d64d2b",
                       "merge": false,
                       "message": "Adjustments after merge of #47\n\n * Using the Date data type instead of String to supply ignoreCommitsOlderThan.\n * Making ignoreCommits more effective.\n * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer."
+                    },
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2017-07-07 18:46:16",
+                      "commitTimeLong": 1499453176000,
+                      "hash": "3b6cf6124370238",
+                      "hashFull": "3b6cf6124370238fed92bb7ff6731fd0b8c73bc4",
+                      "merge": true,
+                      "message": "Merge pull request #47 from grandchild/ignoreCommitsOlderThan\n\nAdd ignoreCommitsOlderThan date limiting"
                     }
                   ],
                   "authorName": "Tomas Bjerre",
@@ -13628,6 +13768,16 @@ context:
         {
           "authorEmailAddress": "tomas.bjerre85@gmail.com",
           "authorName": "Tomas Bjerre",
+          "commitTime": "2017-07-25 18:24:16",
+          "commitTimeLong": 1501007056000,
+          "hash": "a394e04a0ff292d",
+          "hashFull": "a394e04a0ff292d3d755988b93bb31bd54c7dbf5",
+          "merge": false,
+          "message": "[Gradle Release Plugin] - pre tag commit:  \u00271.71\u0027."
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
           "commitTime": "2017-07-25 18:21:50",
           "commitTimeLong": 1501006910000,
           "hash": "eac21b71186099b",
@@ -13654,6 +13804,16 @@ context:
           "hashFull": "121e65493ec764b4cf01d35f2cff9a6cb0d64d2b",
           "merge": false,
           "message": "Adjustments after merge of #47\n\n * Using the Date data type instead of String to supply ignoreCommitsOlderThan.\n * Making ignoreCommits more effective.\n * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer."
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2017-07-07 18:46:16",
+          "commitTimeLong": 1499453176000,
+          "hash": "3b6cf6124370238",
+          "hashFull": "3b6cf6124370238fed92bb7ff6731fd0b8c73bc4",
+          "merge": true,
+          "message": "Merge pull request #47 from grandchild/ignoreCommitsOlderThan\n\nAdd ignoreCommitsOlderThan date limiting"
         },
         {
           "authorEmailAddress": "tomas.bjerre85@gmail.com",
@@ -15904,6 +16064,16 @@ context:
           "hashFull": "121e65493ec764b4cf01d35f2cff9a6cb0d64d2b",
           "merge": false,
           "message": "Adjustments after merge of #47\n\n * Using the Date data type instead of String to supply ignoreCommitsOlderThan.\n * Making ignoreCommits more effective.\n * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer."
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2017-07-07 18:46:16",
+          "commitTimeLong": 1499453176000,
+          "hash": "3b6cf6124370238",
+          "hashFull": "3b6cf6124370238fed92bb7ff6731fd0b8c73bc4",
+          "merge": true,
+          "message": "Merge pull request #47 from grandchild/ignoreCommitsOlderThan\n\nAdd ignoreCommitsOlderThan date limiting"
         }
       ],
       "authors": [
@@ -15918,6 +16088,16 @@ context:
               "hashFull": "121e65493ec764b4cf01d35f2cff9a6cb0d64d2b",
               "merge": false,
               "message": "Adjustments after merge of #47\n\n * Using the Date data type instead of String to supply ignoreCommitsOlderThan.\n * Making ignoreCommits more effective.\n * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer."
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2017-07-07 18:46:16",
+              "commitTimeLong": 1499453176000,
+              "hash": "3b6cf6124370238",
+              "hashFull": "3b6cf6124370238fed92bb7ff6731fd0b8c73bc4",
+              "merge": true,
+              "message": "Merge pull request #47 from grandchild/ignoreCommitsOlderThan\n\nAdd ignoreCommitsOlderThan date limiting"
             }
           ],
           "authorName": "Tomas Bjerre",
@@ -16151,6 +16331,16 @@ context:
     },
     {
       "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2017-07-25 18:24:16",
+          "commitTimeLong": 1501007056000,
+          "hash": "a394e04a0ff292d",
+          "hashFull": "a394e04a0ff292d3d755988b93bb31bd54c7dbf5",
+          "merge": false,
+          "message": "[Gradle Release Plugin] - pre tag commit:  \u00271.71\u0027."
+        },
         {
           "authorEmailAddress": "tomas.bjerre85@gmail.com",
           "authorName": "Tomas Bjerre",
@@ -16825,6 +17015,16 @@ context:
       "authors": [
         {
           "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2017-07-25 18:24:16",
+              "commitTimeLong": 1501007056000,
+              "hash": "a394e04a0ff292d",
+              "hashFull": "a394e04a0ff292d3d755988b93bb31bd54c7dbf5",
+              "merge": false,
+              "message": "[Gradle Release Plugin] - pre tag commit:  \u00271.71\u0027."
+            },
             {
               "authorEmailAddress": "tomas.bjerre85@gmail.com",
               "authorName": "Tomas Bjerre",
@@ -18767,6 +18967,16 @@ context:
               "hashFull": "121e65493ec764b4cf01d35f2cff9a6cb0d64d2b",
               "merge": false,
               "message": "Adjustments after merge of #47\n\n * Using the Date data type instead of String to supply ignoreCommitsOlderThan.\n * Making ignoreCommits more effective.\n * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer."
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2017-07-07 18:46:16",
+              "commitTimeLong": 1499453176000,
+              "hash": "3b6cf6124370238",
+              "hashFull": "3b6cf6124370238fed92bb7ff6731fd0b8c73bc4",
+              "merge": true,
+              "message": "Merge pull request #47 from grandchild/ignoreCommitsOlderThan\n\nAdd ignoreCommitsOlderThan date limiting"
             }
           ],
           "authors": [
@@ -18781,6 +18991,16 @@ context:
                   "hashFull": "121e65493ec764b4cf01d35f2cff9a6cb0d64d2b",
                   "merge": false,
                   "message": "Adjustments after merge of #47\n\n * Using the Date data type instead of String to supply ignoreCommitsOlderThan.\n * Making ignoreCommits more effective.\n * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer."
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2017-07-07 18:46:16",
+                  "commitTimeLong": 1499453176000,
+                  "hash": "3b6cf6124370238",
+                  "hashFull": "3b6cf6124370238fed92bb7ff6731fd0b8c73bc4",
+                  "merge": true,
+                  "message": "Merge pull request #47 from grandchild/ignoreCommitsOlderThan\n\nAdd ignoreCommitsOlderThan date limiting"
                 }
               ],
               "authorName": "Tomas Bjerre",
@@ -19026,6 +19246,16 @@ context:
       "issues": [
         {
           "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2017-07-25 18:24:16",
+              "commitTimeLong": 1501007056000,
+              "hash": "a394e04a0ff292d",
+              "hashFull": "a394e04a0ff292d3d755988b93bb31bd54c7dbf5",
+              "merge": false,
+              "message": "[Gradle Release Plugin] - pre tag commit:  \u00271.71\u0027."
+            },
             {
               "authorEmailAddress": "tomas.bjerre85@gmail.com",
               "authorName": "Tomas Bjerre",
@@ -19700,6 +19930,16 @@ context:
           "authors": [
             {
               "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2017-07-25 18:24:16",
+                  "commitTimeLong": 1501007056000,
+                  "hash": "a394e04a0ff292d",
+                  "hashFull": "a394e04a0ff292d3d755988b93bb31bd54c7dbf5",
+                  "merge": false,
+                  "message": "[Gradle Release Plugin] - pre tag commit:  \u00271.71\u0027."
+                },
                 {
                   "authorEmailAddress": "tomas.bjerre85@gmail.com",
                   "authorName": "Tomas Bjerre",
