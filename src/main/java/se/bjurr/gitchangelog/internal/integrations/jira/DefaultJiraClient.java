@@ -46,4 +46,8 @@ public class DefaultJiraClient extends JiraClient {
     }
     return absent();
   }
+
+  public JiraClient withAdditionalFields(Map<String, String> fields) {
+    return this;
+  }
 }

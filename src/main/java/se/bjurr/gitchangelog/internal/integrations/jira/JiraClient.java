@@ -57,6 +57,8 @@ public abstract class JiraClient {
 
   public abstract JiraClient withHeaders(Map<String, String> headers);
 
+  public abstract JiraClient withAdditionalFields(Map<String, String> fields);
+
   public abstract Optional<JiraIssue> getIssue(String matched)
       throws GitChangelogIntegrationException;
 }
