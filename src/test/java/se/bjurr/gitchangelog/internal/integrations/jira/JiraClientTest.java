@@ -45,6 +45,11 @@ public class JiraClientTest {
       public Optional<JiraIssue> getIssue(String matched) throws GitChangelogIntegrationException {
         return null;
       }
+
+      @Override
+      public JiraClient withAdditionalFields(Map<String, String> fields) {
+          return null;
+      }
     };
   }
 }
