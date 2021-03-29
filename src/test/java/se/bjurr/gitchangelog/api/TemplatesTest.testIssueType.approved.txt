@@ -70,9 +70,7 @@ settings:
 
 changelog:
 
-
 ## No tag
-
 
 Bugs
 false 
@@ -83,6 +81,14 @@ isCustom:
 isNoIssue: 
 
 
+GitHub
+false 
+isGitHub: 
+isGitLab: 
+isJira: 
+isCustom: 
+isNoIssue: 
+
 
 GitHub
 false 
@@ -93,7 +99,6 @@ isCustom:
 isNoIssue: 
 
 
-
 GitHub
 false 
 isGitHub: 
@@ -101,17 +106,6 @@ isGitLab:
 isJira: 
 isCustom: 
 isNoIssue: 
-
-
-
-GitHub
-false 
-isGitHub: 
-isGitLab: 
-isJira: 
-isCustom: 
-isNoIssue: 
-
 
 
 Jira
@@ -123,7 +117,6 @@ isCustom:
 isNoIssue: 
 
 
-
 No issue supplied
 false 
 isGitHub: 
@@ -132,10 +125,7 @@ isJira:
 isCustom: 
 isNoIssue: 
 
-
-
 ## test-lightweight-2
-
 
 CQ
 false 
@@ -145,11 +135,8 @@ isJira:
 isCustom: 
 isNoIssue: 
 
-
-
 ## test-1.0
 
-
 GitHub
 false 
 isGitHub: 
@@ -159,7 +146,6 @@ isCustom:
 isNoIssue: 
 
 
-
 GitHub
 false 
 isGitHub: 
@@ -167,7 +153,6 @@ isGitLab:
 isJira: 
 isCustom: 
 isNoIssue: 
-
 
 
 Jira
@@ -179,7 +164,6 @@ isCustom:
 isNoIssue: 
 
 
-
 No issue supplied
 false 
 isGitHub: 
@@ -187,8 +171,6 @@ isGitLab:
 isJira: 
 isCustom: 
 isNoIssue: 
-
-
 
 
 

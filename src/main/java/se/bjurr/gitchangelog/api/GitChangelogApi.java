@@ -89,6 +89,7 @@ public class GitChangelogApi {
    */
   public void render(final Writer writer) throws GitChangelogRepositoryException {
     Handlebars handlebars = new Handlebars();
+    handlebars.setPrettyPrint(true);
     Template template = null;
     String templateString = getTemplateString();
     try {

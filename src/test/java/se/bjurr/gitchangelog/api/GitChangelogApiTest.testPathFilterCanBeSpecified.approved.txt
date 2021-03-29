@@ -37,19 +37,12 @@ Changelog of Git Changelog.
 
 Extended variable: 
 
-
 * Tomas Bjerre
-
 * jakob
-
 * Alik Kurdyukov
-
 * Heorhi Bisiaryn
-
 * Ivan Korolev
-
 * Jonas Kalderstam
-
 
 
 ---------------------------------------------

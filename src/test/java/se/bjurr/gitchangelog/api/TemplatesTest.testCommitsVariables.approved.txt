@@ -78,7 +78,6 @@ changelog:
 
 Changelog of Git Changelog.
 
-
 ## Commit 8371342ad0d887d
  Message: Some stuff in test again
  
@@ -86,8 +85,6 @@ Changelog of Git Changelog.
 
  Message Body: 
  
-
-
 
 ## Commit 090e7f4b11223c4
  Message: Some stuff in test-feature
@@ -97,8 +94,6 @@ Changelog of Git Changelog.
  Message Body: 
  
 
-
-
 ## Commit c5d37f5e964afd5
  Message: some stuff in test branch
  
@@ -106,8 +101,6 @@ Changelog of Git Changelog.
 
  Message Body: 
  
-
-
 
 ## Commit 87c0d7288896171
  Message: Multiple issues
@@ -117,8 +110,6 @@ Changelog of Git Changelog.
  Message Body: 
  
 
-
-
 ## Commit 20e333f8e108f77
  Message: More stuff tagged with  twice
  
@@ -126,8 +117,6 @@ Changelog of Git Changelog.
 
  Message Body: 
  
-
-
 
 ## Commit d50a3e332f9fcba
  Message: Adding stuff  gh 12
@@ -137,8 +126,6 @@ Changelog of Git Changelog.
  Message Body: 
  
 
-
-
 ## Commit cc0fbbd8bc63955
  Message: Adding stuff with a jira
  
@@ -146,8 +133,6 @@ Changelog of Git Changelog.
 
  Message Body: 
  
-
-
 
 ## Commit a9bd03b34b255ff
  Message: Adding cq stuff with CQ
@@ -157,8 +142,6 @@ Changelog of Git Changelog.
  Message Body: 
  
 
-
-
 ## Commit 5607ea23fa8aaf7
  Message: Adding stuff
  with gh again
@@ -167,11 +150,8 @@ Changelog of Git Changelog.
 
  Message Body:  with gh again
  
-
  Item: with gh again
  
-
-
 
 ## Commit 3f62b35d1317311
  Message: This is 1.0 tagged commit
@@ -181,8 +161,6 @@ Changelog of Git Changelog.
  Message Body: 
  
 
-
-
 ## Commit 71d845c18924504
  Message: Adding stuff, no issue
  
@@ -190,8 +168,6 @@ Changelog of Git Changelog.
 
  Message Body: 
  
-
-
 
 ## Commit 071a14f29020758
  Message: Adding stuff with a jira
@@ -201,8 +177,6 @@ Changelog of Git Changelog.
  Message Body: 
  
 
-
-
 ## Commit 326d4d01c0a9415
  Message: Adding stuff with gh 20
  
@@ -211,8 +185,6 @@ Changelog of Git Changelog.
  Message Body: 
  
 
-
-
 ## Commit 7cd30508cecdc5b
  Message: Adding stuff without issue
  
@@ -220,8 +192,6 @@ Changelog of Git Changelog.
 
  Message Body: 
  
-
-
 
 
 
