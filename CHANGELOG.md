@@ -2,6 +2,15 @@
 
 Changelog for tomasbjerre git-changelog-lib.
 
+## 1.96
+### Jira JENKINS-65252   
+
+**pretty printing output**
+
+
+[bea18ab90db148c](https://github.com/tomasbjerre/git-changelog-lib/commit/bea18ab90db148c) Tomas Bjerre *2021-03-29 15:33:00*
+
+
 ## 1.95
 ### Jira mediawiki-1   
 
