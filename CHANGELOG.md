@@ -2,6 +2,15 @@
 
 Changelog for tomasbjerre git-changelog-lib.
 
+## Next release
+### Other changes
+
+**using new build script**
+
+
+[82726fdb6608dca](https://github.com/tomasbjerre/git-changelog-lib/commit/82726fdb6608dca) Tomas Bjerre *2021-04-02 18:37:49*
+
+
 ## 1.96
 ### Jira JENKINS-65252   
 
