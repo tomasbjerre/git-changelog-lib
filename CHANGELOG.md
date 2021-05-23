@@ -3,6 +3,15 @@
 
 Changelog of git-changelog-lib.
 
+## 1.146.0
+### No issue
+
+**feat: renaming methods in api**
+
+
+[95a7b6623a92c36](https://github.com/tomasbjerre/git-changelog-lib/commit/95a7b6623a92c36) Tomas Bjerre *2021-05-23 16:19:36*
+
+
 ## 1.145.0
 ### GitHub [#92](https://github.com/tomasbjerre/git-changelog-lib/issues/92) Add support for Changelog context pre-processing.    *enhancement*  
 
