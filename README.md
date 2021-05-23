@@ -2,7 +2,7 @@
 
 This is a library for generating a changelog, or releasenotes, from a GIT repository. It can also be run as a standalone program, Gradle plugin, Maven plugin or Jenkins plugin.
 
-It is fully configurable with a [Mustache](http://mustache.github.io/) template. That can:
+It is fully configurable with a [Mustache (Handlebars)](https://github.com/jknack/handlebars.java) template. That can:
 
  * Be stored to file, like `CHANGELOG.md`. There are some templates used for testing available [here](/src/test/resources/templatetest).
  * Or just rendered to a `String`.

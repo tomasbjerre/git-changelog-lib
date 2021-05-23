@@ -28,6 +28,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 import se.bjurr.gitchangelog.api.model.Changelog;
 import se.bjurr.gitchangelog.api.model.Issue;
 
@@ -182,11 +184,17 @@ public class Settings implements Serializable {
    */
   private String gitLabProjectName;
 
+  /** Regular expression to use when determining next semantic version based on commits. */
+  private String semanticMajorPattern;
+
+  /** Regular expression to use when determining next semantic version based on commits. */
+  private String semanticMinorPattern;
+
   public String getSubDirFilter() {
-    return fromNullable(subDirFilter).or("");
+    return fromNullable(this.subDirFilter).or("");
   }
 
-  public void setPathFilter(String subDirFilter) {
+  public void setPathFilter(final String subDirFilter) {
     this.subDirFilter = subDirFilter;
   }
 
@@ -215,11 +223,11 @@ public class Settings implements Serializable {
   }
 
   public Optional<String> getFromRef() {
-    return fromNullable(fromRef);
+    return fromNullable(this.fromRef);
   }
 
   public Optional<String> getToRef() {
-    return fromNullable(toRef);
+    return fromNullable(this.toRef);
   }
 
   public void setFromRepo(final String fromRepo) {
@@ -227,7 +235,7 @@ public class Settings implements Serializable {
   }
 
   public String getFromRepo() {
-    return fromNullable(fromRepo).or(".");
+    return fromNullable(this.fromRepo).or(".");
   }
 
   public void setIgnoreCommitsIfMessageMatches(final String ignoreCommitsIfMessageMatches) {
@@ -255,34 +263,34 @@ public class Settings implements Serializable {
   }
 
   public void addCustomIssue(final SettingsIssue customIssue) {
-    if (customIssues == null) {
-      customIssues = newArrayList();
+    if (this.customIssues == null) {
+      this.customIssues = newArrayList();
     }
-    customIssues.add(customIssue);
+    this.customIssues.add(customIssue);
   }
 
   public List<SettingsIssue> getCustomIssues() {
-    if (customIssues == null) {
+    if (this.customIssues == null) {
       return new ArrayList<>();
     } else {
-      return customIssues;
+      return this.customIssues;
     }
   }
 
   public String getIgnoreCommitsIfMessageMatches() {
-    return fromNullable(ignoreCommitsIfMessageMatches).or(DEFAULT_IGNORE_COMMITS_REGEXP);
+    return fromNullable(this.ignoreCommitsIfMessageMatches).or(DEFAULT_IGNORE_COMMITS_REGEXP);
   }
 
   public Optional<Date> getIgnoreCommitsIfOlderThan() {
-    return fromNullable(ignoreCommitsIfOlderThan);
+    return fromNullable(this.ignoreCommitsIfOlderThan);
   }
 
   public String getJiraIssuePattern() {
-    return fromNullable(jiraIssuePattern).or(DEFAULT_JIRA_ISSUE_PATTEN);
+    return fromNullable(this.jiraIssuePattern).or(DEFAULT_JIRA_ISSUE_PATTEN);
   }
 
   public Optional<String> getJiraServer() {
-    return fromNullable(jiraServer);
+    return fromNullable(this.jiraServer);
   }
 
   public static Settings fromFile(final URL url) {
@@ -302,19 +310,19 @@ public class Settings implements Serializable {
   }
 
   public Optional<String> getFromCommit() {
-    return fromNullable(emptyToNull(fromCommit));
+    return fromNullable(emptyToNull(this.fromCommit));
   }
 
   public Optional<String> getToCommit() {
-    return fromNullable(emptyToNull(toCommit));
+    return fromNullable(emptyToNull(this.toCommit));
   }
 
   public String getUntaggedName() {
-    return fromNullable(untaggedName).or(DEFAULT_UNTAGGED_NAME);
+    return fromNullable(this.untaggedName).or(DEFAULT_UNTAGGED_NAME);
   }
 
   public Optional<String> getIgnoreTagsIfNameMatches() {
-    return fromNullable(ignoreTagsIfNameMatches);
+    return fromNullable(this.ignoreTagsIfNameMatches);
   }
 
   public void setUntaggedName(final String untaggedName) {
@@ -322,7 +330,7 @@ public class Settings implements Serializable {
   }
 
   public String getTemplatePath() {
-    return fromNullable(templatePath).or("changelog.mustache");
+    return fromNullable(this.templatePath).or("changelog.mustache");
   }
 
   public void setTemplatePath(final String templatePath) {
@@ -330,11 +338,11 @@ public class Settings implements Serializable {
   }
 
   public String getReadableTagName() {
-    return fromNullable(readableTagName).or(DEFAULT_READABLE_TAG_NAME);
+    return fromNullable(this.readableTagName).or(DEFAULT_READABLE_TAG_NAME);
   }
 
   public String getDateFormat() {
-    return fromNullable(dateFormat).or(DEFAULT_DATEFORMAT);
+    return fromNullable(this.dateFormat).or(DEFAULT_DATEFORMAT);
   }
 
   public void setDateFormat(final String dateFormat) {
@@ -350,7 +358,7 @@ public class Settings implements Serializable {
   }
 
   public String getNoIssueName() {
-    return fromNullable(noIssueName).or(DEFAULT_NO_ISSUE_NAME);
+    return fromNullable(this.noIssueName).or(DEFAULT_NO_ISSUE_NAME);
   }
 
   public void setTimeZone(final String timeZone) {
@@ -358,7 +366,7 @@ public class Settings implements Serializable {
   }
 
   public String getTimeZone() {
-    return fromNullable(timeZone).or(DEFAULT_TIMEZONE);
+    return fromNullable(this.timeZone).or(DEFAULT_TIMEZONE);
   }
 
   public static Settings defaultSettings() {
@@ -376,15 +384,15 @@ public class Settings implements Serializable {
   }
 
   public Boolean removeIssueFromMessage() {
-    return fromNullable(removeIssueFromMessage).or(DEFAULT_REMOVE_ISSUE);
+    return fromNullable(this.removeIssueFromMessage).or(DEFAULT_REMOVE_ISSUE);
   }
 
   public Optional<String> getGitHubApi() {
-    return fromNullable(gitHubApi);
+    return fromNullable(this.gitHubApi);
   }
 
   public Optional<String> getGitHubToken() {
-    return fromNullable(gitHubToken);
+    return fromNullable(this.gitHubToken);
   }
 
   public void setGitHubApi(final String gitHubApi) {
@@ -400,11 +408,11 @@ public class Settings implements Serializable {
   }
 
   public String getGitHubIssuePattern() {
-    return fromNullable(gitHubIssuePattern).or(DEFAULT_GITHUB_ISSUE_PATTERN);
+    return fromNullable(this.gitHubIssuePattern).or(DEFAULT_GITHUB_ISSUE_PATTERN);
   }
 
   public Optional<String> getJiraUsername() {
-    return fromNullable(jiraUsername);
+    return fromNullable(this.jiraUsername);
   }
 
   public void setJiraPassword(final String jiraPassword) {
@@ -420,11 +428,11 @@ public class Settings implements Serializable {
   }
 
   public Optional<String> getJiraPassword() {
-    return fromNullable(jiraPassword);
+    return fromNullable(this.jiraPassword);
   }
 
   public Optional<String> getJiraToken() {
-    return fromNullable(jiraToken);
+    return fromNullable(this.jiraToken);
   }
 
   public void setExtendedVariables(final Map<String, Object> extendedVariables) {
@@ -432,11 +440,11 @@ public class Settings implements Serializable {
   }
 
   public Map<String, Object> getExtendedVariables() {
-    return extendedVariables;
+    return this.extendedVariables;
   }
 
   public Map<String, String> getExtendedRestHeaders() {
-    return extendedRestHeaders;
+    return this.extendedRestHeaders;
   }
 
   public void setExtendedRestHeaders(final Map<String, String> extendedRestHeaders) {
@@ -448,7 +456,7 @@ public class Settings implements Serializable {
   }
 
   public boolean ignoreCommitsWithoutIssue() {
-    return ignoreCommitsWithoutIssue;
+    return this.ignoreCommitsWithoutIssue;
   }
 
   public void setGitLabIssuePattern(final String gitLabIssuePattern) {
@@ -468,18 +476,43 @@ public class Settings implements Serializable {
   }
 
   public Optional<String> getGitLabServer() {
-    return fromNullable(gitLabServer);
+    return fromNullable(this.gitLabServer);
   }
 
   public Optional<String> getGitLabToken() {
-    return fromNullable(gitLabToken);
+    return fromNullable(this.gitLabToken);
   }
 
   public String getGitLabIssuePattern() {
-    return fromNullable(gitLabIssuePattern).or(DEFAULT_GITLAB_ISSUE_PATTERN);
+    return fromNullable(this.gitLabIssuePattern).or(DEFAULT_GITLAB_ISSUE_PATTERN);
   }
 
   public Optional<String> getGitLabProjectName() {
-    return fromNullable(gitLabProjectName);
+    return fromNullable(this.gitLabProjectName);
+  }
+
+  public Optional<String> getSemanticMajorPattern() {
+    return fromNullable(this.semanticMajorPattern);
+  }
+
+  public void setSemanticMajorPattern(final String semanticMajorPattern) {
+    this.semanticMajorPattern = this.isRegexp(semanticMajorPattern, "semanticMajorPattern");
+  }
+
+  public Optional<String> getSemanticMinorPattern() {
+    return fromNullable(this.semanticMinorPattern);
+  }
+
+  public void setSemanticMinorPattern(final String semanticMinorPattern) {
+    this.semanticMinorPattern = this.isRegexp(semanticMinorPattern, "semanticMinorPattern");
+  }
+
+  private String isRegexp(final String pattern, final String string) {
+    try {
+      Pattern.compile(pattern);
+    } catch (final PatternSyntaxException e) {
+      throw new RuntimeException(pattern + " in " + string + " is not valid regexp.");
+    }
+    return pattern;
   }
 }

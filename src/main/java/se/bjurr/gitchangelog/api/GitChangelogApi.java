@@ -4,6 +4,7 @@ import static com.google.common.base.Optional.absent;
 import static com.google.common.base.Optional.of;
 import static com.google.common.io.Files.createParentDirs;
 import static com.google.common.io.Files.write;
+import static java.nio.charset.StandardCharsets.UTF_8;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.REF_MASTER;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 import static se.bjurr.gitchangelog.internal.git.GitRepoDataHelper.removeCommitsWithoutIssue;
@@ -29,6 +30,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 import org.eclipse.jgit.lib.ObjectId;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
 import se.bjurr.gitchangelog.api.model.Changelog;
@@ -42,6 +45,8 @@ import se.bjurr.gitchangelog.internal.model.ParsedIssue;
 import se.bjurr.gitchangelog.internal.model.Transformer;
 import se.bjurr.gitchangelog.internal.settings.Settings;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
+import se.bjurr.gitchangelog.semantic.SemanticVersion;
+import se.bjurr.gitchangelog.semantic.SemanticVersioning;
 
 public class GitChangelogApi {
 
@@ -51,9 +56,13 @@ public class GitChangelogApi {
 
   private Settings settings;
   private String templateContent;
+  private Handlebars handlebars;
+  private final AtomicInteger helperCounter = new AtomicInteger();
 
   private GitChangelogApi() {
     this.settings = new Settings();
+    this.handlebars = new Handlebars();
+    this.handlebars.setPrettyPrint(true);
   }
 
   private GitChangelogApi(final Settings settings) {
@@ -69,10 +78,10 @@ public class GitChangelogApi {
     return this.getChangelog(true);
   }
 
-  private Changelog getChangelog(boolean shouldUseIntegrationIfConfigured)
+  private Changelog getChangelog(final boolean shouldUseIntegrationIfConfigured)
       throws GitChangelogRepositoryException {
     try (GitRepo gitRepo = new GitRepo(new File(this.settings.getFromRepo()))) {
-      return getChangelog(gitRepo, shouldUseIntegrationIfConfigured);
+      return this.getChangelog(gitRepo, shouldUseIntegrationIfConfigured);
     } catch (final IOException e) {
       throw new GitChangelogRepositoryException("", e);
     }
@@ -88,24 +97,22 @@ public class GitChangelogApi {
    * @throws GitChangelogRepositoryException
    */
   public void render(final Writer writer) throws GitChangelogRepositoryException {
-    Handlebars handlebars = new Handlebars();
-    handlebars.setPrettyPrint(true);
     Template template = null;
-    String templateString = getTemplateString();
+    final String templateString = this.getTemplateString();
     try {
-      template = handlebars.compileInline(templateString);
-    } catch (IOException e) {
+      template = this.handlebars.compileInline(templateString);
+    } catch (final IOException e) {
       throw new RuntimeException("Cannot render:\n\n" + templateString, e);
     }
 
     try {
       final Changelog changelog =
           this.getChangelog(shouldUseIntegrationIfConfigured(templateString));
-      Map<String, Object> extendedVariables = this.settings.getExtendedVariables();
+      final Map<String, Object> extendedVariables = this.settings.getExtendedVariables();
       if (extendedVariables == null) {
         throw new IllegalStateException("extendedVariables cannot be null");
       }
-      Context changelogContext = Context.newContext(changelog).combine(extendedVariables);
+      final Context changelogContext = Context.newContext(changelog).combine(extendedVariables);
       template.apply(changelogContext, writer);
     } catch (final IOException e) {
       // Should be impossible!
@@ -115,27 +122,27 @@ public class GitChangelogApi {
 
   public String getTemplateString() {
     if (this.templateContent != null) {
-      return templateContent;
+      return this.templateContent;
     }
     String templateString;
     try {
       byte[] templateBytes = null;
-      Path templatePath = Paths.get(this.settings.getTemplatePath());
+      final Path templatePath = Paths.get(this.settings.getTemplatePath());
       if (templatePath.toFile().exists()) {
         templateBytes = Files.readAllBytes(templatePath);
       } else {
-        URL templateUrl = GitChangelogApi.class.getResource(settings.getTemplatePath());
+        URL templateUrl = GitChangelogApi.class.getResource(this.settings.getTemplatePath());
         if (templateUrl == null) {
-          templateUrl = GitChangelogApi.class.getResource("/" + settings.getTemplatePath());
+          templateUrl = GitChangelogApi.class.getResource("/" + this.settings.getTemplatePath());
           if (templateUrl == null) {
             throw new FileNotFoundException(
-                "Was unable to find file, or resouce, \"" + settings.getTemplatePath() + "\"");
+                "Was unable to find file, or resouce, \"" + this.settings.getTemplatePath() + "\"");
           }
         }
         templateBytes = Resources.toByteArray(templateUrl);
       }
       templateString = new String(templateBytes, StandardCharsets.UTF_8);
-    } catch (IOException e) {
+    } catch (final IOException e) {
       throw new RuntimeException(this.settings.getTemplatePath(), e);
     }
     return templateString;
@@ -152,7 +159,7 @@ public class GitChangelogApi {
   /** Get the changelog. */
   public String render() throws GitChangelogRepositoryException {
     final Writer writer = new StringWriter();
-    render(writer);
+    this.render(writer);
     return writer.toString();
   }
 
@@ -164,7 +171,81 @@ public class GitChangelogApi {
    */
   public void toFile(final File file) throws GitChangelogRepositoryException, IOException {
     createParentDirs(file);
-    write(render().getBytes("UTF-8"), file);
+    write(this.render().getBytes(UTF_8), file);
+  }
+
+  /** Prepend the changelog to the given file. */
+  public void prependToFile(final File file) throws GitChangelogRepositoryException, IOException {
+    if (!file.exists()) {
+      this.toFile(file);
+      return;
+    }
+    final String prepend = this.render();
+    final String changelogContent = new String(Files.readAllBytes(file.toPath()));
+    write((prepend + "\n" + changelogContent).getBytes(UTF_8), file);
+  }
+
+  /**
+   * Get next semantic version. This requires version-pattern and major/minor/patch patterns to have
+   * been configured.
+   */
+  public SemanticVersion getNextSemanticVersion() throws GitChangelogRepositoryException {
+    final Changelog changelog = this.getChangelog();
+    final List<String> tags = this.getTagsAsStrings(changelog);
+    final List<String> commits = this.getCommitMessages(changelog);
+    final String majorVersionPattern = this.settings.getSemanticMajorPattern().orNull();
+    final String minorVersionPattern = this.settings.getSemanticMinorPattern().orNull();
+    final SemanticVersioning semanticVersioning =
+        new SemanticVersioning(tags, commits, majorVersionPattern, minorVersionPattern);
+    return semanticVersioning.getNextVersion();
+  }
+
+  public SemanticVersion getHighestSemanticVersion() throws GitChangelogRepositoryException {
+    final Changelog changelog = this.getChangelog();
+    final List<String> tags = this.getTagsAsStrings(changelog);
+    final List<String> commits = this.getCommitMessages(changelog);
+    final String majorVersionPattern = this.settings.getSemanticMajorPattern().orNull();
+    final String minorVersionPattern = this.settings.getSemanticMinorPattern().orNull();
+    final SemanticVersioning semanticVersioning =
+        new SemanticVersioning(tags, commits, majorVersionPattern, minorVersionPattern);
+    return semanticVersioning.getHighestVersion();
+  }
+
+  private List<String> getCommitMessages(final Changelog changelog) {
+    return changelog
+        .getCommits()
+        .stream()
+        .map((it) -> it.getMessage())
+        .collect(Collectors.toList());
+  }
+
+  private List<String> getTagsAsStrings(final Changelog changelog) {
+    return changelog.getTags().stream().map((it) -> it.getName()).collect(Collectors.toList());
+  }
+
+  /**
+   * Will be used to determine next semantic version.
+   *
+   * @return
+   */
+  public GitChangelogApi withSemanticPatterns(final String major, final String minor)
+      throws GitChangelogRepositoryException, IOException {
+    this.settings.setSemanticMajorPattern(major);
+    this.settings.setSemanticMinorPattern(minor);
+    return this;
+  }
+
+  /**
+   * Registers Handlebars helper to use in template.
+   *
+   * @return
+   * @see https://github.com/jknack/handlebars.java/tree/master#with-plain-javascript
+   */
+  public GitChangelogApi withHandlebarsHelper(final String javascriptHelper)
+      throws GitChangelogRepositoryException, IOException {
+    final int helperIndex = this.helperCounter.getAndIncrement();
+    this.handlebars.registerHelpers("helper-" + helperIndex, javascriptHelper);
+    return this;
   }
 
   /**
@@ -465,14 +546,15 @@ public class GitChangelogApi {
     return this;
   }
 
-  private Changelog getChangelog(final GitRepo gitRepo, boolean shouldUseIntegrationIfConfigured)
+  private Changelog getChangelog(
+      final GitRepo gitRepo, final boolean shouldUseIntegrationIfConfigured)
       throws GitChangelogRepositoryException {
-    gitRepo.setTreeFilter(settings.getSubDirFilter());
+    gitRepo.setTreeFilter(this.settings.getSubDirFilter());
     final ObjectId fromId =
-        getId(gitRepo, this.settings.getFromRef(), this.settings.getFromCommit()) //
+        this.getId(gitRepo, this.settings.getFromRef(), this.settings.getFromCommit()) //
             .or(gitRepo.getCommit(ZERO_COMMIT));
     final Optional<ObjectId> toIdOpt =
-        getId(gitRepo, this.settings.getToRef(), this.settings.getToCommit());
+        this.getId(gitRepo, this.settings.getToRef(), this.settings.getToCommit());
     ObjectId toId;
     if (toIdOpt.isPresent()) {
       toId = toIdOpt.get();
@@ -486,12 +568,12 @@ public class GitChangelogApi {
             this.settings.getUntaggedName(),
             this.settings.getIgnoreTagsIfNameMatches());
 
-    if (!settings.getGitHubApi().isPresent()) {
-      settings.setGitHubApi(gitRepoData.findGitHubApi().orNull());
+    if (!this.settings.getGitHubApi().isPresent()) {
+      this.settings.setGitHubApi(gitRepoData.findGitHubApi().orNull());
     }
-    if (!settings.getGitLabServer().isPresent()) {
-      settings.setGitLabServer(gitRepoData.findGitLabServer().orNull());
-      settings.setGitLabProjectName(gitRepoData.findOwnerName().orNull());
+    if (!this.settings.getGitLabServer().isPresent()) {
+      this.settings.setGitLabServer(gitRepoData.findGitLabServer().orNull());
+      this.settings.setGitLabProjectName(gitRepoData.findOwnerName().orNull());
     }
 
     List<GitCommit> diff = gitRepoData.getGitCommits();
