@@ -8,7 +8,7 @@ Changelog for tomasbjerre git-changelog-lib.
 **feat: support semantic versioning (refs )**
 
 
-[788448e8fd22274](https://github.com/tomasbjerre/git-changelog-lib/commit/788448e8fd22274) Tomas Bjerre *2021-05-23 08:43:06*
+[53209c9e5da9c75](https://github.com/tomasbjerre/git-changelog-lib/commit/53209c9e5da9c75) Tomas Bjerre *2021-05-23 15:52:50*
 
 
 ### Other changes
