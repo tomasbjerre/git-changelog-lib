@@ -3,6 +3,15 @@
 
 Changelog of git-changelog-lib.
 
+## 1.147.1
+### No issue
+
+**fix: dont use integrations when determining versions**
+
+
+[601c009bff8d551](https://github.com/tomasbjerre/git-changelog-lib/commit/601c009bff8d551) Tomas Bjerre *2021-05-23 17:14:16*
+
+
 ## 1.146.0
 ### No issue
 
