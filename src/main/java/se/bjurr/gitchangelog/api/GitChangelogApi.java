@@ -223,14 +223,16 @@ public class GitChangelogApi {
     return changelog.getTags().stream().map((it) -> it.getName()).collect(Collectors.toList());
   }
 
-  /**
-   * Will be used to determine next semantic version.
-   *
-   * @return
-   */
-  public GitChangelogApi withSemanticPatterns(final String major, final String minor)
-      throws GitChangelogRepositoryException, IOException {
+  /** Will be used to determine next semantic version. */
+  public GitChangelogApi withSemanticMajorVersionPattern(final String major)
+      throws GitChangelogRepositoryException {
     this.settings.setSemanticMajorPattern(major);
+    return this;
+  }
+
+  /** Will be used to determine next semantic version. */
+  public GitChangelogApi withSemanticMinorVersionPattern(final String minor)
+      throws GitChangelogRepositoryException {
     this.settings.setSemanticMinorPattern(minor);
     return this;
   }

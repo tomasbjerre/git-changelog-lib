@@ -32,7 +32,8 @@ public class SemanticVersioningTest {
     final GitChangelogApi builder =
         gitChangelogApiBuilder() //
             .withToCommit("7c1c366") //
-            .withSemanticPatterns("breaking:.*", "update:.*");
+            .withSemanticMajorVersionPattern("breaking:.*") //
+            .withSemanticMinorVersionPattern("update:.*");
 
     assertThat(builder.getNextSemanticVersion().toString()).isEqualTo("1.144.5");
     assertThat(builder.getHighestSemanticVersion().toString()).isEqualTo("1.144.4");
