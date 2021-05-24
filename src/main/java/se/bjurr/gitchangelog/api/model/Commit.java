@@ -12,17 +12,17 @@ import java.util.List;
 public class Commit implements Serializable {
   private static final long serialVersionUID = 6622555148468372816L;
 
-  private static List<String> notFirst(List<String> stringList) {
+  private static List<String> notFirst(final List<String> stringList) {
     return stringList.subList(1, stringList.size());
   }
 
-  private static String toHash(String input) {
+  private static String toHash(final String input) {
     return input.substring(0, 15);
   }
 
-  private static List<String> toNoEmptyStringsList(String message) {
-    List<String> toReturn = newArrayList();
-    for (String part : Splitter.on("\n").split(message)) {
+  private static List<String> toNoEmptyStringsList(final String message) {
+    final List<String> toReturn = newArrayList();
+    for (final String part : Splitter.on("\n").split(message)) {
       if (!part.isEmpty()) {
         toReturn.add(part);
       }
@@ -31,10 +31,10 @@ public class Commit implements Serializable {
   }
 
   @VisibleForTesting
-  static String toMessageBody(String message) {
-    List<String> stringList = toNoEmptyStringsList(message);
+  static String toMessageBody(final String message) {
+    final List<String> stringList = toNoEmptyStringsList(message);
     if (stringList.size() > 1) {
-      List<String> notFirst = notFirst(stringList);
+      final List<String> notFirst = notFirst(stringList);
       return on("\n") //
           .join(notFirst);
     }
@@ -42,12 +42,12 @@ public class Commit implements Serializable {
   }
 
   @VisibleForTesting
-  static List<String> toMessageItems(String message) {
-    List<String> toReturn = newArrayList();
-    List<String> stringList = toNoEmptyStringsList(message);
+  static List<String> toMessageItems(final String message) {
+    final List<String> toReturn = newArrayList();
+    final List<String> stringList = toNoEmptyStringsList(message);
     if (stringList.size() > 1) {
-      List<String> notFirst = notFirst(stringList);
-      for (String part : notFirst) {
+      final List<String> notFirst = notFirst(stringList);
+      for (final String part : notFirst) {
         String candidate = part.trim();
         if (candidate.startsWith("*")) {
           candidate = candidate.substring(1).trim();
@@ -61,8 +61,8 @@ public class Commit implements Serializable {
   }
 
   @VisibleForTesting
-  static String toMessageTitle(String message) {
-    List<String> stringList = toNoEmptyStringsList(message);
+  static String toMessageTitle(final String message) {
+    final List<String> stringList = toNoEmptyStringsList(message);
     if (stringList.size() > 0) {
       return stringList.get(0).trim();
     }
@@ -79,13 +79,13 @@ public class Commit implements Serializable {
   private final String message;
 
   public Commit(
-      String authorName,
-      String authorEmailAddress,
-      String commitTime,
-      Long commitTimeLong,
-      String message,
-      String hash,
-      Boolean merge) {
+      final String authorName,
+      final String authorEmailAddress,
+      final String commitTime,
+      final Long commitTimeLong,
+      final String message,
+      final String hash,
+      final Boolean merge) {
     this.authorName = checkNotNull(authorName, "authorName");
     this.authorEmailAddress = checkNotNull(authorEmailAddress, "authorEmailAddress");
     this.message = checkNotNull(message, "message").trim();

@@ -1,0 +1,90 @@
+----------------------------
+feat: subject
+
+commitDescription: subject
+
+commitFixes: []
+
+commitRefs: []
+
+commitScopes: []
+
+commitType: feat
+
+isType: true
+
+----------------------------
+chore(dependencies): subject
+
+commitDescription: subject
+
+commitFixes: []
+
+commitRefs: []
+
+commitScopes: [dependencies]
+
+commitType: chore
+
+isType: false
+
+----------------------------
+chore(dependencies:formatting): subject
+
+commitDescription: subject
+
+commitFixes: []
+
+commitRefs: []
+
+commitScopes: [dependencies, formatting]
+
+commitType: chore
+
+isType: false
+
+----------------------------
+chore: subject (refs ABC-123)
+
+commitDescription: subject
+
+commitFixes: []
+
+commitRefs: [ABC-123]
+
+commitScopes: []
+
+commitType: chore
+
+isType: false
+
+----------------------------
+chore: subject (refs ABC-123 DEF-456)
+
+commitDescription: subject
+
+commitFixes: []
+
+commitRefs: [ABC-123, DEF-456]
+
+commitScopes: []
+
+commitType: chore
+
+isType: false
+
+----------------------------
+chore: subject (fixes ABC-123
+
+commitDescription: subject
+
+commitFixes: [ABC-123]
+
+commitRefs: []
+
+commitScopes: []
+
+commitType: chore
+
+isType: false
+

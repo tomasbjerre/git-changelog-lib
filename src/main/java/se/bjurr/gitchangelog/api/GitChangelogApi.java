@@ -12,6 +12,7 @@ import static se.bjurr.gitchangelog.internal.settings.Settings.fromFile;
 
 import com.github.jknack.handlebars.Context;
 import com.github.jknack.handlebars.Handlebars;
+import com.github.jknack.handlebars.Helper;
 import com.github.jknack.handlebars.Template;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Optional;
@@ -30,10 +31,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import org.eclipse.jgit.lib.ObjectId;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
+import se.bjurr.gitchangelog.api.helpers.Helpers;
 import se.bjurr.gitchangelog.api.model.Changelog;
 import se.bjurr.gitchangelog.api.model.Issue;
 import se.bjurr.gitchangelog.internal.git.GitRepo;
@@ -63,6 +66,15 @@ public class GitChangelogApi {
     this.settings = new Settings();
     this.handlebars = new Handlebars();
     this.handlebars.setPrettyPrint(true);
+    for (final Entry<String, Helper<?>> helper : Helpers.COMMIT_HELPERS.entrySet()) {
+      this.handlebars.registerHelper(helper.getKey(), helper.getValue());
+    }
+    for (final Entry<String, Helper<?>> helper : Helpers.COMMITS_HELPERS.entrySet()) {
+      this.handlebars.registerHelper(helper.getKey(), helper.getValue());
+    }
+    for (final Entry<String, Helper<?>> helper : Helpers.TAG_HELPERS.entrySet()) {
+      this.handlebars.registerHelper(helper.getKey(), helper.getValue());
+    }
   }
 
   private GitChangelogApi(final Settings settings) {
@@ -233,15 +245,26 @@ public class GitChangelogApi {
   }
 
   /**
-   * Registers Handlebars helper to use in template.
+   * Registers (Javscript) Handlebars helper to use in template.
    *
-   * @return
    * @see https://github.com/jknack/handlebars.java/tree/master#with-plain-javascript
    */
   public GitChangelogApi withHandlebarsHelper(final String javascriptHelper)
       throws GitChangelogRepositoryException, IOException {
     final int helperIndex = this.helperCounter.getAndIncrement();
     this.handlebars.registerHelpers("helper-" + helperIndex, javascriptHelper);
+    return this;
+  }
+
+  /**
+   * Registers (Java) Handlebars helper to use in template.
+   *
+   * @return
+   * @see https://github.com/jknack/handlebars.java/tree/master#with-plain-javascript
+   */
+  public GitChangelogApi withHandlebarsHelper(final String name, final Helper<?> helper)
+      throws GitChangelogRepositoryException, IOException {
+    this.handlebars.registerHelper(name, helper);
     return this;
   }
 
