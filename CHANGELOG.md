@@ -3,6 +3,15 @@
 
 Changelog of git-changelog-lib.
 
+## 1.147.2
+### No issue
+
+**fix: dont require semantic patterns to get highest tag**
+
+
+[38fc504697f8d04](https://github.com/tomasbjerre/git-changelog-lib/commit/38fc504697f8d04) Tomas Bjerre *2021-05-24 14:08:12*
+
+
 ## 1.147.1
 ### No issue
 
