@@ -8,6 +8,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import se.bjurr.gitchangelog.api.GitChangelogApi;
+import se.bjurr.gitchangelog.internal.semantic.SemanticVersioning;
 
 public class SemanticVersioningTest {
 
@@ -44,7 +45,10 @@ public class SemanticVersioningTest {
     this.tags.add("v1.0.0");
     this.commits.add("breaking: whatever");
 
-    assertThat(this.sut.getHighestVersion() + " -> " + this.sut.getNextVersion()) //
+    assertThat(
+            SemanticVersioning.getHighestVersion(this.tags)
+                + " -> "
+                + this.sut.getNextVersion()) //
         .isEqualTo("1.0.0 -> 2.0.0");
   }
 
@@ -53,7 +57,10 @@ public class SemanticVersioningTest {
     this.tags.add("v1.0.0");
     this.commits.add("update: whatever");
 
-    assertThat(this.sut.getHighestVersion() + " -> " + this.sut.getNextVersion()) //
+    assertThat(
+            SemanticVersioning.getHighestVersion(this.tags)
+                + " -> "
+                + this.sut.getNextVersion()) //
         .isEqualTo("1.0.0 -> 1.1.0");
   }
 
@@ -62,7 +69,10 @@ public class SemanticVersioningTest {
     this.tags.add("v1.0.0");
     this.commits.add("chore: whatever");
 
-    assertThat(this.sut.getHighestVersion() + " -> " + this.sut.getNextVersion()) //
+    assertThat(
+            SemanticVersioning.getHighestVersion(this.tags)
+                + " -> "
+                + this.sut.getNextVersion()) //
         .isEqualTo("1.0.0 -> 1.0.1");
   }
 }

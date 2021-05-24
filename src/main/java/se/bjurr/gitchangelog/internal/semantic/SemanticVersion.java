@@ -1,4 +1,4 @@
-package se.bjurr.gitchangelog.semantic;
+package se.bjurr.gitchangelog.internal.semantic;
 
 import java.util.Optional;
 

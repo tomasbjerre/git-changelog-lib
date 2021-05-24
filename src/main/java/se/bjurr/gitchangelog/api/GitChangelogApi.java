@@ -43,10 +43,10 @@ import se.bjurr.gitchangelog.internal.git.model.GitTag;
 import se.bjurr.gitchangelog.internal.issues.IssueParser;
 import se.bjurr.gitchangelog.internal.model.ParsedIssue;
 import se.bjurr.gitchangelog.internal.model.Transformer;
+import se.bjurr.gitchangelog.internal.semantic.SemanticVersion;
+import se.bjurr.gitchangelog.internal.semantic.SemanticVersioning;
 import se.bjurr.gitchangelog.internal.settings.Settings;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
-import se.bjurr.gitchangelog.semantic.SemanticVersion;
-import se.bjurr.gitchangelog.semantic.SemanticVersioning;
 
 public class GitChangelogApi {
 
@@ -203,12 +203,7 @@ public class GitChangelogApi {
   public SemanticVersion getHighestSemanticVersion() throws GitChangelogRepositoryException {
     final Changelog changelog = this.getChangelog(false);
     final List<String> tags = this.getTagsAsStrings(changelog);
-    final List<String> commits = this.getCommitMessages(changelog);
-    final String majorVersionPattern = this.settings.getSemanticMajorPattern().orNull();
-    final String minorVersionPattern = this.settings.getSemanticMinorPattern().orNull();
-    final SemanticVersioning semanticVersioning =
-        new SemanticVersioning(tags, commits, majorVersionPattern, minorVersionPattern);
-    return semanticVersioning.getHighestVersion();
+    return SemanticVersioning.getHighestVersion(tags);
   }
 
   private List<String> getCommitMessages(final Changelog changelog) {

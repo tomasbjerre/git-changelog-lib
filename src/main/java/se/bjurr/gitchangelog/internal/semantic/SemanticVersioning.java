@@ -1,4 +1,4 @@
-package se.bjurr.gitchangelog.semantic;
+package se.bjurr.gitchangelog.internal.semantic;
 
 import java.util.List;
 import java.util.regex.Matcher;
@@ -12,10 +12,10 @@ public class SemanticVersioning {
     PATCH
   }
 
-  private final List<String> tags;
   private final List<String> commits;
   private final Pattern majorPattern;
   private final Pattern minorPattern;
+  private final List<String> tags;
 
   public SemanticVersioning(
       final List<String> tags,
@@ -28,15 +28,8 @@ public class SemanticVersioning {
     this.minorPattern = Pattern.compile(this.notNull(minorPattern, "minorPattern"));
   }
 
-  private String notNull(final String value, final String msg) {
-    if (value == null) {
-      throw new RuntimeException(msg + " is not defined");
-    }
-    return value;
-  }
-
   public SemanticVersion getNextVersion() {
-    final SemanticVersion highestVersion = this.getHighestVersion();
+    final SemanticVersion highestVersion = SemanticVersioning.getHighestVersion(this.tags);
     final VERSION_STEP versionStep = this.getVersionStep();
     if (versionStep == VERSION_STEP.MAJOR) {
       return new SemanticVersion(highestVersion.getMajor() + 1, 0, 0);
@@ -47,9 +40,9 @@ public class SemanticVersioning {
         highestVersion.getMajor(), highestVersion.getMinor(), highestVersion.getPatch() + 1);
   }
 
-  public SemanticVersion getHighestVersion() {
+  public static SemanticVersion getHighestVersion(final List<String> tags) {
     SemanticVersion highest = new SemanticVersion(0, 0, 0);
-    for (final String tag : this.tags) {
+    for (final String tag : tags) {
       final Matcher semanticVersionMatcher =
           Pattern.compile("[0-9]+\\.[0-9]+\\.[0-9]+").matcher(tag.replaceAll("[^0-9\\.]", ""));
       if (semanticVersionMatcher.find()) {
@@ -90,5 +83,12 @@ public class SemanticVersioning {
       }
     }
     return versionStep;
+  }
+
+  private String notNull(final String value, final String msg) {
+    if (value == null) {
+      throw new RuntimeException(msg + " is not defined");
+    }
+    return value;
   }
 }
