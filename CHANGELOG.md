@@ -3,6 +3,33 @@
 
 Changelog of git-changelog-lib.
 
+## 1.147.3
+### GitHub [#92](https://github.com/tomasbjerre/git-changelog-lib/issues/92) Add support for Changelog context pre-processing.    *enhancement*  
+
+**feat: adding some helpers to better support conventional commits (refs )**
+
+
+[8bed7566d19c045](https://github.com/tomasbjerre/git-changelog-lib/commit/8bed7566d19c045) Tomas Bjerre *2021-05-25 03:31:42*
+
+
+### No issue
+
+**more helpers**
+
+
+[ecad3315e6f3209](https://github.com/tomasbjerre/git-changelog-lib/commit/ecad3315e6f3209) Tomas Bjerre *2021-05-25 14:06:44*
+
+**Remove reverted commits from commits lists**
+
+
+[a4631b0bf4f4ab8](https://github.com/tomasbjerre/git-changelog-lib/commit/a4631b0bf4f4ab8) Tomas Bjerre *2021-05-25 13:28:17*
+
+**Java 8 syntax**
+
+
+[47599a8ca95d380](https://github.com/tomasbjerre/git-changelog-lib/commit/47599a8ca95d380) Tomas Bjerre *2021-05-25 03:47:23*
+
+
 ## 1.147.2
 ### No issue
 
