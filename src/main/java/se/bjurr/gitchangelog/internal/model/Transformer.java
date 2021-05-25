@@ -11,10 +11,6 @@ import static java.util.TimeZone.getTimeZone;
 import static java.util.regex.Pattern.compile;
 import static se.bjurr.gitchangelog.internal.common.GitPredicates.ignoreCommits;
 
-import com.google.common.annotations.VisibleForTesting;
-import com.google.common.base.Function;
-import com.google.common.base.Predicate;
-import com.google.common.collect.Multimap;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -22,6 +18,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
+
 import se.bjurr.gitchangelog.api.model.Author;
 import se.bjurr.gitchangelog.api.model.Commit;
 import se.bjurr.gitchangelog.api.model.Issue;
@@ -33,124 +30,110 @@ import se.bjurr.gitchangelog.internal.settings.IssuesUtil;
 import se.bjurr.gitchangelog.internal.settings.Settings;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
 
+import com.google.common.annotations.VisibleForTesting;
+import com.google.common.base.Function;
+import com.google.common.collect.Multimap;
+
 public class Transformer {
 
   private final Settings settings;
 
-  public Transformer(Settings settings) {
+  public Transformer(final Settings settings) {
     this.settings = settings;
   }
 
-  public List<Author> toAuthors(List<GitCommit> gitCommits) {
+  public List<Author> toAuthors(final List<GitCommit> gitCommits) {
     final Multimap<String, GitCommit> commitsPerAuthor =
         index(
             gitCommits,
-            new Function<GitCommit, String>() {
-              @Override
-              public String apply(GitCommit input) {
-                return input.getAuthorEmailAddress() + "-" + input.getAuthorName();
-              }
-            });
+            (Function<GitCommit, String>) input -> input.getAuthorEmailAddress() + "-" + input.getAuthorName());
 
-    Iterable<String> authorsWithCommits =
+    final Iterable<String> authorsWithCommits =
         filter(
             commitsPerAuthor.keySet(),
-            new Predicate<String>() {
-              @Override
-              public boolean apply(String input) {
-                return toCommits(commitsPerAuthor.get(input)).size() > 0;
-              }
-            });
+            input -> Transformer.this.toCommits(commitsPerAuthor.get(input)).size() > 0);
 
     return newArrayList(
         transform(
             authorsWithCommits,
-            new Function<String, Author>() {
-              @Override
-              public Author apply(String input) {
-                List<GitCommit> gitCommitsOfSameAuthor = newArrayList(commitsPerAuthor.get(input));
-                List<Commit> commitsOfSameAuthor = toCommits(gitCommitsOfSameAuthor);
+            input -> {
+                final List<GitCommit> gitCommitsOfSameAuthor = newArrayList(commitsPerAuthor.get(input));
+                final List<Commit> commitsOfSameAuthor = Transformer.this.toCommits(gitCommitsOfSameAuthor);
                 return new Author( //
                     commitsOfSameAuthor.get(0).getAuthorName(), //
                     commitsOfSameAuthor.get(0).getAuthorEmailAddress(), //
                     commitsOfSameAuthor);
-              }
-            }));
+              }));
   }
 
-  public List<Commit> toCommits(Collection<GitCommit> from) {
-    Iterable<GitCommit> filteredCommits = filter(from, ignoreCommits(settings));
+  public List<Commit> toCommits(final Collection<GitCommit> from) {
+    final Iterable<GitCommit> filteredCommits = filter(from, ignoreCommits(this.settings));
     return newArrayList(
         transform(
             filteredCommits,
-            new Function<GitCommit, Commit>() {
-              @Override
-              public Commit apply(GitCommit c) {
-                return toCommit(c);
-              }
-            }));
+            c -> Transformer.this.toCommit(c)));
   }
 
-  public List<Issue> toIssues(List<ParsedIssue> issues) {
-    Iterable<ParsedIssue> issuesWithCommits = filterWithCommits(issues);
+  public List<Issue> toIssues(final List<ParsedIssue> issues) {
+    final Iterable<ParsedIssue> issuesWithCommits = this.filterWithCommits(issues);
 
-    return newArrayList(transform(issuesWithCommits, parsedIssueToIssue()));
+    return newArrayList(transform(issuesWithCommits, this.parsedIssueToIssue()));
   }
 
-  public List<IssueType> toIssueTypes(List<ParsedIssue> issues) {
-    Map<String, List<Issue>> issuesPerName = newTreeMap();
+  public List<IssueType> toIssueTypes(final List<ParsedIssue> issues) {
+    final Map<String, List<Issue>> issuesPerName = newTreeMap();
 
-    for (ParsedIssue parsedIssue : filterWithCommits(issues)) {
+    for (final ParsedIssue parsedIssue : this.filterWithCommits(issues)) {
       if (!issuesPerName.containsKey(parsedIssue.getName())) {
         issuesPerName.put(parsedIssue.getName(), new ArrayList<Issue>());
       }
-      Issue transformedIssues = parsedIssueToIssue().apply(parsedIssue);
+      final Issue transformedIssues = this.parsedIssueToIssue().apply(parsedIssue);
       issuesPerName
           .get(parsedIssue.getName()) //
           .add(transformedIssues);
     }
 
-    List<IssueType> issueTypes = newArrayList();
-    for (String name : issuesPerName.keySet()) {
+    final List<IssueType> issueTypes = newArrayList();
+    for (final String name : issuesPerName.keySet()) {
       issueTypes.add(new IssueType(issuesPerName.get(name), name));
     }
     return issueTypes;
   }
 
-  public List<Tag> toTags(List<GitTag> gitTags, final List<ParsedIssue> allParsedIssues) {
+  public List<Tag> toTags(final List<GitTag> gitTags, final List<ParsedIssue> allParsedIssues) {
 
     Iterable<Tag> tags =
         transform(
             gitTags,
             new Function<GitTag, Tag>() {
               @Override
-              public Tag apply(GitTag input) {
-                List<GitCommit> gitCommits = input.getGitCommits();
-                List<ParsedIssue> parsedIssues =
-                    reduceParsedIssuesToOnlyGitCommits(allParsedIssues, gitCommits);
-                List<Commit> commits = toCommits(gitCommits);
-                List<Author> authors = toAuthors(gitCommits);
-                List<Issue> issues = toIssues(parsedIssues);
-                List<IssueType> issueTypes = toIssueTypes(parsedIssues);
+              public Tag apply(final GitTag input) {
+                final List<GitCommit> gitCommits = input.getGitCommits();
+                final List<ParsedIssue> parsedIssues =
+                    this.reduceParsedIssuesToOnlyGitCommits(allParsedIssues, gitCommits);
+                final List<Commit> commits = Transformer.this.toCommits(gitCommits);
+                final List<Author> authors = Transformer.this.toAuthors(gitCommits);
+                final List<Issue> issues = Transformer.this.toIssues(parsedIssues);
+                final List<IssueType> issueTypes = Transformer.this.toIssueTypes(parsedIssues);
                 return new Tag(
-                    toReadableTagName(input.getName()),
+                    Transformer.this.toReadableTagName(input.getName()),
                     input.findAnnotation().orNull(),
                     commits,
                     authors,
                     issues,
                     issueTypes,
-                    input.getTagTime() != null ? format(input.getTagTime()) : "",
+                    input.getTagTime() != null ? Transformer.this.format(input.getTagTime()) : "",
                     input.getTagTime() != null ? input.getTagTime().getTime() : -1);
               }
 
               private List<ParsedIssue> reduceParsedIssuesToOnlyGitCommits(
-                  final List<ParsedIssue> allParsedIssues, List<GitCommit> gitCommits) {
-                List<ParsedIssue> parsedIssues = newArrayList();
-                for (ParsedIssue candidate : allParsedIssues) {
-                  List<GitCommit> candidateCommits =
+                  final List<ParsedIssue> allParsedIssues, final List<GitCommit> gitCommits) {
+                final List<ParsedIssue> parsedIssues = newArrayList();
+                for (final ParsedIssue candidate : allParsedIssues) {
+                  final List<GitCommit> candidateCommits =
                       newArrayList(filter(candidate.getGitCommits(), in(gitCommits)));
                   if (!candidateCommits.isEmpty()) {
-                    ParsedIssue parsedIssue =
+                    final ParsedIssue parsedIssue =
                         new ParsedIssue(
                             candidate.getSettingsIssueType(),
                             candidate.getName(),
@@ -172,43 +155,31 @@ public class Transformer {
     tags =
         filter(
             tags,
-            new Predicate<Tag>() {
-              @Override
-              public boolean apply(Tag input) {
-                return !input.getAuthors().isEmpty() && !input.getCommits().isEmpty();
-              }
-            });
+            input -> !input.getAuthors().isEmpty() && !input.getCommits().isEmpty());
 
     return newArrayList(tags);
   }
 
-  private Iterable<ParsedIssue> filterWithCommits(List<ParsedIssue> issues) {
-    Iterable<ParsedIssue> issuesWithCommits =
+  private Iterable<ParsedIssue> filterWithCommits(final List<ParsedIssue> issues) {
+    final Iterable<ParsedIssue> issuesWithCommits =
         filter(
             issues,
-            new Predicate<ParsedIssue>() {
-              @Override
-              public boolean apply(ParsedIssue input) {
-                return !toCommits(input.getGitCommits()).isEmpty();
-              }
-            });
+            input -> !Transformer.this.toCommits(input.getGitCommits()).isEmpty());
     return issuesWithCommits;
   }
 
-  private String format(Date commitTime) {
-    SimpleDateFormat df = new SimpleDateFormat(this.settings.getDateFormat());
+  private String format(final Date commitTime) {
+    final SimpleDateFormat df = new SimpleDateFormat(this.settings.getDateFormat());
     df.setTimeZone(getTimeZone(this.settings.getTimeZone()));
     return df.format(commitTime);
   }
 
   private Function<ParsedIssue, Issue> parsedIssueToIssue() {
-    return new Function<ParsedIssue, Issue>() {
-      @Override
-      public Issue apply(ParsedIssue input) {
-        List<GitCommit> gitCommits = input.getGitCommits();
+    return input -> {
+        final List<GitCommit> gitCommits = input.getGitCommits();
         return new Issue( //
-            toCommits(gitCommits), //
-            toAuthors(gitCommits), //
+            Transformer.this.toCommits(gitCommits), //
+            Transformer.this.toAuthors(gitCommits), //
             input.getName(), //
             input.getTitle().or(""), //
             input.getIssue(), //
@@ -218,27 +189,26 @@ public class Transformer {
             input.getIssueType(), //
             input.getLinkedIssues(), //
             input.getLabels());
-      }
-    };
+      };
   }
 
   private String removeIssuesFromString(
-      boolean removeIssueFromMessage, List<SettingsIssue> issues, String string) {
+      final boolean removeIssueFromMessage, final List<SettingsIssue> issues, String string) {
     if (removeIssueFromMessage) {
-      for (SettingsIssue issue : issues) {
+      for (final SettingsIssue issue : issues) {
         string = string.replaceAll(issue.getPattern(), "");
       }
     }
     return string;
   }
 
-  private Commit toCommit(GitCommit gitCommit) {
+  private Commit toCommit(final GitCommit gitCommit) {
     return new Commit( //
         gitCommit.getAuthorName(), //
         gitCommit.getAuthorEmailAddress(), //
-        format(gitCommit.getCommitTime()), //
+        this.format(gitCommit.getCommitTime()), //
         gitCommit.getCommitTime().getTime(), //
-        toMessage(
+        this.toMessage(
             this.settings.removeIssueFromMessage(),
             new IssuesUtil(this.settings).getIssues(),
             gitCommit.getMessage()), //
@@ -246,8 +216,8 @@ public class Transformer {
         gitCommit.isMerge());
   }
 
-  private String toReadableTagName(String input) {
-    Matcher matcher = compile(this.settings.getReadableTagName()).matcher(input);
+  private String toReadableTagName(final String input) {
+    final Matcher matcher = compile(this.settings.getReadableTagName()).matcher(input);
     if (matcher.find()) {
       if (matcher.groupCount() == 0) {
         throw new RuntimeException(
@@ -263,7 +233,7 @@ public class Transformer {
   }
 
   @VisibleForTesting
-  String toMessage(boolean removeIssueFromMessage, List<SettingsIssue> issues, String message) {
-    return removeIssuesFromString(removeIssueFromMessage, issues, message);
+  String toMessage(final boolean removeIssueFromMessage, final List<SettingsIssue> issues, final String message) {
+    return this.removeIssuesFromString(removeIssueFromMessage, issues, message);
   }
 }
