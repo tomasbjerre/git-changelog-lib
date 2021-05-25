@@ -24,13 +24,16 @@ Commits:
  {{#ifContainsType commits type="fix"}}
   commits contains fix
  {{/ifContainsType}}
- 
+
+ date: {{tagDate .}} 
  
 {{/tags}}
 
 
 {{#commits}}
  Commit: {{.}}
+ date: {{commitDate .}} 
+
  {{#ifCommitType . type="revert"}} is type revert {{/ifCommitType}}
  {{#ifCommitType . type="fix"}} is type fix {{/ifCommitType}}
 

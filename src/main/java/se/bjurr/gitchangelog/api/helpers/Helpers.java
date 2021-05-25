@@ -32,6 +32,17 @@ public class Helpers {
           return conditional(options, isReleaseTag(tag));
         });
 
+    TAG_HELPERS.put(
+        "tagDate",
+        (final Tag tag, final Options options) -> {
+          return getDate(tag.getTagTime());
+        });
+
+    COMMITS_HELPERS.put(
+        "commitDate",
+        (final Commit commit, final Options options) -> {
+          return getDate(commit.getCommitTime());
+        });
     COMMITS_HELPERS.put(
         "ifContainsType",
         (final List<Commit> commits, final Options options) -> {
@@ -95,6 +106,13 @@ public class Helpers {
       buffer.append(options.inverse());
     }
     return buffer;
+  }
+
+  private static String getDate(final String tagTime) {
+    if (tagTime == null || !tagTime.contains(" ")) {
+      return "";
+    }
+    return tagTime.split(" ")[0];
   }
 
   private static boolean commitScope(final Commit commit, final Options options) {

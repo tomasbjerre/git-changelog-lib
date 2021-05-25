@@ -26,13 +26,16 @@ Commits:
  {{#ifContainsType commits type="fix"}}
   commits contains fix
  {{/ifContainsType}}
- 
+
+ date: {{tagDate .}} 
  
 {{/tags}}
 
 
 {{#commits}}
  Commit: {{.}}
+ date: {{commitDate .}} 
+
  {{#ifCommitType . type="revert"}} is type revert {{/ifCommitType}}
  {{#ifCommitType . type="fix"}} is type fix {{/ifCommitType}}
 
@@ -112,25 +115,30 @@ This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
  tag: name: Unreleased
  
   commits contains fix
- 
+
+ date:  
  
  tag: name: 1.147.2
   "name: 1.147.2" is a release tag
  
   commits contains fix
- 
+
+ date: 2021-05-24 
  
  tag: name: 1.147.1
   "name: 1.147.1" is a release tag
  
   commits contains fix
- 
+
+ date: 2021-05-23 
  
 
 
  Commit: hash: d3462925f226d08 message: Revert &quot;[Gradle Release Plugin] - pre tag commit:  &#x27;1.94&#x27;.&quot;
 
 This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
+ date: 2021-05-25 
+
   is type revert 
  
 
@@ -145,6 +153,8 @@ This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
 
 
  Commit: hash: 724a04a18602ce9 message: fix(utils:mix): the description (fixes ABC-123)
+ date: 2021-05-25 
+
  
   is type fix 
 
@@ -161,6 +171,8 @@ This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
 
 
  Commit: hash: 5fb068c6ccad741 message: feat(utils): more utils
+ date: 2021-05-25 
+
  
  
 
@@ -175,6 +187,8 @@ This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
 
 
  Commit: hash: 4c6e07857c48c98 message: doing change 2
+ date: 2021-05-25 
+
  
  
 
@@ -188,6 +202,8 @@ This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
 
 
  Commit: hash: aa1fd339a07e6ea message: New version: 1.147.2 [GRADLE SCRIPT]
+ date: 2021-05-24 
+
  
  
 
@@ -201,6 +217,8 @@ This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
 
 
  Commit: hash: 38fc504697f8d04 message: fix: dont require semantic patterns to get highest tag
+ date: 2021-05-24 
+
  
   is type fix 
 
@@ -214,6 +232,8 @@ This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
 
 
  Commit: hash: 7a839ad349aef46 message: Updating changelog with 1.147.1 [GRADLE SCRIPT]
+ date: 2021-05-23 
+
  
  
 
@@ -227,6 +247,8 @@ This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
 
 
  Commit: hash: e49a9f159266845 message: New version: 1.147.1 [GRADLE SCRIPT]
+ date: 2021-05-23 
+
  
  
 
@@ -240,6 +262,8 @@ This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
 
 
  Commit: hash: 601c009bff8d551 message: fix: dont use integrations when determining versions
+ date: 2021-05-23 
+
  
   is type fix 
 
