@@ -3,6 +3,15 @@
 
 Changelog of git-changelog-lib.
 
+## 1.148.0
+### No issue
+
+**feat(helpers):  and**
+
+
+[3572c9b070a8972](https://github.com/tomasbjerre/git-changelog-lib/commit/3572c9b070a8972) Tomas Bjerre *2021-05-25 16:25:36*
+
+
 ## 1.147.5
 ### No issue
 
