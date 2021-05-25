@@ -1,70 +1,33 @@
 template:
 
-
-Test template:
-
-Tags:
+# Changelog
 
 {{#tags}}
- * {{.}}
+{{#ifReleaseTag .}}
+## [{{name}}](https://gitlab.com/html-validate/html-validate/compare/{{name}}) ({{tagDate .}})
+
+	{{#ifContainsType commits type='feat'}}
+### Features
+
+		{{#commits}}
+			{{#ifCommitType . type='feat'}}
+ - {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{hash}}](https://gitlab.com/html-validate/html-validate/commit/{{hashFull}}))
+			{{/ifCommitType}}
+		{{/commits}}
+	{{/ifContainsType}}
+
+	{{#ifContainsType commits type='fix'}}
+### Bug Fixes
+
+		{{#commits}}
+			{{#ifCommitType . type='fix'}}
+ - {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{hash}}](https://gitlab.com/html-validate/html-validate/commit/{{hashFull}}))
+			{{/ifCommitType}}
+		{{/commits}}
+	{{/ifContainsType}}
+
+{{/ifReleaseTag}}
 {{/tags}}
-
-
-Commits:
-
-{{#commits}}
- * {{.}}
-{{/commits}}
-
-
-{{#tags}}
- tag: {{.}}
- {{#ifReleaseTag .}}
-  "{{.}}" is a release tag
- {{/ifReleaseTag}}
- 
- {{#ifContainsType commits type="fix"}}
-  commits contains fix
- {{/ifContainsType}}
-
- date: {{tagDate .}} 
- 
-{{/tags}}
-
-
-{{#commits}}
- Commit: {{.}}
- date: {{commitDate .}} 
-
- {{#ifCommitType . type="revert"}} is type revert {{/ifCommitType}}
- {{#ifCommitType . type="fix"}} is type fix {{/ifCommitType}}
- {{#ifCommitType . type=""}} commit has no type {{/ifCommitType}}
-
- {{#ifCommitScope . scope="utils"}} is scope utils {{/ifCommitScope}}
-
- {{#eachCommitScope .}}
-  scope: {{.}}
- {{/eachCommitScope}}
-
- description: {{commitDescription .}}
- 
- {{#ifCommitType . type="revert"}}
-   this reverted commit: {{revertedCommit .}}
- {{/ifCommitType}}
- 
- {{#eachCommitRefs .}}
-  ref: {{.}}
- {{/eachCommitRefs}}
-
- {{#eachCommitFixes .}}
-  fix: {{.}}
- {{/eachCommitFixes}}
-
-
-{{/commits}}
-
-
-
 
 ---------------------------------------------
 
@@ -74,7 +37,7 @@ settings:
   "fromRepo": ".",
   "fromCommit": "ed95e6a",
   "toCommit": "d346292",
-  "templatePath": "templatetest/testThatBuiltInHelperMethodsCanBeUsed.mustache",
+  "templatePath": "templatetest/testThatConventionalChangelogCanBeRendered.mustache",
   "removeIssueFromMessage": false,
   "gitHubApi": "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
   "extendedVariables": {},
@@ -88,205 +51,21 @@ settings:
 
 changelog:
 
+# Changelog
 
-Test template:
+## [1.147.2](https://gitlab.com/html-validate/html-validate/compare/1.147.2) (2021-05-24)
 
-Tags:
 
- * name: Unreleased
- * name: 1.147.2
- * name: 1.147.1
+### Bug Fixes
 
+ -  dont require semantic patterns to get highest tag ([38fc504697f8d04](https://gitlab.com/html-validate/html-validate/commit/38fc504697f8d040a946cf7c0d668f49b6509c57))
 
-Commits:
+## [1.147.1](https://gitlab.com/html-validate/html-validate/compare/1.147.1) (2021-05-23)
 
- * hash: d3462925f226d08 message: Revert &quot;[Gradle Release Plugin] - pre tag commit:  &#x27;1.94&#x27;.&quot;
 
-This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
- * hash: 724a04a18602ce9 message: fix(utils:mix): the description (fixes ABC-123)
- * hash: 5fb068c6ccad741 message: feat(utils): more utils
- * hash: 4c6e07857c48c98 message: doing change 2
- * hash: aa1fd339a07e6ea message: New version: 1.147.2 [GRADLE SCRIPT]
- * hash: 38fc504697f8d04 message: fix: dont require semantic patterns to get highest tag
- * hash: 7a839ad349aef46 message: Updating changelog with 1.147.1 [GRADLE SCRIPT]
- * hash: e49a9f159266845 message: New version: 1.147.1 [GRADLE SCRIPT]
- * hash: 601c009bff8d551 message: fix: dont use integrations when determining versions
+### Bug Fixes
 
-
- tag: name: Unreleased
- 
-  commits contains fix
-
- date:  
- 
- tag: name: 1.147.2
-  "name: 1.147.2" is a release tag
- 
-  commits contains fix
-
- date: 2021-05-24 
- 
- tag: name: 1.147.1
-  "name: 1.147.1" is a release tag
- 
-  commits contains fix
-
- date: 2021-05-23 
- 
-
-
- Commit: hash: d3462925f226d08 message: Revert &quot;[Gradle Release Plugin] - pre tag commit:  &#x27;1.94&#x27;.&quot;
-
-This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
- date: 2021-05-25 
-
-  is type revert 
- 
- 
-
- 
-
-
- description: 
- 
-   this reverted commit: 1edc0d71eccce51abfb5f62fdddfbe73913785f5
- 
-
-
-
- Commit: hash: 724a04a18602ce9 message: fix(utils:mix): the description (fixes ABC-123)
- date: 2021-05-25 
-
- 
-  is type fix 
- 
-
-  is scope utils 
-
-  scope: utils
-  scope: mix
-
- description: the description
- 
- 
-
-  fix: ABC-123
-
-
- Commit: hash: 5fb068c6ccad741 message: feat(utils): more utils
- date: 2021-05-25 
-
- 
- 
- 
-
-  is scope utils 
-
-  scope: utils
-
- description: more utils
- 
- 
-
-
-
- Commit: hash: 4c6e07857c48c98 message: doing change 2
- date: 2021-05-25 
-
- 
- 
-  commit has no type 
-
- 
-
-
- description: 
- 
- 
-
-
-
- Commit: hash: aa1fd339a07e6ea message: New version: 1.147.2 [GRADLE SCRIPT]
- date: 2021-05-24 
-
- 
- 
-  commit has no type 
-
- 
-
-
- description: 
- 
- 
-
-
-
- Commit: hash: 38fc504697f8d04 message: fix: dont require semantic patterns to get highest tag
- date: 2021-05-24 
-
- 
-  is type fix 
- 
-
- 
-
-
- description: dont require semantic patterns to get highest tag
- 
- 
-
-
-
- Commit: hash: 7a839ad349aef46 message: Updating changelog with 1.147.1 [GRADLE SCRIPT]
- date: 2021-05-23 
-
- 
- 
-  commit has no type 
-
- 
-
-
- description: 
- 
- 
-
-
-
- Commit: hash: e49a9f159266845 message: New version: 1.147.1 [GRADLE SCRIPT]
- date: 2021-05-23 
-
- 
- 
-  commit has no type 
-
- 
-
-
- description: 
- 
- 
-
-
-
- Commit: hash: 601c009bff8d551 message: fix: dont use integrations when determining versions
- date: 2021-05-23 
-
- 
-  is type fix 
- 
-
- 
-
-
- description: dont use integrations when determining versions
- 
- 
-
-
-
-
+ -  dont use integrations when determining versions ([601c009bff8d551](https://gitlab.com/html-validate/html-validate/commit/601c009bff8d5513d94a906ea4b340678b997209))
 
 
 

@@ -10,6 +10,7 @@ git:
 before_script:
   - git fetch origin master:master
   - git fetch origin test:test
+  - git fetch origin reverted-commits-test-branch:reverted-commits-test-branch
   - git pull
   - git log --graph --full-history --all --color --date=short --pretty=format:"%Cred%x09%h %Creset%ad%Cgreen%d %Creset %s %C(bold)(%an)%Creset"
 script:

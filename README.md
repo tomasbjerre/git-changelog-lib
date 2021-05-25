@@ -1,25 +1,38 @@
-# Git Changelog Lib [![Build Status](https://travis-ci.org/tomasbjerre/git-changelog-lib.svg?branch=master)](https://travis-ci.org/tomasbjerre/git-changelog-lib) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/se.bjurr.gitchangelog/git-changelog-lib/badge.svg)](https://maven-badges.herokuapp.com/maven-central/se.bjurr.gitchangelog/git-changelog-lib) [ ![Bintray](https://api.bintray.com/packages/tomasbjerre/tomasbjerre/se.bjurr.gitchangelog%3Agit-changelog-lib/images/download.svg) ](https://bintray.com/tomasbjerre/tomasbjerre/se.bjurr.gitchangelog%3Agit-changelog-lib/_latestVersion)
+# Git Changelog Lib
 
-This is a library for generating a changelog, or releasenotes, from a GIT repository. It can also be run as a standalone program, Gradle plugin, Maven plugin or Jenkins plugin.
+[![Build Status](https://travis-ci.org/tomasbjerre/git-changelog-lib.svg?branch=master)](https://travis-ci.org/tomasbjerre/git-changelog-lib)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/se.bjurr.gitchangelog/git-changelog-lib/badge.svg)](https://maven-badges.herokuapp.com/maven-central/se.bjurr.gitchangelog/git-changelog-lib)
 
-It is fully configurable with a [Mustache (Handlebars)](https://github.com/jknack/handlebars.java) template. That can:
+This is a library that can:
 
- * Be stored to file, like `CHANGELOG.md`. There are some templates used for testing available [here](/src/test/resources/templatetest).
- * Or just rendered to a `String`.
+- Generate a changelog, or releasenotes, from a GIT repository.
+- Determine next version, based on format of commits since last release.
+
+It is fully configurable with a [Mustache (Handlebars)](https://github.com/jknack/handlebars.java) template and [helpers](#Helpers).
+
+The changelog can:
+
+- Be stored to file, like `CHANGELOG.md`. There are some templates used for testing available [here](/src/test/resources/templatetest).
+- Or, just rendered to a `String`.
 
 It can integrate with Jira and/or GitHub to retrieve the title of issues.
 
-The [changelog](/CHANGELOG.md) of this project is automatically generated with [this template](/changelog.mustache).
-
 ## Usage
-This software can be used:
- * With a [Gradle plugin](https://github.com/tomasbjerre/git-changelog-gradle-plugin).
- * With a [Maven plugin](https://github.com/tomasbjerre/git-changelog-maven-plugin).
- * With a [Jenkins plugin](https://github.com/jenkinsci/git-changelog-plugin).
- * From [command line](https://github.com/tomasbjerre/git-changelog-command-line).
- * As a library [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22git-changelog-lib%22).
 
-Here is an example template. 
+This software can be used:
+
+- With a [Gradle plugin](https://github.com/tomasbjerre/git-changelog-gradle-plugin).
+- With a [Maven plugin](https://github.com/tomasbjerre/git-changelog-maven-plugin).
+- With a [Jenkins plugin](https://github.com/jenkinsci/git-changelog-plugin).
+- From [command line](https://github.com/tomasbjerre/git-changelog-command-line).
+- As a library [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22git-changelog-lib%22).
+
+There are examples of different templates [in the code](/src/test/resources) that are used for testing.
+
+### Template - Simple
+
+Here is an example template.
+
 ```hbs
 # Changelog
 
@@ -44,7 +57,7 @@ Changelog for {{ownerName}} {{repoName}}.
 **{{{messageTitle}}}**
 
 {{#messageBodyItems}}
- * {{.}} 
+ * {{.}}
 {{/messageBodyItems}}
 
 [{{hash}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}} *{{commitTime}}*
@@ -55,9 +68,160 @@ Changelog for {{ownerName}} {{repoName}}.
 {{/tags}}
 ```
 
-There are some examples [here](/examples) that are ready to use.
+### Template - Conventional
 
-There are also different variations [here](/src/test/resources/templates) that are used for testing.
+If you are using [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) you can use built in [helpers](/src/main/java/se/bjurr/gitchangelog/api/helpers) to produce a nice changelog. You can add your own helpers (using Javascript or Java) as described [here](https://github.com/jknack/handlebars.java).
+
+```hbs
+{{#tags}}
+{{#ifReleaseTag .}}
+## [{{name}}](https://gitlab.com/html-validate/html-validate/compare/{{name}}) ({{tagDate .}})
+
+  {{#ifContainsType commits type='feat'}}
+### Features
+
+    {{#commits}}
+      {{#ifCommitType . type='feat'}}
+ - {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{hash}}](https://gitlab.com/html-validate/html-validate/commit/{{hashFull}}))
+      {{/ifCommitType}}
+    {{/commits}}
+  {{/ifContainsType}}
+
+  {{#ifContainsType commits type='fix'}}
+### Bug Fixes
+
+    {{#commits}}
+      {{#ifCommitType . type='fix'}}
+ - {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{hash}}](https://gitlab.com/html-validate/html-validate/commit/{{hashFull}}))
+      {{/ifCommitType}}
+    {{/commits}}
+  {{/ifContainsType}}
+
+{{/ifReleaseTag}}
+{{/tags}}
+```
+
+## Helpers
+
+Some [helpers](/src/main/java/se/bjurr/gitchangelog/api/helpers) are implemented in this library. And users can also add more helpers as described in [Handlebars](https://github.com/jknack/handlebars.java).
+
+### `ifReleaseTag <Tag>`
+
+Conditional, renders a block if given `Tag` matches release-tag.
+
+```hbs
+{{#tags}}
+ {{#ifReleaseTag .}}
+  "{{.}}" is a release tag
+ {{/ifReleaseTag}}
+{{/tags}}
+```
+
+### `tagDate <Tag>`
+
+Renders date of `Tag` on format `YYYY-MM-DD`.
+
+```hbs
+{{#tags}}
+ {{tagDate .}}
+{{/tags}}
+```
+
+### `ifContainsType <List<Commit>>`
+
+Conditional, renders a block if given `List<Commits>` contains given `type`.
+
+```hbs
+{{#ifContainsType commits type="fix"}}
+  commits contains fixes
+{{/ifContainsType}}
+```
+
+### `commitDate <Commit>`
+
+Renders date of `Commit` on format `YYYY-MM-DD`.
+
+```hbs
+{{#commits}}
+ {{commitDate .}}
+{{/commits}}
+```
+
+### `commitDescription <Commit>`
+
+Renders description of `Commit`.
+
+```hbs
+{{#commits}}
+ {{commitDescription .}}
+{{/commits}}
+```
+
+### `revertedCommit <Commit>`
+
+Renders reverted commit refered to by `Commit`.
+
+```hbs
+{{#commits}}
+ {{revertedCommit .}}
+{{/commits}}
+```
+
+### `ifCommitType <Commit> type="<type>"`
+
+Conditional, renders a block if given `Commit` is of `type`.
+
+```hbs
+{{#commits}}
+ {{#ifCommitType . type="fix"}} is type fix {{/ifCommitType}}
+{{/commits}}
+```
+
+### `ifCommitScope <Commit> scope="utils"`
+
+Conditional, renders a block if given `Commit` has `scope`.
+
+```hbs
+{{#commits}}
+ {{#ifCommitScope . scope="utils"}} is scope utils {{/ifCommitScope}}
+{{/commits}}
+```
+
+### `eachCommitScope <Commit>`
+
+Renders block for each `scope` in `Commit`.
+
+```hbs
+{{#commits}}
+ {{#eachCommitScope .}}
+  scope: {{.}}
+ {{/eachCommitScope}}
+{{/commits}}
+```
+
+### `eachCommitRefs <Commit>`
+
+Renders block for each `refs` in `Commit`.
+
+```hbs
+{{#commits}}
+ {{#eachCommitRefs .}}
+  references issue: {{.}}
+ {{/eachCommitRefs}}
+{{/commits}}
+```
+
+### `eachCommitFixes <Commit>`
+
+Renders block for each `fixes` in `Commit`.
+
+```hbs
+{{#commits}}
+ {{#eachCommitFixes .}}
+  fixes issue: {{.}}
+ {{/eachCommitFixes}}
+{{/commits}}
+```
 
 ## Context
 
@@ -278,18 +442,7 @@ It has a [builder](/src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java
    .withFromCommit(ZERO_COMMIT)
    .withToRef("refs/heads/master")
    .withTemplatePath("changelog.mustache")
-   .toFile("CHANGELOG.md");
+   .render();
 ```
 
-It can also create releasenotes. If you are using git flow it may look like this.
-
-```java
-  gitChangelogApiBuilder()
-   .withFromRef("refs/heads/dev")
-   .withToRef("refs/heads/master")
-   .withTemplatePath("releasenotes.mustache")
-   .toStdout();
-```
-
-Settings can be supplied with a JSON config ([documented here](/src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java)).
-
+Settings can be supplied with the build or from a JSON config ([documented here](/src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java)).

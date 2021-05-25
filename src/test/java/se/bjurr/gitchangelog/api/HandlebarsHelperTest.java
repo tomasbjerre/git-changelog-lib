@@ -41,4 +41,15 @@ public class HandlebarsHelperTest {
 
     ApprovalsWrapper.verify(given);
   }
+
+  @Test
+  public void testThatConventionalChangelogCanBeRendered() throws Exception {
+    final GitChangelogApi given =
+        this.baseBuilder //
+            .withFromCommit("ed95e6a") //
+            .withToCommit("d346292") //
+            .withTemplatePath("templatetest/testThatConventionalChangelogCanBeRendered.mustache");
+
+    ApprovalsWrapper.verify(given);
+  }
 }
