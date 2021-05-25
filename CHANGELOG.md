@@ -3,6 +3,15 @@
 
 Changelog of git-changelog-lib.
 
+## 1.147.5
+### No issue
+
+**fix: naming**
+
+
+[759e07f97345011](https://github.com/tomasbjerre/git-changelog-lib/commit/759e07f97345011) Tomas Bjerre *2021-05-25 15:59:46*
+
+
 ## 1.147.4
 ### No issue
 
