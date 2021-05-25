@@ -1,0 +1,1770 @@
+template:
+
+
+Test template:
+
+Tags:
+
+{{#tags}}
+ * {{.}}
+{{/tags}}
+
+
+Commits:
+
+{{#commits}}
+ * {{.}}
+{{/commits}}
+
+
+{{#tags}}
+ tag: {{.}}
+ {{#ifReleaseTag .}}
+  "{{.}}" is a release tag
+ {{/ifReleaseTag}}
+ 
+ {{#ifContainingType commits type="fix"}}
+  commits contains fix
+ {{/ifContainingType}}
+ 
+ 
+{{/tags}}
+
+
+{{#commits}}
+ Commit: {{.}}
+ {{#ifCommitType . type="revert"}} is type revert {{/ifCommitType}}
+ {{#ifCommitType . type="fix"}} is type fix {{/ifCommitType}}
+
+ {{#ifCommitScope . scope="utils"}} is scope utils {{/ifCommitScope}}
+
+ {{#eachCommitScope .}}
+  scope: {{.}}
+ {{/eachCommitScope}}
+
+ description: {{commitDescription .}}
+ 
+ {{#ifCommitType . type="revert"}}
+   this reverted commit: {{revertedCommit .}}
+ {{/ifCommitType}}
+ 
+ {{#eachCommitRefs .}}
+  ref: {{.}}
+ {{/eachCommitRefs}}
+
+ {{#eachCommitFixes .}}
+  fix: {{.}}
+ {{/eachCommitFixes}}
+
+
+{{/commits}}
+
+
+
+
+---------------------------------------------
+
+settings:
+
+{
+  "fromRepo": ".",
+  "fromCommit": "ed95e6a",
+  "toCommit": "d346292",
+  "templatePath": "templatetest/testThatBuiltInHelperMethodsCanBeUsed.mustache",
+  "removeIssueFromMessage": false,
+  "gitHubApi": "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
+  "extendedVariables": {},
+  "ignoreCommitsWithoutIssue": false,
+  "gitLabProjectName": "tomasbjerre",
+  "semanticMajorPattern": "^[Bb]reaking.*",
+  "semanticMinorPattern": "^[Ff]eat.*"
+}
+
+---------------------------------------------
+
+changelog:
+
+
+Test template:
+
+Tags:
+
+ * name: Unreleased
+ * name: 1.147.2
+ * name: 1.147.1
+
+
+Commits:
+
+ * hash: d3462925f226d08 message: Revert &quot;[Gradle Release Plugin] - pre tag commit:  &#x27;1.94&#x27;.&quot;
+
+This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
+ * hash: 724a04a18602ce9 message: fix(utils:mix): the description (fixes ABC-123)
+ * hash: 5fb068c6ccad741 message: feat(utils): more utils
+ * hash: 4c6e07857c48c98 message: doing change 2
+ * hash: aa1fd339a07e6ea message: New version: 1.147.2 [GRADLE SCRIPT]
+ * hash: 38fc504697f8d04 message: fix: dont require semantic patterns to get highest tag
+ * hash: 7a839ad349aef46 message: Updating changelog with 1.147.1 [GRADLE SCRIPT]
+ * hash: e49a9f159266845 message: New version: 1.147.1 [GRADLE SCRIPT]
+ * hash: 601c009bff8d551 message: fix: dont use integrations when determining versions
+
+
+ tag: name: Unreleased
+ 
+  commits contains fix
+ 
+ 
+ tag: name: 1.147.2
+  "name: 1.147.2" is a release tag
+ 
+  commits contains fix
+ 
+ 
+ tag: name: 1.147.1
+  "name: 1.147.1" is a release tag
+ 
+  commits contains fix
+ 
+ 
+
+
+ Commit: hash: d3462925f226d08 message: Revert &quot;[Gradle Release Plugin] - pre tag commit:  &#x27;1.94&#x27;.&quot;
+
+This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
+  is type revert 
+ 
+
+ 
+
+
+ description: 
+ 
+   this reverted commit: 1edc0d71eccce51abfb5f62fdddfbe73913785f5
+ 
+
+
+
+ Commit: hash: 724a04a18602ce9 message: fix(utils:mix): the description (fixes ABC-123)
+ 
+  is type fix 
+
+  is scope utils 
+
+  scope: utils
+  scope: mix
+
+ description: the description
+ 
+ 
+
+  fix: ABC-123
+
+
+ Commit: hash: 5fb068c6ccad741 message: feat(utils): more utils
+ 
+ 
+
+  is scope utils 
+
+  scope: utils
+
+ description: more utils
+ 
+ 
+
+
+
+ Commit: hash: 4c6e07857c48c98 message: doing change 2
+ 
+ 
+
+ 
+
+
+ description: 
+ 
+ 
+
+
+
+ Commit: hash: aa1fd339a07e6ea message: New version: 1.147.2 [GRADLE SCRIPT]
+ 
+ 
+
+ 
+
+
+ description: 
+ 
+ 
+
+
+
+ Commit: hash: 38fc504697f8d04 message: fix: dont require semantic patterns to get highest tag
+ 
+  is type fix 
+
+ 
+
+
+ description: dont require semantic patterns to get highest tag
+ 
+ 
+
+
+
+ Commit: hash: 7a839ad349aef46 message: Updating changelog with 1.147.1 [GRADLE SCRIPT]
+ 
+ 
+
+ 
+
+
+ description: 
+ 
+ 
+
+
+
+ Commit: hash: e49a9f159266845 message: New version: 1.147.1 [GRADLE SCRIPT]
+ 
+ 
+
+ 
+
+
+ description: 
+ 
+ 
+
+
+
+ Commit: hash: 601c009bff8d551 message: fix: dont use integrations when determining versions
+ 
+  is type fix 
+
+ 
+
+
+ description: dont use integrations when determining versions
+ 
+ 
+
+
+
+
+
+
+
+---------------------------------------------
+
+context:
+
+{
+  "commits": [
+    {
+      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+      "authorName": "Tomas Bjerre",
+      "commitTime": "2021-05-25 15:41:19",
+      "commitTimeLong": 1621957279000,
+      "hash": "d3462925f226d08",
+      "hashFull": "d3462925f226d085a409fdb74965d56b359d22f3",
+      "merge": false,
+      "message": "Revert \"[Gradle Release Plugin] - pre tag commit:  \u00271.94\u0027.\"\n\nThis reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5."
+    },
+    {
+      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+      "authorName": "Tomas Bjerre",
+      "commitTime": "2021-05-25 15:21:27",
+      "commitTimeLong": 1621956087000,
+      "hash": "724a04a18602ce9",
+      "hashFull": "724a04a18602ce98bd858371cc35f8efefaeb8d1",
+      "merge": false,
+      "message": "fix(utils:mix): the description (fixes ABC-123)"
+    },
+    {
+      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+      "authorName": "Tomas Bjerre",
+      "commitTime": "2021-05-25 15:20:45",
+      "commitTimeLong": 1621956045000,
+      "hash": "5fb068c6ccad741",
+      "hashFull": "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d",
+      "merge": false,
+      "message": "feat(utils): more utils"
+    },
+    {
+      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+      "authorName": "Tomas Bjerre",
+      "commitTime": "2021-05-25 04:14:34",
+      "commitTimeLong": 1621916074000,
+      "hash": "4c6e07857c48c98",
+      "hashFull": "4c6e07857c48c985dc53eef9045b5e36dab8f676",
+      "merge": false,
+      "message": "doing change 2"
+    },
+    {
+      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+      "authorName": "Tomas Bjerre",
+      "commitTime": "2021-05-24 14:09:31",
+      "commitTimeLong": 1621865371000,
+      "hash": "aa1fd339a07e6ea",
+      "hashFull": "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e",
+      "merge": false,
+      "message": "New version: 1.147.2 [GRADLE SCRIPT]"
+    },
+    {
+      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+      "authorName": "Tomas Bjerre",
+      "commitTime": "2021-05-24 14:08:12",
+      "commitTimeLong": 1621865292000,
+      "hash": "38fc504697f8d04",
+      "hashFull": "38fc504697f8d040a946cf7c0d668f49b6509c57",
+      "merge": false,
+      "message": "fix: dont require semantic patterns to get highest tag"
+    },
+    {
+      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+      "authorName": "Tomas Bjerre",
+      "commitTime": "2021-05-23 17:15:26",
+      "commitTimeLong": 1621790126000,
+      "hash": "7a839ad349aef46",
+      "hashFull": "7a839ad349aef465a3fce237211f5dd94c5d4ed8",
+      "merge": false,
+      "message": "Updating changelog with 1.147.1 [GRADLE SCRIPT]"
+    },
+    {
+      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+      "authorName": "Tomas Bjerre",
+      "commitTime": "2021-05-23 17:15:18",
+      "commitTimeLong": 1621790118000,
+      "hash": "e49a9f159266845",
+      "hashFull": "e49a9f15926684565dd8b95ccc9d470a6f3785e3",
+      "merge": false,
+      "message": "New version: 1.147.1 [GRADLE SCRIPT]"
+    },
+    {
+      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+      "authorName": "Tomas Bjerre",
+      "commitTime": "2021-05-23 17:14:16",
+      "commitTimeLong": 1621790056000,
+      "hash": "601c009bff8d551",
+      "hashFull": "601c009bff8d5513d94a906ea4b340678b997209",
+      "merge": false,
+      "message": "fix: dont use integrations when determining versions"
+    }
+  ],
+  "tags": [
+    {
+      "authors": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-25 15:41:19",
+              "commitTimeLong": 1621957279000,
+              "hash": "d3462925f226d08",
+              "hashFull": "d3462925f226d085a409fdb74965d56b359d22f3",
+              "merge": false,
+              "message": "Revert \"[Gradle Release Plugin] - pre tag commit:  \u00271.94\u0027.\"\n\nThis reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5."
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-25 15:21:27",
+              "commitTimeLong": 1621956087000,
+              "hash": "724a04a18602ce9",
+              "hashFull": "724a04a18602ce98bd858371cc35f8efefaeb8d1",
+              "merge": false,
+              "message": "fix(utils:mix): the description (fixes ABC-123)"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-25 15:20:45",
+              "commitTimeLong": 1621956045000,
+              "hash": "5fb068c6ccad741",
+              "hashFull": "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d",
+              "merge": false,
+              "message": "feat(utils): more utils"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-25 04:14:34",
+              "commitTimeLong": 1621916074000,
+              "hash": "4c6e07857c48c98",
+              "hashFull": "4c6e07857c48c985dc53eef9045b5e36dab8f676",
+              "merge": false,
+              "message": "doing change 2"
+            }
+          ],
+          "authorName": "Tomas Bjerre",
+          "authorEmail": "tomas.bjerre85@gmail.com"
+        }
+      ],
+      "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-25 15:41:19",
+          "commitTimeLong": 1621957279000,
+          "hash": "d3462925f226d08",
+          "hashFull": "d3462925f226d085a409fdb74965d56b359d22f3",
+          "merge": false,
+          "message": "Revert \"[Gradle Release Plugin] - pre tag commit:  \u00271.94\u0027.\"\n\nThis reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5."
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-25 15:21:27",
+          "commitTimeLong": 1621956087000,
+          "hash": "724a04a18602ce9",
+          "hashFull": "724a04a18602ce98bd858371cc35f8efefaeb8d1",
+          "merge": false,
+          "message": "fix(utils:mix): the description (fixes ABC-123)"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-25 15:20:45",
+          "commitTimeLong": 1621956045000,
+          "hash": "5fb068c6ccad741",
+          "hashFull": "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d",
+          "merge": false,
+          "message": "feat(utils): more utils"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-25 04:14:34",
+          "commitTimeLong": 1621916074000,
+          "hash": "4c6e07857c48c98",
+          "hashFull": "4c6e07857c48c985dc53eef9045b5e36dab8f676",
+          "merge": false,
+          "message": "doing change 2"
+        }
+      ],
+      "issues": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-25 15:21:27",
+              "commitTimeLong": 1621956087000,
+              "hash": "724a04a18602ce9",
+              "hashFull": "724a04a18602ce98bd858371cc35f8efefaeb8d1",
+              "merge": false,
+              "message": "fix(utils:mix): the description (fixes ABC-123)"
+            }
+          ],
+          "authors": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-25 15:21:27",
+                  "commitTimeLong": 1621956087000,
+                  "hash": "724a04a18602ce9",
+                  "hashFull": "724a04a18602ce98bd858371cc35f8efefaeb8d1",
+                  "merge": false,
+                  "message": "fix(utils:mix): the description (fixes ABC-123)"
+                }
+              ],
+              "authorName": "Tomas Bjerre",
+              "authorEmail": "tomas.bjerre85@gmail.com"
+            }
+          ],
+          "name": "Jira",
+          "title": "",
+          "hasTitle": false,
+          "issue": "ABC-123",
+          "hasIssue": true,
+          "link": "",
+          "hasLink": false,
+          "type": "",
+          "hasType": false,
+          "hasDescription": false,
+          "description": "",
+          "hasLabels": false,
+          "hasLinkedIssues": false,
+          "issueType": "JIRA"
+        },
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-25 15:41:19",
+              "commitTimeLong": 1621957279000,
+              "hash": "d3462925f226d08",
+              "hashFull": "d3462925f226d085a409fdb74965d56b359d22f3",
+              "merge": false,
+              "message": "Revert \"[Gradle Release Plugin] - pre tag commit:  \u00271.94\u0027.\"\n\nThis reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5."
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-25 15:20:45",
+              "commitTimeLong": 1621956045000,
+              "hash": "5fb068c6ccad741",
+              "hashFull": "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d",
+              "merge": false,
+              "message": "feat(utils): more utils"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-25 04:14:34",
+              "commitTimeLong": 1621916074000,
+              "hash": "4c6e07857c48c98",
+              "hashFull": "4c6e07857c48c985dc53eef9045b5e36dab8f676",
+              "merge": false,
+              "message": "doing change 2"
+            }
+          ],
+          "authors": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-25 15:41:19",
+                  "commitTimeLong": 1621957279000,
+                  "hash": "d3462925f226d08",
+                  "hashFull": "d3462925f226d085a409fdb74965d56b359d22f3",
+                  "merge": false,
+                  "message": "Revert \"[Gradle Release Plugin] - pre tag commit:  \u00271.94\u0027.\"\n\nThis reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5."
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-25 15:20:45",
+                  "commitTimeLong": 1621956045000,
+                  "hash": "5fb068c6ccad741",
+                  "hashFull": "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d",
+                  "merge": false,
+                  "message": "feat(utils): more utils"
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-25 04:14:34",
+                  "commitTimeLong": 1621916074000,
+                  "hash": "4c6e07857c48c98",
+                  "hashFull": "4c6e07857c48c985dc53eef9045b5e36dab8f676",
+                  "merge": false,
+                  "message": "doing change 2"
+                }
+              ],
+              "authorName": "Tomas Bjerre",
+              "authorEmail": "tomas.bjerre85@gmail.com"
+            }
+          ],
+          "name": "No issue",
+          "title": "",
+          "hasTitle": false,
+          "issue": "",
+          "hasIssue": false,
+          "link": "",
+          "hasLink": false,
+          "type": "",
+          "hasType": false,
+          "hasDescription": false,
+          "description": "",
+          "hasLabels": false,
+          "hasLinkedIssues": false,
+          "issueType": "NOISSUE"
+        }
+      ],
+      "issueTypes": [
+        {
+          "name": "Jira",
+          "issues": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-25 15:21:27",
+                  "commitTimeLong": 1621956087000,
+                  "hash": "724a04a18602ce9",
+                  "hashFull": "724a04a18602ce98bd858371cc35f8efefaeb8d1",
+                  "merge": false,
+                  "message": "fix(utils:mix): the description (fixes ABC-123)"
+                }
+              ],
+              "authors": [
+                {
+                  "commits": [
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2021-05-25 15:21:27",
+                      "commitTimeLong": 1621956087000,
+                      "hash": "724a04a18602ce9",
+                      "hashFull": "724a04a18602ce98bd858371cc35f8efefaeb8d1",
+                      "merge": false,
+                      "message": "fix(utils:mix): the description (fixes ABC-123)"
+                    }
+                  ],
+                  "authorName": "Tomas Bjerre",
+                  "authorEmail": "tomas.bjerre85@gmail.com"
+                }
+              ],
+              "name": "Jira",
+              "title": "",
+              "hasTitle": false,
+              "issue": "ABC-123",
+              "hasIssue": true,
+              "link": "",
+              "hasLink": false,
+              "type": "",
+              "hasType": false,
+              "hasDescription": false,
+              "description": "",
+              "hasLabels": false,
+              "hasLinkedIssues": false,
+              "issueType": "JIRA"
+            }
+          ],
+          "type": "JIRA"
+        },
+        {
+          "name": "No issue",
+          "issues": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-25 15:41:19",
+                  "commitTimeLong": 1621957279000,
+                  "hash": "d3462925f226d08",
+                  "hashFull": "d3462925f226d085a409fdb74965d56b359d22f3",
+                  "merge": false,
+                  "message": "Revert \"[Gradle Release Plugin] - pre tag commit:  \u00271.94\u0027.\"\n\nThis reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5."
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-25 15:20:45",
+                  "commitTimeLong": 1621956045000,
+                  "hash": "5fb068c6ccad741",
+                  "hashFull": "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d",
+                  "merge": false,
+                  "message": "feat(utils): more utils"
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-25 04:14:34",
+                  "commitTimeLong": 1621916074000,
+                  "hash": "4c6e07857c48c98",
+                  "hashFull": "4c6e07857c48c985dc53eef9045b5e36dab8f676",
+                  "merge": false,
+                  "message": "doing change 2"
+                }
+              ],
+              "authors": [
+                {
+                  "commits": [
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2021-05-25 15:41:19",
+                      "commitTimeLong": 1621957279000,
+                      "hash": "d3462925f226d08",
+                      "hashFull": "d3462925f226d085a409fdb74965d56b359d22f3",
+                      "merge": false,
+                      "message": "Revert \"[Gradle Release Plugin] - pre tag commit:  \u00271.94\u0027.\"\n\nThis reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5."
+                    },
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2021-05-25 15:20:45",
+                      "commitTimeLong": 1621956045000,
+                      "hash": "5fb068c6ccad741",
+                      "hashFull": "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d",
+                      "merge": false,
+                      "message": "feat(utils): more utils"
+                    },
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2021-05-25 04:14:34",
+                      "commitTimeLong": 1621916074000,
+                      "hash": "4c6e07857c48c98",
+                      "hashFull": "4c6e07857c48c985dc53eef9045b5e36dab8f676",
+                      "merge": false,
+                      "message": "doing change 2"
+                    }
+                  ],
+                  "authorName": "Tomas Bjerre",
+                  "authorEmail": "tomas.bjerre85@gmail.com"
+                }
+              ],
+              "name": "No issue",
+              "title": "",
+              "hasTitle": false,
+              "issue": "",
+              "hasIssue": false,
+              "link": "",
+              "hasLink": false,
+              "type": "",
+              "hasType": false,
+              "hasDescription": false,
+              "description": "",
+              "hasLabels": false,
+              "hasLinkedIssues": false,
+              "issueType": "NOISSUE"
+            }
+          ],
+          "type": "NOISSUE"
+        }
+      ],
+      "name": "Unreleased",
+      "tagTime": "",
+      "tagTimeLong": -1,
+      "hasTagTime": false
+    },
+    {
+      "authors": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-24 14:09:31",
+              "commitTimeLong": 1621865371000,
+              "hash": "aa1fd339a07e6ea",
+              "hashFull": "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e",
+              "merge": false,
+              "message": "New version: 1.147.2 [GRADLE SCRIPT]"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-24 14:08:12",
+              "commitTimeLong": 1621865292000,
+              "hash": "38fc504697f8d04",
+              "hashFull": "38fc504697f8d040a946cf7c0d668f49b6509c57",
+              "merge": false,
+              "message": "fix: dont require semantic patterns to get highest tag"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-23 17:15:26",
+              "commitTimeLong": 1621790126000,
+              "hash": "7a839ad349aef46",
+              "hashFull": "7a839ad349aef465a3fce237211f5dd94c5d4ed8",
+              "merge": false,
+              "message": "Updating changelog with 1.147.1 [GRADLE SCRIPT]"
+            }
+          ],
+          "authorName": "Tomas Bjerre",
+          "authorEmail": "tomas.bjerre85@gmail.com"
+        }
+      ],
+      "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-24 14:09:31",
+          "commitTimeLong": 1621865371000,
+          "hash": "aa1fd339a07e6ea",
+          "hashFull": "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e",
+          "merge": false,
+          "message": "New version: 1.147.2 [GRADLE SCRIPT]"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-24 14:08:12",
+          "commitTimeLong": 1621865292000,
+          "hash": "38fc504697f8d04",
+          "hashFull": "38fc504697f8d040a946cf7c0d668f49b6509c57",
+          "merge": false,
+          "message": "fix: dont require semantic patterns to get highest tag"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-23 17:15:26",
+          "commitTimeLong": 1621790126000,
+          "hash": "7a839ad349aef46",
+          "hashFull": "7a839ad349aef465a3fce237211f5dd94c5d4ed8",
+          "merge": false,
+          "message": "Updating changelog with 1.147.1 [GRADLE SCRIPT]"
+        }
+      ],
+      "issues": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-24 14:09:31",
+              "commitTimeLong": 1621865371000,
+              "hash": "aa1fd339a07e6ea",
+              "hashFull": "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e",
+              "merge": false,
+              "message": "New version: 1.147.2 [GRADLE SCRIPT]"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-24 14:08:12",
+              "commitTimeLong": 1621865292000,
+              "hash": "38fc504697f8d04",
+              "hashFull": "38fc504697f8d040a946cf7c0d668f49b6509c57",
+              "merge": false,
+              "message": "fix: dont require semantic patterns to get highest tag"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-23 17:15:26",
+              "commitTimeLong": 1621790126000,
+              "hash": "7a839ad349aef46",
+              "hashFull": "7a839ad349aef465a3fce237211f5dd94c5d4ed8",
+              "merge": false,
+              "message": "Updating changelog with 1.147.1 [GRADLE SCRIPT]"
+            }
+          ],
+          "authors": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-24 14:09:31",
+                  "commitTimeLong": 1621865371000,
+                  "hash": "aa1fd339a07e6ea",
+                  "hashFull": "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e",
+                  "merge": false,
+                  "message": "New version: 1.147.2 [GRADLE SCRIPT]"
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-24 14:08:12",
+                  "commitTimeLong": 1621865292000,
+                  "hash": "38fc504697f8d04",
+                  "hashFull": "38fc504697f8d040a946cf7c0d668f49b6509c57",
+                  "merge": false,
+                  "message": "fix: dont require semantic patterns to get highest tag"
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-23 17:15:26",
+                  "commitTimeLong": 1621790126000,
+                  "hash": "7a839ad349aef46",
+                  "hashFull": "7a839ad349aef465a3fce237211f5dd94c5d4ed8",
+                  "merge": false,
+                  "message": "Updating changelog with 1.147.1 [GRADLE SCRIPT]"
+                }
+              ],
+              "authorName": "Tomas Bjerre",
+              "authorEmail": "tomas.bjerre85@gmail.com"
+            }
+          ],
+          "name": "No issue",
+          "title": "",
+          "hasTitle": false,
+          "issue": "",
+          "hasIssue": false,
+          "link": "",
+          "hasLink": false,
+          "type": "",
+          "hasType": false,
+          "hasDescription": false,
+          "description": "",
+          "hasLabels": false,
+          "hasLinkedIssues": false,
+          "issueType": "NOISSUE"
+        }
+      ],
+      "issueTypes": [
+        {
+          "name": "No issue",
+          "issues": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-24 14:09:31",
+                  "commitTimeLong": 1621865371000,
+                  "hash": "aa1fd339a07e6ea",
+                  "hashFull": "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e",
+                  "merge": false,
+                  "message": "New version: 1.147.2 [GRADLE SCRIPT]"
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-24 14:08:12",
+                  "commitTimeLong": 1621865292000,
+                  "hash": "38fc504697f8d04",
+                  "hashFull": "38fc504697f8d040a946cf7c0d668f49b6509c57",
+                  "merge": false,
+                  "message": "fix: dont require semantic patterns to get highest tag"
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-23 17:15:26",
+                  "commitTimeLong": 1621790126000,
+                  "hash": "7a839ad349aef46",
+                  "hashFull": "7a839ad349aef465a3fce237211f5dd94c5d4ed8",
+                  "merge": false,
+                  "message": "Updating changelog with 1.147.1 [GRADLE SCRIPT]"
+                }
+              ],
+              "authors": [
+                {
+                  "commits": [
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2021-05-24 14:09:31",
+                      "commitTimeLong": 1621865371000,
+                      "hash": "aa1fd339a07e6ea",
+                      "hashFull": "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e",
+                      "merge": false,
+                      "message": "New version: 1.147.2 [GRADLE SCRIPT]"
+                    },
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2021-05-24 14:08:12",
+                      "commitTimeLong": 1621865292000,
+                      "hash": "38fc504697f8d04",
+                      "hashFull": "38fc504697f8d040a946cf7c0d668f49b6509c57",
+                      "merge": false,
+                      "message": "fix: dont require semantic patterns to get highest tag"
+                    },
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2021-05-23 17:15:26",
+                      "commitTimeLong": 1621790126000,
+                      "hash": "7a839ad349aef46",
+                      "hashFull": "7a839ad349aef465a3fce237211f5dd94c5d4ed8",
+                      "merge": false,
+                      "message": "Updating changelog with 1.147.1 [GRADLE SCRIPT]"
+                    }
+                  ],
+                  "authorName": "Tomas Bjerre",
+                  "authorEmail": "tomas.bjerre85@gmail.com"
+                }
+              ],
+              "name": "No issue",
+              "title": "",
+              "hasTitle": false,
+              "issue": "",
+              "hasIssue": false,
+              "link": "",
+              "hasLink": false,
+              "type": "",
+              "hasType": false,
+              "hasDescription": false,
+              "description": "",
+              "hasLabels": false,
+              "hasLinkedIssues": false,
+              "issueType": "NOISSUE"
+            }
+          ],
+          "type": "NOISSUE"
+        }
+      ],
+      "name": "1.147.2",
+      "tagTime": "2021-05-24 14:09:31",
+      "tagTimeLong": 1621865371000,
+      "hasTagTime": true
+    },
+    {
+      "authors": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-23 17:15:18",
+              "commitTimeLong": 1621790118000,
+              "hash": "e49a9f159266845",
+              "hashFull": "e49a9f15926684565dd8b95ccc9d470a6f3785e3",
+              "merge": false,
+              "message": "New version: 1.147.1 [GRADLE SCRIPT]"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-23 17:14:16",
+              "commitTimeLong": 1621790056000,
+              "hash": "601c009bff8d551",
+              "hashFull": "601c009bff8d5513d94a906ea4b340678b997209",
+              "merge": false,
+              "message": "fix: dont use integrations when determining versions"
+            }
+          ],
+          "authorName": "Tomas Bjerre",
+          "authorEmail": "tomas.bjerre85@gmail.com"
+        }
+      ],
+      "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-23 17:15:18",
+          "commitTimeLong": 1621790118000,
+          "hash": "e49a9f159266845",
+          "hashFull": "e49a9f15926684565dd8b95ccc9d470a6f3785e3",
+          "merge": false,
+          "message": "New version: 1.147.1 [GRADLE SCRIPT]"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-23 17:14:16",
+          "commitTimeLong": 1621790056000,
+          "hash": "601c009bff8d551",
+          "hashFull": "601c009bff8d5513d94a906ea4b340678b997209",
+          "merge": false,
+          "message": "fix: dont use integrations when determining versions"
+        }
+      ],
+      "issues": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-23 17:15:18",
+              "commitTimeLong": 1621790118000,
+              "hash": "e49a9f159266845",
+              "hashFull": "e49a9f15926684565dd8b95ccc9d470a6f3785e3",
+              "merge": false,
+              "message": "New version: 1.147.1 [GRADLE SCRIPT]"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-23 17:14:16",
+              "commitTimeLong": 1621790056000,
+              "hash": "601c009bff8d551",
+              "hashFull": "601c009bff8d5513d94a906ea4b340678b997209",
+              "merge": false,
+              "message": "fix: dont use integrations when determining versions"
+            }
+          ],
+          "authors": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-23 17:15:18",
+                  "commitTimeLong": 1621790118000,
+                  "hash": "e49a9f159266845",
+                  "hashFull": "e49a9f15926684565dd8b95ccc9d470a6f3785e3",
+                  "merge": false,
+                  "message": "New version: 1.147.1 [GRADLE SCRIPT]"
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-23 17:14:16",
+                  "commitTimeLong": 1621790056000,
+                  "hash": "601c009bff8d551",
+                  "hashFull": "601c009bff8d5513d94a906ea4b340678b997209",
+                  "merge": false,
+                  "message": "fix: dont use integrations when determining versions"
+                }
+              ],
+              "authorName": "Tomas Bjerre",
+              "authorEmail": "tomas.bjerre85@gmail.com"
+            }
+          ],
+          "name": "No issue",
+          "title": "",
+          "hasTitle": false,
+          "issue": "",
+          "hasIssue": false,
+          "link": "",
+          "hasLink": false,
+          "type": "",
+          "hasType": false,
+          "hasDescription": false,
+          "description": "",
+          "hasLabels": false,
+          "hasLinkedIssues": false,
+          "issueType": "NOISSUE"
+        }
+      ],
+      "issueTypes": [
+        {
+          "name": "No issue",
+          "issues": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-23 17:15:18",
+                  "commitTimeLong": 1621790118000,
+                  "hash": "e49a9f159266845",
+                  "hashFull": "e49a9f15926684565dd8b95ccc9d470a6f3785e3",
+                  "merge": false,
+                  "message": "New version: 1.147.1 [GRADLE SCRIPT]"
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-23 17:14:16",
+                  "commitTimeLong": 1621790056000,
+                  "hash": "601c009bff8d551",
+                  "hashFull": "601c009bff8d5513d94a906ea4b340678b997209",
+                  "merge": false,
+                  "message": "fix: dont use integrations when determining versions"
+                }
+              ],
+              "authors": [
+                {
+                  "commits": [
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2021-05-23 17:15:18",
+                      "commitTimeLong": 1621790118000,
+                      "hash": "e49a9f159266845",
+                      "hashFull": "e49a9f15926684565dd8b95ccc9d470a6f3785e3",
+                      "merge": false,
+                      "message": "New version: 1.147.1 [GRADLE SCRIPT]"
+                    },
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2021-05-23 17:14:16",
+                      "commitTimeLong": 1621790056000,
+                      "hash": "601c009bff8d551",
+                      "hashFull": "601c009bff8d5513d94a906ea4b340678b997209",
+                      "merge": false,
+                      "message": "fix: dont use integrations when determining versions"
+                    }
+                  ],
+                  "authorName": "Tomas Bjerre",
+                  "authorEmail": "tomas.bjerre85@gmail.com"
+                }
+              ],
+              "name": "No issue",
+              "title": "",
+              "hasTitle": false,
+              "issue": "",
+              "hasIssue": false,
+              "link": "",
+              "hasLink": false,
+              "type": "",
+              "hasType": false,
+              "hasDescription": false,
+              "description": "",
+              "hasLabels": false,
+              "hasLinkedIssues": false,
+              "issueType": "NOISSUE"
+            }
+          ],
+          "type": "NOISSUE"
+        }
+      ],
+      "name": "1.147.1",
+      "tagTime": "2021-05-23 17:15:18",
+      "tagTimeLong": 1621790118000,
+      "hasTagTime": true
+    }
+  ],
+  "authors": [
+    {
+      "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-25 15:41:19",
+          "commitTimeLong": 1621957279000,
+          "hash": "d3462925f226d08",
+          "hashFull": "d3462925f226d085a409fdb74965d56b359d22f3",
+          "merge": false,
+          "message": "Revert \"[Gradle Release Plugin] - pre tag commit:  \u00271.94\u0027.\"\n\nThis reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5."
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-25 15:21:27",
+          "commitTimeLong": 1621956087000,
+          "hash": "724a04a18602ce9",
+          "hashFull": "724a04a18602ce98bd858371cc35f8efefaeb8d1",
+          "merge": false,
+          "message": "fix(utils:mix): the description (fixes ABC-123)"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-25 15:20:45",
+          "commitTimeLong": 1621956045000,
+          "hash": "5fb068c6ccad741",
+          "hashFull": "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d",
+          "merge": false,
+          "message": "feat(utils): more utils"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-25 04:14:34",
+          "commitTimeLong": 1621916074000,
+          "hash": "4c6e07857c48c98",
+          "hashFull": "4c6e07857c48c985dc53eef9045b5e36dab8f676",
+          "merge": false,
+          "message": "doing change 2"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-24 14:09:31",
+          "commitTimeLong": 1621865371000,
+          "hash": "aa1fd339a07e6ea",
+          "hashFull": "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e",
+          "merge": false,
+          "message": "New version: 1.147.2 [GRADLE SCRIPT]"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-24 14:08:12",
+          "commitTimeLong": 1621865292000,
+          "hash": "38fc504697f8d04",
+          "hashFull": "38fc504697f8d040a946cf7c0d668f49b6509c57",
+          "merge": false,
+          "message": "fix: dont require semantic patterns to get highest tag"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-23 17:15:26",
+          "commitTimeLong": 1621790126000,
+          "hash": "7a839ad349aef46",
+          "hashFull": "7a839ad349aef465a3fce237211f5dd94c5d4ed8",
+          "merge": false,
+          "message": "Updating changelog with 1.147.1 [GRADLE SCRIPT]"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-23 17:15:18",
+          "commitTimeLong": 1621790118000,
+          "hash": "e49a9f159266845",
+          "hashFull": "e49a9f15926684565dd8b95ccc9d470a6f3785e3",
+          "merge": false,
+          "message": "New version: 1.147.1 [GRADLE SCRIPT]"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-23 17:14:16",
+          "commitTimeLong": 1621790056000,
+          "hash": "601c009bff8d551",
+          "hashFull": "601c009bff8d5513d94a906ea4b340678b997209",
+          "merge": false,
+          "message": "fix: dont use integrations when determining versions"
+        }
+      ],
+      "authorName": "Tomas Bjerre",
+      "authorEmail": "tomas.bjerre85@gmail.com"
+    }
+  ],
+  "issues": [
+    {
+      "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-25 15:21:27",
+          "commitTimeLong": 1621956087000,
+          "hash": "724a04a18602ce9",
+          "hashFull": "724a04a18602ce98bd858371cc35f8efefaeb8d1",
+          "merge": false,
+          "message": "fix(utils:mix): the description (fixes ABC-123)"
+        }
+      ],
+      "authors": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-25 15:21:27",
+              "commitTimeLong": 1621956087000,
+              "hash": "724a04a18602ce9",
+              "hashFull": "724a04a18602ce98bd858371cc35f8efefaeb8d1",
+              "merge": false,
+              "message": "fix(utils:mix): the description (fixes ABC-123)"
+            }
+          ],
+          "authorName": "Tomas Bjerre",
+          "authorEmail": "tomas.bjerre85@gmail.com"
+        }
+      ],
+      "name": "Jira",
+      "title": "",
+      "hasTitle": false,
+      "issue": "ABC-123",
+      "hasIssue": true,
+      "link": "",
+      "hasLink": false,
+      "type": "",
+      "hasType": false,
+      "hasDescription": false,
+      "description": "",
+      "hasLabels": false,
+      "hasLinkedIssues": false,
+      "issueType": "JIRA"
+    },
+    {
+      "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-25 15:41:19",
+          "commitTimeLong": 1621957279000,
+          "hash": "d3462925f226d08",
+          "hashFull": "d3462925f226d085a409fdb74965d56b359d22f3",
+          "merge": false,
+          "message": "Revert \"[Gradle Release Plugin] - pre tag commit:  \u00271.94\u0027.\"\n\nThis reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5."
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-25 15:20:45",
+          "commitTimeLong": 1621956045000,
+          "hash": "5fb068c6ccad741",
+          "hashFull": "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d",
+          "merge": false,
+          "message": "feat(utils): more utils"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-25 04:14:34",
+          "commitTimeLong": 1621916074000,
+          "hash": "4c6e07857c48c98",
+          "hashFull": "4c6e07857c48c985dc53eef9045b5e36dab8f676",
+          "merge": false,
+          "message": "doing change 2"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-24 14:09:31",
+          "commitTimeLong": 1621865371000,
+          "hash": "aa1fd339a07e6ea",
+          "hashFull": "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e",
+          "merge": false,
+          "message": "New version: 1.147.2 [GRADLE SCRIPT]"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-24 14:08:12",
+          "commitTimeLong": 1621865292000,
+          "hash": "38fc504697f8d04",
+          "hashFull": "38fc504697f8d040a946cf7c0d668f49b6509c57",
+          "merge": false,
+          "message": "fix: dont require semantic patterns to get highest tag"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-23 17:15:26",
+          "commitTimeLong": 1621790126000,
+          "hash": "7a839ad349aef46",
+          "hashFull": "7a839ad349aef465a3fce237211f5dd94c5d4ed8",
+          "merge": false,
+          "message": "Updating changelog with 1.147.1 [GRADLE SCRIPT]"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-23 17:15:18",
+          "commitTimeLong": 1621790118000,
+          "hash": "e49a9f159266845",
+          "hashFull": "e49a9f15926684565dd8b95ccc9d470a6f3785e3",
+          "merge": false,
+          "message": "New version: 1.147.1 [GRADLE SCRIPT]"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-23 17:14:16",
+          "commitTimeLong": 1621790056000,
+          "hash": "601c009bff8d551",
+          "hashFull": "601c009bff8d5513d94a906ea4b340678b997209",
+          "merge": false,
+          "message": "fix: dont use integrations when determining versions"
+        }
+      ],
+      "authors": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-25 15:41:19",
+              "commitTimeLong": 1621957279000,
+              "hash": "d3462925f226d08",
+              "hashFull": "d3462925f226d085a409fdb74965d56b359d22f3",
+              "merge": false,
+              "message": "Revert \"[Gradle Release Plugin] - pre tag commit:  \u00271.94\u0027.\"\n\nThis reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5."
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-25 15:20:45",
+              "commitTimeLong": 1621956045000,
+              "hash": "5fb068c6ccad741",
+              "hashFull": "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d",
+              "merge": false,
+              "message": "feat(utils): more utils"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-25 04:14:34",
+              "commitTimeLong": 1621916074000,
+              "hash": "4c6e07857c48c98",
+              "hashFull": "4c6e07857c48c985dc53eef9045b5e36dab8f676",
+              "merge": false,
+              "message": "doing change 2"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-24 14:09:31",
+              "commitTimeLong": 1621865371000,
+              "hash": "aa1fd339a07e6ea",
+              "hashFull": "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e",
+              "merge": false,
+              "message": "New version: 1.147.2 [GRADLE SCRIPT]"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-24 14:08:12",
+              "commitTimeLong": 1621865292000,
+              "hash": "38fc504697f8d04",
+              "hashFull": "38fc504697f8d040a946cf7c0d668f49b6509c57",
+              "merge": false,
+              "message": "fix: dont require semantic patterns to get highest tag"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-23 17:15:26",
+              "commitTimeLong": 1621790126000,
+              "hash": "7a839ad349aef46",
+              "hashFull": "7a839ad349aef465a3fce237211f5dd94c5d4ed8",
+              "merge": false,
+              "message": "Updating changelog with 1.147.1 [GRADLE SCRIPT]"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-23 17:15:18",
+              "commitTimeLong": 1621790118000,
+              "hash": "e49a9f159266845",
+              "hashFull": "e49a9f15926684565dd8b95ccc9d470a6f3785e3",
+              "merge": false,
+              "message": "New version: 1.147.1 [GRADLE SCRIPT]"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-23 17:14:16",
+              "commitTimeLong": 1621790056000,
+              "hash": "601c009bff8d551",
+              "hashFull": "601c009bff8d5513d94a906ea4b340678b997209",
+              "merge": false,
+              "message": "fix: dont use integrations when determining versions"
+            }
+          ],
+          "authorName": "Tomas Bjerre",
+          "authorEmail": "tomas.bjerre85@gmail.com"
+        }
+      ],
+      "name": "No issue",
+      "title": "",
+      "hasTitle": false,
+      "issue": "",
+      "hasIssue": false,
+      "link": "",
+      "hasLink": false,
+      "type": "",
+      "hasType": false,
+      "hasDescription": false,
+      "description": "",
+      "hasLabels": false,
+      "hasLinkedIssues": false,
+      "issueType": "NOISSUE"
+    }
+  ],
+  "issueTypes": [
+    {
+      "name": "Jira",
+      "issues": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-25 15:21:27",
+              "commitTimeLong": 1621956087000,
+              "hash": "724a04a18602ce9",
+              "hashFull": "724a04a18602ce98bd858371cc35f8efefaeb8d1",
+              "merge": false,
+              "message": "fix(utils:mix): the description (fixes ABC-123)"
+            }
+          ],
+          "authors": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-25 15:21:27",
+                  "commitTimeLong": 1621956087000,
+                  "hash": "724a04a18602ce9",
+                  "hashFull": "724a04a18602ce98bd858371cc35f8efefaeb8d1",
+                  "merge": false,
+                  "message": "fix(utils:mix): the description (fixes ABC-123)"
+                }
+              ],
+              "authorName": "Tomas Bjerre",
+              "authorEmail": "tomas.bjerre85@gmail.com"
+            }
+          ],
+          "name": "Jira",
+          "title": "",
+          "hasTitle": false,
+          "issue": "ABC-123",
+          "hasIssue": true,
+          "link": "",
+          "hasLink": false,
+          "type": "",
+          "hasType": false,
+          "hasDescription": false,
+          "description": "",
+          "hasLabels": false,
+          "hasLinkedIssues": false,
+          "issueType": "JIRA"
+        }
+      ],
+      "type": "JIRA"
+    },
+    {
+      "name": "No issue",
+      "issues": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-25 15:41:19",
+              "commitTimeLong": 1621957279000,
+              "hash": "d3462925f226d08",
+              "hashFull": "d3462925f226d085a409fdb74965d56b359d22f3",
+              "merge": false,
+              "message": "Revert \"[Gradle Release Plugin] - pre tag commit:  \u00271.94\u0027.\"\n\nThis reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5."
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-25 15:20:45",
+              "commitTimeLong": 1621956045000,
+              "hash": "5fb068c6ccad741",
+              "hashFull": "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d",
+              "merge": false,
+              "message": "feat(utils): more utils"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-25 04:14:34",
+              "commitTimeLong": 1621916074000,
+              "hash": "4c6e07857c48c98",
+              "hashFull": "4c6e07857c48c985dc53eef9045b5e36dab8f676",
+              "merge": false,
+              "message": "doing change 2"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-24 14:09:31",
+              "commitTimeLong": 1621865371000,
+              "hash": "aa1fd339a07e6ea",
+              "hashFull": "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e",
+              "merge": false,
+              "message": "New version: 1.147.2 [GRADLE SCRIPT]"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-24 14:08:12",
+              "commitTimeLong": 1621865292000,
+              "hash": "38fc504697f8d04",
+              "hashFull": "38fc504697f8d040a946cf7c0d668f49b6509c57",
+              "merge": false,
+              "message": "fix: dont require semantic patterns to get highest tag"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-23 17:15:26",
+              "commitTimeLong": 1621790126000,
+              "hash": "7a839ad349aef46",
+              "hashFull": "7a839ad349aef465a3fce237211f5dd94c5d4ed8",
+              "merge": false,
+              "message": "Updating changelog with 1.147.1 [GRADLE SCRIPT]"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-23 17:15:18",
+              "commitTimeLong": 1621790118000,
+              "hash": "e49a9f159266845",
+              "hashFull": "e49a9f15926684565dd8b95ccc9d470a6f3785e3",
+              "merge": false,
+              "message": "New version: 1.147.1 [GRADLE SCRIPT]"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-23 17:14:16",
+              "commitTimeLong": 1621790056000,
+              "hash": "601c009bff8d551",
+              "hashFull": "601c009bff8d5513d94a906ea4b340678b997209",
+              "merge": false,
+              "message": "fix: dont use integrations when determining versions"
+            }
+          ],
+          "authors": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-25 15:41:19",
+                  "commitTimeLong": 1621957279000,
+                  "hash": "d3462925f226d08",
+                  "hashFull": "d3462925f226d085a409fdb74965d56b359d22f3",
+                  "merge": false,
+                  "message": "Revert \"[Gradle Release Plugin] - pre tag commit:  \u00271.94\u0027.\"\n\nThis reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5."
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-25 15:20:45",
+                  "commitTimeLong": 1621956045000,
+                  "hash": "5fb068c6ccad741",
+                  "hashFull": "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d",
+                  "merge": false,
+                  "message": "feat(utils): more utils"
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-25 04:14:34",
+                  "commitTimeLong": 1621916074000,
+                  "hash": "4c6e07857c48c98",
+                  "hashFull": "4c6e07857c48c985dc53eef9045b5e36dab8f676",
+                  "merge": false,
+                  "message": "doing change 2"
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-24 14:09:31",
+                  "commitTimeLong": 1621865371000,
+                  "hash": "aa1fd339a07e6ea",
+                  "hashFull": "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e",
+                  "merge": false,
+                  "message": "New version: 1.147.2 [GRADLE SCRIPT]"
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-24 14:08:12",
+                  "commitTimeLong": 1621865292000,
+                  "hash": "38fc504697f8d04",
+                  "hashFull": "38fc504697f8d040a946cf7c0d668f49b6509c57",
+                  "merge": false,
+                  "message": "fix: dont require semantic patterns to get highest tag"
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-23 17:15:26",
+                  "commitTimeLong": 1621790126000,
+                  "hash": "7a839ad349aef46",
+                  "hashFull": "7a839ad349aef465a3fce237211f5dd94c5d4ed8",
+                  "merge": false,
+                  "message": "Updating changelog with 1.147.1 [GRADLE SCRIPT]"
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-23 17:15:18",
+                  "commitTimeLong": 1621790118000,
+                  "hash": "e49a9f159266845",
+                  "hashFull": "e49a9f15926684565dd8b95ccc9d470a6f3785e3",
+                  "merge": false,
+                  "message": "New version: 1.147.1 [GRADLE SCRIPT]"
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-23 17:14:16",
+                  "commitTimeLong": 1621790056000,
+                  "hash": "601c009bff8d551",
+                  "hashFull": "601c009bff8d5513d94a906ea4b340678b997209",
+                  "merge": false,
+                  "message": "fix: dont use integrations when determining versions"
+                }
+              ],
+              "authorName": "Tomas Bjerre",
+              "authorEmail": "tomas.bjerre85@gmail.com"
+            }
+          ],
+          "name": "No issue",
+          "title": "",
+          "hasTitle": false,
+          "issue": "",
+          "hasIssue": false,
+          "link": "",
+          "hasLink": false,
+          "type": "",
+          "hasType": false,
+          "hasDescription": false,
+          "description": "",
+          "hasLabels": false,
+          "hasLinkedIssues": false,
+          "issueType": "NOISSUE"
+        }
+      ],
+      "type": "NOISSUE"
+    }
+  ],
+  "ownerName": "tomasbjerre",
+  "repoName": "git-changelog-lib"
+}

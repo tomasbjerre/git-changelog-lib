@@ -1,0 +1,60 @@
+
+Test template:
+
+Tags:
+
+{{#tags}}
+ * {{.}}
+{{/tags}}
+
+
+Commits:
+
+{{#commits}}
+ * {{.}}
+{{/commits}}
+
+
+{{#tags}}
+ tag: {{.}}
+ {{#ifReleaseTag .}}
+  "{{.}}" is a release tag
+ {{/ifReleaseTag}}
+ 
+ {{#ifContainingType commits type="fix"}}
+  commits contains fix
+ {{/ifContainingType}}
+ 
+ 
+{{/tags}}
+
+
+{{#commits}}
+ Commit: {{.}}
+ {{#ifCommitType . type="revert"}} is type revert {{/ifCommitType}}
+ {{#ifCommitType . type="fix"}} is type fix {{/ifCommitType}}
+
+ {{#ifCommitScope . scope="utils"}} is scope utils {{/ifCommitScope}}
+
+ {{#eachCommitScope .}}
+  scope: {{.}}
+ {{/eachCommitScope}}
+
+ description: {{commitDescription .}}
+ 
+ {{#ifCommitType . type="revert"}}
+   this reverted commit: {{revertedCommit .}}
+ {{/ifCommitType}}
+ 
+ {{#eachCommitRefs .}}
+  ref: {{.}}
+ {{/eachCommitRefs}}
+
+ {{#eachCommitFixes .}}
+  fix: {{.}}
+ {{/eachCommitFixes}}
+
+
+{{/commits}}
+
+
