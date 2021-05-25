@@ -185,10 +185,10 @@ public class Settings implements Serializable {
   private String gitLabProjectName;
 
   /** Regular expression to use when determining next semantic version based on commits. */
-  private String semanticMajorPattern;
+  private String semanticMajorPattern = "^[Bb]reaking.*";
 
   /** Regular expression to use when determining next semantic version based on commits. */
-  private String semanticMinorPattern;
+  private String semanticMinorPattern = "^[Ff]eat.*";
 
   public String getSubDirFilter() {
     return fromNullable(this.subDirFilter).or("");

@@ -24,7 +24,9 @@ settings:
   "gitHubApi": "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
   "extendedVariables": {},
   "ignoreCommitsWithoutIssue": false,
-  "gitLabProjectName": "tomasbjerre"
+  "gitLabProjectName": "tomasbjerre",
+  "semanticMajorPattern": "^[Bb]reaking.*",
+  "semanticMinorPattern": "^[Ff]eat.*"
 }
 
 ---------------------------------------------

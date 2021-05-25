@@ -22,7 +22,10 @@ public class CommitHelperTest {
           "chore(dependencies:formatting): subject", //
           "chore: subject (refs ABC-123)", //
           "chore: subject (refs ABC-123 DEF-456)", //
-          "chore: subject (fixes ABC-123" //
+          "chore: subject (fixes ABC-123", //
+          "Revert \"doing change 1\"\n"
+              + "\n"
+              + "This reverts commit 114a9170d538c35b2fe49ba81453e915192e2d8e." //
           );
 
   @Test

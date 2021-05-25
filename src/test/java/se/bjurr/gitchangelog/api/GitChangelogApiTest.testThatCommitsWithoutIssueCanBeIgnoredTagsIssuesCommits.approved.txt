@@ -56,7 +56,9 @@ settings:
   "extendedVariables": {},
   "ignoreCommitsWithoutIssue": true,
   "gitLabIssuePattern": "nooo",
-  "gitLabProjectName": "tomasbjerre"
+  "gitLabProjectName": "tomasbjerre",
+  "semanticMajorPattern": "^[Bb]reaking.*",
+  "semanticMinorPattern": "^[Ff]eat.*"
 }
 
 ---------------------------------------------

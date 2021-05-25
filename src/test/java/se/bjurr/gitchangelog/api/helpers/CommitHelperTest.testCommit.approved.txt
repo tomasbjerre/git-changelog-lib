@@ -13,6 +13,8 @@ commitType: feat
 
 isType: true
 
+revertedCommit: 
+
 ----------------------------
 chore(dependencies): subject
 
@@ -27,6 +29,8 @@ commitScopes: [dependencies]
 commitType: chore
 
 isType: false
+
+revertedCommit: 
 
 ----------------------------
 chore(dependencies:formatting): subject
@@ -43,6 +47,8 @@ commitType: chore
 
 isType: false
 
+revertedCommit: 
+
 ----------------------------
 chore: subject (refs ABC-123)
 
@@ -57,6 +63,8 @@ commitScopes: []
 commitType: chore
 
 isType: false
+
+revertedCommit: 
 
 ----------------------------
 chore: subject (refs ABC-123 DEF-456)
@@ -73,6 +81,8 @@ commitType: chore
 
 isType: false
 
+revertedCommit: 
+
 ----------------------------
 chore: subject (fixes ABC-123
 
@@ -87,4 +97,25 @@ commitScopes: []
 commitType: chore
 
 isType: false
+
+revertedCommit: 
+
+----------------------------
+Revert "doing change 1"
+
+This reverts commit 114a9170d538c35b2fe49ba81453e915192e2d8e.
+
+commitDescription: 
+
+commitFixes: []
+
+commitRefs: []
+
+commitScopes: []
+
+commitType: revert
+
+isType: false
+
+revertedCommit: 114a9170d538c35b2fe49ba81453e915192e2d8e
 

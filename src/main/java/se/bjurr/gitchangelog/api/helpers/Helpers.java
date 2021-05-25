@@ -12,6 +12,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import se.bjurr.gitchangelog.api.model.Commit;
 import se.bjurr.gitchangelog.api.model.Tag;
+import se.bjurr.gitchangelog.internal.model.Transformer;
 
 public class Helpers {
   private static final Pattern CONVENTIONAL_PATTERN =
@@ -24,7 +25,12 @@ public class Helpers {
   public static String getCommitType(final String commitMessage) {
     final Matcher matcher = Helpers.CONVENTIONAL_PATTERN.matcher(commitMessage.toString());
     if (!matcher.find()) {
-      return "";
+      final boolean matchesRevert = Transformer.PATTERN_THIS_REVERTS.matcher(commitMessage).find();
+      if (matchesRevert) {
+        return "revert";
+      } else {
+        return "";
+      }
     }
     final String group = matcher.group(1);
     return group == null ? "" : group.trim();
@@ -125,6 +131,17 @@ public class Helpers {
         (commitMessage, options) -> {
           final String type = options.hash("type").toString();
           return commitMessage.toString().startsWith(type);
+        });
+
+    COMMIT_HELPERS.put(
+        "revertedCommit",
+        (commitMessage, options) -> {
+          final Matcher matcher =
+              Transformer.PATTERN_THIS_REVERTS.matcher(commitMessage.toString());
+          if (!matcher.find()) {
+            return "";
+          }
+          return matcher.group(1);
         });
   }
 }

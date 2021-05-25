@@ -12,6 +12,9 @@ import static java.util.regex.Pattern.DOTALL;
 import static java.util.regex.Pattern.compile;
 import static java.util.stream.Collectors.toList;
 
+import com.google.common.annotations.VisibleForTesting;
+import com.google.common.base.Function;
+import com.google.common.collect.Multimap;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -21,7 +24,6 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-
 import se.bjurr.gitchangelog.api.model.Author;
 import se.bjurr.gitchangelog.api.model.Commit;
 import se.bjurr.gitchangelog.api.model.Issue;
@@ -33,13 +35,10 @@ import se.bjurr.gitchangelog.internal.settings.IssuesUtil;
 import se.bjurr.gitchangelog.internal.settings.Settings;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
 
-import com.google.common.annotations.VisibleForTesting;
-import com.google.common.base.Function;
-import com.google.common.collect.Multimap;
-
 public class Transformer {
 
-  private static final String PATTERN_THIS_REVERTS = "This reverts commit ([a-z0-9]+).";
+  public static final Pattern PATTERN_THIS_REVERTS =
+      Pattern.compile("This reverts commit ([a-z0-9]+).", Pattern.MULTILINE);
   private final Settings settings;
 
   public Transformer(final Settings settings) {
@@ -89,11 +88,11 @@ public class Transformer {
   }
 
   private String getRevertCommitHash(final GitCommit revertCommit) {
-    final Matcher matcher = Pattern.compile(PATTERN_THIS_REVERTS).matcher(revertCommit.getMessage());
+    final Matcher matcher = PATTERN_THIS_REVERTS.matcher(revertCommit.getMessage());
     if (!matcher.find()) {
-    	return null;
+      return null;
     }
-	return matcher.group(1);
+    return matcher.group(1);
   }
 
   public List<Commit> toCommits(final Collection<GitCommit> from) {
@@ -116,29 +115,35 @@ public class Transformer {
                 })
             .collect(toList());
     final List<GitCommit> fromWithoutReverted =
-    		from.stream().filter(it -> !revertedCommits.contains(it) && !revertCommitsToRemove.contains(it)).collect(toList());
+        from.stream()
+            .filter(it -> !revertedCommits.contains(it) && !revertCommitsToRemove.contains(it))
+            .collect(toList());
 
     final List<GitCommit> filteredCommits =
-    		fromWithoutReverted.stream().filter(
-    				gitCommit -> {
-    				      final boolean messageMatches =
-    				          compile(this.settings.getIgnoreCommitsIfMessageMatches(), DOTALL)
-    				              .matcher(gitCommit.getMessage())
-    				              .matches();
-    				      if (messageMatches) {
-    				        return false;
-    				      }
+        fromWithoutReverted
+            .stream()
+            .filter(
+                gitCommit -> {
+                  final boolean messageMatches =
+                      compile(this.settings.getIgnoreCommitsIfMessageMatches(), DOTALL)
+                          .matcher(gitCommit.getMessage())
+                          .matches();
+                  if (messageMatches) {
+                    return false;
+                  }
 
-    				      if (this.settings.getIgnoreCommitsIfOlderThan().isPresent()) {
-    				        final boolean olderThan =
-    				            gitCommit.getCommitTime().before(this.settings.getIgnoreCommitsIfOlderThan().get());
-    				        if (olderThan) {
-    				          return false;
-    				        }
-    				      }
-    				      return true;
-    				    }
-    				).collect(toList());
+                  if (this.settings.getIgnoreCommitsIfOlderThan().isPresent()) {
+                    final boolean olderThan =
+                        gitCommit
+                            .getCommitTime()
+                            .before(this.settings.getIgnoreCommitsIfOlderThan().get());
+                    if (olderThan) {
+                      return false;
+                    }
+                  }
+                  return true;
+                })
+            .collect(toList());
     return newArrayList(transform(filteredCommits, c -> Transformer.this.toCommit(c)));
   }
 
@@ -171,29 +176,32 @@ public class Transformer {
   public List<Tag> toTags(final List<GitTag> gitTags, final List<ParsedIssue> allParsedIssues) {
 
     final List<Tag> tags =
-    		gitTags.stream().map(input -> {
-            final List<GitCommit> gitCommits = input.getGitCommits();
-            final List<ParsedIssue> parsedIssues =
-                this.reduceParsedIssuesToOnlyGitCommits(allParsedIssues, gitCommits);
-            final List<Commit> commits = Transformer.this.toCommits(gitCommits);
-            final List<Author> authors = Transformer.this.toAuthors(gitCommits);
-            final List<Issue> issues = Transformer.this.toIssues(parsedIssues);
-            final List<IssueType> issueTypes = Transformer.this.toIssueTypes(parsedIssues);
-            return new Tag(
-                Transformer.this.toReadableTagName(input.getName()),
-                input.findAnnotation().orNull(),
-                commits,
-                authors,
-                issues,
-                issueTypes,
-                input.getTagTime() != null ? Transformer.this.format(input.getTagTime()) : "",
-                input.getTagTime() != null ? input.getTagTime().getTime() : -1);
-    		}
-    				).collect(Collectors.toList());
+        gitTags
+            .stream()
+            .map(
+                input -> {
+                  final List<GitCommit> gitCommits = input.getGitCommits();
+                  final List<ParsedIssue> parsedIssues =
+                      this.reduceParsedIssuesToOnlyGitCommits(allParsedIssues, gitCommits);
+                  final List<Commit> commits = Transformer.this.toCommits(gitCommits);
+                  final List<Author> authors = Transformer.this.toAuthors(gitCommits);
+                  final List<Issue> issues = Transformer.this.toIssues(parsedIssues);
+                  final List<IssueType> issueTypes = Transformer.this.toIssueTypes(parsedIssues);
+                  return new Tag(
+                      Transformer.this.toReadableTagName(input.getName()),
+                      input.findAnnotation().orNull(),
+                      commits,
+                      authors,
+                      issues,
+                      issueTypes,
+                      input.getTagTime() != null ? Transformer.this.format(input.getTagTime()) : "",
+                      input.getTagTime() != null ? input.getTagTime().getTime() : -1);
+                })
+            .collect(Collectors.toList());
 
-
-    return tags.stream().filter(input -> !input.getAuthors().isEmpty() && !input.getCommits().isEmpty())
-    		.collect(Collectors.toList());
+    return tags.stream()
+        .filter(input -> !input.getAuthors().isEmpty() && !input.getCommits().isEmpty())
+        .collect(Collectors.toList());
   }
 
   private List<ParsedIssue> reduceParsedIssuesToOnlyGitCommits(
