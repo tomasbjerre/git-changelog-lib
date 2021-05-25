@@ -3,6 +3,15 @@
 
 Changelog of git-changelog-lib.
 
+## 1.147.4
+### No issue
+
+**fix(helpers): they did not work**
+
+
+[dba7b31c364a63b](https://github.com/tomasbjerre/git-changelog-lib/commit/dba7b31c364a63b) Tomas Bjerre *2021-05-25 15:44:31*
+
+
 ## 1.147.3
 ### GitHub [#92](https://github.com/tomasbjerre/git-changelog-lib/issues/92) Add support for Changelog context pre-processing.    *enhancement*  
 
