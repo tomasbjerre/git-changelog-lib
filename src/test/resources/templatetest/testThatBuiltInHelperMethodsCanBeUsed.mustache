@@ -21,9 +21,9 @@ Commits:
   "{{.}}" is a release tag
  {{/ifReleaseTag}}
  
- {{#ifContainingType commits type="fix"}}
+ {{#ifContainsType commits type="fix"}}
   commits contains fix
- {{/ifContainingType}}
+ {{/ifContainsType}}
  
  
 {{/tags}}

@@ -33,7 +33,7 @@ public class Helpers {
         });
 
     COMMITS_HELPERS.put(
-        "ifContainingType",
+        "ifContainsType",
         (final List<Commit> commits, final Options options) -> {
           return conditional(options, containsType(commits, options));
         });
