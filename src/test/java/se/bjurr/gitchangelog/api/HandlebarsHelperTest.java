@@ -4,7 +4,6 @@ import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
 
 import org.junit.Before;
 import org.junit.Test;
-
 import se.bjurr.gitchangelog.test.ApprovalsWrapper;
 
 public class HandlebarsHelperTest {
@@ -34,12 +33,12 @@ public class HandlebarsHelperTest {
 
   @Test
   public void testThatBuiltInHelperMethodsCanBeUsed() throws Exception {
-	    final GitChangelogApi given =
-	            this.baseBuilder //
-	            .withFromCommit("ed95e6a") //
-	            .withToCommit("d346292") //
-	                .withTemplatePath("templatetest/testThatBuiltInHelperMethodsCanBeUsed.mustache");
+    final GitChangelogApi given =
+        this.baseBuilder //
+            .withFromCommit("ed95e6a") //
+            .withToCommit("d346292") //
+            .withTemplatePath("templatetest/testThatBuiltInHelperMethodsCanBeUsed.mustache");
 
-	        ApprovalsWrapper.verify(given);
+    ApprovalsWrapper.verify(given);
   }
 }
