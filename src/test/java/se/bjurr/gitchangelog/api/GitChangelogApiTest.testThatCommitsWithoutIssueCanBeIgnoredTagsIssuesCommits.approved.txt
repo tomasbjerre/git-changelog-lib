@@ -67,36 +67,126 @@ changelog:
 
 Changelog of Git Changelog.
 
-## JIRA [JIR-1234](http://JIR-1234) JIR-1234
+## Jira 
   
-### Tomas Bjerre - 2016-02-15 16:30:35
-[cc0fbbd8bc63955](https://server/cc0fbbd8bc63955)
+### Tomas Bjerre - 2017-12-30 20:07:57
+[9f7c782dc9be919](https://server/9f7c782dc9be919)
 
-Adding stuff with a jira JIR-1234
+Closing RevWalk JENKINS-19994
 
-## JIRA [JIR-5262](http://JIR-5262) JIR-5262
+## Jira 
   
-### Tomas Bjerre - 2016-02-15 16:12:02
-[071a14f29020758](https://server/071a14f29020758)
+### Tomas Bjerre - 2016-04-12 16:43:21
+[27642e3db66e67c](https://server/27642e3db66e67c)
 
-Adding stuff with a jira
-  JIR-5262
+JENKINS-34155 Support short SHA
+
+## Jira 
+  
+### Tomas Bjerre - 2016-04-13 18:30:26
+[e3106df640b693b](https://server/e3106df640b693b)
+
+Including correct commits + performance #26 JENKINS-34156
+
+ * Found major performance problem when sorting tags by commit time, fixed.
+ * Now not following parents, unless *from* is merged into them.
+
+## Jira 
+  
+### Tomas Bjerre - 2021-03-29 15:33:00
+[bea18ab90db148c](https://server/bea18ab90db148c)
+
+pretty printing output JENKINS-65252
+
+## Jira 
+  
+### Tomas Bjerre - 2017-12-24 21:59:34
+[7fe5f6b9860efe7](https://server/7fe5f6b9860efe7)
+
+Using UTF-8, instead of default
+
+## Jira 
+  
+### Tomas Bjerre - 2020-12-24 07:11:41
+[7eba3d038b884b8](https://server/7eba3d038b884b8)
+
+Switching to Handlebars from Mustache
+
+ * Removing Mediawiki support. Because I have not been able to make it work. https://stackoverflow.com/questions/45779754/cannot-authenticate-with-mediawiki-1-28-api
+ * Steeping up JGit to latest release. 3.6.2.201501210735-r to 5.10.0.202012080955-r.
+ * Refactoring tests to use Approvals.
+
+## Jira 
+  
+### Tomas Bjerre - 2018-10-27 16:18:51
+[ce600bb29b31ceb](https://server/ce600bb29b31ceb)
+
+Merge pull request #70 from jagedn/patch-1
+
+upgrade gitlab dependency
+
+### Tomas Bjerre - 2017-05-31 18:57:44
+[0fc7cacfdf677dc](https://server/0fc7cacfdf677dc)
+
+Merge pull request #46 from grandchild/patch-1
+
+Fix typo in readableTagName javadoc
 
 
 
 ------
 
 
-### Tomas Bjerre - 2016-02-15 16:30:35
-[cc0fbbd8bc63955](https://server/cc0fbbd8bc63955)
+### Tomas Bjerre - 2021-03-29 15:33:00
+[bea18ab90db148c](https://server/bea18ab90db148c)
 
-Adding stuff with a jira JIR-1234
+pretty printing output JENKINS-65252
 
-### Tomas Bjerre - 2016-02-15 16:12:02
-[071a14f29020758](https://server/071a14f29020758)
+### Tomas Bjerre - 2020-12-24 07:11:41
+[7eba3d038b884b8](https://server/7eba3d038b884b8)
 
-Adding stuff with a jira
-  JIR-5262
+Switching to Handlebars from Mustache
+
+ * Removing Mediawiki support. Because I have not been able to make it work. https://stackoverflow.com/questions/45779754/cannot-authenticate-with-mediawiki-1-28-api
+ * Steeping up JGit to latest release. 3.6.2.201501210735-r to 5.10.0.202012080955-r.
+ * Refactoring tests to use Approvals.
+
+### Tomas Bjerre - 2018-10-27 16:18:51
+[ce600bb29b31ceb](https://server/ce600bb29b31ceb)
+
+Merge pull request #70 from jagedn/patch-1
+
+upgrade gitlab dependency
+
+### Tomas Bjerre - 2017-12-30 20:07:57
+[9f7c782dc9be919](https://server/9f7c782dc9be919)
+
+Closing RevWalk JENKINS-19994
+
+### Tomas Bjerre - 2017-12-24 21:59:34
+[7fe5f6b9860efe7](https://server/7fe5f6b9860efe7)
+
+Using UTF-8, instead of default
+
+### Tomas Bjerre - 2017-05-31 18:57:44
+[0fc7cacfdf677dc](https://server/0fc7cacfdf677dc)
+
+Merge pull request #46 from grandchild/patch-1
+
+Fix typo in readableTagName javadoc
+
+### Tomas Bjerre - 2016-04-13 18:30:26
+[e3106df640b693b](https://server/e3106df640b693b)
+
+Including correct commits + performance #26 JENKINS-34156
+
+ * Found major performance problem when sorting tags by commit time, fixed.
+ * Now not following parents, unless *from* is merged into them.
+
+### Tomas Bjerre - 2016-04-12 16:43:21
+[27642e3db66e67c](https://server/27642e3db66e67c)
+
+JENKINS-34155 Support short SHA
 
 
 
@@ -109,39 +199,99 @@ context:
     {
       "authorEmailAddress": "tomas.bjerre85@gmail.com",
       "authorName": "Tomas Bjerre",
-      "commitTime": "2016-02-15 16:30:35",
-      "commitTimeLong": 1455553835000,
-      "hash": "cc0fbbd8bc63955",
-      "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
+      "commitTime": "2021-03-29 15:33:00",
+      "commitTimeLong": 1617031980000,
+      "hash": "bea18ab90db148c",
+      "hashFull": "bea18ab90db148c3f9a90078424bd6ea36dd5108",
       "merge": false,
-      "message": "Adding stuff with a jira JIR-1234"
+      "message": "pretty printing output JENKINS-65252"
     },
     {
       "authorEmailAddress": "tomas.bjerre85@gmail.com",
       "authorName": "Tomas Bjerre",
-      "commitTime": "2016-02-15 16:12:02",
-      "commitTimeLong": 1455552722000,
-      "hash": "071a14f29020758",
-      "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
+      "commitTime": "2020-12-24 07:11:41",
+      "commitTimeLong": 1608793901000,
+      "hash": "7eba3d038b884b8",
+      "hashFull": "7eba3d038b884b845644c202f6a98632d52fbb9e",
       "merge": false,
-      "message": "Adding stuff with a jira\n  JIR-5262"
+      "message": "Switching to Handlebars from Mustache\n\n * Removing Mediawiki support. Because I have not been able to make it work. https://stackoverflow.com/questions/45779754/cannot-authenticate-with-mediawiki-1-28-api\n * Steeping up JGit to latest release. 3.6.2.201501210735-r to 5.10.0.202012080955-r.\n * Refactoring tests to use Approvals."
+    },
+    {
+      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+      "authorName": "Tomas Bjerre",
+      "commitTime": "2018-10-27 16:18:51",
+      "commitTimeLong": 1540657131000,
+      "hash": "ce600bb29b31ceb",
+      "hashFull": "ce600bb29b31cebb4ef6ac11a91f1cf56712346d",
+      "merge": true,
+      "message": "Merge pull request #70 from jagedn/patch-1\n\nupgrade gitlab dependency"
+    },
+    {
+      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+      "authorName": "Tomas Bjerre",
+      "commitTime": "2017-12-30 20:07:57",
+      "commitTimeLong": 1514664477000,
+      "hash": "9f7c782dc9be919",
+      "hashFull": "9f7c782dc9be919d0ef3f59868b94130cd8a5371",
+      "merge": false,
+      "message": "Closing RevWalk JENKINS-19994"
+    },
+    {
+      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+      "authorName": "Tomas Bjerre",
+      "commitTime": "2017-12-24 21:59:34",
+      "commitTimeLong": 1514152774000,
+      "hash": "7fe5f6b9860efe7",
+      "hashFull": "7fe5f6b9860efe748c50e83f083104cda9529c46",
+      "merge": false,
+      "message": "Using UTF-8, instead of default"
+    },
+    {
+      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+      "authorName": "Tomas Bjerre",
+      "commitTime": "2017-05-31 18:57:44",
+      "commitTimeLong": 1496257064000,
+      "hash": "0fc7cacfdf677dc",
+      "hashFull": "0fc7cacfdf677dcb25f0ba5996f2906f69b0ccac",
+      "merge": true,
+      "message": "Merge pull request #46 from grandchild/patch-1\n\nFix typo in readableTagName javadoc"
+    },
+    {
+      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+      "authorName": "Tomas Bjerre",
+      "commitTime": "2016-04-13 18:30:26",
+      "commitTimeLong": 1460572226000,
+      "hash": "e3106df640b693b",
+      "hashFull": "e3106df640b693b50c297154919cb5564895c08e",
+      "merge": false,
+      "message": "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them."
+    },
+    {
+      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+      "authorName": "Tomas Bjerre",
+      "commitTime": "2016-04-12 16:43:21",
+      "commitTimeLong": 1460479401000,
+      "hash": "27642e3db66e67c",
+      "hashFull": "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644",
+      "merge": false,
+      "message": "JENKINS-34155 Support short SHA"
     }
   ],
   "tags": [
     {
-      "annotation": "A tag in test-feature\n",
+      "annotation": "[Gradle Release Plugin] - creating tag:  \u00271.96\u0027.\n",
       "authors": [
         {
           "commits": [
             {
               "authorEmailAddress": "tomas.bjerre85@gmail.com",
               "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:30:35",
-              "commitTimeLong": 1455553835000,
-              "hash": "cc0fbbd8bc63955",
-              "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
+              "commitTime": "2021-03-29 15:33:00",
+              "commitTimeLong": 1617031980000,
+              "hash": "bea18ab90db148c",
+              "hashFull": "bea18ab90db148c3f9a90078424bd6ea36dd5108",
               "merge": false,
-              "message": "Adding stuff with a jira JIR-1234"
+              "message": "pretty printing output JENKINS-65252"
             }
           ],
           "authorName": "Tomas Bjerre",
@@ -152,12 +302,12 @@ context:
         {
           "authorEmailAddress": "tomas.bjerre85@gmail.com",
           "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:30:35",
-          "commitTimeLong": 1455553835000,
-          "hash": "cc0fbbd8bc63955",
-          "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
+          "commitTime": "2021-03-29 15:33:00",
+          "commitTimeLong": 1617031980000,
+          "hash": "bea18ab90db148c",
+          "hashFull": "bea18ab90db148c3f9a90078424bd6ea36dd5108",
           "merge": false,
-          "message": "Adding stuff with a jira JIR-1234"
+          "message": "pretty printing output JENKINS-65252"
         }
       ],
       "issues": [
@@ -166,12 +316,12 @@ context:
             {
               "authorEmailAddress": "tomas.bjerre85@gmail.com",
               "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:30:35",
-              "commitTimeLong": 1455553835000,
-              "hash": "cc0fbbd8bc63955",
-              "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
+              "commitTime": "2021-03-29 15:33:00",
+              "commitTimeLong": 1617031980000,
+              "hash": "bea18ab90db148c",
+              "hashFull": "bea18ab90db148c3f9a90078424bd6ea36dd5108",
               "merge": false,
-              "message": "Adding stuff with a jira JIR-1234"
+              "message": "pretty printing output JENKINS-65252"
             }
           ],
           "authors": [
@@ -180,49 +330,49 @@ context:
                 {
                   "authorEmailAddress": "tomas.bjerre85@gmail.com",
                   "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:30:35",
-                  "commitTimeLong": 1455553835000,
-                  "hash": "cc0fbbd8bc63955",
-                  "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
+                  "commitTime": "2021-03-29 15:33:00",
+                  "commitTimeLong": 1617031980000,
+                  "hash": "bea18ab90db148c",
+                  "hashFull": "bea18ab90db148c3f9a90078424bd6ea36dd5108",
                   "merge": false,
-                  "message": "Adding stuff with a jira JIR-1234"
+                  "message": "pretty printing output JENKINS-65252"
                 }
               ],
               "authorName": "Tomas Bjerre",
               "authorEmail": "tomas.bjerre85@gmail.com"
             }
           ],
-          "name": "JIRA",
-          "title": "JIR-1234",
-          "hasTitle": true,
-          "issue": "JIR-1234",
+          "name": "Jira",
+          "title": "",
+          "hasTitle": false,
+          "issue": "JENKINS-65252",
           "hasIssue": true,
-          "link": "http://JIR-1234",
-          "hasLink": true,
+          "link": "",
+          "hasLink": false,
           "type": "",
           "hasType": false,
           "hasDescription": false,
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "CUSTOM"
+          "issueType": "JIRA"
         }
       ],
       "issueTypes": [
         {
-          "name": "JIRA",
+          "name": "Jira",
           "issues": [
             {
               "commits": [
                 {
                   "authorEmailAddress": "tomas.bjerre85@gmail.com",
                   "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:30:35",
-                  "commitTimeLong": 1455553835000,
-                  "hash": "cc0fbbd8bc63955",
-                  "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
+                  "commitTime": "2021-03-29 15:33:00",
+                  "commitTimeLong": 1617031980000,
+                  "hash": "bea18ab90db148c",
+                  "hashFull": "bea18ab90db148c3f9a90078424bd6ea36dd5108",
                   "merge": false,
-                  "message": "Adding stuff with a jira JIR-1234"
+                  "message": "pretty printing output JENKINS-65252"
                 }
               ],
               "authors": [
@@ -231,56 +381,56 @@ context:
                     {
                       "authorEmailAddress": "tomas.bjerre85@gmail.com",
                       "authorName": "Tomas Bjerre",
-                      "commitTime": "2016-02-15 16:30:35",
-                      "commitTimeLong": 1455553835000,
-                      "hash": "cc0fbbd8bc63955",
-                      "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
+                      "commitTime": "2021-03-29 15:33:00",
+                      "commitTimeLong": 1617031980000,
+                      "hash": "bea18ab90db148c",
+                      "hashFull": "bea18ab90db148c3f9a90078424bd6ea36dd5108",
                       "merge": false,
-                      "message": "Adding stuff with a jira JIR-1234"
+                      "message": "pretty printing output JENKINS-65252"
                     }
                   ],
                   "authorName": "Tomas Bjerre",
                   "authorEmail": "tomas.bjerre85@gmail.com"
                 }
               ],
-              "name": "JIRA",
-              "title": "JIR-1234",
-              "hasTitle": true,
-              "issue": "JIR-1234",
+              "name": "Jira",
+              "title": "",
+              "hasTitle": false,
+              "issue": "JENKINS-65252",
               "hasIssue": true,
-              "link": "http://JIR-1234",
-              "hasLink": true,
+              "link": "",
+              "hasLink": false,
               "type": "",
               "hasType": false,
               "hasDescription": false,
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "CUSTOM"
+              "issueType": "JIRA"
             }
           ],
-          "type": "CUSTOM"
+          "type": "JIRA"
         }
       ],
-      "name": "tag-in-test-feature",
-      "tagTime": "2016-04-06 15:13:04",
-      "tagTimeLong": 1459955584000,
+      "name": "1.96",
+      "tagTime": "2021-03-29 15:34:15",
+      "tagTimeLong": 1617032055000,
       "hasTagTime": true
     },
     {
-      "annotation": "this is the tag for test-1.0\n",
+      "annotation": "[Gradle Release Plugin] - creating tag:  \u00271.95\u0027.\n",
       "authors": [
         {
           "commits": [
             {
               "authorEmailAddress": "tomas.bjerre85@gmail.com",
               "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:12:02",
-              "commitTimeLong": 1455552722000,
-              "hash": "071a14f29020758",
-              "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
+              "commitTime": "2020-12-24 07:11:41",
+              "commitTimeLong": 1608793901000,
+              "hash": "7eba3d038b884b8",
+              "hashFull": "7eba3d038b884b845644c202f6a98632d52fbb9e",
               "merge": false,
-              "message": "Adding stuff with a jira\n  JIR-5262"
+              "message": "Switching to Handlebars from Mustache\n\n * Removing Mediawiki support. Because I have not been able to make it work. https://stackoverflow.com/questions/45779754/cannot-authenticate-with-mediawiki-1-28-api\n * Steeping up JGit to latest release. 3.6.2.201501210735-r to 5.10.0.202012080955-r.\n * Refactoring tests to use Approvals."
             }
           ],
           "authorName": "Tomas Bjerre",
@@ -291,12 +441,12 @@ context:
         {
           "authorEmailAddress": "tomas.bjerre85@gmail.com",
           "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:12:02",
-          "commitTimeLong": 1455552722000,
-          "hash": "071a14f29020758",
-          "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
+          "commitTime": "2020-12-24 07:11:41",
+          "commitTimeLong": 1608793901000,
+          "hash": "7eba3d038b884b8",
+          "hashFull": "7eba3d038b884b845644c202f6a98632d52fbb9e",
           "merge": false,
-          "message": "Adding stuff with a jira\n  JIR-5262"
+          "message": "Switching to Handlebars from Mustache\n\n * Removing Mediawiki support. Because I have not been able to make it work. https://stackoverflow.com/questions/45779754/cannot-authenticate-with-mediawiki-1-28-api\n * Steeping up JGit to latest release. 3.6.2.201501210735-r to 5.10.0.202012080955-r.\n * Refactoring tests to use Approvals."
         }
       ],
       "issues": [
@@ -305,12 +455,12 @@ context:
             {
               "authorEmailAddress": "tomas.bjerre85@gmail.com",
               "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:12:02",
-              "commitTimeLong": 1455552722000,
-              "hash": "071a14f29020758",
-              "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
+              "commitTime": "2020-12-24 07:11:41",
+              "commitTimeLong": 1608793901000,
+              "hash": "7eba3d038b884b8",
+              "hashFull": "7eba3d038b884b845644c202f6a98632d52fbb9e",
               "merge": false,
-              "message": "Adding stuff with a jira\n  JIR-5262"
+              "message": "Switching to Handlebars from Mustache\n\n * Removing Mediawiki support. Because I have not been able to make it work. https://stackoverflow.com/questions/45779754/cannot-authenticate-with-mediawiki-1-28-api\n * Steeping up JGit to latest release. 3.6.2.201501210735-r to 5.10.0.202012080955-r.\n * Refactoring tests to use Approvals."
             }
           ],
           "authors": [
@@ -319,49 +469,49 @@ context:
                 {
                   "authorEmailAddress": "tomas.bjerre85@gmail.com",
                   "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:12:02",
-                  "commitTimeLong": 1455552722000,
-                  "hash": "071a14f29020758",
-                  "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
+                  "commitTime": "2020-12-24 07:11:41",
+                  "commitTimeLong": 1608793901000,
+                  "hash": "7eba3d038b884b8",
+                  "hashFull": "7eba3d038b884b845644c202f6a98632d52fbb9e",
                   "merge": false,
-                  "message": "Adding stuff with a jira\n  JIR-5262"
+                  "message": "Switching to Handlebars from Mustache\n\n * Removing Mediawiki support. Because I have not been able to make it work. https://stackoverflow.com/questions/45779754/cannot-authenticate-with-mediawiki-1-28-api\n * Steeping up JGit to latest release. 3.6.2.201501210735-r to 5.10.0.202012080955-r.\n * Refactoring tests to use Approvals."
                 }
               ],
               "authorName": "Tomas Bjerre",
               "authorEmail": "tomas.bjerre85@gmail.com"
             }
           ],
-          "name": "JIRA",
-          "title": "JIR-5262",
-          "hasTitle": true,
-          "issue": "JIR-5262",
+          "name": "Jira",
+          "title": "",
+          "hasTitle": false,
+          "issue": "mediawiki-1",
           "hasIssue": true,
-          "link": "http://JIR-5262",
-          "hasLink": true,
+          "link": "",
+          "hasLink": false,
           "type": "",
           "hasType": false,
           "hasDescription": false,
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "CUSTOM"
+          "issueType": "JIRA"
         }
       ],
       "issueTypes": [
         {
-          "name": "JIRA",
+          "name": "Jira",
           "issues": [
             {
               "commits": [
                 {
                   "authorEmailAddress": "tomas.bjerre85@gmail.com",
                   "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:12:02",
-                  "commitTimeLong": 1455552722000,
-                  "hash": "071a14f29020758",
-                  "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
+                  "commitTime": "2020-12-24 07:11:41",
+                  "commitTimeLong": 1608793901000,
+                  "hash": "7eba3d038b884b8",
+                  "hashFull": "7eba3d038b884b845644c202f6a98632d52fbb9e",
                   "merge": false,
-                  "message": "Adding stuff with a jira\n  JIR-5262"
+                  "message": "Switching to Handlebars from Mustache\n\n * Removing Mediawiki support. Because I have not been able to make it work. https://stackoverflow.com/questions/45779754/cannot-authenticate-with-mediawiki-1-28-api\n * Steeping up JGit to latest release. 3.6.2.201501210735-r to 5.10.0.202012080955-r.\n * Refactoring tests to use Approvals."
                 }
               ],
               "authors": [
@@ -370,40 +520,847 @@ context:
                     {
                       "authorEmailAddress": "tomas.bjerre85@gmail.com",
                       "authorName": "Tomas Bjerre",
-                      "commitTime": "2016-02-15 16:12:02",
-                      "commitTimeLong": 1455552722000,
-                      "hash": "071a14f29020758",
-                      "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
+                      "commitTime": "2020-12-24 07:11:41",
+                      "commitTimeLong": 1608793901000,
+                      "hash": "7eba3d038b884b8",
+                      "hashFull": "7eba3d038b884b845644c202f6a98632d52fbb9e",
                       "merge": false,
-                      "message": "Adding stuff with a jira\n  JIR-5262"
+                      "message": "Switching to Handlebars from Mustache\n\n * Removing Mediawiki support. Because I have not been able to make it work. https://stackoverflow.com/questions/45779754/cannot-authenticate-with-mediawiki-1-28-api\n * Steeping up JGit to latest release. 3.6.2.201501210735-r to 5.10.0.202012080955-r.\n * Refactoring tests to use Approvals."
                     }
                   ],
                   "authorName": "Tomas Bjerre",
                   "authorEmail": "tomas.bjerre85@gmail.com"
                 }
               ],
-              "name": "JIRA",
-              "title": "JIR-5262",
-              "hasTitle": true,
-              "issue": "JIR-5262",
+              "name": "Jira",
+              "title": "",
+              "hasTitle": false,
+              "issue": "mediawiki-1",
               "hasIssue": true,
-              "link": "http://JIR-5262",
-              "hasLink": true,
+              "link": "",
+              "hasLink": false,
               "type": "",
               "hasType": false,
               "hasDescription": false,
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "CUSTOM"
+              "issueType": "JIRA"
             }
           ],
-          "type": "CUSTOM"
+          "type": "JIRA"
         }
       ],
-      "name": "test-1.0",
-      "tagTime": "2016-02-15 16:30:35",
-      "tagTimeLong": 1455553835000,
+      "name": "1.95",
+      "tagTime": "2021-01-18 16:48:34",
+      "tagTimeLong": 1610988514000,
+      "hasTagTime": true
+    },
+    {
+      "annotation": "[Gradle Release Plugin] - creating tag:  \u00271.84\u0027.\n",
+      "authors": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2018-10-27 16:18:51",
+              "commitTimeLong": 1540657131000,
+              "hash": "ce600bb29b31ceb",
+              "hashFull": "ce600bb29b31cebb4ef6ac11a91f1cf56712346d",
+              "merge": true,
+              "message": "Merge pull request #70 from jagedn/patch-1\n\nupgrade gitlab dependency"
+            }
+          ],
+          "authorName": "Tomas Bjerre",
+          "authorEmail": "tomas.bjerre85@gmail.com"
+        }
+      ],
+      "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2018-10-27 16:18:51",
+          "commitTimeLong": 1540657131000,
+          "hash": "ce600bb29b31ceb",
+          "hashFull": "ce600bb29b31cebb4ef6ac11a91f1cf56712346d",
+          "merge": true,
+          "message": "Merge pull request #70 from jagedn/patch-1\n\nupgrade gitlab dependency"
+        }
+      ],
+      "issues": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2018-10-27 16:18:51",
+              "commitTimeLong": 1540657131000,
+              "hash": "ce600bb29b31ceb",
+              "hashFull": "ce600bb29b31cebb4ef6ac11a91f1cf56712346d",
+              "merge": true,
+              "message": "Merge pull request #70 from jagedn/patch-1\n\nupgrade gitlab dependency"
+            }
+          ],
+          "authors": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2018-10-27 16:18:51",
+                  "commitTimeLong": 1540657131000,
+                  "hash": "ce600bb29b31ceb",
+                  "hashFull": "ce600bb29b31cebb4ef6ac11a91f1cf56712346d",
+                  "merge": true,
+                  "message": "Merge pull request #70 from jagedn/patch-1\n\nupgrade gitlab dependency"
+                }
+              ],
+              "authorName": "Tomas Bjerre",
+              "authorEmail": "tomas.bjerre85@gmail.com"
+            }
+          ],
+          "name": "Jira",
+          "title": "",
+          "hasTitle": false,
+          "issue": "patch-1",
+          "hasIssue": true,
+          "link": "",
+          "hasLink": false,
+          "type": "",
+          "hasType": false,
+          "hasDescription": false,
+          "description": "",
+          "hasLabels": false,
+          "hasLinkedIssues": false,
+          "issueType": "JIRA"
+        }
+      ],
+      "issueTypes": [
+        {
+          "name": "Jira",
+          "issues": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2018-10-27 16:18:51",
+                  "commitTimeLong": 1540657131000,
+                  "hash": "ce600bb29b31ceb",
+                  "hashFull": "ce600bb29b31cebb4ef6ac11a91f1cf56712346d",
+                  "merge": true,
+                  "message": "Merge pull request #70 from jagedn/patch-1\n\nupgrade gitlab dependency"
+                }
+              ],
+              "authors": [
+                {
+                  "commits": [
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2018-10-27 16:18:51",
+                      "commitTimeLong": 1540657131000,
+                      "hash": "ce600bb29b31ceb",
+                      "hashFull": "ce600bb29b31cebb4ef6ac11a91f1cf56712346d",
+                      "merge": true,
+                      "message": "Merge pull request #70 from jagedn/patch-1\n\nupgrade gitlab dependency"
+                    }
+                  ],
+                  "authorName": "Tomas Bjerre",
+                  "authorEmail": "tomas.bjerre85@gmail.com"
+                }
+              ],
+              "name": "Jira",
+              "title": "",
+              "hasTitle": false,
+              "issue": "patch-1",
+              "hasIssue": true,
+              "link": "",
+              "hasLink": false,
+              "type": "",
+              "hasType": false,
+              "hasDescription": false,
+              "description": "",
+              "hasLabels": false,
+              "hasLinkedIssues": false,
+              "issueType": "JIRA"
+            }
+          ],
+          "type": "JIRA"
+        }
+      ],
+      "name": "1.84",
+      "tagTime": "2018-10-27 16:24:52",
+      "tagTimeLong": 1540657492000,
+      "hasTagTime": true
+    },
+    {
+      "annotation": "[Gradle Release Plugin] - creating tag:  \u00271.77\u0027.\n",
+      "authors": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2017-12-30 20:07:57",
+              "commitTimeLong": 1514664477000,
+              "hash": "9f7c782dc9be919",
+              "hashFull": "9f7c782dc9be919d0ef3f59868b94130cd8a5371",
+              "merge": false,
+              "message": "Closing RevWalk JENKINS-19994"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2017-12-24 21:59:34",
+              "commitTimeLong": 1514152774000,
+              "hash": "7fe5f6b9860efe7",
+              "hashFull": "7fe5f6b9860efe748c50e83f083104cda9529c46",
+              "merge": false,
+              "message": "Using UTF-8, instead of default"
+            }
+          ],
+          "authorName": "Tomas Bjerre",
+          "authorEmail": "tomas.bjerre85@gmail.com"
+        }
+      ],
+      "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2017-12-30 20:07:57",
+          "commitTimeLong": 1514664477000,
+          "hash": "9f7c782dc9be919",
+          "hashFull": "9f7c782dc9be919d0ef3f59868b94130cd8a5371",
+          "merge": false,
+          "message": "Closing RevWalk JENKINS-19994"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2017-12-24 21:59:34",
+          "commitTimeLong": 1514152774000,
+          "hash": "7fe5f6b9860efe7",
+          "hashFull": "7fe5f6b9860efe748c50e83f083104cda9529c46",
+          "merge": false,
+          "message": "Using UTF-8, instead of default"
+        }
+      ],
+      "issues": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2017-12-30 20:07:57",
+              "commitTimeLong": 1514664477000,
+              "hash": "9f7c782dc9be919",
+              "hashFull": "9f7c782dc9be919d0ef3f59868b94130cd8a5371",
+              "merge": false,
+              "message": "Closing RevWalk JENKINS-19994"
+            }
+          ],
+          "authors": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2017-12-30 20:07:57",
+                  "commitTimeLong": 1514664477000,
+                  "hash": "9f7c782dc9be919",
+                  "hashFull": "9f7c782dc9be919d0ef3f59868b94130cd8a5371",
+                  "merge": false,
+                  "message": "Closing RevWalk JENKINS-19994"
+                }
+              ],
+              "authorName": "Tomas Bjerre",
+              "authorEmail": "tomas.bjerre85@gmail.com"
+            }
+          ],
+          "name": "Jira",
+          "title": "",
+          "hasTitle": false,
+          "issue": "JENKINS-19994",
+          "hasIssue": true,
+          "link": "",
+          "hasLink": false,
+          "type": "",
+          "hasType": false,
+          "hasDescription": false,
+          "description": "",
+          "hasLabels": false,
+          "hasLinkedIssues": false,
+          "issueType": "JIRA"
+        },
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2017-12-24 21:59:34",
+              "commitTimeLong": 1514152774000,
+              "hash": "7fe5f6b9860efe7",
+              "hashFull": "7fe5f6b9860efe748c50e83f083104cda9529c46",
+              "merge": false,
+              "message": "Using UTF-8, instead of default"
+            }
+          ],
+          "authors": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2017-12-24 21:59:34",
+                  "commitTimeLong": 1514152774000,
+                  "hash": "7fe5f6b9860efe7",
+                  "hashFull": "7fe5f6b9860efe748c50e83f083104cda9529c46",
+                  "merge": false,
+                  "message": "Using UTF-8, instead of default"
+                }
+              ],
+              "authorName": "Tomas Bjerre",
+              "authorEmail": "tomas.bjerre85@gmail.com"
+            }
+          ],
+          "name": "Jira",
+          "title": "",
+          "hasTitle": false,
+          "issue": "UTF-8",
+          "hasIssue": true,
+          "link": "",
+          "hasLink": false,
+          "type": "",
+          "hasType": false,
+          "hasDescription": false,
+          "description": "",
+          "hasLabels": false,
+          "hasLinkedIssues": false,
+          "issueType": "JIRA"
+        }
+      ],
+      "issueTypes": [
+        {
+          "name": "Jira",
+          "issues": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2017-12-30 20:07:57",
+                  "commitTimeLong": 1514664477000,
+                  "hash": "9f7c782dc9be919",
+                  "hashFull": "9f7c782dc9be919d0ef3f59868b94130cd8a5371",
+                  "merge": false,
+                  "message": "Closing RevWalk JENKINS-19994"
+                }
+              ],
+              "authors": [
+                {
+                  "commits": [
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2017-12-30 20:07:57",
+                      "commitTimeLong": 1514664477000,
+                      "hash": "9f7c782dc9be919",
+                      "hashFull": "9f7c782dc9be919d0ef3f59868b94130cd8a5371",
+                      "merge": false,
+                      "message": "Closing RevWalk JENKINS-19994"
+                    }
+                  ],
+                  "authorName": "Tomas Bjerre",
+                  "authorEmail": "tomas.bjerre85@gmail.com"
+                }
+              ],
+              "name": "Jira",
+              "title": "",
+              "hasTitle": false,
+              "issue": "JENKINS-19994",
+              "hasIssue": true,
+              "link": "",
+              "hasLink": false,
+              "type": "",
+              "hasType": false,
+              "hasDescription": false,
+              "description": "",
+              "hasLabels": false,
+              "hasLinkedIssues": false,
+              "issueType": "JIRA"
+            },
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2017-12-24 21:59:34",
+                  "commitTimeLong": 1514152774000,
+                  "hash": "7fe5f6b9860efe7",
+                  "hashFull": "7fe5f6b9860efe748c50e83f083104cda9529c46",
+                  "merge": false,
+                  "message": "Using UTF-8, instead of default"
+                }
+              ],
+              "authors": [
+                {
+                  "commits": [
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2017-12-24 21:59:34",
+                      "commitTimeLong": 1514152774000,
+                      "hash": "7fe5f6b9860efe7",
+                      "hashFull": "7fe5f6b9860efe748c50e83f083104cda9529c46",
+                      "merge": false,
+                      "message": "Using UTF-8, instead of default"
+                    }
+                  ],
+                  "authorName": "Tomas Bjerre",
+                  "authorEmail": "tomas.bjerre85@gmail.com"
+                }
+              ],
+              "name": "Jira",
+              "title": "",
+              "hasTitle": false,
+              "issue": "UTF-8",
+              "hasIssue": true,
+              "link": "",
+              "hasLink": false,
+              "type": "",
+              "hasType": false,
+              "hasDescription": false,
+              "description": "",
+              "hasLabels": false,
+              "hasLinkedIssues": false,
+              "issueType": "JIRA"
+            }
+          ],
+          "type": "JIRA"
+        }
+      ],
+      "name": "1.77",
+      "tagTime": "2017-12-30 20:10:00",
+      "tagTimeLong": 1514664600000,
+      "hasTagTime": true
+    },
+    {
+      "annotation": "[Gradle Release Plugin] - creating tag:  \u00271.69\u0027.\n",
+      "authors": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2017-05-31 18:57:44",
+              "commitTimeLong": 1496257064000,
+              "hash": "0fc7cacfdf677dc",
+              "hashFull": "0fc7cacfdf677dcb25f0ba5996f2906f69b0ccac",
+              "merge": true,
+              "message": "Merge pull request #46 from grandchild/patch-1\n\nFix typo in readableTagName javadoc"
+            }
+          ],
+          "authorName": "Tomas Bjerre",
+          "authorEmail": "tomas.bjerre85@gmail.com"
+        }
+      ],
+      "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2017-05-31 18:57:44",
+          "commitTimeLong": 1496257064000,
+          "hash": "0fc7cacfdf677dc",
+          "hashFull": "0fc7cacfdf677dcb25f0ba5996f2906f69b0ccac",
+          "merge": true,
+          "message": "Merge pull request #46 from grandchild/patch-1\n\nFix typo in readableTagName javadoc"
+        }
+      ],
+      "issues": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2017-05-31 18:57:44",
+              "commitTimeLong": 1496257064000,
+              "hash": "0fc7cacfdf677dc",
+              "hashFull": "0fc7cacfdf677dcb25f0ba5996f2906f69b0ccac",
+              "merge": true,
+              "message": "Merge pull request #46 from grandchild/patch-1\n\nFix typo in readableTagName javadoc"
+            }
+          ],
+          "authors": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2017-05-31 18:57:44",
+                  "commitTimeLong": 1496257064000,
+                  "hash": "0fc7cacfdf677dc",
+                  "hashFull": "0fc7cacfdf677dcb25f0ba5996f2906f69b0ccac",
+                  "merge": true,
+                  "message": "Merge pull request #46 from grandchild/patch-1\n\nFix typo in readableTagName javadoc"
+                }
+              ],
+              "authorName": "Tomas Bjerre",
+              "authorEmail": "tomas.bjerre85@gmail.com"
+            }
+          ],
+          "name": "Jira",
+          "title": "",
+          "hasTitle": false,
+          "issue": "patch-1",
+          "hasIssue": true,
+          "link": "",
+          "hasLink": false,
+          "type": "",
+          "hasType": false,
+          "hasDescription": false,
+          "description": "",
+          "hasLabels": false,
+          "hasLinkedIssues": false,
+          "issueType": "JIRA"
+        }
+      ],
+      "issueTypes": [
+        {
+          "name": "Jira",
+          "issues": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2017-05-31 18:57:44",
+                  "commitTimeLong": 1496257064000,
+                  "hash": "0fc7cacfdf677dc",
+                  "hashFull": "0fc7cacfdf677dcb25f0ba5996f2906f69b0ccac",
+                  "merge": true,
+                  "message": "Merge pull request #46 from grandchild/patch-1\n\nFix typo in readableTagName javadoc"
+                }
+              ],
+              "authors": [
+                {
+                  "commits": [
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2017-05-31 18:57:44",
+                      "commitTimeLong": 1496257064000,
+                      "hash": "0fc7cacfdf677dc",
+                      "hashFull": "0fc7cacfdf677dcb25f0ba5996f2906f69b0ccac",
+                      "merge": true,
+                      "message": "Merge pull request #46 from grandchild/patch-1\n\nFix typo in readableTagName javadoc"
+                    }
+                  ],
+                  "authorName": "Tomas Bjerre",
+                  "authorEmail": "tomas.bjerre85@gmail.com"
+                }
+              ],
+              "name": "Jira",
+              "title": "",
+              "hasTitle": false,
+              "issue": "patch-1",
+              "hasIssue": true,
+              "link": "",
+              "hasLink": false,
+              "type": "",
+              "hasType": false,
+              "hasDescription": false,
+              "description": "",
+              "hasLabels": false,
+              "hasLinkedIssues": false,
+              "issueType": "JIRA"
+            }
+          ],
+          "type": "JIRA"
+        }
+      ],
+      "name": "1.69",
+      "tagTime": "2017-07-08 05:26:41",
+      "tagTimeLong": 1499491601000,
+      "hasTagTime": true
+    },
+    {
+      "annotation": "[Gradle Release Plugin] - creating tag:  \u00271.45\u0027.\n",
+      "authors": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2016-04-13 18:30:26",
+              "commitTimeLong": 1460572226000,
+              "hash": "e3106df640b693b",
+              "hashFull": "e3106df640b693b50c297154919cb5564895c08e",
+              "merge": false,
+              "message": "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them."
+            }
+          ],
+          "authorName": "Tomas Bjerre",
+          "authorEmail": "tomas.bjerre85@gmail.com"
+        }
+      ],
+      "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2016-04-13 18:30:26",
+          "commitTimeLong": 1460572226000,
+          "hash": "e3106df640b693b",
+          "hashFull": "e3106df640b693b50c297154919cb5564895c08e",
+          "merge": false,
+          "message": "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them."
+        }
+      ],
+      "issues": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2016-04-13 18:30:26",
+              "commitTimeLong": 1460572226000,
+              "hash": "e3106df640b693b",
+              "hashFull": "e3106df640b693b50c297154919cb5564895c08e",
+              "merge": false,
+              "message": "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them."
+            }
+          ],
+          "authors": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2016-04-13 18:30:26",
+                  "commitTimeLong": 1460572226000,
+                  "hash": "e3106df640b693b",
+                  "hashFull": "e3106df640b693b50c297154919cb5564895c08e",
+                  "merge": false,
+                  "message": "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them."
+                }
+              ],
+              "authorName": "Tomas Bjerre",
+              "authorEmail": "tomas.bjerre85@gmail.com"
+            }
+          ],
+          "name": "Jira",
+          "title": "",
+          "hasTitle": false,
+          "issue": "JENKINS-34156",
+          "hasIssue": true,
+          "link": "",
+          "hasLink": false,
+          "type": "",
+          "hasType": false,
+          "hasDescription": false,
+          "description": "",
+          "hasLabels": false,
+          "hasLinkedIssues": false,
+          "issueType": "JIRA"
+        }
+      ],
+      "issueTypes": [
+        {
+          "name": "Jira",
+          "issues": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2016-04-13 18:30:26",
+                  "commitTimeLong": 1460572226000,
+                  "hash": "e3106df640b693b",
+                  "hashFull": "e3106df640b693b50c297154919cb5564895c08e",
+                  "merge": false,
+                  "message": "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them."
+                }
+              ],
+              "authors": [
+                {
+                  "commits": [
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2016-04-13 18:30:26",
+                      "commitTimeLong": 1460572226000,
+                      "hash": "e3106df640b693b",
+                      "hashFull": "e3106df640b693b50c297154919cb5564895c08e",
+                      "merge": false,
+                      "message": "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them."
+                    }
+                  ],
+                  "authorName": "Tomas Bjerre",
+                  "authorEmail": "tomas.bjerre85@gmail.com"
+                }
+              ],
+              "name": "Jira",
+              "title": "",
+              "hasTitle": false,
+              "issue": "JENKINS-34156",
+              "hasIssue": true,
+              "link": "",
+              "hasLink": false,
+              "type": "",
+              "hasType": false,
+              "hasDescription": false,
+              "description": "",
+              "hasLabels": false,
+              "hasLinkedIssues": false,
+              "issueType": "JIRA"
+            }
+          ],
+          "type": "JIRA"
+        }
+      ],
+      "name": "1.45",
+      "tagTime": "2016-04-13 18:31:03",
+      "tagTimeLong": 1460572263000,
+      "hasTagTime": true
+    },
+    {
+      "annotation": "[Gradle Release Plugin] - creating tag:  \u00271.44\u0027.\n",
+      "authors": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2016-04-12 16:43:21",
+              "commitTimeLong": 1460479401000,
+              "hash": "27642e3db66e67c",
+              "hashFull": "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644",
+              "merge": false,
+              "message": "JENKINS-34155 Support short SHA"
+            }
+          ],
+          "authorName": "Tomas Bjerre",
+          "authorEmail": "tomas.bjerre85@gmail.com"
+        }
+      ],
+      "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2016-04-12 16:43:21",
+          "commitTimeLong": 1460479401000,
+          "hash": "27642e3db66e67c",
+          "hashFull": "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644",
+          "merge": false,
+          "message": "JENKINS-34155 Support short SHA"
+        }
+      ],
+      "issues": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2016-04-12 16:43:21",
+              "commitTimeLong": 1460479401000,
+              "hash": "27642e3db66e67c",
+              "hashFull": "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644",
+              "merge": false,
+              "message": "JENKINS-34155 Support short SHA"
+            }
+          ],
+          "authors": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2016-04-12 16:43:21",
+                  "commitTimeLong": 1460479401000,
+                  "hash": "27642e3db66e67c",
+                  "hashFull": "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644",
+                  "merge": false,
+                  "message": "JENKINS-34155 Support short SHA"
+                }
+              ],
+              "authorName": "Tomas Bjerre",
+              "authorEmail": "tomas.bjerre85@gmail.com"
+            }
+          ],
+          "name": "Jira",
+          "title": "",
+          "hasTitle": false,
+          "issue": "JENKINS-34155",
+          "hasIssue": true,
+          "link": "",
+          "hasLink": false,
+          "type": "",
+          "hasType": false,
+          "hasDescription": false,
+          "description": "",
+          "hasLabels": false,
+          "hasLinkedIssues": false,
+          "issueType": "JIRA"
+        }
+      ],
+      "issueTypes": [
+        {
+          "name": "Jira",
+          "issues": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2016-04-12 16:43:21",
+                  "commitTimeLong": 1460479401000,
+                  "hash": "27642e3db66e67c",
+                  "hashFull": "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644",
+                  "merge": false,
+                  "message": "JENKINS-34155 Support short SHA"
+                }
+              ],
+              "authors": [
+                {
+                  "commits": [
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2016-04-12 16:43:21",
+                      "commitTimeLong": 1460479401000,
+                      "hash": "27642e3db66e67c",
+                      "hashFull": "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644",
+                      "merge": false,
+                      "message": "JENKINS-34155 Support short SHA"
+                    }
+                  ],
+                  "authorName": "Tomas Bjerre",
+                  "authorEmail": "tomas.bjerre85@gmail.com"
+                }
+              ],
+              "name": "Jira",
+              "title": "",
+              "hasTitle": false,
+              "issue": "JENKINS-34155",
+              "hasIssue": true,
+              "link": "",
+              "hasLink": false,
+              "type": "",
+              "hasType": false,
+              "hasDescription": false,
+              "description": "",
+              "hasLabels": false,
+              "hasLinkedIssues": false,
+              "issueType": "JIRA"
+            }
+          ],
+          "type": "JIRA"
+        }
+      ],
+      "name": "1.44",
+      "tagTime": "2016-04-12 16:44:03",
+      "tagTimeLong": 1460479443000,
       "hasTagTime": true
     }
   ],
@@ -413,22 +1370,82 @@ context:
         {
           "authorEmailAddress": "tomas.bjerre85@gmail.com",
           "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:30:35",
-          "commitTimeLong": 1455553835000,
-          "hash": "cc0fbbd8bc63955",
-          "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
+          "commitTime": "2021-03-29 15:33:00",
+          "commitTimeLong": 1617031980000,
+          "hash": "bea18ab90db148c",
+          "hashFull": "bea18ab90db148c3f9a90078424bd6ea36dd5108",
           "merge": false,
-          "message": "Adding stuff with a jira JIR-1234"
+          "message": "pretty printing output JENKINS-65252"
         },
         {
           "authorEmailAddress": "tomas.bjerre85@gmail.com",
           "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:12:02",
-          "commitTimeLong": 1455552722000,
-          "hash": "071a14f29020758",
-          "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
+          "commitTime": "2020-12-24 07:11:41",
+          "commitTimeLong": 1608793901000,
+          "hash": "7eba3d038b884b8",
+          "hashFull": "7eba3d038b884b845644c202f6a98632d52fbb9e",
           "merge": false,
-          "message": "Adding stuff with a jira\n  JIR-5262"
+          "message": "Switching to Handlebars from Mustache\n\n * Removing Mediawiki support. Because I have not been able to make it work. https://stackoverflow.com/questions/45779754/cannot-authenticate-with-mediawiki-1-28-api\n * Steeping up JGit to latest release. 3.6.2.201501210735-r to 5.10.0.202012080955-r.\n * Refactoring tests to use Approvals."
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2018-10-27 16:18:51",
+          "commitTimeLong": 1540657131000,
+          "hash": "ce600bb29b31ceb",
+          "hashFull": "ce600bb29b31cebb4ef6ac11a91f1cf56712346d",
+          "merge": true,
+          "message": "Merge pull request #70 from jagedn/patch-1\n\nupgrade gitlab dependency"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2017-12-30 20:07:57",
+          "commitTimeLong": 1514664477000,
+          "hash": "9f7c782dc9be919",
+          "hashFull": "9f7c782dc9be919d0ef3f59868b94130cd8a5371",
+          "merge": false,
+          "message": "Closing RevWalk JENKINS-19994"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2017-12-24 21:59:34",
+          "commitTimeLong": 1514152774000,
+          "hash": "7fe5f6b9860efe7",
+          "hashFull": "7fe5f6b9860efe748c50e83f083104cda9529c46",
+          "merge": false,
+          "message": "Using UTF-8, instead of default"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2017-05-31 18:57:44",
+          "commitTimeLong": 1496257064000,
+          "hash": "0fc7cacfdf677dc",
+          "hashFull": "0fc7cacfdf677dcb25f0ba5996f2906f69b0ccac",
+          "merge": true,
+          "message": "Merge pull request #46 from grandchild/patch-1\n\nFix typo in readableTagName javadoc"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2016-04-13 18:30:26",
+          "commitTimeLong": 1460572226000,
+          "hash": "e3106df640b693b",
+          "hashFull": "e3106df640b693b50c297154919cb5564895c08e",
+          "merge": false,
+          "message": "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them."
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2016-04-12 16:43:21",
+          "commitTimeLong": 1460479401000,
+          "hash": "27642e3db66e67c",
+          "hashFull": "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644",
+          "merge": false,
+          "message": "JENKINS-34155 Support short SHA"
         }
       ],
       "authorName": "Tomas Bjerre",
@@ -441,12 +1458,12 @@ context:
         {
           "authorEmailAddress": "tomas.bjerre85@gmail.com",
           "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:30:35",
-          "commitTimeLong": 1455553835000,
-          "hash": "cc0fbbd8bc63955",
-          "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
+          "commitTime": "2017-12-30 20:07:57",
+          "commitTimeLong": 1514664477000,
+          "hash": "9f7c782dc9be919",
+          "hashFull": "9f7c782dc9be919d0ef3f59868b94130cd8a5371",
           "merge": false,
-          "message": "Adding stuff with a jira JIR-1234"
+          "message": "Closing RevWalk JENKINS-19994"
         }
       ],
       "authors": [
@@ -455,44 +1472,44 @@ context:
             {
               "authorEmailAddress": "tomas.bjerre85@gmail.com",
               "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:30:35",
-              "commitTimeLong": 1455553835000,
-              "hash": "cc0fbbd8bc63955",
-              "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
+              "commitTime": "2017-12-30 20:07:57",
+              "commitTimeLong": 1514664477000,
+              "hash": "9f7c782dc9be919",
+              "hashFull": "9f7c782dc9be919d0ef3f59868b94130cd8a5371",
               "merge": false,
-              "message": "Adding stuff with a jira JIR-1234"
+              "message": "Closing RevWalk JENKINS-19994"
             }
           ],
           "authorName": "Tomas Bjerre",
           "authorEmail": "tomas.bjerre85@gmail.com"
         }
       ],
-      "name": "JIRA",
-      "title": "JIR-1234",
-      "hasTitle": true,
-      "issue": "JIR-1234",
+      "name": "Jira",
+      "title": "",
+      "hasTitle": false,
+      "issue": "JENKINS-19994",
       "hasIssue": true,
-      "link": "http://JIR-1234",
-      "hasLink": true,
+      "link": "",
+      "hasLink": false,
       "type": "",
       "hasType": false,
       "hasDescription": false,
       "description": "",
       "hasLabels": false,
       "hasLinkedIssues": false,
-      "issueType": "CUSTOM"
+      "issueType": "JIRA"
     },
     {
       "commits": [
         {
           "authorEmailAddress": "tomas.bjerre85@gmail.com",
           "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:12:02",
-          "commitTimeLong": 1455552722000,
-          "hash": "071a14f29020758",
-          "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
+          "commitTime": "2016-04-12 16:43:21",
+          "commitTimeLong": 1460479401000,
+          "hash": "27642e3db66e67c",
+          "hashFull": "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644",
           "merge": false,
-          "message": "Adding stuff with a jira\n  JIR-5262"
+          "message": "JENKINS-34155 Support short SHA"
         }
       ],
       "authors": [
@@ -501,49 +1518,299 @@ context:
             {
               "authorEmailAddress": "tomas.bjerre85@gmail.com",
               "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:12:02",
-              "commitTimeLong": 1455552722000,
-              "hash": "071a14f29020758",
-              "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
+              "commitTime": "2016-04-12 16:43:21",
+              "commitTimeLong": 1460479401000,
+              "hash": "27642e3db66e67c",
+              "hashFull": "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644",
               "merge": false,
-              "message": "Adding stuff with a jira\n  JIR-5262"
+              "message": "JENKINS-34155 Support short SHA"
             }
           ],
           "authorName": "Tomas Bjerre",
           "authorEmail": "tomas.bjerre85@gmail.com"
         }
       ],
-      "name": "JIRA",
-      "title": "JIR-5262",
-      "hasTitle": true,
-      "issue": "JIR-5262",
+      "name": "Jira",
+      "title": "",
+      "hasTitle": false,
+      "issue": "JENKINS-34155",
       "hasIssue": true,
-      "link": "http://JIR-5262",
-      "hasLink": true,
+      "link": "",
+      "hasLink": false,
       "type": "",
       "hasType": false,
       "hasDescription": false,
       "description": "",
       "hasLabels": false,
       "hasLinkedIssues": false,
-      "issueType": "CUSTOM"
+      "issueType": "JIRA"
+    },
+    {
+      "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2016-04-13 18:30:26",
+          "commitTimeLong": 1460572226000,
+          "hash": "e3106df640b693b",
+          "hashFull": "e3106df640b693b50c297154919cb5564895c08e",
+          "merge": false,
+          "message": "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them."
+        }
+      ],
+      "authors": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2016-04-13 18:30:26",
+              "commitTimeLong": 1460572226000,
+              "hash": "e3106df640b693b",
+              "hashFull": "e3106df640b693b50c297154919cb5564895c08e",
+              "merge": false,
+              "message": "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them."
+            }
+          ],
+          "authorName": "Tomas Bjerre",
+          "authorEmail": "tomas.bjerre85@gmail.com"
+        }
+      ],
+      "name": "Jira",
+      "title": "",
+      "hasTitle": false,
+      "issue": "JENKINS-34156",
+      "hasIssue": true,
+      "link": "",
+      "hasLink": false,
+      "type": "",
+      "hasType": false,
+      "hasDescription": false,
+      "description": "",
+      "hasLabels": false,
+      "hasLinkedIssues": false,
+      "issueType": "JIRA"
+    },
+    {
+      "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-03-29 15:33:00",
+          "commitTimeLong": 1617031980000,
+          "hash": "bea18ab90db148c",
+          "hashFull": "bea18ab90db148c3f9a90078424bd6ea36dd5108",
+          "merge": false,
+          "message": "pretty printing output JENKINS-65252"
+        }
+      ],
+      "authors": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-03-29 15:33:00",
+              "commitTimeLong": 1617031980000,
+              "hash": "bea18ab90db148c",
+              "hashFull": "bea18ab90db148c3f9a90078424bd6ea36dd5108",
+              "merge": false,
+              "message": "pretty printing output JENKINS-65252"
+            }
+          ],
+          "authorName": "Tomas Bjerre",
+          "authorEmail": "tomas.bjerre85@gmail.com"
+        }
+      ],
+      "name": "Jira",
+      "title": "",
+      "hasTitle": false,
+      "issue": "JENKINS-65252",
+      "hasIssue": true,
+      "link": "",
+      "hasLink": false,
+      "type": "",
+      "hasType": false,
+      "hasDescription": false,
+      "description": "",
+      "hasLabels": false,
+      "hasLinkedIssues": false,
+      "issueType": "JIRA"
+    },
+    {
+      "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2017-12-24 21:59:34",
+          "commitTimeLong": 1514152774000,
+          "hash": "7fe5f6b9860efe7",
+          "hashFull": "7fe5f6b9860efe748c50e83f083104cda9529c46",
+          "merge": false,
+          "message": "Using UTF-8, instead of default"
+        }
+      ],
+      "authors": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2017-12-24 21:59:34",
+              "commitTimeLong": 1514152774000,
+              "hash": "7fe5f6b9860efe7",
+              "hashFull": "7fe5f6b9860efe748c50e83f083104cda9529c46",
+              "merge": false,
+              "message": "Using UTF-8, instead of default"
+            }
+          ],
+          "authorName": "Tomas Bjerre",
+          "authorEmail": "tomas.bjerre85@gmail.com"
+        }
+      ],
+      "name": "Jira",
+      "title": "",
+      "hasTitle": false,
+      "issue": "UTF-8",
+      "hasIssue": true,
+      "link": "",
+      "hasLink": false,
+      "type": "",
+      "hasType": false,
+      "hasDescription": false,
+      "description": "",
+      "hasLabels": false,
+      "hasLinkedIssues": false,
+      "issueType": "JIRA"
+    },
+    {
+      "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2020-12-24 07:11:41",
+          "commitTimeLong": 1608793901000,
+          "hash": "7eba3d038b884b8",
+          "hashFull": "7eba3d038b884b845644c202f6a98632d52fbb9e",
+          "merge": false,
+          "message": "Switching to Handlebars from Mustache\n\n * Removing Mediawiki support. Because I have not been able to make it work. https://stackoverflow.com/questions/45779754/cannot-authenticate-with-mediawiki-1-28-api\n * Steeping up JGit to latest release. 3.6.2.201501210735-r to 5.10.0.202012080955-r.\n * Refactoring tests to use Approvals."
+        }
+      ],
+      "authors": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2020-12-24 07:11:41",
+              "commitTimeLong": 1608793901000,
+              "hash": "7eba3d038b884b8",
+              "hashFull": "7eba3d038b884b845644c202f6a98632d52fbb9e",
+              "merge": false,
+              "message": "Switching to Handlebars from Mustache\n\n * Removing Mediawiki support. Because I have not been able to make it work. https://stackoverflow.com/questions/45779754/cannot-authenticate-with-mediawiki-1-28-api\n * Steeping up JGit to latest release. 3.6.2.201501210735-r to 5.10.0.202012080955-r.\n * Refactoring tests to use Approvals."
+            }
+          ],
+          "authorName": "Tomas Bjerre",
+          "authorEmail": "tomas.bjerre85@gmail.com"
+        }
+      ],
+      "name": "Jira",
+      "title": "",
+      "hasTitle": false,
+      "issue": "mediawiki-1",
+      "hasIssue": true,
+      "link": "",
+      "hasLink": false,
+      "type": "",
+      "hasType": false,
+      "hasDescription": false,
+      "description": "",
+      "hasLabels": false,
+      "hasLinkedIssues": false,
+      "issueType": "JIRA"
+    },
+    {
+      "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2018-10-27 16:18:51",
+          "commitTimeLong": 1540657131000,
+          "hash": "ce600bb29b31ceb",
+          "hashFull": "ce600bb29b31cebb4ef6ac11a91f1cf56712346d",
+          "merge": true,
+          "message": "Merge pull request #70 from jagedn/patch-1\n\nupgrade gitlab dependency"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2017-05-31 18:57:44",
+          "commitTimeLong": 1496257064000,
+          "hash": "0fc7cacfdf677dc",
+          "hashFull": "0fc7cacfdf677dcb25f0ba5996f2906f69b0ccac",
+          "merge": true,
+          "message": "Merge pull request #46 from grandchild/patch-1\n\nFix typo in readableTagName javadoc"
+        }
+      ],
+      "authors": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2018-10-27 16:18:51",
+              "commitTimeLong": 1540657131000,
+              "hash": "ce600bb29b31ceb",
+              "hashFull": "ce600bb29b31cebb4ef6ac11a91f1cf56712346d",
+              "merge": true,
+              "message": "Merge pull request #70 from jagedn/patch-1\n\nupgrade gitlab dependency"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2017-05-31 18:57:44",
+              "commitTimeLong": 1496257064000,
+              "hash": "0fc7cacfdf677dc",
+              "hashFull": "0fc7cacfdf677dcb25f0ba5996f2906f69b0ccac",
+              "merge": true,
+              "message": "Merge pull request #46 from grandchild/patch-1\n\nFix typo in readableTagName javadoc"
+            }
+          ],
+          "authorName": "Tomas Bjerre",
+          "authorEmail": "tomas.bjerre85@gmail.com"
+        }
+      ],
+      "name": "Jira",
+      "title": "",
+      "hasTitle": false,
+      "issue": "patch-1",
+      "hasIssue": true,
+      "link": "",
+      "hasLink": false,
+      "type": "",
+      "hasType": false,
+      "hasDescription": false,
+      "description": "",
+      "hasLabels": false,
+      "hasLinkedIssues": false,
+      "issueType": "JIRA"
     }
   ],
   "issueTypes": [
     {
-      "name": "JIRA",
+      "name": "Jira",
       "issues": [
         {
           "commits": [
             {
               "authorEmailAddress": "tomas.bjerre85@gmail.com",
               "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:30:35",
-              "commitTimeLong": 1455553835000,
-              "hash": "cc0fbbd8bc63955",
-              "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
+              "commitTime": "2017-12-30 20:07:57",
+              "commitTimeLong": 1514664477000,
+              "hash": "9f7c782dc9be919",
+              "hashFull": "9f7c782dc9be919d0ef3f59868b94130cd8a5371",
               "merge": false,
-              "message": "Adding stuff with a jira JIR-1234"
+              "message": "Closing RevWalk JENKINS-19994"
             }
           ],
           "authors": [
@@ -552,44 +1819,44 @@ context:
                 {
                   "authorEmailAddress": "tomas.bjerre85@gmail.com",
                   "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:30:35",
-                  "commitTimeLong": 1455553835000,
-                  "hash": "cc0fbbd8bc63955",
-                  "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
+                  "commitTime": "2017-12-30 20:07:57",
+                  "commitTimeLong": 1514664477000,
+                  "hash": "9f7c782dc9be919",
+                  "hashFull": "9f7c782dc9be919d0ef3f59868b94130cd8a5371",
                   "merge": false,
-                  "message": "Adding stuff with a jira JIR-1234"
+                  "message": "Closing RevWalk JENKINS-19994"
                 }
               ],
               "authorName": "Tomas Bjerre",
               "authorEmail": "tomas.bjerre85@gmail.com"
             }
           ],
-          "name": "JIRA",
-          "title": "JIR-1234",
-          "hasTitle": true,
-          "issue": "JIR-1234",
+          "name": "Jira",
+          "title": "",
+          "hasTitle": false,
+          "issue": "JENKINS-19994",
           "hasIssue": true,
-          "link": "http://JIR-1234",
-          "hasLink": true,
+          "link": "",
+          "hasLink": false,
           "type": "",
           "hasType": false,
           "hasDescription": false,
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "CUSTOM"
+          "issueType": "JIRA"
         },
         {
           "commits": [
             {
               "authorEmailAddress": "tomas.bjerre85@gmail.com",
               "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:12:02",
-              "commitTimeLong": 1455552722000,
-              "hash": "071a14f29020758",
-              "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
+              "commitTime": "2016-04-12 16:43:21",
+              "commitTimeLong": 1460479401000,
+              "hash": "27642e3db66e67c",
+              "hashFull": "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644",
               "merge": false,
-              "message": "Adding stuff with a jira\n  JIR-5262"
+              "message": "JENKINS-34155 Support short SHA"
             }
           ],
           "authors": [
@@ -598,35 +1865,285 @@ context:
                 {
                   "authorEmailAddress": "tomas.bjerre85@gmail.com",
                   "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:12:02",
-                  "commitTimeLong": 1455552722000,
-                  "hash": "071a14f29020758",
-                  "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
+                  "commitTime": "2016-04-12 16:43:21",
+                  "commitTimeLong": 1460479401000,
+                  "hash": "27642e3db66e67c",
+                  "hashFull": "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644",
                   "merge": false,
-                  "message": "Adding stuff with a jira\n  JIR-5262"
+                  "message": "JENKINS-34155 Support short SHA"
                 }
               ],
               "authorName": "Tomas Bjerre",
               "authorEmail": "tomas.bjerre85@gmail.com"
             }
           ],
-          "name": "JIRA",
-          "title": "JIR-5262",
-          "hasTitle": true,
-          "issue": "JIR-5262",
+          "name": "Jira",
+          "title": "",
+          "hasTitle": false,
+          "issue": "JENKINS-34155",
           "hasIssue": true,
-          "link": "http://JIR-5262",
-          "hasLink": true,
+          "link": "",
+          "hasLink": false,
           "type": "",
           "hasType": false,
           "hasDescription": false,
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "CUSTOM"
+          "issueType": "JIRA"
+        },
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2016-04-13 18:30:26",
+              "commitTimeLong": 1460572226000,
+              "hash": "e3106df640b693b",
+              "hashFull": "e3106df640b693b50c297154919cb5564895c08e",
+              "merge": false,
+              "message": "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them."
+            }
+          ],
+          "authors": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2016-04-13 18:30:26",
+                  "commitTimeLong": 1460572226000,
+                  "hash": "e3106df640b693b",
+                  "hashFull": "e3106df640b693b50c297154919cb5564895c08e",
+                  "merge": false,
+                  "message": "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them."
+                }
+              ],
+              "authorName": "Tomas Bjerre",
+              "authorEmail": "tomas.bjerre85@gmail.com"
+            }
+          ],
+          "name": "Jira",
+          "title": "",
+          "hasTitle": false,
+          "issue": "JENKINS-34156",
+          "hasIssue": true,
+          "link": "",
+          "hasLink": false,
+          "type": "",
+          "hasType": false,
+          "hasDescription": false,
+          "description": "",
+          "hasLabels": false,
+          "hasLinkedIssues": false,
+          "issueType": "JIRA"
+        },
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-03-29 15:33:00",
+              "commitTimeLong": 1617031980000,
+              "hash": "bea18ab90db148c",
+              "hashFull": "bea18ab90db148c3f9a90078424bd6ea36dd5108",
+              "merge": false,
+              "message": "pretty printing output JENKINS-65252"
+            }
+          ],
+          "authors": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-03-29 15:33:00",
+                  "commitTimeLong": 1617031980000,
+                  "hash": "bea18ab90db148c",
+                  "hashFull": "bea18ab90db148c3f9a90078424bd6ea36dd5108",
+                  "merge": false,
+                  "message": "pretty printing output JENKINS-65252"
+                }
+              ],
+              "authorName": "Tomas Bjerre",
+              "authorEmail": "tomas.bjerre85@gmail.com"
+            }
+          ],
+          "name": "Jira",
+          "title": "",
+          "hasTitle": false,
+          "issue": "JENKINS-65252",
+          "hasIssue": true,
+          "link": "",
+          "hasLink": false,
+          "type": "",
+          "hasType": false,
+          "hasDescription": false,
+          "description": "",
+          "hasLabels": false,
+          "hasLinkedIssues": false,
+          "issueType": "JIRA"
+        },
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2017-12-24 21:59:34",
+              "commitTimeLong": 1514152774000,
+              "hash": "7fe5f6b9860efe7",
+              "hashFull": "7fe5f6b9860efe748c50e83f083104cda9529c46",
+              "merge": false,
+              "message": "Using UTF-8, instead of default"
+            }
+          ],
+          "authors": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2017-12-24 21:59:34",
+                  "commitTimeLong": 1514152774000,
+                  "hash": "7fe5f6b9860efe7",
+                  "hashFull": "7fe5f6b9860efe748c50e83f083104cda9529c46",
+                  "merge": false,
+                  "message": "Using UTF-8, instead of default"
+                }
+              ],
+              "authorName": "Tomas Bjerre",
+              "authorEmail": "tomas.bjerre85@gmail.com"
+            }
+          ],
+          "name": "Jira",
+          "title": "",
+          "hasTitle": false,
+          "issue": "UTF-8",
+          "hasIssue": true,
+          "link": "",
+          "hasLink": false,
+          "type": "",
+          "hasType": false,
+          "hasDescription": false,
+          "description": "",
+          "hasLabels": false,
+          "hasLinkedIssues": false,
+          "issueType": "JIRA"
+        },
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2020-12-24 07:11:41",
+              "commitTimeLong": 1608793901000,
+              "hash": "7eba3d038b884b8",
+              "hashFull": "7eba3d038b884b845644c202f6a98632d52fbb9e",
+              "merge": false,
+              "message": "Switching to Handlebars from Mustache\n\n * Removing Mediawiki support. Because I have not been able to make it work. https://stackoverflow.com/questions/45779754/cannot-authenticate-with-mediawiki-1-28-api\n * Steeping up JGit to latest release. 3.6.2.201501210735-r to 5.10.0.202012080955-r.\n * Refactoring tests to use Approvals."
+            }
+          ],
+          "authors": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2020-12-24 07:11:41",
+                  "commitTimeLong": 1608793901000,
+                  "hash": "7eba3d038b884b8",
+                  "hashFull": "7eba3d038b884b845644c202f6a98632d52fbb9e",
+                  "merge": false,
+                  "message": "Switching to Handlebars from Mustache\n\n * Removing Mediawiki support. Because I have not been able to make it work. https://stackoverflow.com/questions/45779754/cannot-authenticate-with-mediawiki-1-28-api\n * Steeping up JGit to latest release. 3.6.2.201501210735-r to 5.10.0.202012080955-r.\n * Refactoring tests to use Approvals."
+                }
+              ],
+              "authorName": "Tomas Bjerre",
+              "authorEmail": "tomas.bjerre85@gmail.com"
+            }
+          ],
+          "name": "Jira",
+          "title": "",
+          "hasTitle": false,
+          "issue": "mediawiki-1",
+          "hasIssue": true,
+          "link": "",
+          "hasLink": false,
+          "type": "",
+          "hasType": false,
+          "hasDescription": false,
+          "description": "",
+          "hasLabels": false,
+          "hasLinkedIssues": false,
+          "issueType": "JIRA"
+        },
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2018-10-27 16:18:51",
+              "commitTimeLong": 1540657131000,
+              "hash": "ce600bb29b31ceb",
+              "hashFull": "ce600bb29b31cebb4ef6ac11a91f1cf56712346d",
+              "merge": true,
+              "message": "Merge pull request #70 from jagedn/patch-1\n\nupgrade gitlab dependency"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2017-05-31 18:57:44",
+              "commitTimeLong": 1496257064000,
+              "hash": "0fc7cacfdf677dc",
+              "hashFull": "0fc7cacfdf677dcb25f0ba5996f2906f69b0ccac",
+              "merge": true,
+              "message": "Merge pull request #46 from grandchild/patch-1\n\nFix typo in readableTagName javadoc"
+            }
+          ],
+          "authors": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2018-10-27 16:18:51",
+                  "commitTimeLong": 1540657131000,
+                  "hash": "ce600bb29b31ceb",
+                  "hashFull": "ce600bb29b31cebb4ef6ac11a91f1cf56712346d",
+                  "merge": true,
+                  "message": "Merge pull request #70 from jagedn/patch-1\n\nupgrade gitlab dependency"
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2017-05-31 18:57:44",
+                  "commitTimeLong": 1496257064000,
+                  "hash": "0fc7cacfdf677dc",
+                  "hashFull": "0fc7cacfdf677dcb25f0ba5996f2906f69b0ccac",
+                  "merge": true,
+                  "message": "Merge pull request #46 from grandchild/patch-1\n\nFix typo in readableTagName javadoc"
+                }
+              ],
+              "authorName": "Tomas Bjerre",
+              "authorEmail": "tomas.bjerre85@gmail.com"
+            }
+          ],
+          "name": "Jira",
+          "title": "",
+          "hasTitle": false,
+          "issue": "patch-1",
+          "hasIssue": true,
+          "link": "",
+          "hasLink": false,
+          "type": "",
+          "hasType": false,
+          "hasDescription": false,
+          "description": "",
+          "hasLabels": false,
+          "hasLinkedIssues": false,
+          "issueType": "JIRA"
         }
       ],
-      "type": "CUSTOM"
+      "type": "JIRA"
     }
   ],
   "ownerName": "tomasbjerre",
