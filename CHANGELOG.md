@@ -3,6 +3,15 @@
 
 Changelog of git-changelog-lib.
 
+## 1.148.1
+### No issue
+
+**doc: updating readme**
+
+
+[4b5ca4f27824349](https://github.com/tomasbjerre/git-changelog-lib/commit/4b5ca4f27824349) Tomas Bjerre *2021-05-25 18:12:51*
+
+
 ## 1.148.0
 ### No issue
 
