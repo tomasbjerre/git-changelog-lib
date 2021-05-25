@@ -1,0 +1,325 @@
+template:
+
+# Git Changelog changelog
+
+Changelog of Git Changelog.
+
+{{#commits}}
+## {{authorName}} - {{commitTime}}
+[{{hashFull}}](https://server/{{hash}})
+
+{{{message}}}
+
+{{/commits}}
+
+
+---------------------------------------------
+
+settings:
+
+{
+  "fromCommit": "aa1fd33",
+  "toCommit": "4c6e078",
+  "templatePath": "templatetest/testThatRevertedCommitsAreRemoved.mustache",
+  "removeIssueFromMessage": false,
+  "gitHubApi": "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
+  "extendedVariables": {},
+  "ignoreCommitsWithoutIssue": false,
+  "gitLabProjectName": "tomasbjerre"
+}
+
+---------------------------------------------
+
+changelog:
+
+# Git Changelog changelog
+
+Changelog of Git Changelog.
+
+## Tomas Bjerre - 2021-05-25 04:14:34
+[4c6e07857c48c985dc53eef9045b5e36dab8f676](https://server/4c6e07857c48c98)
+
+doing change 2
+
+
+
+---------------------------------------------
+
+context:
+
+{
+  "commits": [
+    {
+      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+      "authorName": "Tomas Bjerre",
+      "commitTime": "2021-05-25 04:14:34",
+      "commitTimeLong": 1621916074000,
+      "hash": "4c6e07857c48c98",
+      "hashFull": "4c6e07857c48c985dc53eef9045b5e36dab8f676",
+      "merge": false,
+      "message": "doing change 2"
+    }
+  ],
+  "tags": [
+    {
+      "authors": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-25 04:14:34",
+              "commitTimeLong": 1621916074000,
+              "hash": "4c6e07857c48c98",
+              "hashFull": "4c6e07857c48c985dc53eef9045b5e36dab8f676",
+              "merge": false,
+              "message": "doing change 2"
+            }
+          ],
+          "authorName": "Tomas Bjerre",
+          "authorEmail": "tomas.bjerre85@gmail.com"
+        }
+      ],
+      "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-25 04:14:34",
+          "commitTimeLong": 1621916074000,
+          "hash": "4c6e07857c48c98",
+          "hashFull": "4c6e07857c48c985dc53eef9045b5e36dab8f676",
+          "merge": false,
+          "message": "doing change 2"
+        }
+      ],
+      "issues": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-25 04:14:34",
+              "commitTimeLong": 1621916074000,
+              "hash": "4c6e07857c48c98",
+              "hashFull": "4c6e07857c48c985dc53eef9045b5e36dab8f676",
+              "merge": false,
+              "message": "doing change 2"
+            }
+          ],
+          "authors": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-25 04:14:34",
+                  "commitTimeLong": 1621916074000,
+                  "hash": "4c6e07857c48c98",
+                  "hashFull": "4c6e07857c48c985dc53eef9045b5e36dab8f676",
+                  "merge": false,
+                  "message": "doing change 2"
+                }
+              ],
+              "authorName": "Tomas Bjerre",
+              "authorEmail": "tomas.bjerre85@gmail.com"
+            }
+          ],
+          "name": "No issue",
+          "title": "",
+          "hasTitle": false,
+          "issue": "",
+          "hasIssue": false,
+          "link": "",
+          "hasLink": false,
+          "type": "",
+          "hasType": false,
+          "hasDescription": false,
+          "description": "",
+          "hasLabels": false,
+          "hasLinkedIssues": false,
+          "issueType": "NOISSUE"
+        }
+      ],
+      "issueTypes": [
+        {
+          "name": "No issue",
+          "issues": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-25 04:14:34",
+                  "commitTimeLong": 1621916074000,
+                  "hash": "4c6e07857c48c98",
+                  "hashFull": "4c6e07857c48c985dc53eef9045b5e36dab8f676",
+                  "merge": false,
+                  "message": "doing change 2"
+                }
+              ],
+              "authors": [
+                {
+                  "commits": [
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2021-05-25 04:14:34",
+                      "commitTimeLong": 1621916074000,
+                      "hash": "4c6e07857c48c98",
+                      "hashFull": "4c6e07857c48c985dc53eef9045b5e36dab8f676",
+                      "merge": false,
+                      "message": "doing change 2"
+                    }
+                  ],
+                  "authorName": "Tomas Bjerre",
+                  "authorEmail": "tomas.bjerre85@gmail.com"
+                }
+              ],
+              "name": "No issue",
+              "title": "",
+              "hasTitle": false,
+              "issue": "",
+              "hasIssue": false,
+              "link": "",
+              "hasLink": false,
+              "type": "",
+              "hasType": false,
+              "hasDescription": false,
+              "description": "",
+              "hasLabels": false,
+              "hasLinkedIssues": false,
+              "issueType": "NOISSUE"
+            }
+          ],
+          "type": "NOISSUE"
+        }
+      ],
+      "name": "Unreleased",
+      "tagTime": "",
+      "tagTimeLong": -1,
+      "hasTagTime": false
+    }
+  ],
+  "authors": [
+    {
+      "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-25 04:14:34",
+          "commitTimeLong": 1621916074000,
+          "hash": "4c6e07857c48c98",
+          "hashFull": "4c6e07857c48c985dc53eef9045b5e36dab8f676",
+          "merge": false,
+          "message": "doing change 2"
+        }
+      ],
+      "authorName": "Tomas Bjerre",
+      "authorEmail": "tomas.bjerre85@gmail.com"
+    }
+  ],
+  "issues": [
+    {
+      "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-25 04:14:34",
+          "commitTimeLong": 1621916074000,
+          "hash": "4c6e07857c48c98",
+          "hashFull": "4c6e07857c48c985dc53eef9045b5e36dab8f676",
+          "merge": false,
+          "message": "doing change 2"
+        }
+      ],
+      "authors": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-25 04:14:34",
+              "commitTimeLong": 1621916074000,
+              "hash": "4c6e07857c48c98",
+              "hashFull": "4c6e07857c48c985dc53eef9045b5e36dab8f676",
+              "merge": false,
+              "message": "doing change 2"
+            }
+          ],
+          "authorName": "Tomas Bjerre",
+          "authorEmail": "tomas.bjerre85@gmail.com"
+        }
+      ],
+      "name": "No issue",
+      "title": "",
+      "hasTitle": false,
+      "issue": "",
+      "hasIssue": false,
+      "link": "",
+      "hasLink": false,
+      "type": "",
+      "hasType": false,
+      "hasDescription": false,
+      "description": "",
+      "hasLabels": false,
+      "hasLinkedIssues": false,
+      "issueType": "NOISSUE"
+    }
+  ],
+  "issueTypes": [
+    {
+      "name": "No issue",
+      "issues": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-25 04:14:34",
+              "commitTimeLong": 1621916074000,
+              "hash": "4c6e07857c48c98",
+              "hashFull": "4c6e07857c48c985dc53eef9045b5e36dab8f676",
+              "merge": false,
+              "message": "doing change 2"
+            }
+          ],
+          "authors": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-25 04:14:34",
+                  "commitTimeLong": 1621916074000,
+                  "hash": "4c6e07857c48c98",
+                  "hashFull": "4c6e07857c48c985dc53eef9045b5e36dab8f676",
+                  "merge": false,
+                  "message": "doing change 2"
+                }
+              ],
+              "authorName": "Tomas Bjerre",
+              "authorEmail": "tomas.bjerre85@gmail.com"
+            }
+          ],
+          "name": "No issue",
+          "title": "",
+          "hasTitle": false,
+          "issue": "",
+          "hasIssue": false,
+          "link": "",
+          "hasLink": false,
+          "type": "",
+          "hasType": false,
+          "hasDescription": false,
+          "description": "",
+          "hasLabels": false,
+          "hasLinkedIssues": false,
+          "issueType": "NOISSUE"
+        }
+      ],
+      "type": "NOISSUE"
+    }
+  ],
+  "ownerName": "tomasbjerre",
+  "repoName": "git-changelog-lib"
+}

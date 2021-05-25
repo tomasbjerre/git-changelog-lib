@@ -8,8 +8,9 @@ import static com.google.common.collect.Lists.transform;
 import static com.google.common.collect.Maps.newTreeMap;
 import static com.google.common.collect.Multimaps.index;
 import static java.util.TimeZone.getTimeZone;
+import static java.util.regex.Pattern.DOTALL;
 import static java.util.regex.Pattern.compile;
-import static se.bjurr.gitchangelog.internal.common.GitPredicates.ignoreCommits;
+import static java.util.stream.Collectors.toList;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -18,6 +19,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import se.bjurr.gitchangelog.api.model.Author;
 import se.bjurr.gitchangelog.api.model.Commit;
@@ -36,6 +39,7 @@ import com.google.common.collect.Multimap;
 
 public class Transformer {
 
+  private static final String PATTERN_THIS_REVERTS = "This reverts commit ([a-z0-9]+).";
   private final Settings settings;
 
   public Transformer(final Settings settings) {
@@ -46,7 +50,8 @@ public class Transformer {
     final Multimap<String, GitCommit> commitsPerAuthor =
         index(
             gitCommits,
-            (Function<GitCommit, String>) input -> input.getAuthorEmailAddress() + "-" + input.getAuthorName());
+            (Function<GitCommit, String>)
+                input -> input.getAuthorEmailAddress() + "-" + input.getAuthorName());
 
     final Iterable<String> authorsWithCommits =
         filter(
@@ -57,21 +62,84 @@ public class Transformer {
         transform(
             authorsWithCommits,
             input -> {
-                final List<GitCommit> gitCommitsOfSameAuthor = newArrayList(commitsPerAuthor.get(input));
-                final List<Commit> commitsOfSameAuthor = Transformer.this.toCommits(gitCommitsOfSameAuthor);
-                return new Author( //
-                    commitsOfSameAuthor.get(0).getAuthorName(), //
-                    commitsOfSameAuthor.get(0).getAuthorEmailAddress(), //
-                    commitsOfSameAuthor);
-              }));
+              final List<GitCommit> gitCommitsOfSameAuthor =
+                  newArrayList(commitsPerAuthor.get(input));
+              final List<Commit> commitsOfSameAuthor =
+                  Transformer.this.toCommits(gitCommitsOfSameAuthor);
+              return new Author( //
+                  commitsOfSameAuthor.get(0).getAuthorName(), //
+                  commitsOfSameAuthor.get(0).getAuthorEmailAddress(), //
+                  commitsOfSameAuthor);
+            }));
+  }
+
+  private boolean isRevertCommit(final GitCommit commit) {
+    return this.getRevertCommitHash(commit) != null;
+  }
+
+  private boolean isRevertedCommit(
+      final GitCommit commit, final Iterable<GitCommit> revertCommits) {
+    for (final GitCommit revertCommit : revertCommits) {
+      final String revertedHash = this.getRevertCommitHash(revertCommit);
+      if (commit.getHash().equals(revertedHash)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private String getRevertCommitHash(final GitCommit revertCommit) {
+    final Matcher matcher = Pattern.compile(PATTERN_THIS_REVERTS).matcher(revertCommit.getMessage());
+    if (!matcher.find()) {
+    	return null;
+    }
+	return matcher.group(1);
   }
 
   public List<Commit> toCommits(final Collection<GitCommit> from) {
-    final Iterable<GitCommit> filteredCommits = filter(from, ignoreCommits(this.settings));
-    return newArrayList(
-        transform(
-            filteredCommits,
-            c -> Transformer.this.toCommit(c)));
+    final List<GitCommit> revertCommits =
+        from.stream().filter(it -> this.isRevertCommit(it)).collect(Collectors.toList());
+    final List<GitCommit> revertedCommits =
+        from.stream()
+            .filter(it -> this.isRevertedCommit(it, revertCommits))
+            .collect(Collectors.toList());
+    final List<GitCommit> revertCommitsToRemove =
+        revertedCommits
+            .stream()
+            .map(
+                it -> {
+                  return revertCommits
+                      .stream()
+                      .filter(rc -> this.getRevertCommitHash(rc).equals(it.getHash()))
+                      .findFirst()
+                      .get();
+                })
+            .collect(toList());
+    final List<GitCommit> fromWithoutReverted =
+    		from.stream().filter(it -> !revertedCommits.contains(it) && !revertCommitsToRemove.contains(it)).collect(toList());
+
+    final List<GitCommit> filteredCommits =
+    		fromWithoutReverted.stream().filter(
+    				gitCommit -> {
+    				      final boolean messageMatches =
+    				          compile(this.settings.getIgnoreCommitsIfMessageMatches(), DOTALL)
+    				              .matcher(gitCommit.getMessage())
+    				              .matches();
+    				      if (messageMatches) {
+    				        return false;
+    				      }
+
+    				      if (this.settings.getIgnoreCommitsIfOlderThan().isPresent()) {
+    				        final boolean olderThan =
+    				            gitCommit.getCommitTime().before(this.settings.getIgnoreCommitsIfOlderThan().get());
+    				        if (olderThan) {
+    				          return false;
+    				        }
+    				      }
+    				      return true;
+    				    }
+    				).collect(toList());
+    return newArrayList(transform(filteredCommits, c -> Transformer.this.toCommit(c)));
   }
 
   public List<Issue> toIssues(final List<ParsedIssue> issues) {
@@ -102,69 +170,60 @@ public class Transformer {
 
   public List<Tag> toTags(final List<GitTag> gitTags, final List<ParsedIssue> allParsedIssues) {
 
-    Iterable<Tag> tags =
-        transform(
-            gitTags,
-            new Function<GitTag, Tag>() {
-              @Override
-              public Tag apply(final GitTag input) {
-                final List<GitCommit> gitCommits = input.getGitCommits();
-                final List<ParsedIssue> parsedIssues =
-                    this.reduceParsedIssuesToOnlyGitCommits(allParsedIssues, gitCommits);
-                final List<Commit> commits = Transformer.this.toCommits(gitCommits);
-                final List<Author> authors = Transformer.this.toAuthors(gitCommits);
-                final List<Issue> issues = Transformer.this.toIssues(parsedIssues);
-                final List<IssueType> issueTypes = Transformer.this.toIssueTypes(parsedIssues);
-                return new Tag(
-                    Transformer.this.toReadableTagName(input.getName()),
-                    input.findAnnotation().orNull(),
-                    commits,
-                    authors,
-                    issues,
-                    issueTypes,
-                    input.getTagTime() != null ? Transformer.this.format(input.getTagTime()) : "",
-                    input.getTagTime() != null ? input.getTagTime().getTime() : -1);
-              }
+    final List<Tag> tags =
+    		gitTags.stream().map(input -> {
+            final List<GitCommit> gitCommits = input.getGitCommits();
+            final List<ParsedIssue> parsedIssues =
+                this.reduceParsedIssuesToOnlyGitCommits(allParsedIssues, gitCommits);
+            final List<Commit> commits = Transformer.this.toCommits(gitCommits);
+            final List<Author> authors = Transformer.this.toAuthors(gitCommits);
+            final List<Issue> issues = Transformer.this.toIssues(parsedIssues);
+            final List<IssueType> issueTypes = Transformer.this.toIssueTypes(parsedIssues);
+            return new Tag(
+                Transformer.this.toReadableTagName(input.getName()),
+                input.findAnnotation().orNull(),
+                commits,
+                authors,
+                issues,
+                issueTypes,
+                input.getTagTime() != null ? Transformer.this.format(input.getTagTime()) : "",
+                input.getTagTime() != null ? input.getTagTime().getTime() : -1);
+    		}
+    				).collect(Collectors.toList());
 
-              private List<ParsedIssue> reduceParsedIssuesToOnlyGitCommits(
-                  final List<ParsedIssue> allParsedIssues, final List<GitCommit> gitCommits) {
-                final List<ParsedIssue> parsedIssues = newArrayList();
-                for (final ParsedIssue candidate : allParsedIssues) {
-                  final List<GitCommit> candidateCommits =
-                      newArrayList(filter(candidate.getGitCommits(), in(gitCommits)));
-                  if (!candidateCommits.isEmpty()) {
-                    final ParsedIssue parsedIssue =
-                        new ParsedIssue(
-                            candidate.getSettingsIssueType(),
-                            candidate.getName(),
-                            candidate.getIssue(),
-                            candidate.getDescription(),
-                            candidate.getLink(),
-                            candidate.getTitle().orNull(),
-                            candidate.getIssueType(),
-                            candidate.getLinkedIssues(),
-                            candidate.getLabels());
-                    parsedIssue.addCommits(candidateCommits);
-                    parsedIssues.add(parsedIssue);
-                  }
-                }
-                return parsedIssues;
-              }
-            });
 
-    tags =
-        filter(
-            tags,
-            input -> !input.getAuthors().isEmpty() && !input.getCommits().isEmpty());
+    return tags.stream().filter(input -> !input.getAuthors().isEmpty() && !input.getCommits().isEmpty())
+    		.collect(Collectors.toList());
+  }
 
-    return newArrayList(tags);
+  private List<ParsedIssue> reduceParsedIssuesToOnlyGitCommits(
+      final List<ParsedIssue> allParsedIssues, final List<GitCommit> gitCommits) {
+    final List<ParsedIssue> parsedIssues = newArrayList();
+    for (final ParsedIssue candidate : allParsedIssues) {
+      final List<GitCommit> candidateCommits =
+          newArrayList(filter(candidate.getGitCommits(), in(gitCommits)));
+      if (!candidateCommits.isEmpty()) {
+        final ParsedIssue parsedIssue =
+            new ParsedIssue(
+                candidate.getSettingsIssueType(),
+                candidate.getName(),
+                candidate.getIssue(),
+                candidate.getDescription(),
+                candidate.getLink(),
+                candidate.getTitle().orNull(),
+                candidate.getIssueType(),
+                candidate.getLinkedIssues(),
+                candidate.getLabels());
+        parsedIssue.addCommits(candidateCommits);
+        parsedIssues.add(parsedIssue);
+      }
+    }
+    return parsedIssues;
   }
 
   private Iterable<ParsedIssue> filterWithCommits(final List<ParsedIssue> issues) {
     final Iterable<ParsedIssue> issuesWithCommits =
-        filter(
-            issues,
-            input -> !Transformer.this.toCommits(input.getGitCommits()).isEmpty());
+        filter(issues, input -> !Transformer.this.toCommits(input.getGitCommits()).isEmpty());
     return issuesWithCommits;
   }
 
@@ -176,20 +235,20 @@ public class Transformer {
 
   private Function<ParsedIssue, Issue> parsedIssueToIssue() {
     return input -> {
-        final List<GitCommit> gitCommits = input.getGitCommits();
-        return new Issue( //
-            Transformer.this.toCommits(gitCommits), //
-            Transformer.this.toAuthors(gitCommits), //
-            input.getName(), //
-            input.getTitle().or(""), //
-            input.getIssue(), //
-            input.getSettingsIssueType(), //
-            input.getDescription(),
-            input.getLink(), //
-            input.getIssueType(), //
-            input.getLinkedIssues(), //
-            input.getLabels());
-      };
+      final List<GitCommit> gitCommits = input.getGitCommits();
+      return new Issue( //
+          Transformer.this.toCommits(gitCommits), //
+          Transformer.this.toAuthors(gitCommits), //
+          input.getName(), //
+          input.getTitle().or(""), //
+          input.getIssue(), //
+          input.getSettingsIssueType(), //
+          input.getDescription(),
+          input.getLink(), //
+          input.getIssueType(), //
+          input.getLinkedIssues(), //
+          input.getLabels());
+    };
   }
 
   private String removeIssuesFromString(
@@ -233,7 +292,10 @@ public class Transformer {
   }
 
   @VisibleForTesting
-  String toMessage(final boolean removeIssueFromMessage, final List<SettingsIssue> issues, final String message) {
+  String toMessage(
+      final boolean removeIssueFromMessage,
+      final List<SettingsIssue> issues,
+      final String message) {
     return this.removeIssuesFromString(removeIssueFromMessage, issues, message);
   }
 }

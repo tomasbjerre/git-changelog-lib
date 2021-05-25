@@ -9,16 +9,19 @@ import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 import static se.bjurr.gitchangelog.internal.integrations.rest.RestClient.mock;
 
-import com.google.common.io.Resources;
 import java.net.URL;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 import se.bjurr.gitchangelog.internal.integrations.github.GitHubMockInterceptor;
 import se.bjurr.gitchangelog.internal.integrations.github.GitHubServiceFactory;
 import se.bjurr.gitchangelog.internal.integrations.jira.JiraClientFactory;
 import se.bjurr.gitchangelog.internal.integrations.rest.RestClientMock;
 import se.bjurr.gitchangelog.test.ApprovalsWrapper;
+
+import com.google.common.io.Resources;
 
 public class GitChangelogApiTest {
   private RestClientMock mockedRestClient;
@@ -28,8 +31,8 @@ public class GitChangelogApiTest {
   public void before() throws Exception {
     JiraClientFactory.reset();
 
-    mockedRestClient = new RestClientMock();
-    mockedRestClient //
+    this.mockedRestClient = new RestClientMock();
+    this.mockedRestClient //
         .addMockedResponse(
             "/repos/tomasbjerre/git-changelog-lib/issues?state=all",
             Resources.toString(getResource("github-issues.json"), UTF_8)) //
@@ -39,16 +42,16 @@ public class GitChangelogApiTest {
         .addMockedResponse(
             "/jira/rest/api/2/issue/JIR-5262?fields=parent,summary,issuetype,labels,description,issuelinks",
             Resources.toString(getResource("jira-issue-jir-5262.json"), UTF_8));
-    mock(mockedRestClient);
+    mock(this.mockedRestClient);
 
-    gitHubMockInterceptor = new GitHubMockInterceptor();
-    gitHubMockInterceptor //
+    this.gitHubMockInterceptor = new GitHubMockInterceptor();
+    this.gitHubMockInterceptor //
         .addMockedResponse(
         "https://api.github.com/repos/tomasbjerre/git-changelog-lib/issues?state=all&per_page=100&page=1",
         Resources.toString(getResource("github-issues.json"), UTF_8));
 
     GitHubServiceFactory //
-        .setInterceptor(gitHubMockInterceptor);
+        .setInterceptor(this.gitHubMockInterceptor);
   }
 
   @After
@@ -62,7 +65,7 @@ public class GitChangelogApiTest {
   public void testThatTagsThatAreEmptyAfterCommitsHaveBeenIgnoredAreRemoved() throws Exception {
     final String templatePath = "templatetest/testAuthorsCommitsExtended.mustache";
 
-    GitChangelogApi given =
+    final GitChangelogApi given =
         gitChangelogApiBuilder() //
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
@@ -76,7 +79,7 @@ public class GitChangelogApiTest {
   public void testPathFilterCanBeSpecified() throws Exception {
     final String templatePath = "templatetest/testAuthorsCommitsExtended.mustache";
 
-    GitChangelogApi given =
+    final GitChangelogApi given =
         gitChangelogApiBuilder() //
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("1.71") //
@@ -155,8 +158,8 @@ public class GitChangelogApiTest {
       final String actual =
           gitChangelogApiBuilder() //
               .withFromCommit(ZERO_COMMIT) //
-              .withToRef("test") //
               .withSettings(settingsFile) //
+              .withToRef("/test") //
               .withRemoveIssueFromMessageArgument(true) //
               .withTemplatePath(templatePath) //
               .withReadableTagName("[0-9]+?") //
@@ -180,7 +183,7 @@ public class GitChangelogApiTest {
         getResource("settings/git-changelog-test-settings.json").toURI().toURL();
     final String templatePath = "templatetest/testIssuesCommits.mustache";
 
-    GitChangelogApi given =
+    final GitChangelogApi given =
         gitChangelogApiBuilder() //
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
@@ -198,7 +201,7 @@ public class GitChangelogApiTest {
         getResource("settings/git-changelog-test-settings.json").toURI().toURL();
     final String templatePath = "templatetest/testAuthorsCommitsExtended.mustache";
 
-    GitChangelogApi given =
+    final GitChangelogApi given =
         gitChangelogApiBuilder() //
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
@@ -230,5 +233,18 @@ public class GitChangelogApiTest {
         .isTrue();
     assertThat(GitChangelogApi.shouldUseIntegrationIfConfigured("a\nsd{{labels}}asd\nsdasd")) //
         .isTrue();
+  }
+
+  @Test
+  public void testThatRevertedCommitsAreRemoved() throws Exception {
+    final String templatePath = "templatetest/testThatRevertedCommitsAreRemoved.mustache";
+
+    final GitChangelogApi given =
+        gitChangelogApiBuilder() //
+            .withFromCommit("aa1fd33") //
+            .withToCommit("4c6e078") //
+            .withTemplatePath(templatePath);
+
+    ApprovalsWrapper.verify(given);
   }
 }
