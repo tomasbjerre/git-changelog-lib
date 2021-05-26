@@ -66,13 +66,7 @@ public class GitChangelogApi {
     this.settings = new Settings();
     this.handlebars = new Handlebars();
     this.handlebars.setPrettyPrint(true);
-    for (final Entry<String, Helper<?>> helper : Helpers.COMMIT_HELPERS.entrySet()) {
-      this.handlebars.registerHelper(helper.getKey(), helper.getValue());
-    }
-    for (final Entry<String, Helper<?>> helper : Helpers.COMMITS_HELPERS.entrySet()) {
-      this.handlebars.registerHelper(helper.getKey(), helper.getValue());
-    }
-    for (final Entry<String, Helper<?>> helper : Helpers.TAG_HELPERS.entrySet()) {
+    for (final Entry<String, Helper<?>> helper : Helpers.ALL.entrySet()) {
       this.handlebars.registerHelper(helper.getKey(), helper.getValue());
     }
   }

@@ -1,9 +1,10 @@
-package se.bjurr.gitchangelog.api;
+package se.bjurr.gitchangelog.api.helpers;
 
 import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
 
 import org.junit.Before;
 import org.junit.Test;
+import se.bjurr.gitchangelog.api.GitChangelogApi;
 import se.bjurr.gitchangelog.test.ApprovalsWrapper;
 
 public class HandlebarsHelperTest {
@@ -22,7 +23,8 @@ public class HandlebarsHelperTest {
   public void testThatHelperCanBeSuppliedWithJavascript() throws Exception {
     final GitChangelogApi given =
         this.baseBuilder //
-            .withTemplatePath("templatetest/testThatHelperCanBeSuppliedWithJavascript.mustache")
+            .withTemplatePath(
+                "templatetest/helpers/testThatHelperCanBeSuppliedWithJavascript.mustache")
             .withHandlebarsHelper(
                 "Handlebars.registerHelper(\"firstWord\", function(options) {"
                     + "  return options.fn(this).split(\" \")[0];"
@@ -36,8 +38,9 @@ public class HandlebarsHelperTest {
     final GitChangelogApi given =
         this.baseBuilder //
             .withFromCommit("ed95e6a") //
-            .withToCommit("d346292") //
-            .withTemplatePath("templatetest/testThatBuiltInHelperMethodsCanBeUsed.mustache");
+            .withToCommit("c18e11e") //
+            .withTemplatePath(
+                "templatetest/helpers/testThatBuiltInHelperMethodsCanBeUsed.mustache");
 
     ApprovalsWrapper.verify(given);
   }
@@ -47,8 +50,9 @@ public class HandlebarsHelperTest {
     final GitChangelogApi given =
         this.baseBuilder //
             .withFromCommit("ed95e6a") //
-            .withToCommit("d346292") //
-            .withTemplatePath("templatetest/testThatConventionalChangelogCanBeRendered.mustache");
+            .withToCommit("c18e11e") //
+            .withTemplatePath(
+                "templatetest/helpers/testThatConventionalChangelogCanBeRendered.mustache");
 
     ApprovalsWrapper.verify(given);
   }

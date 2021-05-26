@@ -1,33 +1,108 @@
 template:
 
-# Changelog
+
+Test template:
+
+Tags:
 
 {{#tags}}
-{{#ifReleaseTag .}}
-## [{{name}}](https://gitlab.com/html-validate/html-validate/compare/{{name}}) ({{tagDate .}})
-
-	{{#ifContainsType commits type='feat'}}
-### Features
-
-		{{#commits}}
-			{{#ifCommitType . type='feat'}}
- - {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{hash}}](https://gitlab.com/html-validate/html-validate/commit/{{hashFull}}))
-			{{/ifCommitType}}
-		{{/commits}}
-	{{/ifContainsType}}
-
-	{{#ifContainsType commits type='fix'}}
-### Bug Fixes
-
-		{{#commits}}
-			{{#ifCommitType . type='fix'}}
- - {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{hash}}](https://gitlab.com/html-validate/html-validate/commit/{{hashFull}}))
-			{{/ifCommitType}}
-		{{/commits}}
-	{{/ifContainsType}}
-
-{{/ifReleaseTag}}
+ * {{.}}
 {{/tags}}
+
+
+Commits:
+
+{{#commits}}
+ * {{.}}
+{{/commits}}
+
+
+## breaking changes:
+ {{#ifContainsBreaking commits}}
+  contains breaking changes
+  {{#commits}}
+   {{#ifCommitBreaking .}}
+    is breaking: {{hash}} 
+   {{/ifCommitBreaking}}
+  {{/commits}}
+ {{/ifContainsBreaking}}
+
+
+## Footers
+{{#commits}}
+{{#ifCommitHasFooters}}
+Has footers: {{hash}} 
+{{/ifCommitHasFooters}}
+{{#eachCommitFooter .}}
+ - {{token}}  
+   {{#ifFooterHasValue .}}
+    with value: {{{value}}} 
+   {{/ifFooterHasValue}}
+
+{{/eachCommitFooter}}
+{{/commits}}
+
+
+## Paragraphs
+{{#commits}}
+{{#ifCommitHasParagraphs}}
+Has paragraphs: {{hash}} 
+{{/ifCommitHasParagraphs}}
+{{#eachCommitParagraph .}}
+ - {{.}}
+ 
+{{/eachCommitParagraph}}
+{{/commits}}
+
+
+{{#tags}}
+ tag: {{.}}
+ {{#ifReleaseTag .}}
+  "{{.}}" is a release tag
+ {{/ifReleaseTag}}
+ 
+ {{#ifContainsType commits type="fix"}}
+  commits contains fix
+ {{/ifContainsType}}
+
+ date: {{tagDate .}} 
+ 
+{{/tags}}
+
+
+{{#commits}}
+ Commit: {{.}}
+ date: {{commitDate .}} 
+
+ {{#ifCommitType . type="revert"}} is type revert {{/ifCommitType}}
+ {{#ifCommitType . type="fix"}} is type fix {{/ifCommitType}}
+ {{#ifCommitType . type=""}} commit has no type {{/ifCommitType}}
+
+ {{#ifCommitScope . scope="utils"}} is scope utils {{/ifCommitScope}}
+
+ {{#eachCommitScope .}}
+  scope: {{.}}
+ {{/eachCommitScope}}
+
+ description: {{commitDescription .}}
+ 
+ {{#ifCommitType . type="revert"}}
+   this reverted commit: {{revertedCommit .}}
+ {{/ifCommitType}}
+ 
+ {{#eachCommitRefs .}}
+  ref: {{.}}
+ {{/eachCommitRefs}}
+
+ {{#eachCommitFixes .}}
+  fix: {{.}}
+ {{/eachCommitFixes}}
+
+
+{{/commits}}
+
+
+
 
 ---------------------------------------------
 
@@ -36,8 +111,8 @@ settings:
 {
   "fromRepo": ".",
   "fromCommit": "ed95e6a",
-  "toCommit": "d346292",
-  "templatePath": "templatetest/testThatConventionalChangelogCanBeRendered.mustache",
+  "toCommit": "c18e11e",
+  "templatePath": "templatetest/helpers/testThatBuiltInHelperMethodsCanBeUsed.mustache",
   "removeIssueFromMessage": false,
   "gitHubApi": "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
   "extendedVariables": {},
@@ -51,21 +126,354 @@ settings:
 
 changelog:
 
-# Changelog
 
-## [1.147.2](https://gitlab.com/html-validate/html-validate/compare/1.147.2) (2021-05-24)
+Test template:
 
+Tags:
 
-### Bug Fixes
-
- -  dont require semantic patterns to get highest tag ([38fc504697f8d04](https://gitlab.com/html-validate/html-validate/commit/38fc504697f8d040a946cf7c0d668f49b6509c57))
-
-## [1.147.1](https://gitlab.com/html-validate/html-validate/compare/1.147.1) (2021-05-23)
+ * name: Unreleased
+ * name: 1.147.2
+ * name: 1.147.1
 
 
-### Bug Fixes
+Commits:
 
- -  dont use integrations when determining versions ([601c009bff8d551](https://gitlab.com/html-validate/html-validate/commit/601c009bff8d5513d94a906ea4b340678b997209))
+ * hash: c18e11ebd1244b9 message: fix: correct minor typos in code
+
+see the issue for details
+
+on typos fixed.
+
+Reviewed-by: Z
+Refs #133
+ * hash: ed18f49f74281ba message: feat: allow provided config object to extend other configs
+
+BREAKING CHANGE: &#x60;extends&#x60; key in config file is now used for extending other config files
+ * hash: 78348fda6cd6d6f message: refactor: using only br
+
+BREAKING CHANGE: refactor to use JavaScript features not available in Node 6.
+ * hash: 1ec1b3038858387 message: refactor!: using both ! and br
+
+BREAKING CHANGE: refactor to use JavaScript features not available in Node 6.
+ * hash: 2abbccdf2039e7c message: refactor!: doing major stuff
+ * hash: d3462925f226d08 message: Revert &quot;[Gradle Release Plugin] - pre tag commit:  &#x27;1.94&#x27;.&quot;
+
+This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
+ * hash: 724a04a18602ce9 message: fix(utils:mix): the description (fixes ABC-123)
+ * hash: 5fb068c6ccad741 message: feat(utils): more utils
+ * hash: 4c6e07857c48c98 message: doing change 2
+ * hash: aa1fd339a07e6ea message: New version: 1.147.2 [GRADLE SCRIPT]
+ * hash: 38fc504697f8d04 message: fix: dont require semantic patterns to get highest tag
+ * hash: 7a839ad349aef46 message: Updating changelog with 1.147.1 [GRADLE SCRIPT]
+ * hash: e49a9f159266845 message: New version: 1.147.1 [GRADLE SCRIPT]
+ * hash: 601c009bff8d551 message: fix: dont use integrations when determining versions
+
+
+## breaking changes:
+  contains breaking changes
+    is breaking: ed18f49f74281ba 
+    is breaking: 78348fda6cd6d6f 
+    is breaking: 1ec1b3038858387 
+    is breaking: 2abbccdf2039e7c 
+
+
+## Footers
+Has footers: c18e11ebd1244b9 
+ - Refs  
+    with value: 133 
+
+ - Reviewed-by  
+    with value: Z 
+
+Has footers: ed18f49f74281ba 
+ - BREAKING CHANGE  
+    with value: `extends` key in config file is now used for extending other config files 
+
+Has footers: 78348fda6cd6d6f 
+ - BREAKING CHANGE  
+    with value: refactor to use JavaScript features not available in Node 6. 
+
+Has footers: 1ec1b3038858387 
+ - BREAKING CHANGE  
+    with value: refactor to use JavaScript features not available in Node 6. 
+
+
+
+## Paragraphs
+Has paragraphs: c18e11ebd1244b9 
+ - on typos fixed.
+ 
+ - see the issue for details
+ 
+
+
+ tag: name: Unreleased
+ 
+  commits contains fix
+
+ date:  
+ 
+ tag: name: 1.147.2
+  "name: 1.147.2" is a release tag
+ 
+  commits contains fix
+
+ date: 2021-05-24 
+ 
+ tag: name: 1.147.1
+  "name: 1.147.1" is a release tag
+ 
+  commits contains fix
+
+ date: 2021-05-23 
+ 
+
+
+ Commit: hash: c18e11ebd1244b9 message: fix: correct minor typos in code
+
+see the issue for details
+
+on typos fixed.
+
+Reviewed-by: Z
+Refs #133
+ date: 2021-05-26 
+
+ 
+  is type fix 
+ 
+
+ 
+
+
+ description: correct minor typos in code
+ 
+ 
+
+
+
+ Commit: hash: ed18f49f74281ba message: feat: allow provided config object to extend other configs
+
+BREAKING CHANGE: &#x60;extends&#x60; key in config file is now used for extending other config files
+ date: 2021-05-26 
+
+ 
+ 
+ 
+
+ 
+
+
+ description: allow provided config object to extend other configs
+ 
+ 
+
+
+
+ Commit: hash: 78348fda6cd6d6f message: refactor: using only br
+
+BREAKING CHANGE: refactor to use JavaScript features not available in Node 6.
+ date: 2021-05-26 
+
+ 
+ 
+ 
+
+ 
+
+
+ description: using only br
+ 
+ 
+
+
+
+ Commit: hash: 1ec1b3038858387 message: refactor!: using both ! and br
+
+BREAKING CHANGE: refactor to use JavaScript features not available in Node 6.
+ date: 2021-05-26 
+
+ 
+ 
+ 
+
+ 
+
+
+ description: using both ! and br
+ 
+ 
+
+
+
+ Commit: hash: 2abbccdf2039e7c message: refactor!: doing major stuff
+ date: 2021-05-26 
+
+ 
+ 
+ 
+
+ 
+
+
+ description: doing major stuff
+ 
+ 
+
+
+
+ Commit: hash: d3462925f226d08 message: Revert &quot;[Gradle Release Plugin] - pre tag commit:  &#x27;1.94&#x27;.&quot;
+
+This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
+ date: 2021-05-25 
+
+  is type revert 
+ 
+ 
+
+ 
+
+
+ description: 
+ 
+   this reverted commit: 1edc0d71eccce51abfb5f62fdddfbe73913785f5
+ 
+
+
+
+ Commit: hash: 724a04a18602ce9 message: fix(utils:mix): the description (fixes ABC-123)
+ date: 2021-05-25 
+
+ 
+  is type fix 
+ 
+
+  is scope utils 
+
+  scope: utils
+  scope: mix
+
+ description: the description
+ 
+ 
+
+  fix: ABC-123
+
+
+ Commit: hash: 5fb068c6ccad741 message: feat(utils): more utils
+ date: 2021-05-25 
+
+ 
+ 
+ 
+
+  is scope utils 
+
+  scope: utils
+
+ description: more utils
+ 
+ 
+
+
+
+ Commit: hash: 4c6e07857c48c98 message: doing change 2
+ date: 2021-05-25 
+
+ 
+ 
+  commit has no type 
+
+ 
+
+
+ description: 
+ 
+ 
+
+
+
+ Commit: hash: aa1fd339a07e6ea message: New version: 1.147.2 [GRADLE SCRIPT]
+ date: 2021-05-24 
+
+ 
+ 
+  commit has no type 
+
+ 
+
+
+ description: 
+ 
+ 
+
+
+
+ Commit: hash: 38fc504697f8d04 message: fix: dont require semantic patterns to get highest tag
+ date: 2021-05-24 
+
+ 
+  is type fix 
+ 
+
+ 
+
+
+ description: dont require semantic patterns to get highest tag
+ 
+ 
+
+
+
+ Commit: hash: 7a839ad349aef46 message: Updating changelog with 1.147.1 [GRADLE SCRIPT]
+ date: 2021-05-23 
+
+ 
+ 
+  commit has no type 
+
+ 
+
+
+ description: 
+ 
+ 
+
+
+
+ Commit: hash: e49a9f159266845 message: New version: 1.147.1 [GRADLE SCRIPT]
+ date: 2021-05-23 
+
+ 
+ 
+  commit has no type 
+
+ 
+
+
+ description: 
+ 
+ 
+
+
+
+ Commit: hash: 601c009bff8d551 message: fix: dont use integrations when determining versions
+ date: 2021-05-23 
+
+ 
+  is type fix 
+ 
+
+ 
+
+
+ description: dont use integrations when determining versions
+ 
+ 
+
+
+
+
 
 
 
@@ -75,6 +483,56 @@ context:
 
 {
   "commits": [
+    {
+      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+      "authorName": "Tomas Bjerre",
+      "commitTime": "2021-05-26 16:32:31",
+      "commitTimeLong": 1622046751000,
+      "hash": "c18e11ebd1244b9",
+      "hashFull": "c18e11ebd1244b9acb498fc715768efbecfebd49",
+      "merge": false,
+      "message": "fix: correct minor typos in code\n\nsee the issue for details\n\non typos fixed.\n\nReviewed-by: Z\nRefs #133"
+    },
+    {
+      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+      "authorName": "Tomas Bjerre",
+      "commitTime": "2021-05-26 16:32:11",
+      "commitTimeLong": 1622046731000,
+      "hash": "ed18f49f74281ba",
+      "hashFull": "ed18f49f74281ba49a850f0a57ed325161ac56d8",
+      "merge": false,
+      "message": "feat: allow provided config object to extend other configs\n\nBREAKING CHANGE: `extends` key in config file is now used for extending other config files"
+    },
+    {
+      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+      "authorName": "Tomas Bjerre",
+      "commitTime": "2021-05-26 16:30:54",
+      "commitTimeLong": 1622046654000,
+      "hash": "78348fda6cd6d6f",
+      "hashFull": "78348fda6cd6d6f1a3383eb39ab90aedf056c501",
+      "merge": false,
+      "message": "refactor: using only br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6."
+    },
+    {
+      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+      "authorName": "Tomas Bjerre",
+      "commitTime": "2021-05-26 16:30:13",
+      "commitTimeLong": 1622046613000,
+      "hash": "1ec1b3038858387",
+      "hashFull": "1ec1b3038858387630780f24da6c27da94779391",
+      "merge": false,
+      "message": "refactor!: using both ! and br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6."
+    },
+    {
+      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+      "authorName": "Tomas Bjerre",
+      "commitTime": "2021-05-26 16:29:50",
+      "commitTimeLong": 1622046590000,
+      "hash": "2abbccdf2039e7c",
+      "hashFull": "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f",
+      "merge": false,
+      "message": "refactor!: doing major stuff"
+    },
     {
       "authorEmailAddress": "tomas.bjerre85@gmail.com",
       "authorName": "Tomas Bjerre",
@@ -174,6 +632,56 @@ context:
             {
               "authorEmailAddress": "tomas.bjerre85@gmail.com",
               "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-26 16:32:31",
+              "commitTimeLong": 1622046751000,
+              "hash": "c18e11ebd1244b9",
+              "hashFull": "c18e11ebd1244b9acb498fc715768efbecfebd49",
+              "merge": false,
+              "message": "fix: correct minor typos in code\n\nsee the issue for details\n\non typos fixed.\n\nReviewed-by: Z\nRefs #133"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-26 16:32:11",
+              "commitTimeLong": 1622046731000,
+              "hash": "ed18f49f74281ba",
+              "hashFull": "ed18f49f74281ba49a850f0a57ed325161ac56d8",
+              "merge": false,
+              "message": "feat: allow provided config object to extend other configs\n\nBREAKING CHANGE: `extends` key in config file is now used for extending other config files"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-26 16:30:54",
+              "commitTimeLong": 1622046654000,
+              "hash": "78348fda6cd6d6f",
+              "hashFull": "78348fda6cd6d6f1a3383eb39ab90aedf056c501",
+              "merge": false,
+              "message": "refactor: using only br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6."
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-26 16:30:13",
+              "commitTimeLong": 1622046613000,
+              "hash": "1ec1b3038858387",
+              "hashFull": "1ec1b3038858387630780f24da6c27da94779391",
+              "merge": false,
+              "message": "refactor!: using both ! and br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6."
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-26 16:29:50",
+              "commitTimeLong": 1622046590000,
+              "hash": "2abbccdf2039e7c",
+              "hashFull": "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f",
+              "merge": false,
+              "message": "refactor!: doing major stuff"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
               "commitTime": "2021-05-25 15:41:19",
               "commitTimeLong": 1621957279000,
               "hash": "d3462925f226d08",
@@ -220,6 +728,56 @@ context:
         {
           "authorEmailAddress": "tomas.bjerre85@gmail.com",
           "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-26 16:32:31",
+          "commitTimeLong": 1622046751000,
+          "hash": "c18e11ebd1244b9",
+          "hashFull": "c18e11ebd1244b9acb498fc715768efbecfebd49",
+          "merge": false,
+          "message": "fix: correct minor typos in code\n\nsee the issue for details\n\non typos fixed.\n\nReviewed-by: Z\nRefs #133"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-26 16:32:11",
+          "commitTimeLong": 1622046731000,
+          "hash": "ed18f49f74281ba",
+          "hashFull": "ed18f49f74281ba49a850f0a57ed325161ac56d8",
+          "merge": false,
+          "message": "feat: allow provided config object to extend other configs\n\nBREAKING CHANGE: `extends` key in config file is now used for extending other config files"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-26 16:30:54",
+          "commitTimeLong": 1622046654000,
+          "hash": "78348fda6cd6d6f",
+          "hashFull": "78348fda6cd6d6f1a3383eb39ab90aedf056c501",
+          "merge": false,
+          "message": "refactor: using only br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6."
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-26 16:30:13",
+          "commitTimeLong": 1622046613000,
+          "hash": "1ec1b3038858387",
+          "hashFull": "1ec1b3038858387630780f24da6c27da94779391",
+          "merge": false,
+          "message": "refactor!: using both ! and br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6."
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-26 16:29:50",
+          "commitTimeLong": 1622046590000,
+          "hash": "2abbccdf2039e7c",
+          "hashFull": "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f",
+          "merge": false,
+          "message": "refactor!: doing major stuff"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
           "commitTime": "2021-05-25 15:41:19",
           "commitTimeLong": 1621957279000,
           "hash": "d3462925f226d08",
@@ -259,6 +817,54 @@ context:
         }
       ],
       "issues": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-26 16:32:31",
+              "commitTimeLong": 1622046751000,
+              "hash": "c18e11ebd1244b9",
+              "hashFull": "c18e11ebd1244b9acb498fc715768efbecfebd49",
+              "merge": false,
+              "message": "fix: correct minor typos in code\n\nsee the issue for details\n\non typos fixed.\n\nReviewed-by: Z\nRefs #133"
+            }
+          ],
+          "authors": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-26 16:32:31",
+                  "commitTimeLong": 1622046751000,
+                  "hash": "c18e11ebd1244b9",
+                  "hashFull": "c18e11ebd1244b9acb498fc715768efbecfebd49",
+                  "merge": false,
+                  "message": "fix: correct minor typos in code\n\nsee the issue for details\n\non typos fixed.\n\nReviewed-by: Z\nRefs #133"
+                }
+              ],
+              "authorName": "Tomas Bjerre",
+              "authorEmail": "tomas.bjerre85@gmail.com"
+            }
+          ],
+          "name": "GitHub",
+          "title": "",
+          "hasTitle": false,
+          "issue": "#133",
+          "hasIssue": true,
+          "link": "",
+          "hasLink": false,
+          "type": "",
+          "hasType": false,
+          "hasDescription": false,
+          "description": "",
+          "labels": [],
+          "hasLabels": false,
+          "hasLinkedIssues": false,
+          "issueType": "GITHUB",
+          "linkedIssues": []
+        },
         {
           "commits": [
             {
@@ -310,6 +916,46 @@ context:
             {
               "authorEmailAddress": "tomas.bjerre85@gmail.com",
               "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-26 16:32:11",
+              "commitTimeLong": 1622046731000,
+              "hash": "ed18f49f74281ba",
+              "hashFull": "ed18f49f74281ba49a850f0a57ed325161ac56d8",
+              "merge": false,
+              "message": "feat: allow provided config object to extend other configs\n\nBREAKING CHANGE: `extends` key in config file is now used for extending other config files"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-26 16:30:54",
+              "commitTimeLong": 1622046654000,
+              "hash": "78348fda6cd6d6f",
+              "hashFull": "78348fda6cd6d6f1a3383eb39ab90aedf056c501",
+              "merge": false,
+              "message": "refactor: using only br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6."
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-26 16:30:13",
+              "commitTimeLong": 1622046613000,
+              "hash": "1ec1b3038858387",
+              "hashFull": "1ec1b3038858387630780f24da6c27da94779391",
+              "merge": false,
+              "message": "refactor!: using both ! and br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6."
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-26 16:29:50",
+              "commitTimeLong": 1622046590000,
+              "hash": "2abbccdf2039e7c",
+              "hashFull": "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f",
+              "merge": false,
+              "message": "refactor!: doing major stuff"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
               "commitTime": "2021-05-25 15:41:19",
               "commitTimeLong": 1621957279000,
               "hash": "d3462925f226d08",
@@ -341,6 +987,46 @@ context:
           "authors": [
             {
               "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-26 16:32:11",
+                  "commitTimeLong": 1622046731000,
+                  "hash": "ed18f49f74281ba",
+                  "hashFull": "ed18f49f74281ba49a850f0a57ed325161ac56d8",
+                  "merge": false,
+                  "message": "feat: allow provided config object to extend other configs\n\nBREAKING CHANGE: `extends` key in config file is now used for extending other config files"
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-26 16:30:54",
+                  "commitTimeLong": 1622046654000,
+                  "hash": "78348fda6cd6d6f",
+                  "hashFull": "78348fda6cd6d6f1a3383eb39ab90aedf056c501",
+                  "merge": false,
+                  "message": "refactor: using only br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6."
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-26 16:30:13",
+                  "commitTimeLong": 1622046613000,
+                  "hash": "1ec1b3038858387",
+                  "hashFull": "1ec1b3038858387630780f24da6c27da94779391",
+                  "merge": false,
+                  "message": "refactor!: using both ! and br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6."
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-26 16:29:50",
+                  "commitTimeLong": 1622046590000,
+                  "hash": "2abbccdf2039e7c",
+                  "hashFull": "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f",
+                  "merge": false,
+                  "message": "refactor!: doing major stuff"
+                },
                 {
                   "authorEmailAddress": "tomas.bjerre85@gmail.com",
                   "authorName": "Tomas Bjerre",
@@ -393,6 +1079,60 @@ context:
         }
       ],
       "issueTypes": [
+        {
+          "name": "GitHub",
+          "issues": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-26 16:32:31",
+                  "commitTimeLong": 1622046751000,
+                  "hash": "c18e11ebd1244b9",
+                  "hashFull": "c18e11ebd1244b9acb498fc715768efbecfebd49",
+                  "merge": false,
+                  "message": "fix: correct minor typos in code\n\nsee the issue for details\n\non typos fixed.\n\nReviewed-by: Z\nRefs #133"
+                }
+              ],
+              "authors": [
+                {
+                  "commits": [
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2021-05-26 16:32:31",
+                      "commitTimeLong": 1622046751000,
+                      "hash": "c18e11ebd1244b9",
+                      "hashFull": "c18e11ebd1244b9acb498fc715768efbecfebd49",
+                      "merge": false,
+                      "message": "fix: correct minor typos in code\n\nsee the issue for details\n\non typos fixed.\n\nReviewed-by: Z\nRefs #133"
+                    }
+                  ],
+                  "authorName": "Tomas Bjerre",
+                  "authorEmail": "tomas.bjerre85@gmail.com"
+                }
+              ],
+              "name": "GitHub",
+              "title": "",
+              "hasTitle": false,
+              "issue": "#133",
+              "hasIssue": true,
+              "link": "",
+              "hasLink": false,
+              "type": "",
+              "hasType": false,
+              "hasDescription": false,
+              "description": "",
+              "labels": [],
+              "hasLabels": false,
+              "hasLinkedIssues": false,
+              "issueType": "GITHUB",
+              "linkedIssues": []
+            }
+          ],
+          "type": "GITHUB"
+        },
         {
           "name": "Jira",
           "issues": [
@@ -453,6 +1193,46 @@ context:
                 {
                   "authorEmailAddress": "tomas.bjerre85@gmail.com",
                   "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-26 16:32:11",
+                  "commitTimeLong": 1622046731000,
+                  "hash": "ed18f49f74281ba",
+                  "hashFull": "ed18f49f74281ba49a850f0a57ed325161ac56d8",
+                  "merge": false,
+                  "message": "feat: allow provided config object to extend other configs\n\nBREAKING CHANGE: `extends` key in config file is now used for extending other config files"
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-26 16:30:54",
+                  "commitTimeLong": 1622046654000,
+                  "hash": "78348fda6cd6d6f",
+                  "hashFull": "78348fda6cd6d6f1a3383eb39ab90aedf056c501",
+                  "merge": false,
+                  "message": "refactor: using only br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6."
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-26 16:30:13",
+                  "commitTimeLong": 1622046613000,
+                  "hash": "1ec1b3038858387",
+                  "hashFull": "1ec1b3038858387630780f24da6c27da94779391",
+                  "merge": false,
+                  "message": "refactor!: using both ! and br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6."
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-26 16:29:50",
+                  "commitTimeLong": 1622046590000,
+                  "hash": "2abbccdf2039e7c",
+                  "hashFull": "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f",
+                  "merge": false,
+                  "message": "refactor!: doing major stuff"
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
                   "commitTime": "2021-05-25 15:41:19",
                   "commitTimeLong": 1621957279000,
                   "hash": "d3462925f226d08",
@@ -484,6 +1264,46 @@ context:
               "authors": [
                 {
                   "commits": [
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2021-05-26 16:32:11",
+                      "commitTimeLong": 1622046731000,
+                      "hash": "ed18f49f74281ba",
+                      "hashFull": "ed18f49f74281ba49a850f0a57ed325161ac56d8",
+                      "merge": false,
+                      "message": "feat: allow provided config object to extend other configs\n\nBREAKING CHANGE: `extends` key in config file is now used for extending other config files"
+                    },
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2021-05-26 16:30:54",
+                      "commitTimeLong": 1622046654000,
+                      "hash": "78348fda6cd6d6f",
+                      "hashFull": "78348fda6cd6d6f1a3383eb39ab90aedf056c501",
+                      "merge": false,
+                      "message": "refactor: using only br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6."
+                    },
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2021-05-26 16:30:13",
+                      "commitTimeLong": 1622046613000,
+                      "hash": "1ec1b3038858387",
+                      "hashFull": "1ec1b3038858387630780f24da6c27da94779391",
+                      "merge": false,
+                      "message": "refactor!: using both ! and br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6."
+                    },
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2021-05-26 16:29:50",
+                      "commitTimeLong": 1622046590000,
+                      "hash": "2abbccdf2039e7c",
+                      "hashFull": "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f",
+                      "merge": false,
+                      "message": "refactor!: doing major stuff"
+                    },
                     {
                       "authorEmailAddress": "tomas.bjerre85@gmail.com",
                       "authorName": "Tomas Bjerre",
@@ -1006,6 +1826,56 @@ context:
         {
           "authorEmailAddress": "tomas.bjerre85@gmail.com",
           "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-26 16:32:31",
+          "commitTimeLong": 1622046751000,
+          "hash": "c18e11ebd1244b9",
+          "hashFull": "c18e11ebd1244b9acb498fc715768efbecfebd49",
+          "merge": false,
+          "message": "fix: correct minor typos in code\n\nsee the issue for details\n\non typos fixed.\n\nReviewed-by: Z\nRefs #133"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-26 16:32:11",
+          "commitTimeLong": 1622046731000,
+          "hash": "ed18f49f74281ba",
+          "hashFull": "ed18f49f74281ba49a850f0a57ed325161ac56d8",
+          "merge": false,
+          "message": "feat: allow provided config object to extend other configs\n\nBREAKING CHANGE: `extends` key in config file is now used for extending other config files"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-26 16:30:54",
+          "commitTimeLong": 1622046654000,
+          "hash": "78348fda6cd6d6f",
+          "hashFull": "78348fda6cd6d6f1a3383eb39ab90aedf056c501",
+          "merge": false,
+          "message": "refactor: using only br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6."
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-26 16:30:13",
+          "commitTimeLong": 1622046613000,
+          "hash": "1ec1b3038858387",
+          "hashFull": "1ec1b3038858387630780f24da6c27da94779391",
+          "merge": false,
+          "message": "refactor!: using both ! and br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6."
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-26 16:29:50",
+          "commitTimeLong": 1622046590000,
+          "hash": "2abbccdf2039e7c",
+          "hashFull": "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f",
+          "merge": false,
+          "message": "refactor!: doing major stuff"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
           "commitTime": "2021-05-25 15:41:19",
           "commitTimeLong": 1621957279000,
           "hash": "d3462925f226d08",
@@ -1104,6 +1974,54 @@ context:
         {
           "authorEmailAddress": "tomas.bjerre85@gmail.com",
           "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-26 16:32:31",
+          "commitTimeLong": 1622046751000,
+          "hash": "c18e11ebd1244b9",
+          "hashFull": "c18e11ebd1244b9acb498fc715768efbecfebd49",
+          "merge": false,
+          "message": "fix: correct minor typos in code\n\nsee the issue for details\n\non typos fixed.\n\nReviewed-by: Z\nRefs #133"
+        }
+      ],
+      "authors": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-26 16:32:31",
+              "commitTimeLong": 1622046751000,
+              "hash": "c18e11ebd1244b9",
+              "hashFull": "c18e11ebd1244b9acb498fc715768efbecfebd49",
+              "merge": false,
+              "message": "fix: correct minor typos in code\n\nsee the issue for details\n\non typos fixed.\n\nReviewed-by: Z\nRefs #133"
+            }
+          ],
+          "authorName": "Tomas Bjerre",
+          "authorEmail": "tomas.bjerre85@gmail.com"
+        }
+      ],
+      "name": "GitHub",
+      "title": "",
+      "hasTitle": false,
+      "issue": "#133",
+      "hasIssue": true,
+      "link": "",
+      "hasLink": false,
+      "type": "",
+      "hasType": false,
+      "hasDescription": false,
+      "description": "",
+      "labels": [],
+      "hasLabels": false,
+      "hasLinkedIssues": false,
+      "issueType": "GITHUB",
+      "linkedIssues": []
+    },
+    {
+      "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
           "commitTime": "2021-05-25 15:21:27",
           "commitTimeLong": 1621956087000,
           "hash": "724a04a18602ce9",
@@ -1147,6 +2065,46 @@ context:
     },
     {
       "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-26 16:32:11",
+          "commitTimeLong": 1622046731000,
+          "hash": "ed18f49f74281ba",
+          "hashFull": "ed18f49f74281ba49a850f0a57ed325161ac56d8",
+          "merge": false,
+          "message": "feat: allow provided config object to extend other configs\n\nBREAKING CHANGE: `extends` key in config file is now used for extending other config files"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-26 16:30:54",
+          "commitTimeLong": 1622046654000,
+          "hash": "78348fda6cd6d6f",
+          "hashFull": "78348fda6cd6d6f1a3383eb39ab90aedf056c501",
+          "merge": false,
+          "message": "refactor: using only br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6."
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-26 16:30:13",
+          "commitTimeLong": 1622046613000,
+          "hash": "1ec1b3038858387",
+          "hashFull": "1ec1b3038858387630780f24da6c27da94779391",
+          "merge": false,
+          "message": "refactor!: using both ! and br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6."
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-26 16:29:50",
+          "commitTimeLong": 1622046590000,
+          "hash": "2abbccdf2039e7c",
+          "hashFull": "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f",
+          "merge": false,
+          "message": "refactor!: doing major stuff"
+        },
         {
           "authorEmailAddress": "tomas.bjerre85@gmail.com",
           "authorName": "Tomas Bjerre",
@@ -1231,6 +2189,46 @@ context:
       "authors": [
         {
           "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-26 16:32:11",
+              "commitTimeLong": 1622046731000,
+              "hash": "ed18f49f74281ba",
+              "hashFull": "ed18f49f74281ba49a850f0a57ed325161ac56d8",
+              "merge": false,
+              "message": "feat: allow provided config object to extend other configs\n\nBREAKING CHANGE: `extends` key in config file is now used for extending other config files"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-26 16:30:54",
+              "commitTimeLong": 1622046654000,
+              "hash": "78348fda6cd6d6f",
+              "hashFull": "78348fda6cd6d6f1a3383eb39ab90aedf056c501",
+              "merge": false,
+              "message": "refactor: using only br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6."
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-26 16:30:13",
+              "commitTimeLong": 1622046613000,
+              "hash": "1ec1b3038858387",
+              "hashFull": "1ec1b3038858387630780f24da6c27da94779391",
+              "merge": false,
+              "message": "refactor!: using both ! and br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6."
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-26 16:29:50",
+              "commitTimeLong": 1622046590000,
+              "hash": "2abbccdf2039e7c",
+              "hashFull": "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f",
+              "merge": false,
+              "message": "refactor!: doing major stuff"
+            },
             {
               "authorEmailAddress": "tomas.bjerre85@gmail.com",
               "authorName": "Tomas Bjerre",
@@ -1334,6 +2332,60 @@ context:
   ],
   "issueTypes": [
     {
+      "name": "GitHub",
+      "issues": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-26 16:32:31",
+              "commitTimeLong": 1622046751000,
+              "hash": "c18e11ebd1244b9",
+              "hashFull": "c18e11ebd1244b9acb498fc715768efbecfebd49",
+              "merge": false,
+              "message": "fix: correct minor typos in code\n\nsee the issue for details\n\non typos fixed.\n\nReviewed-by: Z\nRefs #133"
+            }
+          ],
+          "authors": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-26 16:32:31",
+                  "commitTimeLong": 1622046751000,
+                  "hash": "c18e11ebd1244b9",
+                  "hashFull": "c18e11ebd1244b9acb498fc715768efbecfebd49",
+                  "merge": false,
+                  "message": "fix: correct minor typos in code\n\nsee the issue for details\n\non typos fixed.\n\nReviewed-by: Z\nRefs #133"
+                }
+              ],
+              "authorName": "Tomas Bjerre",
+              "authorEmail": "tomas.bjerre85@gmail.com"
+            }
+          ],
+          "name": "GitHub",
+          "title": "",
+          "hasTitle": false,
+          "issue": "#133",
+          "hasIssue": true,
+          "link": "",
+          "hasLink": false,
+          "type": "",
+          "hasType": false,
+          "hasDescription": false,
+          "description": "",
+          "labels": [],
+          "hasLabels": false,
+          "hasLinkedIssues": false,
+          "issueType": "GITHUB",
+          "linkedIssues": []
+        }
+      ],
+      "type": "GITHUB"
+    },
+    {
       "name": "Jira",
       "issues": [
         {
@@ -1390,6 +2442,46 @@ context:
       "issues": [
         {
           "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-26 16:32:11",
+              "commitTimeLong": 1622046731000,
+              "hash": "ed18f49f74281ba",
+              "hashFull": "ed18f49f74281ba49a850f0a57ed325161ac56d8",
+              "merge": false,
+              "message": "feat: allow provided config object to extend other configs\n\nBREAKING CHANGE: `extends` key in config file is now used for extending other config files"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-26 16:30:54",
+              "commitTimeLong": 1622046654000,
+              "hash": "78348fda6cd6d6f",
+              "hashFull": "78348fda6cd6d6f1a3383eb39ab90aedf056c501",
+              "merge": false,
+              "message": "refactor: using only br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6."
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-26 16:30:13",
+              "commitTimeLong": 1622046613000,
+              "hash": "1ec1b3038858387",
+              "hashFull": "1ec1b3038858387630780f24da6c27da94779391",
+              "merge": false,
+              "message": "refactor!: using both ! and br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6."
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-26 16:29:50",
+              "commitTimeLong": 1622046590000,
+              "hash": "2abbccdf2039e7c",
+              "hashFull": "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f",
+              "merge": false,
+              "message": "refactor!: doing major stuff"
+            },
             {
               "authorEmailAddress": "tomas.bjerre85@gmail.com",
               "authorName": "Tomas Bjerre",
@@ -1474,6 +2566,46 @@ context:
           "authors": [
             {
               "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-26 16:32:11",
+                  "commitTimeLong": 1622046731000,
+                  "hash": "ed18f49f74281ba",
+                  "hashFull": "ed18f49f74281ba49a850f0a57ed325161ac56d8",
+                  "merge": false,
+                  "message": "feat: allow provided config object to extend other configs\n\nBREAKING CHANGE: `extends` key in config file is now used for extending other config files"
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-26 16:30:54",
+                  "commitTimeLong": 1622046654000,
+                  "hash": "78348fda6cd6d6f",
+                  "hashFull": "78348fda6cd6d6f1a3383eb39ab90aedf056c501",
+                  "merge": false,
+                  "message": "refactor: using only br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6."
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-26 16:30:13",
+                  "commitTimeLong": 1622046613000,
+                  "hash": "1ec1b3038858387",
+                  "hashFull": "1ec1b3038858387630780f24da6c27da94779391",
+                  "merge": false,
+                  "message": "refactor!: using both ! and br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6."
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-26 16:29:50",
+                  "commitTimeLong": 1622046590000,
+                  "hash": "2abbccdf2039e7c",
+                  "hashFull": "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f",
+                  "merge": false,
+                  "message": "refactor!: doing major stuff"
+                },
                 {
                   "authorEmailAddress": "tomas.bjerre85@gmail.com",
                   "authorName": "Tomas Bjerre",

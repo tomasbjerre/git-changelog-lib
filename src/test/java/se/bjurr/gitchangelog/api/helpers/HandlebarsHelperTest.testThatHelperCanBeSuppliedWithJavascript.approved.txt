@@ -20,7 +20,7 @@ settings:
   "fromRepo": ".",
   "fromCommit": "1edc0d7",
   "toCommit": "e78a62f",
-  "templatePath": "templatetest/testThatHelperCanBeSuppliedWithJavascript.mustache",
+  "templatePath": "templatetest/helpers/testThatHelperCanBeSuppliedWithJavascript.mustache",
   "removeIssueFromMessage": false,
   "gitHubApi": "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
   "extendedVariables": {},

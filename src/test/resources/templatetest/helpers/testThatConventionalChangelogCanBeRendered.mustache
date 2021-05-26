@@ -4,6 +4,16 @@
 {{#ifReleaseTag .}}
 ## [{{name}}](https://gitlab.com/html-validate/html-validate/compare/{{name}}) ({{tagDate .}})
 
+	{{#ifContainsBreaking commits}}
+### Breaking changes
+
+		{{#commits}}
+			{{#ifCommitBreaking . }}
+ - {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{hash}}](https://gitlab.com/html-validate/html-validate/commit/{{hashFull}}))
+			{{/ifCommitBreaking}}
+		{{/commits}}
+	{{/ifContainsBreaking}}
+
 	{{#ifContainsType commits type='feat'}}
 ### Features
 

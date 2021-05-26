@@ -15,6 +15,44 @@ Commits:
 {{/commits}}
 
 
+## breaking changes:
+ {{#ifContainsBreaking commits}}
+  contains breaking changes
+  {{#commits}}
+   {{#ifCommitBreaking .}}
+    is breaking: {{hash}} 
+   {{/ifCommitBreaking}}
+  {{/commits}}
+ {{/ifContainsBreaking}}
+
+
+## Footers
+{{#commits}}
+{{#ifCommitHasFooters}}
+Has footers: {{hash}} 
+{{/ifCommitHasFooters}}
+{{#eachCommitFooter .}}
+ - {{token}}  
+   {{#ifFooterHasValue .}}
+    with value: {{{value}}} 
+   {{/ifFooterHasValue}}
+
+{{/eachCommitFooter}}
+{{/commits}}
+
+
+## Paragraphs
+{{#commits}}
+{{#ifCommitHasParagraphs}}
+Has paragraphs: {{hash}} 
+{{/ifCommitHasParagraphs}}
+{{#eachCommitParagraph .}}
+ - {{.}}
+ 
+{{/eachCommitParagraph}}
+{{/commits}}
+
+
 {{#tags}}
  tag: {{.}}
  {{#ifReleaseTag .}}

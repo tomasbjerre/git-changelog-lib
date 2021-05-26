@@ -70,7 +70,17 @@ Changelog for {{ownerName}} {{repoName}}.
 
 ### Template - Conventional
 
-If you are using [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) you can use built in [helpers](/src/main/java/se/bjurr/gitchangelog/api/helpers) to produce a nice changelog. You can add your own helpers (using Javascript or Java) as described [here](https://github.com/jknack/handlebars.java).
+If you are using [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/):
+
+```shell
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+You can use built in [helpers](#helpers) to produce a nice changelog. You can add your own helpers (using Javascript or Java) as described [here](https://github.com/jknack/handlebars.java).
 
 ```hbs
 {{#tags}}
@@ -137,6 +147,16 @@ Conditional, renders a block if given `List<Commits>` contains given `type`.
 {{/ifContainsType}}
 ```
 
+### `ifContainsBreaking <List<Commit>>`
+
+Conditional, renders a block if given `List<Commits>` contains `breaking` changes.
+
+```hbs
+{{#ifContainsBreaking commits}}
+  commits contains fixes
+{{/ifContainsBreaking}}
+```
+
 ### `commitDate <Commit>`
 
 Renders date of `Commit` on format `YYYY-MM-DD`.
@@ -177,6 +197,16 @@ Conditional, renders a block if given `Commit` is of `type`.
 {{/commits}}
 ```
 
+### `ifCommitBreaking <Commit>`
+
+Conditional, renders a block if given `Commit` is `breaking`.
+
+```hbs
+{{#commits}}
+ {{#ifCommitBreaking .}} is breaking {{/ifCommitBreaking}}
+{{/commits}}
+```
+
 ### `ifCommitScope <Commit> scope="utils"`
 
 Conditional, renders a block if given `Commit` has `scope`.
@@ -184,6 +214,26 @@ Conditional, renders a block if given `Commit` has `scope`.
 ```hbs
 {{#commits}}
  {{#ifCommitScope . scope="utils"}} is scope utils {{/ifCommitScope}}
+{{/commits}}
+```
+
+### `ifCommitHasFooters <Commit>`
+
+Conditional, renders a block if given `Commit` has `footers`.
+
+```hbs
+{{#commits}}
+ {{#ifCommitHasFooters .}} has footers {{/ifCommitHasFooters}}
+{{/commits}}
+```
+
+### `ifCommitHasParagraphs <Commit>`
+
+Conditional, renders a block if given `Commit` has `paragraphs`.
+
+```hbs
+{{#commits}}
+ {{#ifCommitHasParagraphs .}} has paragraphs {{/ifCommitHasParagraphs}}
 {{/commits}}
 ```
 
@@ -220,6 +270,44 @@ Renders block for each `fixes` in `Commit`.
  {{#eachCommitFixes .}}
   fixes issue: {{.}}
  {{/eachCommitFixes}}
+{{/commits}}
+```
+
+### `eachCommitParagraph <Commit>`
+
+Renders block for each `paragraph` in `Commit`.
+
+```hbs
+{{#commits}}
+ {{#eachCommitParagraph .}}
+  {{.}}
+ {{/eachCommitParagraph}}
+{{/commits}}
+```
+
+### `eachCommitFooter <Commit>`
+
+Renders block for each `footer` in `Commit`.
+
+```hbs
+{{#commits}}
+ {{#eachCommitFooter .}}
+  {{token}}
+ {{/eachCommitFooter}}
+{{/commits}}
+```
+
+### `ifFooterHasValue <Footer>`
+
+Conditional, renders a block if given `Footer` has `value`.
+
+```hbs
+{{#commits}}
+ {{#eachCommitFooter .}}
+   {{#ifFooterHasValue .}}
+    {{{value}}}
+   {{/ifFooterHasValue}}
+ {{/eachCommitFooter}}
 {{/commits}}
 ```
 
