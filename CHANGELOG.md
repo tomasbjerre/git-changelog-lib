@@ -3,6 +3,15 @@
 
 Changelog of git-changelog-lib.
 
+## 1.149.0
+### No issue
+
+**feat: more conventional helpers**
+
+
+[3f17b1ecb3bfb6a](https://github.com/tomasbjerre/git-changelog-lib/commit/3f17b1ecb3bfb6a) Tomas Bjerre *2021-05-26 19:45:46*
+
+
 ## 1.148.1
 ### No issue
 
