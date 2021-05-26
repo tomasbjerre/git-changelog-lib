@@ -1,5 +1,9 @@
 package se.bjurr.gitchangelog.api.helpers;
 
+import com.github.jknack.handlebars.Helper;
+import com.github.jknack.handlebars.Options;
+import com.github.jknack.handlebars.Options.Buffer;
+import com.github.jknack.handlebars.helper.EachHelper;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,15 +14,9 @@ import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-
 import se.bjurr.gitchangelog.api.model.Commit;
 import se.bjurr.gitchangelog.api.model.Tag;
 import se.bjurr.gitchangelog.internal.model.Transformer;
-
-import com.github.jknack.handlebars.Helper;
-import com.github.jknack.handlebars.Options;
-import com.github.jknack.handlebars.Options.Buffer;
-import com.github.jknack.handlebars.helper.EachHelper;
 
 public class Helpers {
   private static final Pattern CONVENTIONAL_PATTERN =
