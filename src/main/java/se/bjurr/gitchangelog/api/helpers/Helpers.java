@@ -7,7 +7,6 @@ import com.github.jknack.handlebars.helper.EachHelper;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -284,27 +283,44 @@ public class Helpers {
   private static MessageParts getMessageParts(final String commitMessage) {
     final MessageParts mp = new MessageParts();
     final List<String> lines = Arrays.asList(commitMessage.trim().split("\\r?\\n"));
-    Collections.reverse(lines);
-    boolean footers = true;
-    for (int i = 0; i < lines.size(); i++) {
+    boolean paragraphs = true;
+    Footer currentFooter = null;
+    String currentParagraph = null;
+    for (int i = 1; i < lines.size(); i++) {
       final String line = lines.get(i);
-      final boolean isHeader = i == lines.size() - 1;
-      if (isHeader) {
-        break;
+
+      final boolean empty = line.trim().isEmpty();
+
+      final Footer footerCandidate = toFooter(line);
+      final boolean isFooter = footerCandidate != null;
+      if (isFooter && currentFooter == null) {
+        paragraphs = false;
+        currentFooter = footerCandidate;
+      } else if (currentFooter != null) {
+        currentFooter.value += "\n" + line;
       }
-      if (footers) {
-        final Footer footer = toFooter(line);
-        if (footer == null) {
-          footers = false;
+
+      if (paragraphs && !empty && paragraphs) {
+        if (currentParagraph == null) {
+          currentParagraph = line;
         } else {
-          mp.footers.add(footer);
+          currentParagraph += "\n" + line;
         }
-      } else {
-        // Paragraphs
-        if (line.trim().isEmpty()) {
-          continue;
+      }
+
+      final boolean isLastLine = i == lines.size() - 1;
+      final boolean isNextLineEmpty = !isLastLine && lines.get(i + 1).trim().isEmpty();
+      final boolean isNextLineNewFooter = !isLastLine && toFooter(lines.get(i + 1)) != null;
+      final boolean shouldSaveState = isLastLine || isNextLineEmpty || isNextLineNewFooter;
+      if (shouldSaveState) {
+        if (currentFooter != null) {
+          mp.footers.add(currentFooter);
+          currentFooter = null;
         }
-        mp.paragraphs.add(line.trim());
+        if (currentParagraph != null) {
+          mp.paragraphs.add(currentParagraph);
+          currentParagraph = null;
+        }
       }
     }
     return mp;

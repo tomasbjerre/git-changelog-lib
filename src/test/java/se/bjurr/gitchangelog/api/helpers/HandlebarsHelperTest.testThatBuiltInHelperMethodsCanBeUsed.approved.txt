@@ -34,10 +34,14 @@ Commits:
 Has footers: {{hash}} 
 {{/ifCommitHasFooters}}
 {{#eachCommitFooter .}}
- - {{token}}  
-   {{#ifFooterHasValue .}}
-    with value: {{{value}}} 
-   {{/ifFooterHasValue}}
+ - "{{token}}"
+```
+{{#ifFooterHasValue .}}
+----footer-value-begins----
+{{{value}}} 
+----footer-value-ends---
+{{/ifFooterHasValue}}
+```
 
 {{/eachCommitFooter}}
 {{/commits}}
@@ -48,9 +52,14 @@ Has footers: {{hash}}
 {{#ifCommitHasParagraphs}}
 Has paragraphs: {{hash}} 
 {{/ifCommitHasParagraphs}}
+```
 {{#eachCommitParagraph .}}
- - {{.}}
- 
+----paragraph-begins----
+{{{.}}}
+----paragraph-ends---
+```
+
+
 {{/eachCommitParagraph}}
 {{/commits}}
 
@@ -111,7 +120,7 @@ settings:
 {
   "fromRepo": ".",
   "fromCommit": "ed95e6a",
-  "toCommit": "c18e11e",
+  "toCommit": "65cfb90",
   "templatePath": "templatetest/helpers/testThatBuiltInHelperMethodsCanBeUsed.mustache",
   "removeIssueFromMessage": false,
   "gitHubApi": "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
@@ -138,6 +147,19 @@ Tags:
 
 Commits:
 
+ * hash: 65cfb90e2922ae5 message: feat: dsc
+
+paragraph first line of two here!
+second line of first paragraph
+
+second paragraph the only line
+
+third paragraph first line of two
+and second line of third paragraph.
+
+first-token-here: value of first token
+second line of first token
+second-token-here: value of second token
  * hash: c18e11ebd1244b9 message: fix: correct minor typos in code
 
 see the issue for details
@@ -178,33 +200,120 @@ This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
 
 
 ## Footers
-Has footers: c18e11ebd1244b9 
- - Refs  
-    with value: 133 
+Has footers: 65cfb90e2922ae5 
+ - "first-token-here"
+```
+----footer-value-begins----
+value of first token
+second line of first token 
+----footer-value-ends---
+```
 
- - Reviewed-by  
-    with value: Z 
+ - "second-token-here"
+```
+----footer-value-begins----
+value of second token 
+----footer-value-ends---
+```
+
+Has footers: c18e11ebd1244b9 
+ - "Reviewed-by"
+```
+----footer-value-begins----
+Z 
+----footer-value-ends---
+```
+
+ - "Refs"
+```
+----footer-value-begins----
+133 
+----footer-value-ends---
+```
 
 Has footers: ed18f49f74281ba 
- - BREAKING CHANGE  
-    with value: `extends` key in config file is now used for extending other config files 
+ - "BREAKING CHANGE"
+```
+----footer-value-begins----
+`extends` key in config file is now used for extending other config files 
+----footer-value-ends---
+```
 
 Has footers: 78348fda6cd6d6f 
- - BREAKING CHANGE  
-    with value: refactor to use JavaScript features not available in Node 6. 
+ - "BREAKING CHANGE"
+```
+----footer-value-begins----
+refactor to use JavaScript features not available in Node 6. 
+----footer-value-ends---
+```
 
 Has footers: 1ec1b3038858387 
- - BREAKING CHANGE  
-    with value: refactor to use JavaScript features not available in Node 6. 
+ - "BREAKING CHANGE"
+```
+----footer-value-begins----
+refactor to use JavaScript features not available in Node 6. 
+----footer-value-ends---
+```
 
 
 
 ## Paragraphs
+Has paragraphs: 65cfb90e2922ae5 
+```
+----paragraph-begins----
+paragraph first line of two here!
+second line of first paragraph
+----paragraph-ends---
+```
+
+
+----paragraph-begins----
+second paragraph the only line
+----paragraph-ends---
+```
+
+
+----paragraph-begins----
+third paragraph first line of two
+and second line of third paragraph.
+----paragraph-ends---
+```
+
+
 Has paragraphs: c18e11ebd1244b9 
- - on typos fixed.
- 
- - see the issue for details
- 
+```
+----paragraph-begins----
+see the issue for details
+----paragraph-ends---
+```
+
+
+----paragraph-begins----
+on typos fixed.
+----paragraph-ends---
+```
+
+
+```
+```
+```
+```
+Has paragraphs: d3462925f226d08 
+```
+----paragraph-begins----
+This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
+----paragraph-ends---
+```
+
+
+```
+```
+```
+```
+```
+```
+```
+```
 
 
  tag: name: Unreleased
@@ -227,6 +336,34 @@ Has paragraphs: c18e11ebd1244b9
 
  date: 2021-05-23 
  
+
+
+ Commit: hash: 65cfb90e2922ae5 message: feat: dsc
+
+paragraph first line of two here!
+second line of first paragraph
+
+second paragraph the only line
+
+third paragraph first line of two
+and second line of third paragraph.
+
+first-token-here: value of first token
+second line of first token
+second-token-here: value of second token
+ date: 2021-05-27 
+
+ 
+ 
+ 
+
+ 
+
+
+ description: dsc
+ 
+ 
+
 
 
  Commit: hash: c18e11ebd1244b9 message: fix: correct minor typos in code
@@ -486,6 +623,16 @@ context:
     {
       "authorEmailAddress": "tomas.bjerre85@gmail.com",
       "authorName": "Tomas Bjerre",
+      "commitTime": "2021-05-27 13:36:49",
+      "commitTimeLong": 1622122609000,
+      "hash": "65cfb90e2922ae5",
+      "hashFull": "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51",
+      "merge": false,
+      "message": "feat: dsc\n\nparagraph first line of two here!\nsecond line of first paragraph\n\nsecond paragraph the only line\n\nthird paragraph first line of two\nand second line of third paragraph.\n\nfirst-token-here: value of first token\nsecond line of first token\nsecond-token-here: value of second token"
+    },
+    {
+      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+      "authorName": "Tomas Bjerre",
       "commitTime": "2021-05-26 16:32:31",
       "commitTimeLong": 1622046751000,
       "hash": "c18e11ebd1244b9",
@@ -632,6 +779,16 @@ context:
             {
               "authorEmailAddress": "tomas.bjerre85@gmail.com",
               "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-27 13:36:49",
+              "commitTimeLong": 1622122609000,
+              "hash": "65cfb90e2922ae5",
+              "hashFull": "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51",
+              "merge": false,
+              "message": "feat: dsc\n\nparagraph first line of two here!\nsecond line of first paragraph\n\nsecond paragraph the only line\n\nthird paragraph first line of two\nand second line of third paragraph.\n\nfirst-token-here: value of first token\nsecond line of first token\nsecond-token-here: value of second token"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
               "commitTime": "2021-05-26 16:32:31",
               "commitTimeLong": 1622046751000,
               "hash": "c18e11ebd1244b9",
@@ -725,6 +882,16 @@ context:
         }
       ],
       "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-27 13:36:49",
+          "commitTimeLong": 1622122609000,
+          "hash": "65cfb90e2922ae5",
+          "hashFull": "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51",
+          "merge": false,
+          "message": "feat: dsc\n\nparagraph first line of two here!\nsecond line of first paragraph\n\nsecond paragraph the only line\n\nthird paragraph first line of two\nand second line of third paragraph.\n\nfirst-token-here: value of first token\nsecond line of first token\nsecond-token-here: value of second token"
+        },
         {
           "authorEmailAddress": "tomas.bjerre85@gmail.com",
           "authorName": "Tomas Bjerre",
@@ -916,6 +1083,16 @@ context:
             {
               "authorEmailAddress": "tomas.bjerre85@gmail.com",
               "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-27 13:36:49",
+              "commitTimeLong": 1622122609000,
+              "hash": "65cfb90e2922ae5",
+              "hashFull": "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51",
+              "merge": false,
+              "message": "feat: dsc\n\nparagraph first line of two here!\nsecond line of first paragraph\n\nsecond paragraph the only line\n\nthird paragraph first line of two\nand second line of third paragraph.\n\nfirst-token-here: value of first token\nsecond line of first token\nsecond-token-here: value of second token"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
               "commitTime": "2021-05-26 16:32:11",
               "commitTimeLong": 1622046731000,
               "hash": "ed18f49f74281ba",
@@ -987,6 +1164,16 @@ context:
           "authors": [
             {
               "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-27 13:36:49",
+                  "commitTimeLong": 1622122609000,
+                  "hash": "65cfb90e2922ae5",
+                  "hashFull": "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51",
+                  "merge": false,
+                  "message": "feat: dsc\n\nparagraph first line of two here!\nsecond line of first paragraph\n\nsecond paragraph the only line\n\nthird paragraph first line of two\nand second line of third paragraph.\n\nfirst-token-here: value of first token\nsecond line of first token\nsecond-token-here: value of second token"
+                },
                 {
                   "authorEmailAddress": "tomas.bjerre85@gmail.com",
                   "authorName": "Tomas Bjerre",
@@ -1193,6 +1380,16 @@ context:
                 {
                   "authorEmailAddress": "tomas.bjerre85@gmail.com",
                   "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-27 13:36:49",
+                  "commitTimeLong": 1622122609000,
+                  "hash": "65cfb90e2922ae5",
+                  "hashFull": "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51",
+                  "merge": false,
+                  "message": "feat: dsc\n\nparagraph first line of two here!\nsecond line of first paragraph\n\nsecond paragraph the only line\n\nthird paragraph first line of two\nand second line of third paragraph.\n\nfirst-token-here: value of first token\nsecond line of first token\nsecond-token-here: value of second token"
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
                   "commitTime": "2021-05-26 16:32:11",
                   "commitTimeLong": 1622046731000,
                   "hash": "ed18f49f74281ba",
@@ -1264,6 +1461,16 @@ context:
               "authors": [
                 {
                   "commits": [
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2021-05-27 13:36:49",
+                      "commitTimeLong": 1622122609000,
+                      "hash": "65cfb90e2922ae5",
+                      "hashFull": "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51",
+                      "merge": false,
+                      "message": "feat: dsc\n\nparagraph first line of two here!\nsecond line of first paragraph\n\nsecond paragraph the only line\n\nthird paragraph first line of two\nand second line of third paragraph.\n\nfirst-token-here: value of first token\nsecond line of first token\nsecond-token-here: value of second token"
+                    },
                     {
                       "authorEmailAddress": "tomas.bjerre85@gmail.com",
                       "authorName": "Tomas Bjerre",
@@ -1826,6 +2033,16 @@ context:
         {
           "authorEmailAddress": "tomas.bjerre85@gmail.com",
           "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-27 13:36:49",
+          "commitTimeLong": 1622122609000,
+          "hash": "65cfb90e2922ae5",
+          "hashFull": "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51",
+          "merge": false,
+          "message": "feat: dsc\n\nparagraph first line of two here!\nsecond line of first paragraph\n\nsecond paragraph the only line\n\nthird paragraph first line of two\nand second line of third paragraph.\n\nfirst-token-here: value of first token\nsecond line of first token\nsecond-token-here: value of second token"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
           "commitTime": "2021-05-26 16:32:31",
           "commitTimeLong": 1622046751000,
           "hash": "c18e11ebd1244b9",
@@ -2068,6 +2285,16 @@ context:
         {
           "authorEmailAddress": "tomas.bjerre85@gmail.com",
           "authorName": "Tomas Bjerre",
+          "commitTime": "2021-05-27 13:36:49",
+          "commitTimeLong": 1622122609000,
+          "hash": "65cfb90e2922ae5",
+          "hashFull": "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51",
+          "merge": false,
+          "message": "feat: dsc\n\nparagraph first line of two here!\nsecond line of first paragraph\n\nsecond paragraph the only line\n\nthird paragraph first line of two\nand second line of third paragraph.\n\nfirst-token-here: value of first token\nsecond line of first token\nsecond-token-here: value of second token"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
           "commitTime": "2021-05-26 16:32:11",
           "commitTimeLong": 1622046731000,
           "hash": "ed18f49f74281ba",
@@ -2189,6 +2416,16 @@ context:
       "authors": [
         {
           "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-27 13:36:49",
+              "commitTimeLong": 1622122609000,
+              "hash": "65cfb90e2922ae5",
+              "hashFull": "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51",
+              "merge": false,
+              "message": "feat: dsc\n\nparagraph first line of two here!\nsecond line of first paragraph\n\nsecond paragraph the only line\n\nthird paragraph first line of two\nand second line of third paragraph.\n\nfirst-token-here: value of first token\nsecond line of first token\nsecond-token-here: value of second token"
+            },
             {
               "authorEmailAddress": "tomas.bjerre85@gmail.com",
               "authorName": "Tomas Bjerre",
@@ -2445,6 +2682,16 @@ context:
             {
               "authorEmailAddress": "tomas.bjerre85@gmail.com",
               "authorName": "Tomas Bjerre",
+              "commitTime": "2021-05-27 13:36:49",
+              "commitTimeLong": 1622122609000,
+              "hash": "65cfb90e2922ae5",
+              "hashFull": "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51",
+              "merge": false,
+              "message": "feat: dsc\n\nparagraph first line of two here!\nsecond line of first paragraph\n\nsecond paragraph the only line\n\nthird paragraph first line of two\nand second line of third paragraph.\n\nfirst-token-here: value of first token\nsecond line of first token\nsecond-token-here: value of second token"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
               "commitTime": "2021-05-26 16:32:11",
               "commitTimeLong": 1622046731000,
               "hash": "ed18f49f74281ba",
@@ -2566,6 +2813,16 @@ context:
           "authors": [
             {
               "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2021-05-27 13:36:49",
+                  "commitTimeLong": 1622122609000,
+                  "hash": "65cfb90e2922ae5",
+                  "hashFull": "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51",
+                  "merge": false,
+                  "message": "feat: dsc\n\nparagraph first line of two here!\nsecond line of first paragraph\n\nsecond paragraph the only line\n\nthird paragraph first line of two\nand second line of third paragraph.\n\nfirst-token-here: value of first token\nsecond line of first token\nsecond-token-here: value of second token"
+                },
                 {
                   "authorEmailAddress": "tomas.bjerre85@gmail.com",
                   "authorName": "Tomas Bjerre",

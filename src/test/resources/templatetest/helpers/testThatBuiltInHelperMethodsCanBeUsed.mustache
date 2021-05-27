@@ -32,10 +32,14 @@ Commits:
 Has footers: {{hash}} 
 {{/ifCommitHasFooters}}
 {{#eachCommitFooter .}}
- - {{token}}  
-   {{#ifFooterHasValue .}}
-    with value: {{{value}}} 
-   {{/ifFooterHasValue}}
+ - "{{token}}"
+```
+{{#ifFooterHasValue .}}
+----footer-value-begins----
+{{{value}}} 
+----footer-value-ends---
+{{/ifFooterHasValue}}
+```
 
 {{/eachCommitFooter}}
 {{/commits}}
@@ -46,9 +50,14 @@ Has footers: {{hash}}
 {{#ifCommitHasParagraphs}}
 Has paragraphs: {{hash}} 
 {{/ifCommitHasParagraphs}}
+```
 {{#eachCommitParagraph .}}
- - {{.}}
- 
+----paragraph-begins----
+{{{.}}}
+----paragraph-ends---
+```
+
+
 {{/eachCommitParagraph}}
 {{/commits}}
 

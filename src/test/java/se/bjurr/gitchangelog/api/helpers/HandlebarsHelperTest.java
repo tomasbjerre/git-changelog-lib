@@ -38,7 +38,7 @@ public class HandlebarsHelperTest {
     final GitChangelogApi given =
         this.baseBuilder //
             .withFromCommit("ed95e6a") //
-            .withToCommit("c18e11e") //
+            .withToCommit("65cfb90") //
             .withTemplatePath(
                 "templatetest/helpers/testThatBuiltInHelperMethodsCanBeUsed.mustache");
 
@@ -50,7 +50,7 @@ public class HandlebarsHelperTest {
     final GitChangelogApi given =
         this.baseBuilder //
             .withFromCommit("ed95e6a") //
-            .withToCommit("c18e11e") //
+            .withToCommit("65cfb90") //
             .withTemplatePath(
                 "templatetest/helpers/testThatConventionalChangelogCanBeRendered.mustache");
 
