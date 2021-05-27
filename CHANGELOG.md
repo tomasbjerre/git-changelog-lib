@@ -3,6 +3,15 @@
 
 Changelog of git-changelog-lib.
 
+## 1.149.2
+### No issue
+
+**fix: multiline footer/paragraphs**
+
+
+[0fb2877848bb21c](https://github.com/tomasbjerre/git-changelog-lib/commit/0fb2877848bb21c) Tomas Bjerre *2021-05-27 14:36:18*
+
+
 ## 1.149.0
 ### No issue
 
