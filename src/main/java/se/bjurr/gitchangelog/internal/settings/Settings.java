@@ -129,6 +129,11 @@ public class Settings implements Serializable {
    * <code>\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b</code>
    */
   private String jiraIssuePattern;
+  /**
+   * Additional fields to filter the issues.<br>
+   * if this is used, Jira's search-API is used instead of issues-API <br>
+   */
+  private Map<String, String> jiraIssueFieldsFilter = new HashMap<>();
   /** Authenticate to JIRA. */
   private String jiraUsername;
   /** Authenticate to JIRA. */
@@ -514,5 +519,13 @@ public class Settings implements Serializable {
       throw new RuntimeException(pattern + " in " + string + " is not valid regexp.");
     }
     return pattern;
+  }
+
+  public Map<String, String> getJiraIssueFieldsFilter() {
+    return jiraIssueFieldsFilter;
+  }
+
+  public void setJiraIssueFieldsFilter(Map<String, String> jiraIssueFieldsFilter) {
+    this.jiraIssueFieldsFilter = jiraIssueFieldsFilter;
   }
 }
