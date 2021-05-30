@@ -6,10 +6,10 @@ import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.REF_MASTER;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 
-import com.google.common.base.Optional;
 import com.google.common.base.Stopwatch;
 import java.io.File;
 import java.util.List;
+import java.util.Optional;
 import java.util.logging.Logger;
 import org.eclipse.jgit.lib.ObjectId;
 import org.junit.After;
@@ -58,7 +58,7 @@ public class LibPerformanceTest {
     final ObjectId fromId = this.gitRepo.getCommit(ZERO_COMMIT);
     final ObjectId toId = this.gitRepo.getRef(REF_MASTER);
     final GitRepoData gitRepoData =
-        this.gitRepo.getGitRepoData(fromId, toId, UNTAGGED_NAME, Optional.<String>absent());
+        this.gitRepo.getGitRepoData(fromId, toId, UNTAGGED_NAME, Optional.<String>empty());
     LOG.info(this.stopwatch.elapsed(SECONDS) + "s. Done zero to master.");
     final List<GitTag> allTags = gitRepoData.getGitTags();
     int i = 0;

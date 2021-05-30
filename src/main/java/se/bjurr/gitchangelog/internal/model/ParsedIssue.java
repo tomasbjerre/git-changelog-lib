@@ -1,38 +1,37 @@
 package se.bjurr.gitchangelog.internal.model;
 
-import static com.google.common.base.Optional.fromNullable;
-import static com.google.common.base.Preconditions.checkNotNull;
-import static com.google.common.base.Strings.emptyToNull;
-import static com.google.common.collect.Lists.newArrayList;
+import static se.bjurr.gitchangelog.internal.util.Preconditions.checkNotNull;
+import static se.bjurr.gitchangelog.internal.util.Preconditions.emptyToNull;
 
-import com.google.common.base.Optional;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.model.interfaces.IGitCommitReferer;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssueType;
 
 public class ParsedIssue implements IGitCommitReferer {
-  private final List<GitCommit> gitCommits = newArrayList();
+  private final List<GitCommit> gitCommits = new ArrayList<>();
   private final String name;
   private final String title;
   private final String link;
   private final String issue;
   private final String issueType;
-  private List<String> linkedIssues;
+  private final List<String> linkedIssues;
   private final List<String> labels;
   private final String description;
   private final SettingsIssueType settingsIssueType;
 
   public ParsedIssue(
-      SettingsIssueType settingsIssueType,
-      String name,
-      String issue,
-      String description,
-      String link,
-      String title,
-      String issueType,
-      List<String> linkedIssues,
-      List<String> labels) {
+      final SettingsIssueType settingsIssueType,
+      final String name,
+      final String issue,
+      final String description,
+      final String link,
+      final String title,
+      final String issueType,
+      final List<String> linkedIssues,
+      final List<String> labels) {
     this.name = checkNotNull(name, "name");
     this.title = emptyToNull(title);
     this.issue = issue;
@@ -45,77 +44,77 @@ public class ParsedIssue implements IGitCommitReferer {
   }
 
   public SettingsIssueType getSettingsIssueType() {
-    return settingsIssueType;
+    return this.settingsIssueType;
   }
 
   public Optional<String> getTitle() {
-    return fromNullable(title);
+    return Optional.ofNullable(this.title);
   }
 
   @Override
   public GitCommit getGitCommit() {
-    return checkNotNull(gitCommits.get(0), name);
+    return checkNotNull(this.gitCommits.get(0), this.name);
   }
 
   public List<GitCommit> getGitCommits() {
-    return gitCommits;
+    return this.gitCommits;
   }
 
   public String getLink() {
-    return link;
+    return this.link;
   }
 
   public String getIssueType() {
-    return issueType;
+    return this.issueType;
   }
 
   @Override
   public String getName() {
-    return name;
+    return this.name;
   }
 
   @Override
   public int hashCode() {
-    return toString().hashCode();
+    return this.toString().hashCode();
   }
 
   @Override
   public String toString() {
-    return name + issue;
+    return this.name + this.issue;
   }
 
   @Override
-  public boolean equals(Object obj) {
+  public boolean equals(final Object obj) {
     if (obj == null) {
       return false;
     }
     if (obj.getClass() != ParsedIssue.class) {
       return false;
     }
-    return name.equals(((ParsedIssue) obj).getName());
+    return this.name.equals(((ParsedIssue) obj).getName());
   }
 
-  public void addCommit(GitCommit gitCommit) {
+  public void addCommit(final GitCommit gitCommit) {
     this.gitCommits.add(gitCommit);
   }
 
   public String getIssue() {
-    return issue;
+    return this.issue;
   }
 
   public String getDescription() {
-    return description;
+    return this.description;
   }
 
-  public void addCommits(List<GitCommit> commits) {
+  public void addCommits(final List<GitCommit> commits) {
     this.gitCommits.addAll(commits);
   }
 
   public List<String> getLabels() {
-    return labels;
+    return this.labels;
   }
 
   public List<String> getLinkedIssues() {
-    return linkedIssues;
+    return this.linkedIssues;
   }
 }

@@ -9,12 +9,12 @@ import static java.util.regex.Pattern.compile;
 import static org.eclipse.jgit.lib.Constants.HEAD;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 
-import com.google.common.base.Optional;
 import com.google.common.collect.Ordering;
 import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.LogCommand;

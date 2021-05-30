@@ -11,11 +11,11 @@ import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITLAB;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.JIRA;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.NOISSUE;
 
-import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.regex.Matcher;
 import org.slf4j.Logger;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
@@ -160,7 +160,7 @@ public class IssueParser {
     GitLabClient client = null;
     if (settings.getGitLabServer().isPresent()) {
       final String server = settings.getGitLabServer().get();
-      final String token = settings.getGitLabToken().orNull();
+      final String token = settings.getGitLabToken().orElse(null);
       client = new GitLabClient(server, token);
     }
     return client;
@@ -195,8 +195,8 @@ public class IssueParser {
 
   private ParsedIssue createParsedIssue(
       final SettingsIssue issuePattern, final Matcher issueMatcher, final String matchedIssue) {
-    final String link = render(issuePattern.getLink().or(""), issueMatcher, matchedIssue);
-    final String title = render(issuePattern.getTitle().or(""), issueMatcher, matchedIssue);
+    final String link = render(issuePattern.getLink().orElse(""), issueMatcher, matchedIssue);
+    final String title = render(issuePattern.getTitle().orElse(""), issueMatcher, matchedIssue);
     final String issueType = null;
     final List<String> linkedIssues = null;
     final List<String> labels = null;

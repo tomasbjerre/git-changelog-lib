@@ -2,7 +2,7 @@ package se.bjurr.gitchangelog.internal.integrations.jira;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.google.common.base.Optional;
+import java.util.Optional;
 
 public class JiraClientIntegrationTest {
 

@@ -7,11 +7,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.REF_MASTER;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 
-import com.google.common.base.Optional;
 import com.google.common.io.Resources;
 import java.io.File;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import org.eclipse.jgit.lib.ObjectId;
 import org.junit.Before;
 import org.junit.Test;
@@ -31,10 +31,10 @@ public class GitRepoTest {
 
   @Test
   public void testThatCommitsBetweenCommitAndCommitCanBeListed() throws Exception {
-    GitRepo gitRepo = getGitRepo();
-    ObjectId firstCommit = gitRepo.getCommit(FIRST_COMMIT_HASH_FULL);
-    ObjectId lastCommit = gitRepo.getCommit("e3766e2d4bc6d206475c5d2ed96b3f967a6e157e");
-    List<GitCommit> diff =
+    final GitRepo gitRepo = this.getGitRepo();
+    final ObjectId firstCommit = gitRepo.getCommit(FIRST_COMMIT_HASH_FULL);
+    final ObjectId lastCommit = gitRepo.getCommit("e3766e2d4bc6d206475c5d2ed96b3f967a6e157e");
+    final List<GitCommit> diff =
         gitRepo
             .getGitRepoData(
                 firstCommit, lastCommit, "No tag", Optional.of(".*tag-in-test-feature$"))
@@ -50,10 +50,10 @@ public class GitRepoTest {
 
   @Test
   public void testThatCommitsBetweenCommitAndReferenceCanBeListed() throws Exception {
-    GitRepo gitRepo = getGitRepo();
-    ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
-    ObjectId lastCommit = gitRepo.getRef(REF_MASTER);
-    List<GitCommit> diff =
+    final GitRepo gitRepo = this.getGitRepo();
+    final ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
+    final ObjectId lastCommit = gitRepo.getRef(REF_MASTER);
+    final List<GitCommit> diff =
         gitRepo
             .getGitRepoData(
                 firstCommit, lastCommit, "No tag", Optional.of(".*tag-in-test-feature$"))
@@ -64,10 +64,10 @@ public class GitRepoTest {
 
   @Test
   public void testThatCommitsBetweenZeroCommitAndCommitCanBeListed() throws Exception {
-    GitRepo gitRepo = getGitRepo();
-    ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
-    ObjectId lastCommit = gitRepo.getCommit(TAG_1_0_HASH);
-    GitRepoData gitRepoData =
+    final GitRepo gitRepo = this.getGitRepo();
+    final ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
+    final ObjectId lastCommit = gitRepo.getCommit(TAG_1_0_HASH);
+    final GitRepoData gitRepoData =
         gitRepo.getGitRepoData(
             firstCommit, lastCommit, "No tag", Optional.of(".*tag-in-test-feature$"));
     assertThat(gitRepoData.getGitCommits())
@@ -82,7 +82,7 @@ public class GitRepoTest {
 
   @Test
   public void testThatCommitsCanBeRetrieved() throws Exception {
-    GitRepo gitRepo = getGitRepo();
+    final GitRepo gitRepo = this.getGitRepo();
     assertThat(gitRepo.getCommit(FIRST_COMMIT_HASH_FULL)).isNotNull();
     assertThat(gitRepo.getCommit(FIRST_COMMIT_HASH_FULL).name()).isEqualTo(FIRST_COMMIT_HASH_FULL);
     assertThat(gitRepo.getCommit(TAG_1_0_HASH)).isNotNull();
@@ -91,12 +91,13 @@ public class GitRepoTest {
 
   @Test
   public void testThatCommitsFromMergeNotInFromAreIncluded() throws Exception {
-    GitRepo gitRepo = getGitRepo();
-    ObjectId from = gitRepo.getCommit("c5d37f5");
-    ObjectId to = gitRepo.getCommit("bb2f35b");
+    final GitRepo gitRepo = this.getGitRepo();
+    final ObjectId from = gitRepo.getCommit("c5d37f5");
+    final ObjectId to = gitRepo.getCommit("bb2f35b");
 
-    GitRepoData gitRepoData = gitRepo.getGitRepoData(from, to, "No tag", Optional.<String>absent());
-    List<String> noTagNames = messages(gitRepoData.getGitCommits());
+    final GitRepoData gitRepoData =
+        gitRepo.getGitRepoData(from, to, "No tag", Optional.<String>empty());
+    final List<String> noTagNames = this.messages(gitRepoData.getGitCommits());
     assertThat(noTagNames) //
         .containsExactly( //
             "Merge branch 'test-feature' into test", //
@@ -105,9 +106,9 @@ public class GitRepoTest {
 
   @Test
   public void testThatCommitsSecondReleaseCommitCanBeListed() throws Exception {
-    GitRepo gitRepo = getGitRepo();
-    ObjectId firstRelease = gitRepo.getRef("refs/tags/1.0");
-    ObjectId secondRelease = gitRepo.getRef("refs/tags/1.1");
+    final GitRepo gitRepo = this.getGitRepo();
+    final ObjectId firstRelease = gitRepo.getRef("refs/tags/1.0");
+    final ObjectId secondRelease = gitRepo.getRef("refs/tags/1.1");
     List<GitCommit> diff =
         gitRepo
             .getGitRepoData(
@@ -121,7 +122,7 @@ public class GitRepoTest {
     assertThat(diff.get(0).getHash()) //
         .startsWith(secondRelease.getName().substring(0, 10));
 
-    ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
+    final ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
     diff =
         gitRepo
             .getGitRepoData(
@@ -138,18 +139,18 @@ public class GitRepoTest {
 
   @Test
   public void testThatMergeCommitsBetweenZeroCommitAndTestCanBeListed() throws Exception {
-    GitRepo gitRepo = getGitRepo();
-    ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
-    ObjectId lastCommit = gitRepo.getRef("test");
-    GitRepoData gitRepoData =
+    final GitRepo gitRepo = this.getGitRepo();
+    final ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
+    final ObjectId lastCommit = gitRepo.getRef("test");
+    final GitRepoData gitRepoData =
         gitRepo.getGitRepoData(
             firstCommit, lastCommit, "No tag", Optional.of(".*tag-in-test-feature$"));
     assertThat(gitRepoData.getGitCommits())
         .as("Commits in first release.") //
         .hasSize(15);
 
-    List<GitCommit> merges = newArrayList();
-    for (GitCommit gitCommit : gitRepoData.getGitCommits()) {
+    final List<GitCommit> merges = newArrayList();
+    for (final GitCommit gitCommit : gitRepoData.getGitCommits()) {
       if (gitCommit.isMerge()) {
         merges.add(gitCommit);
       }
@@ -159,13 +160,13 @@ public class GitRepoTest {
 
   @Test
   public void testThatRepoCanBeFound() throws Exception {
-    GitRepo gitRepo = getGitRepo();
+    final GitRepo gitRepo = this.getGitRepo();
     assertThat(gitRepo).isNotNull();
   }
 
   @Test
   public void testThatShortHashCanBeUsedToFindCommits() throws Exception {
-    GitRepo gitRepo = getGitRepo();
+    final GitRepo gitRepo = this.getGitRepo();
     assertThat(gitRepo.getCommit("5a50ad3672c9f5a273c04711ed9b3daebf1f9b07").getName()) //
         .isEqualTo("5a50ad3672c9f5a273c04711ed9b3daebf1f9b07");
     assertThat(gitRepo.getCommit("5a50ad3").getName()) //
@@ -174,13 +175,13 @@ public class GitRepoTest {
 
   @Test
   public void testThatTagCanBeIgnored() throws Exception {
-    GitRepo gitRepo = getGitRepo();
-    ObjectId from = gitRepo.getCommit("87c0d72888961712d4d63dd6298c24c1133a6b51");
-    ObjectId to = gitRepo.getRef("test");
+    final GitRepo gitRepo = this.getGitRepo();
+    final ObjectId from = gitRepo.getCommit("87c0d72888961712d4d63dd6298c24c1133a6b51");
+    final ObjectId to = gitRepo.getRef("test");
 
-    GitRepoData gitRepoData =
+    final GitRepoData gitRepoData =
         gitRepo.getGitRepoData(from, to, "No tag", Optional.of(".*tag-in-test-feature$"));
-    Map<String, GitTag> perTag = perTag(gitRepoData.getGitTags());
+    final Map<String, GitTag> perTag = this.perTag(gitRepoData.getGitTags());
     assertThat(gitRepoData.getGitTags()) //
         .hasSize(1);
     assertThat(gitRepoData.getGitTags()) //
@@ -188,9 +189,9 @@ public class GitRepoTest {
     assertThat(perTag.keySet()) //
         .hasSize(1) //
         .contains("No tag");
-    GitTag noTagTag = perTag.get("No tag");
+    final GitTag noTagTag = perTag.get("No tag");
 
-    List<String> noTagTagMessages = messages(noTagTag.getGitCommits());
+    final List<String> noTagTagMessages = this.messages(noTagTag.getGitCommits());
     assertThat(noTagTagMessages) //
         .containsExactly( //
             "Some stuff in test again", //
@@ -201,27 +202,28 @@ public class GitRepoTest {
 
   @Test
   public void testThatTagInFeatureBranchAndMainBranchIsNotMixed() throws Exception {
-    GitRepo gitRepo = getGitRepo();
-    ObjectId from = gitRepo.getCommit("87c0d72888961712d4d63dd6298c24c1133a6b51");
-    ObjectId to = gitRepo.getRef("test");
+    final GitRepo gitRepo = this.getGitRepo();
+    final ObjectId from = gitRepo.getCommit("87c0d72888961712d4d63dd6298c24c1133a6b51");
+    final ObjectId to = gitRepo.getRef("test");
 
-    GitRepoData gitRepoData = gitRepo.getGitRepoData(from, to, "No tag", Optional.<String>absent());
-    Map<String, GitTag> perTag = perTag(gitRepoData.getGitTags());
+    final GitRepoData gitRepoData =
+        gitRepo.getGitRepoData(from, to, "No tag", Optional.<String>empty());
+    final Map<String, GitTag> perTag = this.perTag(gitRepoData.getGitTags());
     assertThat(perTag.keySet()) //
         .hasSize(2) //
         .containsExactly( //
             "No tag", //
             "refs/tags/tag-in-test-feature");
-    GitTag noTagTag = perTag.get("No tag");
-    List<String> noTagNames = messages(noTagTag.getGitCommits());
+    final GitTag noTagTag = perTag.get("No tag");
+    final List<String> noTagNames = this.messages(noTagTag.getGitCommits());
     assertThat(noTagNames) //
         .containsExactly( //
             "Some stuff in test again", //
             "Merge branch 'test-feature' into test", //
             "some stuff in test branch");
 
-    GitTag testFeatureTag = perTag.get("refs/tags/tag-in-test-feature");
-    List<String> testFeatureTagMessages = messages(testFeatureTag.getGitCommits());
+    final GitTag testFeatureTag = perTag.get("refs/tags/tag-in-test-feature");
+    final List<String> testFeatureTagMessages = this.messages(testFeatureTag.getGitCommits());
     assertThat(testFeatureTagMessages) //
         .containsExactly( //
             "Some stuff in test-feature");
@@ -231,18 +233,19 @@ public class GitRepoTest {
   public void
       testThatTagInFeatureBranchDoesNotIncludeNewUnmergedCommitsInItsMainBranchWhenFeatureLaterMerged()
           throws Exception {
-    GitRepo gitRepo = getGitRepo();
-    ObjectId from = gitRepo.getCommit("090e7f4");
-    ObjectId to = gitRepo.getCommit("8371342");
+    final GitRepo gitRepo = this.getGitRepo();
+    final ObjectId from = gitRepo.getCommit("090e7f4");
+    final ObjectId to = gitRepo.getCommit("8371342");
 
-    GitRepoData gitRepoData = gitRepo.getGitRepoData(from, to, "No tag", Optional.<String>absent());
-    Map<String, GitTag> perTag = perTag(gitRepoData.getGitTags());
+    final GitRepoData gitRepoData =
+        gitRepo.getGitRepoData(from, to, "No tag", Optional.<String>empty());
+    final Map<String, GitTag> perTag = this.perTag(gitRepoData.getGitTags());
     assertThat(perTag.keySet()) //
         .hasSize(1) //
         .containsExactly( //
             "No tag");
-    GitTag noTagTag = perTag.get("No tag");
-    List<String> noTagNames = messages(noTagTag.getGitCommits());
+    final GitTag noTagTag = perTag.get("No tag");
+    final List<String> noTagNames = this.messages(noTagTag.getGitCommits());
     assertThat(noTagNames) //
         .containsExactly( //
             "Some stuff in test again", //
@@ -252,8 +255,8 @@ public class GitRepoTest {
 
   @Test
   public void testThatTagsCanBeListed() throws Exception {
-    GitRepo gitRepo = getGitRepo();
-    GitRepoData gitRepoData =
+    final GitRepo gitRepo = this.getGitRepo();
+    final GitRepoData gitRepoData =
         gitRepo.getGitRepoData(
             gitRepo.getCommit(ZERO_COMMIT),
             gitRepo.getRef(REF_MASTER),
@@ -264,24 +267,24 @@ public class GitRepoTest {
 
   @Test
   public void testThatZeroCommitCanBeRetrieved() throws Exception {
-    GitRepo gitRepo = getGitRepo();
-    ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
+    final GitRepo gitRepo = this.getGitRepo();
+    final ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
     assertThat(firstCommit).as(gitRepo.toString()).isNotNull();
     assertThat(firstCommit.name()).as(gitRepo.toString()).startsWith(FIRST_COMMIT_HASH);
   }
 
   @Test
   public void testThatRepoFilterReducesTheNumberOfCommits() throws Exception {
-    GitRepo gitRepo = getGitRepo();
+    final GitRepo gitRepo = this.getGitRepo();
     gitRepo.setTreeFilter("src/");
-    ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
-    ObjectId lastCommit = gitRepo.getRef("1.71");
+    final ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
+    final ObjectId lastCommit = gitRepo.getRef("1.71");
 
-    GitRepoData gitRepoData =
+    final GitRepoData gitRepoData =
         gitRepo.getGitRepoData(
             firstCommit, lastCommit, "No tag", Optional.of(".*tag-in-test-feature$"));
 
-    List<GitCommit> gitCommits = gitRepoData.getGitCommits();
+    final List<GitCommit> gitCommits = gitRepoData.getGitCommits();
     assertThat(gitCommits)
         .as("Commits in first release.") //
         .hasSize(104);
@@ -294,17 +297,17 @@ public class GitRepoTest {
     return new GitRepo(this.gitRepoFile);
   }
 
-  private List<String> messages(List<GitCommit> gitCommits) {
-    List<String> messages = newArrayList();
-    for (GitCommit gc : gitCommits) {
+  private List<String> messages(final List<GitCommit> gitCommits) {
+    final List<String> messages = newArrayList();
+    for (final GitCommit gc : gitCommits) {
       messages.add(gc.getMessage().trim());
     }
     return messages;
   }
 
-  private Map<String, GitTag> perTag(List<GitTag> gitTags) {
-    Map<String, GitTag> map = newTreeMap();
-    for (GitTag gitTag : gitTags) {
+  private Map<String, GitTag> perTag(final List<GitTag> gitTags) {
+    final Map<String, GitTag> map = newTreeMap();
+    for (final GitTag gitTag : gitTags) {
       map.put(gitTag.getName(), gitTag);
     }
     return map;

@@ -1,12 +1,12 @@
 package se.bjurr.gitchangelog.internal.integrations.github;
 
-import static com.google.common.base.Optional.absent;
-import static com.google.common.base.Optional.of;
 import static com.google.common.base.Splitter.on;
+import static java.util.Optional.empty;
+import static java.util.Optional.of;
 
-import com.google.common.base.Optional;
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import retrofit2.Call;
@@ -18,7 +18,7 @@ public class GitHubHelper {
   private static Pattern PAGE_PATTERN = Pattern.compile("page=([0-9]+)>");
   private final GitHubService service;
 
-  public GitHubHelper(GitHubService service) {
+  public GitHubHelper(final GitHubService service) {
     this.service = service;
   }
 
@@ -30,7 +30,7 @@ public class GitHubHelper {
 
     int page = 1;
     while (page > 0) {
-      final Call<List<GitHubIssue>> call = service.issues(page);
+      final Call<List<GitHubIssue>> call = this.service.issues(page);
       page = -1;
 
       try {
@@ -75,6 +75,6 @@ public class GitHubHelper {
         throw new GitChangelogIntegrationException(issue, e);
       }
     }
-    return absent();
+    return empty();
   }
 }

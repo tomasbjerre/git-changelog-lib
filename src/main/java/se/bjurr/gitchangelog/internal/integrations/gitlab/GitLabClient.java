@@ -3,12 +3,12 @@ package se.bjurr.gitchangelog.internal.integrations.gitlab;
 import static com.google.common.cache.CacheBuilder.newBuilder;
 import static java.util.concurrent.TimeUnit.MINUTES;
 
-import com.google.common.base.Optional;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import org.gitlab.api.GitlabAPI;
 import org.gitlab.api.models.GitlabIssue;
 import org.gitlab.api.models.GitlabProject;
@@ -23,7 +23,7 @@ public class GitLabClient {
           .build(
               new CacheLoader<GitLabProjectIssuesCacheKey, List<GitlabIssue>>() {
                 @Override
-                public List<GitlabIssue> load(GitLabProjectIssuesCacheKey cacheKey)
+                public List<GitlabIssue> load(final GitLabProjectIssuesCacheKey cacheKey)
                     throws IOException {
                   return getAllIssues(cacheKey);
                 }
@@ -31,56 +31,56 @@ public class GitLabClient {
   private final String hostUrl;
   private final String apiToken;
 
-  public GitLabClient(String hostUrl, String apiToken) {
+  public GitLabClient(final String hostUrl, final String apiToken) {
     this.hostUrl = hostUrl;
     this.apiToken = apiToken;
   }
 
-  public Optional<GitLabIssue> getIssue(String projectName, Integer matchedIssue)
+  public Optional<GitLabIssue> getIssue(final String projectName, final Integer matchedIssue)
       throws GitChangelogIntegrationException {
-    GitlabAPI gitLabApi = GitlabAPI.connect(hostUrl, apiToken);
+    final GitlabAPI gitLabApi = GitlabAPI.connect(this.hostUrl, this.apiToken);
     GitlabProject project;
     try {
       project = gitLabApi.getProject(projectName);
-    } catch (Exception e) {
+    } catch (final Exception e) {
       throw new GitChangelogIntegrationException(
           "Unable to find project \""
               + projectName
               + "\". It should be \"tomas.bjerre85/violations-test\" for a repo like: https://gitlab.com/tomas.bjerre85/violations-test",
           e);
     }
-    Integer projectId = project.getId();
-    String httpUrl = project.getHttpUrl();
+    final Integer projectId = project.getId();
+    final String httpUrl = project.getHttpUrl();
     try {
-      List<GitlabIssue> issues =
-          cache.get(new GitLabProjectIssuesCacheKey(hostUrl, apiToken, projectId));
-      for (GitlabIssue candidate : issues) {
+      final List<GitlabIssue> issues =
+          cache.get(new GitLabProjectIssuesCacheKey(this.hostUrl, this.apiToken, projectId));
+      for (final GitlabIssue candidate : issues) {
         if (candidate.getIid() == matchedIssue) {
-          return Optional.of(createGitLabIssue(httpUrl, candidate));
+          return Optional.of(this.createGitLabIssue(httpUrl, candidate));
         }
       }
-      return Optional.absent();
-    } catch (Exception e) {
+      return Optional.empty();
+    } catch (final Exception e) {
       throw new GitChangelogIntegrationException(e.getMessage(), e);
     }
   }
 
-  private GitLabIssue createGitLabIssue(String projectUrl, GitlabIssue candidate) {
-    String title = candidate.getTitle();
-    String link = projectUrl + "/issues/" + candidate.getIid();
-    List<String> labels = new ArrayList<>();
-    for (String l : candidate.getLabels()) {
+  private GitLabIssue createGitLabIssue(final String projectUrl, final GitlabIssue candidate) {
+    final String title = candidate.getTitle();
+    final String link = projectUrl + "/issues/" + candidate.getIid();
+    final List<String> labels = new ArrayList<>();
+    for (final String l : candidate.getLabels()) {
       labels.add(l);
     }
     return new GitLabIssue(title, link, labels);
   }
 
-  private static List<GitlabIssue> getAllIssues(GitLabProjectIssuesCacheKey cacheKey)
+  private static List<GitlabIssue> getAllIssues(final GitLabProjectIssuesCacheKey cacheKey)
       throws IOException {
-    String hostUrl = cacheKey.getHostUrl();
-    String apiToken = cacheKey.getApiToken();
-    GitlabAPI gitLabApi = GitlabAPI.connect(hostUrl, apiToken);
-    GitlabProject project = new GitlabProject();
+    final String hostUrl = cacheKey.getHostUrl();
+    final String apiToken = cacheKey.getApiToken();
+    final GitlabAPI gitLabApi = GitlabAPI.connect(hostUrl, apiToken);
+    final GitlabProject project = new GitlabProject();
     project.setId(cacheKey.getProjectId());
     return gitLabApi.getIssues(project);
   }

@@ -12,7 +12,6 @@ import static java.util.regex.Pattern.DOTALL;
 import static java.util.regex.Pattern.compile;
 import static java.util.stream.Collectors.toList;
 
-import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Function;
 import com.google.common.collect.Multimap;
 import java.text.SimpleDateFormat;
@@ -189,7 +188,7 @@ public class Transformer {
                   final List<IssueType> issueTypes = Transformer.this.toIssueTypes(parsedIssues);
                   return new Tag(
                       Transformer.this.toReadableTagName(input.getName()),
-                      input.findAnnotation().orNull(),
+                      input.findAnnotation().orElse(null),
                       commits,
                       authors,
                       issues,
@@ -218,7 +217,7 @@ public class Transformer {
                 candidate.getIssue(),
                 candidate.getDescription(),
                 candidate.getLink(),
-                candidate.getTitle().orNull(),
+                candidate.getTitle().orElse(null),
                 candidate.getIssueType(),
                 candidate.getLinkedIssues(),
                 candidate.getLabels());
@@ -248,7 +247,7 @@ public class Transformer {
           Transformer.this.toCommits(gitCommits), //
           Transformer.this.toAuthors(gitCommits), //
           input.getName(), //
-          input.getTitle().or(""), //
+          input.getTitle().orElse(""), //
           input.getIssue(), //
           input.getSettingsIssueType(), //
           input.getDescription(),
@@ -299,7 +298,6 @@ public class Transformer {
     return input;
   }
 
-  @VisibleForTesting
   String toMessage(
       final boolean removeIssueFromMessage,
       final List<SettingsIssue> issues,

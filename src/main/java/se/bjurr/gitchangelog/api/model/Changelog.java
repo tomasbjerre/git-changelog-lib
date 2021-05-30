@@ -1,6 +1,6 @@
 package se.bjurr.gitchangelog.api.model;
 
-import static com.google.common.base.Preconditions.checkNotNull;
+import static se.bjurr.gitchangelog.internal.util.Preconditions.checkNotNull;
 
 import java.io.Serializable;
 import java.util.List;
@@ -19,13 +19,13 @@ public class Changelog implements ICommits, IAuthors, IIssues, Serializable {
   private final String repoName;
 
   public Changelog(
-      List<Commit> commits,
-      List<Tag> tags,
-      List<Author> authors,
-      List<Issue> issues,
-      List<IssueType> issueTypes,
-      String ownerName,
-      String repoName) {
+      final List<Commit> commits,
+      final List<Tag> tags,
+      final List<Author> authors,
+      final List<Issue> issues,
+      final List<IssueType> issueTypes,
+      final String ownerName,
+      final String repoName) {
     this.commits = checkNotNull(commits, "commits");
     this.tags = checkNotNull(tags, "tags");
     this.authors = checkNotNull(authors, "authors");
@@ -37,32 +37,32 @@ public class Changelog implements ICommits, IAuthors, IIssues, Serializable {
 
   @Override
   public List<Issue> getIssues() {
-    return issues;
+    return this.issues;
   }
 
   @Override
   public List<Author> getAuthors() {
-    return authors;
+    return this.authors;
   }
 
   @Override
   public List<Commit> getCommits() {
-    return commits;
+    return this.commits;
   }
 
   public String getOwnerName() {
-    return ownerName;
+    return this.ownerName;
   }
 
   public String getRepoName() {
-    return repoName;
+    return this.repoName;
   }
 
   public List<Tag> getTags() {
-    return tags;
+    return this.tags;
   }
 
   public List<IssueType> getIssueTypes() {
-    return issueTypes;
+    return this.issueTypes;
   }
 }

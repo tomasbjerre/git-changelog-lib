@@ -1,12 +1,12 @@
 package se.bjurr.gitchangelog.internal.integrations.gitlab;
 
-import static com.google.common.base.Charsets.UTF_8;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.google.common.base.Optional;
 import com.google.common.io.Files;
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.Optional;
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -21,12 +21,14 @@ public class GitLabClientTest {
 
   @Before
   public void before() throws IOException {
-    String hostUrl = "https://gitlab.com/";
+    final String hostUrl = "https://gitlab.com/";
     String apiToken = null;
     try {
-      apiToken = Files.toString(new File("/home/bjerre/gitlabapitoken.txt"), UTF_8).trim();
-    } catch (Exception e) {
-      disabled = true;
+      apiToken =
+          Files.toString(new File("/home/bjerre/gitlabapitoken.txt"), StandardCharsets.UTF_8)
+              .trim();
+    } catch (final Exception e) {
+      this.disabled = true;
       return;
     }
     this.sut = new GitLabClient(hostUrl, apiToken);
@@ -34,18 +36,18 @@ public class GitLabClientTest {
 
   @Test
   public void testGetIssue() throws GitChangelogIntegrationException {
-    if (disabled) {
+    if (this.disabled) {
       return;
     }
-    String projectName = "tomas.bjerre85/violations-test";
-    int issueId = 1;
+    final String projectName = "tomas.bjerre85/violations-test";
+    final int issueId = 1;
 
-    Optional<GitLabIssue> issueOpt = sut.getIssue(projectName, issueId);
+    final Optional<GitLabIssue> issueOpt = this.sut.getIssue(projectName, issueId);
 
     assertThat(issueOpt.isPresent()) //
         .isTrue();
 
-    GitLabIssue issue = issueOpt.get();
+    final GitLabIssue issue = issueOpt.get();
     LOG.info("\n" + issue.getTitle() + " " + issue.getLink() + " " + issue.getLabels());
     assertThat(issue.getLabels()) //
         .containsOnly("bug", "l1");

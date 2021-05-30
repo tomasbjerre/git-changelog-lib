@@ -2,23 +2,19 @@ package se.bjurr.gitchangelog.internal.integrations.github;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
-import com.google.common.annotations.VisibleForTesting;
-import com.google.common.base.Optional;
 import java.io.File;
-import java.io.IOException;
+import java.util.Optional;
 import okhttp3.Cache;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class GitHubServiceFactory {
   static Interceptor interceptor;
 
-  @VisibleForTesting
-  public static void setInterceptor(Interceptor interceptor) {
+  public static void setInterceptor(final Interceptor interceptor) {
     GitHubServiceFactory.interceptor = interceptor;
   }
 
@@ -36,19 +32,16 @@ public class GitHubServiceFactory {
 
     if (token != null && token.isPresent() && !token.get().isEmpty()) {
       builder.addInterceptor(
-          new Interceptor() {
-            @Override
-            public Response intercept(Chain chain) throws IOException {
-              final Request original = chain.request();
+          chain -> {
+            final Request original = chain.request();
 
-              final Request request =
-                  original
-                      .newBuilder() //
-                      .addHeader("Authorization", "token " + token.get()) //
-                      .method(original.method(), original.body()) //
-                      .build();
-              return chain.proceed(request);
-            }
+            final Request request =
+                original
+                    .newBuilder() //
+                    .addHeader("Authorization", "token " + token.get()) //
+                    .method(original.method(), original.body()) //
+                    .build();
+            return chain.proceed(request);
           });
     }
 

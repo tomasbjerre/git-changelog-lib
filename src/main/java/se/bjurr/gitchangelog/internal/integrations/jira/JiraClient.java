@@ -2,11 +2,11 @@ package se.bjurr.gitchangelog.internal.integrations.jira;
 
 import static com.jayway.jsonpath.JsonPath.read;
 
-import com.google.common.base.Optional;
 import com.jayway.jsonpath.JsonPath;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 
 public abstract class JiraClient {

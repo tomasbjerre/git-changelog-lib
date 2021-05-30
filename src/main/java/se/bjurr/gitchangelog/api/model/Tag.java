@@ -1,6 +1,6 @@
 package se.bjurr.gitchangelog.api.model;
 
-import static com.google.common.base.Strings.isNullOrEmpty;
+import static se.bjurr.gitchangelog.internal.util.Preconditions.isNullOrEmpty;
 
 import java.io.Serializable;
 import java.util.List;
@@ -21,14 +21,14 @@ public class Tag implements ICommits, IAuthors, IIssues, Serializable {
   private final boolean hasTagTime;
 
   public Tag(
-      String name,
-      String annotation,
-      List<Commit> commits,
-      List<Author> authors,
-      List<Issue> issues,
-      List<IssueType> issueTypes,
-      String tagTime,
-      Long tagTimeLong) {
+      final String name,
+      final String annotation,
+      final List<Commit> commits,
+      final List<Author> authors,
+      final List<Issue> issues,
+      final List<IssueType> issueTypes,
+      final String tagTime,
+      final Long tagTimeLong) {
     this.commits = commits;
     this.authors = authors;
     this.issues = issues;

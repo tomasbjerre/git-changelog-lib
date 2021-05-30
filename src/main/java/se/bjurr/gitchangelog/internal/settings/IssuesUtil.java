@@ -1,63 +1,63 @@
 package se.bjurr.gitchangelog.internal.settings;
 
-import static com.google.common.base.Strings.isNullOrEmpty;
 import static com.google.common.collect.Lists.newArrayList;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITHUB;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITLAB;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.JIRA;
+import static se.bjurr.gitchangelog.internal.util.Preconditions.isNullOrEmpty;
 
 import java.util.List;
 
 public class IssuesUtil {
   private final Settings settings;
 
-  public IssuesUtil(Settings settings) {
+  public IssuesUtil(final Settings settings) {
     this.settings = settings;
   }
 
   public List<SettingsIssue> getIssues() {
-    List<SettingsIssue> issues = newArrayList(settings.getCustomIssues());
-    addJira(issues);
-    addGitHub(issues);
-    addGitLab(issues);
+    final List<SettingsIssue> issues = newArrayList(this.settings.getCustomIssues());
+    this.addJira(issues);
+    this.addGitHub(issues);
+    this.addGitLab(issues);
     return issues;
   }
 
-  private void addGitHub(List<SettingsIssue> issues) {
-    if (!isNullOrEmpty(settings.getGitHubIssuePattern())) {
-      if (settings.getGitHubApi().isPresent()) {
+  private void addGitHub(final List<SettingsIssue> issues) {
+    if (!isNullOrEmpty(this.settings.getGitHubIssuePattern())) {
+      if (this.settings.getGitHubApi().isPresent()) {
         issues.add(
-            new SettingsIssue(GITHUB, "GitHub", settings.getGitHubIssuePattern(), null, null));
+            new SettingsIssue(GITHUB, "GitHub", this.settings.getGitHubIssuePattern(), null, null));
       }
     }
   }
 
-  private void addGitLab(List<SettingsIssue> issues) {
-    if (!isNullOrEmpty(settings.getGitLabIssuePattern())) {
-      if (settings.getGitLabServer().isPresent()) {
+  private void addGitLab(final List<SettingsIssue> issues) {
+    if (!isNullOrEmpty(this.settings.getGitLabIssuePattern())) {
+      if (this.settings.getGitLabServer().isPresent()) {
         issues.add(
-            new SettingsIssue(GITLAB, "GitLab", settings.getGitLabIssuePattern(), null, null));
+            new SettingsIssue(GITLAB, "GitLab", this.settings.getGitLabIssuePattern(), null, null));
       }
     }
   }
 
-  private void addJira(List<SettingsIssue> issues) {
-    if (!isNullOrEmpty(settings.getJiraIssuePattern())) {
-      if (settings.getJiraServer().isPresent()) {
+  private void addJira(final List<SettingsIssue> issues) {
+    if (!isNullOrEmpty(this.settings.getJiraIssuePattern())) {
+      if (this.settings.getJiraServer().isPresent()) {
         issues.add(
             new SettingsIssue(
                 JIRA,
                 "Jira",
-                settings.getJiraIssuePattern(),
-                settings.getJiraServer().or("") + "/browse/${PATTERN_GROUP}",
+                this.settings.getJiraIssuePattern(),
+                this.settings.getJiraServer().orElse("") + "/browse/${PATTERN_GROUP}",
                 null));
       } else {
         issues.add(
             new SettingsIssue(
                 JIRA,
                 "Jira",
-                settings.getJiraIssuePattern(),
-                settings.getJiraServer().orNull(),
+                this.settings.getJiraIssuePattern(),
+                this.settings.getJiraServer().orElse(null),
                 null));
       }
     }

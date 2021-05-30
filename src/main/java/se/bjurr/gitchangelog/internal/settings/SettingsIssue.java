@@ -1,11 +1,11 @@
 package se.bjurr.gitchangelog.internal.settings;
 
-import static com.google.common.base.Optional.fromNullable;
-import static com.google.common.base.Preconditions.checkNotNull;
+import static java.util.Optional.ofNullable;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.CUSTOM;
+import static se.bjurr.gitchangelog.internal.util.Preconditions.*;
 
-import com.google.common.base.Optional;
 import java.io.Serializable;
+import java.util.Optional;
 import se.bjurr.gitchangelog.api.model.Issue;
 
 public class SettingsIssue implements Serializable {
@@ -53,11 +53,11 @@ public class SettingsIssue implements Serializable {
   }
 
   public Optional<String> getLink() {
-    return fromNullable(link);
+    return ofNullable(link);
   }
 
   public Optional<String> getTitle() {
-    return fromNullable(title);
+    return ofNullable(title);
   }
 
   public String getName() {

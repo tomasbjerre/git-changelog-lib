@@ -2,8 +2,8 @@ package se.bjurr.gitchangelog.internal.integrations.jira;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.google.common.base.Optional;
 import java.util.Map;
+import java.util.Optional;
 import org.junit.Test;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 

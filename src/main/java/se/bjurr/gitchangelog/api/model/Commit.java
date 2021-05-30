@@ -1,12 +1,11 @@
 package se.bjurr.gitchangelog.api.model;
 
 import static com.google.common.base.Joiner.on;
-import static com.google.common.base.Preconditions.checkNotNull;
-import static com.google.common.collect.Lists.newArrayList;
+import static se.bjurr.gitchangelog.internal.util.Preconditions.checkNotNull;
 
-import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Splitter;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Commit implements Serializable {
@@ -21,7 +20,7 @@ public class Commit implements Serializable {
   }
 
   private static List<String> toNoEmptyStringsList(final String message) {
-    final List<String> toReturn = newArrayList();
+    final List<String> toReturn = new ArrayList<>();
     for (final String part : Splitter.on("\n").split(message)) {
       if (!part.isEmpty()) {
         toReturn.add(part);
@@ -30,7 +29,6 @@ public class Commit implements Serializable {
     return toReturn;
   }
 
-  @VisibleForTesting
   static String toMessageBody(final String message) {
     final List<String> stringList = toNoEmptyStringsList(message);
     if (stringList.size() > 1) {
@@ -41,9 +39,8 @@ public class Commit implements Serializable {
     return "";
   }
 
-  @VisibleForTesting
   static List<String> toMessageItems(final String message) {
-    final List<String> toReturn = newArrayList();
+    final List<String> toReturn = new ArrayList<>();
     final List<String> stringList = toNoEmptyStringsList(message);
     if (stringList.size() > 1) {
       final List<String> notFirst = notFirst(stringList);
@@ -60,7 +57,6 @@ public class Commit implements Serializable {
     return toReturn;
   }
 
-  @VisibleForTesting
   static String toMessageTitle(final String message) {
     final List<String> stringList = toNoEmptyStringsList(message);
     if (stringList.size() > 0) {
