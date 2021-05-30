@@ -1,8 +1,8 @@
 package se.bjurr.gitchangelog.api.model;
 
-import static com.google.common.collect.Lists.newArrayList;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.Arrays;
 import org.junit.Test;
 
 public class CommitTest {
@@ -17,78 +17,78 @@ public class CommitTest {
 
   @Test
   public void testThatMessageTitleCanBeTransformedWithIssues() {
-    assertThat(Commit.toMessageTitle(messageOnlyOneLineAfterTitle)) //
+    assertThat(Commit.toMessageTitle(this.messageOnlyOneLineAfterTitle)) //
         .isEqualTo("message title");
-    assertThat(Commit.toMessageTitle(messageOnlyOneLineAfterTitleAndOneEmptyLine)) //
+    assertThat(Commit.toMessageTitle(this.messageOnlyOneLineAfterTitleAndOneEmptyLine)) //
         .isEqualTo("message title");
-    assertThat(Commit.toMessageTitle(messageOnlyOneLineAfterTitleAndNoStars)) //
+    assertThat(Commit.toMessageTitle(this.messageOnlyOneLineAfterTitleAndNoStars)) //
         .isEqualTo("message title");
   }
 
   @Test
   public void testThatMessageTitleCanBeTransformedWithoutIssues() {
-    assertThat(Commit.toMessageTitle(messageOnlyOneLineAfterTitle)) //
+    assertThat(Commit.toMessageTitle(this.messageOnlyOneLineAfterTitle)) //
         .isEqualTo("message title");
-    assertThat(Commit.toMessageTitle(messageOnlyOneLineAfterTitleAndOneEmptyLine)) //
+    assertThat(Commit.toMessageTitle(this.messageOnlyOneLineAfterTitleAndOneEmptyLine)) //
         .isEqualTo("message title");
-    assertThat(Commit.toMessageTitle(messageOnlyOneLineAfterTitleAndNoStars)) //
+    assertThat(Commit.toMessageTitle(this.messageOnlyOneLineAfterTitleAndNoStars)) //
         .isEqualTo("message title");
   }
 
   @Test
   public void testThatMessageBodyCanBeTransformedWithIssues() {
-    assertThat(Commit.toMessageBody(messageOnlyOneLineAfterTitle)) //
+    assertThat(Commit.toMessageBody(this.messageOnlyOneLineAfterTitle)) //
         .isEqualTo(" * The first item\n *  The second item");
-    assertThat(Commit.toMessageBody(messageOnlyOneLineAfterTitleAndOneEmptyLine)) //
+    assertThat(Commit.toMessageBody(this.messageOnlyOneLineAfterTitleAndOneEmptyLine)) //
         .isEqualTo(" *  The first item\n * The second item");
-    assertThat(Commit.toMessageBody(messageOnlyOneLineAfterTitleAndNoStars)) //
+    assertThat(Commit.toMessageBody(this.messageOnlyOneLineAfterTitleAndNoStars)) //
         .isEqualTo("The first item\n The second item");
 
-    assertThat(Commit.toMessageBody(messageOnlyOneLineAfterTitle)) //
+    assertThat(Commit.toMessageBody(this.messageOnlyOneLineAfterTitle)) //
         .isEqualTo(" * The first item\n *  The second item");
-    assertThat(Commit.toMessageBody(messageOnlyOneLineAfterTitleAndOneEmptyLine)) //
+    assertThat(Commit.toMessageBody(this.messageOnlyOneLineAfterTitleAndOneEmptyLine)) //
         .isEqualTo(" *  The first item\n * The second item");
-    assertThat(Commit.toMessageBody(messageOnlyOneLineAfterTitleAndNoStars)) //
+    assertThat(Commit.toMessageBody(this.messageOnlyOneLineAfterTitleAndNoStars)) //
         .isEqualTo("The first item\n The second item");
   }
 
   @Test
   public void testThatMessageBodyCanBeTransformedWithoutIssues() {
-    assertThat(Commit.toMessageBody(messageOnlyOneLineAfterTitle)) //
+    assertThat(Commit.toMessageBody(this.messageOnlyOneLineAfterTitle)) //
         .isEqualTo(" * The first item\n *  The second item");
-    assertThat(Commit.toMessageBody(messageOnlyOneLineAfterTitleAndOneEmptyLine)) //
+    assertThat(Commit.toMessageBody(this.messageOnlyOneLineAfterTitleAndOneEmptyLine)) //
         .isEqualTo(" *  The first item\n * The second item");
-    assertThat(Commit.toMessageBody(messageOnlyOneLineAfterTitleAndNoStars)) //
+    assertThat(Commit.toMessageBody(this.messageOnlyOneLineAfterTitleAndNoStars)) //
         .isEqualTo("The first item\n The second item");
 
-    assertThat(Commit.toMessageBody(messageOnlyOneLineAfterTitle)) //
+    assertThat(Commit.toMessageBody(this.messageOnlyOneLineAfterTitle)) //
         .isEqualTo(" * The first item\n *  The second item");
-    assertThat(Commit.toMessageBody(messageOnlyOneLineAfterTitleAndOneEmptyLine)) //
+    assertThat(Commit.toMessageBody(this.messageOnlyOneLineAfterTitleAndOneEmptyLine)) //
         .isEqualTo(" *  The first item\n * The second item");
-    assertThat(Commit.toMessageBody(messageOnlyOneLineAfterTitleAndNoStars)) //
+    assertThat(Commit.toMessageBody(this.messageOnlyOneLineAfterTitleAndNoStars)) //
         .isEqualTo("The first item\n The second item");
   }
 
   @Test
   public void testThatMessageItemsCanBeTransformedWithIssues() {
-    assertThat(Commit.toMessageItems(messageOnlyOneLineAfterTitle)) //
-        .isEqualTo(newArrayList("The first item", "The second item"));
-    assertThat(Commit.toMessageItems(messageOnlyOneLineAfterTitleAndOneEmptyLine)) //
-        .isEqualTo(newArrayList("The first item", "The second item"));
-    assertThat(Commit.toMessageItems(messageOnlyOneLineAfterTitleAndNoStars)) //
-        .isEqualTo(newArrayList("The first item", "The second item"));
+    assertThat(Commit.toMessageItems(this.messageOnlyOneLineAfterTitle)) //
+        .isEqualTo(Arrays.asList("The first item", "The second item"));
+    assertThat(Commit.toMessageItems(this.messageOnlyOneLineAfterTitleAndOneEmptyLine)) //
+        .isEqualTo(Arrays.asList("The first item", "The second item"));
+    assertThat(Commit.toMessageItems(this.messageOnlyOneLineAfterTitleAndNoStars)) //
+        .isEqualTo(Arrays.asList("The first item", "The second item"));
   }
 
   @Test
   public void testThatMessageItemsCanBeTransformedWithoutIssues() {
-    assertThat(Commit.toMessageItems(messageOnlyOneLineAfterTitle)) //
-        .isEqualTo(newArrayList("The first item", "The second item"));
-    assertThat(Commit.toMessageItems(messageOnlyOneLineAfterTitleAndOneEmptyLine)) //
-        .isEqualTo(newArrayList("The first item", "The second item"));
-    assertThat(Commit.toMessageItems(messageOnlyOneLineAfterTitleAndNoStars)) //
-        .isEqualTo(newArrayList("The first item", "The second item"));
+    assertThat(Commit.toMessageItems(this.messageOnlyOneLineAfterTitle)) //
+        .isEqualTo(Arrays.asList("The first item", "The second item"));
+    assertThat(Commit.toMessageItems(this.messageOnlyOneLineAfterTitleAndOneEmptyLine)) //
+        .isEqualTo(Arrays.asList("The first item", "The second item"));
+    assertThat(Commit.toMessageItems(this.messageOnlyOneLineAfterTitleAndNoStars)) //
+        .isEqualTo(Arrays.asList("The first item", "The second item"));
 
-    assertThat(Commit.toMessageItems(messageOnlyIncidentInItem)) //
-        .isEqualTo(newArrayList("This is ok"));
+    assertThat(Commit.toMessageItems(this.messageOnlyIncidentInItem)) //
+        .isEqualTo(Arrays.asList("This is ok"));
   }
 }

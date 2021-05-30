@@ -1,6 +1,6 @@
 package se.bjurr.gitchangelog.api.model;
 
-import static com.google.common.base.Preconditions.checkNotNull;
+import static se.bjurr.gitchangelog.internal.util.Preconditions.checkNotNull;
 
 import java.io.Serializable;
 import java.util.List;
@@ -19,13 +19,13 @@ public class Changelog implements ICommits, IAuthors, IIssues, Serializable {
   private final String repoName;
 
   public Changelog(
-      List<Commit> commits,
-      List<Tag> tags,
-      List<Author> authors,
-      List<Issue> issues,
-      List<IssueType> issueTypes,
-      String ownerName,
-      String repoName) {
+      final List<Commit> commits,
+      final List<Tag> tags,
+      final List<Author> authors,
+      final List<Issue> issues,
+      final List<IssueType> issueTypes,
+      final String ownerName,
+      final String repoName) {
     this.commits = checkNotNull(commits, "commits");
     this.tags = checkNotNull(tags, "tags");
     this.authors = checkNotNull(authors, "authors");
@@ -37,32 +37,110 @@ public class Changelog implements ICommits, IAuthors, IIssues, Serializable {
 
   @Override
   public List<Issue> getIssues() {
-    return issues;
+    return this.issues;
   }
 
   @Override
   public List<Author> getAuthors() {
-    return authors;
+    return this.authors;
   }
 
   @Override
   public List<Commit> getCommits() {
-    return commits;
+    return this.commits;
   }
 
   public String getOwnerName() {
-    return ownerName;
+    return this.ownerName;
   }
 
   public String getRepoName() {
-    return repoName;
+    return this.repoName;
   }
 
   public List<Tag> getTags() {
-    return tags;
+    return this.tags;
   }
 
   public List<IssueType> getIssueTypes() {
-    return issueTypes;
+    return this.issueTypes;
+  }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((this.authors == null) ? 0 : this.authors.hashCode());
+    result = prime * result + ((this.commits == null) ? 0 : this.commits.hashCode());
+    result = prime * result + ((this.issueTypes == null) ? 0 : this.issueTypes.hashCode());
+    result = prime * result + ((this.issues == null) ? 0 : this.issues.hashCode());
+    result = prime * result + ((this.ownerName == null) ? 0 : this.ownerName.hashCode());
+    result = prime * result + ((this.repoName == null) ? 0 : this.repoName.hashCode());
+    result = prime * result + ((this.tags == null) ? 0 : this.tags.hashCode());
+    return result;
+  }
+
+  @Override
+  public boolean equals(final Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (obj == null) {
+      return false;
+    }
+    if (this.getClass() != obj.getClass()) {
+      return false;
+    }
+    final Changelog other = (Changelog) obj;
+    if (this.authors == null) {
+      if (other.authors != null) {
+        return false;
+      }
+    } else if (!this.authors.equals(other.authors)) {
+      return false;
+    }
+    if (this.commits == null) {
+      if (other.commits != null) {
+        return false;
+      }
+    } else if (!this.commits.equals(other.commits)) {
+      return false;
+    }
+    if (this.issueTypes == null) {
+      if (other.issueTypes != null) {
+        return false;
+      }
+    } else if (!this.issueTypes.equals(other.issueTypes)) {
+      return false;
+    }
+    if (this.issues == null) {
+      if (other.issues != null) {
+        return false;
+      }
+    } else if (!this.issues.equals(other.issues)) {
+      return false;
+    }
+    if (this.ownerName == null) {
+      if (other.ownerName != null) {
+        return false;
+      }
+    } else if (!this.ownerName.equals(other.ownerName)) {
+      return false;
+    }
+    if (this.repoName == null) {
+      if (other.repoName != null) {
+        return false;
+      }
+    } else if (!this.repoName.equals(other.repoName)) {
+      return false;
+    }
+    if (this.tags == null) {
+      if (other.tags != null) {
+        return false;
+      }
+    } else if (!this.tags.equals(other.tags)) {
+      return false;
+    }
+    return true;
   }
 }

@@ -1,12 +1,11 @@
 package se.bjurr.gitchangelog.internal.git.model;
 
-import static com.google.common.base.Optional.fromNullable;
-import static com.google.common.base.Preconditions.checkArgument;
-import static com.google.common.base.Preconditions.checkNotNull;
+import static se.bjurr.gitchangelog.internal.util.Preconditions.checkArgument;
+import static se.bjurr.gitchangelog.internal.util.Preconditions.checkNotNull;
 
-import com.google.common.base.Optional;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import se.bjurr.gitchangelog.internal.model.interfaces.IGitCommitReferer;
 
 public class GitTag implements IGitCommitReferer {
@@ -16,7 +15,11 @@ public class GitTag implements IGitCommitReferer {
   private final String name;
   private final Date tagTime;
 
-  public GitTag(String name, String annotation, List<GitCommit> gitCommits, Date tagTime) {
+  public GitTag(
+      final String name,
+      final String annotation,
+      final List<GitCommit> gitCommits,
+      final Date tagTime) {
     checkArgument(!gitCommits.isEmpty(), "No commits in " + name);
     this.name = checkNotNull(name, "name");
     this.annotation = annotation;
@@ -25,7 +28,7 @@ public class GitTag implements IGitCommitReferer {
   }
 
   public Optional<String> findAnnotation() {
-    return fromNullable(this.annotation);
+    return Optional.ofNullable(this.annotation);
   }
 
   @Override
@@ -48,6 +51,6 @@ public class GitTag implements IGitCommitReferer {
 
   @Override
   public String toString() {
-    return "Tag: " + this.name + " Annotation: " + this.annotation + ", " + getGitCommit();
+    return "Tag: " + this.name + " Annotation: " + this.annotation + ", " + this.getGitCommit();
   }
 }

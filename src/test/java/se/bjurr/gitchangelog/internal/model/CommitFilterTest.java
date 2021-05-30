@@ -1,16 +1,14 @@
 package se.bjurr.gitchangelog.internal.model;
 
-import static com.google.common.collect.Lists.newArrayList;
-import static com.google.common.io.Resources.getResource;
 import static org.assertj.core.api.Assertions.assertThat;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 
-import com.google.common.base.Optional;
-import com.google.common.io.Resources;
-import java.io.File;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -39,34 +37,41 @@ public class CommitFilterTest {
 
   @Before
   public void before() throws Exception {
-    gitRepo = new GitRepo(new File(Resources.getResource("github-issues.json").getFile()));
-    commits =
-        newArrayList(
-            gitRepo
-                .getGitRepoData(
-                    gitRepo.getCommit(ZERO_COMMIT),
-                    gitRepo.getCommit(LATEST_COMMIT_HASH),
-                    null,
-                    Optional.of(""))
-                .getGitCommits());
-    settings =
-        Settings.fromFile(getResource("settings/git-changelog-test-settings.json").toURI().toURL());
-    date2017 = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss").parse("2017-01-01 00:00:00");
+    this.gitRepo =
+        new GitRepo(
+            Paths.get(CommitFilterTest.class.getResource("/github-issues.json").toURI()).toFile());
+    this.commits =
+        this.gitRepo
+            .getGitRepoData(
+                this.gitRepo.getCommit(ZERO_COMMIT),
+                this.gitRepo.getCommit(LATEST_COMMIT_HASH),
+                null,
+                Optional.of(""))
+            .getGitCommits();
+    this.settings =
+        Settings.fromFile(
+            CommitFilterTest.class
+                .getResource("/settings/git-changelog-test-settings.json")
+                .toURI()
+                .toURL());
+    this.date2017 = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss").parse("2017-01-01 00:00:00");
   }
 
   @Test
   public void testThatFilterWithIgnoreCommitsWithMessageWorks() throws Exception {
-    settings.setIgnoreCommitsIfMessageMatches(TEST_COMMIT_MESSAGE_PATTERN);
-    List<String> transformedCommits = hashes(new Transformer(settings).toCommits(commits));
+    this.settings.setIgnoreCommitsIfMessageMatches(TEST_COMMIT_MESSAGE_PATTERN);
+    final List<String> transformedCommits =
+        this.hashes(new Transformer(this.settings).toCommits(this.commits));
     assertThat(transformedCommits).contains(NONMATCHING_COMMIT_HASH);
     assertThat(transformedCommits).doesNotContain(MATCHING_COMMIT_1_HASH, MATCHING_COMMIT_2_HASH);
   }
 
   @Test
   public void testThatFilterWithIgnoreCommitsOlderThanWorks() throws Exception {
-    settings.setIgnoreCommitsIfMessageMatches("");
-    settings.setIgnoreCommitsIfOlderThan(date2017);
-    List<String> transformedCommits = hashes(new Transformer(settings).toCommits(commits));
+    this.settings.setIgnoreCommitsIfMessageMatches("");
+    this.settings.setIgnoreCommitsIfOlderThan(this.date2017);
+    final List<String> transformedCommits =
+        this.hashes(new Transformer(this.settings).toCommits(this.commits));
     assertThat(transformedCommits).doesNotContain(LATEST_2016_COMMIT_HASH);
     assertThat(transformedCommits)
         .contains(FIRST_2017_COMMIT_HASH, A_2017_COMMIT_HASH_MATCHING_MESSAGE_PATTERN);
@@ -74,9 +79,10 @@ public class CommitFilterTest {
 
   @Test
   public void testThatFilterWithIgnoreCommitsWithMessageAndOlderThanWorks() throws Exception {
-    settings.setIgnoreCommitsIfOlderThan(date2017);
-    settings.setIgnoreCommitsIfMessageMatches(TEST_COMMIT_MESSAGE_PATTERN);
-    List<String> transformedCommits = hashes(new Transformer(settings).toCommits(commits));
+    this.settings.setIgnoreCommitsIfOlderThan(this.date2017);
+    this.settings.setIgnoreCommitsIfMessageMatches(TEST_COMMIT_MESSAGE_PATTERN);
+    final List<String> transformedCommits =
+        this.hashes(new Transformer(this.settings).toCommits(this.commits));
     assertThat(transformedCommits).contains(FIRST_2017_COMMIT_HASH);
     assertThat(transformedCommits)
         .doesNotContain(LATEST_2016_COMMIT_HASH, A_2017_COMMIT_HASH_MATCHING_MESSAGE_PATTERN);
@@ -84,12 +90,12 @@ public class CommitFilterTest {
 
   @After
   public void after() throws Exception {
-    gitRepo.close();
+    this.gitRepo.close();
   }
 
-  private List<String> hashes(List<Commit> commits) {
-    List<String> hashes = newArrayList();
-    for (Commit c : commits) {
+  private List<String> hashes(final List<Commit> commits) {
+    final List<String> hashes = new ArrayList<>();
+    for (final Commit c : commits) {
       hashes.add(c.getHashFull());
     }
     return hashes;

@@ -1,8 +1,8 @@
 package se.bjurr.gitchangelog.internal.model;
 
-import static com.google.common.collect.Lists.newArrayList;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.Arrays;
 import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,26 +19,26 @@ public class TransformerTest {
 
   @Before
   public void before() {
-    noIssues = newArrayList();
-    SettingsIssue issue1 =
+    this.noIssues = Arrays.asList();
+    final SettingsIssue issue1 =
         new SettingsIssue("Issue Name", "INC[0-9]*", "http://inc/${PATTERN_GROUP}", null);
-    oneIssue = newArrayList(issue1);
-    transformer = new Transformer(new Settings());
+    this.oneIssue = Arrays.asList(issue1);
+    this.transformer = new Transformer(new Settings());
   }
 
   @Test
   public void testThatMessageCanBeTransformedWithIssues() {
-    assertThat(transformer.toMessage(false, oneIssue, message)) //
-        .isEqualTo(message);
-    assertThat(transformer.toMessage(false, noIssues, message)) //
-        .isEqualTo(message);
+    assertThat(this.transformer.toMessage(false, this.oneIssue, this.message)) //
+        .isEqualTo(this.message);
+    assertThat(this.transformer.toMessage(false, this.noIssues, this.message)) //
+        .isEqualTo(this.message);
   }
 
   @Test
   public void testThatMessageCanBeTransformedWithoutIssues() {
-    assertThat(transformer.toMessage(true, oneIssue, message)) //
+    assertThat(this.transformer.toMessage(true, this.oneIssue, this.message)) //
         .isEqualTo(" message title\n\n *  The first item\n * The second item");
-    assertThat(transformer.toMessage(true, noIssues, message)) //
-        .isEqualTo(message);
+    assertThat(this.transformer.toMessage(true, this.noIssues, this.message)) //
+        .isEqualTo(this.message);
   }
 }

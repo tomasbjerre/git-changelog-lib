@@ -17,7 +17,6 @@ dependencies {
  compile 'com.squareup.retrofit2:converter-gson:2.0.0'
  compile 'com.squareup.okhttp:okhttp:2.7.5'
  compile 'com.jayway.jsonpath:json-path:2.1.0'
- compile 'com.google.guava:guava:16.0.1'
  compile 'org.eclipse.jgit:org.eclipse.jgit:5.10.0.202012080955-r'
  compile 'com.github.jknack:handlebars:4.2.0'
  compile 'org.gitlab:java-gitlab-api:4.1.0'

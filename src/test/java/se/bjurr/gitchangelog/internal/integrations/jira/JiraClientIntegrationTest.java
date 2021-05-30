@@ -2,8 +2,6 @@ package se.bjurr.gitchangelog.internal.integrations.jira;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.google.common.base.Optional;
-
 public class JiraClientIntegrationTest {
 
   private static final String EXISTING_JIRA = "X";
@@ -13,10 +11,10 @@ public class JiraClientIntegrationTest {
 
   // @Test
   public void testThatIssueCanBeFound() throws Exception {
-    JiraClient client =
+    final JiraClient client =
         new DefaultJiraClient(JIRA_API_URL) //
             .withBasicCredentials(USER, PASSWORD);
-    Optional<JiraIssue> issue = client.getIssue(EXISTING_JIRA);
+    final java.util.Optional<JiraIssue> issue = client.getIssue(EXISTING_JIRA);
     assertThat(issue.get().getTitle()) //
         .isEqualTo("Stoppa funktion ta beslut i 5.0");
   }

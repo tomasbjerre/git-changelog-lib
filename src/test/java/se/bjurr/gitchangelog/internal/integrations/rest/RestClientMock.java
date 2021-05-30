@@ -1,50 +1,46 @@
 package se.bjurr.gitchangelog.internal.integrations.rest;
 
-import static com.google.common.base.Joiner.on;
-import static com.google.common.collect.Lists.newArrayList;
-import static com.google.common.collect.Maps.newHashMap;
-import static java.util.concurrent.TimeUnit.MINUTES;
-
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 public class RestClientMock extends RestClient {
-  private final Map<String, String> mockedResponses = newHashMap();
+  private final Map<String, String> mockedResponses = new TreeMap<>();
 
-  public RestClientMock() {
-    super(0, MINUTES);
-  }
+  public RestClientMock() {}
 
-  public RestClientMock addMockedResponse(String url, String response) {
-    mockedResponses.put(url, response);
+  public RestClientMock addMockedResponse(final String url, final String response) {
+    this.mockedResponses.put(url, response);
     return this;
   }
 
   @Override
-  public String getResponse(HttpURLConnection conn) throws Exception {
-    String key = conn.getURL().getPath() + "?" + conn.getURL().getQuery();
-    if (mockedResponses.containsKey(key)) {
-      return mockedResponses.get(key);
+  public String getResponse(final HttpURLConnection conn) throws Exception {
+    final String key = conn.getURL().getPath() + "?" + conn.getURL().getQuery();
+    if (this.mockedResponses.containsKey(key)) {
+      return this.mockedResponses.get(key);
     } else {
       throw new RuntimeException(
           "Could not find mock for \""
               + key
               + "\" available mocks are:\n"
-              + on("\n").join(mockedResponses.keySet()));
+              + this.mockedResponses.keySet().stream().collect(Collectors.joining("\n")));
     }
   }
 
   @Override
-  public HttpURLConnection openConnection(URL addr) throws Exception {
+  public HttpURLConnection openConnection(final URL addr) throws Exception {
     return new HttpURLConnection(addr) {
       @Override
       public Map<String, List<String>> getHeaderFields() {
-        Map<String, List<String>> map = newHashMap();
-        map.put("Set-Cookie", newArrayList("thesetcookie"));
+        final Map<String, List<String>> map = new TreeMap<>();
+        map.put("Set-Cookie", Arrays.asList("thesetcookie"));
         return map;
       }
 
@@ -63,7 +59,7 @@ public class RestClientMock extends RestClient {
       public OutputStream getOutputStream() throws IOException {
         return new OutputStream() {
           @Override
-          public void write(int b) throws IOException {}
+          public void write(final int b) throws IOException {}
         };
       }
     };

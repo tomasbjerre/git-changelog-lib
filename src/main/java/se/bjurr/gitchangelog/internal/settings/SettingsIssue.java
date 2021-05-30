@@ -1,11 +1,11 @@
 package se.bjurr.gitchangelog.internal.settings;
 
-import static com.google.common.base.Optional.fromNullable;
-import static com.google.common.base.Preconditions.checkNotNull;
+import static java.util.Optional.ofNullable;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.CUSTOM;
+import static se.bjurr.gitchangelog.internal.util.Preconditions.checkNotNull;
 
-import com.google.common.base.Optional;
 import java.io.Serializable;
+import java.util.Optional;
 import se.bjurr.gitchangelog.api.model.Issue;
 
 public class SettingsIssue implements Serializable {
@@ -31,7 +31,8 @@ public class SettingsIssue implements Serializable {
    */
   private final String link;
 
-  public SettingsIssue(String name, String pattern, String link, String title) {
+  public SettingsIssue(
+      final String name, final String pattern, final String link, final String title) {
     this.type = CUSTOM;
     this.name = checkNotNull(name, "name");
     this.pattern = checkNotNull(pattern, "pattern");
@@ -40,7 +41,11 @@ public class SettingsIssue implements Serializable {
   }
 
   public SettingsIssue(
-      SettingsIssueType type, String name, String pattern, String link, String title) {
+      final SettingsIssueType type,
+      final String name,
+      final String pattern,
+      final String link,
+      final String title) {
     this.type = checkNotNull(type, "type");
     this.name = checkNotNull(name, "name");
     this.pattern = checkNotNull(pattern, "pattern");
@@ -49,22 +54,22 @@ public class SettingsIssue implements Serializable {
   }
 
   public SettingsIssueType getType() {
-    return type;
+    return this.type;
   }
 
   public Optional<String> getLink() {
-    return fromNullable(link);
+    return ofNullable(this.link);
   }
 
   public Optional<String> getTitle() {
-    return fromNullable(title);
+    return ofNullable(this.title);
   }
 
   public String getName() {
-    return name;
+    return this.name;
   }
 
   public String getPattern() {
-    return pattern;
+    return this.pattern;
   }
 }

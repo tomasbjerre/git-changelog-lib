@@ -2,9 +2,9 @@ package se.bjurr.gitchangelog.internal.git;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.google.common.collect.Sets;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.TreeSet;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.junit.Test;
 
@@ -14,31 +14,32 @@ public class TraversalWorkTest {
 
     private final int commitTime;
 
-    public TraversalWorkMock(RevCommit to, String currentTagName, int commitTime) {
+    public TraversalWorkMock(
+        final RevCommit to, final String currentTagName, final int commitTime) {
       super(to, currentTagName);
       this.commitTime = commitTime;
     }
 
     private int getCommitTime() {
-      return commitTime;
+      return this.commitTime;
     }
 
     @Override
-    public int compareTo(TraversalWork o) {
-      return compareTo(this.getCommitTime(), ((TraversalWorkMock) o).getCommitTime());
+    public int compareTo(final TraversalWork o) {
+      return this.compareTo(this.getCommitTime(), ((TraversalWorkMock) o).getCommitTime());
     }
   }
 
   @Test
   public void testThatOldestCommitsAreTraversedFirst() {
-    Set<TraversalWorkMock> sorted = Sets.newTreeSet();
-    sorted.add(newMock(0));
-    sorted.add(newMock(2));
-    sorted.add(newMock(4));
-    sorted.add(newMock(3));
-    sorted.add(newMock(1));
+    final Set<TraversalWorkMock> sorted = new TreeSet<>();
+    sorted.add(this.newMock(0));
+    sorted.add(this.newMock(2));
+    sorted.add(this.newMock(4));
+    sorted.add(this.newMock(3));
+    sorted.add(this.newMock(1));
 
-    Iterator<TraversalWorkMock> itr = sorted.iterator();
+    final Iterator<TraversalWorkMock> itr = sorted.iterator();
 
     assertThat(itr.next().getCommitTime()) //
         .isEqualTo(0);
@@ -52,7 +53,7 @@ public class TraversalWorkTest {
         .isEqualTo(4);
   }
 
-  private TraversalWorkMock newMock(int commitTime) {
+  private TraversalWorkMock newMock(final int commitTime) {
     return new TraversalWorkMock(null, null, commitTime);
   }
 }

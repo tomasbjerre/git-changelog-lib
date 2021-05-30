@@ -1,14 +1,14 @@
 package se.bjurr.gitchangelog.api.model;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-import static com.google.common.base.Preconditions.checkState;
-import static com.google.common.base.Strings.isNullOrEmpty;
-import static com.google.common.base.Strings.nullToEmpty;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.CUSTOM;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITHUB;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITLAB;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.JIRA;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.NOISSUE;
+import static se.bjurr.gitchangelog.internal.util.Preconditions.checkNotNull;
+import static se.bjurr.gitchangelog.internal.util.Preconditions.checkState;
+import static se.bjurr.gitchangelog.internal.util.Preconditions.isNullOrEmpty;
+import static se.bjurr.gitchangelog.internal.util.Preconditions.nullToEmpty;
 
 import java.io.Serializable;
 import java.util.List;
@@ -55,17 +55,17 @@ public class Issue implements ICommits, IAuthors, Serializable {
   private final List<String> linkedIssues;
 
   public Issue(
-      List<Commit> commits,
-      List<Author> authors,
-      String name,
-      String title,
-      String issue,
-      SettingsIssueType issueType,
-      String description,
-      String link,
-      String type,
-      List<String> linkedIssues,
-      List<String> labels) {
+      final List<Commit> commits,
+      final List<Author> authors,
+      final String name,
+      final String title,
+      final String issue,
+      final SettingsIssueType issueType,
+      final String description,
+      final String link,
+      final String type,
+      final List<String> linkedIssues,
+      final List<String> labels) {
     checkState(!commits.isEmpty(), "commits");
     this.commits = commits;
     this.authors = checkNotNull(authors, "authors");
@@ -88,101 +88,235 @@ public class Issue implements ICommits, IAuthors, Serializable {
   }
 
   public SettingsIssueType getIssueType() {
-    return issueType;
+    return this.issueType;
   }
 
   public boolean isJira() {
-    return issueType == JIRA;
+    return this.issueType == JIRA;
   }
 
   public boolean isGitHub() {
-    return issueType == GITHUB;
+    return this.issueType == GITHUB;
   }
 
   public boolean isGitLab() {
-    return issueType == GITLAB;
+    return this.issueType == GITLAB;
   }
 
   public boolean isCustom() {
-    return issueType == CUSTOM;
+    return this.issueType == CUSTOM;
   }
 
   public boolean isNoIssue() {
-    return issueType == NOISSUE;
+    return this.issueType == NOISSUE;
   }
 
   public String getTitle() {
-    return title;
+    return this.title;
   }
 
   public boolean getHasTitle() {
-    return hasTitle;
+    return this.hasTitle;
   }
 
   public boolean getHasIssue() {
-    return hasIssue;
+    return this.hasIssue;
   }
 
   public boolean getHasLabels() {
-    return hasLabels;
+    return this.hasLabels;
   }
 
   public boolean getHasType() {
-    return hasType;
+    return this.hasType;
   }
 
   public boolean getHasLink() {
-    return hasLink;
+    return this.hasLink;
   }
 
   public String getIssue() {
-    return issue;
+    return this.issue;
   }
 
   public String getLink() {
-    return link;
+    return this.link;
   }
 
   public String getName() {
-    return name;
+    return this.name;
   }
 
   public String getType() {
-    return type;
+    return this.type;
   }
 
   public boolean getHasDescription() {
-    return hasDescription;
+    return this.hasDescription;
   }
 
   public String getDescription() {
-    return description;
+    return this.description;
   }
 
   @Override
   public List<Author> getAuthors() {
-    return authors;
+    return this.authors;
   }
 
   @Override
   public List<Commit> getCommits() {
-    return commits;
+    return this.commits;
   }
 
   public List<String> getLabels() {
-    return labels;
+    return this.labels;
   }
 
   public List<String> getLinkedIssues() {
-    return linkedIssues;
+    return this.linkedIssues;
   }
 
   public boolean getHasLinkedIssues() {
-    return hasLinkedIssues;
+    return this.hasLinkedIssues;
   }
 
   @Override
   public String toString() {
-    return "Issue: " + issue + " Title: " + title;
+    return "Issue: " + this.issue + " Title: " + this.title;
+  }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((this.authors == null) ? 0 : this.authors.hashCode());
+    result = prime * result + ((this.commits == null) ? 0 : this.commits.hashCode());
+    result = prime * result + ((this.description == null) ? 0 : this.description.hashCode());
+    result = prime * result + (this.hasDescription ? 1231 : 1237);
+    result = prime * result + (this.hasIssue ? 1231 : 1237);
+    result = prime * result + (this.hasLabels ? 1231 : 1237);
+    result = prime * result + (this.hasLink ? 1231 : 1237);
+    result = prime * result + (this.hasLinkedIssues ? 1231 : 1237);
+    result = prime * result + (this.hasTitle ? 1231 : 1237);
+    result = prime * result + (this.hasType ? 1231 : 1237);
+    result = prime * result + ((this.issue == null) ? 0 : this.issue.hashCode());
+    result = prime * result + ((this.issueType == null) ? 0 : this.issueType.hashCode());
+    result = prime * result + ((this.labels == null) ? 0 : this.labels.hashCode());
+    result = prime * result + ((this.link == null) ? 0 : this.link.hashCode());
+    result = prime * result + ((this.linkedIssues == null) ? 0 : this.linkedIssues.hashCode());
+    result = prime * result + ((this.name == null) ? 0 : this.name.hashCode());
+    result = prime * result + ((this.title == null) ? 0 : this.title.hashCode());
+    result = prime * result + ((this.type == null) ? 0 : this.type.hashCode());
+    return result;
+  }
+
+  @Override
+  public boolean equals(final Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (obj == null) {
+      return false;
+    }
+    if (this.getClass() != obj.getClass()) {
+      return false;
+    }
+    final Issue other = (Issue) obj;
+    if (this.authors == null) {
+      if (other.authors != null) {
+        return false;
+      }
+    } else if (!this.authors.equals(other.authors)) {
+      return false;
+    }
+    if (this.commits == null) {
+      if (other.commits != null) {
+        return false;
+      }
+    } else if (!this.commits.equals(other.commits)) {
+      return false;
+    }
+    if (this.description == null) {
+      if (other.description != null) {
+        return false;
+      }
+    } else if (!this.description.equals(other.description)) {
+      return false;
+    }
+    if (this.hasDescription != other.hasDescription) {
+      return false;
+    }
+    if (this.hasIssue != other.hasIssue) {
+      return false;
+    }
+    if (this.hasLabels != other.hasLabels) {
+      return false;
+    }
+    if (this.hasLink != other.hasLink) {
+      return false;
+    }
+    if (this.hasLinkedIssues != other.hasLinkedIssues) {
+      return false;
+    }
+    if (this.hasTitle != other.hasTitle) {
+      return false;
+    }
+    if (this.hasType != other.hasType) {
+      return false;
+    }
+    if (this.issue == null) {
+      if (other.issue != null) {
+        return false;
+      }
+    } else if (!this.issue.equals(other.issue)) {
+      return false;
+    }
+    if (this.issueType != other.issueType) {
+      return false;
+    }
+    if (this.labels == null) {
+      if (other.labels != null) {
+        return false;
+      }
+    } else if (!this.labels.equals(other.labels)) {
+      return false;
+    }
+    if (this.link == null) {
+      if (other.link != null) {
+        return false;
+      }
+    } else if (!this.link.equals(other.link)) {
+      return false;
+    }
+    if (this.linkedIssues == null) {
+      if (other.linkedIssues != null) {
+        return false;
+      }
+    } else if (!this.linkedIssues.equals(other.linkedIssues)) {
+      return false;
+    }
+    if (this.name == null) {
+      if (other.name != null) {
+        return false;
+      }
+    } else if (!this.name.equals(other.name)) {
+      return false;
+    }
+    if (this.title == null) {
+      if (other.title != null) {
+        return false;
+      }
+    } else if (!this.title.equals(other.title)) {
+      return false;
+    }
+    if (this.type == null) {
+      if (other.type != null) {
+        return false;
+      }
+    } else if (!this.type.equals(other.type)) {
+      return false;
+    }
+    return true;
   }
 }

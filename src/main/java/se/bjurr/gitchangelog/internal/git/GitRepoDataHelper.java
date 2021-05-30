@@ -1,43 +1,45 @@
 package se.bjurr.gitchangelog.internal.git;
 
-import static com.google.common.base.Predicates.in;
-import static com.google.common.collect.Iterables.filter;
-import static com.google.common.collect.Iterables.isEmpty;
-import static com.google.common.collect.Lists.newArrayList;
-import static com.google.common.collect.Sets.newTreeSet;
-
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 import se.bjurr.gitchangelog.internal.model.ParsedIssue;
 
 public class GitRepoDataHelper {
   public static GitRepoData removeCommitsWithoutIssue(
-      List<ParsedIssue> allParsedIssues, GitRepoData gitRepoData) {
-    Set<GitCommit> commitsWithIssues = newTreeSet();
-    for (ParsedIssue parsedIssue : allParsedIssues) {
-      for (GitCommit gitCommit : parsedIssue.getGitCommits()) {
+      final List<ParsedIssue> allParsedIssues, final GitRepoData gitRepoData) {
+    final Set<GitCommit> commitsWithIssues = new TreeSet<>();
+    for (final ParsedIssue parsedIssue : allParsedIssues) {
+      for (final GitCommit gitCommit : parsedIssue.getGitCommits()) {
         commitsWithIssues.add(gitCommit);
       }
     }
-    List<GitCommit> reducedGitCommits = newArrayList(commitsWithIssues);
+    final List<GitCommit> reducedGitCommits = new ArrayList<>(commitsWithIssues);
 
-    List<GitTag> reducedGitTags = newArrayList();
-    for (GitTag gitTag : gitRepoData.getGitTags()) {
-      Iterable<GitCommit> reducedCommitsInTag =
-          filter(gitTag.getGitCommits(), in(reducedGitCommits));
-      if (!isEmpty(reducedCommitsInTag)) {
-        reducedGitTags.add(
+    final List<GitTag> reducedGitTags = new ArrayList<>();
+    for (final GitTag gitTag : gitRepoData.getGitTags()) {
+      final List<GitCommit> reducedCommitsInTag =
+          gitTag
+              .getGitCommits()
+              .stream()
+              .filter(it -> reducedGitCommits.contains(it))
+              .collect(Collectors.toList());
+      if (reducedCommitsInTag.iterator().hasNext()) {
+        final GitTag item =
             new GitTag(
                 gitTag.getName(),
-                gitTag.findAnnotation().orNull(),
-                newArrayList(reducedCommitsInTag),
-                gitTag.getTagTime()));
+                gitTag.findAnnotation().orElse(null),
+                reducedCommitsInTag,
+                gitTag.getTagTime());
+        reducedGitTags.add(item);
       }
     }
 
-    String originCloneUrl = gitRepoData.getOriginCloneUrl();
+    final String originCloneUrl = gitRepoData.getOriginCloneUrl();
     return new GitRepoData(originCloneUrl, reducedGitTags);
   }
 

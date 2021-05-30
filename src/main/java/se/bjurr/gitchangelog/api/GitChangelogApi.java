@@ -1,10 +1,8 @@
 package se.bjurr.gitchangelog.api;
 
-import static com.google.common.base.Optional.absent;
-import static com.google.common.base.Optional.of;
-import static com.google.common.io.Files.createParentDirs;
-import static com.google.common.io.Files.write;
 import static java.nio.charset.StandardCharsets.UTF_8;
+import static java.util.Optional.empty;
+import static java.util.Optional.of;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.REF_MASTER;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 import static se.bjurr.gitchangelog.internal.git.GitRepoDataHelper.removeCommitsWithoutIssue;
@@ -14,14 +12,12 @@ import com.github.jknack.handlebars.Context;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Helper;
 import com.github.jknack.handlebars.Template;
-import com.google.common.annotations.VisibleForTesting;
-import com.google.common.base.Optional;
-import com.google.common.io.Resources;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -32,6 +28,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import org.eclipse.jgit.lib.ObjectId;
@@ -130,7 +127,7 @@ public class GitChangelogApi {
     if (this.templateContent != null) {
       return this.templateContent;
     }
-    String templateString;
+    String templateString = null;
     try {
       byte[] templateBytes = null;
       final Path templatePath = Paths.get(this.settings.getTemplatePath());
@@ -145,16 +142,15 @@ public class GitChangelogApi {
                 "Was unable to find file, or resouce, \"" + this.settings.getTemplatePath() + "\"");
           }
         }
-        templateBytes = Resources.toByteArray(templateUrl);
+        templateBytes = Files.readAllBytes(Paths.get(templateUrl.toURI()));
+        templateString = new String(templateBytes, StandardCharsets.UTF_8);
       }
-      templateString = new String(templateBytes, StandardCharsets.UTF_8);
-    } catch (final IOException e) {
+    } catch (final IOException | URISyntaxException e) {
       throw new RuntimeException(this.settings.getTemplatePath(), e);
     }
     return templateString;
   }
 
-  @VisibleForTesting
   static boolean shouldUseIntegrationIfConfigured(final String templateContent) {
     return templateContent.contains("{{type}}") //
         || templateContent.contains("{{link}}") //
@@ -176,8 +172,8 @@ public class GitChangelogApi {
    * @throws IOException When file cannot be written.
    */
   public void toFile(final File file) throws GitChangelogRepositoryException, IOException {
-    createParentDirs(file);
-    write(this.render().getBytes(UTF_8), file);
+    file.mkdirs();
+    Files.write(file.toPath(), this.render().getBytes(UTF_8));
   }
 
   /** Prepend the changelog to the given file. */
@@ -188,7 +184,7 @@ public class GitChangelogApi {
     }
     final String prepend = this.render();
     final String changelogContent = new String(Files.readAllBytes(file.toPath()));
-    write((prepend + "\n" + changelogContent).getBytes(UTF_8), file);
+    Files.write(file.toPath(), (prepend + "\n" + changelogContent).getBytes(UTF_8));
   }
 
   /**
@@ -199,8 +195,8 @@ public class GitChangelogApi {
     final Changelog changelog = this.getChangelog(false);
     final List<String> tags = this.getTagsAsStrings(changelog);
     final List<String> commits = this.getCommitMessages(changelog);
-    final String majorVersionPattern = this.settings.getSemanticMajorPattern().orNull();
-    final String minorVersionPattern = this.settings.getSemanticMinorPattern().orNull();
+    final String majorVersionPattern = this.settings.getSemanticMajorPattern().orElse(null);
+    final String minorVersionPattern = this.settings.getSemanticMinorPattern().orElse(null);
     final SemanticVersioning semanticVersioning =
         new SemanticVersioning(tags, commits, majorVersionPattern, minorVersionPattern);
     return semanticVersioning.getNextVersion();
@@ -566,7 +562,7 @@ public class GitChangelogApi {
     gitRepo.setTreeFilter(this.settings.getSubDirFilter());
     final ObjectId fromId =
         this.getId(gitRepo, this.settings.getFromRef(), this.settings.getFromCommit()) //
-            .or(gitRepo.getCommit(ZERO_COMMIT));
+            .orElse(gitRepo.getCommit(ZERO_COMMIT));
     final Optional<ObjectId> toIdOpt =
         this.getId(gitRepo, this.settings.getToRef(), this.settings.getToCommit());
     ObjectId toId;
@@ -583,11 +579,11 @@ public class GitChangelogApi {
             this.settings.getIgnoreTagsIfNameMatches());
 
     if (!this.settings.getGitHubApi().isPresent()) {
-      this.settings.setGitHubApi(gitRepoData.findGitHubApi().orNull());
+      this.settings.setGitHubApi(gitRepoData.findGitHubApi().orElse(null));
     }
     if (!this.settings.getGitLabServer().isPresent()) {
-      this.settings.setGitLabServer(gitRepoData.findGitLabServer().orNull());
-      this.settings.setGitLabProjectName(gitRepoData.findOwnerName().orNull());
+      this.settings.setGitLabServer(gitRepoData.findGitLabServer().orElse(null));
+      this.settings.setGitLabProjectName(gitRepoData.findOwnerName().orElse(null));
     }
 
     List<GitCommit> diff = gitRepoData.getGitCommits();
@@ -605,8 +601,8 @@ public class GitChangelogApi {
         transformer.toAuthors(diff), //
         transformer.toIssues(issues), //
         transformer.toIssueTypes(issues), //
-        gitRepoData.findOwnerName().orNull(), //
-        gitRepoData.findRepoName().orNull());
+        gitRepoData.findOwnerName().orElse(null), //
+        gitRepoData.findRepoName().orElse(null));
   }
 
   private Optional<ObjectId> getId(
@@ -618,6 +614,6 @@ public class GitChangelogApi {
     if (commit.isPresent()) {
       return of(gitRepo.getCommit(commit.get()));
     }
-    return absent();
+    return empty();
   }
 }

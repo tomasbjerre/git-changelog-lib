@@ -1,12 +1,12 @@
 package se.bjurr.gitchangelog.api;
 
-import static com.google.common.base.Charsets.UTF_8;
-import static com.google.common.io.Resources.getResource;
+import static java.nio.charset.StandardCharsets.UTF_8;
 import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 import static se.bjurr.gitchangelog.internal.integrations.rest.RestClient.mock;
 
-import com.google.common.io.Resources;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,23 +27,37 @@ public class TemplatesTest {
     mockedRestClient //
         .addMockedResponse(
             "/repos/tomasbjerre/git-changelog-lib/issues?state=all",
-            Resources.toString(getResource("github-issues.json"), UTF_8)) //
+            new String(
+                Files.readAllBytes(
+                    Paths.get(TemplatesTest.class.getResource("/github-issues.json").toURI())),
+                UTF_8)) //
         .addMockedResponse(
             "/jira/rest/api/2/issue/JIR-1234?fields=parent,summary,issuetype,labels,description,issuelinks",
-            Resources.toString(getResource("jira-issue-jir-1234.json"), UTF_8)) //
+            new String(
+                Files.readAllBytes(
+                    Paths.get(
+                        TemplatesTest.class.getResource("/jira-issue-jir-1234.json").toURI())),
+                UTF_8)) //
         .addMockedResponse(
             "/jira/rest/api/2/issue/JIR-5262?fields=parent,summary,issuetype,labels,description,issuelinks",
-            Resources.toString(getResource("jira-issue-jir-5262.json"), UTF_8));
+            new String(
+                Files.readAllBytes(
+                    Paths.get(
+                        TemplatesTest.class.getResource("/jira-issue-jir-5262.json").toURI())),
+                UTF_8));
     mock(mockedRestClient);
 
     final GitHubMockInterceptor gitHubMockInterceptor = new GitHubMockInterceptor();
     gitHubMockInterceptor.addMockedResponse(
         "https://api.github.com/repos/tomasbjerre/git-changelog-lib/issues?state=all&per_page=100&page=1",
-        Resources.toString(getResource("github-issues.json"), UTF_8));
+        new String(
+            Files.readAllBytes(
+                Paths.get(TemplatesTest.class.getResource("/github-issues.json").toURI())),
+            UTF_8));
 
     GitHubServiceFactory.setInterceptor(gitHubMockInterceptor);
 
-    baseBuilder =
+    this.baseBuilder =
         gitChangelogApiBuilder() //
             .withFromRepo(".") //
             .withFromCommit(ZERO_COMMIT) //
@@ -79,101 +93,105 @@ public class TemplatesTest {
 
   @Test
   public void testAuthorsCommits() throws Exception {
-    GitChangelogApi given =
-        baseBuilder.withTemplatePath("templatetest/" + "testAuthorsCommits" + ".mustache");
+    final GitChangelogApi given =
+        this.baseBuilder.withTemplatePath("templatetest/" + "testAuthorsCommits" + ".mustache");
     ApprovalsWrapper.verify(given);
   }
 
   @Test
   public void testCommits() throws Exception {
-    GitChangelogApi given =
-        baseBuilder.withTemplatePath("templatetest/" + "testCommits" + ".mustache");
+    final GitChangelogApi given =
+        this.baseBuilder.withTemplatePath("templatetest/" + "testCommits" + ".mustache");
     ApprovalsWrapper.verify(given);
   }
 
   @Test
   public void testCommitsVariables() throws Exception {
-    GitChangelogApi given =
-        baseBuilder.withTemplatePath("templatetest/" + "testCommitsVariables" + ".mustache");
+    final GitChangelogApi given =
+        this.baseBuilder.withTemplatePath("templatetest/" + "testCommitsVariables" + ".mustache");
     ApprovalsWrapper.verify(given);
   }
 
   @Test
   public void testIssuesAuthorsCommits() throws Exception {
-    GitChangelogApi given =
-        baseBuilder.withTemplatePath("templatetest/" + "testIssuesAuthorsCommits" + ".mustache");
+    final GitChangelogApi given =
+        this.baseBuilder.withTemplatePath(
+            "templatetest/" + "testIssuesAuthorsCommits" + ".mustache");
     ApprovalsWrapper.verify(given);
   }
 
   @Test
   public void testIssuesCommits() throws Exception {
-    GitChangelogApi given =
-        baseBuilder.withTemplatePath("templatetest/" + "testIssuesCommits" + ".mustache");
+    final GitChangelogApi given =
+        this.baseBuilder.withTemplatePath("templatetest/" + "testIssuesCommits" + ".mustache");
     ApprovalsWrapper.verify(given);
   }
 
   @Test
   public void testIssueTitles() throws Exception {
-    GitChangelogApi given =
-        baseBuilder.withTemplatePath("templatetest/" + "testIssueTitles" + ".mustache");
+    final GitChangelogApi given =
+        this.baseBuilder.withTemplatePath("templatetest/" + "testIssueTitles" + ".mustache");
     ApprovalsWrapper.verify(given);
   }
 
   @Test
   public void testIssueType() throws Exception {
-    GitChangelogApi given =
-        baseBuilder.withTemplatePath("templatetest/" + "testIssueType" + ".mustache");
+    final GitChangelogApi given =
+        this.baseBuilder.withTemplatePath("templatetest/" + "testIssueType" + ".mustache");
     ApprovalsWrapper.verify(given);
   }
 
   @Test
   public void testIssueLabels() throws Exception {
-    GitChangelogApi given =
-        baseBuilder.withTemplatePath("templatetest/" + "testIssueLabels" + ".mustache");
+    final GitChangelogApi given =
+        this.baseBuilder.withTemplatePath("templatetest/" + "testIssueLabels" + ".mustache");
     ApprovalsWrapper.verify(given);
   }
 
   @Test
   public void testIssueLinkedIssues() throws Exception {
-    GitChangelogApi given =
-        baseBuilder.withTemplatePath("templatetest/" + "testIssueLinkedIssues" + ".mustache");
+    final GitChangelogApi given =
+        this.baseBuilder.withTemplatePath("templatetest/" + "testIssueLinkedIssues" + ".mustache");
     ApprovalsWrapper.verify(given);
   }
 
   @Test
   public void testIssueTypesIssuesCommits() throws Exception {
-    GitChangelogApi given =
-        baseBuilder.withTemplatePath("templatetest/" + "testIssueTypesIssuesCommits" + ".mustache");
+    final GitChangelogApi given =
+        this.baseBuilder.withTemplatePath(
+            "templatetest/" + "testIssueTypesIssuesCommits" + ".mustache");
     ApprovalsWrapper.verify(given);
   }
 
   @Test
   public void testTagsCommits() throws Exception {
-    GitChangelogApi given =
-        baseBuilder.withTemplatePath("templatetest/" + "testTagsCommits" + ".mustache");
+    final GitChangelogApi given =
+        this.baseBuilder.withTemplatePath("templatetest/" + "testTagsCommits" + ".mustache");
     ApprovalsWrapper.verify(given);
   }
 
   @Test
   public void testTagsIssuesAuthorsCommits() throws Exception {
-    GitChangelogApi given =
-        baseBuilder.withTemplatePath(
+    final GitChangelogApi given =
+        this.baseBuilder.withTemplatePath(
             "templatetest/" + "testTagsIssuesAuthorsCommits" + ".mustache");
     ApprovalsWrapper.verify(given);
   }
 
   @Test
   public void testTagsIssuesCommits() throws Exception {
-    GitChangelogApi given =
-        baseBuilder.withTemplatePath("templatetest/" + "testTagsIssuesCommits" + ".mustache");
+    final GitChangelogApi given =
+        this.baseBuilder.withTemplatePath("templatetest/" + "testTagsIssuesCommits" + ".mustache");
     ApprovalsWrapper.verify(given);
   }
 
   @Test
   public void testThatIgnoreCommitsIfMessageMatchesCanBeEmptyToDisableTheFeature()
       throws Exception {
-    GitChangelogApi given =
-        baseBuilder.withTemplatePath("mix/testMerges.mustache").withIgnoreCommitsWithMessage("");
+    final GitChangelogApi given =
+        this.baseBuilder
+            .withTemplatePath("mix/testMerges.mustache")
+            .withIgnoreCommitsWithMessage("");
     ApprovalsWrapper.verify(given);
   }
 }

@@ -1,16 +1,16 @@
 package se.bjurr.gitchangelog.api;
 
-import static com.google.common.base.Charsets.UTF_8;
-import static com.google.common.collect.ImmutableMap.of;
-import static com.google.common.collect.Maps.newHashMap;
-import static com.google.common.io.Resources.getResource;
+import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.assertj.core.api.Assertions.assertThat;
 import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 import static se.bjurr.gitchangelog.internal.integrations.rest.RestClient.mock;
 
-import com.google.common.io.Resources;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,20 +32,34 @@ public class GitChangelogApiTest {
     this.mockedRestClient //
         .addMockedResponse(
             "/repos/tomasbjerre/git-changelog-lib/issues?state=all",
-            Resources.toString(getResource("github-issues.json"), UTF_8)) //
+            new String(
+                Files.readAllBytes(
+                    Paths.get(TemplatesTest.class.getResource("/github-issues.json").toURI())),
+                UTF_8)) //
         .addMockedResponse(
             "/jira/rest/api/2/issue/JIR-1234?fields=parent,summary,issuetype,labels,description,issuelinks",
-            Resources.toString(getResource("jira-issue-jir-1234.json"), UTF_8)) //
+            new String(
+                Files.readAllBytes(
+                    Paths.get(
+                        TemplatesTest.class.getResource("/jira-issue-jir-1234.json").toURI())),
+                UTF_8)) //
         .addMockedResponse(
             "/jira/rest/api/2/issue/JIR-5262?fields=parent,summary,issuetype,labels,description,issuelinks",
-            Resources.toString(getResource("jira-issue-jir-5262.json"), UTF_8));
+            new String(
+                Files.readAllBytes(
+                    Paths.get(
+                        TemplatesTest.class.getResource("/jira-issue-jir-5262.json").toURI())),
+                UTF_8)); //
     mock(this.mockedRestClient);
 
     this.gitHubMockInterceptor = new GitHubMockInterceptor();
     this.gitHubMockInterceptor //
         .addMockedResponse(
         "https://api.github.com/repos/tomasbjerre/git-changelog-lib/issues?state=all&per_page=100&page=1",
-        Resources.toString(getResource("github-issues.json"), UTF_8));
+        new String(
+            Files.readAllBytes(
+                Paths.get(TemplatesTest.class.getResource("/github-issues.json").toURI())),
+            UTF_8));
 
     GitHubServiceFactory //
         .setInterceptor(this.gitHubMockInterceptor);
@@ -90,7 +104,10 @@ public class GitChangelogApiTest {
   public void testThatIssuesCanBeRemoved() throws Exception {
 
     final URL settingsFile =
-        getResource("settings/git-changelog-test-settings.json").toURI().toURL();
+        GitChangelogApiTest.class
+            .getResource("/settings/git-changelog-test-settings.json")
+            .toURI()
+            .toURL();
     final String templatePath = "templatetest/testIssuesCommits.mustache";
 
     final GitChangelogApi given =
@@ -108,10 +125,11 @@ public class GitChangelogApiTest {
   public void testThatCommitsWithoutIssueCanBeIgnoredIssuesCommits() throws Exception {
 
     final URL settingsFile =
-        getResource("settings/git-changelog-test-settings.json").toURI().toURL();
+        GitChangelogApiTest.class
+            .getResource("/settings/git-changelog-test-settings.json")
+            .toURI()
+            .toURL();
     final String templatePath = "templatetest/testIssuesCommits.mustache";
-
-    Resources.toString(getResource(templatePath), UTF_8);
 
     final GitChangelogApi given =
         gitChangelogApiBuilder() //
@@ -148,7 +166,10 @@ public class GitChangelogApiTest {
   @Test
   public void testThatReadableGroupMustExist() throws Exception {
     final URL settingsFile =
-        getResource("settings/git-changelog-test-settings.json").toURI().toURL();
+        GitChangelogApiTest.class
+            .getResource("/settings/git-changelog-test-settings.json")
+            .toURI()
+            .toURL();
     final String templatePath = "templatetest/testIssuesCommits.mustache";
 
     try {
@@ -177,7 +198,10 @@ public class GitChangelogApiTest {
   @Test
   public void testThatReadableGroupCanBeSet() throws Exception {
     final URL settingsFile =
-        getResource("settings/git-changelog-test-settings.json").toURI().toURL();
+        GitChangelogApiTest.class
+            .getResource("/settings/git-changelog-test-settings.json")
+            .toURI()
+            .toURL();
     final String templatePath = "templatetest/testIssuesCommits.mustache";
 
     final GitChangelogApi given =
@@ -195,15 +219,20 @@ public class GitChangelogApiTest {
   @Test
   public void testThatCustomVariablesCanBeUsed() throws Exception {
     final URL settingsFile =
-        getResource("settings/git-changelog-test-settings.json").toURI().toURL();
+        GitChangelogApiTest.class
+            .getResource("/settings/git-changelog-test-settings.json")
+            .toURI()
+            .toURL();
     final String templatePath = "templatetest/testAuthorsCommitsExtended.mustache";
 
+    final Map<String, Object> map = new HashMap<>();
+    map.put("customVariable", "the value");
     final GitChangelogApi given =
         gitChangelogApiBuilder() //
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
             .withSettings(settingsFile) //
-            .withExtendedVariables(newHashMap(of("customVariable", (Object) "the value"))) //
+            .withExtendedVariables(map) //
             .withRemoveIssueFromMessageArgument(true) //
             .withTemplatePath(templatePath);
 

@@ -1,37 +1,42 @@
 package se.bjurr.gitchangelog.internal.integrations.github;
 
-import static com.google.common.collect.Maps.newHashMap;
 import static org.assertj.core.api.Assertions.fail;
 
 import java.io.IOException;
 import java.util.Map;
-import okhttp3.*;
+import java.util.TreeMap;
+import okhttp3.Interceptor;
+import okhttp3.MediaType;
+import okhttp3.Protocol;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 public class GitHubMockInterceptor implements Interceptor {
 
-  private final Map<String, String> mockedResponses = newHashMap();
+  private final Map<String, String> mockedResponses = new TreeMap<>();
 
-  public GitHubMockInterceptor addMockedResponse(String url, String response) {
-    mockedResponses.put(url, response);
+  public GitHubMockInterceptor addMockedResponse(final String url, final String response) {
+    this.mockedResponses.put(url, response);
     return this;
   }
 
   @Override
-  public Response intercept(Chain chain) throws IOException {
-    Request original = chain.request();
+  public Response intercept(final Chain chain) throws IOException {
+    final Request original = chain.request();
 
     // Get Request URI.
-    String url = chain.request().url().toString();
+    final String url = chain.request().url().toString();
 
-    if (mockedResponses.containsKey(url)) {
+    if (this.mockedResponses.containsKey(url)) {
       return new Response.Builder()
           .code(200)
-          .message(mockedResponses.get(url))
+          .message(this.mockedResponses.get(url))
           .request(original)
           .protocol(Protocol.HTTP_1_0)
           .body(
               ResponseBody.create(
-                  MediaType.parse("application/json"), mockedResponses.get(url).getBytes()))
+                  MediaType.parse("application/json"), this.mockedResponses.get(url).getBytes()))
           .addHeader("content-type", "application/json")
           .build();
     }

@@ -1,15 +1,12 @@
 package se.bjurr.gitchangelog.test;
 
-import static com.google.common.base.Stopwatch.createStarted;
-import static java.util.concurrent.TimeUnit.SECONDS;
 import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.REF_MASTER;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 
-import com.google.common.base.Optional;
-import com.google.common.base.Stopwatch;
 import java.io.File;
 import java.util.List;
+import java.util.Optional;
 import java.util.logging.Logger;
 import org.eclipse.jgit.lib.ObjectId;
 import org.junit.After;
@@ -26,12 +23,11 @@ public class LibPerformanceTest {
   private static final String UNTAGGED_NAME = "Untagged Name";
   private GitChangelogApi gitChangelogApiBuilder;
   private GitRepo gitRepo;
-  private Stopwatch stopwatch;
 
   @After
   public void after() {
-    final long elapsedSeconds = this.stopwatch.elapsed(SECONDS);
-    LOG.info("Took: " + elapsedSeconds + "s");
+    // final long elapsedSeconds = this.stopwatch.elapsed(SECONDS);
+    // LOG.info("Took: " + elapsedSeconds + "s");
   }
 
   @Before
@@ -39,7 +35,7 @@ public class LibPerformanceTest {
     this.gitChangelogApiBuilder =
         gitChangelogApiBuilder() //
             .withFromRepo(GIT_REPO_DIR);
-    this.stopwatch = createStarted();
+    // this.stopwatch = createStarted();
     final File file = new File(GIT_REPO_DIR);
     if (file.exists()) {
       this.gitRepo = new GitRepo(file);
@@ -58,21 +54,19 @@ public class LibPerformanceTest {
     final ObjectId fromId = this.gitRepo.getCommit(ZERO_COMMIT);
     final ObjectId toId = this.gitRepo.getRef(REF_MASTER);
     final GitRepoData gitRepoData =
-        this.gitRepo.getGitRepoData(fromId, toId, UNTAGGED_NAME, Optional.<String>absent());
-    LOG.info(this.stopwatch.elapsed(SECONDS) + "s. Done zero to master.");
+        this.gitRepo.getGitRepoData(fromId, toId, UNTAGGED_NAME, Optional.<String>empty());
+    // LOG.info(this.stopwatch.elapsed(SECONDS) + "s. Done zero to master.");
     final List<GitTag> allTags = gitRepoData.getGitTags();
-    int i = 0;
     for (final GitTag from : allTags) {
-      LOG.info(this.stopwatch.elapsed(SECONDS) + "s. From " + from.getName());
+      // LOG.info(this.stopwatch.elapsed(SECONDS) + "s. From " + from.getName());
       for (final GitTag to : allTags) {
-        i++;
-        LOG.info(this.stopwatch.elapsed(SECONDS) + "s.  --> " + to.getName());
-        LOG.info(
-            this.stopwatch.elapsed(SECONDS)
-                + "s.      "
-                + i
-                + "/"
-                + allTags.size() * allTags.size());
+        // LOG.info(this.stopwatch.elapsed(SECONDS) + "s.  --> " + to.getName());
+        // LOG.info(
+        //    this.stopwatch.elapsed(SECONDS)
+        //        + "s.      "
+        //        + i
+        //        + "/"
+        //        + allTags.size() * allTags.size());
         if (from.getName().equals(to.getName())
             || from.getName().equals(UNTAGGED_NAME)
             || to.getName().equals(UNTAGGED_NAME)) {
@@ -82,7 +76,7 @@ public class LibPerformanceTest {
             .withFromRef(from.getName()) //
             .withToRef(to.getName()) //
             .render();
-        LOG.info(this.stopwatch.elapsed(SECONDS) + "s.      Done");
+        // LOG.info(this.stopwatch.elapsed(SECONDS) + "s.      Done");
       }
     }
   }

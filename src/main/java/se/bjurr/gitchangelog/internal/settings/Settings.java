@@ -1,10 +1,7 @@
 package se.bjurr.gitchangelog.internal.settings;
 
-import static com.google.common.base.Charsets.UTF_8;
-import static com.google.common.base.Optional.fromNullable;
-import static com.google.common.base.Strings.emptyToNull;
-import static com.google.common.collect.Lists.newArrayList;
-import static com.google.common.io.Resources.getResource;
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static java.util.Optional.ofNullable;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_DATEFORMAT;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_FILE;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_GITHUB_ISSUE_PATTERN;
@@ -16,18 +13,20 @@ import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_READABL
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_REMOVE_ISSUE;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_TIMEZONE;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_UNTAGGED_NAME;
+import static se.bjurr.gitchangelog.internal.util.Preconditions.emptyToNull;
 
-import com.google.common.base.Optional;
-import com.google.common.io.Resources;
 import com.google.gson.Gson;
 import java.io.Serializable;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 import se.bjurr.gitchangelog.api.model.Changelog;
@@ -191,7 +190,7 @@ public class Settings implements Serializable {
   private String semanticMinorPattern = "^[Ff]eat.*";
 
   public String getSubDirFilter() {
-    return fromNullable(this.subDirFilter).or("");
+    return ofNullable(this.subDirFilter).orElse("");
   }
 
   public void setPathFilter(final String subDirFilter) {
@@ -223,11 +222,11 @@ public class Settings implements Serializable {
   }
 
   public Optional<String> getFromRef() {
-    return fromNullable(this.fromRef);
+    return ofNullable(this.fromRef);
   }
 
   public Optional<String> getToRef() {
-    return fromNullable(this.toRef);
+    return ofNullable(this.toRef);
   }
 
   public void setFromRepo(final String fromRepo) {
@@ -235,7 +234,7 @@ public class Settings implements Serializable {
   }
 
   public String getFromRepo() {
-    return fromNullable(this.fromRepo).or(".");
+    return ofNullable(this.fromRepo).orElse(".");
   }
 
   public void setIgnoreCommitsIfMessageMatches(final String ignoreCommitsIfMessageMatches) {
@@ -264,7 +263,7 @@ public class Settings implements Serializable {
 
   public void addCustomIssue(final SettingsIssue customIssue) {
     if (this.customIssues == null) {
-      this.customIssues = newArrayList();
+      this.customIssues = new ArrayList<>();
     }
     this.customIssues.add(customIssue);
   }
@@ -278,24 +277,25 @@ public class Settings implements Serializable {
   }
 
   public String getIgnoreCommitsIfMessageMatches() {
-    return fromNullable(this.ignoreCommitsIfMessageMatches).or(DEFAULT_IGNORE_COMMITS_REGEXP);
+    return ofNullable(this.ignoreCommitsIfMessageMatches).orElse(DEFAULT_IGNORE_COMMITS_REGEXP);
   }
 
   public Optional<Date> getIgnoreCommitsIfOlderThan() {
-    return fromNullable(this.ignoreCommitsIfOlderThan);
+    return ofNullable(this.ignoreCommitsIfOlderThan);
   }
 
   public String getJiraIssuePattern() {
-    return fromNullable(this.jiraIssuePattern).or(DEFAULT_JIRA_ISSUE_PATTEN);
+    return ofNullable(this.jiraIssuePattern).orElse(DEFAULT_JIRA_ISSUE_PATTEN);
   }
 
   public Optional<String> getJiraServer() {
-    return fromNullable(this.jiraServer);
+    return ofNullable(this.jiraServer);
   }
 
   public static Settings fromFile(final URL url) {
     try {
-      return gson.fromJson(Resources.toString(url, UTF_8), Settings.class);
+      return gson.fromJson(
+          new String(Files.readAllBytes(Paths.get(url.toURI())), UTF_8), Settings.class);
     } catch (final Exception e) {
       throw new RuntimeException("Cannot read " + url, e);
     }
@@ -310,19 +310,19 @@ public class Settings implements Serializable {
   }
 
   public Optional<String> getFromCommit() {
-    return fromNullable(emptyToNull(this.fromCommit));
+    return ofNullable(emptyToNull(this.fromCommit));
   }
 
   public Optional<String> getToCommit() {
-    return fromNullable(emptyToNull(this.toCommit));
+    return ofNullable(emptyToNull(this.toCommit));
   }
 
   public String getUntaggedName() {
-    return fromNullable(this.untaggedName).or(DEFAULT_UNTAGGED_NAME);
+    return ofNullable(this.untaggedName).orElse(DEFAULT_UNTAGGED_NAME);
   }
 
   public Optional<String> getIgnoreTagsIfNameMatches() {
-    return fromNullable(this.ignoreTagsIfNameMatches);
+    return ofNullable(this.ignoreTagsIfNameMatches);
   }
 
   public void setUntaggedName(final String untaggedName) {
@@ -330,7 +330,7 @@ public class Settings implements Serializable {
   }
 
   public String getTemplatePath() {
-    return fromNullable(this.templatePath).or("changelog.mustache");
+    return ofNullable(this.templatePath).orElse("changelog.mustache");
   }
 
   public void setTemplatePath(final String templatePath) {
@@ -338,11 +338,11 @@ public class Settings implements Serializable {
   }
 
   public String getReadableTagName() {
-    return fromNullable(this.readableTagName).or(DEFAULT_READABLE_TAG_NAME);
+    return ofNullable(this.readableTagName).orElse(DEFAULT_READABLE_TAG_NAME);
   }
 
   public String getDateFormat() {
-    return fromNullable(this.dateFormat).or(DEFAULT_DATEFORMAT);
+    return ofNullable(this.dateFormat).orElse(DEFAULT_DATEFORMAT);
   }
 
   public void setDateFormat(final String dateFormat) {
@@ -358,7 +358,7 @@ public class Settings implements Serializable {
   }
 
   public String getNoIssueName() {
-    return fromNullable(this.noIssueName).or(DEFAULT_NO_ISSUE_NAME);
+    return ofNullable(this.noIssueName).orElse(DEFAULT_NO_ISSUE_NAME);
   }
 
   public void setTimeZone(final String timeZone) {
@@ -366,13 +366,13 @@ public class Settings implements Serializable {
   }
 
   public String getTimeZone() {
-    return fromNullable(this.timeZone).or(DEFAULT_TIMEZONE);
+    return ofNullable(this.timeZone).orElse(DEFAULT_TIMEZONE);
   }
 
   public static Settings defaultSettings() {
     URL resource = null;
     try {
-      resource = getResource(DEFAULT_FILE);
+      resource = Settings.class.getClassLoader().getResource(DEFAULT_FILE);
       return fromFile(resource.toURI().toURL());
     } catch (final Exception e) {
       throw new RuntimeException("Cannot find default config in " + resource, e);
@@ -384,15 +384,15 @@ public class Settings implements Serializable {
   }
 
   public Boolean removeIssueFromMessage() {
-    return fromNullable(this.removeIssueFromMessage).or(DEFAULT_REMOVE_ISSUE);
+    return ofNullable(this.removeIssueFromMessage).orElse(DEFAULT_REMOVE_ISSUE);
   }
 
   public Optional<String> getGitHubApi() {
-    return fromNullable(this.gitHubApi);
+    return ofNullable(this.gitHubApi);
   }
 
   public Optional<String> getGitHubToken() {
-    return fromNullable(this.gitHubToken);
+    return ofNullable(this.gitHubToken);
   }
 
   public void setGitHubApi(final String gitHubApi) {
@@ -408,11 +408,11 @@ public class Settings implements Serializable {
   }
 
   public String getGitHubIssuePattern() {
-    return fromNullable(this.gitHubIssuePattern).or(DEFAULT_GITHUB_ISSUE_PATTERN);
+    return ofNullable(this.gitHubIssuePattern).orElse(DEFAULT_GITHUB_ISSUE_PATTERN);
   }
 
   public Optional<String> getJiraUsername() {
-    return fromNullable(this.jiraUsername);
+    return ofNullable(this.jiraUsername);
   }
 
   public void setJiraPassword(final String jiraPassword) {
@@ -428,11 +428,11 @@ public class Settings implements Serializable {
   }
 
   public Optional<String> getJiraPassword() {
-    return fromNullable(this.jiraPassword);
+    return ofNullable(this.jiraPassword);
   }
 
   public Optional<String> getJiraToken() {
-    return fromNullable(this.jiraToken);
+    return ofNullable(this.jiraToken);
   }
 
   public void setExtendedVariables(final Map<String, Object> extendedVariables) {
@@ -476,23 +476,23 @@ public class Settings implements Serializable {
   }
 
   public Optional<String> getGitLabServer() {
-    return fromNullable(this.gitLabServer);
+    return ofNullable(this.gitLabServer);
   }
 
   public Optional<String> getGitLabToken() {
-    return fromNullable(this.gitLabToken);
+    return ofNullable(this.gitLabToken);
   }
 
   public String getGitLabIssuePattern() {
-    return fromNullable(this.gitLabIssuePattern).or(DEFAULT_GITLAB_ISSUE_PATTERN);
+    return ofNullable(this.gitLabIssuePattern).orElse(DEFAULT_GITLAB_ISSUE_PATTERN);
   }
 
   public Optional<String> getGitLabProjectName() {
-    return fromNullable(this.gitLabProjectName);
+    return ofNullable(this.gitLabProjectName);
   }
 
   public Optional<String> getSemanticMajorPattern() {
-    return fromNullable(this.semanticMajorPattern);
+    return ofNullable(this.semanticMajorPattern);
   }
 
   public void setSemanticMajorPattern(final String semanticMajorPattern) {
@@ -500,7 +500,7 @@ public class Settings implements Serializable {
   }
 
   public Optional<String> getSemanticMinorPattern() {
-    return fromNullable(this.semanticMinorPattern);
+    return ofNullable(this.semanticMinorPattern);
   }
 
   public void setSemanticMinorPattern(final String semanticMinorPattern) {

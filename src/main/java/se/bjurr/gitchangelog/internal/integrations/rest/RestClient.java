@@ -1,45 +1,29 @@
 package se.bjurr.gitchangelog.internal.integrations.rest;
 
-import static com.google.common.base.Optional.absent;
-import static com.google.common.base.Optional.of;
-import static com.google.common.cache.CacheBuilder.newBuilder;
-import static com.google.common.io.ByteStreams.toByteArray;
 import static org.slf4j.LoggerFactory.getLogger;
 
-import com.google.common.annotations.VisibleForTesting;
-import com.google.common.base.Optional;
-import com.google.common.cache.CacheLoader;
-import com.google.common.cache.LoadingCache;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.concurrent.TimeUnit;
+import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
 import org.slf4j.Logger;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 
 public class RestClient {
   private static Logger logger = getLogger(RestClient.class);
   private static RestClient mockedRestClient;
-  private final LoadingCache<String, Optional<String>> urlCache;
+  private final Map<String, Optional<String>> urlCache = new ConcurrentHashMap<>();
   private String basicAuthString;
 
   private Map<String, String> headers;
 
-  public RestClient(final long duration, final TimeUnit cacheExpireAfterAccess) {
-    urlCache =
-        newBuilder() //
-            .expireAfterAccess(duration, cacheExpireAfterAccess) //
-            .build(
-                new CacheLoader<String, Optional<String>>() {
-                  @Override
-                  public Optional<String> load(final String url) throws Exception {
-                    return doGet(url);
-                  }
-                });
-  }
+  public RestClient() {}
 
   public RestClient withBasicAuthCredentials(final String username, final String password) {
     try {
@@ -63,7 +47,11 @@ public class RestClient {
 
   public Optional<String> get(final String url) throws GitChangelogIntegrationException {
     try {
-      return urlCache.get(url);
+      if (!this.urlCache.containsKey(url)) {
+        final Optional<String> content = RestClient.this.doGet(url);
+        this.urlCache.put(url, content);
+      }
+      return this.urlCache.get(url);
     } catch (final Exception e) {
       throw new GitChangelogIntegrationException("Problems invoking " + url, e);
     }
@@ -75,21 +63,21 @@ public class RestClient {
     try {
       logger.info("GET:\n" + urlParam);
       final URL url = new URL(urlParam);
-      conn = openConnection(url);
+      conn = this.openConnection(url);
       conn.setRequestProperty("Content-Type", "application/json");
       conn.setRequestProperty("Accept", "application/json");
       if (this.headers != null) {
-        for (Entry<String, String> entry : this.headers.entrySet()) {
+        for (final Entry<String, String> entry : this.headers.entrySet()) {
           conn.setRequestProperty(entry.getKey(), entry.getValue());
         }
       }
       if (this.basicAuthString != null) {
-        conn.setRequestProperty("Authorization", "Basic " + basicAuthString);
+        conn.setRequestProperty("Authorization", "Basic " + this.basicAuthString);
       }
-      return of(getResponse(conn));
+      return Optional.of(this.getResponse(conn));
     } catch (final Exception e) {
       logger.error("Got:\n" + response, e);
-      return absent();
+      return Optional.empty();
     } finally {
       if (conn != null) {
         conn.disconnect();
@@ -97,7 +85,6 @@ public class RestClient {
     }
   }
 
-  @VisibleForTesting
   protected HttpURLConnection openConnection(final URL url) throws Exception {
     if (mockedRestClient == null) {
       return (HttpURLConnection) url.openConnection();
@@ -105,10 +92,12 @@ public class RestClient {
     return mockedRestClient.openConnection(url);
   }
 
-  @VisibleForTesting
   protected String getResponse(final HttpURLConnection conn) throws Exception {
     if (mockedRestClient == null) {
-      return new String(toByteArray(conn.getInputStream()), "UTF-8");
+      final InputStream inputStream = conn.getInputStream();
+      final byte[] targetArray = new byte[inputStream.available()];
+      inputStream.read(targetArray);
+      return new String(targetArray, StandardCharsets.UTF_8);
     }
     return mockedRestClient.getResponse(conn);
   }
