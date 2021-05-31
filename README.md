@@ -87,22 +87,34 @@ You can use built in [helpers](#helpers) to produce a nice changelog. You can ad
 {{#ifReleaseTag .}}
 ## [{{name}}](https://gitlab.com/html-validate/html-validate/compare/{{name}}) ({{tagDate .}})
 
+  {{#ifContainsBreaking commits}}
+    ### Breaking changes
+
+    {{#commits}}
+      {{#ifCommitBreaking .}}
+  - {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{hash}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}))
+      {{/ifCommitBreaking}}
+    {{/commits}}
+  {{/ifContainsType}}
+
+
   {{#ifContainsType commits type='feat'}}
-### Features
+    ### Features
 
     {{#commits}}
       {{#ifCommitType . type='feat'}}
- - {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{hash}}](https://gitlab.com/html-validate/html-validate/commit/{{hashFull}}))
+  - {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{hash}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}))
       {{/ifCommitType}}
     {{/commits}}
   {{/ifContainsType}}
 
+
   {{#ifContainsType commits type='fix'}}
-### Bug Fixes
+    ### Bug Fixes
 
     {{#commits}}
       {{#ifCommitType . type='fix'}}
- - {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{hash}}](https://gitlab.com/html-validate/html-validate/commit/{{hashFull}}))
+        - {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{hash}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}))
       {{/ifCommitType}}
     {{/commits}}
   {{/ifContainsType}}
