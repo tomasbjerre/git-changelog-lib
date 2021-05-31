@@ -3,6 +3,15 @@
 
 Changelog of git-changelog-lib.
 
+## 1.149.4
+### No issue
+
+**feat: removing dependencies on Guava**
+
+
+[6402c759db491ca](https://github.com/tomasbjerre/git-changelog-lib/commit/6402c759db491ca) Tomas Bjerre *2021-05-31 17:42:46*
+
+
 ## 1.149.2
 ### No issue
 
