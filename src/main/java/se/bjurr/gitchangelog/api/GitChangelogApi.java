@@ -209,9 +209,7 @@ public class GitChangelogApi {
   }
 
   private List<String> getCommitMessages(final Changelog changelog) {
-    return changelog
-        .getCommits()
-        .stream()
+    return changelog.getCommits().stream()
         .map((it) -> it.getMessage())
         .collect(Collectors.toList());
   }

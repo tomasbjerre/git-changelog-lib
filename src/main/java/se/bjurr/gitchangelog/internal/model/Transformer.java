@@ -97,12 +97,10 @@ public class Transformer {
             .filter(it -> this.isRevertedCommit(it, revertCommits))
             .collect(Collectors.toList());
     final List<GitCommit> revertCommitsToRemove =
-        revertedCommits
-            .stream()
+        revertedCommits.stream()
             .map(
                 it -> {
-                  return revertCommits
-                      .stream()
+                  return revertCommits.stream()
                       .filter(rc -> this.getRevertCommitHash(rc).equals(it.getHash()))
                       .findFirst()
                       .get();
@@ -114,8 +112,7 @@ public class Transformer {
             .collect(toList());
 
     final List<GitCommit> filteredCommits =
-        fromWithoutReverted
-            .stream()
+        fromWithoutReverted.stream()
             .filter(
                 gitCommit -> {
                   final boolean messageMatches =
@@ -170,8 +167,7 @@ public class Transformer {
   public List<Tag> toTags(final List<GitTag> gitTags, final List<ParsedIssue> allParsedIssues) {
 
     final List<Tag> tags =
-        gitTags
-            .stream()
+        gitTags.stream()
             .map(
                 input -> {
                   final List<GitCommit> gitCommits = input.getGitCommits();
@@ -203,9 +199,7 @@ public class Transformer {
     final List<ParsedIssue> parsedIssues = new ArrayList<>();
     for (final ParsedIssue candidate : allParsedIssues) {
       final List<GitCommit> candidateCommits =
-          candidate
-              .getGitCommits()
-              .stream()
+          candidate.getGitCommits().stream()
               .filter(it -> gitCommits.contains(it))
               .collect(Collectors.toList());
       if (!candidateCommits.isEmpty()) {
@@ -228,8 +222,7 @@ public class Transformer {
   }
 
   private List<ParsedIssue> filterWithCommits(final List<ParsedIssue> issues) {
-    return issues
-        .stream()
+    return issues.stream()
         .filter(input -> !Transformer.this.toCommits(input.getGitCommits()).isEmpty())
         .collect(toList());
   }

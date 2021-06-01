@@ -374,8 +374,7 @@ public class GitRepo implements Closeable {
     commitsPerTag.forEach(
         (tag, commits) -> {
           final List<GitCommit> removeList =
-              commits
-                  .stream()
+              commits.stream()
                   .filter(c -> !toIncludeSet.contains(c.getHash()))
                   .collect(Collectors.toList());
           commits.removeAll(removeList);

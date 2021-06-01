@@ -115,9 +115,7 @@ public class IssueParser {
         parsedIssuePerIssue.get(noIssue.getName()).addCommit(gitCommit);
       }
     }
-    return parsedIssuePerIssue
-        .values()
-        .stream()
+    return parsedIssuePerIssue.values().stream()
         .sorted((a, b) -> a.toString().compareTo(b.toString()))
         .collect(toList());
   }
