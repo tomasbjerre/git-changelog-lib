@@ -1,7 +1,20 @@
-
 # git-changelog-lib changelog
 
 Changelog of git-changelog-lib.
+
+## 1.149.6
+### No issue
+
+**using Gradle 7 and java-library plugin**
+
+
+[e8a4cef6abfcc60](https://github.com/tomasbjerre/git-changelog-lib/commit/e8a4cef6abfcc60) Tomas Bjerre *2021-06-01 15:39:56*
+
+**doc: updating readme**
+
+
+[b0c4716c78ecd29](https://github.com/tomasbjerre/git-changelog-lib/commit/b0c4716c78ecd29) Tomas Bjerre *2021-05-31 18:10:55*
+
 
 ## 1.149.4
 ### No issue
@@ -152,16 +165,16 @@ Changelog of git-changelog-lib.
 
 **Removing default ignore filter on message**
 
-* It was: &#x60;^\[maven-release-plugin\].*|^\[Gradle Release Plugin\].*|^Merge.*&quot;&#x60; 
-* But users are confused by this and it is probably better to have no filter by default. 
+  * It was: &#x60;^\[maven-release-plugin\].*|^\[Gradle Release Plugin\].*|^Merge.*&quot;&#x60; 
+  * But users are confused by this and it is probably better to have no filter by default. 
 
 [a57e321f08cea10](https://github.com/tomasbjerre/git-changelog-lib/commit/a57e321f08cea10) Tomas Bjerre *2021-01-18 16:46:13*
 
 **Switching to Handlebars from Mustache**
 
-* Removing Mediawiki support. Because I have not been able to make it work. https://stackoverflow.com/questions/45779754/cannot-authenticate-with-mediawiki-1-28-api 
-* Steeping up JGit to latest release. 3.6.2.201501210735-r to 5.10.0.202012080955-r. 
-* Refactoring tests to use Approvals. 
+  * Removing Mediawiki support. Because I have not been able to make it work. https://stackoverflow.com/questions/45779754/cannot-authenticate-with-mediawiki-1-28-api 
+  * Steeping up JGit to latest release. 3.6.2.201501210735-r to 5.10.0.202012080955-r. 
+  * Refactoring tests to use Approvals. 
 
 [7eba3d038b884b8](https://github.com/tomasbjerre/git-changelog-lib/commit/7eba3d038b884b8) Tomas Bjerre *2020-12-24 07:11:41*
 
@@ -179,7 +192,7 @@ Changelog of git-changelog-lib.
 
 **Add an option to filter the commits using a path filter string**
 
-* This works exactly like &#x60;git log -- path&#x60; 
+  * This works exactly like &#x60;git log -- path&#x60; 
 
 [94df887471f9f97](https://github.com/tomasbjerre/git-changelog-lib/commit/94df887471f9f97) Gabriel Einsdorf *2020-11-18 13:48:10*
 
@@ -311,7 +324,7 @@ Changelog of git-changelog-lib.
 
 **upgrade gitlab dependency**
 
-* Gitlab v3 has been deprecated (see https://about.gitlab.com/2018/06/01/api-v3-removal-impending/) and a new version was released. 
+  * Gitlab v3 has been deprecated (see https://about.gitlab.com/2018/06/01/api-v3-removal-impending/) and a new version was released. 
 
 [f125a10ae48f178](https://github.com/tomasbjerre/git-changelog-lib/commit/f125a10ae48f178) Jorge *2018-10-27 16:14:52*
 
@@ -385,7 +398,7 @@ Changelog of git-changelog-lib.
 
 **Removing state from GitHub Client**
 
-* The client was created once, with one API, and kept for all future invcations. So that if a changelog was created for one repo (A) and then for a repo (B), then B would use the API from A. Resulting in wrong issue information in B. 
+  * The client was created once, with one API, and kept for all future invcations. So that if a changelog was created for one repo (A) and then for a repo (B), then B would use the API from A. Resulting in wrong issue information in B. 
 
 [8ef76f5c6653ab3](https://github.com/tomasbjerre/git-changelog-lib/commit/8ef76f5c6653ab3) Tomas Bjerre *2018-01-09 20:46:33*
 
@@ -463,7 +476,7 @@ Changelog of git-changelog-lib.
 
 **Avoid fetching from integrations if not used**
 
-* Not fetching information from integrations (GitHub, GitLab, Jira) if that information is not used in the template. 
+  * Not fetching information from integrations (GitHub, GitLab, Jira) if that information is not used in the template. 
 
 [e87efa3246489c2](https://github.com/tomasbjerre/git-changelog-lib/commit/e87efa3246489c2) Tomas Bjerre *2017-11-18 11:26:24*
 
@@ -481,7 +494,7 @@ Changelog of git-changelog-lib.
 
 **Avoiding usage of Guava Objects**
 
-* Because it results in NoSuchMethodException when newer Guava version exists on classpath. Where Objects is replaced with MoreObjects. 
+  * Because it results in NoSuchMethodException when newer Guava version exists on classpath. Where Objects is replaced with MoreObjects. 
 
 [94dc5eee25f9414](https://github.com/tomasbjerre/git-changelog-lib/commit/94dc5eee25f9414) Tomas Bjerre *2017-11-02 17:06:49*
 
@@ -522,8 +535,8 @@ Changelog of git-changelog-lib.
 
 **Gathering repo provider information**
 
-* Getting ownerName and repoName from clone URL. 
-* Setting GitLab server and GitHub API from clone URL. 
+  * Getting ownerName and repoName from clone URL. 
+  * Setting GitLab server and GitHub API from clone URL. 
 
 [dd8497034624b12](https://github.com/tomasbjerre/git-changelog-lib/commit/dd8497034624b12) Tomas Bjerre *2017-07-23 19:10:43*
 
@@ -541,9 +554,9 @@ Changelog of git-changelog-lib.
 
 **Adjustments after merge of**
 
-* Using the Date data type instead of String to supply ignoreCommitsOlderThan. 
-* Making ignoreCommits more effective. 
-* Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer. 
+  * Using the Date data type instead of String to supply ignoreCommitsOlderThan. 
+  * Making ignoreCommits more effective. 
+  * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer. 
 
 [121e65493ec764b](https://github.com/tomasbjerre/git-changelog-lib/commit/121e65493ec764b) Tomas Bjerre *2017-07-07 20:04:00*
 
@@ -557,11 +570,11 @@ Changelog of git-changelog-lib.
 
 **Add ignoreCommitsOlderThan date limiting**
 
-* The rationale is that perhaps projects might: 
-* use a git-based changelog to inform coworkers, rather than 
-* customers, making a more short-lived &quot;news&quot;-style log desirable, 
-* not (yet?) use frequent-enough tags in their repository, 
-* want to provide a sense for the liveliness of a project 
+  * The rationale is that perhaps projects might: 
+  * use a git-based changelog to inform coworkers, rather than 
+  * customers, making a more short-lived &quot;news&quot;-style log desirable, 
+  * not (yet?) use frequent-enough tags in their repository, 
+  * want to provide a sense for the liveliness of a project 
 
 [671816d3dc3d60a](https://github.com/tomasbjerre/git-changelog-lib/commit/671816d3dc3d60a) jakob *2017-07-03 23:53:47*
 
@@ -590,7 +603,7 @@ Changelog of git-changelog-lib.
 
 **GitLab integration**
 
-* Adding it to the API. 
+  * Adding it to the API. 
 
 [743ab5566d39083](https://github.com/tomasbjerre/git-changelog-lib/commit/743ab5566d39083) Tomas Bjerre *2017-03-25 16:31:51*
 
@@ -660,7 +673,7 @@ Changelog of git-changelog-lib.
 
 **Adding HTML example supplied by Joel Eriksson**
 
-* Also moving example templates to examples folder. 
+  * Also moving example templates to examples folder. 
 
 [4c554557c16f68d](https://github.com/tomasbjerre/git-changelog-lib/commit/4c554557c16f68d) Tomas Bjerre *2016-12-21 16:29:21*
 
@@ -821,7 +834,7 @@ Changelog of git-changelog-lib.
 
 **Finding first commit in repo as parents of HEAD**
 
-* Was looking at parents of master, which may not exist. 
+  * Was looking at parents of master, which may not exist. 
 
 [87fe4044e587b1b](https://github.com/tomasbjerre/git-changelog-lib/commit/87fe4044e587b1b) Tomas Bjerre *2016-06-02 17:55:59*
 
@@ -848,7 +861,7 @@ Changelog of git-changelog-lib.
 
 **Removing trailing slash from Jira API URL**
 
-* If it is specified. 
+  * If it is specified. 
 
 [a94d576b6fd706e](https://github.com/tomasbjerre/git-changelog-lib/commit/a94d576b6fd706e) Tomas Bjerre *2016-04-28 16:18:20*
 
@@ -867,8 +880,8 @@ Changelog of git-changelog-lib.
 
 **Including correct commits + performance**
 
-* Found major performance problem when sorting tags by commit time, fixed. 
-* Now not following parents, unless *from* is merged into them. 
+  * Found major performance problem when sorting tags by commit time, fixed. 
+  * Now not following parents, unless *from* is merged into them. 
 
 [e3106df640b693b](https://github.com/tomasbjerre/git-changelog-lib/commit/e3106df640b693b) Tomas Bjerre *2016-04-13 18:30:26*
 
@@ -877,8 +890,8 @@ Changelog of git-changelog-lib.
 
 **Including correct commits + performance**
 
-* Found major performance problem when sorting tags by commit time, fixed. 
-* Now not following parents, unless *from* is merged into them. 
+  * Found major performance problem when sorting tags by commit time, fixed. 
+  * Now not following parents, unless *from* is merged into them. 
 
 [e3106df640b693b](https://github.com/tomasbjerre/git-changelog-lib/commit/e3106df640b693b) Tomas Bjerre *2016-04-13 18:30:26*
 
@@ -906,7 +919,7 @@ Changelog of git-changelog-lib.
 
 **Parsing commits, oldest first**
 
-* To avoid random behaviour. 
+  * To avoid random behaviour. 
 
 [9817cdf6a1fbe91](https://github.com/tomasbjerre/git-changelog-lib/commit/9817cdf6a1fbe91) Tomas Bjerre *2016-04-10 08:49:45*
 
@@ -916,7 +929,7 @@ Changelog of git-changelog-lib.
 
 **Traversing commit tree by parents**
 
-* To find all commits in all tags. 
+  * To find all commits in all tags. 
 
 [9dcba5d33fc2e44](https://github.com/tomasbjerre/git-changelog-lib/commit/9dcba5d33fc2e44) Tomas Bjerre *2016-04-09 20:21:58*
 
@@ -926,7 +939,7 @@ Changelog of git-changelog-lib.
 
 **Adding feature to ignore tags by regexp**
 
-* Also testing tag in feature branch 
+  * Also testing tag in feature branch 
 
 [8166ec7dfd456df](https://github.com/tomasbjerre/git-changelog-lib/commit/8166ec7dfd456df) Tomas Bjerre *2016-04-06 20:39:27*
 
@@ -944,7 +957,7 @@ Changelog of git-changelog-lib.
 
 **Sorting filtered commits, was random from hash**
 
-* Building with OpenJDK7 in Travis 
+  * Building with OpenJDK7 in Travis 
 
 [b976129fb928dc1](https://github.com/tomasbjerre/git-changelog-lib/commit/b976129fb928dc1) Tomas Bjerre *2016-03-20 09:42:23*
 
@@ -998,12 +1011,12 @@ Changelog of git-changelog-lib.
 
 **Fixing infinite loop in GitRepo**
 
-* Found in 1.19 
-* at se.bjurr.gitchangelog.internal.git.GitRepo.toString(GitRepo.java:208) 
-* at se.bjurr.gitchangelog.internal.git.GitRepo.getRef(GitRepo.java:174) 
-* at se.bjurr.gitchangelog.internal.git.GitRepo.firstCommit(GitRepo.java:195) 
-* at se.bjurr.gitchangelog.internal.git.GitRepo.toString(GitRepo.java:208) 
-* at se.bjurr.gitchangelog.internal.git.GitRepo.getRef(GitRepo.java:174) 
+  * Found in 1.19 
+  * at se.bjurr.gitchangelog.internal.git.GitRepo.toString(GitRepo.java:208) 
+  * at se.bjurr.gitchangelog.internal.git.GitRepo.getRef(GitRepo.java:174) 
+  * at se.bjurr.gitchangelog.internal.git.GitRepo.firstCommit(GitRepo.java:195) 
+  * at se.bjurr.gitchangelog.internal.git.GitRepo.toString(GitRepo.java:208) 
+  * at se.bjurr.gitchangelog.internal.git.GitRepo.getRef(GitRepo.java:174) 
 
 [a4a15094f367c31](https://github.com/tomasbjerre/git-changelog-lib/commit/a4a15094f367c31) Tomas Bjerre *2016-03-15 20:27:41*
 
@@ -1013,7 +1026,7 @@ Changelog of git-changelog-lib.
 
 **Using okhttp 2.7.5 was using 2.3.0**
 
-* Which caused ClassNotFoundException for okio/ForwardingTimeout. 
+  * Which caused ClassNotFoundException for okio/ForwardingTimeout. 
 
 [a4bb6103886b293](https://github.com/tomasbjerre/git-changelog-lib/commit/a4bb6103886b293) Tomas Bjerre *2016-03-15 20:12:47*
 
@@ -1040,8 +1053,8 @@ Changelog of git-changelog-lib.
 
 **Migrate GitHub REST-API to RetroFit library**
 
-* Added auth-token support for GitHub, fixes 
-* Added pagination support for GitHub, fixes 
+  * Added auth-token support for GitHub, fixes 
+  * Added pagination support for GitHub, fixes 
 
 [d29029a38fad6a4](https://github.com/tomasbjerre/git-changelog-lib/commit/d29029a38fad6a4) Jonas Kalderstam *2016-03-15 00:12:45*
 
@@ -1050,8 +1063,8 @@ Changelog of git-changelog-lib.
 
 **Migrate GitHub REST-API to RetroFit library**
 
-* Added auth-token support for GitHub, fixes 
-* Added pagination support for GitHub, fixes 
+  * Added auth-token support for GitHub, fixes 
+  * Added pagination support for GitHub, fixes 
 
 [d29029a38fad6a4](https://github.com/tomasbjerre/git-changelog-lib/commit/d29029a38fad6a4) Jonas Kalderstam *2016-03-15 00:12:45*
 
@@ -1060,7 +1073,7 @@ Changelog of git-changelog-lib.
 
 **Introducing custom exceptions**
 
-* Also fixing some issues from PR . Removing duplicate Gson, System.out, throwing exceptions. 
+  * Also fixing some issues from PR . Removing duplicate Gson, System.out, throwing exceptions. 
 
 [4cb3f757f8a6b9f](https://github.com/tomasbjerre/git-changelog-lib/commit/4cb3f757f8a6b9f) Tomas Bjerre *2016-03-15 17:22:33*
 
@@ -1104,8 +1117,8 @@ Changelog of git-changelog-lib.
 
 **Bugfix, handling multiple tags on same commit**
 
-* Using the last one found. 
-* Also refactoring tests. Added a special test-branch to use real GIT instead of fake repo. 
+  * Using the last one found. 
+  * Also refactoring tests. Added a special test-branch to use real GIT instead of fake repo. 
 
 [3c794133dcc1d00](https://github.com/tomasbjerre/git-changelog-lib/commit/3c794133dcc1d00) Tomas Bjerre *2016-02-15 17:41:45*
 
@@ -1152,7 +1165,7 @@ Changelog of git-changelog-lib.
 
 **Identified performance issue as GitRepo:getTags()**
 
-* Updating performance test to reveal it. 
+  * Updating performance test to reveal it. 
 
 [be9fb93023f13ad](https://github.com/tomasbjerre/git-changelog-lib/commit/be9fb93023f13ad) Tomas Bjerre *2016-02-11 17:48:06*
 
@@ -1162,8 +1175,8 @@ Changelog of git-changelog-lib.
 
 **Letting JGit determine new commits between refs**
 
-* Also changing changelog template. 
-* Also trimming messageTitle variable. 
+  * Also changing changelog template. 
+  * Also trimming messageTitle variable. 
 
 [5b307bd00b47e83](https://github.com/tomasbjerre/git-changelog-lib/commit/5b307bd00b47e83) Tomas Bjerre *2016-02-10 17:31:13*
 
@@ -1220,7 +1233,7 @@ Changelog of git-changelog-lib.
 
 **Correcting revision logging**
 
-* Resetting Jira and GitHub clients before tests. Was having troubles with the cache not being invalidated between tests. 
+  * Resetting Jira and GitHub clients before tests. Was having troubles with the cache not being invalidated between tests. 
 
 [00b37d11101f8d1](https://github.com/tomasbjerre/git-changelog-lib/commit/00b37d11101f8d1) Tomas Bjerre *2016-01-30 16:39:21*
 
@@ -1230,7 +1243,7 @@ Changelog of git-changelog-lib.
 
 **Including first commit**
 
-* Was excluding it when ZERO_COMMIT constant was used 
+  * Was excluding it when ZERO_COMMIT constant was used 
 
 [c3da07c0286855d](https://github.com/tomasbjerre/git-changelog-lib/commit/c3da07c0286855d) Tomas Bjerre *2016-01-30 11:56:15*
 
@@ -1246,7 +1259,7 @@ Changelog of git-changelog-lib.
 
 **Updating CHANGELOG.md**
 
-* And Removing generate_changelog.sh 
+  * And Removing generate_changelog.sh 
 
 [7613efc4a5a0833](https://github.com/tomasbjerre/git-changelog-lib/commit/7613efc4a5a0833) Tomas Bjerre *2016-01-27 18:51:11*
 
@@ -1296,7 +1309,7 @@ Changelog of git-changelog-lib.
 
 **Peeling references**
 
-* To support annotated tags 
+  * To support annotated tags 
 
 [b818fd6a2f1207c](https://github.com/tomasbjerre/git-changelog-lib/commit/b818fd6a2f1207c) Tomas Bjerre *2015-12-05 14:01:56*
 
@@ -1306,7 +1319,7 @@ Changelog of git-changelog-lib.
 
 **Using JGit to find repo folder correctly**
 
-* And JsonPath 2.1.0 
+  * And JsonPath 2.1.0 
 
 [2d0c1f1102387d0](https://github.com/tomasbjerre/git-changelog-lib/commit/2d0c1f1102387d0) Tomas Bjerre *2015-12-04 22:09:16*
 
@@ -1351,7 +1364,7 @@ Changelog of git-changelog-lib.
 
 **Changing master reference constan, to just master**
 
-* refs/heads/master may not exist, perhaps its refs/remotes/origin/master 
+  * refs/heads/master may not exist, perhaps its refs/remotes/origin/master 
 
 [c655cbd914d06f3](https://github.com/tomasbjerre/git-changelog-lib/commit/c655cbd914d06f3) Tomas Bjerre *2015-11-21 15:36:03*
 
@@ -1366,8 +1379,8 @@ Changelog of git-changelog-lib.
 
 **Adding test cases for MediaWiki integration**
 
-* Linking readme to screenshots 
-* Not encoding html-tags for MediaWiki, to enable setting the toclimit with a tag. 
+  * Linking readme to screenshots 
+  * Not encoding html-tags for MediaWiki, to enable setting the toclimit with a tag. 
 
 [c8da374a92183d2](https://github.com/tomasbjerre/git-changelog-lib/commit/c8da374a92183d2) Tomas Bjerre *2015-11-21 14:18:19*
 
@@ -1514,7 +1527,7 @@ Changelog of git-changelog-lib.
 
 **Changing regexp pattern for github**
 
-* So that it does not match feature issues #feature 
+  * So that it does not match feature issues #feature 
 
 [dd31f0a16fedfcf](https://github.com/tomasbjerre/git-changelog-lib/commit/dd31f0a16fedfcf) Tomas Bjerre *2015-11-15 12:47:06*
 
@@ -1544,7 +1557,7 @@ Changelog of git-changelog-lib.
 
 **Adding generated CHANGELOG.md #feature**
 
-* Correcting faulty precondition check, file output argument could not be set. #bug 
+  * Correcting faulty precondition check, file output argument could not be set. #bug 
 
 [b3ddd5fdad30f41](https://github.com/tomasbjerre/git-changelog-lib/commit/b3ddd5fdad30f41) Tomas Bjerre *2015-11-15 09:48:35*
 
@@ -1555,13 +1568,13 @@ Changelog of git-changelog-lib.
 
 **Adding script to generate changelog**
 
-* Finding git repo in parent folders correctly #bugfix 
+  * Finding git repo in parent folders correctly #bugfix 
 
 [82be7c398d445bd](https://github.com/tomasbjerre/git-changelog-lib/commit/82be7c398d445bd) Tomas Bjerre *2015-11-15 09:15:38*
 
 **More settings can be set from command line**
 
-* More testing 
+  * More testing 
 
 [ba9d565ddd15d1b](https://github.com/tomasbjerre/git-changelog-lib/commit/ba9d565ddd15d1b) Tomas Bjerre *2015-11-15 08:58:00*
 
@@ -1590,3 +1603,4 @@ Changelog of git-changelog-lib.
 [5aaeb907f68915a](https://github.com/tomasbjerre/git-changelog-lib/commit/5aaeb907f68915a) Tomas Bjerre *2015-11-14 09:46:23*
 
 
+    
