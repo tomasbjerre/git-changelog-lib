@@ -2,6 +2,15 @@
 
 Changelog of git-changelog-lib.
 
+## 1.150.0
+### No issue
+
+**feat: regexp in `commitType` and `commitScope`**
+
+
+[2d3c6660bfe8d64](https://github.com/tomasbjerre/git-changelog-lib/commit/2d3c6660bfe8d64) Tomas Bjerre *2021-06-02 18:58:59*
+
+
 ## 1.149.6
 ### No issue
 
