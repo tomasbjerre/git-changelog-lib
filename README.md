@@ -95,7 +95,7 @@ You can use built in [helpers](#helpers) to produce a nice changelog. You can ad
   - {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{hash}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}))
       {{/ifCommitBreaking}}
     {{/commits}}
-  {{/ifContainsType}}
+  {{/ifContainsBreaking}}
 
 
   {{#ifContainsType commits type='feat'}}
