@@ -84,6 +84,7 @@ Has paragraphs: {{hash}}
  {{#ifCommitType . type="revert"}} is type revert {{/ifCommitType}}
  {{#ifCommitType . type="fix"}} is type fix {{/ifCommitType}}
  {{#ifCommitType . type=""}} commit has no type {{/ifCommitType}}
+ {{#ifCommitType . type="fix|revert"}} commit has type fix or revert {{/ifCommitType}}
 
  {{#ifCommitScope . scope="utils"}} is scope utils {{/ifCommitScope}}
 

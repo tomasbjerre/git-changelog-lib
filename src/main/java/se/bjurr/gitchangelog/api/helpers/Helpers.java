@@ -157,7 +157,10 @@ public class Helpers {
 
   private static boolean commitScope(final Commit commit, final Options options) {
     final String scope = options.hash("scope").toString();
-    return commitScopes(commit.getMessage()).contains(scope);
+    return commitScopes(commit.getMessage()).stream()
+        .filter(it -> it.matches(scope))
+        .findFirst()
+        .isPresent();
   }
 
   private static String revertedCommit(final Object commitMessage) {
@@ -259,7 +262,7 @@ public class Helpers {
 
   private static boolean commitType(final String commitMessage, final Options options) {
     final String type = options.hash("type").toString();
-    return getType(commitMessage).equalsIgnoreCase(type);
+    return getType(commitMessage).matches(type);
   }
 
   private static String getType(final String commitMessage) {
