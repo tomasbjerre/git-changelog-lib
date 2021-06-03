@@ -312,6 +312,11 @@ public class GitChangelogApi {
     return this;
   }
 
+  public GitChangelogApi withFromRepo(final File fromRepo) {
+    this.settings.setFromRepo(fromRepo.getAbsolutePath());
+    return this;
+  }
+
   /**
    * URL pointing at GitHub API. When configured, the {@link Issue#getTitle()} will be populated
    * with title from GitHub.<br>
