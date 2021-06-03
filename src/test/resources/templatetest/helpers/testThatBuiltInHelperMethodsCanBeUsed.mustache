@@ -15,6 +15,11 @@ Commits:
 {{/commits}}
 
 
+{{#tags}}
+ {{name}} Unreleased ? {{#ifEquals name "Unreleased"}} ja {{else}} nej {{/ifEquals}}
+{{/tags}}
+
+
 ## breaking changes:
  {{#ifContainsBreaking commits}}
   contains breaking changes

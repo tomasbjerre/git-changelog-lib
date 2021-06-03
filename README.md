@@ -323,6 +323,16 @@ Conditional, renders a block if given `Footer` has `value`.
 {{/commits}}
 ```
 
+### `ifEquals <a> <b>`
+
+Conditional, renders a block if `a` equals `b`.
+
+```hbs
+{{#tags}}
+ {{name}} Unreleased ? {{#ifEquals name "Unreleased"}} ja {{else}} nej {{/ifEquals}}
+{{/tags}}
+```
+
 ## Context
 
 The template is supplied with this context:

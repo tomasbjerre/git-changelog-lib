@@ -17,6 +17,11 @@ Commits:
 {{/commits}}
 
 
+{{#tags}}
+ {{name}} Unreleased ? {{#ifEquals name "Unreleased"}} ja {{else}} nej {{/ifEquals}}
+{{/tags}}
+
+
 ## breaking changes:
  {{#ifContainsBreaking commits}}
   contains breaking changes
@@ -190,6 +195,11 @@ This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
  * hash: 7a839ad349aef46 message: Updating changelog with 1.147.1 [GRADLE SCRIPT]
  * hash: e49a9f159266845 message: New version: 1.147.1 [GRADLE SCRIPT]
  * hash: 601c009bff8d551 message: fix: dont use integrations when determining versions
+
+
+ Unreleased Unreleased ?  ja 
+ 1.147.2 Unreleased ?  nej 
+ 1.147.1 Unreleased ?  nej 
 
 
 ## breaking changes:

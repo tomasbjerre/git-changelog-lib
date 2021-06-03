@@ -23,9 +23,17 @@ public class Helpers {
   private static final Pattern FOOTER_PATTERN =
       Pattern.compile("^(BREAKING[ -]CHANGE|[^ ]+)(((: )|( #))(.+))");
 
-  public static final Map<String, Helper<?>> ALL = new TreeMap<String, Helper<?>>();
+  public static final Map<String, Helper<?>> ALL = new TreeMap<>();
 
   static {
+    ALL.put(
+        "ifEquals",
+        (final Object a, final Options options) -> {
+          final Object b = options.params[0];
+          final boolean equality = a.equals(b);
+          return conditional(options, equality);
+        });
+
     ALL.put(
         "ifReleaseTag",
         (final Tag tag, final Options options) -> {
@@ -174,7 +182,7 @@ public class Helpers {
   private static List<String> commitFixes(final Object commitMessage) {
     final Matcher matcher = Pattern.compile("\\(fixes ([^)]+)").matcher(commitMessage.toString());
     if (!matcher.find()) {
-      return new ArrayList<String>();
+      return new ArrayList<>();
     }
     final String group = matcher.group(1);
     final String value = group == null ? "" : group;
@@ -184,7 +192,7 @@ public class Helpers {
   private static List<String> commitRefs(final Object commitMessage) {
     final Matcher matcher = Pattern.compile("\\(refs ([^)]+)").matcher(commitMessage.toString());
     if (!matcher.find()) {
-      return new ArrayList<String>();
+      return new ArrayList<>();
     }
     final String group = matcher.group(1);
     final String value = group == null ? "" : group;
@@ -210,11 +218,11 @@ public class Helpers {
   private static List<String> commitScopes(final Object commitMessage) {
     final Matcher matcher = Helpers.CONVENTIONAL_PATTERN.matcher(commitMessage.toString());
     if (!matcher.find()) {
-      return new ArrayList<String>();
+      return new ArrayList<>();
     }
     final String group = matcher.group(3);
     if (group == null) {
-      return new ArrayList<String>();
+      return new ArrayList<>();
     }
     return Arrays.stream(group.split(":")).map((it) -> it.trim()).collect(Collectors.toList());
   }
