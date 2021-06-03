@@ -15,8 +15,18 @@ Commits:
 {{/commits}}
 
 
+ifMatches and subString:
+{{#commits}}
+ {{#eachCommitFixes .}}
+  {{#ifMatches . "^[A-Z]+-[0-9]+"}}
+   fixes : "{{subString . 0 3}}" and number {{subString . 4}}
+  {{/ifMatches}}
+ {{/eachCommitFixes}}
+{{/commits}}
+
+
 {{#tags}}
- {{name}} Unreleased ? {{#ifEquals name "Unreleased"}} ja {{else}} nej {{/ifEquals}}
+ {{name}} Unreleased ? {{#ifEquals name "Unreleased"}} yes {{else}} no {{/ifEquals}}
 {{/tags}}
 
 

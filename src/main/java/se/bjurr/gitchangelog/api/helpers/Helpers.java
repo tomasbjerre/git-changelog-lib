@@ -33,6 +33,24 @@ public class Helpers {
           final boolean equality = a.equals(b);
           return conditional(options, equality);
         });
+    ALL.put(
+        "ifMatches",
+        (final Object a, final Options options) -> {
+          final String regexp = (String) options.params[0];
+          final boolean equality = a.toString().matches(regexp);
+          return conditional(options, equality);
+        });
+    ALL.put(
+        "subString",
+        (final Object a, final Options options) -> {
+          final Integer from = (Integer) options.params[0];
+          if (options.params.length == 1) {
+            return a.toString().substring(from);
+          } else {
+            final Integer to = (Integer) options.params[1];
+            return a.toString().substring(from, to);
+          }
+        });
 
     ALL.put(
         "ifReleaseTag",

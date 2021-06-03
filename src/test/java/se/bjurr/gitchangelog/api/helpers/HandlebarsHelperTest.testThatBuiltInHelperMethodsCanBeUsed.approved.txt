@@ -17,8 +17,18 @@ Commits:
 {{/commits}}
 
 
+ifMatches and subString:
+{{#commits}}
+ {{#eachCommitFixes .}}
+  {{#ifMatches . "^[A-Z]+-[0-9]+"}}
+   fixes : "{{subString . 0 3}}" and number {{subString . 4}}
+  {{/ifMatches}}
+ {{/eachCommitFixes}}
+{{/commits}}
+
+
 {{#tags}}
- {{name}} Unreleased ? {{#ifEquals name "Unreleased"}} ja {{else}} nej {{/ifEquals}}
+ {{name}} Unreleased ? {{#ifEquals name "Unreleased"}} yes {{else}} no {{/ifEquals}}
 {{/tags}}
 
 
@@ -197,9 +207,13 @@ This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
  * hash: 601c009bff8d551 message: fix: dont use integrations when determining versions
 
 
- Unreleased Unreleased ?  ja 
- 1.147.2 Unreleased ?  nej 
- 1.147.1 Unreleased ?  nej 
+ifMatches and subString:
+   fixes : "ABC" and number 123
+
+
+ Unreleased Unreleased ?  yes 
+ 1.147.2 Unreleased ?  no 
+ 1.147.1 Unreleased ?  no 
 
 
 ## breaking changes:

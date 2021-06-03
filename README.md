@@ -333,6 +333,30 @@ Conditional, renders a block if `a` equals `b`.
 {{/tags}}
 ```
 
+### `ifMatches <a> <b>`
+
+Conditional, renders a block if `a` matches regexp `b`.
+
+```hbs
+{{#eachCommitFixes .}}
+ {{#ifMatches . "^[A-Z]+-[0-9]+"}}
+  fixes : "{{subString . 0 3}}" and number {{subString . 4}}
+ {{/ifMatches}}
+{{/eachCommitFixes}}
+```
+
+### `subString <a> <b> <c>`
+
+Works just like [Java substring](https://docs.oracle.com/javase/7/docs/api/java/lang/String.html#substring(int)).
+
+```hbs
+{{#eachCommitFixes .}}
+ {{#ifMatches . "^[A-Z]+-[0-9]+"}}
+  fixes : "{{subString . 0 3}}" and number {{subString . 4}}
+ {{/ifMatches}}
+{{/eachCommitFixes}}
+```
+
 ## Context
 
 The template is supplied with this context:
