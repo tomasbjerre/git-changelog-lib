@@ -2,6 +2,18 @@
 
 Changelog of git-changelog-lib.
 
+## [1.152.1](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.152.1) (2021-06-03)
+
+
+
+### Features
+
+-  set git repo from file ([17a25](https://github.com/tomasbjerre/git-changelog-lib/commit/17a25ff4be26520))  
+
+
+
+
+
 ## [1.152.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.152.0) (2021-06-03)
 
 
