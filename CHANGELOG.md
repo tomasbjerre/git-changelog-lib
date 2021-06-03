@@ -2,6 +2,19 @@
 
 Changelog of git-changelog-lib.
 
+## [1.152.0](https://gitlab.com/html-validate/html-validate/compare/1.152.0) (2021-06-03)
+
+
+
+### Features
+
+-  subString and ifMatches helpers ([c64a1bc9312b6ec](https://github.com/tomasbjerre/git-changelog-lib/commit/c64a1bc9312b6ec))
+
+
+
+
+
+
 ## [1.151.0](https://gitlab.com/html-validate/html-validate/compare/1.151.0) (2021-06-03)
 
 
