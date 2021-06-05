@@ -579,4 +579,18 @@ It has a [builder](/src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java
    .render();
 ```
 
+It can be used to calculate next version number, based on commits:
+
+```java
+def nextVersion = gitChangelogApiBuilder()
+  .withSemanticMajorVersionPattern("^[Bb]reaking")
+  .withSemanticMinorVersionPattern("[Ff]eature")
+  .getNextSemanticVersion();
+
+println "Next version:" + nextVersion.toString();
+println " Major:" + nextVersion.getMajor();
+println " Minor:" + nextVersion.getMinor();
+println " Patch:" + nextVersion.getPatch();
+```
+
 Settings can be supplied with the build or from a JSON config ([documented here](/src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java)).
