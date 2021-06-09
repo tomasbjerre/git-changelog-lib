@@ -198,6 +198,15 @@ public class GitChangelogApi {
    * been configured.
    */
   public SemanticVersion getNextSemanticVersion() throws GitChangelogRepositoryException {
+    final boolean fromGiven =
+        this.settings.getFromRef().isPresent() || this.settings.getFromCommit().isPresent();
+    final SemanticVersion highestSemanticVersion = this.getHighestSemanticVersion();
+    if (!fromGiven) {
+      final Optional<String> tag = highestSemanticVersion.findTag();
+      if (tag.isPresent()) {
+        this.withFromRef(tag.get());
+      }
+    }
     final Changelog changelog = this.getChangelog(false);
     final List<String> tags = this.getTagsAsStrings(changelog);
     final List<String> commits = this.getCommitMessages(changelog);
@@ -205,7 +214,7 @@ public class GitChangelogApi {
     final String minorVersionPattern = this.settings.getSemanticMinorPattern().orElse(null);
     final SemanticVersioning semanticVersioning =
         new SemanticVersioning(tags, commits, majorVersionPattern, minorVersionPattern);
-    return semanticVersioning.getNextVersion();
+    return semanticVersioning.getNextVersion(highestSemanticVersion);
   }
 
   public SemanticVersion getHighestSemanticVersion() throws GitChangelogRepositoryException {

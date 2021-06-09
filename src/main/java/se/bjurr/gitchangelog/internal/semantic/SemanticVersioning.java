@@ -15,21 +15,18 @@ public class SemanticVersioning {
   private final List<String> commits;
   private final Pattern majorPattern;
   private final Pattern minorPattern;
-  private final List<String> tags;
 
   public SemanticVersioning(
       final List<String> tags,
       final List<String> commits,
       final String majorPattern,
       final String minorPattern) {
-    this.tags = tags;
     this.commits = commits;
     this.majorPattern = Pattern.compile(this.notNull(majorPattern, "majorPattern"));
     this.minorPattern = Pattern.compile(this.notNull(minorPattern, "minorPattern"));
   }
 
-  public SemanticVersion getNextVersion() {
-    final SemanticVersion highestVersion = SemanticVersioning.getHighestVersion(this.tags);
+  public SemanticVersion getNextVersion(final SemanticVersion highestVersion) {
     final VERSION_STEP versionStep = this.getVersionStep();
     if (versionStep == VERSION_STEP.MAJOR) {
       return new SemanticVersion(highestVersion.getMajor() + 1, 0, 0);

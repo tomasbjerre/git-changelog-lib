@@ -8,6 +8,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import se.bjurr.gitchangelog.api.GitChangelogApi;
+import se.bjurr.gitchangelog.internal.semantic.SemanticVersion;
 import se.bjurr.gitchangelog.internal.semantic.SemanticVersioning;
 
 public class SemanticVersioningTest {
@@ -20,8 +21,8 @@ public class SemanticVersioningTest {
 
   @Before
   public void before() {
-    this.tags = new ArrayList<String>();
-    this.commits = new ArrayList<String>();
+    this.tags = new ArrayList<>();
+    this.commits = new ArrayList<>();
     this.majorPattern = "[Bb]reaking:.*";
     this.minorPattern = "[Uu]pdate:.*";
     this.sut =
@@ -29,15 +30,32 @@ public class SemanticVersioningTest {
   }
 
   @Test
-  public void smokeTest() throws Throwable {
-    final GitChangelogApi builder =
+  public void smokeTest1() throws Throwable {
+    final GitChangelogApi builder1 =
         gitChangelogApiBuilder() //
             .withToCommit("7c1c366") //
             .withSemanticMajorVersionPattern("breaking:.*") //
             .withSemanticMinorVersionPattern("update:.*");
 
-    assertThat(builder.getNextSemanticVersion().toString()).isEqualTo("1.144.5");
-    assertThat(builder.getHighestSemanticVersion().toString()).isEqualTo("1.144.4");
+    assertThat(builder1.getNextSemanticVersion().toString()).isEqualTo("1.144.5");
+
+    final GitChangelogApi builder2 =
+        gitChangelogApiBuilder() //
+            .withToCommit("7c1c366") //
+            .withSemanticMajorVersionPattern("breaking:.*") //
+            .withSemanticMinorVersionPattern("update:.*");
+    assertThat(builder2.getHighestSemanticVersion().toString()).isEqualTo("1.144.4");
+  }
+
+  @Test
+  public void smokeTest2() throws Throwable {
+    final SemanticVersion nextSemanticVersion =
+        gitChangelogApiBuilder()
+            .withToRef("1.155.0") //
+            .withSemanticMajorVersionPattern("^[Bb]reaking.*")
+            .withSemanticMinorVersionPattern("^[Ff]eat.*")
+            .getNextSemanticVersion();
+    assertThat(nextSemanticVersion.toString()).isEqualTo("1.155.1");
   }
 
   @Test
@@ -45,10 +63,8 @@ public class SemanticVersioningTest {
     this.tags.add("v1.0.0");
     this.commits.add("breaking: whatever");
 
-    assertThat(
-            SemanticVersioning.getHighestVersion(this.tags)
-                + " -> "
-                + this.sut.getNextVersion()) //
+    final SemanticVersion highestVersion = SemanticVersioning.getHighestVersion(this.tags);
+    assertThat(highestVersion + " -> " + this.sut.getNextVersion(highestVersion)) //
         .isEqualTo("1.0.0 -> 2.0.0");
   }
 
@@ -57,10 +73,8 @@ public class SemanticVersioningTest {
     this.tags.add("v1.0.0");
     this.commits.add("update: whatever");
 
-    assertThat(
-            SemanticVersioning.getHighestVersion(this.tags)
-                + " -> "
-                + this.sut.getNextVersion()) //
+    final SemanticVersion highestVersion = SemanticVersioning.getHighestVersion(this.tags);
+    assertThat(highestVersion + " -> " + this.sut.getNextVersion(highestVersion)) //
         .isEqualTo("1.0.0 -> 1.1.0");
   }
 
@@ -69,10 +83,8 @@ public class SemanticVersioningTest {
     this.tags.add("v1.0.0");
     this.commits.add("chore: whatever");
 
-    assertThat(
-            SemanticVersioning.getHighestVersion(this.tags)
-                + " -> "
-                + this.sut.getNextVersion()) //
+    final SemanticVersion highestVersion = SemanticVersioning.getHighestVersion(this.tags);
+    assertThat(highestVersion + " -> " + this.sut.getNextVersion(highestVersion)) //
         .isEqualTo("1.0.0 -> 1.0.1");
   }
 }
