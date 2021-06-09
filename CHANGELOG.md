@@ -2,6 +2,18 @@
 
 Changelog of git-changelog-lib.
 
+## [1.155.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.155.0) (2021-06-09)
+
+
+
+
+
+### Bug Fixes
+
+-  removing git-changelog-settings.json to fix classloader issue in command line tool ([2d07a](https://github.com/tomasbjerre/git-changelog-lib/commit/2d07aefbd3900e5))  
+
+
+
 ## [1.154.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.154.0) (2021-06-09)
 
 
