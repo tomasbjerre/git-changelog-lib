@@ -2,6 +2,18 @@
 
 Changelog of git-changelog-lib.
 
+## [1.154.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.154.0) (2021-06-09)
+
+
+
+
+
+### Bug Fixes
+
+-  NPE when given file has no parent ([7a25e](https://github.com/tomasbjerre/git-changelog-lib/commit/7a25e670caf98a9))  
+
+
+
 ## [1.153.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.153.0) (2021-06-09)
 
 
