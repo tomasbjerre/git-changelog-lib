@@ -2,6 +2,18 @@
 
 Changelog of git-changelog-lib.
 
+## [1.153.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.153.0) (2021-06-09)
+
+
+
+
+
+### Bug Fixes
+
+-  when file was in a new folder, it created folder ([5a96f](https://github.com/tomasbjerre/git-changelog-lib/commit/5a96f3bd961b4df))  
+
+
+
 ## [1.152.1](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.152.1) (2021-06-03)
 
 
