@@ -8,6 +8,7 @@ import static se.bjurr.gitchangelog.internal.integrations.rest.RestClient.mock;
 
 import java.net.URL;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
@@ -272,5 +273,20 @@ public class GitChangelogApiTest {
             .withTemplatePath(templatePath);
 
     ApprovalsWrapper.verify(given);
+  }
+
+  @Test
+  public void testThatFileCanBeSupplied() throws Exception {
+    final String templatePath = "templatetest/testThatRevertedCommitsAreRemoved.mustache";
+
+    final Path path = Paths.get("build", "testdirtocreate", "testThatFileCanBeSupplied.md");
+    gitChangelogApiBuilder() //
+        .withFromCommit("aa1fd33") //
+        .withToCommit("4c6e078") //
+        .withTemplatePath(templatePath) //
+        .toFile(path.toFile());
+
+    System.out.println(path.toFile().getAbsolutePath());
+    assertThat(path.toFile()).exists().isFile();
   }
 }
