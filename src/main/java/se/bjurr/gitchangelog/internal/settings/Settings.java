@@ -3,7 +3,6 @@ package se.bjurr.gitchangelog.internal.settings;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.util.Optional.ofNullable;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_DATEFORMAT;
-import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_FILE;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_GITHUB_ISSUE_PATTERN;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_GITLAB_ISSUE_PATTERN;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_IGNORE_COMMITS_REGEXP;
@@ -13,6 +12,7 @@ import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_READABL
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_REMOVE_ISSUE;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_TIMEZONE;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_UNTAGGED_NAME;
+import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 import static se.bjurr.gitchangelog.internal.util.Preconditions.emptyToNull;
 
 import com.google.gson.Gson;
@@ -370,13 +370,19 @@ public class Settings implements Serializable {
   }
 
   public static Settings defaultSettings() {
-    URL resource = null;
-    try {
-      resource = Settings.class.getClassLoader().getResource(DEFAULT_FILE);
-      return fromFile(resource.toURI().toURL());
-    } catch (final Exception e) {
-      throw new RuntimeException("Cannot find default config in " + resource, e);
-    }
+    final Settings s = new Settings();
+    s.setFromRepo(".");
+    s.setFromCommit(ZERO_COMMIT);
+    s.setToRef("refs/heads/master");
+    s.setIgnoreCommitsIfMessageMatches("^Merge.*");
+    s.setReadableTagName("/([^/]+?)$");
+    s.setDateFormat("YYYY-MM-dd HH:mm:ss");
+    s.setUntaggedName("No tag");
+    s.setNoIssueName("No issue");
+    s.setTimeZone("UTC");
+    s.setRemoveIssueFromMessage(true);
+    s.setJiraIssuePattern("\\\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\\\b");
+    return s;
   }
 
   public void setRemoveIssueFromMessage(final boolean removeIssueFromMessage) {
