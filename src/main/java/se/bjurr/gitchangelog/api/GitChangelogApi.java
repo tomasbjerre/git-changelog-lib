@@ -173,9 +173,11 @@ public class GitChangelogApi {
    */
   public void toFile(final File file) throws GitChangelogRepositoryException, IOException {
     final File parentFile = file.getParentFile();
-    final boolean folderExists = parentFile.exists() || parentFile.mkdirs();
-    if (!folderExists) {
-      throw new RuntimeException("Folder " + parentFile.getAbsolutePath() + " cannot be created");
+    if (parentFile != null) {
+      final boolean folderExists = parentFile.exists() || parentFile.mkdirs();
+      if (!folderExists) {
+        throw new RuntimeException("Folder " + parentFile.getAbsolutePath() + " cannot be created");
+      }
     }
     Files.write(file.toPath(), this.render().getBytes(UTF_8));
   }
