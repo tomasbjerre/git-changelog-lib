@@ -2,6 +2,18 @@
 
 Changelog of git-changelog-lib.
 
+## [1.156.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.156.0) (2021-06-09)
+
+
+
+
+
+### Bug Fixes
+
+-  semantic version stepping ([3c0cf](https://github.com/tomasbjerre/git-changelog-lib/commit/3c0cf44551aed21))  
+
+
+
 ## [1.155.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.155.0) (2021-06-09)
 
 
