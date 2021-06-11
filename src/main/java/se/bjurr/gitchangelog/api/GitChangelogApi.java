@@ -13,16 +13,11 @@ import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Helper;
 import com.github.jknack.handlebars.Template;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
-import java.net.URISyntaxException;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -47,6 +42,7 @@ import se.bjurr.gitchangelog.internal.semantic.SemanticVersion;
 import se.bjurr.gitchangelog.internal.semantic.SemanticVersioning;
 import se.bjurr.gitchangelog.internal.settings.Settings;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
+import se.bjurr.gitchangelog.internal.util.ResourceLoader;
 
 public class GitChangelogApi {
 
@@ -127,28 +123,8 @@ public class GitChangelogApi {
     if (this.templateContent != null) {
       return this.templateContent;
     }
-    String templateString = null;
-    try {
-      byte[] templateBytes = null;
-      final Path templatePath = Paths.get(this.settings.getTemplatePath());
-      if (templatePath.toFile().exists()) {
-        templateBytes = Files.readAllBytes(templatePath);
-      } else {
-        URL templateUrl = GitChangelogApi.class.getResource(this.settings.getTemplatePath());
-        if (templateUrl == null) {
-          templateUrl = GitChangelogApi.class.getResource("/" + this.settings.getTemplatePath());
-          if (templateUrl == null) {
-            throw new FileNotFoundException(
-                "Was unable to find file, or resouce, \"" + this.settings.getTemplatePath() + "\"");
-          }
-        }
-        templateBytes = Files.readAllBytes(Paths.get(templateUrl.toURI()));
-        templateString = new String(templateBytes, StandardCharsets.UTF_8);
-      }
-    } catch (final IOException | URISyntaxException e) {
-      throw new RuntimeException(this.settings.getTemplatePath(), e);
-    }
-    return templateString;
+    final String resourceName = this.settings.getTemplatePath();
+    return ResourceLoader.getResourceOrFile(resourceName);
   }
 
   static boolean shouldUseIntegrationIfConfigured(final String templateContent) {

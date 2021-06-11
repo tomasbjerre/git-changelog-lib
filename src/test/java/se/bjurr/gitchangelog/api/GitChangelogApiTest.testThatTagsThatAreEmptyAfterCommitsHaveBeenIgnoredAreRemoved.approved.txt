@@ -10,7 +10,6 @@ Extended variable: {{customVariable}}
 * {{authorName}}
 {{/authors}}
 
-
 ---------------------------------------------
 
 settings:

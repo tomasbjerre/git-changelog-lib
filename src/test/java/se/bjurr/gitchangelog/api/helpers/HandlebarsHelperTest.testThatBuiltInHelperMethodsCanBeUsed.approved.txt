@@ -128,7 +128,6 @@ Has paragraphs: {{hash}}
 
 
 
-
 ---------------------------------------------
 
 settings:
@@ -647,7 +646,6 @@ This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
  description: dont use integrations when determining versions
  
  
-
 
 
 

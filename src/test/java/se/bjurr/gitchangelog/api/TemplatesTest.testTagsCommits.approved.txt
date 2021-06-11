@@ -16,7 +16,6 @@ Changelog of Git Changelog.
  {{/commits}}
 {{/tags}}
 
-
 ---------------------------------------------
 
 settings:

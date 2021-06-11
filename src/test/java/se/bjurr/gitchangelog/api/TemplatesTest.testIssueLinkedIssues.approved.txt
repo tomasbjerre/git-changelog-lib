@@ -6,7 +6,6 @@ template:
     {{/hasLinkedIssues}}
 {{/issues}}
 
-
 ---------------------------------------------
 
 settings:

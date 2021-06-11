@@ -19,7 +19,6 @@ Changelog of Git Changelog.
 
 {{/commits}}
 
-
 ---------------------------------------------
 
 settings:

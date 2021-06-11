@@ -21,7 +21,6 @@ Changelog of Git Changelog.
  {{/commits}}
 {{/issues}}
 
-
 ---------------------------------------------
 
 settings:
