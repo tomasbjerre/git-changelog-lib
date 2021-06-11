@@ -2,6 +2,18 @@
 
 Changelog of git-changelog-lib.
 
+## [1.156.2](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.156.2) (2021-06-11)
+
+
+
+
+
+### Bug Fixes
+
+-  adding default changelog template jenkinsci/git-changelog-plugin#58 ([051d6](https://github.com/tomasbjerre/git-changelog-lib/commit/051d61c8116bf19))  
+
+
+
 ## [1.156.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.156.0) (2021-06-09)
 
 
