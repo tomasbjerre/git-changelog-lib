@@ -4,11 +4,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
 import org.gitlab.api.GitlabAPI;
 import org.gitlab.api.models.GitlabIssue;
 import org.gitlab.api.models.GitlabProject;
-
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 
 public class GitLabClient {

@@ -2,7 +2,6 @@ package se.bjurr.gitchangelog.internal.integrations.jira;
 
 import java.util.Map;
 import java.util.Optional;
-
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 import se.bjurr.gitchangelog.internal.integrations.rest.RestClient;
 
@@ -40,10 +39,10 @@ public class DefaultJiraClient extends JiraClient {
     if (json.isPresent()) {
       final String jsonString = json.get();
       try {
-	final JiraIssue jiraIssue = this.toJiraIssue(issue, jsonString);
-      return Optional.of(jiraIssue);
+        final JiraIssue jiraIssue = this.toJiraIssue(issue, jsonString);
+        return Optional.of(jiraIssue);
       } catch (final Exception e) {
-    	  throw new GitChangelogIntegrationException("Unable to parse:\n"+jsonString,e);
+        throw new GitChangelogIntegrationException("Unable to parse:\n" + jsonString, e);
       }
     }
     return Optional.empty();
