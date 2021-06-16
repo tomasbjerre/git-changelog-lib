@@ -3,18 +3,15 @@ package se.bjurr.gitchangelog.internal.integrations.gitlab;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
-import java.util.concurrent.ConcurrentHashMap;
+
 import org.gitlab.api.GitlabAPI;
 import org.gitlab.api.models.GitlabIssue;
 import org.gitlab.api.models.GitlabProject;
+
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 
 public class GitLabClient {
-
-  private final Map<GitLabProjectIssuesCacheKey, List<GitlabIssue>> cache =
-      new ConcurrentHashMap<>();
 
   private final String hostUrl;
   private final String apiToken;
