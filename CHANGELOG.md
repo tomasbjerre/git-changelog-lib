@@ -2,6 +2,15 @@
 
 Changelog of git-changelog-lib.
 
+## [1.156.3](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.156.3) (2021-06-16)
+
+
+
+
+
+
+
+
 ## [1.156.2](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.156.2) (2021-06-11)
 
 
