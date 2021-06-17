@@ -15,13 +15,11 @@ public final class ResourceLoader {
   private ResourceLoader() {}
 
   public static String getResourceOrFile(final String resourceName) {
-
     String templateString = null;
     try {
       final Path templatePath = Paths.get(resourceName);
       if (templatePath.toFile().exists()) {
-
-        Files.readAllBytes(templatePath);
+        templateString = new String(Files.readAllBytes(templatePath), StandardCharsets.UTF_8);
       } else {
         InputStream inputStream =
             getResourceFromClassLoader(resourceName, ResourceLoader.class.getClassLoader());
