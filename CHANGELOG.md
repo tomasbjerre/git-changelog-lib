@@ -2,6 +2,18 @@
 
 Changelog of git-changelog-lib.
 
+## [1.156.4](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.156.4) (2021-06-17)
+
+
+
+
+
+### Bug Fixes
+
+-  read template from file ([4cf61](https://github.com/tomasbjerre/git-changelog-lib/commit/4cf6198e81fddac))  
+
+
+
 ## [1.156.3](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.156.3) (2021-06-16)
 
 
