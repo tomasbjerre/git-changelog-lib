@@ -54,7 +54,6 @@ settings:
   "extendedVariables": {},
   "ignoreCommitsWithoutIssue": false,
   "gitLabProjectName": "tomasbjerre",
-  "semanticMajorPattern": "^[Bb]reaking.*",
   "semanticMinorPattern": "^[Ff]eat.*"
 }
 

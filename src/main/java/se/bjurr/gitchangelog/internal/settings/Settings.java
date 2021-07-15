@@ -184,7 +184,7 @@ public class Settings implements Serializable {
   private String gitLabProjectName;
 
   /** Regular expression to use when determining next semantic version based on commits. */
-  private String semanticMajorPattern = "^[Bb]reaking.*";
+  private String semanticMajorPattern = null;
 
   /** Regular expression to use when determining next semantic version based on commits. */
   private String semanticMinorPattern = "^[Ff]eat.*";

@@ -23,7 +23,7 @@ public class SemanticVersioningTest {
   public void before() {
     this.tags = new ArrayList<>();
     this.commits = new ArrayList<>();
-    this.majorPattern = "[Bb]reaking:.*";
+    this.majorPattern = null;
     this.minorPattern = "[Uu]pdate:.*";
     this.sut =
         new SemanticVersioning(this.tags, this.commits, this.majorPattern, this.minorPattern);
@@ -62,6 +62,26 @@ public class SemanticVersioningTest {
   public void testMajorStep() throws Throwable {
     this.tags.add("v1.0.0");
     this.commits.add("breaking: whatever");
+
+    final SemanticVersion highestVersion = SemanticVersioning.getHighestVersion(this.tags);
+    assertThat(highestVersion + " -> " + this.sut.getNextVersion(highestVersion)) //
+        .isEqualTo("1.0.0 -> 2.0.0");
+  }
+
+  @Test
+  public void testMajorExclamation() throws Throwable {
+    this.tags.add("v1.0.0");
+    this.commits.add("feat!: whatever");
+
+    final SemanticVersion highestVersion = SemanticVersioning.getHighestVersion(this.tags);
+    assertThat(highestVersion + " -> " + this.sut.getNextVersion(highestVersion)) //
+        .isEqualTo("1.0.0 -> 2.0.0");
+  }
+
+  @Test
+  public void testMajorBreaking() throws Throwable {
+    this.tags.add("v1.0.0");
+    this.commits.add("feat: whatever\n\nBREAKING CHANGE: this is a text");
 
     final SemanticVersion highestVersion = SemanticVersioning.getHighestVersion(this.tags);
     assertThat(highestVersion + " -> " + this.sut.getNextVersion(highestVersion)) //

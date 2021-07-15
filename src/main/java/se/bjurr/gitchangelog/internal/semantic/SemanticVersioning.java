@@ -13,7 +13,7 @@ public class SemanticVersioning {
   }
 
   private final List<String> commits;
-  private final Pattern majorPattern;
+  private Pattern majorPattern;
   private final Pattern minorPattern;
 
   public SemanticVersioning(
@@ -22,8 +22,10 @@ public class SemanticVersioning {
       final String majorPattern,
       final String minorPattern) {
     this.commits = commits;
-    this.majorPattern = Pattern.compile(this.notNull(majorPattern, "majorPattern"));
-    this.minorPattern = Pattern.compile(this.notNull(minorPattern, "minorPattern"));
+    if (majorPattern != null) {
+      this.majorPattern = Pattern.compile(majorPattern);
+    }
+    this.minorPattern = Pattern.compile(minorPattern);
   }
 
   public SemanticVersion getNextVersion(final SemanticVersion highestVersion) {
@@ -73,19 +75,14 @@ public class SemanticVersioning {
   private VERSION_STEP getVersionStep() {
     VERSION_STEP versionStep = VERSION_STEP.PATCH;
     for (final String commit : this.commits) {
-      if (this.majorPattern.matcher(commit).find()) {
+      final boolean majorPatternMatches =
+          this.majorPattern != null && this.majorPattern.matcher(commit).find();
+      if (majorPatternMatches || ConventionalCommitParser.commitBreaking(commit)) {
         return VERSION_STEP.MAJOR;
       } else if (this.minorPattern.matcher(commit).find()) {
         versionStep = VERSION_STEP.MINOR;
       }
     }
     return versionStep;
-  }
-
-  private String notNull(final String value, final String msg) {
-    if (value == null) {
-      throw new RuntimeException(msg + " is not defined");
-    }
-    return value;
   }
 }
