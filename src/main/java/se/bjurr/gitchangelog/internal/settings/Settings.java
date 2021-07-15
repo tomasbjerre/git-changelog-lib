@@ -7,6 +7,7 @@ import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_GITHUB_
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_GITLAB_ISSUE_PATTERN;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_IGNORE_COMMITS_REGEXP;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_JIRA_ISSUE_PATTEN;
+import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_MINOR_PATTERN;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_NO_ISSUE_NAME;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_READABLE_TAG_NAME;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_REMOVE_ISSUE;
@@ -187,7 +188,7 @@ public class Settings implements Serializable {
   private String semanticMajorPattern = null;
 
   /** Regular expression to use when determining next semantic version based on commits. */
-  private String semanticMinorPattern = "^[Ff]eat.*";
+  private String semanticMinorPattern = null;
 
   public String getSubDirFilter() {
     return ofNullable(this.subDirFilter).orElse("");
@@ -505,8 +506,8 @@ public class Settings implements Serializable {
     this.semanticMajorPattern = this.isRegexp(semanticMajorPattern, "semanticMajorPattern");
   }
 
-  public Optional<String> getSemanticMinorPattern() {
-    return ofNullable(this.semanticMinorPattern);
+  public String getSemanticMinorPattern() {
+    return ofNullable(this.semanticMinorPattern).orElse(DEFAULT_MINOR_PATTERN);
   }
 
   public void setSemanticMinorPattern(final String semanticMinorPattern) {

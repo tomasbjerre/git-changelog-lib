@@ -73,8 +73,7 @@ settings:
   ],
   "extendedVariables": {},
   "ignoreCommitsWithoutIssue": false,
-  "gitLabProjectName": "tomasbjerre",
-  "semanticMinorPattern": "^[Ff]eat.*"
+  "gitLabProjectName": "tomasbjerre"
 }
 
 ---------------------------------------------

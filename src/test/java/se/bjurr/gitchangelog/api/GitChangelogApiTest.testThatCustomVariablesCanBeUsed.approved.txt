@@ -56,8 +56,7 @@ settings:
     "customVariable": "the value"
   },
   "ignoreCommitsWithoutIssue": false,
-  "gitLabProjectName": "tomasbjerre",
-  "semanticMinorPattern": "^[Ff]eat.*"
+  "gitLabProjectName": "tomasbjerre"
 }
 
 ---------------------------------------------
