@@ -6,7 +6,7 @@ jdk:
   - openjdk8
   - openjdk11
 git:
-  depth: 9999999
+  depth: 3
 before_script:
   - git fetch origin master:master
   - git fetch origin test:test
