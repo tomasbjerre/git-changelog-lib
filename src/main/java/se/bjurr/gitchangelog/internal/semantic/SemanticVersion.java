@@ -1,8 +1,10 @@
 package se.bjurr.gitchangelog.internal.semantic;
 
+import java.io.Serializable;
 import java.util.Optional;
 
-public class SemanticVersion {
+public class SemanticVersion implements Serializable {
+  private static final long serialVersionUID = -7875655375353325189L;
   private final int patch;
   private final int minor;
   private final int major;
