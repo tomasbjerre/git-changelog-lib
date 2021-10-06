@@ -2,6 +2,18 @@
 
 Changelog of git-changelog-lib.
 
+## [1.157.2](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.157.2) (2021-10-06)
+
+
+
+
+
+### Bug Fixes
+
+-  SemanticVersion implements Serializable ([615c4](https://github.com/tomasbjerre/git-changelog-lib/commit/615c4c957f1b47a))  
+
+
+
 ## [1.157.1](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.157.1) (2021-07-15)
 
 
