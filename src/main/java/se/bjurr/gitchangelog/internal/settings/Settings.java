@@ -9,6 +9,7 @@ import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_IGNORE_
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_JIRA_ISSUE_PATTEN;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_MINOR_PATTERN;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_NO_ISSUE_NAME;
+import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_PATCH_PATTERN;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_READABLE_TAG_NAME;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_REMOVE_ISSUE;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_TIMEZONE;
@@ -189,6 +190,9 @@ public class Settings implements Serializable {
 
   /** Regular expression to use when determining next semantic version based on commits. */
   private String semanticMinorPattern = null;
+
+  /** Regular expression to use when determining next semantic version based on commits. */
+  private String semanticPatchPattern;
 
   public String getSubDirFilter() {
     return ofNullable(this.subDirFilter).orElse("");
@@ -512,6 +516,14 @@ public class Settings implements Serializable {
 
   public void setSemanticMinorPattern(final String semanticMinorPattern) {
     this.semanticMinorPattern = this.isRegexp(semanticMinorPattern, "semanticMinorPattern");
+  }
+
+  public String getSemanticPatchPattern() {
+    return ofNullable(this.semanticPatchPattern).orElse(DEFAULT_PATCH_PATTERN);
+  }
+
+  public void setSemanticPatchPattern(final String semanticPatchPattern) {
+    this.semanticPatchPattern = this.isRegexp(semanticPatchPattern, "semanticPatchPattern");
   }
 
   private String isRegexp(final String pattern, final String string) {

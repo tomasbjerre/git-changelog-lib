@@ -9,34 +9,55 @@ public class SemanticVersioning {
   public enum VERSION_STEP {
     MAJOR,
     MINOR,
-    PATCH
+    PATCH,
+    /** Was not stepped. Given patch pattern did not match. */
+    NONE
   }
 
   private final List<String> commits;
-  private Pattern majorPattern;
+  private final Pattern majorPattern;
   private final Pattern minorPattern;
+  private final Pattern patchPattern;
 
   public SemanticVersioning(
       final List<String> tags,
       final List<String> commits,
       final String majorPattern,
-      final String minorPattern) {
+      final String minorPattern,
+      final String patchPattern) {
     this.commits = commits;
     if (majorPattern != null) {
       this.majorPattern = Pattern.compile(majorPattern);
+    } else {
+      this.majorPattern = null;
     }
     this.minorPattern = Pattern.compile(minorPattern);
+    if (patchPattern != null) {
+      this.patchPattern = Pattern.compile(patchPattern);
+    } else {
+      this.patchPattern = null;
+    }
   }
 
   public SemanticVersion getNextVersion(final SemanticVersion highestVersion) {
     final VERSION_STEP versionStep = this.getVersionStep();
     if (versionStep == VERSION_STEP.MAJOR) {
-      return new SemanticVersion(highestVersion.getMajor() + 1, 0, 0);
+      return new SemanticVersion(highestVersion.getMajor() + 1, 0, 0, versionStep);
     } else if (versionStep == VERSION_STEP.MINOR) {
-      return new SemanticVersion(highestVersion.getMajor(), highestVersion.getMinor() + 1, 0);
+      return new SemanticVersion(
+          highestVersion.getMajor(), highestVersion.getMinor() + 1, 0, versionStep);
+    } else if (versionStep == VERSION_STEP.PATCH) {
+      return new SemanticVersion(
+          highestVersion.getMajor(),
+          highestVersion.getMinor(),
+          highestVersion.getPatch() + 1,
+          versionStep);
     }
     return new SemanticVersion(
-        highestVersion.getMajor(), highestVersion.getMinor(), highestVersion.getPatch() + 1);
+        highestVersion.getMajor(),
+        highestVersion.getMinor(),
+        highestVersion.getPatch(),
+        versionStep);
   }
 
   public static SemanticVersion getHighestVersion(final List<String> tags) {
@@ -73,7 +94,8 @@ public class SemanticVersioning {
   }
 
   private VERSION_STEP getVersionStep() {
-    VERSION_STEP versionStep = VERSION_STEP.PATCH;
+    final boolean patchVersionPatternGiven = this.patchPattern != null;
+    VERSION_STEP versionStep = patchVersionPatternGiven ? VERSION_STEP.NONE : VERSION_STEP.PATCH;
     for (final String commit : this.commits) {
       final boolean majorPatternMatches =
           this.majorPattern != null && this.majorPattern.matcher(commit).find();
@@ -81,6 +103,12 @@ public class SemanticVersioning {
         return VERSION_STEP.MAJOR;
       } else if (this.minorPattern.matcher(commit).find()) {
         versionStep = VERSION_STEP.MINOR;
+      } else {
+        if (versionStep == VERSION_STEP.NONE
+            && patchVersionPatternGiven
+            && this.patchPattern.matcher(commit).find()) {
+          versionStep = VERSION_STEP.PATCH;
+        }
       }
     }
     return versionStep;

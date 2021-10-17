@@ -188,8 +188,10 @@ public class GitChangelogApi {
     final List<String> commits = this.getCommitMessages(changelog);
     final String majorVersionPattern = this.settings.getSemanticMajorPattern().orElse(null);
     final String minorVersionPattern = this.settings.getSemanticMinorPattern();
+    final String patchVersionPattern = this.settings.getSemanticPatchPattern();
     final SemanticVersioning semanticVersioning =
-        new SemanticVersioning(tags, commits, majorVersionPattern, minorVersionPattern);
+        new SemanticVersioning(
+            tags, commits, majorVersionPattern, minorVersionPattern, patchVersionPattern);
     return semanticVersioning.getNextVersion(highestSemanticVersion);
   }
 
