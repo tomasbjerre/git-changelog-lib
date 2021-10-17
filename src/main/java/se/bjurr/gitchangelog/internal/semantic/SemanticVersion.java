@@ -2,6 +2,7 @@ package se.bjurr.gitchangelog.internal.semantic;
 
 import java.io.Serializable;
 import java.util.Optional;
+
 import se.bjurr.gitchangelog.internal.semantic.SemanticVersioning.VERSION_STEP;
 
 public class SemanticVersion implements Serializable {
@@ -52,6 +53,10 @@ public class SemanticVersion implements Serializable {
    */
   public VERSION_STEP getVersionStep() {
     return this.versionStep;
+  }
+
+  public String getVersion() {
+	  return this.major + "." + this.minor + "." + this.patch;
   }
 
   @Override
