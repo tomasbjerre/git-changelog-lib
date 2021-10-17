@@ -60,6 +60,6 @@ public class SemanticVersion implements Serializable {
 
   @Override
   public String toString() {
-    return this.major + "." + this.minor + "." + this.patch + " (" + this.versionStep + ")";
+    return this.major + "." + this.minor + "." + this.patch;
   }
 }
