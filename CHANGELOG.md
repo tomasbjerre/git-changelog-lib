@@ -2,6 +2,18 @@
 
 Changelog of git-changelog-lib.
 
+## [1.158.4](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.158.4) (2021-10-17)
+
+
+
+
+
+### Bug Fixes
+
+-  reverting toString() of SemanticVersion ([f2939](https://github.com/tomasbjerre/git-changelog-lib/commit/f293966f47eb041))  
+
+
+
 ## [1.158.2](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.158.2) (2021-10-17)
 
 
