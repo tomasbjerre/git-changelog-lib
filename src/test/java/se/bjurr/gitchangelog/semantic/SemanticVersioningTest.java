@@ -5,8 +5,10 @@ import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
+
 import se.bjurr.gitchangelog.api.GitChangelogApi;
 import se.bjurr.gitchangelog.internal.semantic.SemanticVersion;
 import se.bjurr.gitchangelog.internal.semantic.SemanticVersioning;
@@ -109,6 +111,27 @@ public class SemanticVersioningTest {
     final SemanticVersion highestVersion = SemanticVersioning.getHighestVersion(this.tags);
     assertThat(highestVersion + " -> " + this.sut.getNextVersion(highestVersion)) //
         .isEqualTo("1.0.0 (NONE) -> 1.0.1 (PATCH)");
+  }
+
+  @Test
+  public void testPatchStepWithNoNewCommitsAndNoPattern() throws Throwable {
+    this.tags.add("v1.0.0");
+
+    final SemanticVersion highestVersion = SemanticVersioning.getHighestVersion(this.tags);
+    assertThat(highestVersion + " -> " + this.sut.getNextVersion(highestVersion)) //
+        .isEqualTo("1.0.0 (NONE) -> 1.0.1 (PATCH)");
+  }
+
+  @Test
+  public void testPatchStepWithNoNewCommitsAndPattern() throws Throwable {
+    this.tags.add("v1.0.0");
+    this.patchPattern = "fix:.*";
+    this.sut =
+            new SemanticVersioning(
+                this.tags, this.commits, this.majorPattern, this.minorPattern, this.patchPattern);
+    final SemanticVersion highestVersion = SemanticVersioning.getHighestVersion(this.tags);
+    assertThat(highestVersion + " -> " + this.sut.getNextVersion(highestVersion)) //
+        .isEqualTo("1.0.0 (NONE) -> 1.0.0 (NONE)");
   }
 
   @Test
