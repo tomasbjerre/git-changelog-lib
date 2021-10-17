@@ -2,6 +2,18 @@
 
 Changelog of git-changelog-lib.
 
+## [1.158.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.158.0) (2021-10-17)
+
+
+
+### Features
+
+-  only step patch if matching pattern ([7557e](https://github.com/tomasbjerre/git-changelog-lib/commit/7557e612dd5db22))  [#104](https://github.com/tomasbjerre/git-changelog-lib/issues/104)  
+
+
+
+
+
 ## [1.157.2](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.157.2) (2021-10-06)
 
 
