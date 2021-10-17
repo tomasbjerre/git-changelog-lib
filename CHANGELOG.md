@@ -2,6 +2,19 @@
 
 Changelog of git-changelog-lib.
 
+## [1.158.1](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.158.1) (2021-10-17)
+
+
+
+
+
+### Bug Fixes
+
+-  adding method to get version ([d6914](https://github.com/tomasbjerre/git-changelog-lib/commit/d6914e397988d7d))  [#104](https://github.com/tomasbjerre/git-changelog-lib/issues/104)  
+-  adding missing patch method in API ([f8eb5](https://github.com/tomasbjerre/git-changelog-lib/commit/f8eb51fd303b32f))  [#104](https://github.com/tomasbjerre/git-changelog-lib/issues/104)  
+
+
+
 ## [1.158.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.158.0) (2021-10-17)
 
 
