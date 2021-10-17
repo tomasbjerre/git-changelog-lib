@@ -225,6 +225,13 @@ public class GitChangelogApi {
     return this;
   }
 
+  /** Will be used to determine next semantic version. */
+  public GitChangelogApi withSemanticPatchVersionPattern(final String patch)
+      throws GitChangelogRepositoryException {
+    this.settings.setSemanticPatchPattern(patch);
+    return this;
+  }
+
   /**
    * Registers (Javscript) Handlebars helper to use in template.
    *
