@@ -466,6 +466,42 @@ public class GitChangelogApi {
   }
 
   /**
+   * Pattern to recognize Redmine:s. <code>#([0-9]+)</code>
+   */
+  public GitChangelogApi withRedmineIssuePattern(final String redmineIssuePattern) {
+    this.settings.setRedmineIssuePattern(redmineIssuePattern);
+    return this;
+  }
+
+  /** Authenticate to Redmine. */
+  public GitChangelogApi withRedminePassword(final String string) {
+    this.settings.setRedminePassword(string);
+    return this;
+  }
+
+  /** Authenticate to Redmine with API_KEY */
+  public GitChangelogApi withRedmineToken(final String string) {
+    this.settings.setRedmineToken(string);
+    return this;
+  }
+
+  /**
+   * URL pointing at your Redmine server. When configured, the {@link Issue#getTitle()} will be
+   * populated with title from Redmine.<br>
+   * <code>https://redmineserver/</code>
+   */
+  public GitChangelogApi withRedmineServer(final String redmineServer) {
+    this.settings.setRedmineServer(redmineServer);
+    return this;
+  }
+
+  /** Authenticate to Redmine. */
+  public GitChangelogApi withRedmineUsername(final String string) {
+    this.settings.setRedmineUsername(string);
+    return this;
+  }
+
+  /**
    * This is a "virtual issue" that is added to {@link Changelog#getIssues()}. It contains all
    * commits that has no issue in the commit comment. This could be used as a "wall of shame"
    * listing commiters that did not tag there commits with an issue.

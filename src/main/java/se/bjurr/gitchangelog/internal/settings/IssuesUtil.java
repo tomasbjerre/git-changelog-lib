@@ -3,6 +3,7 @@ package se.bjurr.gitchangelog.internal.settings;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITHUB;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITLAB;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.JIRA;
+import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.REDMINE;
 import static se.bjurr.gitchangelog.internal.util.Preconditions.isNullOrEmpty;
 
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class IssuesUtil {
   public List<SettingsIssue> getIssues() {
     final List<SettingsIssue> issues = new ArrayList<>(this.settings.getCustomIssues());
     this.addJira(issues);
+    this.addRedmine(issues);
     this.addGitHub(issues);
     this.addGitLab(issues);
     return issues;
@@ -58,6 +60,28 @@ public class IssuesUtil {
                 "Jira",
                 this.settings.getJiraIssuePattern(),
                 this.settings.getJiraServer().orElse(null),
+                null));
+      }
+    }
+  }
+
+  private void addRedmine(final List<SettingsIssue> issues) {
+    if (!isNullOrEmpty(this.settings.getRedmineIssuePattern())) {
+      if (this.settings.getRedmineServer().isPresent()) {
+        issues.add(
+            new SettingsIssue(
+                REDMINE,
+                "Redmine",
+                this.settings.getRedmineIssuePattern(),
+                this.settings.getRedmineServer().orElse("") + "/issues/${PATTERN_GROUP}",
+                null));
+      } else {
+        issues.add(
+            new SettingsIssue(
+                REDMINE,
+                "Redmine",
+                this.settings.getRedmineIssuePattern(),
+                this.settings.getRedmineServer().orElse(null),
                 null));
       }
     }

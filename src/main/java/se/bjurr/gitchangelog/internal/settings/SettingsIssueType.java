@@ -5,5 +5,6 @@ public enum SettingsIssueType {
   CUSTOM,
   JIRA,
   GITHUB,
-  GITLAB
+  GITLAB,
+  REDMINE
 }

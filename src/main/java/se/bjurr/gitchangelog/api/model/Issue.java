@@ -4,6 +4,7 @@ import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.CUSTOM;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITHUB;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITLAB;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.JIRA;
+import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.REDMINE;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.NOISSUE;
 import static se.bjurr.gitchangelog.internal.util.Preconditions.checkNotNull;
 import static se.bjurr.gitchangelog.internal.util.Preconditions.checkState;
@@ -93,6 +94,10 @@ public class Issue implements ICommits, IAuthors, Serializable {
 
   public boolean isJira() {
     return this.issueType == JIRA;
+  }
+
+  public boolean isRedmine() {
+    return this.issueType == REDMINE;
   }
 
   public boolean isGitHub() {

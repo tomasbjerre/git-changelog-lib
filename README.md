@@ -15,7 +15,7 @@ The changelog can:
 - Be stored to file, like `CHANGELOG.md`. There are some templates used for testing available [here](/src/test/resources/templatetest).
 - Or, just rendered to a `String`.
 
-It can integrate with Jira and/or GitHub to retrieve the title of issues.
+It can integrate with Jira, Redmine, GitLab and/or GitHub to retrieve the title of issues.
 
 ## Usage
 

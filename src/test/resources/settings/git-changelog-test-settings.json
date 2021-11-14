@@ -19,6 +19,11 @@
  "jiraUsername": "user",
  "jiraPassword": "code",
 
+ "redmineServer": "https://redmineserver/redmine",
+ "redmineIssuePattern": "#([0-9]+)",
+ "redmineUsername": "user",
+ "redminePassword": "code",
+
  "gitHubApi": "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
  "gitHubIssuePattern": "#([0-9]+)",
 

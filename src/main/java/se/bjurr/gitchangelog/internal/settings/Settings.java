@@ -7,6 +7,7 @@ import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_GITHUB_
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_GITLAB_ISSUE_PATTERN;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_IGNORE_COMMITS_REGEXP;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_JIRA_ISSUE_PATTEN;
+import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_REDMINE_ISSUE_PATTEN;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_MINOR_PATTERN;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_NO_ISSUE_NAME;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_PATCH_PATTERN;
@@ -137,6 +138,22 @@ public class Settings implements Serializable {
   /** Authenticate to JIRA. */
   private String jiraToken;
   /**
+   * URL pointing at your Redmine server. When configured, the {@link Issue#getTitle()} will be
+   * populated with title from Redmine.<br>
+   * <code>https://redmine/redmine</code>
+   */
+  private String redmineServer;
+  /**
+   * Pattern to recognize Redmine:s. <code>#([0-9]+)</code>
+   */
+  private String redmineIssuePattern;
+  /** Authenticate to Redmine. */
+  private String redmineUsername;
+  /** Authenticate to Redmine. */
+  private String redminePassword;
+  /** Authenticate to Redmine whith API_KEY */
+  private String redmineToken;
+  /**
    * URL pointing at GitHub API. When configured, the {@link Issue#getTitle()} will be populated
    * with title from GitHub.<br>
    * <code>https://api.github.com/repos/tomasbjerre/git-changelog-lib</code>
@@ -266,6 +283,14 @@ public class Settings implements Serializable {
     this.jiraServer = jiraServer;
   }
 
+  public void setRedmineIssuePattern(final String redmineIssuePattern) {
+    this.redmineIssuePattern = redmineIssuePattern;
+  }
+
+  public void setRedmineServer(final String redmineServer) {
+    this.redmineServer = redmineServer;
+  }
+
   public void addCustomIssue(final SettingsIssue customIssue) {
     if (this.customIssues == null) {
       this.customIssues = new ArrayList<>();
@@ -295,6 +320,14 @@ public class Settings implements Serializable {
 
   public Optional<String> getJiraServer() {
     return ofNullable(this.jiraServer);
+  }
+
+  public String getRedmineIssuePattern() {
+    return ofNullable(this.redmineIssuePattern).orElse(DEFAULT_REDMINE_ISSUE_PATTEN);
+  }
+
+  public Optional<String> getRedmineServer() {
+    return ofNullable(this.redmineServer);
   }
 
   public static Settings fromFile(final URL url) {
@@ -444,6 +477,30 @@ public class Settings implements Serializable {
 
   public Optional<String> getJiraToken() {
     return ofNullable(this.jiraToken);
+  }
+
+  public Optional<String> getRedmineUsername() {
+    return ofNullable(this.redmineUsername);
+  }
+
+  public void setRedminePassword(final String redminePassword) {
+    this.redminePassword = redminePassword;
+  }
+
+  public void setRedmineToken(final String redmineToken) {
+    this.redmineToken = redmineToken;
+  }
+
+  public void setRedmineUsername(final String redmineUsername) {
+    this.redmineUsername = redmineUsername;
+  }
+
+  public Optional<String> getRedminePassword() {
+    return ofNullable(this.redminePassword);
+  }
+
+  public Optional<String> getRedmineToken() {
+    return ofNullable(this.redmineToken);
   }
 
   public void setExtendedVariables(final Map<String, Object> extendedVariables) {

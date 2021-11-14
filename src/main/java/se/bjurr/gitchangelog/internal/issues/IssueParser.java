@@ -8,6 +8,7 @@ import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.CUSTOM;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITHUB;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITLAB;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.JIRA;
+import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.REDMINE;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.NOISSUE;
 
 import java.util.ArrayList;
@@ -26,6 +27,9 @@ import se.bjurr.gitchangelog.internal.integrations.gitlab.GitLabIssue;
 import se.bjurr.gitchangelog.internal.integrations.jira.JiraClient;
 import se.bjurr.gitchangelog.internal.integrations.jira.JiraClientFactory;
 import se.bjurr.gitchangelog.internal.integrations.jira.JiraIssue;
+import se.bjurr.gitchangelog.internal.integrations.redmine.RedmineClient;
+import se.bjurr.gitchangelog.internal.integrations.redmine.RedmineClientFactory;
+import se.bjurr.gitchangelog.internal.integrations.redmine.RedmineIssue;
 import se.bjurr.gitchangelog.internal.model.ParsedIssue;
 import se.bjurr.gitchangelog.internal.settings.IssuesUtil;
 import se.bjurr.gitchangelog.internal.settings.Settings;
@@ -56,8 +60,9 @@ public class IssueParser {
 
     final GitHubHelper gitHubHelper = useIntegrationIfConfigured ? this.createGitHubClient() : null;
     final JiraClient jiraClient = useIntegrationIfConfigured ? this.createJiraClient() : null;
+    final RedmineClient redmineClient = useIntegrationIfConfigured ? this.createRedmineClient() : null;
     final GitLabClient gitLabClient = useIntegrationIfConfigured ? this.createGitLabClient() : null;
-
+    
     final List<SettingsIssue> patterns = new IssuesUtil(this.settings).getIssues();
 
     for (final GitCommit gitCommit : this.commits) {
@@ -80,6 +85,8 @@ public class IssueParser {
                   this.createParsedIssue(gitLabClient, projectName, issuePattern, matchedIssue);
             } else if (issuePattern.getType() == JIRA) {
               parsedIssue = this.createParsedIssue(jiraClient, issuePattern, matchedIssue);
+            } else if (issuePattern.getType() == REDMINE) {
+              parsedIssue = this.createParsedIssue(redmineClient, issuePattern, matchedIssue);
             } else {
               parsedIssue = this.createParsedIssue(issuePattern, issueMatcher, matchedIssue);
             }
@@ -183,6 +190,23 @@ public class IssueParser {
     return jiraClient;
   }
 
+  private RedmineClient createRedmineClient() {
+    RedmineClient redmineClient = null;
+    if (this.settings.getRedmineServer().isPresent()) {
+      redmineClient = RedmineClientFactory.createRedmineClient(this.settings.getRedmineServer().get());
+      if (this.settings.getRedmineUsername().isPresent()) {
+        redmineClient.withBasicCredentials(
+            this.settings.getRedmineUsername().get(), this.settings.getRedminePassword().get());
+      } else if (this.settings.getRedmineToken().isPresent()) {
+        redmineClient.withTokenCredentials(this.settings.getRedmineToken().get());
+      }
+      if (this.settings.getExtendedRestHeaders() != null) {
+        redmineClient.withHeaders(this.settings.getExtendedRestHeaders());
+      }
+    }
+    return redmineClient;
+  }
+
   private GitHubHelper createGitHubClient() {
     GitHubHelper gitHubHelper = null;
     if (this.settings.getGitHubApi().isPresent()) {
@@ -245,6 +269,38 @@ public class IssueParser {
         linkedIssues,
         labels);
   }
+
+  private ParsedIssue createParsedIssue(
+      final RedmineClient redmineClient, final SettingsIssue issuePattern, final String matchedIssue) {
+    String link = "";
+    String title = "";
+    String desc = "";
+    String issueType = null;
+    List<String> linkedIssues = null;
+    List<String> labels = null;
+    try {
+      if (redmineClient != null && redmineClient.getIssue(matchedIssue).isPresent()) {
+        final RedmineIssue redmineIssue = redmineClient.getIssue(matchedIssue).get();
+        link = redmineIssue.getLink();
+        title = redmineIssue.getTitle();
+        issueType = redmineIssue.getIssueType();
+        desc = redmineIssue.getDescription();
+      }
+    } catch (final GitChangelogIntegrationException e) {
+      LOG.error(matchedIssue, e);
+    }
+    return new ParsedIssue( //
+        REDMINE, //
+        issuePattern.getName(), //
+        matchedIssue, //
+        desc,
+        link, //
+        title, //
+        issueType, //
+        linkedIssues,
+        labels);
+  }
+
 
   private ParsedIssue createParsedIssue(
       final GitHubHelper gitHubHelper,

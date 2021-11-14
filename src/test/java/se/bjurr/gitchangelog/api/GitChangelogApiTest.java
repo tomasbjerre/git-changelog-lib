@@ -18,6 +18,7 @@ import org.junit.Test;
 import se.bjurr.gitchangelog.internal.integrations.github.GitHubMockInterceptor;
 import se.bjurr.gitchangelog.internal.integrations.github.GitHubServiceFactory;
 import se.bjurr.gitchangelog.internal.integrations.jira.JiraClientFactory;
+import se.bjurr.gitchangelog.internal.integrations.redmine.RedmineClientFactory;
 import se.bjurr.gitchangelog.internal.integrations.rest.RestClientMock;
 import se.bjurr.gitchangelog.test.ApprovalsWrapper;
 
@@ -28,6 +29,7 @@ public class GitChangelogApiTest {
   @Before
   public void before() throws Exception {
     JiraClientFactory.reset();
+    RedmineClientFactory.reset();
 
     this.mockedRestClient = new RestClientMock();
     this.mockedRestClient //
@@ -50,6 +52,13 @@ public class GitChangelogApiTest {
                 Files.readAllBytes(
                     Paths.get(
                         TemplatesTest.class.getResource("/jira-issue-jir-5262.json").toURI())),
+                UTF_8)) //
+        .addMockedResponse(
+            "/redmine/issues/1234.json?null",
+            new String(
+                Files.readAllBytes(
+                    Paths.get(
+                        TemplatesTest.class.getResource("/redmine-issue-1234.json").toURI())),
                 UTF_8)); //
     mock(this.mockedRestClient);
 
@@ -69,6 +78,7 @@ public class GitChangelogApiTest {
   @After
   public void after() {
     JiraClientFactory.reset();
+    RedmineClientFactory.reset();
     GitHubServiceFactory.setInterceptor(null);
     mock(null);
   }

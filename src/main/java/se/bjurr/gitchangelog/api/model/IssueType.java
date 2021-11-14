@@ -4,6 +4,7 @@ import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.CUSTOM;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITHUB;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITLAB;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.JIRA;
+import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.REDMINE;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.NOISSUE;
 import static se.bjurr.gitchangelog.internal.util.Preconditions.checkNotNull;
 import static se.bjurr.gitchangelog.internal.util.Preconditions.checkState;
@@ -32,6 +33,10 @@ public class IssueType implements Serializable {
 
   public boolean isJira() {
     return this.type == JIRA;
+  }
+
+  public boolean isRedmine() {
+    return this.type == REDMINE;
   }
 
   public boolean isGitHub() {

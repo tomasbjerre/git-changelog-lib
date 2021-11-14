@@ -1,0 +1,44 @@
+{
+    "issue": {
+      "id": 1234,
+      "project": {
+        "id": 1,
+        "name": "Test"
+      },
+      "tracker": {
+        "id": 2,
+        "name": "Feature"
+      },
+      "status": {
+        "id": 4,
+        "name": "WIP"
+      },
+      "priority": {
+        "id": 13,
+        "name": "Medium"
+      },
+      "author": {
+        "id": 5,
+        "name": "Hakan Uygun"
+      },
+      "assigned_to": {
+        "id": 6,
+        "name": "Hakan Uygun"
+      },
+      "subject": "git-changelog-lib test",
+      "description": "git-changelog-lib redmine support test",
+      "start_date": null,
+      "due_date": null,
+      "done_ratio": 0,
+      "is_private": false,
+      "estimated_hours": null,
+      "total_estimated_hours": null,
+      "spent_hours": 0.0,
+      "total_spent_hours": 0.0,
+      "custom_fields": [
+      ],
+      "created_on": "2021-10-23T16:28:47Z",
+      "updated_on": "2021-11-07T18:27:16Z",
+      "closed_on": null
+    }
+  }
