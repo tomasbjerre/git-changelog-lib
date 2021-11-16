@@ -19,9 +19,9 @@ public class IssuesUtil {
   public List<SettingsIssue> getIssues() {
     final List<SettingsIssue> issues = new ArrayList<>(this.settings.getCustomIssues());
     this.addJira(issues);
-    this.addRedmine(issues);
     this.addGitHub(issues);
     this.addGitLab(issues);
+    this.addRedmine(issues);
     return issues;
   }
 

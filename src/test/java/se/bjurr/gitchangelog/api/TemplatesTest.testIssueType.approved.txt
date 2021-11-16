@@ -9,6 +9,7 @@ template:
 isGitHub: {{isGitHub}}
 isGitLab: {{isGitLab}}
 isJira: {{isJira}}
+isRedmine: {{isRedmine}}
 isCustom: {{isCustom}}
 isNoIssue: {{isNoIssue}}
 
@@ -76,6 +77,7 @@ false
 isGitHub: 
 isGitLab: 
 isJira: 
+isRedmine: 
 isCustom: 
 isNoIssue: 
 
@@ -85,6 +87,7 @@ false
 isGitHub: 
 isGitLab: 
 isJira: 
+isRedmine: 
 isCustom: 
 isNoIssue: 
 
@@ -94,6 +97,7 @@ false
 isGitHub: 
 isGitLab: 
 isJira: 
+isRedmine: 
 isCustom: 
 isNoIssue: 
 
@@ -103,6 +107,7 @@ false
 isGitHub: 
 isGitLab: 
 isJira: 
+isRedmine: 
 isCustom: 
 isNoIssue: 
 
@@ -112,6 +117,7 @@ true Bug
 isGitHub: 
 isGitLab: 
 isJira: 
+isRedmine: 
 isCustom: 
 isNoIssue: 
 
@@ -121,6 +127,7 @@ false
 isGitHub: 
 isGitLab: 
 isJira: 
+isRedmine: 
 isCustom: 
 isNoIssue: 
 
@@ -131,6 +138,7 @@ false
 isGitHub: 
 isGitLab: 
 isJira: 
+isRedmine: 
 isCustom: 
 isNoIssue: 
 
@@ -141,6 +149,7 @@ false
 isGitHub: 
 isGitLab: 
 isJira: 
+isRedmine: 
 isCustom: 
 isNoIssue: 
 
@@ -150,6 +159,7 @@ false
 isGitHub: 
 isGitLab: 
 isJira: 
+isRedmine: 
 isCustom: 
 isNoIssue: 
 
@@ -159,6 +169,7 @@ true Bug
 isGitHub: 
 isGitLab: 
 isJira: 
+isRedmine: 
 isCustom: 
 isNoIssue: 
 
@@ -168,6 +179,7 @@ false
 isGitHub: 
 isGitLab: 
 isJira: 
+isRedmine: 
 isCustom: 
 isNoIssue: 
 

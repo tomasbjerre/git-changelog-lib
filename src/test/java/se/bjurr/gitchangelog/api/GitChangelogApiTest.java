@@ -57,8 +57,7 @@ public class GitChangelogApiTest {
             "/redmine/issues/1234.json?null",
             new String(
                 Files.readAllBytes(
-                    Paths.get(
-                        TemplatesTest.class.getResource("/redmine-issue-1234.json").toURI())),
+                    Paths.get(TemplatesTest.class.getResource("/redmine-issue-1234.json").toURI())),
                 UTF_8)); //
     mock(this.mockedRestClient);
 
@@ -166,6 +165,7 @@ public class GitChangelogApiTest {
             .withToRef("test") //
             .withGitHubIssuePattern("nooo") //
             .withGitLabIssuePattern("nooo") //
+            .withRedmineIssuePattern("nooo") //
             .withCustomIssue(
                 "JIRA", "JIR-[0-9]*", "http://${PATTERN_GROUP}", "${PATTERN_GROUP}") //
             .withIgnoreCommitsWithoutIssue(true) //

@@ -42,6 +42,7 @@ settings:
   "fromCommit": "0000000000000000000000000000000000000000",
   "templatePath": "templatetest/testThatCommitsWithoutIssueCanBeIgnoredTagsIssuesCommits.mustache",
   "removeIssueFromMessage": false,
+  "redmineIssuePattern": "nooo",
   "gitHubApi": "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
   "gitHubIssuePattern": "nooo",
   "customIssues": [

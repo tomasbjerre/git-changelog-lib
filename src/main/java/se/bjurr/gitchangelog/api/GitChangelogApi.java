@@ -465,9 +465,7 @@ public class GitChangelogApi {
     return this;
   }
 
-  /**
-   * Pattern to recognize Redmine:s. <code>#([0-9]+)</code>
-   */
+  /** Pattern to recognize Redmine:s. <code>#([0-9]+)</code> */
   public GitChangelogApi withRedmineIssuePattern(final String redmineIssuePattern) {
     this.settings.setRedmineIssuePattern(redmineIssuePattern);
     return this;

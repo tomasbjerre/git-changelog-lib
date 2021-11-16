@@ -7,11 +7,11 @@ import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_GITHUB_
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_GITLAB_ISSUE_PATTERN;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_IGNORE_COMMITS_REGEXP;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_JIRA_ISSUE_PATTEN;
-import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_REDMINE_ISSUE_PATTEN;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_MINOR_PATTERN;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_NO_ISSUE_NAME;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_PATCH_PATTERN;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_READABLE_TAG_NAME;
+import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_REDMINE_ISSUE_PATTEN;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_REMOVE_ISSUE;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_TIMEZONE;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_UNTAGGED_NAME;
@@ -143,9 +143,7 @@ public class Settings implements Serializable {
    * <code>https://redmine/redmine</code>
    */
   private String redmineServer;
-  /**
-   * Pattern to recognize Redmine:s. <code>#([0-9]+)</code>
-   */
+  /** Pattern to recognize Redmine:s. <code>#([0-9]+)</code> */
   private String redmineIssuePattern;
   /** Authenticate to Redmine. */
   private String redmineUsername;

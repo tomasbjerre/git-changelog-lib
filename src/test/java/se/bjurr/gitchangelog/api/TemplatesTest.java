@@ -44,13 +44,6 @@ public class TemplatesTest {
                 Files.readAllBytes(
                     Paths.get(
                         TemplatesTest.class.getResource("/jira-issue-jir-5262.json").toURI())),
-                UTF_8)) //
-        .addMockedResponse(
-            "/redmine/issues/1234.json?null",
-            new String(
-                Files.readAllBytes(
-                    Paths.get(
-                        TemplatesTest.class.getResource("/redmine-issue-1234.json").toURI())),
                 UTF_8));
     mock(mockedRestClient);
 
@@ -82,10 +75,6 @@ public class TemplatesTest {
             .withJiraIssuePattern("\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b") //
             .withJiraUsername("user") //
             .withJiraPassword("code") //
-            .withRedmineServer("https://redmineserver/redmine") //
-            .withRedmineIssuePattern("#([0-9]+)") //
-            .withRedmineUsername("user") //
-            .withRedminePassword("code") //
             .withGitHubApi("https://api.github.com/repos/tomasbjerre/git-changelog-lib") //
             .withGitHubIssuePattern("#([0-9]+)") //
             .withCustomIssue(

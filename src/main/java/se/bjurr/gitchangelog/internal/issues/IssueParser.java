@@ -8,8 +8,8 @@ import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.CUSTOM;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITHUB;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITLAB;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.JIRA;
-import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.REDMINE;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.NOISSUE;
+import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.REDMINE;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -60,9 +60,10 @@ public class IssueParser {
 
     final GitHubHelper gitHubHelper = useIntegrationIfConfigured ? this.createGitHubClient() : null;
     final JiraClient jiraClient = useIntegrationIfConfigured ? this.createJiraClient() : null;
-    final RedmineClient redmineClient = useIntegrationIfConfigured ? this.createRedmineClient() : null;
+    final RedmineClient redmineClient =
+        useIntegrationIfConfigured ? this.createRedmineClient() : null;
     final GitLabClient gitLabClient = useIntegrationIfConfigured ? this.createGitLabClient() : null;
-    
+
     final List<SettingsIssue> patterns = new IssuesUtil(this.settings).getIssues();
 
     for (final GitCommit gitCommit : this.commits) {
@@ -193,7 +194,8 @@ public class IssueParser {
   private RedmineClient createRedmineClient() {
     RedmineClient redmineClient = null;
     if (this.settings.getRedmineServer().isPresent()) {
-      redmineClient = RedmineClientFactory.createRedmineClient(this.settings.getRedmineServer().get());
+      redmineClient =
+          RedmineClientFactory.createRedmineClient(this.settings.getRedmineServer().get());
       if (this.settings.getRedmineUsername().isPresent()) {
         redmineClient.withBasicCredentials(
             this.settings.getRedmineUsername().get(), this.settings.getRedminePassword().get());
@@ -271,7 +273,9 @@ public class IssueParser {
   }
 
   private ParsedIssue createParsedIssue(
-      final RedmineClient redmineClient, final SettingsIssue issuePattern, final String matchedIssue) {
+      final RedmineClient redmineClient,
+      final SettingsIssue issuePattern,
+      final String matchedIssue) {
     String link = "";
     String title = "";
     String desc = "";
@@ -300,7 +304,6 @@ public class IssueParser {
         linkedIssues,
         labels);
   }
-
 
   private ParsedIssue createParsedIssue(
       final GitHubHelper gitHubHelper,
