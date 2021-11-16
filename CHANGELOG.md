@@ -2,6 +2,19 @@
 
 Changelog of git-changelog-lib.
 
+## [1.159.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.159.0) (2021-11-16)
+
+
+
+### Features
+
+-  adjustments after merge ([00ce6](https://github.com/tomasbjerre/git-changelog-lib/commit/00ce6b5c7be6302))  [#106](https://github.com/tomasbjerre/git-changelog-lib/issues/106)  
+-  Redmine Support ([afb92](https://github.com/tomasbjerre/git-changelog-lib/commit/afb929cae874e30))  
+
+
+
+
+
 ## [1.158.4](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.158.4) (2021-10-17)
 
 
