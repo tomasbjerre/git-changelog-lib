@@ -94,6 +94,15 @@ public class Settings implements Serializable {
    */
   private String templatePath;
   /**
+   * Path to the base directory for template partial files. If not null, handlebars will be
+   * configured with a FileTemplateLoader with this as base directory.
+   */
+  private String templateBaseDir;
+  /**
+   * The filename suffix of template partial files. Requires "templateBaseDir" to be set.
+   */
+  private String templateSuffix;
+  /**
    * Your tags may look something like <code>git-changelog-maven-plugin-1.6</code>. But in the
    * changelog you just want <code>1.6</code>. With this regular expression, the numbering can be
    * extracted from the tag name.<br>
@@ -369,11 +378,27 @@ public class Settings implements Serializable {
     return ofNullable(this.templatePath).orElse("changelog.mustache");
   }
 
-  public void setTemplatePath(final String templatePath) {
+public void setTemplatePath(final String templatePath) {
     this.templatePath = templatePath;
   }
 
-  public String getReadableTagName() {
+public String getTemplateBaseDir() {
+	return templateBaseDir;
+}
+
+public void setTemplateBaseDir(String templateBaseDir) {
+	this.templateBaseDir = templateBaseDir;
+}
+
+  public String getTemplateSuffix() {
+	return templateSuffix;
+}
+
+public void setTemplateSuffix(String templateSuffix) {
+	this.templateSuffix = templateSuffix;
+}
+
+public String getReadableTagName() {
     return ofNullable(this.readableTagName).orElse(DEFAULT_READABLE_TAG_NAME);
   }
 
@@ -411,6 +436,7 @@ public class Settings implements Serializable {
     s.setFromCommit(ZERO_COMMIT);
     s.setToRef("refs/heads/master");
     s.setIgnoreCommitsIfMessageMatches("^Merge.*");
+    s.setTemplateSuffix(".hbs");
     s.setReadableTagName("/([^/]+?)$");
     s.setDateFormat("YYYY-MM-dd HH:mm:ss");
     s.setUntaggedName("No tag");

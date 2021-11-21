@@ -1,0 +1,4 @@
+## {{authorName}} - {{commitTime}}
+[{{hashFull}}](https://server/{{hash}})
+
+{{{message}}}

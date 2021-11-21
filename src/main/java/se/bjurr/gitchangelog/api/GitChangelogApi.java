@@ -12,6 +12,8 @@ import com.github.jknack.handlebars.Context;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Helper;
 import com.github.jknack.handlebars.Template;
+import com.github.jknack.handlebars.io.FileTemplateLoader;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
@@ -98,6 +100,11 @@ public class GitChangelogApi {
   public void render(final Writer writer) throws GitChangelogRepositoryException {
     Template template = null;
     final String templateString = this.getTemplateString();
+
+    if (this.settings.getTemplateBaseDir() != null) {
+      this.handlebars.with(new FileTemplateLoader(this.settings.getTemplateBaseDir(), this.settings.getTemplateSuffix()));
+    }
+
     try {
       template = this.handlebars.compileInline(templateString);
     } catch (final IOException e) {
@@ -547,6 +554,22 @@ public class GitChangelogApi {
    */
   public GitChangelogApi withTemplatePath(final String templatePath) {
     this.settings.setTemplatePath(templatePath);
+    return this;
+  }
+
+  /**
+   * Path to the base directory for template partial files
+   */
+  public GitChangelogApi withTemplateBaseDir(final String templateBaseDir) {
+    this.settings.setTemplateBaseDir(templateBaseDir);
+    return this;
+  }
+
+  /**
+   * Suffix of the template partial files
+   */
+  public GitChangelogApi withTemplateSuffix(final String templateSuffix) {
+    this.settings.setTemplateSuffix(templateSuffix);
     return this;
   }
 
