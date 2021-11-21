@@ -299,21 +299,4 @@ public class GitChangelogApiTest {
     System.out.println(path.toFile().getAbsolutePath());
     assertThat(path.toFile()).exists().isFile();
   }
-
-  @Test
-  public void testThatPartialsCanBeIncluded() throws Exception {
-    final String templatePath = "templatetest/testThatPartialsCanBeIncluded.mustache";
-
-    final Path path = Paths.get("build", "testdirtocreate", "testThatPartialsCanBeIncluded.md");
-    gitChangelogApiBuilder() //
-        .withFromCommit("aa1fd33") //
-        .withToCommit("4c6e078") //
-        .withTemplatePath(templatePath) //
-        .withTemplateBaseDir("./src/test/resources/templatetest") //
-        .withTemplateSuffix(".partial") //
-        .toFile(path.toFile());
-
-    System.out.println(path.toFile().getAbsolutePath());
-    assertThat(path.toFile()).exists().isFile();
-  }
 }

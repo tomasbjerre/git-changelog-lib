@@ -98,9 +98,7 @@ public class Settings implements Serializable {
    * configured with a FileTemplateLoader with this as base directory.
    */
   private String templateBaseDir;
-  /**
-   * The filename suffix of template partial files. Requires "templateBaseDir" to be set.
-   */
+  /** The filename suffix of template partial files. Requires "templateBaseDir" to be set. */
   private String templateSuffix;
   /**
    * Your tags may look something like <code>git-changelog-maven-plugin-1.6</code>. But in the
@@ -378,27 +376,27 @@ public class Settings implements Serializable {
     return ofNullable(this.templatePath).orElse("changelog.mustache");
   }
 
-public void setTemplatePath(final String templatePath) {
+  public void setTemplatePath(final String templatePath) {
     this.templatePath = templatePath;
   }
 
-public String getTemplateBaseDir() {
-	return templateBaseDir;
-}
+  public String getTemplateBaseDir() {
+    return templateBaseDir;
+  }
 
-public void setTemplateBaseDir(String templateBaseDir) {
-	this.templateBaseDir = templateBaseDir;
-}
+  public void setTemplateBaseDir(String templateBaseDir) {
+    this.templateBaseDir = templateBaseDir;
+  }
 
   public String getTemplateSuffix() {
-	return templateSuffix;
-}
+    return templateSuffix;
+  }
 
-public void setTemplateSuffix(String templateSuffix) {
-	this.templateSuffix = templateSuffix;
-}
+  public void setTemplateSuffix(String templateSuffix) {
+    this.templateSuffix = templateSuffix;
+  }
 
-public String getReadableTagName() {
+  public String getReadableTagName() {
     return ofNullable(this.readableTagName).orElse(DEFAULT_READABLE_TAG_NAME);
   }
 

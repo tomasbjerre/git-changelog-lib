@@ -194,4 +194,14 @@ public class TemplatesTest {
             .withIgnoreCommitsWithMessage("");
     ApprovalsWrapper.verify(given);
   }
+
+  @Test
+  public void testThatPartialsCanBeIncluded() throws Exception {
+    final GitChangelogApi given =
+        this.baseBuilder
+            .withTemplatePath("templatetest/testThatPartialsCanBeIncluded.mustache")
+            .withTemplateBaseDir("./src/test/resources/templatetest")
+            .withTemplateSuffix(".partial");
+    ApprovalsWrapper.verify(given);
+  }
 }
