@@ -123,6 +123,34 @@ You can use built in [helpers](#helpers) to produce a nice changelog. You can ad
 {{/tags}}
 ```
 
+### Partials
+
+You can use [partials](http://jknack.github.io/handlebars.java/reuse.html) in your templates.
+
+`changelog.hbs`
+
+```hbs
+{{#commits}}
+{{> commit}}
+{{/commits}}
+```
+
+`commit.partial`
+
+```hbs
+## {{authorName}} - {{commitTime}}
+[{{hashFull}}](https://server/{{hash}})
+{{{message}}}
+```
+
+This is configured like:
+
+```java
+gitChangelogApi
+  .withTemplateBaseDir("...")
+  .withTemplateSuffix(".partial"); //Optional, defaults to ".partial"
+```
+
 ## Helpers
 
 Some [helpers](/src/main/java/se/bjurr/gitchangelog/api/helpers) are implemented in this library. And users can also add more helpers as described in [Handlebars](https://github.com/jknack/handlebars.java).
@@ -347,7 +375,7 @@ Conditional, renders a block if `a` matches regexp `b`.
 
 ### `subString <a> <b> <c>`
 
-Works just like [Java substring](https://docs.oracle.com/javase/7/docs/api/java/lang/String.html#substring(int)).
+Works just like [Java substring](<https://docs.oracle.com/javase/7/docs/api/java/lang/String.html#substring(int)>).
 
 ```hbs
 {{#eachCommitFixes .}}
