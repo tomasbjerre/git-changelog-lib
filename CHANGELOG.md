@@ -2,6 +2,18 @@
 
 Changelog of git-changelog-lib.
 
+## [1.160.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.160.0) (2021-11-21)
+
+
+
+### Features
+
+-  Add support for including partials in mustache templates ([26f86](https://github.com/tomasbjerre/git-changelog-lib/commit/26f86a816904ccc))  
+
+
+
+
+
 ## [1.159.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.159.0) (2021-11-16)
 
 
