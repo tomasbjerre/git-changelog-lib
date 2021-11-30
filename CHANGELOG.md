@@ -2,6 +2,25 @@
 
 Changelog of git-changelog-lib.
 
+## [1.161.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.161.0) (2021-11-30)
+
+
+
+### Features
+
+-  bearer ([0e0fb](https://github.com/tomasbjerre/git-changelog-lib/commit/0e0fb521d7d7aa3))  [#111](https://github.com/tomasbjerre/git-changelog-lib/issues/111)  
+
+
+
+
+### Other changes
+
+**Add .circleci/config.yml**
+
+
+[9cb1f](https://github.com/tomasbjerre/git-changelog-lib/commit/9cb1ff18c3806f8) Tomas Bjerre *2021-11-21 11:44:05*
+
+
 ## [1.160.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.160.0) (2021-11-21)
 
 
