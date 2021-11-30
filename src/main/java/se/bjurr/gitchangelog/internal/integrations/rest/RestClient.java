@@ -16,10 +16,12 @@ import org.slf4j.Logger;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 
 public class RestClient {
+
   private static Logger logger = getLogger(RestClient.class);
   private static RestClient mockedRestClient;
   private final Map<String, Optional<String>> urlCache = new ConcurrentHashMap<>();
   private String basicAuthString;
+  private boolean userNameAndPasswordUsedForAuthentication = false;
 
   private Map<String, String> headers;
 
@@ -27,6 +29,7 @@ public class RestClient {
 
   public RestClient withBasicAuthCredentials(final String username, final String password) {
     try {
+      this.userNameAndPasswordUsedForAuthentication = true;
       this.basicAuthString =
           Base64.getEncoder().encodeToString((username + ":" + password).getBytes("UTF-8"));
     } catch (final UnsupportedEncodingException e) {
@@ -73,6 +76,9 @@ public class RestClient {
       }
       if (this.basicAuthString != null) {
         conn.setRequestProperty("Authorization", "Basic " + this.basicAuthString);
+      }
+      if (this.basicAuthString != null && !this.userNameAndPasswordUsedForAuthentication) {
+        conn.setRequestProperty("Authorization", "Bearer " + this.basicAuthString);
       }
       return Optional.of(this.getResponse(conn));
     } catch (final Exception e) {
