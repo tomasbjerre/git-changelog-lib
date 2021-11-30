@@ -20,7 +20,7 @@ public class RestClient {
   private static RestClient mockedRestClient;
   private final Map<String, Optional<String>> urlCache = new ConcurrentHashMap<>();
   private String basicAuthString;
-
+  private String bearer;
   private Map<String, String> headers;
 
   public RestClient() {}
@@ -37,6 +37,11 @@ public class RestClient {
 
   public RestClient withTokenAuthCredentials(final String token) {
     this.basicAuthString = token;
+    return this;
+  }
+
+  public RestClient withBearer(final String bearer) {
+    this.bearer = bearer;
     return this;
   }
 
@@ -71,7 +76,9 @@ public class RestClient {
           conn.setRequestProperty(entry.getKey(), entry.getValue());
         }
       }
-      if (this.basicAuthString != null) {
+      if (this.bearer != null) {
+        conn.setRequestProperty("Authorization", "Bearer " + this.bearer);
+      } else if (this.basicAuthString != null) {
         conn.setRequestProperty("Authorization", "Basic " + this.basicAuthString);
       }
       return Optional.of(this.getResponse(conn));
