@@ -144,6 +144,9 @@ public class Settings implements Serializable {
   private String jiraPassword;
   /** Authenticate to JIRA. */
   private String jiraToken;
+  /** Authenticate to JIRA. */
+  private String jiraBearer;
+
   /**
    * URL pointing at your Redmine server. When configured, the {@link Issue#getTitle()} will be
    * populated with title from Redmine.<br>
@@ -489,6 +492,10 @@ public class Settings implements Serializable {
     this.jiraToken = jiraToken;
   }
 
+  public void setJiraBearer(final String jiraBearer) {
+    this.jiraBearer = jiraBearer;
+  }
+
   public void setJiraUsername(final String jiraUsername) {
     this.jiraUsername = jiraUsername;
   }
@@ -499,6 +506,10 @@ public class Settings implements Serializable {
 
   public Optional<String> getJiraToken() {
     return ofNullable(this.jiraToken);
+  }
+
+  public Optional<String> getJiraBearer() {
+    return ofNullable(this.jiraBearer);
   }
 
   public Optional<String> getRedmineUsername() {

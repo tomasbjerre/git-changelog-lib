@@ -32,6 +32,11 @@ public class JiraClientTest {
       }
 
       @Override
+      public JiraClient withBearer(final String bearer) {
+        return null;
+      }
+
+      @Override
       public JiraClient withTokenCredentials(final String token) {
         return null;
       }

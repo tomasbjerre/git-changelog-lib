@@ -183,6 +183,8 @@ public class IssueParser {
             this.settings.getJiraUsername().get(), this.settings.getJiraPassword().get());
       } else if (this.settings.getJiraToken().isPresent()) {
         jiraClient.withTokenCredentials(this.settings.getJiraToken().get());
+      } else if (this.settings.getJiraBearer().isPresent()) {
+        jiraClient.withBearer(this.settings.getJiraBearer().get());
       }
       if (this.settings.getExtendedRestHeaders() != null) {
         jiraClient.withHeaders(this.settings.getExtendedRestHeaders());
