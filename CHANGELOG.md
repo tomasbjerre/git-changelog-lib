@@ -2,6 +2,22 @@
 
 Changelog of git-changelog-lib.
 
+## [1.162.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.162.0) (2021-12-03)
+
+
+
+
+
+
+
+### Other changes
+
+**feat support Bearer authorization for JIRA**
+
+
+[f7abd](https://github.com/tomasbjerre/git-changelog-lib/commit/f7abd7f4a17b035) Lumír Návrat *2021-12-01 19:44:32*
+
+
 ## [1.161.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.161.0) (2021-11-30)
 
 
