@@ -53,6 +53,8 @@ public abstract class JiraClient {
 
   public abstract JiraClient withBasicCredentials(String username, String password);
 
+  public abstract JiraClient withBearer(String bearerToken);
+
   public abstract JiraClient withTokenCredentials(String token);
 
   public abstract JiraClient withHeaders(Map<String, String> headers);

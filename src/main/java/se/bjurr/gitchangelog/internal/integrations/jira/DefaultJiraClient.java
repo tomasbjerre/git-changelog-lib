@@ -21,6 +21,12 @@ public class DefaultJiraClient extends JiraClient {
   }
 
   @Override
+  public JiraClient withBearer(final String bearerToken) {
+    this.client = this.client.withBearer(bearerToken);
+    return this;
+  }
+
+  @Override
   public JiraClient withTokenCredentials(final String token) {
     this.client = this.client.withTokenAuthCredentials(token);
     return this;
