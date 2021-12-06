@@ -51,6 +51,12 @@ public class GitChangelogApi {
     return new GitChangelogApi();
   }
 
+  public static GitChangelogApi gitChangelogApiBuilder2() {
+String a = null;
+if (a.toString().equals("hej")) System.out.println("asdasd");
+    return null;
+  }
+
   private Settings settings;
   private String templateContent;
   private Handlebars handlebars;
