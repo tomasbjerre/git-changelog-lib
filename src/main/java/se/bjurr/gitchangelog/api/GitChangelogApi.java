@@ -241,6 +241,17 @@ public class GitChangelogApi {
   }
 
   /**
+   * Registers (Javscript) Handlebars helper file to use in template.
+   *
+   * @see https://github.com/jknack/handlebars.java/tree/master#with-plain-javascript
+   */
+  public GitChangelogApi withHandlebarsHelperFile(final String javascriptHelperFile)
+      throws GitChangelogRepositoryException, IOException {
+    String javascriptHelper = ResourceLoader.getResourceOrFile(javascriptHelperFile);
+    return this.withHandlebarsHelper(javascriptHelper);
+  }
+
+  /**
    * Registers (Javscript) Handlebars helper to use in template.
    *
    * @see https://github.com/jknack/handlebars.java/tree/master#with-plain-javascript

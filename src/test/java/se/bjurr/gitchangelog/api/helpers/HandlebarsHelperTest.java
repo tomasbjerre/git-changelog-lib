@@ -20,6 +20,17 @@ public class HandlebarsHelperTest {
   }
 
   @Test
+  public void testThatHelperCanBeSuppliedWithJavascriptFile() throws Exception {
+    final GitChangelogApi given =
+        this.baseBuilder //
+            .withTemplatePath(
+                "templatetest/helpers/testThatHelperCanBeSuppliedWithJavascript.mustache")
+            .withHandlebarsHelperFile("templatetest/helpers/helper.js");
+
+    ApprovalsWrapper.verify(given);
+  }
+
+  @Test
   public void testThatHelperCanBeSuppliedWithJavascript() throws Exception {
     final GitChangelogApi given =
         this.baseBuilder //
