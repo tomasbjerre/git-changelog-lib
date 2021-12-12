@@ -2,6 +2,18 @@
 
 Changelog of git-changelog-lib.
 
+## [1.163.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.163.0) (2021-12-12)
+
+
+
+### Features
+
+-  Add helpers "ifContainsTypeOtherThan" and "ifCommitTypeOtherThan" ([e6da0](https://github.com/tomasbjerre/git-changelog-lib/commit/e6da09949018589))  
+
+
+
+
+
 ## [1.162.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.162.0) (2021-12-03)
 
 
