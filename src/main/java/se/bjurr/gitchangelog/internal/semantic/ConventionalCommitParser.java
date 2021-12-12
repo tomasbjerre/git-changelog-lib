@@ -129,6 +129,15 @@ public class ConventionalCommitParser {
     return false;
   }
 
+  public static boolean containsTypeOtherThan(final List<Commit> commits, final Options options) {
+    for (final Commit commit : commits) {
+      if (!commitType(commit.getMessage(), options)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   public static boolean commitType(final String commitMessage, final Options options) {
     final String type = options.hash("type").toString();
     return getType(commitMessage).matches(type);
