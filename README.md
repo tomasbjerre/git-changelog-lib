@@ -186,6 +186,16 @@ Conditional, renders a block if given `List<Commits>` contains given `type`.
 {{/ifContainsType}}
 ```
 
+### `ifContainsTypeOtherThan <List<Commit>>`
+
+Conditional, renders a block if given `List<Commits>` contains commits that don't match the given `type`.
+
+```hbs
+{{#ifContainsTypeOtherThan commits type="fix"}}
+  commits contains other types than fix
+{{/ifContainsTypeOtherThan}}
+```
+
 ### `ifContainsBreaking <List<Commit>>`
 
 Conditional, renders a block if given `List<Commits>` contains `breaking` changes.
@@ -233,6 +243,16 @@ Conditional, renders a block if given `Commit` is of `type`.
 ```hbs
 {{#commits}}
  {{#ifCommitType . type="fix"}} is type fix {{/ifCommitType}}
+{{/commits}}
+```
+
+### `ifCommitType <Commit> type="<type>"`
+
+Conditional, renders a block if given `Commit` is of `type`.
+
+```hbs
+{{#commits}}
+ {{#ifCommitTypeOtherThan . type="fix"}} is not type fix {{/ifCommitTypeOtherThan}}
 {{/commits}}
 ```
 

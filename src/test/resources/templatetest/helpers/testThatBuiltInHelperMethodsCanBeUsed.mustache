@@ -87,6 +87,10 @@ Has paragraphs: {{hash}}
   commits contains fix
  {{/ifContainsType}}
 
+ {{#ifContainsTypeOtherThan commits type="fix"}}
+  commits contains other types than fix
+ {{/ifContainsTypeOtherThan}}
+
  date: {{tagDate .}} 
  
 {{/tags}}
@@ -100,6 +104,7 @@ Has paragraphs: {{hash}}
  {{#ifCommitType . type="fix"}} is type fix {{/ifCommitType}}
  {{#ifCommitType . type=""}} commit has no type {{/ifCommitType}}
  {{#ifCommitType . type="fix|revert"}} commit has type fix or revert {{/ifCommitType}}
+ {{#ifCommitTypeOtherThan . type="fix|revert"}} commit has not type fix or revert {{/ifCommitTypeOtherThan}}
 
  {{#ifCommitScope . scope="utils"}} is scope utils {{/ifCommitScope}}
 

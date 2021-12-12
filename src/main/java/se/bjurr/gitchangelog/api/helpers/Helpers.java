@@ -9,6 +9,7 @@ import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.c
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.commitType;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsBreaking;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsType;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsTypeOtherThan;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.getDate;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.getMessageParts;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.isReleaseTag;
@@ -81,6 +82,11 @@ public class Helpers {
           return conditional(options, containsType(commits, options));
         });
     ALL.put(
+        "ifContainsTypeOtherThan",
+        (final List<Commit> commits, final Options options) -> {
+          return conditional(options, containsTypeOtherThan(commits, options));
+        });
+    ALL.put(
         "ifContainsBreaking",
         (final List<Commit> commits, final Options options) -> {
           return conditional(options, containsBreaking(commits, options));
@@ -90,6 +96,11 @@ public class Helpers {
         "ifCommitType",
         (final Commit commit, final Options options) -> {
           return conditional(options, commitType(commit.getMessage(), options));
+        });
+    ALL.put(
+        "ifCommitTypeOtherThan",
+        (final Commit commit, final Options options) -> {
+          return conditional(options, !commitType(commit.getMessage(), options));
         });
 
     ALL.put(

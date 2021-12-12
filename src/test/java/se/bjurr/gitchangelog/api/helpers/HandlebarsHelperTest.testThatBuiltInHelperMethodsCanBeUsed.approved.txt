@@ -89,6 +89,10 @@ Has paragraphs: {{hash}}
   commits contains fix
  {{/ifContainsType}}
 
+ {{#ifContainsTypeOtherThan commits type="fix"}}
+  commits contains other types than fix
+ {{/ifContainsTypeOtherThan}}
+
  date: {{tagDate .}} 
  
 {{/tags}}
@@ -102,6 +106,7 @@ Has paragraphs: {{hash}}
  {{#ifCommitType . type="fix"}} is type fix {{/ifCommitType}}
  {{#ifCommitType . type=""}} commit has no type {{/ifCommitType}}
  {{#ifCommitType . type="fix|revert"}} commit has type fix or revert {{/ifCommitType}}
+ {{#ifCommitTypeOtherThan . type="fix|revert"}} commit has not type fix or revert {{/ifCommitTypeOtherThan}}
 
  {{#ifCommitScope . scope="utils"}} is scope utils {{/ifCommitScope}}
 
@@ -342,6 +347,8 @@ This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
  
   commits contains fix
 
+  commits contains other types than fix
+
  date:  
  
  tag: name: 1.147.2
@@ -349,12 +356,16 @@ This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
  
   commits contains fix
 
+  commits contains other types than fix
+
  date: 2021-05-24 
  
  tag: name: 1.147.1
   "name: 1.147.1" is a release tag
  
   commits contains fix
+
+  commits contains other types than fix
 
  date: 2021-05-23 
  
@@ -379,6 +390,7 @@ second-token-here: value of second token
  
  
  
+  commit has not type fix or revert 
 
  
 
@@ -403,6 +415,7 @@ Refs #133
   is type fix 
  
   commit has type fix or revert 
+ 
 
  
 
@@ -422,6 +435,7 @@ BREAKING CHANGE: &#x60;extends&#x60; key in config file is now used for extendin
  
  
  
+  commit has not type fix or revert 
 
  
 
@@ -441,6 +455,7 @@ BREAKING CHANGE: refactor to use JavaScript features not available in Node 6.
  
  
  
+  commit has not type fix or revert 
 
  
 
@@ -460,6 +475,7 @@ BREAKING CHANGE: refactor to use JavaScript features not available in Node 6.
  
  
  
+  commit has not type fix or revert 
 
  
 
@@ -477,6 +493,7 @@ BREAKING CHANGE: refactor to use JavaScript features not available in Node 6.
  
  
  
+  commit has not type fix or revert 
 
  
 
@@ -496,6 +513,7 @@ This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
  
  
   commit has type fix or revert 
+ 
 
  
 
@@ -514,6 +532,7 @@ This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
   is type fix 
  
   commit has type fix or revert 
+ 
 
   is scope utils 
 
@@ -534,6 +553,7 @@ This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
  
  
  
+  commit has not type fix or revert 
 
   is scope utils 
 
@@ -552,6 +572,7 @@ This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
  
   commit has no type 
  
+  commit has not type fix or revert 
 
  
 
@@ -569,6 +590,7 @@ This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
  
   commit has no type 
  
+  commit has not type fix or revert 
 
  
 
@@ -586,6 +608,7 @@ This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
   is type fix 
  
   commit has type fix or revert 
+ 
 
  
 
@@ -603,6 +626,7 @@ This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
  
   commit has no type 
  
+  commit has not type fix or revert 
 
  
 
@@ -620,6 +644,7 @@ This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
  
   commit has no type 
  
+  commit has not type fix or revert 
 
  
 
@@ -637,6 +662,7 @@ This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
   is type fix 
  
   commit has type fix or revert 
+ 
 
  
 
