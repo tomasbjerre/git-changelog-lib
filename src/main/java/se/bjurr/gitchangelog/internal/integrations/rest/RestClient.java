@@ -104,7 +104,8 @@ public class RestClient {
   protected String getResponse(final HttpURLConnection conn) throws Exception {
     if (mockedRestClient == null) {
       final InputStream inputStream = conn.getInputStream();
-      InputStreamReader inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+      InputStreamReader inputStreamReader =
+          new InputStreamReader(inputStream, StandardCharsets.UTF_8);
       BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
       return bufferedReader.readLine();
     }
