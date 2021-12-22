@@ -2,6 +2,22 @@
 
 Changelog of git-changelog-lib.
 
+## [1.163.1](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.163.1) (2021-12-22)
+
+
+
+
+
+
+
+### Other changes
+
+**fix #108 error extracting information from jira**
+
+
+[b0e4f](https://github.com/tomasbjerre/git-changelog-lib/commit/b0e4fdc7a3c0b89) Julio Ripoll *2021-12-22 15:54:35*
+
+
 ## [1.163.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.163.0) (2021-12-12)
 
 
