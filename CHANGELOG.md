@@ -2,6 +2,23 @@
 
 Changelog of git-changelog-lib.
 
+## [1.163.2](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.163.2) (2021-12-23)
+
+
+
+
+
+
+
+### Other changes
+
+**Update GitChangelogApiConstants.java**
+
+* YYYY is not yyyy. The correct format is yyyy 
+
+[e7bec](https://github.com/tomasbjerre/git-changelog-lib/commit/e7bec34594338d1) polter05 *2021-12-23 17:09:36*
+
+
 ## [1.163.1](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.163.1) (2021-12-22)
 
 
