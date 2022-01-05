@@ -14,6 +14,10 @@ public class HandlebarsHelperTest {
   public void before() {
     this.baseBuilder =
         gitChangelogApiBuilder() //
+            .withJiraEnabled(true)
+            .withGitHubEnabled(true)
+            .withGitLabEnabled(true)
+            .withRedmineEnabled(true)
             .withFromRepo(".") //
             .withFromCommit("1edc0d7") //
             .withToCommit("e78a62f");

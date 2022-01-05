@@ -125,6 +125,8 @@ public class Settings implements Serializable {
    * grouped by issues, you may want this to be true. If not grouped by issue, perhaps false.
    */
   private boolean removeIssueFromMessage;
+  /** Use any configured feature with Jira. */
+  private boolean jiraEnabled;
   /**
    * URL pointing at your JIRA server. When configured, the {@link Issue#getTitle()} will be
    * populated with title from JIRA.<br>
@@ -147,6 +149,8 @@ public class Settings implements Serializable {
   /** Authenticate to JIRA. */
   private String jiraBearer;
 
+  /** Use any configured feature with Redmine. */
+  private boolean redmineEnabled;
   /**
    * URL pointing at your Redmine server. When configured, the {@link Issue#getTitle()} will be
    * populated with title from Redmine.<br>
@@ -161,6 +165,8 @@ public class Settings implements Serializable {
   private String redminePassword;
   /** Authenticate to Redmine whith API_KEY */
   private String redmineToken;
+  /** Use any configured feature with Github. */
+  private boolean gitHubEnabled;
   /**
    * URL pointing at GitHub API. When configured, the {@link Issue#getTitle()} will be populated
    * with title from GitHub.<br>
@@ -196,6 +202,8 @@ public class Settings implements Serializable {
   /** Commits that don't have any issue in their commit message will not be included. */
   private boolean ignoreCommitsWithoutIssue;
 
+  /** Use any configured feature with Gitlab. */
+  private boolean gitLabEnabled;
   /** GitLab server URL, like https://gitlab.com/. */
   private String gitLabServer;
 
@@ -384,18 +392,18 @@ public class Settings implements Serializable {
   }
 
   public String getTemplateBaseDir() {
-    return templateBaseDir;
+    return this.templateBaseDir;
   }
 
-  public void setTemplateBaseDir(String templateBaseDir) {
+  public void setTemplateBaseDir(final String templateBaseDir) {
     this.templateBaseDir = templateBaseDir;
   }
 
   public String getTemplateSuffix() {
-    return templateSuffix;
+    return this.templateSuffix;
   }
 
-  public void setTemplateSuffix(String templateSuffix) {
+  public void setTemplateSuffix(final String templateSuffix) {
     this.templateSuffix = templateSuffix;
   }
 
@@ -623,5 +631,37 @@ public class Settings implements Serializable {
       throw new RuntimeException(pattern + " in " + string + " is not valid regexp.");
     }
     return pattern;
+  }
+
+  public void setGitHubEnabled(final boolean githubEnabled) {
+    this.gitHubEnabled = githubEnabled;
+  }
+
+  public void setGitLabEnabled(final boolean gitlabEnabled) {
+    this.gitLabEnabled = gitlabEnabled;
+  }
+
+  public void setJiraEnabled(final boolean jiraEnabled) {
+    this.jiraEnabled = jiraEnabled;
+  }
+
+  public void setRedmineEnabled(final boolean redmineEnabled) {
+    this.redmineEnabled = redmineEnabled;
+  }
+
+  public boolean isGitHubEnabled() {
+    return this.gitHubEnabled;
+  }
+
+  public boolean isGitLabEnabled() {
+    return this.gitLabEnabled;
+  }
+
+  public boolean isJiraEnabled() {
+    return this.jiraEnabled;
+  }
+
+  public boolean isRedmineEnabled() {
+    return this.redmineEnabled;
   }
 }

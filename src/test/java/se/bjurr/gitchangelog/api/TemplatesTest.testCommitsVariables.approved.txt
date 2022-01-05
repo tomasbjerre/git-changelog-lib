@@ -36,10 +36,13 @@ settings:
   "noIssueName": "No issue supplied",
   "timeZone": "UTC",
   "removeIssueFromMessage": true,
+  "jiraEnabled": true,
   "jiraServer": "https://jiraserver/jira",
   "jiraIssuePattern": "\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b",
   "jiraUsername": "user",
   "jiraPassword": "code",
+  "redmineEnabled": true,
+  "gitHubEnabled": true,
   "gitHubApi": "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
   "gitHubIssuePattern": "#([0-9]+)",
   "customIssues": [
@@ -66,6 +69,7 @@ settings:
   ],
   "extendedVariables": {},
   "ignoreCommitsWithoutIssue": false,
+  "gitLabEnabled": true,
   "gitLabProjectName": "tomasbjerre"
 }
 

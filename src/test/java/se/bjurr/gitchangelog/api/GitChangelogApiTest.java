@@ -88,6 +88,10 @@ public class GitChangelogApiTest {
 
     final GitChangelogApi given =
         gitChangelogApiBuilder() //
+            .withJiraEnabled(true)
+            .withGitHubEnabled(true)
+            .withGitLabEnabled(true)
+            .withRedmineEnabled(true)
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
             .withTemplatePath(templatePath) //
@@ -102,6 +106,10 @@ public class GitChangelogApiTest {
 
     final GitChangelogApi given =
         gitChangelogApiBuilder() //
+            .withJiraEnabled(true)
+            .withGitHubEnabled(true)
+            .withGitLabEnabled(true)
+            .withRedmineEnabled(true)
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("1.71") //
             .withTemplatePath(templatePath) //
@@ -122,6 +130,10 @@ public class GitChangelogApiTest {
 
     final GitChangelogApi given =
         gitChangelogApiBuilder() //
+            .withJiraEnabled(true)
+            .withGitHubEnabled(true)
+            .withGitLabEnabled(true)
+            .withRedmineEnabled(true)
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
             .withSettings(settingsFile) //
@@ -143,6 +155,10 @@ public class GitChangelogApiTest {
 
     final GitChangelogApi given =
         gitChangelogApiBuilder() //
+            .withJiraEnabled(true)
+            .withGitHubEnabled(true)
+            .withGitLabEnabled(true)
+            .withRedmineEnabled(true)
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
             .withSettings(settingsFile) //
@@ -161,6 +177,10 @@ public class GitChangelogApiTest {
 
     final GitChangelogApi given =
         gitChangelogApiBuilder() //
+            .withJiraEnabled(true)
+            .withGitHubEnabled(true)
+            .withGitLabEnabled(true)
+            .withRedmineEnabled(true)
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
             .withGitHubIssuePattern("nooo") //
@@ -217,6 +237,10 @@ public class GitChangelogApiTest {
 
     final GitChangelogApi given =
         gitChangelogApiBuilder() //
+            .withJiraEnabled(true)
+            .withGitHubEnabled(true)
+            .withGitLabEnabled(true)
+            .withRedmineEnabled(true)
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
             .withSettings(settingsFile) //
@@ -278,6 +302,10 @@ public class GitChangelogApiTest {
 
     final GitChangelogApi given =
         gitChangelogApiBuilder() //
+            .withJiraEnabled(true)
+            .withGitHubEnabled(true)
+            .withGitLabEnabled(true)
+            .withRedmineEnabled(true)
             .withFromCommit("aa1fd33") //
             .withToCommit("4c6e078") //
             .withTemplatePath(templatePath);
@@ -298,5 +326,31 @@ public class GitChangelogApiTest {
 
     System.out.println(path.toFile().getAbsolutePath());
     assertThat(path.toFile()).exists().isFile();
+  }
+
+  @Test
+  public void testThatOnlyGithubIssuesCanBeParsed() throws Exception {
+    final GitChangelogApi given =
+        gitChangelogApiBuilder() //
+            .withGitHubEnabled(true)
+            .withFromCommit(ZERO_COMMIT) //
+            .withToRef("1.71") //
+            .withPathFilter("src")
+            .withIgnoreCommitsWithoutIssue(true);
+
+    ApprovalsWrapper.verify(given);
+  }
+
+  @Test
+  public void testThatOnlyJiraIssuesCanBeParsed() throws Exception {
+    final GitChangelogApi given =
+        gitChangelogApiBuilder() //
+            .withJiraEnabled(true)
+            .withFromCommit(ZERO_COMMIT) //
+            .withToRef("1.71") //
+            .withPathFilter("src")
+            .withIgnoreCommitsWithoutIssue(true);
+
+    ApprovalsWrapper.verify(given);
   }
 }

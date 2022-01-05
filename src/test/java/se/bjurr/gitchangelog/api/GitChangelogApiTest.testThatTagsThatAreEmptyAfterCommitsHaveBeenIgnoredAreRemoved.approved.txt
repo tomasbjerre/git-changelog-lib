@@ -20,9 +20,13 @@ settings:
   "ignoreCommitsIfMessageMatches": ".*",
   "templatePath": "templatetest/testAuthorsCommitsExtended.mustache",
   "removeIssueFromMessage": false,
+  "jiraEnabled": true,
+  "redmineEnabled": true,
+  "gitHubEnabled": true,
   "gitHubApi": "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
   "extendedVariables": {},
   "ignoreCommitsWithoutIssue": false,
+  "gitLabEnabled": true,
   "gitLabProjectName": "tomasbjerre"
 }
 

@@ -21,9 +21,13 @@ settings:
   "toCommit": "4c6e078",
   "templatePath": "templatetest/testThatRevertedCommitsAreRemoved.mustache",
   "removeIssueFromMessage": false,
+  "jiraEnabled": true,
+  "redmineEnabled": true,
+  "gitHubEnabled": true,
   "gitHubApi": "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
   "extendedVariables": {},
   "ignoreCommitsWithoutIssue": false,
+  "gitLabEnabled": true,
   "gitLabProjectName": "tomasbjerre"
 }
 

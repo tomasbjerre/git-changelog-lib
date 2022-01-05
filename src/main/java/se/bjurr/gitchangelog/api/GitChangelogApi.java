@@ -679,4 +679,24 @@ public class GitChangelogApi {
     }
     return empty();
   }
+
+  public GitChangelogApi withJiraEnabled(final boolean b) {
+    this.settings.setJiraEnabled(b);
+    return this;
+  }
+
+  public GitChangelogApi withGitLabEnabled(final boolean b) {
+    this.settings.setGitLabEnabled(b);
+    return this;
+  }
+
+  public GitChangelogApi withGitHubEnabled(final boolean b) {
+    this.settings.setGitHubEnabled(b);
+    return this;
+  }
+
+  public GitChangelogApi withRedmineEnabled(final boolean b) {
+    this.settings.setRedmineEnabled(b);
+    return this;
+  }
 }

@@ -18,10 +18,18 @@ public class IssuesUtil {
 
   public List<SettingsIssue> getIssues() {
     final List<SettingsIssue> issues = new ArrayList<>(this.settings.getCustomIssues());
-    this.addJira(issues);
-    this.addGitHub(issues);
-    this.addGitLab(issues);
-    this.addRedmine(issues);
+    if (this.settings.isJiraEnabled()) {
+      this.addJira(issues);
+    }
+    if (this.settings.isGitHubEnabled()) {
+      this.addGitHub(issues);
+    }
+    if (this.settings.isGitLabEnabled()) {
+      this.addGitLab(issues);
+    }
+    if (this.settings.isRedmineEnabled()) {
+      this.addRedmine(issues);
+    }
     return issues;
   }
 

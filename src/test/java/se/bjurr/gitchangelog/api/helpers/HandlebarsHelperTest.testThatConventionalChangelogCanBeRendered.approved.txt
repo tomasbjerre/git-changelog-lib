@@ -49,9 +49,13 @@ settings:
   "toCommit": "65cfb90",
   "templatePath": "templatetest/helpers/testThatConventionalChangelogCanBeRendered.mustache",
   "removeIssueFromMessage": false,
+  "jiraEnabled": true,
+  "redmineEnabled": true,
+  "gitHubEnabled": true,
   "gitHubApi": "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
   "extendedVariables": {},
   "ignoreCommitsWithoutIssue": false,
+  "gitLabEnabled": true,
   "gitLabProjectName": "tomasbjerre"
 }
 

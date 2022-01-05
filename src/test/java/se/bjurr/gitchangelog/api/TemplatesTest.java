@@ -59,6 +59,10 @@ public class TemplatesTest {
 
     this.baseBuilder =
         gitChangelogApiBuilder() //
+            .withJiraEnabled(true)
+            .withGitHubEnabled(true)
+            .withGitLabEnabled(true)
+            .withRedmineEnabled(true)
             .withFromRepo(".") //
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
