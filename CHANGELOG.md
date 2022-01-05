@@ -2,6 +2,18 @@
 
 Changelog of git-changelog-lib.
 
+## [1.163.3](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.163.3) (2022-01-05)
+
+
+
+
+
+### Bug Fixes
+
+-  only parse enabled issues ([be84b](https://github.com/tomasbjerre/git-changelog-lib/commit/be84b9b1d3a07d0))  [#123](https://github.com/tomasbjerre/git-changelog-lib/issues/123)  
+
+
+
 ## [1.163.2](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.163.2) (2021-12-23)
 
 
