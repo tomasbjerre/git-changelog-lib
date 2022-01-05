@@ -53,14 +53,6 @@ public class IssuesUtil {
                 this.settings.getJiraIssuePattern(),
                 this.settings.getJiraServer().orElse("") + "/browse/${PATTERN_GROUP}",
                 null));
-      } else {
-        issues.add(
-            new SettingsIssue(
-                JIRA,
-                "Jira",
-                this.settings.getJiraIssuePattern(),
-                this.settings.getJiraServer().orElse(null),
-                null));
       }
     }
   }
@@ -74,14 +66,6 @@ public class IssuesUtil {
                 "Redmine",
                 this.settings.getRedmineIssuePattern(),
                 this.settings.getRedmineServer().orElse("") + "/issues/${PATTERN_GROUP}",
-                null));
-      } else {
-        issues.add(
-            new SettingsIssue(
-                REDMINE,
-                "Redmine",
-                this.settings.getRedmineIssuePattern(),
-                this.settings.getRedmineServer().orElse(null),
                 null));
       }
     }
