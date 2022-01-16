@@ -2,6 +2,18 @@
 
 Changelog of git-changelog-lib.
 
+## [1.164.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.164.0) (2022-01-16)
+
+
+
+### Features
+
+-  defaulting to a changelog based on conventional commits ([ba2d2](https://github.com/tomasbjerre/git-changelog-lib/commit/ba2d2900b776e34))  
+
+
+
+
+
 ## [1.163.4](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.163.4) (2022-01-16)
 
 
