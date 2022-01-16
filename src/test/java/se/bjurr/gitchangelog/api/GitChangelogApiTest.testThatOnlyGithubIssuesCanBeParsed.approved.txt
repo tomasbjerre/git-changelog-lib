@@ -1,36 +1,64 @@
 template:
 
-# Changelog
+# {{repoName}} changelog
 
-Changelog for {{ownerName}} {{repoName}}.
+Changelog of {{repoName}}.
 
 {{#tags}}
-## {{name}}
- {{#issues}}
-  {{#hasIssue}}
-   {{#hasLink}}
-### {{name}} [{{issue}}]({{link}}) {{title}} {{#hasIssueType}} *{{issueType}}* {{/hasIssueType}} {{#hasLabels}} {{#labels}} *{{.}}* {{/labels}} {{/hasLabels}}
-   {{/hasLink}}
-   {{^hasLink}}
-### {{name}} {{issue}} {{title}} {{#hasIssueType}} *{{issueType}}* {{/hasIssueType}} {{#hasLabels}} {{#labels}} *{{.}}* {{/labels}} {{/hasLabels}}
-   {{/hasLink}}
-  {{/hasIssue}}
-  {{^hasIssue}}
-### {{name}}
-  {{/hasIssue}}
+{{#ifEquals name "Unreleased"}}{{else}}
+## {{name}} ({{tagDate .}})
 
-  {{#commits}}
+{{#ifContainsBreaking commits}}
+### Breaking changes
+
+{{#commits}}
+{{#ifCommitBreaking .}}
+- {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}}) {{#eachCommitRefs .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitRefs}} {{#eachCommitFixes .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitFixes}}
+{{/ifCommitBreaking}}
+{{/commits}}
+{{/ifContainsBreaking}}
+
+
+{{#ifContainsType commits type='feat'}}
+### Features
+
+{{#commits}}
+{{#ifCommitType . type='feat'}}
+- {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}}) {{#eachCommitRefs .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitRefs}} {{#eachCommitFixes .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitFixes}}
+{{/ifCommitType}}
+{{/commits}}
+{{/ifContainsType}}
+
+
+{{#ifContainsType commits type='fix'}}
+### Bug Fixes
+
+{{#commits}}
+{{#ifCommitType . type='fix'}}
+- {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}}) {{#eachCommitRefs .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitRefs}} {{#eachCommitFixes .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitFixes}}
+{{/ifCommitType}}
+{{/commits}}
+{{/ifContainsType}}
+
+
+{{#ifContainsType commits type='^($|(?!fix|feat|breaking))'}}
+### Other changes
+
+{{#commits}}
+{{#ifCommitType . type='^($|(?!fix|feat|breaking))'}}
 **{{{messageTitle}}}**
 
 {{#messageBodyItems}}
- * {{.}} 
+* {{.}} 
 {{/messageBodyItems}}
 
-[{{hash}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}} *{{commitTime}}*
+[{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}} *{{commitTime}}*
 
-  {{/commits}}
+{{/ifCommitType}}
+{{/commits}}
+{{/ifContainsType}}
 
- {{/issues}}
+{{/ifEquals}}
 {{/tags}}
 
 ---------------------------------------------
@@ -57,337 +85,521 @@ settings:
 
 changelog:
 
-# Changelog
+# git-changelog-lib changelog
 
-Changelog for tomasbjerre git-changelog-lib.
+Changelog of git-changelog-lib.
 
-## 1.70
-### GitHub #49   
+## 1.70 (2017-07-24)
+
+
+
+
+
+
+
+### Other changes
 
 **Gathering repo provider information #49**
 
- * Getting ownerName and repoName from clone URL. 
- * Setting GitLab server and GitHub API from clone URL. 
+* Getting ownerName and repoName from clone URL. 
+* Setting GitLab server and GitHub API from clone URL. 
 
-[dd8497034624b12](https://github.com/tomasbjerre/git-changelog-lib/commit/dd8497034624b12) Tomas Bjerre *2017-07-23 19:10:43*
+[dd849](https://github.com/tomasbjerre/git-changelog-lib/commit/dd8497034624b12) Tomas Bjerre *2017-07-23 19:10:43*
 
 
-## 1.69
-### GitHub #47   
+## 1.69 (2017-07-08)
+
+
+
+
+
+
+
+### Other changes
 
 **Adjustments after merge of #47**
 
- * Using the Date data type instead of String to supply ignoreCommitsOlderThan. 
- * Making ignoreCommits more effective. 
- * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer. 
+* Using the Date data type instead of String to supply ignoreCommitsOlderThan. 
+* Making ignoreCommits more effective. 
+* Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer. 
 
-[121e65493ec764b](https://github.com/tomasbjerre/git-changelog-lib/commit/121e65493ec764b) Tomas Bjerre *2017-07-07 20:04:00*
+[121e6](https://github.com/tomasbjerre/git-changelog-lib/commit/121e65493ec764b) Tomas Bjerre *2017-07-07 20:04:00*
 
 **Merge pull request #47 from grandchild/ignoreCommitsOlderThan**
 
- * Add ignoreCommitsOlderThan date limiting 
+* Add ignoreCommitsOlderThan date limiting 
 
-[3b6cf6124370238](https://github.com/tomasbjerre/git-changelog-lib/commit/3b6cf6124370238) Tomas Bjerre *2017-07-07 18:46:16*
+[3b6cf](https://github.com/tomasbjerre/git-changelog-lib/commit/3b6cf6124370238) Tomas Bjerre *2017-07-07 18:46:16*
 
 
-## 1.67
-### GitHub #2   
+## 1.67 (2017-03-25)
+
+
+
+
+
+
+
+### Other changes
 
 **GitLab integration #2**
 
- * Adding it to the API. 
+* Adding it to the API. 
 
-[743ab5566d39083](https://github.com/tomasbjerre/git-changelog-lib/commit/743ab5566d39083) Tomas Bjerre *2017-03-25 16:31:51*
+[743ab](https://github.com/tomasbjerre/git-changelog-lib/commit/743ab5566d39083) Tomas Bjerre *2017-03-25 16:31:51*
 
 
-## 1.66
-### GitHub #42   
+## 1.66 (2017-03-25)
+
+
+
+
+
+
+
+### Other changes
 
 **GitLab integration #42**
 
 
-[eb3d1ee8a5ed370](https://github.com/tomasbjerre/git-changelog-lib/commit/eb3d1ee8a5ed370) Tomas Bjerre *2017-03-25 15:06:44*
+[eb3d1](https://github.com/tomasbjerre/git-changelog-lib/commit/eb3d1ee8a5ed370) Tomas Bjerre *2017-03-25 15:06:44*
 
 
-## 1.64
-### GitHub #40   
+## 1.64 (2017-03-18)
+
+
+
+
+
+
+
+### Other changes
 
 **Adding issueType and labels attributes #40**
 
 
-[6db44d44152f5da](https://github.com/tomasbjerre/git-changelog-lib/commit/6db44d44152f5da) Tomas Bjerre *2017-03-18 09:10:13*
+[6db44](https://github.com/tomasbjerre/git-changelog-lib/commit/6db44d44152f5da) Tomas Bjerre *2017-03-18 09:10:13*
 
 
-## 1.58
-### GitHub #36   
+## 1.58 (2016-10-22)
+
+
+
+
+
+
+
+### Other changes
 
 **Adding annotation to context of tag #36**
 
 
-[ecd852cfa40b0a7](https://github.com/tomasbjerre/git-changelog-lib/commit/ecd852cfa40b0a7) Tomas Bjerre *2016-10-22 07:23:29*
+[ecd85](https://github.com/tomasbjerre/git-changelog-lib/commit/ecd852cfa40b0a7) Tomas Bjerre *2016-10-22 07:23:29*
 
 
-## 1.57
-### GitHub [#35](https://github.com/tomasbjerre/made-up-mocked-repo/issues/35) Encrypt authentication credentials    *enhancement*  
+## 1.57 (2016-10-05)
+
+
+
+
+
+
+
+### Other changes
 
 **Adding merge boolean to commits #35**
 
 
-[2d9189f421254f2](https://github.com/tomasbjerre/git-changelog-lib/commit/2d9189f421254f2) Tomas Bjerre *2016-10-05 17:04:13*
+[2d918](https://github.com/tomasbjerre/git-changelog-lib/commit/2d9189f421254f2) Tomas Bjerre *2016-10-05 17:04:13*
 
 
-## 1.56
-### GitHub #31   
+## 1.56 (2016-08-11)
+
+
+
+
+
+
+
+### Other changes
 
 **Fixing testcases after merge of #31**
 
 
-[50dcd850d6bec5d](https://github.com/tomasbjerre/git-changelog-lib/commit/50dcd850d6bec5d) Tomas Bjerre *2016-08-11 14:14:57*
+[50dcd](https://github.com/tomasbjerre/git-changelog-lib/commit/50dcd850d6bec5d) Tomas Bjerre *2016-08-11 14:14:57*
 
 
-## 1.55
-### GitHub #30   
+## 1.55 (2016-08-02)
+
+
+
+
+
+
+
+### Other changes
 
 **Adding {{hashFull}} variable with full commit hash #30**
 
 
-[7fd9971d4c2a30b](https://github.com/tomasbjerre/git-changelog-lib/commit/7fd9971d4c2a30b) Tomas Bjerre *2016-08-02 17:00:29*
+[7fd99](https://github.com/tomasbjerre/git-changelog-lib/commit/7fd9971d4c2a30b) Tomas Bjerre *2016-08-02 17:00:29*
 
 
-## 1.54
-### GitHub #28   
+## 1.54 (2016-06-27)
+
+
+
+
+
+
+
+### Other changes
 
 **Allowing master branch to be absent #28**
 
 
-[dd4633ba627695d](https://github.com/tomasbjerre/git-changelog-lib/commit/dd4633ba627695d) Tomas Bjerre *2016-06-27 17:26:30*
+[dd463](https://github.com/tomasbjerre/git-changelog-lib/commit/dd4633ba627695d) Tomas Bjerre *2016-06-27 17:26:30*
 
 
-## 1.52
-### GitHub #29   
+## 1.52 (2016-06-24)
+
+
+
+
+
+
+
+### Other changes
 
 **Correcting how to find diffing commits #29**
 
 
-[717602bef6a4ab1](https://github.com/tomasbjerre/git-changelog-lib/commit/717602bef6a4ab1) Tomas Bjerre *2016-06-24 15:45:29*
+[71760](https://github.com/tomasbjerre/git-changelog-lib/commit/717602bef6a4ab1) Tomas Bjerre *2016-06-24 15:45:29*
 
 
-## 1.50
-### GitHub #29   
+## 1.50 (2016-06-24)
+
+
+
+
+
+
+
+### Other changes
 
 **Including commits frmo merges #29**
 
 
-[a723e0a230e3f38](https://github.com/tomasbjerre/git-changelog-lib/commit/a723e0a230e3f38) Tomas Bjerre *2016-06-24 08:56:47*
+[a723e](https://github.com/tomasbjerre/git-changelog-lib/commit/a723e0a230e3f38) Tomas Bjerre *2016-06-24 08:56:47*
 
 
-## 1.49
-### GitHub #28   
+## 1.49 (2016-06-02)
+
+
+
+
+
+
+
+### Other changes
 
 **Finding first commit in repo as parents of HEAD #28**
 
- * Was looking at parents of master, which may not exist. 
+* Was looking at parents of master, which may not exist. 
 
-[87fe4044e587b1b](https://github.com/tomasbjerre/git-changelog-lib/commit/87fe4044e587b1b) Tomas Bjerre *2016-06-02 17:55:59*
+[87fe4](https://github.com/tomasbjerre/git-changelog-lib/commit/87fe4044e587b1b) Tomas Bjerre *2016-06-02 17:55:59*
 
 
-## 1.45
-### GitHub #26   
+## 1.45 (2016-04-13)
+
+
+
+
+
+
+
+### Other changes
 
 **Including correct commits + performance #26 JENKINS-34156**
 
- * Found major performance problem when sorting tags by commit time, fixed. 
- * Now not following parents, unless *from* is merged into them. 
+* Found major performance problem when sorting tags by commit time, fixed. 
+* Now not following parents, unless *from* is merged into them. 
 
-[e3106df640b693b](https://github.com/tomasbjerre/git-changelog-lib/commit/e3106df640b693b) Tomas Bjerre *2016-04-13 18:30:26*
+[e3106](https://github.com/tomasbjerre/git-changelog-lib/commit/e3106df640b693b) Tomas Bjerre *2016-04-13 18:30:26*
 
 
-## 1.42
-### GitHub [#23](https://github.com/tomasbjerre/made-up-mocked-repo/issues/23) Add the ability to be notified for commits    *enhancement*  
+## 1.42 (2016-04-10)
+
+
+
+
+
+
+
+### Other changes
 
 **Parsing commits, oldest first #23**
 
- * To avoid random behaviour. 
+* To avoid random behaviour. 
 
-[9817cdf6a1fbe91](https://github.com/tomasbjerre/git-changelog-lib/commit/9817cdf6a1fbe91) Tomas Bjerre *2016-04-10 08:49:45*
+[9817c](https://github.com/tomasbjerre/git-changelog-lib/commit/9817cdf6a1fbe91) Tomas Bjerre *2016-04-10 08:49:45*
 
 
-## 1.41
-### GitHub [#23](https://github.com/tomasbjerre/made-up-mocked-repo/issues/23) Add the ability to be notified for commits    *enhancement*  
+## 1.41 (2016-04-09)
+
+
+
+
+
+
+
+### Other changes
 
 **Traversing commit tree by parents #23**
 
- * To find all commits in all tags. 
+* To find all commits in all tags. 
 
-[9dcba5d33fc2e44](https://github.com/tomasbjerre/git-changelog-lib/commit/9dcba5d33fc2e44) Tomas Bjerre *2016-04-09 20:21:58*
+[9dcba](https://github.com/tomasbjerre/git-changelog-lib/commit/9dcba5d33fc2e44) Tomas Bjerre *2016-04-09 20:21:58*
 
 
-## 1.40
-### GitHub [#23](https://github.com/tomasbjerre/made-up-mocked-repo/issues/23) Add the ability to be notified for commits    *enhancement*  
+## 1.40 (2016-04-07)
+
+
+
+
+
+
+
+### Other changes
 
 **Adding feature to ignore tags by regexp**
 
- * Also testing tag in feature branch #23 
+* Also testing tag in feature branch #23 
 
-[8166ec7dfd456df](https://github.com/tomasbjerre/git-changelog-lib/commit/8166ec7dfd456df) Tomas Bjerre *2016-04-06 20:39:27*
+[8166e](https://github.com/tomasbjerre/git-changelog-lib/commit/8166ec7dfd456df) Tomas Bjerre *2016-04-06 20:39:27*
 
 
-## 1.38
-### GitHub #19   
+## 1.38 (2016-03-20)
+
+
+
+
+
+
+
+### Other changes
 
 **Removing commits without issue, from tags #19**
 
 
-[22a2c55c44b6b4d](https://github.com/tomasbjerre/git-changelog-lib/commit/22a2c55c44b6b4d) Tomas Bjerre *2016-03-20 08:38:27*
+[22a2c](https://github.com/tomasbjerre/git-changelog-lib/commit/22a2c55c44b6b4d) Tomas Bjerre *2016-03-20 08:38:27*
 
 
-## 1.37
-### GitHub #19   
+## 1.37 (2016-03-20)
+
+
+
+
+
+
+
+### Other changes
 
 **Ignore commits without issue #19**
 
 
-[0b70db9921da8dd](https://github.com/tomasbjerre/git-changelog-lib/commit/0b70db9921da8dd) Tomas Bjerre *2016-03-19 22:53:07*
-
-**Adding issueTypes in context #19**
-
-
-[a025adfc759313f](https://github.com/tomasbjerre/git-changelog-lib/commit/a025adfc759313f) Tomas Bjerre *2016-03-19 20:33:11*
-
-
-### GitHub #21   
+[0b70d](https://github.com/tomasbjerre/git-changelog-lib/commit/0b70db9921da8dd) Tomas Bjerre *2016-03-19 22:53:07*
 
 **Avoiding adding commit twice in same issue #21**
 
 
-[414348773e3d658](https://github.com/tomasbjerre/git-changelog-lib/commit/414348773e3d658) Tomas Bjerre *2016-03-19 22:16:40*
+[41434](https://github.com/tomasbjerre/git-changelog-lib/commit/414348773e3d658) Tomas Bjerre *2016-03-19 22:16:40*
+
+**Adding issueTypes in context #19**
 
 
-## 1.34
-### GitHub #18   
+[a025a](https://github.com/tomasbjerre/git-changelog-lib/commit/a025adfc759313f) Tomas Bjerre *2016-03-19 20:33:11*
+
+
+## 1.34 (2016-03-15)
+
+
+
+
+
+
+
+### Other changes
 
 **Logging error if error invoking GitHub API #18**
 
 
-[a040e51847b4f23](https://github.com/tomasbjerre/git-changelog-lib/commit/a040e51847b4f23) Tomas Bjerre *2016-03-15 19:05:58*
+[a040e](https://github.com/tomasbjerre/git-changelog-lib/commit/a040e51847b4f23) Tomas Bjerre *2016-03-15 19:05:58*
 
 
-## 1.33
-### GitHub #10   
-
-**Migrate GitHub REST-API to RetroFit library**
-
- * Added auth-token support for GitHub, fixes #10 
- * Added pagination support for GitHub, fixes #15 
-
-[d29029a38fad6a4](https://github.com/tomasbjerre/git-changelog-lib/commit/d29029a38fad6a4) Jonas Kalderstam *2016-03-15 00:12:45*
+## 1.33 (2016-03-15)
 
 
-### GitHub #15   
-
-**Migrate GitHub REST-API to RetroFit library**
-
- * Added auth-token support for GitHub, fixes #10 
- * Added pagination support for GitHub, fixes #15 
-
-[d29029a38fad6a4](https://github.com/tomasbjerre/git-changelog-lib/commit/d29029a38fad6a4) Jonas Kalderstam *2016-03-15 00:12:45*
 
 
-### GitHub #18   
+
+
+
+### Other changes
 
 **Introducing custom exceptions**
 
- * Also fixing some issues from PR #18. Removing duplicate Gson, System.out, throwing exceptions. 
+* Also fixing some issues from PR #18. Removing duplicate Gson, System.out, throwing exceptions. 
 
-[4cb3f757f8a6b9f](https://github.com/tomasbjerre/git-changelog-lib/commit/4cb3f757f8a6b9f) Tomas Bjerre *2016-03-15 17:22:33*
+[4cb3f](https://github.com/tomasbjerre/git-changelog-lib/commit/4cb3f757f8a6b9f) Tomas Bjerre *2016-03-15 17:22:33*
+
+**Migrate GitHub REST-API to RetroFit library**
+
+* Added auth-token support for GitHub, fixes #10 
+* Added pagination support for GitHub, fixes #15 
+
+[d2902](https://github.com/tomasbjerre/git-changelog-lib/commit/d29029a38fad6a4) Jonas Kalderstam *2016-03-15 00:12:45*
 
 
-## 1.32
-### GitHub #16   
+## 1.32 (2016-02-20)
+
+
+
+
+
+
+
+### Other changes
 
 **Supplying commit in each issue mentioned in message #16**
 
 
-[102431686668a6c](https://github.com/tomasbjerre/git-changelog-lib/commit/102431686668a6c) Tomas Bjerre *2016-02-19 22:18:39*
+[10243](https://github.com/tomasbjerre/git-changelog-lib/commit/102431686668a6c) Tomas Bjerre *2016-02-19 22:18:39*
 
 
-## 1.26
-### GitHub #13   
+## 1.26 (2016-02-13)
+
+
+
+
+
+
+
+### Other changes
 
 **Rewriting GitRepo to make it faster #13**
 
 
-[60811d245d20669](https://github.com/tomasbjerre/git-changelog-lib/commit/60811d245d20669) Tomas Bjerre *2016-02-13 08:24:24*
+[60811](https://github.com/tomasbjerre/git-changelog-lib/commit/60811d245d20669) Tomas Bjerre *2016-02-13 08:24:24*
 
 **Identified performance issue as GitRepo:getTags() #13**
 
- * Updating performance test to reveal it. 
+* Updating performance test to reveal it. 
 
-[be9fb93023f13ad](https://github.com/tomasbjerre/git-changelog-lib/commit/be9fb93023f13ad) Tomas Bjerre *2016-02-11 17:48:06*
+[be9fb](https://github.com/tomasbjerre/git-changelog-lib/commit/be9fb93023f13ad) Tomas Bjerre *2016-02-11 17:48:06*
 
 
-## 1.25
-### GitHub #13   
+## 1.25 (2016-02-10)
+
+
+
+
+
+
+
+### Other changes
 
 **Letting JGit determine new commits between refs #13**
 
- * Also changing changelog template. 
- * Also trimming messageTitle variable. 
+* Also changing changelog template. 
+* Also trimming messageTitle variable. 
 
-[5b307bd00b47e83](https://github.com/tomasbjerre/git-changelog-lib/commit/5b307bd00b47e83) Tomas Bjerre *2016-02-10 17:31:13*
+[5b307](https://github.com/tomasbjerre/git-changelog-lib/commit/5b307bd00b47e83) Tomas Bjerre *2016-02-10 17:31:13*
 
 
-## 1.19
-### GitHub #11   
+## 1.19 (2016-01-27)
+
+
+
+
+
+
+
+### Other changes
 
 **Removing command line code #11**
 
 
-[a7b20fdea564ff2](https://github.com/tomasbjerre/git-changelog-lib/commit/a7b20fdea564ff2) Tomas Bjerre *2016-01-27 18:14:33*
+[a7b20](https://github.com/tomasbjerre/git-changelog-lib/commit/a7b20fdea564ff2) Tomas Bjerre *2016-01-27 18:14:33*
 
 
-## 1.12
-### GitHub #2   
-
-**Integrating with GitHub #2**
+## 1.12 (2015-11-23)
 
 
-[45af766856ac703](https://github.com/tomasbjerre/git-changelog-lib/commit/45af766856ac703) Tomas Bjerre *2015-11-22 19:51:40*
 
 
-### GitHub #3   
+
+
+
+### Other changes
 
 **Integrating with Jira #3**
 
 
-[30a1095331ded15](https://github.com/tomasbjerre/git-changelog-lib/commit/30a1095331ded15) Tomas Bjerre *2015-11-23 17:32:23*
+[30a10](https://github.com/tomasbjerre/git-changelog-lib/commit/30a1095331ded15) Tomas Bjerre *2015-11-23 17:32:23*
+
+**Integrating with GitHub #2**
 
 
-## 1.4
-### GitHub #7   
+[45af7](https://github.com/tomasbjerre/git-changelog-lib/commit/45af766856ac703) Tomas Bjerre *2015-11-22 19:51:40*
+
+
+## 1.4 (2015-11-19)
+
+
+
+
+
+
+
+### Other changes
 
 **Adding hasIssue hasLink to readme doc #7**
 
 
-[fbb455921921ddc](https://github.com/tomasbjerre/git-changelog-lib/commit/fbb455921921ddc) Tomas Bjerre *2015-11-18 19:41:03*
+[fbb45](https://github.com/tomasbjerre/git-changelog-lib/commit/fbb455921921ddc) Tomas Bjerre *2015-11-18 19:41:03*
 
 
-## 1.3
-### GitHub #7   
+## 1.3 (2015-11-18)
+
+
+
+
+
+
+
+### Other changes
 
 **Adding booleans to check if link and/or issue exists in issue #7**
 
 
-[210e963a07b8a7b](https://github.com/tomasbjerre/git-changelog-lib/commit/210e963a07b8a7b) Tomas Bjerre *2015-11-18 19:06:00*
+[210e9](https://github.com/tomasbjerre/git-changelog-lib/commit/210e963a07b8a7b) Tomas Bjerre *2015-11-18 19:06:00*
 
 
-## 1.2
-### GitHub #4   
+## 1.2 (2015-11-17)
+
+
+
+
+
+
+
+### Other changes
 
 **MediaWiki integration #4**
 
 
-[f45829b2c6a78d7](https://github.com/tomasbjerre/git-changelog-lib/commit/f45829b2c6a78d7) Tomas Bjerre *2015-11-17 19:27:03*
+[f4582](https://github.com/tomasbjerre/git-changelog-lib/commit/f45829b2c6a78d7) Tomas Bjerre *2015-11-17 19:27:03*
 
 
 

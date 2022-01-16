@@ -1,36 +1,64 @@
 template:
 
-# Changelog
+# {{repoName}} changelog
 
-Changelog for {{ownerName}} {{repoName}}.
+Changelog of {{repoName}}.
 
 {{#tags}}
-## {{name}}
- {{#issues}}
-  {{#hasIssue}}
-   {{#hasLink}}
-### {{name}} [{{issue}}]({{link}}) {{title}} {{#hasIssueType}} *{{issueType}}* {{/hasIssueType}} {{#hasLabels}} {{#labels}} *{{.}}* {{/labels}} {{/hasLabels}}
-   {{/hasLink}}
-   {{^hasLink}}
-### {{name}} {{issue}} {{title}} {{#hasIssueType}} *{{issueType}}* {{/hasIssueType}} {{#hasLabels}} {{#labels}} *{{.}}* {{/labels}} {{/hasLabels}}
-   {{/hasLink}}
-  {{/hasIssue}}
-  {{^hasIssue}}
-### {{name}}
-  {{/hasIssue}}
+{{#ifEquals name "Unreleased"}}{{else}}
+## {{name}} ({{tagDate .}})
 
-  {{#commits}}
+{{#ifContainsBreaking commits}}
+### Breaking changes
+
+{{#commits}}
+{{#ifCommitBreaking .}}
+- {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}}) {{#eachCommitRefs .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitRefs}} {{#eachCommitFixes .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitFixes}}
+{{/ifCommitBreaking}}
+{{/commits}}
+{{/ifContainsBreaking}}
+
+
+{{#ifContainsType commits type='feat'}}
+### Features
+
+{{#commits}}
+{{#ifCommitType . type='feat'}}
+- {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}}) {{#eachCommitRefs .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitRefs}} {{#eachCommitFixes .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitFixes}}
+{{/ifCommitType}}
+{{/commits}}
+{{/ifContainsType}}
+
+
+{{#ifContainsType commits type='fix'}}
+### Bug Fixes
+
+{{#commits}}
+{{#ifCommitType . type='fix'}}
+- {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}}) {{#eachCommitRefs .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitRefs}} {{#eachCommitFixes .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitFixes}}
+{{/ifCommitType}}
+{{/commits}}
+{{/ifContainsType}}
+
+
+{{#ifContainsType commits type='^($|(?!fix|feat|breaking))'}}
+### Other changes
+
+{{#commits}}
+{{#ifCommitType . type='^($|(?!fix|feat|breaking))'}}
 **{{{messageTitle}}}**
 
 {{#messageBodyItems}}
- * {{.}} 
+* {{.}} 
 {{/messageBodyItems}}
 
-[{{hash}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}} *{{commitTime}}*
+[{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}} *{{commitTime}}*
 
-  {{/commits}}
+{{/ifCommitType}}
+{{/commits}}
+{{/ifContainsType}}
 
- {{/issues}}
+{{/ifEquals}}
 {{/tags}}
 
 ---------------------------------------------
@@ -57,28 +85,42 @@ settings:
 
 changelog:
 
-# Changelog
+# git-changelog-lib changelog
 
-Changelog for tomasbjerre git-changelog-lib.
+Changelog of git-changelog-lib.
 
-## 1.45
-### Jira JENKINS-34156   
+## 1.45 (2016-04-13)
+
+
+
+
+
+
+
+### Other changes
 
 **Including correct commits + performance #26 JENKINS-34156**
 
- * Found major performance problem when sorting tags by commit time, fixed. 
- * Now not following parents, unless *from* is merged into them. 
+* Found major performance problem when sorting tags by commit time, fixed. 
+* Now not following parents, unless *from* is merged into them. 
 
-[e3106df640b693b](https://github.com/tomasbjerre/git-changelog-lib/commit/e3106df640b693b) Tomas Bjerre *2016-04-13 18:30:26*
+[e3106](https://github.com/tomasbjerre/git-changelog-lib/commit/e3106df640b693b) Tomas Bjerre *2016-04-13 18:30:26*
 
 
-## 1.44
-### Jira JENKINS-34155   
+## 1.44 (2016-04-12)
+
+
+
+
+
+
+
+### Other changes
 
 **JENKINS-34155 Support short SHA**
 
 
-[27642e3db66e67c](https://github.com/tomasbjerre/git-changelog-lib/commit/27642e3db66e67c) Tomas Bjerre *2016-04-12 16:43:21*
+[27642](https://github.com/tomasbjerre/git-changelog-lib/commit/27642e3db66e67c) Tomas Bjerre *2016-04-12 16:43:21*
 
 
 

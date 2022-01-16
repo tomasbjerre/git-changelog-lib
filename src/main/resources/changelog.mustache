@@ -1,32 +1,60 @@
-# Changelog
+# {{repoName}} changelog
 
-Changelog for {{ownerName}} {{repoName}}.
+Changelog of {{repoName}}.
 
 {{#tags}}
-## {{name}}
- {{#issues}}
-  {{#hasIssue}}
-   {{#hasLink}}
-### {{name}} [{{issue}}]({{link}}) {{title}} {{#hasIssueType}} *{{issueType}}* {{/hasIssueType}} {{#hasLabels}} {{#labels}} *{{.}}* {{/labels}} {{/hasLabels}}
-   {{/hasLink}}
-   {{^hasLink}}
-### {{name}} {{issue}} {{title}} {{#hasIssueType}} *{{issueType}}* {{/hasIssueType}} {{#hasLabels}} {{#labels}} *{{.}}* {{/labels}} {{/hasLabels}}
-   {{/hasLink}}
-  {{/hasIssue}}
-  {{^hasIssue}}
-### {{name}}
-  {{/hasIssue}}
+{{#ifEquals name "Unreleased"}}{{else}}
+## {{name}} ({{tagDate .}})
 
-  {{#commits}}
+{{#ifContainsBreaking commits}}
+### Breaking changes
+
+{{#commits}}
+{{#ifCommitBreaking .}}
+- {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}}) {{#eachCommitRefs .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitRefs}} {{#eachCommitFixes .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitFixes}}
+{{/ifCommitBreaking}}
+{{/commits}}
+{{/ifContainsBreaking}}
+
+
+{{#ifContainsType commits type='feat'}}
+### Features
+
+{{#commits}}
+{{#ifCommitType . type='feat'}}
+- {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}}) {{#eachCommitRefs .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitRefs}} {{#eachCommitFixes .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitFixes}}
+{{/ifCommitType}}
+{{/commits}}
+{{/ifContainsType}}
+
+
+{{#ifContainsType commits type='fix'}}
+### Bug Fixes
+
+{{#commits}}
+{{#ifCommitType . type='fix'}}
+- {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}}) {{#eachCommitRefs .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitRefs}} {{#eachCommitFixes .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitFixes}}
+{{/ifCommitType}}
+{{/commits}}
+{{/ifContainsType}}
+
+
+{{#ifContainsType commits type='^($|(?!fix|feat|breaking))'}}
+### Other changes
+
+{{#commits}}
+{{#ifCommitType . type='^($|(?!fix|feat|breaking))'}}
 **{{{messageTitle}}}**
 
 {{#messageBodyItems}}
- * {{.}} 
+* {{.}} 
 {{/messageBodyItems}}
 
-[{{hash}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}} *{{commitTime}}*
+[{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}} *{{commitTime}}*
 
-  {{/commits}}
+{{/ifCommitType}}
+{{/commits}}
+{{/ifContainsType}}
 
- {{/issues}}
+{{/ifEquals}}
 {{/tags}}
