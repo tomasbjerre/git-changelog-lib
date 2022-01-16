@@ -2,6 +2,18 @@
 
 Changelog of git-changelog-lib.
 
+## [1.164.1](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.164.1) (2022-01-16)
+
+
+
+
+
+### Bug Fixes
+
+-  not removing issue from message by default ([d0b48](https://github.com/tomasbjerre/git-changelog-lib/commit/d0b48fd6fbbe141))  
+
+
+
 ## [1.164.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.164.0) (2022-01-16)
 
 
