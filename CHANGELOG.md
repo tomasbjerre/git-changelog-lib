@@ -2,6 +2,18 @@
 
 Changelog of git-changelog-lib.
 
+## [1.163.4](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.163.4) (2022-01-16)
+
+
+
+
+
+### Bug Fixes
+
+-  disable integrations with a boolean useIntegrations ([632fa](https://github.com/tomasbjerre/git-changelog-lib/commit/632fa0b341cf6e8))  
+
+
+
 ## [1.163.3](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.163.3) (2022-01-05)
 
 
