@@ -59,6 +59,7 @@ public class TemplatesTest {
 
     this.baseBuilder =
         gitChangelogApiBuilder() //
+            .withUseIntegrations(true)
             .withJiraEnabled(true)
             .withGitHubEnabled(true)
             .withGitLabEnabled(true)

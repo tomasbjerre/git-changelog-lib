@@ -57,7 +57,8 @@ settings:
   "extendedVariables": {},
   "ignoreCommitsWithoutIssue": false,
   "gitLabEnabled": true,
-  "gitLabProjectName": "tomasbjerre"
+  "gitLabProjectName": "tomasbjerre",
+  "useIntegrations": true
 }
 
 ---------------------------------------------

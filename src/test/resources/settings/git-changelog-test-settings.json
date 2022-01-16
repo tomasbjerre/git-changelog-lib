@@ -23,6 +23,7 @@
  "gitHubApi": "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
  "gitHubIssuePattern": "#([0-9]+)",
  "gitLabEnabled": true,
+ "useIntegrations": false,
  "customIssues": [
   { "name": "Incidents", "title": "${PATTERN_GROUP_1}", "pattern": "INC([0-9]*)", "link": "http://inc/${PATTERN_GROUP}" },
   { "name": "CQ", "title": "${PATTERN_GROUP_1}", "pattern": "CQ([0-9]+)", "link": "http://cq/${PATTERN_GROUP_1}" },

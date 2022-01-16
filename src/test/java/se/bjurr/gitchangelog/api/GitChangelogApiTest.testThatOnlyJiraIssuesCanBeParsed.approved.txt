@@ -49,6 +49,7 @@ settings:
   "ignoreCommitsWithoutIssue": true,
   "gitLabEnabled": false,
   "gitLabProjectName": "tomasbjerre",
+  "useIntegrations": false,
   "subDirFilter": "src"
 }
 

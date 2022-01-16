@@ -78,10 +78,10 @@ public class GitChangelogApi {
     return this.getChangelog(true);
   }
 
-  private Changelog getChangelog(final boolean shouldUseIntegrationIfConfigured)
+  private Changelog getChangelog(final boolean useIntegrations)
       throws GitChangelogRepositoryException {
     try (GitRepo gitRepo = new GitRepo(new File(this.settings.getFromRepo()))) {
-      return this.getChangelog(gitRepo, shouldUseIntegrationIfConfigured);
+      return this.getChangelog(gitRepo, useIntegrations);
     } catch (final IOException e) {
       throw new GitChangelogRepositoryException("", e);
     }
@@ -113,8 +113,7 @@ public class GitChangelogApi {
     }
 
     try {
-      final Changelog changelog =
-          this.getChangelog(shouldUseIntegrationIfConfigured(templateString));
+      final Changelog changelog = this.getChangelog(this.settings.isUseIntegrations());
       final Map<String, Object> extendedVariables = this.settings.getExtendedVariables();
       if (extendedVariables == null) {
         throw new IllegalStateException("extendedVariables cannot be null");
@@ -133,13 +132,6 @@ public class GitChangelogApi {
     }
     final String resourceName = this.settings.getTemplatePath();
     return ResourceLoader.getResourceOrFile(resourceName);
-  }
-
-  static boolean shouldUseIntegrationIfConfigured(final String templateContent) {
-    return templateContent.contains("{{type}}") //
-        || templateContent.contains("{{link}}") //
-        || templateContent.contains("{{title}}") //
-        || templateContent.replaceAll("\\r?\\n", " ").matches(".*\\{\\{#?labels\\}\\}.*");
   }
 
   /** Get the changelog. */
@@ -576,6 +568,11 @@ public class GitChangelogApi {
     return this;
   }
 
+  public GitChangelogApi withUseIntegrations(final boolean useIntegrations) {
+    this.settings.setUseIntegrations(useIntegrations);
+    return this;
+  }
+
   /**
    * When date of commits are translated to a string, this timezone is used.<br>
    * <code>UTC</code>
@@ -619,8 +616,7 @@ public class GitChangelogApi {
     return this;
   }
 
-  private Changelog getChangelog(
-      final GitRepo gitRepo, final boolean shouldUseIntegrationIfConfigured)
+  private Changelog getChangelog(final GitRepo gitRepo, final boolean useIntegrations)
       throws GitChangelogRepositoryException {
     gitRepo.setTreeFilter(this.settings.getSubDirFilter());
     final ObjectId fromId =
@@ -651,7 +647,7 @@ public class GitChangelogApi {
 
     List<GitCommit> diff = gitRepoData.getGitCommits();
     final List<ParsedIssue> issues =
-        new IssueParser(this.settings, diff).parseForIssues(shouldUseIntegrationIfConfigured);
+        new IssueParser(this.settings, diff).parseForIssues(useIntegrations);
     if (this.settings.ignoreCommitsWithoutIssue()) {
       gitRepoData = removeCommitsWithoutIssue(issues, gitRepoData);
       diff = gitRepoData.getGitCommits();

@@ -61,7 +61,8 @@ settings:
   "ignoreCommitsWithoutIssue": true,
   "gitLabEnabled": true,
   "gitLabIssuePattern": "nooo",
-  "gitLabProjectName": "tomasbjerre"
+  "gitLabProjectName": "tomasbjerre",
+  "useIntegrations": false
 }
 
 ---------------------------------------------

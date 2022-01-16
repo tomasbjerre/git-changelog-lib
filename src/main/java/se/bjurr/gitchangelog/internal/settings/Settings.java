@@ -227,6 +227,9 @@ public class Settings implements Serializable {
   /** Regular expression to use when determining next semantic version based on commits. */
   private String semanticPatchPattern;
 
+  /** Integrate with services to get more details about issues. */
+  private boolean useIntegrations;
+
   public String getSubDirFilter() {
     return ofNullable(this.subDirFilter).orElse("");
   }
@@ -663,5 +666,13 @@ public class Settings implements Serializable {
 
   public boolean isRedmineEnabled() {
     return this.redmineEnabled;
+  }
+
+  public void setUseIntegrations(final boolean useIntegrations) {
+    this.useIntegrations = useIntegrations;
+  }
+
+  public boolean isUseIntegrations() {
+    return this.useIntegrations;
   }
 }

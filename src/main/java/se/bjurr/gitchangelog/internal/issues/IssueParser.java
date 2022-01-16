@@ -55,15 +55,12 @@ public class IssueParser {
     return this.commits;
   }
 
-  public List<ParsedIssue> parseForIssues(final boolean useIntegrationIfConfigured) {
+  public List<ParsedIssue> parseForIssues(final boolean useIntegrations) {
     final Map<String, ParsedIssue> parsedIssuePerIssue = new HashMap<>();
-
-    final GitHubHelper gitHubHelper = useIntegrationIfConfigured ? this.createGitHubClient() : null;
-    final JiraClient jiraClient = useIntegrationIfConfigured ? this.createJiraClient() : null;
-    final RedmineClient redmineClient =
-        useIntegrationIfConfigured ? this.createRedmineClient() : null;
-    final GitLabClient gitLabClient = useIntegrationIfConfigured ? this.createGitLabClient() : null;
-
+    final GitHubHelper gitHubHelper = useIntegrations ? this.createGitHubClient() : null;
+    final JiraClient jiraClient = useIntegrations ? this.createJiraClient() : null;
+    final RedmineClient redmineClient = useIntegrations ? this.createRedmineClient() : null;
+    final GitLabClient gitLabClient = useIntegrations ? this.createGitLabClient() : null;
     final List<SettingsIssue> patterns = new IssuesUtil(this.settings).getIssues();
 
     for (final GitCommit gitCommit : this.commits) {
@@ -212,13 +209,11 @@ public class IssueParser {
   }
 
   private GitHubHelper createGitHubClient() {
-    GitHubHelper gitHubHelper = null;
     if (this.settings.getGitHubApi().isPresent()) {
-      gitHubHelper =
-          new GitHubHelper(
-              getGitHubService(this.settings.getGitHubApi().get(), this.settings.getGitHubToken()));
+      return new GitHubHelper(
+          getGitHubService(this.settings.getGitHubApi().get(), this.settings.getGitHubToken()));
     }
-    return gitHubHelper;
+    return null;
   }
 
   private ParsedIssue createParsedIssue(
@@ -282,8 +277,8 @@ public class IssueParser {
     String title = "";
     String desc = "";
     String issueType = null;
-    List<String> linkedIssues = null;
-    List<String> labels = null;
+    final List<String> linkedIssues = null;
+    final List<String> labels = null;
     try {
       if (redmineClient != null && redmineClient.getIssue(matchedIssue).isPresent()) {
         final RedmineIssue redmineIssue = redmineClient.getIssue(matchedIssue).get();

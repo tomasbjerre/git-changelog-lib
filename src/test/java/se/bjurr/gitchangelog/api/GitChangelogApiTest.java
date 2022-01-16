@@ -137,6 +137,7 @@ public class GitChangelogApiTest {
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
             .withSettings(settingsFile) //
+            .withUseIntegrations(true)
             .withRemoveIssueFromMessageArgument(true) //
             .withTemplatePath(templatePath);
 
@@ -162,6 +163,7 @@ public class GitChangelogApiTest {
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
             .withSettings(settingsFile) //
+            .withUseIntegrations(true)
             .withIgnoreCommitsWithoutIssue(true) //
             .withTemplatePath(templatePath);
 
@@ -244,6 +246,7 @@ public class GitChangelogApiTest {
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
             .withSettings(settingsFile) //
+            .withUseIntegrations(true)
             .withRemoveIssueFromMessageArgument(true) //
             .withTemplatePath(templatePath) //
             .withReadableTagName(".*/([0-9]+?\\.[0-9]+?)$");
@@ -272,28 +275,6 @@ public class GitChangelogApiTest {
             .withTemplatePath(templatePath);
 
     ApprovalsWrapper.verify(given);
-  }
-
-  @Test
-  public void shouldUseIntegrationIfConfigured() {
-    assertThat(GitChangelogApi.shouldUseIntegrationIfConfigured("just title is false")) //
-        .isFalse();
-
-    assertThat(GitChangelogApi.shouldUseIntegrationIfConfigured("{{title}}")) //
-        .isTrue();
-
-    assertThat(GitChangelogApi.shouldUseIntegrationIfConfigured("{{link}}")) //
-        .isTrue();
-
-    assertThat(GitChangelogApi.shouldUseIntegrationIfConfigured("{{type}}")) //
-        .isTrue();
-
-    assertThat(GitChangelogApi.shouldUseIntegrationIfConfigured("asd{{#labels}}")) //
-        .isTrue();
-    assertThat(GitChangelogApi.shouldUseIntegrationIfConfigured("a\nsd{{#labels}}asd\nsdasd")) //
-        .isTrue();
-    assertThat(GitChangelogApi.shouldUseIntegrationIfConfigured("a\nsd{{labels}}asd\nsdasd")) //
-        .isTrue();
   }
 
   @Test
@@ -333,6 +314,7 @@ public class GitChangelogApiTest {
     final GitChangelogApi given =
         gitChangelogApiBuilder() //
             .withGitHubEnabled(true)
+            .withUseIntegrations(true)
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("1.71") //
             .withPathFilter("src")
