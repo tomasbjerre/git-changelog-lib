@@ -8,6 +8,7 @@ import static se.bjurr.gitchangelog.internal.semantic.SemanticVersioning.VERSION
 import static se.bjurr.gitchangelog.internal.semantic.SemanticVersioning.VERSION_STEP.PATCH;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
@@ -176,5 +177,18 @@ public class SemanticVersioningTest {
     assertThat(highestVersion + " -> " + this.sut.getNextVersion(highestVersion)) //
         .isEqualTo("1.0.0 -> 1.0.1");
     assertThat(this.sut.getNextVersion(highestVersion).getVersionStep()).isEqualTo(PATCH);
+  }
+
+  @Test
+  public void testTagCleanup() throws Throwable {
+    assertThat(this.getTagNameFrom("whatever1.2.3.4")).isEqualTo("1.2.3");
+    assertThat(this.getTagNameFrom("1.2.3.4whatever")).isEqualTo("1.2.3");
+    assertThat(this.getTagNameFrom("1.2.3.4whatever-5.6.7")).isEqualTo("1.2.3");
+    assertThat(this.getTagNameFrom("whatever-v1-1.2.3")).isEqualTo("1.2.3");
+    assertThat(this.getTagNameFrom("whatever-v1-1.2.3.4")).isEqualTo("1.2.3");
+  }
+
+  private String getTagNameFrom(final String tagName) {
+    return SemanticVersioning.getHighestVersion(Arrays.asList(tagName)).toString();
   }
 }
