@@ -2,7 +2,7 @@
 
 Changelog of git-changelog-lib.
 
-## [1.164.1](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.164.1) (2022-01-16)
+## 1.164.2 (2022-01-17)
 
 
 
@@ -10,35 +10,35 @@ Changelog of git-changelog-lib.
 
 ### Bug Fixes
 
--  not removing issue from message by default ([d0b48](https://github.com/tomasbjerre/git-changelog-lib/commit/d0b48fd6fbbe141))  
+-  match first semantic combination ([868e0](https://github.com/tomasbjerre/git-changelog-lib/commit/868e081c4b7f6d9) Tomas Bjerre)  
 
 
 
-## [1.164.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.164.0) (2022-01-16)
+## 1.164.1 (2022-01-16)
+
+
+
+
+
+### Bug Fixes
+
+-  not removing issue from message by default ([d0b48](https://github.com/tomasbjerre/git-changelog-lib/commit/d0b48fd6fbbe141) Tomas Bjerre)  
+
+
+
+## 1.164.0 (2022-01-16)
 
 
 
 ### Features
 
--  defaulting to a changelog based on conventional commits ([ba2d2](https://github.com/tomasbjerre/git-changelog-lib/commit/ba2d2900b776e34))  
+-  defaulting to a changelog based on conventional commits ([ba2d2](https://github.com/tomasbjerre/git-changelog-lib/commit/ba2d2900b776e34) Tomas Bjerre)  
 
 
 
 
 
-## [1.163.4](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.163.4) (2022-01-16)
-
-
-
-
-
-### Bug Fixes
-
--  disable integrations with a boolean useIntegrations ([632fa](https://github.com/tomasbjerre/git-changelog-lib/commit/632fa0b341cf6e8))  
-
-
-
-## [1.163.3](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.163.3) (2022-01-05)
+## 1.163.4 (2022-01-16)
 
 
 
@@ -46,11 +46,23 @@ Changelog of git-changelog-lib.
 
 ### Bug Fixes
 
--  only parse enabled issues ([be84b](https://github.com/tomasbjerre/git-changelog-lib/commit/be84b9b1d3a07d0))  [#123](https://github.com/tomasbjerre/git-changelog-lib/issues/123)  
+-  disable integrations with a boolean useIntegrations ([632fa](https://github.com/tomasbjerre/git-changelog-lib/commit/632fa0b341cf6e8) Tomas Bjerre)  
 
 
 
-## [1.163.2](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.163.2) (2021-12-23)
+## 1.163.3 (2022-01-05)
+
+
+
+
+
+### Bug Fixes
+
+-  only parse enabled issues ([be84b](https://github.com/tomasbjerre/git-changelog-lib/commit/be84b9b1d3a07d0) Tomas Bjerre)  [#123](https://github.com/tomasbjerre/git-changelog-lib/issues/123)  
+
+
+
+## 1.163.2 (2021-12-23)
 
 
 
@@ -67,7 +79,7 @@ Changelog of git-changelog-lib.
 [e7bec](https://github.com/tomasbjerre/git-changelog-lib/commit/e7bec34594338d1) polter05 *2021-12-23 17:09:36*
 
 
-## [1.163.1](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.163.1) (2021-12-22)
+## 1.163.1 (2021-12-22)
 
 
 
@@ -83,19 +95,19 @@ Changelog of git-changelog-lib.
 [b0e4f](https://github.com/tomasbjerre/git-changelog-lib/commit/b0e4fdc7a3c0b89) Julio Ripoll *2021-12-22 15:54:35*
 
 
-## [1.163.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.163.0) (2021-12-12)
+## 1.163.0 (2021-12-12)
 
 
 
 ### Features
 
--  Add helpers "ifContainsTypeOtherThan" and "ifCommitTypeOtherThan" ([e6da0](https://github.com/tomasbjerre/git-changelog-lib/commit/e6da09949018589))  
+-  Add helpers "ifContainsTypeOtherThan" and "ifCommitTypeOtherThan" ([e6da0](https://github.com/tomasbjerre/git-changelog-lib/commit/e6da09949018589) chme)  
 
 
 
 
 
-## [1.162.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.162.0) (2021-12-03)
+## 1.162.0 (2021-12-03)
 
 
 
@@ -111,13 +123,13 @@ Changelog of git-changelog-lib.
 [f7abd](https://github.com/tomasbjerre/git-changelog-lib/commit/f7abd7f4a17b035) Lumír Návrat *2021-12-01 19:44:32*
 
 
-## [1.161.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.161.0) (2021-11-30)
+## 1.161.0 (2021-11-30)
 
 
 
 ### Features
 
--  bearer ([0e0fb](https://github.com/tomasbjerre/git-changelog-lib/commit/0e0fb521d7d7aa3))  [#111](https://github.com/tomasbjerre/git-changelog-lib/issues/111)  
+-  bearer ([0e0fb](https://github.com/tomasbjerre/git-changelog-lib/commit/0e0fb521d7d7aa3) Tomas Bjerre)  [#111](https://github.com/tomasbjerre/git-changelog-lib/issues/111)  
 
 
 
@@ -130,78 +142,32 @@ Changelog of git-changelog-lib.
 [9cb1f](https://github.com/tomasbjerre/git-changelog-lib/commit/9cb1ff18c3806f8) Tomas Bjerre *2021-11-21 11:44:05*
 
 
-## [1.160.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.160.0) (2021-11-21)
+## 1.160.0 (2021-11-21)
 
 
 
 ### Features
 
--  Add support for including partials in mustache templates ([26f86](https://github.com/tomasbjerre/git-changelog-lib/commit/26f86a816904ccc))  
+-  Add support for including partials in mustache templates ([26f86](https://github.com/tomasbjerre/git-changelog-lib/commit/26f86a816904ccc) chme)  
 
 
 
 
 
-## [1.159.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.159.0) (2021-11-16)
-
-
-
-### Features
-
--  adjustments after merge ([00ce6](https://github.com/tomasbjerre/git-changelog-lib/commit/00ce6b5c7be6302))  [#106](https://github.com/tomasbjerre/git-changelog-lib/issues/106)  
--  Redmine Support ([afb92](https://github.com/tomasbjerre/git-changelog-lib/commit/afb929cae874e30))  
-
-
-
-
-
-## [1.158.4](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.158.4) (2021-10-17)
-
-
-
-
-
-### Bug Fixes
-
--  reverting toString() of SemanticVersion ([f2939](https://github.com/tomasbjerre/git-changelog-lib/commit/f293966f47eb041))  
-
-
-
-## [1.158.2](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.158.2) (2021-10-17)
-
-
-
-
-
-
-
-
-## [1.158.1](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.158.1) (2021-10-17)
-
-
-
-
-
-### Bug Fixes
-
--  adding method to get version ([d6914](https://github.com/tomasbjerre/git-changelog-lib/commit/d6914e397988d7d))  [#104](https://github.com/tomasbjerre/git-changelog-lib/issues/104)  
--  adding missing patch method in API ([f8eb5](https://github.com/tomasbjerre/git-changelog-lib/commit/f8eb51fd303b32f))  [#104](https://github.com/tomasbjerre/git-changelog-lib/issues/104)  
-
-
-
-## [1.158.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.158.0) (2021-10-17)
+## 1.159.0 (2021-11-16)
 
 
 
 ### Features
 
--  only step patch if matching pattern ([7557e](https://github.com/tomasbjerre/git-changelog-lib/commit/7557e612dd5db22))  [#104](https://github.com/tomasbjerre/git-changelog-lib/issues/104)  
+-  adjustments after merge ([00ce6](https://github.com/tomasbjerre/git-changelog-lib/commit/00ce6b5c7be6302) Tomas Bjerre)  [#106](https://github.com/tomasbjerre/git-changelog-lib/issues/106)  
+-  Redmine Support ([afb92](https://github.com/tomasbjerre/git-changelog-lib/commit/afb929cae874e30) Hakan Uygun)  
 
 
 
 
 
-## [1.157.2](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.157.2) (2021-10-06)
+## 1.158.4 (2021-10-17)
 
 
 
@@ -209,53 +175,45 @@ Changelog of git-changelog-lib.
 
 ### Bug Fixes
 
--  SemanticVersion implements Serializable ([615c4](https://github.com/tomasbjerre/git-changelog-lib/commit/615c4c957f1b47a))  
+-  reverting toString() of SemanticVersion ([f2939](https://github.com/tomasbjerre/git-changelog-lib/commit/f293966f47eb041) Tomas Bjerre)  
 
 
 
-## [1.157.1](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.157.1) (2021-07-15)
-
-
-
-
+## 1.158.2 (2021-10-17)
 
 
 
 
-## [1.157.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.157.0) (2021-07-15)
+
+
+
+
+## 1.158.1 (2021-10-17)
+
+
+
+
+
+### Bug Fixes
+
+-  adding method to get version ([d6914](https://github.com/tomasbjerre/git-changelog-lib/commit/d6914e397988d7d) Tomas Bjerre)  [#104](https://github.com/tomasbjerre/git-changelog-lib/issues/104)  
+-  adding missing patch method in API ([f8eb5](https://github.com/tomasbjerre/git-changelog-lib/commit/f8eb51fd303b32f) Tomas Bjerre)  [#104](https://github.com/tomasbjerre/git-changelog-lib/issues/104)  
+
+
+
+## 1.158.0 (2021-10-17)
 
 
 
 ### Features
 
--  correcting major pattern ([16ff1](https://github.com/tomasbjerre/git-changelog-lib/commit/16ff16f14e9ae75))  
+-  only step patch if matching pattern ([7557e](https://github.com/tomasbjerre/git-changelog-lib/commit/7557e612dd5db22) Tomas Bjerre)  [#104](https://github.com/tomasbjerre/git-changelog-lib/issues/104)  
 
 
 
 
 
-## [1.156.4](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.156.4) (2021-06-17)
-
-
-
-
-
-### Bug Fixes
-
--  read template from file ([4cf61](https://github.com/tomasbjerre/git-changelog-lib/commit/4cf6198e81fddac))  
-
-
-
-## [1.156.3](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.156.3) (2021-06-16)
-
-
-
-
-
-
-
-
-## [1.156.2](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.156.2) (2021-06-11)
+## 1.157.2 (2021-10-06)
 
 
 
@@ -263,107 +221,161 @@ Changelog of git-changelog-lib.
 
 ### Bug Fixes
 
--  adding default changelog template jenkinsci/git-changelog-plugin#58 ([051d6](https://github.com/tomasbjerre/git-changelog-lib/commit/051d61c8116bf19))  
+-  SemanticVersion implements Serializable ([615c4](https://github.com/tomasbjerre/git-changelog-lib/commit/615c4c957f1b47a) Markiian Slipets)  
 
 
 
-## [1.156.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.156.0) (2021-06-09)
-
-
-
-
-
-### Bug Fixes
-
--  semantic version stepping ([3c0cf](https://github.com/tomasbjerre/git-changelog-lib/commit/3c0cf44551aed21))  
-
-
-
-## [1.155.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.155.0) (2021-06-09)
+## 1.157.1 (2021-07-15)
 
 
 
 
 
-### Bug Fixes
-
--  removing git-changelog-settings.json to fix classloader issue in command line tool ([2d07a](https://github.com/tomasbjerre/git-changelog-lib/commit/2d07aefbd3900e5))  
 
 
 
-## [1.154.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.154.0) (2021-06-09)
-
-
-
-
-
-### Bug Fixes
-
--  NPE when given file has no parent ([7a25e](https://github.com/tomasbjerre/git-changelog-lib/commit/7a25e670caf98a9))  
-
-
-
-## [1.153.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.153.0) (2021-06-09)
-
-
-
-
-
-### Bug Fixes
-
--  when file was in a new folder, it created folder ([5a96f](https://github.com/tomasbjerre/git-changelog-lib/commit/5a96f3bd961b4df))  
-
-
-
-## [1.152.1](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.152.1) (2021-06-03)
+## 1.157.0 (2021-07-15)
 
 
 
 ### Features
 
--  set git repo from file ([17a25](https://github.com/tomasbjerre/git-changelog-lib/commit/17a25ff4be26520))  
+-  correcting major pattern ([16ff1](https://github.com/tomasbjerre/git-changelog-lib/commit/16ff16f14e9ae75) Tomas Bjerre)  
 
 
 
 
 
-## [1.152.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.152.0) (2021-06-03)
+## 1.156.4 (2021-06-17)
+
+
+
+
+
+### Bug Fixes
+
+-  read template from file ([4cf61](https://github.com/tomasbjerre/git-changelog-lib/commit/4cf6198e81fddac) Tomas Bjerre)  
+
+
+
+## 1.156.3 (2021-06-16)
+
+
+
+
+
+
+
+
+## 1.156.2 (2021-06-11)
+
+
+
+
+
+### Bug Fixes
+
+-  adding default changelog template jenkinsci/git-changelog-plugin#58 ([051d6](https://github.com/tomasbjerre/git-changelog-lib/commit/051d61c8116bf19) Tomas Bjerre)  
+
+
+
+## 1.156.0 (2021-06-09)
+
+
+
+
+
+### Bug Fixes
+
+-  semantic version stepping ([3c0cf](https://github.com/tomasbjerre/git-changelog-lib/commit/3c0cf44551aed21) Tomas Bjerre)  
+
+
+
+## 1.155.0 (2021-06-09)
+
+
+
+
+
+### Bug Fixes
+
+-  removing git-changelog-settings.json to fix classloader issue in command line tool ([2d07a](https://github.com/tomasbjerre/git-changelog-lib/commit/2d07aefbd3900e5) Tomas Bjerre)  
+
+
+
+## 1.154.0 (2021-06-09)
+
+
+
+
+
+### Bug Fixes
+
+-  NPE when given file has no parent ([7a25e](https://github.com/tomasbjerre/git-changelog-lib/commit/7a25e670caf98a9) Tomas Bjerre)  
+
+
+
+## 1.153.0 (2021-06-09)
+
+
+
+
+
+### Bug Fixes
+
+-  when file was in a new folder, it created folder ([5a96f](https://github.com/tomasbjerre/git-changelog-lib/commit/5a96f3bd961b4df) Tomas Bjerre)  
+
+
+
+## 1.152.1 (2021-06-03)
 
 
 
 ### Features
 
--  subString and ifMatches helpers ([c64a1](https://github.com/tomasbjerre/git-changelog-lib/commit/c64a1bc9312b6ec))  
+-  set git repo from file ([17a25](https://github.com/tomasbjerre/git-changelog-lib/commit/17a25ff4be26520) Tomas Bjerre)  
 
 
 
 
 
-## [1.151.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.151.0) (2021-06-03)
-
-
-
-### Features
-
--  ifEquals helper ([94344](https://github.com/tomasbjerre/git-changelog-lib/commit/9434438ec8ea325))  
-
-
-
-
-
-## [1.150.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.150.0) (2021-06-02)
+## 1.152.0 (2021-06-03)
 
 
 
 ### Features
 
--  regexp in `commitType` and `commitScope` ([2d3c6](https://github.com/tomasbjerre/git-changelog-lib/commit/2d3c6660bfe8d64))  
+-  subString and ifMatches helpers ([c64a1](https://github.com/tomasbjerre/git-changelog-lib/commit/c64a1bc9312b6ec) Tomas Bjerre)  
 
 
 
 
 
-## [1.149.6](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.149.6) (2021-06-01)
+## 1.151.0 (2021-06-03)
+
+
+
+### Features
+
+-  ifEquals helper ([94344](https://github.com/tomasbjerre/git-changelog-lib/commit/9434438ec8ea325) Tomas Bjerre)  
+
+
+
+
+
+## 1.150.0 (2021-06-02)
+
+
+
+### Features
+
+-  regexp in `commitType` and `commitScope` ([2d3c6](https://github.com/tomasbjerre/git-changelog-lib/commit/2d3c6660bfe8d64) Tomas Bjerre)  
+
+
+
+
+
+## 1.149.6 (2021-06-01)
 
 
 
@@ -379,19 +391,19 @@ Changelog of git-changelog-lib.
 [e8a4c](https://github.com/tomasbjerre/git-changelog-lib/commit/e8a4cef6abfcc60) Tomas Bjerre *2021-06-01 15:39:56*
 
 
-## [1.149.4](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.149.4) (2021-05-31)
+## 1.149.4 (2021-05-31)
 
 
 
 ### Features
 
--  removing dependencies on Guava ([6402c](https://github.com/tomasbjerre/git-changelog-lib/commit/6402c759db491ca))  
+-  removing dependencies on Guava ([6402c](https://github.com/tomasbjerre/git-changelog-lib/commit/6402c759db491ca) Tomas Bjerre)  
 
 
 
 
 
-## [1.149.2](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.149.2) (2021-05-27)
+## 1.149.2 (2021-05-27)
 
 
 
@@ -399,44 +411,44 @@ Changelog of git-changelog-lib.
 
 ### Bug Fixes
 
--  multiline footer/paragraphs ([0fb28](https://github.com/tomasbjerre/git-changelog-lib/commit/0fb2877848bb21c))  
+-  multiline footer/paragraphs ([0fb28](https://github.com/tomasbjerre/git-changelog-lib/commit/0fb2877848bb21c) Tomas Bjerre)  
 
 
 
-## [1.149.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.149.0) (2021-05-26)
-
-
-
-### Features
-
--  more conventional helpers ([3f17b](https://github.com/tomasbjerre/git-changelog-lib/commit/3f17b1ecb3bfb6a))  
-
-
-
-
-
-## [1.148.1](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.148.1) (2021-05-25)
-
-
-
-
-
-
-
-
-## [1.148.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.148.0) (2021-05-25)
+## 1.149.0 (2021-05-26)
 
 
 
 ### Features
 
--  **helpers**  and ([3572c](https://github.com/tomasbjerre/git-changelog-lib/commit/3572c9b070a8972))  
+-  more conventional helpers ([3f17b](https://github.com/tomasbjerre/git-changelog-lib/commit/3f17b1ecb3bfb6a) Tomas Bjerre)  
 
 
 
 
 
-## [1.147.5](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.147.5) (2021-05-25)
+## 1.148.1 (2021-05-25)
+
+
+
+
+
+
+
+
+## 1.148.0 (2021-05-25)
+
+
+
+### Features
+
+-  **helpers**  and ([3572c](https://github.com/tomasbjerre/git-changelog-lib/commit/3572c9b070a8972) Tomas Bjerre)  
+
+
+
+
+
+## 1.147.5 (2021-05-25)
 
 
 
@@ -444,11 +456,11 @@ Changelog of git-changelog-lib.
 
 ### Bug Fixes
 
--  naming ([759e0](https://github.com/tomasbjerre/git-changelog-lib/commit/759e07f97345011))  
+-  naming ([759e0](https://github.com/tomasbjerre/git-changelog-lib/commit/759e07f97345011) Tomas Bjerre)  
 
 
 
-## [1.147.4](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.147.4) (2021-05-25)
+## 1.147.4 (2021-05-25)
 
 
 
@@ -456,17 +468,17 @@ Changelog of git-changelog-lib.
 
 ### Bug Fixes
 
--  **helpers**  they did not work ([dba7b](https://github.com/tomasbjerre/git-changelog-lib/commit/dba7b31c364a63b))  
+-  **helpers**  they did not work ([dba7b](https://github.com/tomasbjerre/git-changelog-lib/commit/dba7b31c364a63b) Tomas Bjerre)  
 
 
 
-## [1.147.3](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.147.3) (2021-05-25)
+## 1.147.3 (2021-05-25)
 
 
 
 ### Features
 
--  adding some helpers to better support conventional commits ([8bed7](https://github.com/tomasbjerre/git-changelog-lib/commit/8bed7566d19c045))  [#92](https://github.com/tomasbjerre/git-changelog-lib/issues/92)  
+-  adding some helpers to better support conventional commits ([8bed7](https://github.com/tomasbjerre/git-changelog-lib/commit/8bed7566d19c045) Tomas Bjerre)  [#92](https://github.com/tomasbjerre/git-changelog-lib/issues/92)  
 
 
 
@@ -489,7 +501,7 @@ Changelog of git-changelog-lib.
 [47599](https://github.com/tomasbjerre/git-changelog-lib/commit/47599a8ca95d380) Tomas Bjerre *2021-05-25 03:47:23*
 
 
-## [1.147.2](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.147.2) (2021-05-24)
+## 1.147.2 (2021-05-24)
 
 
 
@@ -497,11 +509,11 @@ Changelog of git-changelog-lib.
 
 ### Bug Fixes
 
--  dont require semantic patterns to get highest tag ([38fc5](https://github.com/tomasbjerre/git-changelog-lib/commit/38fc504697f8d04))  
+-  dont require semantic patterns to get highest tag ([38fc5](https://github.com/tomasbjerre/git-changelog-lib/commit/38fc504697f8d04) Tomas Bjerre)  
 
 
 
-## [1.147.1](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.147.1) (2021-05-23)
+## 1.147.1 (2021-05-23)
 
 
 
@@ -509,35 +521,35 @@ Changelog of git-changelog-lib.
 
 ### Bug Fixes
 
--  dont use integrations when determining versions ([601c0](https://github.com/tomasbjerre/git-changelog-lib/commit/601c009bff8d551))  
+-  dont use integrations when determining versions ([601c0](https://github.com/tomasbjerre/git-changelog-lib/commit/601c009bff8d551) Tomas Bjerre)  
 
 
 
-## [1.146.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.146.0) (2021-05-23)
-
-
-
-### Features
-
--  renaming methods in api ([95a7b](https://github.com/tomasbjerre/git-changelog-lib/commit/95a7b6623a92c36))  
-
-
-
-
-
-## [1.145.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.145.0) (2021-05-23)
+## 1.146.0 (2021-05-23)
 
 
 
 ### Features
 
--  support semantic versioning ([53209](https://github.com/tomasbjerre/git-changelog-lib/commit/53209c9e5da9c75))  [#92](https://github.com/tomasbjerre/git-changelog-lib/issues/92)  
+-  renaming methods in api ([95a7b](https://github.com/tomasbjerre/git-changelog-lib/commit/95a7b6623a92c36) Tomas Bjerre)  
 
 
 
 
 
-## [1.144.4](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.144.4) (2021-04-02)
+## 1.145.0 (2021-05-23)
+
+
+
+### Features
+
+-  support semantic versioning ([53209](https://github.com/tomasbjerre/git-changelog-lib/commit/53209c9e5da9c75) Tomas Bjerre)  [#92](https://github.com/tomasbjerre/git-changelog-lib/issues/92)  
+
+
+
+
+
+## 1.144.4 (2021-04-02)
 
 
 
@@ -553,7 +565,7 @@ Changelog of git-changelog-lib.
 [82726](https://github.com/tomasbjerre/git-changelog-lib/commit/82726fdb6608dca) Tomas Bjerre *2021-04-02 18:37:49*
 
 
-## [1.96](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.96) (2021-03-29)
+## 1.96 (2021-03-29)
 
 
 
@@ -569,7 +581,7 @@ Changelog of git-changelog-lib.
 [bea18](https://github.com/tomasbjerre/git-changelog-lib/commit/bea18ab90db148c) Tomas Bjerre *2021-03-29 15:33:00*
 
 
-## [1.95](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.95) (2021-01-18)
+## 1.95 (2021-01-18)
 
 
 
@@ -595,7 +607,7 @@ Changelog of git-changelog-lib.
 [7eba3](https://github.com/tomasbjerre/git-changelog-lib/commit/7eba3d038b884b8) Tomas Bjerre *2020-12-24 07:11:41*
 
 
-## [1.94](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.94) (2020-11-18)
+## 1.94 (2020-11-18)
 
 
 
@@ -617,7 +629,7 @@ Changelog of git-changelog-lib.
 [94df8](https://github.com/tomasbjerre/git-changelog-lib/commit/94df887471f9f97) Gabriel Einsdorf *2020-11-18 13:48:10*
 
 
-## [1.93](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.93) (2020-11-07)
+## 1.93 (2020-11-07)
 
 
 
@@ -633,7 +645,7 @@ Changelog of git-changelog-lib.
 [c4307](https://github.com/tomasbjerre/git-changelog-lib/commit/c43070c5cd20162) Yauheni Biruk *2020-11-07 13:53:10*
 
 
-## [1.92](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.92) (2020-02-20)
+## 1.92 (2020-02-20)
 
 
 
@@ -664,7 +676,7 @@ Changelog of git-changelog-lib.
 [f00b0](https://github.com/tomasbjerre/git-changelog-lib/commit/f00b0e46124db77) Tomas Bjerre *2019-09-28 07:06:44*
 
 
-## [1.91](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.91) (2019-06-11)
+## 1.91 (2019-06-11)
 
 
 
@@ -680,7 +692,7 @@ Changelog of git-changelog-lib.
 [65152](https://github.com/tomasbjerre/git-changelog-lib/commit/6515299f938c982) Tomas Bjerre *2019-06-11 16:54:48*
 
 
-## [1.90](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.90) (2019-06-11)
+## 1.90 (2019-06-11)
 
 
 
@@ -706,7 +718,7 @@ Changelog of git-changelog-lib.
 [0a8d3](https://github.com/tomasbjerre/git-changelog-lib/commit/0a8d3dc6aa79b1d) Tomas Bjerre *2019-05-17 05:03:23*
 
 
-## [1.89](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.89) (2019-02-16)
+## 1.89 (2019-02-16)
 
 
 
@@ -722,7 +734,7 @@ Changelog of git-changelog-lib.
 [1aa1c](https://github.com/tomasbjerre/git-changelog-lib/commit/1aa1c4ca13d06a9) Tomas Bjerre *2019-02-16 17:08:53*
 
 
-## [1.88](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.88) (2019-01-08)
+## 1.88 (2019-01-08)
 
 
 
@@ -758,7 +770,7 @@ Changelog of git-changelog-lib.
 [794eb](https://github.com/tomasbjerre/git-changelog-lib/commit/794eb3af4173fdc) Lukas Läderach *2018-12-13 09:41:39*
 
 
-## [1.85](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.85) (2018-10-27)
+## 1.85 (2018-10-27)
 
 
 
@@ -774,7 +786,7 @@ Changelog of git-changelog-lib.
 [7d1e6](https://github.com/tomasbjerre/git-changelog-lib/commit/7d1e69bf235452e) Tomas Bjerre *2018-10-27 17:48:50*
 
 
-## [1.84](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.84) (2018-10-27)
+## 1.84 (2018-10-27)
 
 
 
@@ -801,7 +813,7 @@ Changelog of git-changelog-lib.
 [d8121](https://github.com/tomasbjerre/git-changelog-lib/commit/d812191c55684be) Tomas Bjerre *2018-10-27 10:32:47*
 
 
-## [1.83](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.83) (2018-10-27)
+## 1.83 (2018-10-27)
 
 
 
@@ -822,7 +834,7 @@ Changelog of git-changelog-lib.
 [f06cc](https://github.com/tomasbjerre/git-changelog-lib/commit/f06cc266d41e4d6) Beth Skurrie *2018-10-09 01:21:11*
 
 
-## [1.82](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.82) (2018-09-13)
+## 1.82 (2018-09-13)
 
 
 
@@ -838,7 +850,7 @@ Changelog of git-changelog-lib.
 [07a0e](https://github.com/tomasbjerre/git-changelog-lib/commit/07a0e34440540b6) Tomas Bjerre *2018-09-13 06:54:32*
 
 
-## [1.81](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.81) (2018-09-12)
+## 1.81 (2018-09-12)
 
 
 
@@ -859,7 +871,7 @@ Changelog of git-changelog-lib.
 [b594b](https://github.com/tomasbjerre/git-changelog-lib/commit/b594b083087c90c) Tomas Bjerre *2018-07-16 11:54:58*
 
 
-## [1.80](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.80) (2018-05-05)
+## 1.80 (2018-05-05)
 
 
 
@@ -880,7 +892,7 @@ Changelog of git-changelog-lib.
 [fd599](https://github.com/tomasbjerre/git-changelog-lib/commit/fd5990de3e69905) Tomas Bjerre *2018-04-20 15:15:48*
 
 
-## [1.79](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.79) (2018-01-09)
+## 1.79 (2018-01-09)
 
 
 
@@ -907,7 +919,7 @@ Changelog of git-changelog-lib.
 [46d37](https://github.com/tomasbjerre/git-changelog-lib/commit/46d37d70e2f9ffe) Chad Horohoe *2018-01-03 02:31:13*
 
 
-## [1.77](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.77) (2017-12-30)
+## 1.77 (2017-12-30)
 
 
 
@@ -928,7 +940,7 @@ Changelog of git-changelog-lib.
 [7fe5f](https://github.com/tomasbjerre/git-changelog-lib/commit/7fe5f6b9860efe7) Tomas Bjerre *2017-12-24 21:59:34*
 
 
-## [1.76](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.76) (2017-12-19)
+## 1.76 (2017-12-19)
 
 
 
@@ -964,7 +976,7 @@ Changelog of git-changelog-lib.
 [42e73](https://github.com/tomasbjerre/git-changelog-lib/commit/42e73bdf05c384a) Tomas Bjerre *2017-12-03 19:47:23*
 
 
-## [1.75](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.75) (2017-12-03)
+## 1.75 (2017-12-03)
 
 
 
@@ -985,7 +997,7 @@ Changelog of git-changelog-lib.
 [74fd3](https://github.com/tomasbjerre/git-changelog-lib/commit/74fd3ae5e58aa76) Tomas Bjerre *2017-11-18 12:14:20*
 
 
-## [1.74](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.74) (2017-11-18)
+## 1.74 (2017-11-18)
 
 
 
@@ -1007,7 +1019,7 @@ Changelog of git-changelog-lib.
 [e87ef](https://github.com/tomasbjerre/git-changelog-lib/commit/e87efa3246489c2) Tomas Bjerre *2017-11-18 11:26:24*
 
 
-## [1.73](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.73) (2017-11-02)
+## 1.73 (2017-11-02)
 
 
 
@@ -1024,7 +1036,7 @@ Changelog of git-changelog-lib.
 [94dc5](https://github.com/tomasbjerre/git-changelog-lib/commit/94dc5eee25f9414) Tomas Bjerre *2017-11-02 17:06:49*
 
 
-## [1.72](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.72) (2017-09-03)
+## 1.72 (2017-09-03)
 
 
 
@@ -1050,7 +1062,7 @@ Changelog of git-changelog-lib.
 [9cd8d](https://github.com/tomasbjerre/git-changelog-lib/commit/9cd8d1dfa42aea1) Tomas Bjerre *2017-08-31 17:23:58*
 
 
-## [1.71](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.71) (2017-07-25)
+## 1.71 (2017-07-25)
 
 
 
@@ -1066,7 +1078,7 @@ Changelog of git-changelog-lib.
 [eac21](https://github.com/tomasbjerre/git-changelog-lib/commit/eac21b71186099b) Tomas Bjerre *2017-07-25 18:21:50*
 
 
-## [1.70](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.70) (2017-07-24)
+## 1.70 (2017-07-24)
 
 
 
@@ -1089,7 +1101,7 @@ Changelog of git-changelog-lib.
 [3c0bf](https://github.com/tomasbjerre/git-changelog-lib/commit/3c0bf2f7885bff3) Tomas Bjerre *2017-07-16 05:55:55*
 
 
-## [1.69](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.69) (2017-07-08)
+## 1.69 (2017-07-08)
 
 
 
@@ -1128,7 +1140,7 @@ Changelog of git-changelog-lib.
 [63100](https://github.com/tomasbjerre/git-changelog-lib/commit/6310062f7a0470c) jakob *2017-05-31 18:45:11*
 
 
-## [1.68](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.68) (2017-04-14)
+## 1.68 (2017-04-14)
 
 
 
@@ -1149,7 +1161,7 @@ Changelog of git-changelog-lib.
 [8c583](https://github.com/tomasbjerre/git-changelog-lib/commit/8c5837402c4a802) Alik Kurdyukov *2017-04-11 18:33:29*
 
 
-## [1.67](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.67) (2017-03-25)
+## 1.67 (2017-03-25)
 
 
 
@@ -1166,7 +1178,7 @@ Changelog of git-changelog-lib.
 [743ab](https://github.com/tomasbjerre/git-changelog-lib/commit/743ab5566d39083) Tomas Bjerre *2017-03-25 16:31:51*
 
 
-## [1.66](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.66) (2017-03-25)
+## 1.66 (2017-03-25)
 
 
 
@@ -1182,7 +1194,7 @@ Changelog of git-changelog-lib.
 [eb3d1](https://github.com/tomasbjerre/git-changelog-lib/commit/eb3d1ee8a5ed370) Tomas Bjerre *2017-03-25 15:06:44*
 
 
-## [1.65](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.65) (2017-03-20)
+## 1.65 (2017-03-20)
 
 
 
@@ -1203,7 +1215,7 @@ Changelog of git-changelog-lib.
 [dbf30](https://github.com/tomasbjerre/git-changelog-lib/commit/dbf309010fbcd76) Heorhi Bisiaryn *2017-03-20 15:23:57*
 
 
-## [1.64](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.64) (2017-03-18)
+## 1.64 (2017-03-18)
 
 
 
@@ -1229,7 +1241,7 @@ Changelog of git-changelog-lib.
 [fdd72](https://github.com/tomasbjerre/git-changelog-lib/commit/fdd7229f9b2f183) Heorhi Bisiaryn *2017-03-15 11:54:01*
 
 
-## [1.63](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.63) (2017-03-01)
+## 1.63 (2017-03-01)
 
 
 
@@ -1261,7 +1273,7 @@ Changelog of git-changelog-lib.
 [4c554](https://github.com/tomasbjerre/git-changelog-lib/commit/4c554557c16f68d) Tomas Bjerre *2016-12-21 16:29:21*
 
 
-## [1.62](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.62) (2016-12-17)
+## 1.62 (2016-12-17)
 
 
 
@@ -1277,7 +1289,7 @@ Changelog of git-changelog-lib.
 [8b2fb](https://github.com/tomasbjerre/git-changelog-lib/commit/8b2fb9b3219ba47) Tomas Bjerre *2016-12-17 14:29:25*
 
 
-## [1.61](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.61) (2016-12-16)
+## 1.61 (2016-12-16)
 
 
 
@@ -1293,7 +1305,7 @@ Changelog of git-changelog-lib.
 [79f56](https://github.com/tomasbjerre/git-changelog-lib/commit/79f56692487b731) Tomas Bjerre *2016-12-16 20:02:28*
 
 
-## [1.60](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.60) (2016-12-16)
+## 1.60 (2016-12-16)
 
 
 
@@ -1309,7 +1321,7 @@ Changelog of git-changelog-lib.
 [8d2aa](https://github.com/tomasbjerre/git-changelog-lib/commit/8d2aac7c6c174f1) Tomas Bjerre *2016-12-16 16:35:06*
 
 
-## [1.59](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.59) (2016-12-16)
+## 1.59 (2016-12-16)
 
 
 
@@ -1325,7 +1337,7 @@ Changelog of git-changelog-lib.
 [65372](https://github.com/tomasbjerre/git-changelog-lib/commit/653720603542acb) Tomas Bjerre *2016-12-16 16:26:45*
 
 
-## [1.58](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.58) (2016-10-22)
+## 1.58 (2016-10-22)
 
 
 
@@ -1341,7 +1353,7 @@ Changelog of git-changelog-lib.
 [ecd85](https://github.com/tomasbjerre/git-changelog-lib/commit/ecd852cfa40b0a7) Tomas Bjerre *2016-10-22 07:23:29*
 
 
-## [1.57](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.57) (2016-10-05)
+## 1.57 (2016-10-05)
 
 
 
@@ -1357,7 +1369,7 @@ Changelog of git-changelog-lib.
 [2d918](https://github.com/tomasbjerre/git-changelog-lib/commit/2d9189f421254f2) Tomas Bjerre *2016-10-05 17:04:13*
 
 
-## [1.56](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.56) (2016-08-11)
+## 1.56 (2016-08-11)
 
 
 
@@ -1378,7 +1390,7 @@ Changelog of git-changelog-lib.
 [3abb1](https://github.com/tomasbjerre/git-changelog-lib/commit/3abb1e05e90454d) Ivan Korolev *2016-08-11 11:07:08*
 
 
-## [1.55](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.55) (2016-08-02)
+## 1.55 (2016-08-02)
 
 
 
@@ -1394,7 +1406,7 @@ Changelog of git-changelog-lib.
 [7fd99](https://github.com/tomasbjerre/git-changelog-lib/commit/7fd9971d4c2a30b) Tomas Bjerre *2016-08-02 17:00:29*
 
 
-## [1.54](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.54) (2016-06-27)
+## 1.54 (2016-06-27)
 
 
 
@@ -1415,7 +1427,7 @@ Changelog of git-changelog-lib.
 [2ae18](https://github.com/tomasbjerre/git-changelog-lib/commit/2ae18a51778cb90) Tomas Bjerre *2016-06-26 17:59:45*
 
 
-## [1.53](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.53) (2016-06-25)
+## 1.53 (2016-06-25)
 
 
 
@@ -1431,7 +1443,7 @@ Changelog of git-changelog-lib.
 [9580c](https://github.com/tomasbjerre/git-changelog-lib/commit/9580c7f449e576c) Tomas Bjerre *2016-06-24 23:59:39*
 
 
-## [1.52](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.52) (2016-06-24)
+## 1.52 (2016-06-24)
 
 
 
@@ -1457,7 +1469,7 @@ Changelog of git-changelog-lib.
 [47e35](https://github.com/tomasbjerre/git-changelog-lib/commit/47e35b1dc9dac85) Tomas Bjerre *2016-06-24 15:08:53*
 
 
-## [1.51](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.51) (2016-06-24)
+## 1.51 (2016-06-24)
 
 
 
@@ -1478,7 +1490,7 @@ Changelog of git-changelog-lib.
 [0c597](https://github.com/tomasbjerre/git-changelog-lib/commit/0c59757f08f5eb3) Tomas Bjerre *2016-06-24 09:18:35*
 
 
-## [1.50](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.50) (2016-06-24)
+## 1.50 (2016-06-24)
 
 
 
@@ -1494,7 +1506,7 @@ Changelog of git-changelog-lib.
 [a723e](https://github.com/tomasbjerre/git-changelog-lib/commit/a723e0a230e3f38) Tomas Bjerre *2016-06-24 08:56:47*
 
 
-## [1.49](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.49) (2016-06-02)
+## 1.49 (2016-06-02)
 
 
 
@@ -1516,7 +1528,7 @@ Changelog of git-changelog-lib.
 [7ea08](https://github.com/tomasbjerre/git-changelog-lib/commit/7ea087fdbbc9820) Tomas Bjerre *2016-05-20 19:05:36*
 
 
-## [1.48](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.48) (2016-05-20)
+## 1.48 (2016-05-20)
 
 
 
@@ -1532,7 +1544,7 @@ Changelog of git-changelog-lib.
 [0c85c](https://github.com/tomasbjerre/git-changelog-lib/commit/0c85c4276ac3dce) Tomas Bjerre *2016-04-28 16:33:44*
 
 
-## [1.47](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.47) (2016-04-28)
+## 1.47 (2016-04-28)
 
 
 
@@ -1549,7 +1561,7 @@ Changelog of git-changelog-lib.
 [a94d5](https://github.com/tomasbjerre/git-changelog-lib/commit/a94d576b6fd706e) Tomas Bjerre *2016-04-28 16:18:20*
 
 
-## [1.46](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.46) (2016-04-24)
+## 1.46 (2016-04-24)
 
 
 
@@ -1565,7 +1577,7 @@ Changelog of git-changelog-lib.
 [0e0ce](https://github.com/tomasbjerre/git-changelog-lib/commit/0e0ce5e0c5df526) Tomas Bjerre *2016-04-24 07:29:47*
 
 
-## [1.45](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.45) (2016-04-13)
+## 1.45 (2016-04-13)
 
 
 
@@ -1583,7 +1595,7 @@ Changelog of git-changelog-lib.
 [e3106](https://github.com/tomasbjerre/git-changelog-lib/commit/e3106df640b693b) Tomas Bjerre *2016-04-13 18:30:26*
 
 
-## [1.44](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.44) (2016-04-12)
+## 1.44 (2016-04-12)
 
 
 
@@ -1599,7 +1611,7 @@ Changelog of git-changelog-lib.
 [27642](https://github.com/tomasbjerre/git-changelog-lib/commit/27642e3db66e67c) Tomas Bjerre *2016-04-12 16:43:21*
 
 
-## [1.43](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.43) (2016-04-10)
+## 1.43 (2016-04-10)
 
 
 
@@ -1615,7 +1627,7 @@ Changelog of git-changelog-lib.
 [f6a76](https://github.com/tomasbjerre/git-changelog-lib/commit/f6a768567dc03d3) Tomas Bjerre *2016-04-10 09:08:26*
 
 
-## [1.42](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.42) (2016-04-10)
+## 1.42 (2016-04-10)
 
 
 
@@ -1632,7 +1644,7 @@ Changelog of git-changelog-lib.
 [9817c](https://github.com/tomasbjerre/git-changelog-lib/commit/9817cdf6a1fbe91) Tomas Bjerre *2016-04-10 08:49:45*
 
 
-## [1.41](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.41) (2016-04-09)
+## 1.41 (2016-04-09)
 
 
 
@@ -1649,7 +1661,7 @@ Changelog of git-changelog-lib.
 [9dcba](https://github.com/tomasbjerre/git-changelog-lib/commit/9dcba5d33fc2e44) Tomas Bjerre *2016-04-09 20:21:58*
 
 
-## [1.40](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.40) (2016-04-07)
+## 1.40 (2016-04-07)
 
 
 
@@ -1671,7 +1683,7 @@ Changelog of git-changelog-lib.
 [96ee3](https://github.com/tomasbjerre/git-changelog-lib/commit/96ee3bb55e4da2d) Tomas Bjerre *2016-03-20 13:25:18*
 
 
-## [1.39](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.39) (2016-03-20)
+## 1.39 (2016-03-20)
 
 
 
@@ -1688,7 +1700,7 @@ Changelog of git-changelog-lib.
 [b9761](https://github.com/tomasbjerre/git-changelog-lib/commit/b976129fb928dc1) Tomas Bjerre *2016-03-20 09:42:23*
 
 
-## [1.38](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.38) (2016-03-20)
+## 1.38 (2016-03-20)
 
 
 
@@ -1704,7 +1716,7 @@ Changelog of git-changelog-lib.
 [22a2c](https://github.com/tomasbjerre/git-changelog-lib/commit/22a2c55c44b6b4d) Tomas Bjerre *2016-03-20 08:38:27*
 
 
-## [1.37](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.37) (2016-03-20)
+## 1.37 (2016-03-20)
 
 
 
@@ -1740,7 +1752,7 @@ Changelog of git-changelog-lib.
 [a025a](https://github.com/tomasbjerre/git-changelog-lib/commit/a025adfc759313f) Tomas Bjerre *2016-03-19 20:33:11*
 
 
-## [1.36](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.36) (2016-03-15)
+## 1.36 (2016-03-15)
 
 
 
@@ -1762,7 +1774,7 @@ Changelog of git-changelog-lib.
 [a4a15](https://github.com/tomasbjerre/git-changelog-lib/commit/a4a15094f367c31) Tomas Bjerre *2016-03-15 20:27:41*
 
 
-## [1.35](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.35) (2016-03-15)
+## 1.35 (2016-03-15)
 
 
 
@@ -1779,7 +1791,7 @@ Changelog of git-changelog-lib.
 [a4bb6](https://github.com/tomasbjerre/git-changelog-lib/commit/a4bb6103886b293) Tomas Bjerre *2016-03-15 20:12:47*
 
 
-## [1.34](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.34) (2016-03-15)
+## 1.34 (2016-03-15)
 
 
 
@@ -1800,7 +1812,7 @@ Changelog of git-changelog-lib.
 [2cf82](https://github.com/tomasbjerre/git-changelog-lib/commit/2cf820ce81c7b15) Tomas Bjerre *2016-03-15 17:52:18*
 
 
-## [1.33](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.33) (2016-03-15)
+## 1.33 (2016-03-15)
 
 
 
@@ -1829,7 +1841,7 @@ Changelog of git-changelog-lib.
 [e3719](https://github.com/tomasbjerre/git-changelog-lib/commit/e37195ae3a5bb32) Tomas Bjerre *2016-02-22 16:28:48*
 
 
-## [1.32](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.32) (2016-02-20)
+## 1.32 (2016-02-20)
 
 
 
@@ -1850,7 +1862,7 @@ Changelog of git-changelog-lib.
 [feeb6](https://github.com/tomasbjerre/git-changelog-lib/commit/feeb61cc1f7ebd3) Tomas Bjerre *2016-02-19 19:20:56*
 
 
-## [1.31](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.31) (2016-02-19)
+## 1.31 (2016-02-19)
 
 
 
@@ -1866,7 +1878,7 @@ Changelog of git-changelog-lib.
 [b078d](https://github.com/tomasbjerre/git-changelog-lib/commit/b078d04fbfb978f) Tomas Bjerre *2016-02-19 18:55:55*
 
 
-## [1.30](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.30) (2016-02-15)
+## 1.30 (2016-02-15)
 
 
 
@@ -1884,7 +1896,7 @@ Changelog of git-changelog-lib.
 [3c794](https://github.com/tomasbjerre/git-changelog-lib/commit/3c794133dcc1d00) Tomas Bjerre *2016-02-15 17:41:45*
 
 
-## [1.29](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.29) (2016-02-14)
+## 1.29 (2016-02-14)
 
 
 
@@ -1900,7 +1912,7 @@ Changelog of git-changelog-lib.
 [be414](https://github.com/tomasbjerre/git-changelog-lib/commit/be4143904d6382c) Tomas Bjerre *2016-02-14 17:33:46*
 
 
-## [1.28](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.28) (2016-02-14)
+## 1.28 (2016-02-14)
 
 
 
@@ -1921,7 +1933,7 @@ Changelog of git-changelog-lib.
 [58fce](https://github.com/tomasbjerre/git-changelog-lib/commit/58fcebc50354375) Tomas Bjerre *2016-02-13 17:14:37*
 
 
-## [1.27](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.27) (2016-02-13)
+## 1.27 (2016-02-13)
 
 
 
@@ -1937,7 +1949,7 @@ Changelog of git-changelog-lib.
 [ca969](https://github.com/tomasbjerre/git-changelog-lib/commit/ca96998dbd2f376) Tomas Bjerre *2016-02-13 08:52:27*
 
 
-## [1.26](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.26) (2016-02-13)
+## 1.26 (2016-02-13)
 
 
 
@@ -1959,7 +1971,7 @@ Changelog of git-changelog-lib.
 [be9fb](https://github.com/tomasbjerre/git-changelog-lib/commit/be9fb93023f13ad) Tomas Bjerre *2016-02-11 17:48:06*
 
 
-## [1.25](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.25) (2016-02-10)
+## 1.25 (2016-02-10)
 
 
 
@@ -1977,7 +1989,7 @@ Changelog of git-changelog-lib.
 [5b307](https://github.com/tomasbjerre/git-changelog-lib/commit/5b307bd00b47e83) Tomas Bjerre *2016-02-10 17:31:13*
 
 
-## [1.24](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.24) (2016-02-09)
+## 1.24 (2016-02-09)
 
 
 
@@ -2003,7 +2015,7 @@ Changelog of git-changelog-lib.
 [1e5cb](https://github.com/tomasbjerre/git-changelog-lib/commit/1e5cb6c76a681aa) Tomas Bjerre *2016-01-31 12:15:00*
 
 
-## [1.23](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.23) (2016-01-31)
+## 1.23 (2016-01-31)
 
 
 
@@ -2029,7 +2041,7 @@ Changelog of git-changelog-lib.
 [e529a](https://github.com/tomasbjerre/git-changelog-lib/commit/e529afb2a911123) Tomas Bjerre *2016-01-31 08:04:33*
 
 
-## [1.22](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.22) (2016-01-30)
+## 1.22 (2016-01-30)
 
 
 
@@ -2045,7 +2057,7 @@ Changelog of git-changelog-lib.
 [7fde8](https://github.com/tomasbjerre/git-changelog-lib/commit/7fde8935d59456d) Tomas Bjerre *2016-01-30 17:07:40*
 
 
-## [1.21](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.21) (2016-01-30)
+## 1.21 (2016-01-30)
 
 
 
@@ -2062,7 +2074,7 @@ Changelog of git-changelog-lib.
 [00b37](https://github.com/tomasbjerre/git-changelog-lib/commit/00b37d11101f8d1) Tomas Bjerre *2016-01-30 16:39:21*
 
 
-## [1.20](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.20) (2016-01-30)
+## 1.20 (2016-01-30)
 
 
 
@@ -2095,7 +2107,7 @@ Changelog of git-changelog-lib.
 [7613e](https://github.com/tomasbjerre/git-changelog-lib/commit/7613efc4a5a0833) Tomas Bjerre *2016-01-27 18:51:11*
 
 
-## [1.19](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.19) (2016-01-27)
+## 1.19 (2016-01-27)
 
 
 
@@ -2121,7 +2133,7 @@ Changelog of git-changelog-lib.
 [296d8](https://github.com/tomasbjerre/git-changelog-lib/commit/296d811a7ec3492) Tomas Bjerre *2015-12-10 17:12:44*
 
 
-## [1.18](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.18) (2015-12-08)
+## 1.18 (2015-12-08)
 
 
 
@@ -2137,7 +2149,7 @@ Changelog of git-changelog-lib.
 [25fad](https://github.com/tomasbjerre/git-changelog-lib/commit/25fad813507296c) Tomas Bjerre *2015-12-08 18:44:25*
 
 
-## [1.17](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.17) (2015-12-05)
+## 1.17 (2015-12-05)
 
 
 
@@ -2153,7 +2165,7 @@ Changelog of git-changelog-lib.
 [c7e3a](https://github.com/tomasbjerre/git-changelog-lib/commit/c7e3a39354cb339) Tomas Bjerre *2015-12-05 14:30:21*
 
 
-## [1.16](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.16) (2015-12-05)
+## 1.16 (2015-12-05)
 
 
 
@@ -2170,7 +2182,7 @@ Changelog of git-changelog-lib.
 [b818f](https://github.com/tomasbjerre/git-changelog-lib/commit/b818fd6a2f1207c) Tomas Bjerre *2015-12-05 14:01:56*
 
 
-## [1.15](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.15) (2015-12-04)
+## 1.15 (2015-12-04)
 
 
 
@@ -2187,7 +2199,7 @@ Changelog of git-changelog-lib.
 [2d0c1](https://github.com/tomasbjerre/git-changelog-lib/commit/2d0c1f1102387d0) Tomas Bjerre *2015-12-04 22:09:16*
 
 
-## [1.14](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.14) (2015-12-01)
+## 1.14 (2015-12-01)
 
 
 
@@ -2203,7 +2215,7 @@ Changelog of git-changelog-lib.
 [2b9b6](https://github.com/tomasbjerre/git-changelog-lib/commit/2b9b6112244d1aa) Tomas Bjerre *2015-12-01 21:34:52*
 
 
-## [1.13](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.13) (2015-11-23)
+## 1.13 (2015-11-23)
 
 
 
@@ -2219,7 +2231,7 @@ Changelog of git-changelog-lib.
 [abe71](https://github.com/tomasbjerre/git-changelog-lib/commit/abe713cb069aa1f) Tomas Bjerre *2015-11-23 21:44:23*
 
 
-## [1.12](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.12) (2015-11-23)
+## 1.12 (2015-11-23)
 
 
 
@@ -2240,7 +2252,7 @@ Changelog of git-changelog-lib.
 [45af7](https://github.com/tomasbjerre/git-changelog-lib/commit/45af766856ac703) Tomas Bjerre *2015-11-22 19:51:40*
 
 
-## [1.11](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.11) (2015-11-21)
+## 1.11 (2015-11-21)
 
 
 
@@ -2262,7 +2274,7 @@ Changelog of git-changelog-lib.
 [8c95f](https://github.com/tomasbjerre/git-changelog-lib/commit/8c95fd4870872d4) Tomas Bjerre *2015-11-21 14:24:35*
 
 
-## [1.10](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.10) (2015-11-21)
+## 1.10 (2015-11-21)
 
 
 
@@ -2285,7 +2297,7 @@ Changelog of git-changelog-lib.
 [7749d](https://github.com/tomasbjerre/git-changelog-lib/commit/7749ddfa42b4034) Tomas Bjerre *2015-11-20 21:38:13*
 
 
-## [1.9](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.9) (2015-11-20)
+## 1.9 (2015-11-20)
 
 
 
@@ -2306,7 +2318,7 @@ Changelog of git-changelog-lib.
 [d669a](https://github.com/tomasbjerre/git-changelog-lib/commit/d669ae9e7d00e52) Tomas Bjerre *2015-11-20 20:34:55*
 
 
-## [1.8](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.8) (2015-11-20)
+## 1.8 (2015-11-20)
 
 
 
@@ -2322,7 +2334,7 @@ Changelog of git-changelog-lib.
 [c2268](https://github.com/tomasbjerre/git-changelog-lib/commit/c226865b64ce01c) Tomas Bjerre *2015-11-20 20:24:08*
 
 
-## [1.7](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.7) (2015-11-20)
+## 1.7 (2015-11-20)
 
 
 
@@ -2338,7 +2350,7 @@ Changelog of git-changelog-lib.
 [388a3](https://github.com/tomasbjerre/git-changelog-lib/commit/388a3a851f665c1) Tomas Bjerre *2015-11-20 19:08:45*
 
 
-## [1.6](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.6) (2015-11-20)
+## 1.6 (2015-11-20)
 
 
 
@@ -2359,7 +2371,7 @@ Changelog of git-changelog-lib.
 [f978c](https://github.com/tomasbjerre/git-changelog-lib/commit/f978c6fd9c72233) Tomas Bjerre *2015-11-19 21:21:04*
 
 
-## [1.5](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.5) (2015-11-19)
+## 1.5 (2015-11-19)
 
 
 
@@ -2380,7 +2392,7 @@ Changelog of git-changelog-lib.
 [64f31](https://github.com/tomasbjerre/git-changelog-lib/commit/64f318ca8f10ba8) Tomas Bjerre *2015-11-19 19:46:44*
 
 
-## [1.4](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.4) (2015-11-19)
+## 1.4 (2015-11-19)
 
 
 
@@ -2406,7 +2418,7 @@ Changelog of git-changelog-lib.
 [fbb45](https://github.com/tomasbjerre/git-changelog-lib/commit/fbb455921921ddc) Tomas Bjerre *2015-11-18 19:41:03*
 
 
-## [1.3](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.3) (2015-11-18)
+## 1.3 (2015-11-18)
 
 
 
@@ -2437,7 +2449,7 @@ Changelog of git-changelog-lib.
 [a0834](https://github.com/tomasbjerre/git-changelog-lib/commit/a083453437d20bd) Tomas Bjerre *2015-11-17 20:29:42*
 
 
-## [1.2](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.2) (2015-11-17)
+## 1.2 (2015-11-17)
 
 
 
@@ -2484,7 +2496,7 @@ Changelog of git-changelog-lib.
 [6dd34](https://github.com/tomasbjerre/git-changelog-lib/commit/6dd3418a6dc5b0d) Tomas Bjerre *2015-11-15 11:41:48*
 
 
-## [1.1](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.1) (2015-11-15)
+## 1.1 (2015-11-15)
 
 
 
@@ -2528,7 +2540,7 @@ Changelog of git-changelog-lib.
 [ba9d5](https://github.com/tomasbjerre/git-changelog-lib/commit/ba9d565ddd15d1b) Tomas Bjerre *2015-11-15 08:58:00*
 
 
-## [1.0](https://github.com/tomasbjerre/git-changelog-lib/releases/tag/1.0) (2015-11-14)
+## 1.0 (2015-11-14)
 
 
 
@@ -2559,4 +2571,3 @@ Changelog of git-changelog-lib.
 [5aaeb](https://github.com/tomasbjerre/git-changelog-lib/commit/5aaeb907f68915a) Tomas Bjerre *2015-11-14 09:46:23*
 
 
-    
