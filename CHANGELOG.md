@@ -2,6 +2,25 @@
 
 Changelog of git-changelog-lib.
 
+## 1.164.3 (2022-01-20)
+
+
+
+
+
+### Bug Fixes
+
+-  Allow minus in scope for conventional commits ([98102](https://github.com/tomasbjerre/git-changelog-lib/commit/98102abce6b73f1) nurgling)  
+
+
+### Other changes
+
+**fix regexp for conventional commits**
+
+
+[772fb](https://github.com/tomasbjerre/git-changelog-lib/commit/772fb82693fdee7) Andreas Micklei *2022-01-19 22:40:19*
+
+
 ## 1.164.2 (2022-01-17)
 
 
