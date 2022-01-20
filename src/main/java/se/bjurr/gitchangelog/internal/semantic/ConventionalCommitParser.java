@@ -1,14 +1,12 @@
 package se.bjurr.gitchangelog.internal.semantic;
 
+import com.github.jknack.handlebars.Options;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-
-import com.github.jknack.handlebars.Options;
-
 import se.bjurr.gitchangelog.api.model.Commit;
 import se.bjurr.gitchangelog.api.model.Tag;
 import se.bjurr.gitchangelog.internal.model.Transformer;
