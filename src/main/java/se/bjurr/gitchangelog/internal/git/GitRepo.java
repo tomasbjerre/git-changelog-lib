@@ -228,21 +228,20 @@ public class GitRepo implements Closeable {
     return tagPerCommit;
   }
 
-  private List<RevCommit> getDiffingCommits(final RevCommit from, final RevCommit to)
-      throws Exception {
-    return this.getCommitList(from, to);
-  }
-
-  private ArrayList<RevCommit> getCommitList(final RevCommit from, final RevCommit to)
-      throws Exception {
+  private List<RevCommit> getCommitList(final RevCommit from, final RevCommit to) throws Exception {
     final LogCommand logCommand = this.git.log().addRange(from, to);
     if (this.hasPathFilter()) {
       logCommand.addPath(this.pathFilter);
     }
-    final ArrayList<RevCommit> list = new ArrayList<>();
+    final List<RevCommit> list = new ArrayList<>();
     final Iterator<RevCommit> itr = logCommand.call().iterator();
+
     while (itr.hasNext()) {
       list.add(itr.next());
+    }
+    this.revWalk.parseHeaders(from);
+    if (from.getParentCount() == 0) {
+      list.add(from);
     }
     return list;
   }
@@ -308,7 +307,7 @@ public class GitRepo implements Closeable {
     final RevCommit from = this.revWalk.lookupCommit(fromObjectId);
     final RevCommit to = this.revWalk.lookupCommit(toObjectId);
 
-    this.commitsToInclude = this.getDiffingCommits(from, to);
+    this.commitsToInclude = this.getCommitList(from, to);
 
     final List<Ref> tagList = this.tagsBetweenFromAndTo(from, to);
     /**
@@ -489,6 +488,7 @@ public class GitRepo implements Closeable {
     while (itr.hasNext()) {
       icludedCommits.add(itr.next());
     }
+
     final List<Ref> includedTags = new ArrayList<>();
     for (final Ref tag : tagList) {
       final ObjectId peeledTag = this.getPeeled(tag);
