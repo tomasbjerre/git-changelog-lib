@@ -83,6 +83,16 @@ public class GitChangelogApiTest {
     GitHubServiceFactory.setInterceptor(null);
     mock(null);
   }
+    @Test
+    public void testThatFirstVersionCanBeGenerated() throws Exception {
+      final GitChangelogApi given =
+          gitChangelogApiBuilder() //
+              .withFromCommit(ZERO_COMMIT) //
+              .withToCommit("0.0.1");
+
+      ApprovalsWrapper.verify(given);
+    }
+
 
   @Test
   public void testThatSecondVersionCanBeGenerated() throws Exception {

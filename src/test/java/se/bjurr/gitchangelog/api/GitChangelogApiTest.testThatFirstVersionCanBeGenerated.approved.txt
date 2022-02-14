@@ -1,0 +1,372 @@
+template:
+
+# {{repoName}} changelog
+
+Changelog of {{repoName}}.
+
+{{#tags}}
+{{#ifEquals name "Unreleased"}}{{else}}
+## {{name}} ({{tagDate .}})
+
+{{#ifContainsBreaking commits}}
+### Breaking changes
+
+{{#commits}}
+{{#ifCommitBreaking .}}
+- {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}}) {{#eachCommitRefs .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitRefs}} {{#eachCommitFixes .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitFixes}}
+{{/ifCommitBreaking}}
+{{/commits}}
+{{/ifContainsBreaking}}
+
+
+{{#ifContainsType commits type='feat'}}
+### Features
+
+{{#commits}}
+{{#ifCommitType . type='feat'}}
+- {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}}) {{#eachCommitRefs .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitRefs}} {{#eachCommitFixes .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitFixes}}
+{{/ifCommitType}}
+{{/commits}}
+{{/ifContainsType}}
+
+
+{{#ifContainsType commits type='fix'}}
+### Bug Fixes
+
+{{#commits}}
+{{#ifCommitType . type='fix'}}
+- {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}}) {{#eachCommitRefs .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitRefs}} {{#eachCommitFixes .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitFixes}}
+{{/ifCommitType}}
+{{/commits}}
+{{/ifContainsType}}
+
+
+{{#ifContainsType commits type='^($|(?!fix|feat|breaking))'}}
+### Other changes
+
+{{#commits}}
+{{#ifCommitType . type='^($|(?!fix|feat|breaking))'}}
+**{{{messageTitle}}}**
+
+{{#messageBodyItems}}
+* {{.}} 
+{{/messageBodyItems}}
+
+[{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}} *{{commitTime}}*
+
+{{/ifCommitType}}
+{{/commits}}
+{{/ifContainsType}}
+
+{{/ifEquals}}
+{{/tags}}
+
+---------------------------------------------
+
+settings:
+
+{
+  "fromCommit": "0000000000000000000000000000000000000000",
+  "toCommit": "0.0.1",
+  "removeIssueFromMessage": false,
+  "jiraEnabled": false,
+  "redmineEnabled": false,
+  "gitHubEnabled": false,
+  "gitHubApi": "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
+  "extendedVariables": {},
+  "ignoreCommitsWithoutIssue": false,
+  "gitLabEnabled": false,
+  "gitLabProjectName": "tomasbjerre",
+  "useIntegrations": false
+}
+
+---------------------------------------------
+
+changelog:
+
+# git-changelog-lib changelog
+
+Changelog of git-changelog-lib.
+
+
+
+---------------------------------------------
+
+context:
+
+{
+  "commits": [
+    {
+      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+      "authorName": "Tomas Bjerre",
+      "commitTime": "2015-11-12 05:29:31",
+      "commitTimeLong": 1447306171000,
+      "hash": "a1aa5ff5b625e63",
+      "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
+      "merge": false,
+      "message": "Initial commit"
+    }
+  ],
+  "tags": [
+    {
+      "authors": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2015-11-12 05:29:31",
+              "commitTimeLong": 1447306171000,
+              "hash": "a1aa5ff5b625e63",
+              "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
+              "merge": false,
+              "message": "Initial commit"
+            }
+          ],
+          "authorName": "Tomas Bjerre",
+          "authorEmail": "tomas.bjerre85@gmail.com"
+        }
+      ],
+      "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2015-11-12 05:29:31",
+          "commitTimeLong": 1447306171000,
+          "hash": "a1aa5ff5b625e63",
+          "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
+          "merge": false,
+          "message": "Initial commit"
+        }
+      ],
+      "issues": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2015-11-12 05:29:31",
+              "commitTimeLong": 1447306171000,
+              "hash": "a1aa5ff5b625e63",
+              "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
+              "merge": false,
+              "message": "Initial commit"
+            }
+          ],
+          "authors": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2015-11-12 05:29:31",
+                  "commitTimeLong": 1447306171000,
+                  "hash": "a1aa5ff5b625e63",
+                  "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
+                  "merge": false,
+                  "message": "Initial commit"
+                }
+              ],
+              "authorName": "Tomas Bjerre",
+              "authorEmail": "tomas.bjerre85@gmail.com"
+            }
+          ],
+          "name": "No issue",
+          "title": "",
+          "hasTitle": false,
+          "issue": "",
+          "hasIssue": false,
+          "link": "",
+          "hasLink": false,
+          "type": "",
+          "hasType": false,
+          "hasDescription": false,
+          "description": "",
+          "hasLabels": false,
+          "hasLinkedIssues": false,
+          "issueType": "NOISSUE"
+        }
+      ],
+      "issueTypes": [
+        {
+          "name": "No issue",
+          "issues": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2015-11-12 05:29:31",
+                  "commitTimeLong": 1447306171000,
+                  "hash": "a1aa5ff5b625e63",
+                  "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
+                  "merge": false,
+                  "message": "Initial commit"
+                }
+              ],
+              "authors": [
+                {
+                  "commits": [
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2015-11-12 05:29:31",
+                      "commitTimeLong": 1447306171000,
+                      "hash": "a1aa5ff5b625e63",
+                      "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
+                      "merge": false,
+                      "message": "Initial commit"
+                    }
+                  ],
+                  "authorName": "Tomas Bjerre",
+                  "authorEmail": "tomas.bjerre85@gmail.com"
+                }
+              ],
+              "name": "No issue",
+              "title": "",
+              "hasTitle": false,
+              "issue": "",
+              "hasIssue": false,
+              "link": "",
+              "hasLink": false,
+              "type": "",
+              "hasType": false,
+              "hasDescription": false,
+              "description": "",
+              "hasLabels": false,
+              "hasLinkedIssues": false,
+              "issueType": "NOISSUE"
+            }
+          ],
+          "type": "NOISSUE"
+        }
+      ],
+      "name": "Unreleased",
+      "tagTime": "",
+      "tagTimeLong": -1,
+      "hasTagTime": false
+    }
+  ],
+  "authors": [
+    {
+      "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2015-11-12 05:29:31",
+          "commitTimeLong": 1447306171000,
+          "hash": "a1aa5ff5b625e63",
+          "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
+          "merge": false,
+          "message": "Initial commit"
+        }
+      ],
+      "authorName": "Tomas Bjerre",
+      "authorEmail": "tomas.bjerre85@gmail.com"
+    }
+  ],
+  "issues": [
+    {
+      "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2015-11-12 05:29:31",
+          "commitTimeLong": 1447306171000,
+          "hash": "a1aa5ff5b625e63",
+          "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
+          "merge": false,
+          "message": "Initial commit"
+        }
+      ],
+      "authors": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2015-11-12 05:29:31",
+              "commitTimeLong": 1447306171000,
+              "hash": "a1aa5ff5b625e63",
+              "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
+              "merge": false,
+              "message": "Initial commit"
+            }
+          ],
+          "authorName": "Tomas Bjerre",
+          "authorEmail": "tomas.bjerre85@gmail.com"
+        }
+      ],
+      "name": "No issue",
+      "title": "",
+      "hasTitle": false,
+      "issue": "",
+      "hasIssue": false,
+      "link": "",
+      "hasLink": false,
+      "type": "",
+      "hasType": false,
+      "hasDescription": false,
+      "description": "",
+      "hasLabels": false,
+      "hasLinkedIssues": false,
+      "issueType": "NOISSUE"
+    }
+  ],
+  "issueTypes": [
+    {
+      "name": "No issue",
+      "issues": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2015-11-12 05:29:31",
+              "commitTimeLong": 1447306171000,
+              "hash": "a1aa5ff5b625e63",
+              "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
+              "merge": false,
+              "message": "Initial commit"
+            }
+          ],
+          "authors": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2015-11-12 05:29:31",
+                  "commitTimeLong": 1447306171000,
+                  "hash": "a1aa5ff5b625e63",
+                  "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
+                  "merge": false,
+                  "message": "Initial commit"
+                }
+              ],
+              "authorName": "Tomas Bjerre",
+              "authorEmail": "tomas.bjerre85@gmail.com"
+            }
+          ],
+          "name": "No issue",
+          "title": "",
+          "hasTitle": false,
+          "issue": "",
+          "hasIssue": false,
+          "link": "",
+          "hasLink": false,
+          "type": "",
+          "hasType": false,
+          "hasDescription": false,
+          "description": "",
+          "hasLabels": false,
+          "hasLinkedIssues": false,
+          "issueType": "NOISSUE"
+        }
+      ],
+      "type": "NOISSUE"
+    }
+  ],
+  "ownerName": "tomasbjerre",
+  "repoName": "git-changelog-lib"
+}
