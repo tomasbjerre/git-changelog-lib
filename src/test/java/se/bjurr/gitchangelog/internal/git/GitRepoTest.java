@@ -43,7 +43,7 @@ public class GitRepoTest {
     Collections.reverse(diff);
     assertThat(diff.get(0).getHash()) //
         .as("first") //
-        .startsWith("5aaeb90");
+        .startsWith("a1aa");
     Collections.reverse(diff);
     assertThat(diff.get(0).getHash()) //
         .as("last") //
@@ -62,7 +62,7 @@ public class GitRepoTest {
             .getGitCommits();
     assertThat(diff.size()).isGreaterThan(10);
     Collections.reverse(diff);
-    assertThat(diff.get(0).getHash()).startsWith("5aae");
+    assertThat(diff.get(0).getHash()).startsWith("a1aa");
   }
 
   @Test
@@ -75,14 +75,14 @@ public class GitRepoTest {
             firstCommit, lastCommit, "No tag", Optional.of(".*tag-in-test-feature$"));
     assertThat(gitRepoData.getGitCommits())
         .as("Commits in first release.") //
-        .hasSize(5);
+        .hasSize(6);
     assertThat(gitRepoData.getGitTags())
         .as("Tags in first release.") //
         .hasSize(1);
     final List<GitCommit> diff = gitRepoData.getGitCommits();
     Collections.reverse(diff);
     assertThat(diff.get(0).getHash()) //
-        .startsWith("5aae");
+        .startsWith("a1aa");
   }
 
   @Test
@@ -135,7 +135,7 @@ public class GitRepoTest {
             .getGitCommits();
     assertThat(diff) //
         .as("Commits in second release from zero commit.") //
-        .hasSize(13);
+        .hasSize(14);
     assertThat(diff.get(6).getHash()) //
         .startsWith("ba9d");
     assertThat(diff.get(0).getHash()) //
@@ -152,7 +152,7 @@ public class GitRepoTest {
             firstCommit, lastCommit, "No tag", Optional.of(".*tag-in-test-feature$"));
     assertThat(gitRepoData.getGitCommits())
         .as("Commits in first release.") //
-        .hasSize(15);
+        .hasSize(16);
 
     final List<GitCommit> merges = new ArrayList<>();
     for (final GitCommit gitCommit : gitRepoData.getGitCommits()) {
@@ -292,11 +292,11 @@ public class GitRepoTest {
     final List<GitCommit> gitCommits = gitRepoData.getGitCommits();
     assertThat(gitCommits)
         .as("Commits in first release.") //
-        .hasSize(104);
+        .hasSize(105);
 
     assertThat(gitCommits.get(0).getHash()).startsWith("a394e04");
     Collections.reverse(gitCommits);
-    assertThat(gitCommits.get(0).getHash()).startsWith("5aaeb907");
+    assertThat(gitCommits.get(0).getHash()).startsWith("a1aa");
   }
 
   private GitRepo getGitRepo() throws Exception {
