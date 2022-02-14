@@ -88,6 +88,22 @@ changelog:
 
 Changelog of git-changelog-lib.
 
+## 0.0.1 (2015-11-12)
+
+
+
+
+
+
+
+### Other changes
+
+**Initial commit**
+
+
+[a1aa5](https://github.com/tomasbjerre/git-changelog-lib/commit/a1aa5ff5b625e63) Tomas Bjerre *2015-11-12 05:29:31*
+
+
 
 
 ---------------------------------------------
@@ -241,10 +257,10 @@ context:
           "type": "NOISSUE"
         }
       ],
-      "name": "Unreleased",
-      "tagTime": "",
-      "tagTimeLong": -1,
-      "hasTagTime": false
+      "name": "0.0.1",
+      "tagTime": "2015-11-12 05:29:31",
+      "tagTimeLong": 1447306171000,
+      "hasTagTime": true
     }
   ],
   "authors": [

@@ -20,6 +20,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
+
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.LogCommand;
 import org.eclipse.jgit.lib.AnyObjectId;
@@ -32,6 +33,7 @@ import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import se.bjurr.gitchangelog.api.GitChangelogApiConstants;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
@@ -481,7 +483,7 @@ public class GitRepo implements Closeable {
     return this.hasPathFilter() || this.commitsToInclude.contains(candidate);
   }
 
-  private List<Ref> tagsBetweenFromAndTo(final ObjectId from, final ObjectId to) throws Exception {
+  private List<Ref> tagsBetweenFromAndTo(final RevCommit from, final RevCommit to) throws Exception {
     final List<Ref> tagList = this.git.tagList().call();
     final List<RevCommit> icludedCommits = new ArrayList<>();
     final Iterator<RevCommit> itr = this.git.log().addRange(from, to).call().iterator();
@@ -489,10 +491,13 @@ public class GitRepo implements Closeable {
       icludedCommits.add(itr.next());
     }
 
+    this.revWalk.parseHeaders(from);
+    final boolean includeFrom = from.getParentCount() == 0;
+
     final List<Ref> includedTags = new ArrayList<>();
     for (final Ref tag : tagList) {
       final ObjectId peeledTag = this.getPeeled(tag);
-      if (icludedCommits.contains(peeledTag)) {
+      if (icludedCommits.contains(peeledTag) || includeFrom && from.equals(peeledTag)) {
         includedTags.add(tag);
       }
     }

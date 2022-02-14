@@ -13543,16 +13543,6 @@ context:
               "hashFull": "5aaeb907f68915aab5483f59d7026206935c0dc7",
               "merge": false,
               "message": "Initial commit"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-12 05:29:31",
-              "commitTimeLong": 1447306171000,
-              "hash": "a1aa5ff5b625e63",
-              "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-              "merge": false,
-              "message": "Initial commit"
             }
           ],
           "authorName": "Tomas Bjerre",
@@ -13589,16 +13579,6 @@ context:
           "hashFull": "5aaeb907f68915aab5483f59d7026206935c0dc7",
           "merge": false,
           "message": "Initial commit"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2015-11-12 05:29:31",
-          "commitTimeLong": 1447306171000,
-          "hash": "a1aa5ff5b625e63",
-          "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-          "merge": false,
-          "message": "Initial commit"
         }
       ],
       "issues": [
@@ -13633,16 +13613,6 @@ context:
               "hashFull": "5aaeb907f68915aab5483f59d7026206935c0dc7",
               "merge": false,
               "message": "Initial commit"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-12 05:29:31",
-              "commitTimeLong": 1447306171000,
-              "hash": "a1aa5ff5b625e63",
-              "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-              "merge": false,
-              "message": "Initial commit"
             }
           ],
           "authors": [
@@ -13675,16 +13645,6 @@ context:
                   "commitTimeLong": 1447494383000,
                   "hash": "5aaeb907f68915a",
                   "hashFull": "5aaeb907f68915aab5483f59d7026206935c0dc7",
-                  "merge": false,
-                  "message": "Initial commit"
-                },
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2015-11-12 05:29:31",
-                  "commitTimeLong": 1447306171000,
-                  "hash": "a1aa5ff5b625e63",
-                  "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
                   "merge": false,
                   "message": "Initial commit"
                 }
@@ -13744,16 +13704,6 @@ context:
                   "hashFull": "5aaeb907f68915aab5483f59d7026206935c0dc7",
                   "merge": false,
                   "message": "Initial commit"
-                },
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2015-11-12 05:29:31",
-                  "commitTimeLong": 1447306171000,
-                  "hash": "a1aa5ff5b625e63",
-                  "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-                  "merge": false,
-                  "message": "Initial commit"
                 }
               ],
               "authors": [
@@ -13788,7 +13738,135 @@ context:
                       "hashFull": "5aaeb907f68915aab5483f59d7026206935c0dc7",
                       "merge": false,
                       "message": "Initial commit"
-                    },
+                    }
+                  ],
+                  "authorName": "Tomas Bjerre",
+                  "authorEmail": "tomas.bjerre85@gmail.com"
+                }
+              ],
+              "name": "No issue",
+              "title": "",
+              "hasTitle": false,
+              "issue": "",
+              "hasIssue": false,
+              "link": "",
+              "hasLink": false,
+              "type": "",
+              "hasType": false,
+              "hasDescription": false,
+              "description": "",
+              "hasLabels": false,
+              "hasLinkedIssues": false,
+              "issueType": "NOISSUE"
+            }
+          ],
+          "type": "NOISSUE"
+        }
+      ],
+      "name": "1.0",
+      "tagTime": "2015-11-14 20:19:50",
+      "tagTimeLong": 1447532390000,
+      "hasTagTime": true
+    },
+    {
+      "authors": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2015-11-12 05:29:31",
+              "commitTimeLong": 1447306171000,
+              "hash": "a1aa5ff5b625e63",
+              "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
+              "merge": false,
+              "message": "Initial commit"
+            }
+          ],
+          "authorName": "Tomas Bjerre",
+          "authorEmail": "tomas.bjerre85@gmail.com"
+        }
+      ],
+      "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2015-11-12 05:29:31",
+          "commitTimeLong": 1447306171000,
+          "hash": "a1aa5ff5b625e63",
+          "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
+          "merge": false,
+          "message": "Initial commit"
+        }
+      ],
+      "issues": [
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2015-11-12 05:29:31",
+              "commitTimeLong": 1447306171000,
+              "hash": "a1aa5ff5b625e63",
+              "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
+              "merge": false,
+              "message": "Initial commit"
+            }
+          ],
+          "authors": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2015-11-12 05:29:31",
+                  "commitTimeLong": 1447306171000,
+                  "hash": "a1aa5ff5b625e63",
+                  "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
+                  "merge": false,
+                  "message": "Initial commit"
+                }
+              ],
+              "authorName": "Tomas Bjerre",
+              "authorEmail": "tomas.bjerre85@gmail.com"
+            }
+          ],
+          "name": "No issue",
+          "title": "",
+          "hasTitle": false,
+          "issue": "",
+          "hasIssue": false,
+          "link": "",
+          "hasLink": false,
+          "type": "",
+          "hasType": false,
+          "hasDescription": false,
+          "description": "",
+          "hasLabels": false,
+          "hasLinkedIssues": false,
+          "issueType": "NOISSUE"
+        }
+      ],
+      "issueTypes": [
+        {
+          "name": "No issue",
+          "issues": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2015-11-12 05:29:31",
+                  "commitTimeLong": 1447306171000,
+                  "hash": "a1aa5ff5b625e63",
+                  "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
+                  "merge": false,
+                  "message": "Initial commit"
+                }
+              ],
+              "authors": [
+                {
+                  "commits": [
                     {
                       "authorEmailAddress": "tomas.bjerre85@gmail.com",
                       "authorName": "Tomas Bjerre",
@@ -13823,9 +13901,9 @@ context:
           "type": "NOISSUE"
         }
       ],
-      "name": "1.0",
-      "tagTime": "2015-11-14 20:19:50",
-      "tagTimeLong": 1447532390000,
+      "name": "0.0.1",
+      "tagTime": "2015-11-12 05:29:31",
+      "tagTimeLong": 1447306171000,
       "hasTagTime": true
     }
   ],
