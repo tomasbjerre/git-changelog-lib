@@ -12,11 +12,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
 import se.bjurr.gitchangelog.internal.integrations.github.GitHubMockInterceptor;
 import se.bjurr.gitchangelog.internal.integrations.github.GitHubServiceFactory;
 import se.bjurr.gitchangelog.internal.integrations.jira.JiraClientFactory;
@@ -83,16 +81,16 @@ public class GitChangelogApiTest {
     GitHubServiceFactory.setInterceptor(null);
     mock(null);
   }
-    @Test
-    public void testThatFirstVersionCanBeGenerated() throws Exception {
-      final GitChangelogApi given =
-          gitChangelogApiBuilder() //
-              .withFromCommit(ZERO_COMMIT) //
-              .withToCommit("0.0.1");
 
-      ApprovalsWrapper.verify(given);
-    }
+  @Test
+  public void testThatFirstVersionCanBeGenerated() throws Exception {
+    final GitChangelogApi given =
+        gitChangelogApiBuilder() //
+            .withFromCommit(ZERO_COMMIT) //
+            .withToCommit("0.0.1");
 
+    ApprovalsWrapper.verify(given);
+  }
 
   @Test
   public void testThatSecondVersionCanBeGenerated() throws Exception {
