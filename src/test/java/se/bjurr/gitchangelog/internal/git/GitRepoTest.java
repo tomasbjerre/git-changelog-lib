@@ -12,9 +12,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.TreeMap;
+
 import org.eclipse.jgit.lib.ObjectId;
 import org.junit.Before;
 import org.junit.Test;
+
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 
@@ -78,7 +80,7 @@ public class GitRepoTest {
         .hasSize(6);
     assertThat(gitRepoData.getGitTags())
         .as("Tags in first release.") //
-        .hasSize(1);
+        .hasSize(2);
     final List<GitCommit> diff = gitRepoData.getGitCommits();
     Collections.reverse(diff);
     assertThat(diff.get(0).getHash()) //

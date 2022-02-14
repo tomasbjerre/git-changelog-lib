@@ -89,7 +89,7 @@ changelog:
 
 Changelog of git-changelog-lib.
 
-## 1.45 (2016-04-13)
+## 1.71 (2017-07-25)
 
 
 
@@ -105,17 +105,6 @@ Changelog of git-changelog-lib.
 * Now not following parents, unless *from* is merged into them. 
 
 [e3106](https://github.com/tomasbjerre/git-changelog-lib/commit/e3106df640b693b) Tomas Bjerre *2016-04-13 18:30:26*
-
-
-## 1.44 (2016-04-12)
-
-
-
-
-
-
-
-### Other changes
 
 **JENKINS-34155 Support short SHA**
 
@@ -154,7 +143,7 @@ context:
   ],
   "tags": [
     {
-      "annotation": "[Gradle Release Plugin] - creating tag:  \u00271.45\u0027.\n",
+      "annotation": "[Gradle Release Plugin] - creating tag:  \u00271.71\u0027.\n",
       "authors": [
         {
           "commits": [
@@ -167,136 +156,7 @@ context:
               "hashFull": "e3106df640b693b50c297154919cb5564895c08e",
               "merge": false,
               "message": "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them."
-            }
-          ],
-          "authorName": "Tomas Bjerre",
-          "authorEmail": "tomas.bjerre85@gmail.com"
-        }
-      ],
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-04-13 18:30:26",
-          "commitTimeLong": 1460572226000,
-          "hash": "e3106df640b693b",
-          "hashFull": "e3106df640b693b50c297154919cb5564895c08e",
-          "merge": false,
-          "message": "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them."
-        }
-      ],
-      "issues": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-04-13 18:30:26",
-              "commitTimeLong": 1460572226000,
-              "hash": "e3106df640b693b",
-              "hashFull": "e3106df640b693b50c297154919cb5564895c08e",
-              "merge": false,
-              "message": "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them."
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-04-13 18:30:26",
-                  "commitTimeLong": 1460572226000,
-                  "hash": "e3106df640b693b",
-                  "hashFull": "e3106df640b693b50c297154919cb5564895c08e",
-                  "merge": false,
-                  "message": "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them."
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            }
-          ],
-          "name": "Jira",
-          "title": "",
-          "hasTitle": false,
-          "issue": "JENKINS-34156",
-          "hasIssue": true,
-          "link": "",
-          "hasLink": false,
-          "type": "",
-          "hasType": false,
-          "hasDescription": false,
-          "description": "",
-          "hasLabels": false,
-          "hasLinkedIssues": false,
-          "issueType": "JIRA"
-        }
-      ],
-      "issueTypes": [
-        {
-          "name": "Jira",
-          "issues": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-04-13 18:30:26",
-                  "commitTimeLong": 1460572226000,
-                  "hash": "e3106df640b693b",
-                  "hashFull": "e3106df640b693b50c297154919cb5564895c08e",
-                  "merge": false,
-                  "message": "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them."
-                }
-              ],
-              "authors": [
-                {
-                  "commits": [
-                    {
-                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                      "authorName": "Tomas Bjerre",
-                      "commitTime": "2016-04-13 18:30:26",
-                      "commitTimeLong": 1460572226000,
-                      "hash": "e3106df640b693b",
-                      "hashFull": "e3106df640b693b50c297154919cb5564895c08e",
-                      "merge": false,
-                      "message": "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them."
-                    }
-                  ],
-                  "authorName": "Tomas Bjerre",
-                  "authorEmail": "tomas.bjerre85@gmail.com"
-                }
-              ],
-              "name": "Jira",
-              "title": "",
-              "hasTitle": false,
-              "issue": "JENKINS-34156",
-              "hasIssue": true,
-              "link": "",
-              "hasLink": false,
-              "type": "",
-              "hasType": false,
-              "hasDescription": false,
-              "description": "",
-              "hasLabels": false,
-              "hasLinkedIssues": false,
-              "issueType": "JIRA"
-            }
-          ],
-          "type": "JIRA"
-        }
-      ],
-      "name": "1.45",
-      "tagTime": "2016-04-13 18:31:03",
-      "tagTimeLong": 1460572263000,
-      "hasTagTime": true
-    },
-    {
-      "annotation": "[Gradle Release Plugin] - creating tag:  \u00271.44\u0027.\n",
-      "authors": [
-        {
-          "commits": [
+            },
             {
               "authorEmailAddress": "tomas.bjerre85@gmail.com",
               "authorName": "Tomas Bjerre",
@@ -313,6 +173,16 @@ context:
         }
       ],
       "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2016-04-13 18:30:26",
+          "commitTimeLong": 1460572226000,
+          "hash": "e3106df640b693b",
+          "hashFull": "e3106df640b693b50c297154919cb5564895c08e",
+          "merge": false,
+          "message": "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them."
+        },
         {
           "authorEmailAddress": "tomas.bjerre85@gmail.com",
           "authorName": "Tomas Bjerre",
@@ -360,6 +230,52 @@ context:
           "title": "",
           "hasTitle": false,
           "issue": "JENKINS-34155",
+          "hasIssue": true,
+          "link": "",
+          "hasLink": false,
+          "type": "",
+          "hasType": false,
+          "hasDescription": false,
+          "description": "",
+          "hasLabels": false,
+          "hasLinkedIssues": false,
+          "issueType": "JIRA"
+        },
+        {
+          "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2016-04-13 18:30:26",
+              "commitTimeLong": 1460572226000,
+              "hash": "e3106df640b693b",
+              "hashFull": "e3106df640b693b50c297154919cb5564895c08e",
+              "merge": false,
+              "message": "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them."
+            }
+          ],
+          "authors": [
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2016-04-13 18:30:26",
+                  "commitTimeLong": 1460572226000,
+                  "hash": "e3106df640b693b",
+                  "hashFull": "e3106df640b693b50c297154919cb5564895c08e",
+                  "merge": false,
+                  "message": "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them."
+                }
+              ],
+              "authorName": "Tomas Bjerre",
+              "authorEmail": "tomas.bjerre85@gmail.com"
+            }
+          ],
+          "name": "Jira",
+          "title": "",
+          "hasTitle": false,
+          "issue": "JENKINS-34156",
           "hasIssue": true,
           "link": "",
           "hasLink": false,
@@ -421,14 +337,60 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "JIRA"
+            },
+            {
+              "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2016-04-13 18:30:26",
+                  "commitTimeLong": 1460572226000,
+                  "hash": "e3106df640b693b",
+                  "hashFull": "e3106df640b693b50c297154919cb5564895c08e",
+                  "merge": false,
+                  "message": "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them."
+                }
+              ],
+              "authors": [
+                {
+                  "commits": [
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2016-04-13 18:30:26",
+                      "commitTimeLong": 1460572226000,
+                      "hash": "e3106df640b693b",
+                      "hashFull": "e3106df640b693b50c297154919cb5564895c08e",
+                      "merge": false,
+                      "message": "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them."
+                    }
+                  ],
+                  "authorName": "Tomas Bjerre",
+                  "authorEmail": "tomas.bjerre85@gmail.com"
+                }
+              ],
+              "name": "Jira",
+              "title": "",
+              "hasTitle": false,
+              "issue": "JENKINS-34156",
+              "hasIssue": true,
+              "link": "",
+              "hasLink": false,
+              "type": "",
+              "hasType": false,
+              "hasDescription": false,
+              "description": "",
+              "hasLabels": false,
+              "hasLinkedIssues": false,
+              "issueType": "JIRA"
             }
           ],
           "type": "JIRA"
         }
       ],
-      "name": "1.44",
-      "tagTime": "2016-04-12 16:44:03",
-      "tagTimeLong": 1460479443000,
+      "name": "1.71",
+      "tagTime": "2017-07-25 18:24:16",
+      "tagTimeLong": 1501007056000,
       "hasTagTime": true
     }
   ],

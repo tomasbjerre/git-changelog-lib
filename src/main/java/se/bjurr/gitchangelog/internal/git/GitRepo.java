@@ -20,6 +20,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
+
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.LogCommand;
 import org.eclipse.jgit.lib.AnyObjectId;
@@ -32,6 +33,7 @@ import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import se.bjurr.gitchangelog.api.GitChangelogApiConstants;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
@@ -309,7 +311,7 @@ public class GitRepo implements Closeable {
 
     this.commitsToInclude = this.getCommitList(from, to);
 
-    final List<Ref> tagList = this.tagsBetweenFromAndTo(from, to);
+    final List<Ref> tagList = this.tagsBetweenFromAndTo(this.commitsToInclude);
     /**
      * What: Contains only the commits that are directly referred to by tags.<br>
      * Why: To know if a new tag was found when walking up through the parents.
@@ -481,13 +483,8 @@ public class GitRepo implements Closeable {
     return this.hasPathFilter() || this.commitsToInclude.contains(candidate);
   }
 
-  private List<Ref> tagsBetweenFromAndTo(final ObjectId from, final ObjectId to) throws Exception {
+  private List<Ref> tagsBetweenFromAndTo(final List<RevCommit> icludedCommits) throws Exception {
     final List<Ref> tagList = this.git.tagList().call();
-    final List<RevCommit> icludedCommits = new ArrayList<>();
-    final Iterator<RevCommit> itr = this.git.log().addRange(from, to).call().iterator();
-    while (itr.hasNext()) {
-      icludedCommits.add(itr.next());
-    }
 
     final List<Ref> includedTags = new ArrayList<>();
     for (final Ref tag : tagList) {
