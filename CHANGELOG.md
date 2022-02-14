@@ -2,6 +2,19 @@
 
 Changelog of git-changelog-lib.
 
+## 1.164.4 (2022-02-14)
+
+
+
+
+
+### Bug Fixes
+
+-  include tag on first commit ([bd384](https://github.com/tomasbjerre/git-changelog-lib/commit/bd38460e98d3a07) Tomas Bjerre)  
+-  include first commit ([66a16](https://github.com/tomasbjerre/git-changelog-lib/commit/66a1650fd51f679) Tomas Bjerre)  
+
+
+
 ## 1.164.3 (2022-01-20)
 
 
