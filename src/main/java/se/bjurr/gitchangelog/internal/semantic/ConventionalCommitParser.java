@@ -8,6 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import se.bjurr.gitchangelog.api.model.Commit;
+import se.bjurr.gitchangelog.api.model.Issue;
 import se.bjurr.gitchangelog.api.model.Tag;
 import se.bjurr.gitchangelog.internal.model.Transformer;
 
@@ -136,6 +137,29 @@ public class ConventionalCommitParser {
       }
     }
     return false;
+  }
+
+  public static boolean containsIssueType(final List<Issue> issues, final Options options) {
+    for (final Issue issue : issues) {
+      if (issueType(issue.getType(), options)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public static boolean containsIssueTypeOtherThan(final List<Issue> issues, final Options options) {
+    for (final Issue issue : issues) {
+      if (!issueType(issue.getType(), options)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public static boolean issueType(final String issueType, final Options options) {
+    final String type = options.hash("type").toString();
+    return issueType.matches(type);
   }
 
   public static boolean commitType(final String commitMessage, final Options options) {
