@@ -4,12 +4,12 @@
 
 {{name}}
 {{hasType}} {{type}}
-isGitHub: {{isGitHub}}
-isGitLab: {{isGitLab}}
-isJira: {{isJira}}
-isRedmine: {{isRedmine}}
-isCustom: {{isCustom}}
-isNoIssue: {{isNoIssue}}
+isGitHub: {{#isGitHub}}yes{{/isGitHub}}
+isGitLab: {{#isGitLab}}yes{{/isGitLab}}
+isJira: {{#isJira}}yes{{/isJira}}
+isRedmine: {{#isRedmine}}yes{{/isRedmine}}
+isCustom: {{#isCustom}}yes{{/isCustom}}
+isNoIssue: {{#isNoIssue}}yes{{/isNoIssue}}
 
 {{/issues}}
 {{/tags}}
