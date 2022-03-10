@@ -1,21 +1,36 @@
 package se.bjurr.gitchangelog.api.helpers;
 
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.commitBreaking;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.commitDescription;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.commitFixes;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.commitRefs;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.commitScope;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.commitScopes;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.commitType;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsBreaking;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsType;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsTypeOtherThan;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.getDate;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.getMessageParts;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.isReleaseTag;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.revertedCommit;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsIssueType;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsIssueTypeOtherThan;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.issueType;
+
 import com.github.jknack.handlebars.Helper;
 import com.github.jknack.handlebars.Options;
 import com.github.jknack.handlebars.Options.Buffer;
 import com.github.jknack.handlebars.helper.EachHelper;
-import se.bjurr.gitchangelog.api.model.Commit;
-import se.bjurr.gitchangelog.api.model.Issue;
-import se.bjurr.gitchangelog.api.model.Tag;
-import se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser;
-import se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.*;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-
-import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.*;
+import se.bjurr.gitchangelog.api.model.Commit;
+import se.bjurr.gitchangelog.api.model.Issue;
+import se.bjurr.gitchangelog.api.model.Tag;
+import se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser;
+import se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.Footer;
 
 public class Helpers {
 
