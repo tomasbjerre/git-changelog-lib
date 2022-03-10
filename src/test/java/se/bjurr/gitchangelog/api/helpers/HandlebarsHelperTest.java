@@ -24,7 +24,7 @@ public class HandlebarsHelperTest {
             .withToCommit("e78a62f");
   }
 
-  @Test
+  // @Test //Available depending on JVM
   public void testThatHelperCanBeSuppliedWithJavascript() throws Exception {
     final GitChangelogApi given =
         this.baseBuilder //
