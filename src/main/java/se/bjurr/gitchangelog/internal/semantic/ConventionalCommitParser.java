@@ -148,7 +148,8 @@ public class ConventionalCommitParser {
     return false;
   }
 
-  public static boolean containsIssueTypeOtherThan(final List<Issue> issues, final Options options) {
+  public static boolean containsIssueTypeOtherThan(
+      final List<Issue> issues, final Options options) {
     for (final Issue issue : issues) {
       if (!issueType(issue.getType(), options)) {
         return true;
