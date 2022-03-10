@@ -2,6 +2,45 @@
 
 Changelog of git-changelog-lib.
 
+## 1.164.5 (2022-03-10)
+
+
+
+
+
+### Bug Fixes
+
+-  can build on java 17 ([7dc00](https://github.com/tomasbjerre/git-changelog-lib/commit/7dc00e2f3d09f41) Tomas Bjerre)  
+
+
+### Other changes
+
+**Extra helpers to sort issue per type**
+
+
+[96ef6](https://github.com/tomasbjerre/git-changelog-lib/commit/96ef6bb7bf71ad8) Maarten *2022-03-10 17:56:26*
+
+**Extra helpers to sort issue per type**
+
+
+[1d00b](https://github.com/tomasbjerre/git-changelog-lib/commit/1d00b86f62349f2) Maarten *2022-03-10 13:31:10*
+
+**Extra helpers to sort issue per type**
+
+
+[e2f70](https://github.com/tomasbjerre/git-changelog-lib/commit/e2f705f05e4f71e) Maarten *2022-03-10 13:18:22*
+
+**Extra helpers to sort issue per type**
+
+
+[876af](https://github.com/tomasbjerre/git-changelog-lib/commit/876aff976380fa0) Maarten *2022-03-10 12:53:55*
+
+**Extra helpers to sort issue per type**
+
+
+[f46ad](https://github.com/tomasbjerre/git-changelog-lib/commit/f46ada51ee82eae) Maarten *2022-02-25 15:05:44*
+
+
 ## 1.164.4 (2022-02-14)
 
 
@@ -2601,5 +2640,21 @@ Changelog of git-changelog-lib.
 
 
 [5aaeb](https://github.com/tomasbjerre/git-changelog-lib/commit/5aaeb907f68915a) Tomas Bjerre *2015-11-14 09:46:23*
+
+
+## 0.0.1 (2015-11-12)
+
+
+
+
+
+
+
+### Other changes
+
+**Initial commit**
+
+
+[a1aa5](https://github.com/tomasbjerre/git-changelog-lib/commit/a1aa5ff5b625e63) Tomas Bjerre *2015-11-12 05:29:31*
 
 
