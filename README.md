@@ -176,6 +176,26 @@ Renders date of `Tag` on format `YYYY-MM-DD`.
 {{/tags}}
 ```
 
+### `ifContainsIssueType <List<Issue>>`
+
+Conditional, renders a block if given `List<Issue>` contains given `type`.
+
+```hbs
+{{#ifContainsIssueType issues type="Bug"}}
+  issues contains bugs
+{{/ifContainsIssueType}}
+```
+
+### `ifContainsIssueTypeOtherThan <List<Issue>>`
+
+Conditional, renders a block if given `List<Issue>` contains issues that don't match the given `type`.
+
+```hbs
+{{#ifContainsIssueTypeOtherThan commits type="fix"}}
+  commits contains other types than fix
+{{/ifContainsIssueTypeOtherThan}}
+```
+
 ### `ifContainsType <List<Commit>>`
 
 Conditional, renders a block if given `List<Commits>` contains given `type`.
@@ -236,6 +256,26 @@ Renders reverted commit refered to by `Commit`.
 {{/commits}}
 ```
 
+### `ifIssueType <Issue> type="<type>"`
+
+Conditional, renders a block if given `Issue` is of `type`.
+
+```hbs
+{{#issues}}
+ {{#ifIssueType . type="fix"}} is type fix {{/ifIssueType}}
+{{/issues}}
+```
+
+### `ifIssueTypeOtherThan <Issue> type="<type>"`
+
+Conditional, renders a block if given `Issue` is of `type`.
+
+```hbs
+{{#issues}}
+ {{#ifIssueTypeOtherThan . type="fix"}} is not type fix {{/ifIssueTypeOtherThan}}
+{{/issues}}
+```
+
 ### `ifCommitType <Commit> type="<type>"`
 
 Conditional, renders a block if given `Commit` is of `type`.
@@ -246,7 +286,7 @@ Conditional, renders a block if given `Commit` is of `type`.
 {{/commits}}
 ```
 
-### `ifCommitType <Commit> type="<type>"`
+### `ifCommitTypeOtherThan <Commit> type="<type>"`
 
 Conditional, renders a block if given `Commit` is of `type`.
 

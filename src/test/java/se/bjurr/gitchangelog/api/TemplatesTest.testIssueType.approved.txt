@@ -2,8 +2,11 @@ template:
 
 {{#tags}}
 ## {{name}}
-{{#issues}}
 
+{{#ifContainsIssueType issues type='Bug'}}
+{{#issues}}
+{{#ifIssueType . type='Bug'}}
+### Bugs
 {{name}}
 {{hasType}} {{type}}
 isGitHub: {{isGitHub}}
@@ -13,7 +16,25 @@ isRedmine: {{isRedmine}}
 isCustom: {{isCustom}}
 isNoIssue: {{isNoIssue}}
 
+{{/ifIssueType}}
 {{/issues}}
+{{/ifContainsIssueType}}
+{{#ifContainsIssueTypeOtherThan issues type='Bug'}}
+{{#issues}}
+{{#ifIssueTypeOtherThan . type='Bug'}}
+### Other issues
+{{name}}
+{{hasType}} {{type}}
+isGitHub: {{isGitHub}}
+isGitLab: {{isGitLab}}
+isJira: {{isJira}}
+isRedmine: {{isRedmine}}
+isCustom: {{isCustom}}
+isNoIssue: {{isNoIssue}}
+
+{{/ifIssueTypeOtherThan}}
+{{/issues}}
+{{/ifContainsIssueTypeOtherThan}}
 {{/tags}}
 
 ---------------------------------------------
@@ -67,7 +88,7 @@ settings:
   "extendedVariables": {},
   "ignoreCommitsWithoutIssue": false,
   "gitLabEnabled": true,
-  "gitLabProjectName": "tomasbjerre",
+  "gitLabProjectName": "MaartenDCrius",
   "useIntegrations": true
 }
 
@@ -77,46 +98,7 @@ changelog:
 
 ## No tag
 
-Bugs
-false 
-isGitHub: 
-isGitLab: 
-isJira: 
-isRedmine: 
-isCustom: 
-isNoIssue: 
-
-
-GitHub
-false 
-isGitHub: 
-isGitLab: 
-isJira: 
-isRedmine: 
-isCustom: 
-isNoIssue: 
-
-
-GitHub
-false 
-isGitHub: 
-isGitLab: 
-isJira: 
-isRedmine: 
-isCustom: 
-isNoIssue: 
-
-
-GitHub
-false 
-isGitHub: 
-isGitLab: 
-isJira: 
-isRedmine: 
-isCustom: 
-isNoIssue: 
-
-
+### Bugs
 Jira
 true Bug
 isGitHub: 
@@ -126,7 +108,47 @@ isRedmine:
 isCustom: 
 isNoIssue: 
 
+### Other issues
+Bugs
+false 
+isGitHub: 
+isGitLab: 
+isJira: 
+isRedmine: 
+isCustom: 
+isNoIssue: 
 
+### Other issues
+GitHub
+false 
+isGitHub: 
+isGitLab: 
+isJira: 
+isRedmine: 
+isCustom: 
+isNoIssue: 
+
+### Other issues
+GitHub
+false 
+isGitHub: 
+isGitLab: 
+isJira: 
+isRedmine: 
+isCustom: 
+isNoIssue: 
+
+### Other issues
+GitHub
+false 
+isGitHub: 
+isGitLab: 
+isJira: 
+isRedmine: 
+isCustom: 
+isNoIssue: 
+
+### Other issues
 No issue supplied
 false 
 isGitHub: 
@@ -138,6 +160,7 @@ isNoIssue:
 
 ## test-lightweight-2
 
+### Other issues
 CQ
 false 
 isGitHub: 
@@ -149,26 +172,7 @@ isNoIssue:
 
 ## test-1.0
 
-GitHub
-false 
-isGitHub: 
-isGitLab: 
-isJira: 
-isRedmine: 
-isCustom: 
-isNoIssue: 
-
-
-GitHub
-false 
-isGitHub: 
-isGitLab: 
-isJira: 
-isRedmine: 
-isCustom: 
-isNoIssue: 
-
-
+### Bugs
 Jira
 true Bug
 isGitHub: 
@@ -178,7 +182,27 @@ isRedmine:
 isCustom: 
 isNoIssue: 
 
+### Other issues
+GitHub
+false 
+isGitHub: 
+isGitLab: 
+isJira: 
+isRedmine: 
+isCustom: 
+isNoIssue: 
 
+### Other issues
+GitHub
+false 
+isGitHub: 
+isGitLab: 
+isJira: 
+isRedmine: 
+isCustom: 
+isNoIssue: 
+
+### Other issues
 No issue supplied
 false 
 isGitHub: 
@@ -190,6 +214,7 @@ isNoIssue:
 
 ## 0.0.1
 
+### Other issues
 No issue supplied
 false 
 isGitHub: 
