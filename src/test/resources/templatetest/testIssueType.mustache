@@ -1,26 +1,7 @@
 {{#tags}}
 ## {{name}}
-
-{{#ifContainsIssueType issues type='Bug'}}
 {{#issues}}
-{{#ifIssueType . type='Bug'}}
-### Bugs
-{{name}}
-{{hasType}} {{type}}
-isGitHub: {{isGitHub}}
-isGitLab: {{isGitLab}}
-isJira: {{isJira}}
-isRedmine: {{isRedmine}}
-isCustom: {{isCustom}}
-isNoIssue: {{isNoIssue}}
 
-{{/ifIssueType}}
-{{/issues}}
-{{/ifContainsIssueType}}
-{{#ifContainsIssueTypeOtherThan issues type='Bug'}}
-{{#issues}}
-{{#ifIssueTypeOtherThan . type='Bug'}}
-### Other issues
 {{name}}
 {{hasType}} {{type}}
 isGitHub: {{#isGitHub}}yes{{/isGitHub}}
@@ -30,7 +11,28 @@ isRedmine: {{#isRedmine}}yes{{/isRedmine}}
 isCustom: {{#isCustom}}yes{{/isCustom}}
 isNoIssue: {{#isNoIssue}}yes{{/isNoIssue}}
 
+{{/issues}}
+{{/tags}}
+
+
+Issues:
+{{#ifContainsIssueType issues type='Bug'}}
+{{#issues}}
+{{#ifIssueType . type='Bug'}}
+### Bugs
+{{name}}
+
+{{/ifIssueType}}
+{{/issues}}
+{{/ifContainsIssueType}}
+
+
+{{#ifContainsIssueTypeOtherThan issues type='Bug'}}
+{{#issues}}
+{{#ifIssueTypeOtherThan . type='Bug'}}
+### Other issues
+{{name}}
+
 {{/ifIssueTypeOtherThan}}
 {{/issues}}
 {{/ifContainsIssueTypeOtherThan}}
-{{/tags}}

@@ -191,7 +191,7 @@ Conditional, renders a block if given `List<Issue>` contains given `type`.
 Conditional, renders a block if given `List<Issue>` contains issues that don't match the given `type`.
 
 ```hbs
-{{#ifContainsIssueTypeOtherThan commits type="fix"}}
+{{#ifContainsIssueTypeOtherThan issues type="fix"}}
   commits contains other types than fix
 {{/ifContainsIssueTypeOtherThan}}
 ```
