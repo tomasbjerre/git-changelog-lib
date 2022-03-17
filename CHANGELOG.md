@@ -2,6 +2,18 @@
 
 Changelog of git-changelog-lib.
 
+## 1.165.1 (2022-03-17)
+
+
+
+
+
+### Bug Fixes
+
+-  upper case HEAD ([08ad3](https://github.com/tomasbjerre/git-changelog-lib/commit/08ad394f8975d56) Tomas Bjerre)  [#127](https://github.com/tomasbjerre/git-changelog-lib/issues/127)  
+
+
+
 ## 1.165.0 (2022-03-17)
 
 
