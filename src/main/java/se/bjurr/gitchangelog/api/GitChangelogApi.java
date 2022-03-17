@@ -3,6 +3,7 @@ package se.bjurr.gitchangelog.api;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.util.Optional.empty;
 import static java.util.Optional.of;
+import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.REF_HEAD;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.REF_MASTER;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 import static se.bjurr.gitchangelog.internal.git.GitRepoDataHelper.removeCommitsWithoutIssue;
@@ -628,7 +629,7 @@ public class GitChangelogApi {
     if (toIdOpt.isPresent()) {
       toId = toIdOpt.get();
     } else {
-      toId = gitRepo.getRef(REF_MASTER);
+      toId = gitRepo.findRef(REF_HEAD).orElse(gitRepo.getRef(REF_MASTER));
     }
     GitRepoData gitRepoData =
         gitRepo.getGitRepoData(

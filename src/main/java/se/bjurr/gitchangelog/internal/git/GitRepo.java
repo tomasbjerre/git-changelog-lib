@@ -139,6 +139,14 @@ public class GitRepo implements Closeable {
     throw new GitChangelogRepositoryException(fromRef + " not found in:\n" + this.toString());
   }
 
+  public Optional<ObjectId> findRef(final String ref) {
+    try {
+      return Optional.of(this.getRef(ref));
+    } catch (final Exception e) {
+      return Optional.empty();
+    }
+  }
+
   @Override
   public String toString() {
     final StringBuilder sb = new StringBuilder();
