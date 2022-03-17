@@ -2,6 +2,18 @@
 
 Changelog of git-changelog-lib.
 
+## 1.165.2 (2022-03-17)
+
+
+
+
+
+### Bug Fixes
+
+-  avoid looking for master if HEAD found ([a4a50](https://github.com/tomasbjerre/git-changelog-lib/commit/a4a505e23712c1c) Tomas Bjerre)  [#127](https://github.com/tomasbjerre/git-changelog-lib/issues/127)  
+
+
+
 ## 1.165.1 (2022-03-17)
 
 
