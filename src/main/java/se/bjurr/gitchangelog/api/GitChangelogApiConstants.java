@@ -4,7 +4,7 @@ public final class GitChangelogApiConstants {
 
   public static final String ZERO_COMMIT = "0000000000000000000000000000000000000000";
   public static final String REF_MASTER = "master";
-  public static final String REF_HEAD = "head";
+  public static final String REF_HEAD = "HEAD";
   public static final boolean DEFAULT_REMOVE_ISSUE = false;
   public static final String DEFAULT_TIMEZONE = "UTC";
   public static final String DEFAULT_DATEFORMAT = "yyyy-MM-dd HH:mm:ss";
