@@ -2,6 +2,18 @@
 
 Changelog of git-changelog-lib.
 
+## 1.165.0 (2022-03-17)
+
+
+
+### Features
+
+-  fall back on HEAD and MASTER if no toRef is given ([9c05c](https://github.com/tomasbjerre/git-changelog-lib/commit/9c05c8e7b476b68) Tomas Bjerre)  [#127](https://github.com/tomasbjerre/git-changelog-lib/issues/127)  
+
+
+
+
+
 ## 1.164.5 (2022-03-10)
 
 
