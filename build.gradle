@@ -17,15 +17,15 @@ dependencies {
 
  implementation 'com.squareup.retrofit2:retrofit:2.9.0'
  implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
- //implementation 'com.squareup.okhttp:okhttp:2.7.5'
  implementation 'com.jayway.jsonpath:json-path:2.1.0'
  implementation 'org.eclipse.jgit:org.eclipse.jgit:5.10.0.202012080955-r'
  implementation 'org.gitlab:java-gitlab-api:4.1.0'
 
+ testImplementation 'org.slf4j:slf4j-simple:1.8.0-beta4'
  testImplementation 'junit:junit:4.12'
  testImplementation 'org.slf4j:slf4j-simple:1.7.13'
  testImplementation 'org.assertj:assertj-core:2.3.0'
  testImplementation 'org.mockito:mockito-all:1.8.5'
- testImplementation 'com.approvaltests:approvaltests:9.5.0'
+ testImplementation 'com.approvaltests:approvaltests:15.0.0'
  testImplementation 'org.mockito:mockito-core:3.10.0'
 }
