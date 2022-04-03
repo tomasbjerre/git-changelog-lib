@@ -667,7 +667,8 @@ public class GitChangelogApi {
         transformer.toIssues(issues), //
         transformer.toIssueTypes(issues), //
         gitRepoData.findOwnerName().orElse(null), //
-        gitRepoData.findRepoName().orElse(null));
+        gitRepoData.findRepoName().orElse(null),
+        gitRepoData.getUrlPartsList());
   }
 
   private Optional<ObjectId> getId(

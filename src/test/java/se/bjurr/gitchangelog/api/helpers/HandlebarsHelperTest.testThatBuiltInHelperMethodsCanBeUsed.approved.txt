@@ -3035,5 +3035,10 @@ context:
     }
   ],
   "ownerName": "tomasbjerre",
-  "repoName": "git-changelog-lib"
+  "repoName": "git-changelog-lib",
+  "urlParts": [
+    "git-changelog-lib",
+    "tomasbjerre",
+    "git@github.com"
+  ]
 }

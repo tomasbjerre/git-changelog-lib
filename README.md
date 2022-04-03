@@ -454,6 +454,7 @@ The template is supplied with this context:
 ```
 - ownerName (Derived from the clone URL, for this repo it would be "tomasbjerre")
 - repoName (Derived from the clone URL, for this repo it would be "git-changelog-lib")
+- urlParts (Derived from the clone URL, for this repo it would be [git-changelog-lib, tomasbjerre, git@github.com])
 * commits
  - authorName
  - authorEmailAddress

@@ -4,6 +4,7 @@ import static java.util.Optional.empty;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -71,16 +72,22 @@ public class GitRepoData {
   }
 
   private Optional<String> repoUrlPartFromEnd(final int i) {
+    final List<String> partsList = this.getUrlPartsList();
+    if (partsList.size() > i) {
+      return Optional.of(partsList.get(i));
+    }
+    return empty();
+  }
+
+  public List<String> getUrlPartsList() {
     if (this.originCloneUrl == null) {
-      return empty();
+      return new ArrayList<>();
     }
     final String sequence = this.originCloneUrl.replaceAll("\\.git$", "");
     final String pattern = "[/:]";
     final String[] parts = sequence.split(pattern);
-    final List<String> partsList = Arrays.asList(parts);
-    if (partsList.size() > i) {
-      return Optional.of(partsList.get(partsList.size() - i - 1));
-    }
-    return empty();
+    final List<String> list = Arrays.asList(parts);
+    Collections.reverse(list);
+    return list;
   }
 }

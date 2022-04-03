@@ -97,6 +97,13 @@ public class TemplatesTest {
   }
 
   @Test
+  public void testUrlParts() throws Exception {
+    final GitChangelogApi given =
+        this.baseBuilder.withTemplatePath("templatetest/testUrlParts.mustache");
+    ApprovalsWrapper.verify(given);
+  }
+
+  @Test
   public void testAuthorsCommits() throws Exception {
     final GitChangelogApi given =
         this.baseBuilder.withTemplatePath("templatetest/" + "testAuthorsCommits" + ".mustache");
