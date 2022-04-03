@@ -2,6 +2,18 @@
 
 Changelog of git-changelog-lib.
 
+## 1.166.0 (2022-04-03)
+
+
+
+### Features
+
+-  new variable urlParts ([163f7](https://github.com/tomasbjerre/git-changelog-lib/commit/163f7c4a50cba46) Tomas Bjerre)  [#128](https://github.com/tomasbjerre/git-changelog-lib/issues/128)  
+
+
+
+
+
 ## 1.165.2 (2022-03-17)
 
 
