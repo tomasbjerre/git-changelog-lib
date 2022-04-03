@@ -1,7 +1,10 @@
 package se.bjurr.gitchangelog.api;
 
 public final class GitChangelogApiConstants {
-
+public void hej() {
+  String a = null;
+a.toString();
+}
   public static final String ZERO_COMMIT = "0000000000000000000000000000000000000000";
   public static final String REF_MASTER = "master";
   public static final String REF_HEAD = "HEAD";
