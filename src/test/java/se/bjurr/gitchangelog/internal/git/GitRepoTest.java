@@ -12,9 +12,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.TreeMap;
+
 import org.eclipse.jgit.lib.ObjectId;
 import org.junit.Before;
 import org.junit.Test;
+
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 
@@ -193,8 +195,8 @@ public class GitRepoTest {
         .hasSize(1);
     assertThat(perTag.keySet()) //
         .hasSize(1) //
-        .contains("No tag");
-    final GitTag noTagTag = perTag.get("No tag");
+        .contains("refs/tags/test");
+    final GitTag noTagTag = perTag.get("refs/tags/test");
 
     final List<String> noTagTagMessages = this.messages(noTagTag.getGitCommits());
     assertThat(noTagTagMessages) //
@@ -217,9 +219,9 @@ public class GitRepoTest {
     assertThat(perTag.keySet()) //
         .hasSize(2) //
         .containsExactly( //
-            "No tag", //
-            "refs/tags/tag-in-test-feature");
-    final GitTag noTagTag = perTag.get("No tag");
+            "refs/tags/tag-in-test-feature", //
+            "refs/tags/test");
+    final GitTag noTagTag = perTag.get("refs/tags/test");
     final List<String> noTagNames = this.messages(noTagTag.getGitCommits());
     assertThat(noTagNames) //
         .containsExactly( //
@@ -243,13 +245,13 @@ public class GitRepoTest {
     final ObjectId to = gitRepo.getCommit("8371342");
 
     final GitRepoData gitRepoData =
-        gitRepo.getGitRepoData(from, to, "No tag", Optional.<String>empty());
+        gitRepo.getGitRepoData(from, to, "refs/tags/test", Optional.<String>empty());
     final Map<String, GitTag> perTag = this.perTag(gitRepoData.getGitTags());
     assertThat(perTag.keySet()) //
         .hasSize(1) //
         .containsExactly( //
-            "No tag");
-    final GitTag noTagTag = perTag.get("No tag");
+            "refs/tags/test");
+    final GitTag noTagTag = perTag.get("refs/tags/test");
     final List<String> noTagNames = this.messages(noTagTag.getGitCommits());
     assertThat(noTagNames) //
         .containsExactly( //

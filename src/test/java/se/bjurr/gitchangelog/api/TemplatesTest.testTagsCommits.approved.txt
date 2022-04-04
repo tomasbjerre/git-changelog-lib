@@ -79,7 +79,7 @@ changelog:
 
 Changelog of Git Changelog.
 
-## No tag
+## test (2016-04-06 18:40:51)
 
 ### Tomas Bjerre - 2016-04-06 18:40:51
 [8371342ad0d887d](https://server/8371342ad0d887d)
@@ -1165,10 +1165,10 @@ context:
           "type": "NOISSUE"
         }
       ],
-      "name": "No tag",
-      "tagTime": "",
-      "tagTimeLong": -1,
-      "hasTagTime": false
+      "name": "test",
+      "tagTime": "2016-04-06 18:40:51",
+      "tagTimeLong": 1459968051000,
+      "hasTagTime": true
     },
     {
       "authors": [

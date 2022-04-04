@@ -1181,10 +1181,10 @@ context:
           "type": "NOISSUE"
         }
       ],
-      "name": "No tag",
-      "tagTime": "",
-      "tagTimeLong": -1,
-      "hasTagTime": false
+      "name": "refs/tags/test",
+      "tagTime": "2016-04-06 18:40:51",
+      "tagTimeLong": 1459968051000,
+      "hasTagTime": true
     },
     {
       "authors": [
