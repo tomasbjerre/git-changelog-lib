@@ -33,10 +33,10 @@ public final class ResourceLoader {
           throw new FileNotFoundException(
               "Was unable to find file, or resouce, \"" + resourceName + "\"");
         }
-        templateString =
-            new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))
-                .lines()
-                .collect(Collectors.joining("\n"));
+        try (BufferedReader br =
+            new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
+          templateString = br.lines().collect(Collectors.joining("\n"));
+        }
       }
     } catch (final IOException e) {
       throw new RuntimeException(resourceName, e);
