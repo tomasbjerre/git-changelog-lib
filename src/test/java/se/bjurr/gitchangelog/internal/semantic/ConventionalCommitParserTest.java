@@ -12,7 +12,6 @@ public class ConventionalCommitParserTest {
     assertThat(ConventionalCommitParser.commitDescription("feat: a (refs #123)")).isEqualTo("a");
     assertThat(ConventionalCommitParser.commitDescription("feat: a (refs J-1)")).isEqualTo("a");
     assertThat(ConventionalCommitParser.commitDescription("feat: a (refs JE-12)")).isEqualTo("a");
-    assertThat(ConventionalCommitParser.commitDescription("feat: a (refs je.12)")).isEqualTo("a");
   }
 
   @Test
