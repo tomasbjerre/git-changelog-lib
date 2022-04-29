@@ -12,6 +12,7 @@ public class ConventionalCommitParserTest {
     assertThat(ConventionalCommitParser.commitDescription("feat: a (refs #123)")).isEqualTo("a");
     assertThat(ConventionalCommitParser.commitDescription("feat: a (refs J-1)")).isEqualTo("a");
     assertThat(ConventionalCommitParser.commitDescription("feat: a (refs JE-12)")).isEqualTo("a");
+    assertThat(ConventionalCommitParser.commitDescription("feat: a (refs je.12)")).isEqualTo("a");
   }
 
   @Test
@@ -24,5 +25,7 @@ public class ConventionalCommitParserTest {
         .containsOnly("l");
     assertThat(ConventionalCommitParser.commitScopes("feat(123): add polish language"))
         .containsOnly("123");
+    assertThat(ConventionalCommitParser.commitScopes("feat(org.test): add polish language"))
+        .containsOnly("org.test");
   }
 }
