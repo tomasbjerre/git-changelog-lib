@@ -14,7 +14,7 @@ import se.bjurr.gitchangelog.internal.model.Transformer;
 
 public class ConventionalCommitParser {
   private static final Pattern CONVENTIONAL_PATTERN =
-      Pattern.compile("^(\\w+)(\\(([\\w\\-:]+)\\)?)?(\\!?):(.+)");
+      Pattern.compile("^(\\w+)(\\(([\\w\\-\\.:]+)\\)?)?(\\!?):(.+)");
   private static final Pattern FOOTER_PATTERN =
       Pattern.compile("^(BREAKING[ -]CHANGE|[^ ]+)(((: )|( #))(.+))");
 

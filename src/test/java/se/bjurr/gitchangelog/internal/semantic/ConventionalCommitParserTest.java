@@ -24,5 +24,7 @@ public class ConventionalCommitParserTest {
         .containsOnly("l");
     assertThat(ConventionalCommitParser.commitScopes("feat(123): add polish language"))
         .containsOnly("123");
+    assertThat(ConventionalCommitParser.commitScopes("feat(org.test): add polish language"))
+        .containsOnly("org.test");
   }
 }
