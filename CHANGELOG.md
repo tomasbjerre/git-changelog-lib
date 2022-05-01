@@ -2,6 +2,26 @@
 
 Changelog of git-changelog-lib.
 
+## 1.166.1 (2022-05-01)
+
+
+
+
+
+### Bug Fixes
+
+-  closing loaded resource ([a5af6](https://github.com/tomasbjerre/git-changelog-lib/commit/a5af640c1d3f47c) Tomas Bjerre)  
+
+
+### Other changes
+
+**Add support for `.`(dot) char in scope (#133)**
+
+* fix: add support for dot character inside scope (refs #132) 
+
+[fd44d](https://github.com/tomasbjerre/git-changelog-lib/commit/fd44dd5baaca2a2) Mattia Dal Ben *2022-05-01 16:30:18*
+
+
 ## 1.166.0 (2022-04-03)
 
 
