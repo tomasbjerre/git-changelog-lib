@@ -16,9 +16,8 @@ Changelog of {{repoName}}.
 - {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}}) {{#eachCommitRefs .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitRefs}} {{#eachCommitFixes .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitFixes}}
 {{/ifCommitBreaking}}
 {{/commits}}
+
 {{/ifContainsBreaking}}
-
-
 {{#ifContainsType commits type='feat'}}
 ### Features
 
@@ -27,9 +26,8 @@ Changelog of {{repoName}}.
 - {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}}) {{#eachCommitRefs .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitRefs}} {{#eachCommitFixes .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitFixes}}
 {{/ifCommitType}}
 {{/commits}}
+
 {{/ifContainsType}}
-
-
 {{#ifContainsType commits type='fix'}}
 ### Bug Fixes
 
@@ -38,9 +36,8 @@ Changelog of {{repoName}}.
 - {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}}) {{#eachCommitRefs .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitRefs}} {{#eachCommitFixes .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitFixes}}
 {{/ifCommitType}}
 {{/commits}}
+
 {{/ifContainsType}}
-
-
 {{#ifContainsType commits type='^($|(?!fix|feat|breaking))'}}
 ### Other changes
 
@@ -56,8 +53,8 @@ Changelog of {{repoName}}.
 
 {{/ifCommitType}}
 {{/commits}}
-{{/ifContainsType}}
 
+{{/ifContainsType}}
 {{/ifEquals}}
 {{/tags}}
 
@@ -90,12 +87,6 @@ Changelog of git-changelog-lib.
 
 ## 1.0 (2015-11-14)
 
-
-
-
-
-
-
 ### Other changes
 
 **[Gradle Release Plugin] - pre tag commit:  '1.0'.**
@@ -125,12 +116,6 @@ Changelog of git-changelog-lib.
 
 
 ## 0.0.1 (2015-11-12)
-
-
-
-
-
-
 
 ### Other changes
 

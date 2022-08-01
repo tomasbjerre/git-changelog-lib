@@ -16,9 +16,8 @@ Changelog of {{repoName}}.
 - {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}}) {{#eachCommitRefs .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitRefs}} {{#eachCommitFixes .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitFixes}}
 {{/ifCommitBreaking}}
 {{/commits}}
+
 {{/ifContainsBreaking}}
-
-
 {{#ifContainsType commits type='feat'}}
 ### Features
 
@@ -27,9 +26,8 @@ Changelog of {{repoName}}.
 - {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}}) {{#eachCommitRefs .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitRefs}} {{#eachCommitFixes .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitFixes}}
 {{/ifCommitType}}
 {{/commits}}
+
 {{/ifContainsType}}
-
-
 {{#ifContainsType commits type='fix'}}
 ### Bug Fixes
 
@@ -38,9 +36,8 @@ Changelog of {{repoName}}.
 - {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}}) {{#eachCommitRefs .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitRefs}} {{#eachCommitFixes .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitFixes}}
 {{/ifCommitType}}
 {{/commits}}
+
 {{/ifContainsType}}
-
-
 {{#ifContainsType commits type='^($|(?!fix|feat|breaking))'}}
 ### Other changes
 
@@ -56,8 +53,8 @@ Changelog of {{repoName}}.
 
 {{/ifCommitType}}
 {{/commits}}
-{{/ifContainsType}}
 
+{{/ifContainsType}}
 {{/ifEquals}}
 {{/tags}}
 
@@ -91,12 +88,6 @@ Changelog of git-changelog-lib.
 
 ## 1.70 (2017-07-24)
 
-
-
-
-
-
-
 ### Other changes
 
 **Gathering repo provider information #49**
@@ -108,12 +99,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.69 (2017-07-08)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -134,12 +119,6 @@ Changelog of git-changelog-lib.
 
 ## 1.67 (2017-03-25)
 
-
-
-
-
-
-
 ### Other changes
 
 **GitLab integration #2**
@@ -151,12 +130,6 @@ Changelog of git-changelog-lib.
 
 ## 1.66 (2017-03-25)
 
-
-
-
-
-
-
 ### Other changes
 
 **GitLab integration #42**
@@ -166,12 +139,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.64 (2017-03-18)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -183,12 +150,6 @@ Changelog of git-changelog-lib.
 
 ## 1.58 (2016-10-22)
 
-
-
-
-
-
-
 ### Other changes
 
 **Adding annotation to context of tag #36**
@@ -198,12 +159,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.57 (2016-10-05)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -215,12 +170,6 @@ Changelog of git-changelog-lib.
 
 ## 1.56 (2016-08-11)
 
-
-
-
-
-
-
 ### Other changes
 
 **Fixing testcases after merge of #31**
@@ -230,12 +179,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.55 (2016-08-02)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -247,12 +190,6 @@ Changelog of git-changelog-lib.
 
 ## 1.54 (2016-06-27)
 
-
-
-
-
-
-
 ### Other changes
 
 **Allowing master branch to be absent #28**
@@ -262,12 +199,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.52 (2016-06-24)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -279,12 +210,6 @@ Changelog of git-changelog-lib.
 
 ## 1.50 (2016-06-24)
 
-
-
-
-
-
-
 ### Other changes
 
 **Including commits frmo merges #29**
@@ -294,12 +219,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.49 (2016-06-02)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -311,12 +230,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.45 (2016-04-13)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -330,12 +243,6 @@ Changelog of git-changelog-lib.
 
 ## 1.42 (2016-04-10)
 
-
-
-
-
-
-
 ### Other changes
 
 **Parsing commits, oldest first #23**
@@ -346,12 +253,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.41 (2016-04-09)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -364,12 +265,6 @@ Changelog of git-changelog-lib.
 
 ## 1.40 (2016-04-07)
 
-
-
-
-
-
-
 ### Other changes
 
 **Adding feature to ignore tags by regexp**
@@ -381,12 +276,6 @@ Changelog of git-changelog-lib.
 
 ## 1.38 (2016-03-20)
 
-
-
-
-
-
-
 ### Other changes
 
 **Removing commits without issue, from tags #19**
@@ -396,12 +285,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.37 (2016-03-20)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -423,12 +306,6 @@ Changelog of git-changelog-lib.
 
 ## 1.34 (2016-03-15)
 
-
-
-
-
-
-
 ### Other changes
 
 **Logging error if error invoking GitHub API #18**
@@ -438,12 +315,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.33 (2016-03-15)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -463,12 +334,6 @@ Changelog of git-changelog-lib.
 
 ## 1.32 (2016-02-20)
 
-
-
-
-
-
-
 ### Other changes
 
 **Supplying commit in each issue mentioned in message #16**
@@ -478,12 +343,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.26 (2016-02-13)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -501,12 +360,6 @@ Changelog of git-changelog-lib.
 
 ## 1.25 (2016-02-10)
 
-
-
-
-
-
-
 ### Other changes
 
 **Letting JGit determine new commits between refs #13**
@@ -519,12 +372,6 @@ Changelog of git-changelog-lib.
 
 ## 1.19 (2016-01-27)
 
-
-
-
-
-
-
 ### Other changes
 
 **Removing command line code #11**
@@ -534,12 +381,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.12 (2015-11-23)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -556,12 +397,6 @@ Changelog of git-changelog-lib.
 
 ## 1.4 (2015-11-19)
 
-
-
-
-
-
-
 ### Other changes
 
 **Adding hasIssue hasLink to readme doc #7**
@@ -572,12 +407,6 @@ Changelog of git-changelog-lib.
 
 ## 1.3 (2015-11-18)
 
-
-
-
-
-
-
 ### Other changes
 
 **Adding booleans to check if link and/or issue exists in issue #7**
@@ -587,12 +416,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.2 (2015-11-17)
-
-
-
-
-
-
 
 ### Other changes
 
