@@ -1,6 +1,5 @@
 package se.bjurr.gitchangelog.api;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.util.Optional.empty;
 import static java.util.Optional.of;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.REF_HEAD;
@@ -19,6 +18,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -132,7 +132,7 @@ public class GitChangelogApi {
       return this.templateContent;
     }
     final String resourceName = this.settings.getTemplatePath();
-    return ResourceLoader.getResourceOrFile(resourceName);
+    return ResourceLoader.getResourceOrFile(resourceName, this.settings.getEncoding());
   }
 
   /** Get the changelog. */
@@ -156,7 +156,7 @@ public class GitChangelogApi {
         throw new RuntimeException("Folder " + parentFile.getAbsolutePath() + " cannot be created");
       }
     }
-    Files.write(file.toPath(), this.render().getBytes(UTF_8));
+    Files.write(file.toPath(), this.render().getBytes(this.settings.getEncoding()));
   }
 
   /** Prepend the changelog to the given file. */
@@ -167,7 +167,8 @@ public class GitChangelogApi {
     }
     final String prepend = this.render();
     final String changelogContent = new String(Files.readAllBytes(file.toPath()));
-    Files.write(file.toPath(), (prepend + "\n" + changelogContent).getBytes(UTF_8));
+    Files.write(
+        file.toPath(), (prepend + "\n" + changelogContent).getBytes(this.settings.getEncoding()));
   }
 
   /**
@@ -700,6 +701,11 @@ public class GitChangelogApi {
 
   public GitChangelogApi withRedmineEnabled(final boolean b) {
     this.settings.setRedmineEnabled(b);
+    return this;
+  }
+
+  public GitChangelogApi withEncoding(final Charset encoding) {
+    this.settings.setEncoding(encoding);
     return this;
   }
 }

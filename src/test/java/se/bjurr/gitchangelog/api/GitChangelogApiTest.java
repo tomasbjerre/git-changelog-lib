@@ -6,7 +6,10 @@ import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 import static se.bjurr.gitchangelog.internal.integrations.rest.RestClient.mock;
 
+import java.io.IOException;
 import java.net.URL;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -15,6 +18,7 @@ import java.util.Map;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
 import se.bjurr.gitchangelog.internal.integrations.github.GitHubMockInterceptor;
 import se.bjurr.gitchangelog.internal.integrations.github.GitHubServiceFactory;
 import se.bjurr.gitchangelog.internal.integrations.jira.JiraClientFactory;
@@ -353,5 +357,57 @@ public class GitChangelogApiTest {
             .withIgnoreCommitsWithoutIssue(true);
 
     ApprovalsWrapper.verify(given);
+  }
+
+  @Test
+  public void testThatISO88591ChangelogsCanBeUpdated() throws Exception {
+    final Charset charsetToTest = StandardCharsets.ISO_8859_1;
+
+    final byte[] renderedContent = this.renderWithEncoding(charsetToTest);
+
+    assertThat(renderedContent)
+        .as(new String(renderedContent, charsetToTest))
+        .containsExactly(new byte[] {-27, -28, -10, 10, 63, 63, 63});
+  }
+
+  @Test
+  public void testThatUTF8ChangelogsCanBeUpdated() throws Exception {
+    final Charset charsetToTest = StandardCharsets.UTF_8;
+
+    final byte[] renderedContent = this.renderWithEncoding(charsetToTest);
+
+    assertThat(renderedContent)
+        .as(new String(renderedContent, charsetToTest))
+        .containsExactly(
+            new byte[] { //
+              -61, -91, //
+              -61, -92, //
+              -61, -74, //
+              10, //
+              -61, -91, //
+              -61, -92, //
+              -61, -74 //
+            });
+  }
+
+  private byte[] renderWithEncoding(final Charset charsetToTest)
+      throws IOException, GitChangelogRepositoryException {
+    final byte[] aaoIso = "åäö".getBytes(charsetToTest);
+    final Path isoFile1 =
+        Paths.get("src/test/resources/tmptestfile-" + charsetToTest.name() + "-file-1.txt");
+    Files.write(isoFile1, aaoIso);
+    final Path isoFile2 =
+        Paths.get("src/test/resources/tmptestfile-" + charsetToTest.name() + "-file-2.txt");
+    Files.write(isoFile2, aaoIso);
+
+    gitChangelogApiBuilder()
+        .withEncoding(charsetToTest)
+        .withFromCommit(ZERO_COMMIT)
+        .withToRef("1.71")
+        .withTemplatePath(isoFile1.toFile().getAbsolutePath())
+        .prependToFile(isoFile2.toFile());
+
+    final byte[] renderedContent = Files.readAllBytes(isoFile2);
+    return renderedContent;
   }
 }

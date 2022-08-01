@@ -21,6 +21,8 @@ import static se.bjurr.gitchangelog.internal.util.Preconditions.emptyToNull;
 import com.google.gson.Gson;
 import java.io.Serializable;
 import java.net.URL;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
@@ -239,6 +241,8 @@ public class Settings implements Serializable {
   }
 
   private String subDirFilter;
+
+  private String encoding = StandardCharsets.UTF_8.name();
 
   public Settings() {}
 
@@ -674,5 +678,13 @@ public class Settings implements Serializable {
 
   public boolean isUseIntegrations() {
     return this.useIntegrations;
+  }
+
+  public void setEncoding(final Charset encoding) {
+    this.encoding = encoding.name();
+  }
+
+  public Charset getEncoding() {
+    return Charset.forName(this.encoding);
   }
 }

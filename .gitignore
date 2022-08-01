@@ -17,3 +17,4 @@ classes
 
 /.nb-gradle/
 *.received.txt
+tmptestfile-*

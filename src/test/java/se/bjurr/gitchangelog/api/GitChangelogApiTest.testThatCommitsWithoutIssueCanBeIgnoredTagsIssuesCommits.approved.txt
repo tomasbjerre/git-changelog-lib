@@ -62,7 +62,8 @@ settings:
   "gitLabEnabled": true,
   "gitLabIssuePattern": "nooo",
   "gitLabProjectName": "tomasbjerre",
-  "useIntegrations": false
+  "useIntegrations": false,
+  "encoding": "UTF-8"
 }
 
 ---------------------------------------------

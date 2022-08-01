@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -14,12 +14,12 @@ import java.util.stream.Collectors;
 public final class ResourceLoader {
   private ResourceLoader() {}
 
-  public static String getResourceOrFile(final String resourceName) {
+  public static String getResourceOrFile(final String resourceName, final Charset encoding) {
     String templateString = null;
     try {
       final Path templatePath = Paths.get(resourceName);
       if (templatePath.toFile().exists()) {
-        templateString = new String(Files.readAllBytes(templatePath), StandardCharsets.UTF_8);
+        templateString = new String(Files.readAllBytes(templatePath), encoding);
       } else {
         InputStream inputStream =
             getResourceFromClassLoader(resourceName, ResourceLoader.class.getClassLoader());
@@ -33,8 +33,7 @@ public final class ResourceLoader {
           throw new FileNotFoundException(
               "Was unable to find file, or resouce, \"" + resourceName + "\"");
         }
-        try (BufferedReader br =
-            new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, encoding))) {
           templateString = br.lines().collect(Collectors.joining("\n"));
         }
       }

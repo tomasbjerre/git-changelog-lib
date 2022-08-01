@@ -91,7 +91,8 @@ settings:
   "ignoreCommitsWithoutIssue": false,
   "gitLabEnabled": true,
   "gitLabProjectName": "tomasbjerre",
-  "useIntegrations": true
+  "useIntegrations": true,
+  "encoding": "UTF-8"
 }
 
 ---------------------------------------------

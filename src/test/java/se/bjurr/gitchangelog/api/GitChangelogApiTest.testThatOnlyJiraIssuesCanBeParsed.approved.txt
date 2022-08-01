@@ -75,7 +75,8 @@ settings:
   "gitLabEnabled": false,
   "gitLabProjectName": "tomasbjerre",
   "useIntegrations": false,
-  "subDirFilter": "src"
+  "subDirFilter": "src",
+  "encoding": "UTF-8"
 }
 
 ---------------------------------------------
