@@ -2,6 +2,18 @@
 
 Changelog of git-changelog-lib.
 
+## 1.167.0 (2022-08-01)
+
+
+
+### Features
+
+-  fewer empty rows in default template ([26f5c](https://github.com/tomasbjerre/git-changelog-lib/commit/26f5c16d716873e) Tomas Bjerre)  
+
+
+
+
+
 ## 1.166.1 (2022-05-01)
 
 
