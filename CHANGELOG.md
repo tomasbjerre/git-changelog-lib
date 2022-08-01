@@ -2,28 +2,23 @@
 
 Changelog of git-changelog-lib.
 
+## 1.168.0 (2022-08-01)
+
+### Features
+
+-  adding withEncoding config in API ([2d299](https://github.com/tomasbjerre/git-changelog-lib/commit/2d2998be4549f9f) Tomas Bjerre)  
+
 ## 1.167.0 (2022-08-01)
-
-
 
 ### Features
 
 -  fewer empty rows in default template ([26f5c](https://github.com/tomasbjerre/git-changelog-lib/commit/26f5c16d716873e) Tomas Bjerre)  
 
-
-
-
-
 ## 1.166.1 (2022-05-01)
-
-
-
-
 
 ### Bug Fixes
 
 -  closing loaded resource ([a5af6](https://github.com/tomasbjerre/git-changelog-lib/commit/a5af640c1d3f47c) Tomas Bjerre)  
-
 
 ### Other changes
 
@@ -36,62 +31,33 @@ Changelog of git-changelog-lib.
 
 ## 1.166.0 (2022-04-03)
 
-
-
 ### Features
 
 -  new variable urlParts ([163f7](https://github.com/tomasbjerre/git-changelog-lib/commit/163f7c4a50cba46) Tomas Bjerre)  [#128](https://github.com/tomasbjerre/git-changelog-lib/issues/128)  
 
-
-
-
-
 ## 1.165.2 (2022-03-17)
-
-
-
-
 
 ### Bug Fixes
 
 -  avoid looking for master if HEAD found ([a4a50](https://github.com/tomasbjerre/git-changelog-lib/commit/a4a505e23712c1c) Tomas Bjerre)  [#127](https://github.com/tomasbjerre/git-changelog-lib/issues/127)  
 
-
-
 ## 1.165.1 (2022-03-17)
-
-
-
-
 
 ### Bug Fixes
 
 -  upper case HEAD ([08ad3](https://github.com/tomasbjerre/git-changelog-lib/commit/08ad394f8975d56) Tomas Bjerre)  [#127](https://github.com/tomasbjerre/git-changelog-lib/issues/127)  
 
-
-
 ## 1.165.0 (2022-03-17)
-
-
 
 ### Features
 
 -  fall back on HEAD and MASTER if no toRef is given ([9c05c](https://github.com/tomasbjerre/git-changelog-lib/commit/9c05c8e7b476b68) Tomas Bjerre)  [#127](https://github.com/tomasbjerre/git-changelog-lib/issues/127)  
 
-
-
-
-
 ## 1.164.5 (2022-03-10)
-
-
-
-
 
 ### Bug Fixes
 
 -  can build on java 17 ([7dc00](https://github.com/tomasbjerre/git-changelog-lib/commit/7dc00e2f3d09f41) Tomas Bjerre)  
-
 
 ### Other changes
 
@@ -123,27 +89,16 @@ Changelog of git-changelog-lib.
 
 ## 1.164.4 (2022-02-14)
 
-
-
-
-
 ### Bug Fixes
 
 -  include tag on first commit ([bd384](https://github.com/tomasbjerre/git-changelog-lib/commit/bd38460e98d3a07) Tomas Bjerre)  
 -  include first commit ([66a16](https://github.com/tomasbjerre/git-changelog-lib/commit/66a1650fd51f679) Tomas Bjerre)  
 
-
-
 ## 1.164.3 (2022-01-20)
-
-
-
-
 
 ### Bug Fixes
 
 -  Allow minus in scope for conventional commits ([98102](https://github.com/tomasbjerre/git-changelog-lib/commit/98102abce6b73f1) nurgling)  
-
 
 ### Other changes
 
@@ -155,71 +110,35 @@ Changelog of git-changelog-lib.
 
 ## 1.164.2 (2022-01-17)
 
-
-
-
-
 ### Bug Fixes
 
 -  match first semantic combination ([868e0](https://github.com/tomasbjerre/git-changelog-lib/commit/868e081c4b7f6d9) Tomas Bjerre)  
 
-
-
 ## 1.164.1 (2022-01-16)
-
-
-
-
 
 ### Bug Fixes
 
 -  not removing issue from message by default ([d0b48](https://github.com/tomasbjerre/git-changelog-lib/commit/d0b48fd6fbbe141) Tomas Bjerre)  
 
-
-
 ## 1.164.0 (2022-01-16)
-
-
 
 ### Features
 
 -  defaulting to a changelog based on conventional commits ([ba2d2](https://github.com/tomasbjerre/git-changelog-lib/commit/ba2d2900b776e34) Tomas Bjerre)  
 
-
-
-
-
 ## 1.163.4 (2022-01-16)
-
-
-
-
 
 ### Bug Fixes
 
 -  disable integrations with a boolean useIntegrations ([632fa](https://github.com/tomasbjerre/git-changelog-lib/commit/632fa0b341cf6e8) Tomas Bjerre)  
 
-
-
 ## 1.163.3 (2022-01-05)
-
-
-
-
 
 ### Bug Fixes
 
 -  only parse enabled issues ([be84b](https://github.com/tomasbjerre/git-changelog-lib/commit/be84b9b1d3a07d0) Tomas Bjerre)  [#123](https://github.com/tomasbjerre/git-changelog-lib/issues/123)  
 
-
-
 ## 1.163.2 (2021-12-23)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -232,12 +151,6 @@ Changelog of git-changelog-lib.
 
 ## 1.163.1 (2021-12-22)
 
-
-
-
-
-
-
 ### Other changes
 
 **fix #108 error extracting information from jira**
@@ -248,23 +161,11 @@ Changelog of git-changelog-lib.
 
 ## 1.163.0 (2021-12-12)
 
-
-
 ### Features
 
 -  Add helpers "ifContainsTypeOtherThan" and "ifCommitTypeOtherThan" ([e6da0](https://github.com/tomasbjerre/git-changelog-lib/commit/e6da09949018589) chme)  
 
-
-
-
-
 ## 1.162.0 (2021-12-03)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -276,14 +177,9 @@ Changelog of git-changelog-lib.
 
 ## 1.161.0 (2021-11-30)
 
-
-
 ### Features
 
 -  bearer ([0e0fb](https://github.com/tomasbjerre/git-changelog-lib/commit/0e0fb521d7d7aa3) Tomas Bjerre)  [#111](https://github.com/tomasbjerre/git-changelog-lib/issues/111)  
-
-
-
 
 ### Other changes
 
@@ -295,244 +191,115 @@ Changelog of git-changelog-lib.
 
 ## 1.160.0 (2021-11-21)
 
-
-
 ### Features
 
 -  Add support for including partials in mustache templates ([26f86](https://github.com/tomasbjerre/git-changelog-lib/commit/26f86a816904ccc) chme)  
 
-
-
-
-
 ## 1.159.0 (2021-11-16)
-
-
 
 ### Features
 
 -  adjustments after merge ([00ce6](https://github.com/tomasbjerre/git-changelog-lib/commit/00ce6b5c7be6302) Tomas Bjerre)  [#106](https://github.com/tomasbjerre/git-changelog-lib/issues/106)  
 -  Redmine Support ([afb92](https://github.com/tomasbjerre/git-changelog-lib/commit/afb929cae874e30) Hakan Uygun)  
 
-
-
-
-
 ## 1.158.4 (2021-10-17)
-
-
-
-
 
 ### Bug Fixes
 
 -  reverting toString() of SemanticVersion ([f2939](https://github.com/tomasbjerre/git-changelog-lib/commit/f293966f47eb041) Tomas Bjerre)  
 
-
-
 ## 1.158.2 (2021-10-17)
 
-
-
-
-
-
-
-
 ## 1.158.1 (2021-10-17)
-
-
-
-
 
 ### Bug Fixes
 
 -  adding method to get version ([d6914](https://github.com/tomasbjerre/git-changelog-lib/commit/d6914e397988d7d) Tomas Bjerre)  [#104](https://github.com/tomasbjerre/git-changelog-lib/issues/104)  
 -  adding missing patch method in API ([f8eb5](https://github.com/tomasbjerre/git-changelog-lib/commit/f8eb51fd303b32f) Tomas Bjerre)  [#104](https://github.com/tomasbjerre/git-changelog-lib/issues/104)  
 
-
-
 ## 1.158.0 (2021-10-17)
-
-
 
 ### Features
 
 -  only step patch if matching pattern ([7557e](https://github.com/tomasbjerre/git-changelog-lib/commit/7557e612dd5db22) Tomas Bjerre)  [#104](https://github.com/tomasbjerre/git-changelog-lib/issues/104)  
 
-
-
-
-
 ## 1.157.2 (2021-10-06)
-
-
-
-
 
 ### Bug Fixes
 
 -  SemanticVersion implements Serializable ([615c4](https://github.com/tomasbjerre/git-changelog-lib/commit/615c4c957f1b47a) Markiian Slipets)  
 
-
-
 ## 1.157.1 (2021-07-15)
 
-
-
-
-
-
-
-
 ## 1.157.0 (2021-07-15)
-
-
 
 ### Features
 
 -  correcting major pattern ([16ff1](https://github.com/tomasbjerre/git-changelog-lib/commit/16ff16f14e9ae75) Tomas Bjerre)  
 
-
-
-
-
 ## 1.156.4 (2021-06-17)
-
-
-
-
 
 ### Bug Fixes
 
 -  read template from file ([4cf61](https://github.com/tomasbjerre/git-changelog-lib/commit/4cf6198e81fddac) Tomas Bjerre)  
 
-
-
 ## 1.156.3 (2021-06-16)
 
-
-
-
-
-
-
-
 ## 1.156.2 (2021-06-11)
-
-
-
-
 
 ### Bug Fixes
 
 -  adding default changelog template jenkinsci/git-changelog-plugin#58 ([051d6](https://github.com/tomasbjerre/git-changelog-lib/commit/051d61c8116bf19) Tomas Bjerre)  
 
-
-
 ## 1.156.0 (2021-06-09)
-
-
-
-
 
 ### Bug Fixes
 
 -  semantic version stepping ([3c0cf](https://github.com/tomasbjerre/git-changelog-lib/commit/3c0cf44551aed21) Tomas Bjerre)  
 
-
-
 ## 1.155.0 (2021-06-09)
-
-
-
-
 
 ### Bug Fixes
 
 -  removing git-changelog-settings.json to fix classloader issue in command line tool ([2d07a](https://github.com/tomasbjerre/git-changelog-lib/commit/2d07aefbd3900e5) Tomas Bjerre)  
 
-
-
 ## 1.154.0 (2021-06-09)
-
-
-
-
 
 ### Bug Fixes
 
 -  NPE when given file has no parent ([7a25e](https://github.com/tomasbjerre/git-changelog-lib/commit/7a25e670caf98a9) Tomas Bjerre)  
 
-
-
 ## 1.153.0 (2021-06-09)
-
-
-
-
 
 ### Bug Fixes
 
 -  when file was in a new folder, it created folder ([5a96f](https://github.com/tomasbjerre/git-changelog-lib/commit/5a96f3bd961b4df) Tomas Bjerre)  
 
-
-
 ## 1.152.1 (2021-06-03)
-
-
 
 ### Features
 
 -  set git repo from file ([17a25](https://github.com/tomasbjerre/git-changelog-lib/commit/17a25ff4be26520) Tomas Bjerre)  
 
-
-
-
-
 ## 1.152.0 (2021-06-03)
-
-
 
 ### Features
 
 -  subString and ifMatches helpers ([c64a1](https://github.com/tomasbjerre/git-changelog-lib/commit/c64a1bc9312b6ec) Tomas Bjerre)  
 
-
-
-
-
 ## 1.151.0 (2021-06-03)
-
-
 
 ### Features
 
 -  ifEquals helper ([94344](https://github.com/tomasbjerre/git-changelog-lib/commit/9434438ec8ea325) Tomas Bjerre)  
 
-
-
-
-
 ## 1.150.0 (2021-06-02)
-
-
 
 ### Features
 
 -  regexp in `commitType` and `commitScope` ([2d3c6](https://github.com/tomasbjerre/git-changelog-lib/commit/2d3c6660bfe8d64) Tomas Bjerre)  
 
-
-
-
-
 ## 1.149.6 (2021-06-01)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -544,95 +311,47 @@ Changelog of git-changelog-lib.
 
 ## 1.149.4 (2021-05-31)
 
-
-
 ### Features
 
 -  removing dependencies on Guava ([6402c](https://github.com/tomasbjerre/git-changelog-lib/commit/6402c759db491ca) Tomas Bjerre)  
 
-
-
-
-
 ## 1.149.2 (2021-05-27)
-
-
-
-
 
 ### Bug Fixes
 
 -  multiline footer/paragraphs ([0fb28](https://github.com/tomasbjerre/git-changelog-lib/commit/0fb2877848bb21c) Tomas Bjerre)  
 
-
-
 ## 1.149.0 (2021-05-26)
-
-
 
 ### Features
 
 -  more conventional helpers ([3f17b](https://github.com/tomasbjerre/git-changelog-lib/commit/3f17b1ecb3bfb6a) Tomas Bjerre)  
 
-
-
-
-
 ## 1.148.1 (2021-05-25)
 
-
-
-
-
-
-
-
 ## 1.148.0 (2021-05-25)
-
-
 
 ### Features
 
 -  **helpers**  and ([3572c](https://github.com/tomasbjerre/git-changelog-lib/commit/3572c9b070a8972) Tomas Bjerre)  
 
-
-
-
-
 ## 1.147.5 (2021-05-25)
-
-
-
-
 
 ### Bug Fixes
 
 -  naming ([759e0](https://github.com/tomasbjerre/git-changelog-lib/commit/759e07f97345011) Tomas Bjerre)  
 
-
-
 ## 1.147.4 (2021-05-25)
-
-
-
-
 
 ### Bug Fixes
 
 -  **helpers**  they did not work ([dba7b](https://github.com/tomasbjerre/git-changelog-lib/commit/dba7b31c364a63b) Tomas Bjerre)  
 
-
-
 ## 1.147.3 (2021-05-25)
-
-
 
 ### Features
 
 -  adding some helpers to better support conventional commits ([8bed7](https://github.com/tomasbjerre/git-changelog-lib/commit/8bed7566d19c045) Tomas Bjerre)  [#92](https://github.com/tomasbjerre/git-changelog-lib/issues/92)  
-
-
-
 
 ### Other changes
 
@@ -654,59 +373,29 @@ Changelog of git-changelog-lib.
 
 ## 1.147.2 (2021-05-24)
 
-
-
-
-
 ### Bug Fixes
 
 -  dont require semantic patterns to get highest tag ([38fc5](https://github.com/tomasbjerre/git-changelog-lib/commit/38fc504697f8d04) Tomas Bjerre)  
 
-
-
 ## 1.147.1 (2021-05-23)
-
-
-
-
 
 ### Bug Fixes
 
 -  dont use integrations when determining versions ([601c0](https://github.com/tomasbjerre/git-changelog-lib/commit/601c009bff8d551) Tomas Bjerre)  
 
-
-
 ## 1.146.0 (2021-05-23)
-
-
 
 ### Features
 
 -  renaming methods in api ([95a7b](https://github.com/tomasbjerre/git-changelog-lib/commit/95a7b6623a92c36) Tomas Bjerre)  
 
-
-
-
-
 ## 1.145.0 (2021-05-23)
-
-
 
 ### Features
 
 -  support semantic versioning ([53209](https://github.com/tomasbjerre/git-changelog-lib/commit/53209c9e5da9c75) Tomas Bjerre)  [#92](https://github.com/tomasbjerre/git-changelog-lib/issues/92)  
 
-
-
-
-
 ## 1.144.4 (2021-04-02)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -718,12 +407,6 @@ Changelog of git-changelog-lib.
 
 ## 1.96 (2021-03-29)
 
-
-
-
-
-
-
 ### Other changes
 
 **pretty printing output JENKINS-65252**
@@ -733,12 +416,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.95 (2021-01-18)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -760,12 +437,6 @@ Changelog of git-changelog-lib.
 
 ## 1.94 (2020-11-18)
 
-
-
-
-
-
-
 ### Other changes
 
 **Adjustments after merge of PR #94**
@@ -782,12 +453,6 @@ Changelog of git-changelog-lib.
 
 ## 1.93 (2020-11-07)
 
-
-
-
-
-
-
 ### Other changes
 
 **Support custom headers to JIRA to bypass 2 factor auth**
@@ -797,12 +462,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.92 (2020-02-20)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -829,12 +488,6 @@ Changelog of git-changelog-lib.
 
 ## 1.91 (2019-06-11)
 
-
-
-
-
-
-
 ### Other changes
 
 **Removing dependency on javax.xml**
@@ -844,12 +497,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.90 (2019-06-11)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -871,12 +518,6 @@ Changelog of git-changelog-lib.
 
 ## 1.89 (2019-02-16)
 
-
-
-
-
-
-
 ### Other changes
 
 **Avoiding global state in JiraClientFactory**
@@ -886,12 +527,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.88 (2019-01-08)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -923,12 +558,6 @@ Changelog of git-changelog-lib.
 
 ## 1.85 (2018-10-27)
 
-
-
-
-
-
-
 ### Other changes
 
 **Correcting GitLab integration after #70**
@@ -938,12 +567,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.84 (2018-10-27)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -966,12 +589,6 @@ Changelog of git-changelog-lib.
 
 ## 1.83 (2018-10-27)
 
-
-
-
-
-
-
 ### Other changes
 
 **Adding booleans isJira, isGitHub... #68**
@@ -987,12 +604,6 @@ Changelog of git-changelog-lib.
 
 ## 1.82 (2018-09-13)
 
-
-
-
-
-
-
 ### Other changes
 
 **Avoiding NPE:s and some refactoring**
@@ -1002,12 +613,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.81 (2018-09-12)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -1024,12 +629,6 @@ Changelog of git-changelog-lib.
 
 ## 1.80 (2018-05-05)
 
-
-
-
-
-
-
 ### Other changes
 
 **Closing connection to Jira**
@@ -1044,12 +643,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.79 (2018-01-09)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -1072,12 +665,6 @@ Changelog of git-changelog-lib.
 
 ## 1.77 (2017-12-30)
 
-
-
-
-
-
-
 ### Other changes
 
 **Closing RevWalk JENKINS-19994**
@@ -1092,12 +679,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.76 (2017-12-19)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -1129,12 +710,6 @@ Changelog of git-changelog-lib.
 
 ## 1.75 (2017-12-03)
 
-
-
-
-
-
-
 ### Other changes
 
 **Using shared build scripts**
@@ -1149,12 +724,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.74 (2017-11-18)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -1172,12 +741,6 @@ Changelog of git-changelog-lib.
 
 ## 1.73 (2017-11-02)
 
-
-
-
-
-
-
 ### Other changes
 
 **Avoiding usage of Guava Objects**
@@ -1188,12 +751,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.72 (2017-09-03)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -1215,12 +772,6 @@ Changelog of git-changelog-lib.
 
 ## 1.71 (2017-07-25)
 
-
-
-
-
-
-
 ### Other changes
 
 **Correcting owner/repo name cloneUrl without dot git**
@@ -1230,12 +781,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.70 (2017-07-24)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -1253,12 +798,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.69 (2017-07-08)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -1293,12 +832,6 @@ Changelog of git-changelog-lib.
 
 ## 1.68 (2017-04-14)
 
-
-
-
-
-
-
 ### Other changes
 
 **doc**
@@ -1314,12 +847,6 @@ Changelog of git-changelog-lib.
 
 ## 1.67 (2017-03-25)
 
-
-
-
-
-
-
 ### Other changes
 
 **GitLab integration #2**
@@ -1331,12 +858,6 @@ Changelog of git-changelog-lib.
 
 ## 1.66 (2017-03-25)
 
-
-
-
-
-
-
 ### Other changes
 
 **GitLab integration #42**
@@ -1346,12 +867,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.65 (2017-03-20)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -1367,12 +882,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.64 (2017-03-18)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -1393,12 +902,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.63 (2017-03-01)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -1426,12 +929,6 @@ Changelog of git-changelog-lib.
 
 ## 1.62 (2016-12-17)
 
-
-
-
-
-
-
 ### Other changes
 
 **mergeServiceFiles in fat jar**
@@ -1441,12 +938,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.61 (2016-12-16)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -1458,12 +949,6 @@ Changelog of git-changelog-lib.
 
 ## 1.60 (2016-12-16)
 
-
-
-
-
-
-
 ### Other changes
 
 **Relocate packages to avoid classpath issues #38**
@@ -1473,12 +958,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.59 (2016-12-16)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -1490,12 +969,6 @@ Changelog of git-changelog-lib.
 
 ## 1.58 (2016-10-22)
 
-
-
-
-
-
-
 ### Other changes
 
 **Adding annotation to context of tag #36**
@@ -1506,12 +979,6 @@ Changelog of git-changelog-lib.
 
 ## 1.57 (2016-10-05)
 
-
-
-
-
-
-
 ### Other changes
 
 **Adding merge boolean to commits #35**
@@ -1521,12 +988,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.56 (2016-08-11)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -1543,12 +1004,6 @@ Changelog of git-changelog-lib.
 
 ## 1.55 (2016-08-02)
 
-
-
-
-
-
-
 ### Other changes
 
 **Adding {{hashFull}} variable with full commit hash #30**
@@ -1558,12 +1013,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.54 (2016-06-27)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -1580,12 +1029,6 @@ Changelog of git-changelog-lib.
 
 ## 1.53 (2016-06-25)
 
-
-
-
-
-
-
 ### Other changes
 
 **Faster**
@@ -1595,12 +1038,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.52 (2016-06-24)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -1622,12 +1059,6 @@ Changelog of git-changelog-lib.
 
 ## 1.51 (2016-06-24)
 
-
-
-
-
-
-
 ### Other changes
 
 **Show found refs when not finding ref**
@@ -1643,12 +1074,6 @@ Changelog of git-changelog-lib.
 
 ## 1.50 (2016-06-24)
 
-
-
-
-
-
-
 ### Other changes
 
 **Including commits frmo merges #29**
@@ -1658,12 +1083,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.49 (2016-06-02)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -1681,12 +1100,6 @@ Changelog of git-changelog-lib.
 
 ## 1.48 (2016-05-20)
 
-
-
-
-
-
-
 ### Other changes
 
 **Testing trailing slash in Jira**
@@ -1696,12 +1109,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.47 (2016-04-28)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -1714,12 +1121,6 @@ Changelog of git-changelog-lib.
 
 ## 1.46 (2016-04-24)
 
-
-
-
-
-
-
 ### Other changes
 
 **Making API model serializable**
@@ -1729,12 +1130,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.45 (2016-04-13)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -1748,12 +1143,6 @@ Changelog of git-changelog-lib.
 
 ## 1.44 (2016-04-12)
 
-
-
-
-
-
-
 ### Other changes
 
 **JENKINS-34155 Support short SHA**
@@ -1764,12 +1153,6 @@ Changelog of git-changelog-lib.
 
 ## 1.43 (2016-04-10)
 
-
-
-
-
-
-
 ### Other changes
 
 **Parsing commits, oldest first**
@@ -1779,12 +1162,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.42 (2016-04-10)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -1797,12 +1174,6 @@ Changelog of git-changelog-lib.
 
 ## 1.41 (2016-04-09)
 
-
-
-
-
-
-
 ### Other changes
 
 **Traversing commit tree by parents #23**
@@ -1813,12 +1184,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.40 (2016-04-07)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -1836,12 +1201,6 @@ Changelog of git-changelog-lib.
 
 ## 1.39 (2016-03-20)
 
-
-
-
-
-
-
 ### Other changes
 
 **Sorting filtered commits, was random from hash**
@@ -1853,12 +1212,6 @@ Changelog of git-changelog-lib.
 
 ## 1.38 (2016-03-20)
 
-
-
-
-
-
-
 ### Other changes
 
 **Removing commits without issue, from tags #19**
@@ -1868,12 +1221,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.37 (2016-03-20)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -1905,12 +1252,6 @@ Changelog of git-changelog-lib.
 
 ## 1.36 (2016-03-15)
 
-
-
-
-
-
-
 ### Other changes
 
 **Fixing infinite loop in GitRepo**
@@ -1927,12 +1268,6 @@ Changelog of git-changelog-lib.
 
 ## 1.35 (2016-03-15)
 
-
-
-
-
-
-
 ### Other changes
 
 **Using okhttp 2.7.5 was using 2.3.0**
@@ -1943,12 +1278,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.34 (2016-03-15)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -1964,12 +1293,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.33 (2016-03-15)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -1994,12 +1317,6 @@ Changelog of git-changelog-lib.
 
 ## 1.32 (2016-02-20)
 
-
-
-
-
-
-
 ### Other changes
 
 **Supplying commit in each issue mentioned in message #16**
@@ -2015,12 +1332,6 @@ Changelog of git-changelog-lib.
 
 ## 1.31 (2016-02-19)
 
-
-
-
-
-
-
 ### Other changes
 
 **Enabling custom Jira client**
@@ -2030,12 +1341,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.30 (2016-02-15)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -2049,12 +1354,6 @@ Changelog of git-changelog-lib.
 
 ## 1.29 (2016-02-14)
 
-
-
-
-
-
-
 ### Other changes
 
 **Bugfix, crashed if all commits in tag were ignored**
@@ -2064,12 +1363,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.28 (2016-02-14)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -2086,12 +1379,6 @@ Changelog of git-changelog-lib.
 
 ## 1.27 (2016-02-13)
 
-
-
-
-
-
-
 ### Other changes
 
 **Bugfix, was not including first tag**
@@ -2101,12 +1388,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.26 (2016-02-13)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -2124,12 +1405,6 @@ Changelog of git-changelog-lib.
 
 ## 1.25 (2016-02-10)
 
-
-
-
-
-
-
 ### Other changes
 
 **Letting JGit determine new commits between refs #13**
@@ -2141,12 +1416,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.24 (2016-02-09)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -2168,12 +1437,6 @@ Changelog of git-changelog-lib.
 
 ## 1.23 (2016-01-31)
 
-
-
-
-
-
-
 ### Other changes
 
 **Sorting tags by committime, not committime formatted string**
@@ -2194,12 +1457,6 @@ Changelog of git-changelog-lib.
 
 ## 1.22 (2016-01-30)
 
-
-
-
-
-
-
 ### Other changes
 
 **Removing accidently added duplicate Gson dependency**
@@ -2209,12 +1466,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.21 (2016-01-30)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -2226,12 +1477,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.20 (2016-01-30)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -2260,12 +1505,6 @@ Changelog of git-changelog-lib.
 
 ## 1.19 (2016-01-27)
 
-
-
-
-
-
-
 ### Other changes
 
 **Removing command line code #11**
@@ -2286,12 +1525,6 @@ Changelog of git-changelog-lib.
 
 ## 1.18 (2015-12-08)
 
-
-
-
-
-
-
 ### Other changes
 
 **Downgrading JGIT to 3.6.2 to be compatible with its older API**
@@ -2302,12 +1535,6 @@ Changelog of git-changelog-lib.
 
 ## 1.17 (2015-12-05)
 
-
-
-
-
-
-
 ### Other changes
 
 **Allowing variables to be extended with custom context:s**
@@ -2317,12 +1544,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.16 (2015-12-05)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -2335,12 +1556,6 @@ Changelog of git-changelog-lib.
 
 ## 1.15 (2015-12-04)
 
-
-
-
-
-
-
 ### Other changes
 
 **Using JGit to find repo folder correctly**
@@ -2352,12 +1567,6 @@ Changelog of git-changelog-lib.
 
 ## 1.14 (2015-12-01)
 
-
-
-
-
-
-
 ### Other changes
 
 **Caching requests to GitHub and Jira**
@@ -2368,12 +1577,6 @@ Changelog of git-changelog-lib.
 
 ## 1.13 (2015-11-23)
 
-
-
-
-
-
-
 ### Other changes
 
 **Avoiding crash if GitHub issue cant be found**
@@ -2383,12 +1586,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.12 (2015-11-23)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -2405,12 +1602,6 @@ Changelog of git-changelog-lib.
 
 ## 1.11 (2015-11-21)
 
-
-
-
-
-
-
 ### Other changes
 
 **Changing master reference constan, to just master**
@@ -2426,12 +1617,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.10 (2015-11-21)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -2450,12 +1635,6 @@ Changelog of git-changelog-lib.
 
 ## 1.9 (2015-11-20)
 
-
-
-
-
-
-
 ### Other changes
 
 **Adding custom issues correctly #bugfix**
@@ -2471,12 +1650,6 @@ Changelog of git-changelog-lib.
 
 ## 1.8 (2015-11-20)
 
-
-
-
-
-
-
 ### Other changes
 
 **Setting default setting of ignore commits regexp #bugfix**
@@ -2487,12 +1660,6 @@ Changelog of git-changelog-lib.
 
 ## 1.7 (2015-11-20)
 
-
-
-
-
-
-
 ### Other changes
 
 **Using correct reference #bugfix**
@@ -2502,12 +1669,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.6 (2015-11-20)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -2524,12 +1685,6 @@ Changelog of git-changelog-lib.
 
 ## 1.5 (2015-11-19)
 
-
-
-
-
-
-
 ### Other changes
 
 **Not loading default settings by default when using API**
@@ -2544,12 +1699,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.4 (2015-11-19)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -2570,12 +1719,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.3 (2015-11-18)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -2601,12 +1744,6 @@ Changelog of git-changelog-lib.
 
 
 ## 1.2 (2015-11-17)
-
-
-
-
-
-
 
 ### Other changes
 
@@ -2649,12 +1786,6 @@ Changelog of git-changelog-lib.
 
 ## 1.1 (2015-11-15)
 
-
-
-
-
-
-
 ### Other changes
 
 **Car remove issue from commit message in changelog #feature**
@@ -2693,12 +1824,6 @@ Changelog of git-changelog-lib.
 
 ## 1.0 (2015-11-14)
 
-
-
-
-
-
-
 ### Other changes
 
 **Doc**
@@ -2723,12 +1848,6 @@ Changelog of git-changelog-lib.
 
 
 ## 0.0.1 (2015-11-12)
-
-
-
-
-
-
 
 ### Other changes
 
