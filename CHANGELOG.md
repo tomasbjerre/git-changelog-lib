@@ -2,6 +2,12 @@
 
 Changelog of git-changelog-lib.
 
+## 1.168.1 (2022-08-02)
+
+### Bug Fixes
+
+-  avoiding encoding change in prependToFile ([418ca](https://github.com/tomasbjerre/git-changelog-lib/commit/418ca7db02ed18b) Tomas Bjerre)  
+
 ## 1.168.0 (2022-08-01)
 
 ### Features
