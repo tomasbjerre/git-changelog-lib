@@ -14,6 +14,7 @@ import com.github.jknack.handlebars.Helper;
 import com.github.jknack.handlebars.Template;
 import com.github.jknack.handlebars.io.FileTemplateLoader;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
@@ -165,12 +166,15 @@ public class GitChangelogApi {
       this.toFile(file);
       return;
     }
-    final String prepend = this.render();
-    final String changelogContent = new String(Files.readAllBytes(file.toPath()));
-    Files.write(
-        file.toPath(), (prepend + "\n" + changelogContent).getBytes(this.settings.getEncoding()));
-  }
 
+    final byte[] bytesToPrepend = this.render().getBytes(this.settings.getEncoding());
+    final byte[] originalBytes = Files.readAllBytes(file.toPath());
+
+    final FileOutputStream outputStream = new FileOutputStream(file);
+    outputStream.write(bytesToPrepend);
+    outputStream.write(originalBytes);
+    outputStream.close();
+  }
   /**
    * Get next semantic version. This requires version-pattern and major/minor/patch patterns to have
    * been configured.

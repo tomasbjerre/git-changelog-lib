@@ -367,7 +367,11 @@ public class GitChangelogApiTest {
 
     assertThat(renderedContent)
         .as(new String(renderedContent, charsetToTest))
-        .containsExactly(new byte[] {-27, -28, -10, 10, 63, 63, 63});
+        .containsExactly(
+            new byte[] { //
+              -27, -28, -10, //
+              -27, -28, -10
+            });
   }
 
   @Test
@@ -383,7 +387,6 @@ public class GitChangelogApiTest {
               -61, -91, //
               -61, -92, //
               -61, -74, //
-              10, //
               -61, -91, //
               -61, -92, //
               -61, -74 //
