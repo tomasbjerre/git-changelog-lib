@@ -14,7 +14,7 @@ public class HandlebarsHelperTest {
   public void before() {
     this.baseBuilder =
         gitChangelogApiBuilder() //
-            .withUseIntegrations(true)
+            .withUseIntegrations(false)
             .withJiraEnabled(true)
             .withGitHubEnabled(true)
             .withGitLabEnabled(true)
