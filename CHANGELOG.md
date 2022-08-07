@@ -2,6 +2,12 @@
 
 Changelog of git-changelog-lib.
 
+## 1.168.2 (2022-08-07)
+
+### Bug Fixes
+
+-  stepping dependencies ([54272](https://github.com/tomasbjerre/git-changelog-lib/commit/54272e9ded83d9d) Tomas Bjerre)  
+
 ## 1.168.1 (2022-08-02)
 
 ### Bug Fixes
