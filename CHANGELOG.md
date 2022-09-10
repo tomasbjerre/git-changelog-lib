@@ -2,6 +2,12 @@
 
 Changelog of git-changelog-lib.
 
+## 1.168.3 (2022-09-10)
+
+### Bug Fixes
+
+-  detecting missing patch-version as 0 ([c5cc6](https://github.com/tomasbjerre/git-changelog-lib/commit/c5cc6bb241c9b6e) Tomas Bjerre)  
+
 ## 1.168.2 (2022-08-07)
 
 ### Bug Fixes
