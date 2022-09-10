@@ -64,14 +64,18 @@ public class SemanticVersioning {
     SemanticVersion highest = new SemanticVersion(0, 0, 0);
     for (final String tag : tags) {
       final Matcher semanticVersionMatcher =
-          Pattern.compile("[0-9]+\\.[0-9]+\\.[0-9]+").matcher(tag);
+          Pattern.compile("[0-9]+\\.[0-9]+\\.?[0-9]+?").matcher(tag);
       if (semanticVersionMatcher.find()) {
         final String[] dotParts = semanticVersionMatcher.group().split("\\.");
+        Integer patch = 0;
+        if (dotParts.length > 2) {
+          patch = new Integer(dotParts[2]);
+        }
         final SemanticVersion candidate =
             new SemanticVersion(
                 new Integer(dotParts[0]), //
                 new Integer(dotParts[1]), //
-                new Integer(dotParts[2]));
+                patch);
         candidate.setTag(tag);
         if (candidate.getMajor() > highest.getMajor()) {
           highest = candidate;

@@ -527,9 +527,7 @@ public class GitRepo implements Closeable {
         merge);
   }
 
-  /**
-   * @param pathFilter use when filtering commits
-   */
+  /** @param pathFilter use when filtering commits */
   public void setTreeFilter(final String pathFilter) {
     this.pathFilter = pathFilter == null ? "" : pathFilter;
   }
