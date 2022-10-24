@@ -2,6 +2,12 @@
 
 Changelog of git-changelog-lib.
 
+## 1.168.4 (2022-10-24)
+
+### Bug Fixes
+
+-  stepping dependencies to fix CVE-2022-42889 ([c4c7e](https://github.com/tomasbjerre/git-changelog-lib/commit/c4c7eb23237c703) Tomas Bjerre)  
+
 ## 1.168.3 (2022-09-10)
 
 ### Bug Fixes
