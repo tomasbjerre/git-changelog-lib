@@ -36,6 +36,7 @@ import se.bjurr.gitchangelog.api.GitChangelogApiConstants;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
+import se.bjurr.gitchangelog.internal.semantic.SemanticVersioning;
 
 public class GitRepo implements Closeable {
   private static final Logger LOG = LoggerFactory.getLogger(GitRepo.class);
@@ -301,7 +302,20 @@ public class GitRepo implements Closeable {
           continue;
         }
       }
-      tagPerCommit.put(this.getPeeled(tag).getName(), tag);
+      final String commitId = this.getPeeled(tag).getName();
+      if (tagPerCommit.containsKey(commitId)) {
+        /**
+         * Only overwrite tag, if the new tag is semantic version. Let semantic tags have priority.
+         */
+        final boolean newFoundTagSemantic = SemanticVersioning.isSemantic(tag.getName());
+        final boolean existingTagNotSemantic =
+            !SemanticVersioning.isSemantic(tagPerCommit.get(commitId).getName());
+        if (newFoundTagSemantic || existingTagNotSemantic) {
+          tagPerCommit.put(commitId, tag);
+        }
+      } else {
+        tagPerCommit.put(commitId, tag);
+      }
     }
     return tagPerCommit;
   }

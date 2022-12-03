@@ -1,6 +1,7 @@
 package se.bjurr.gitchangelog.internal.semantic;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -63,20 +64,9 @@ public class SemanticVersioning {
   public static SemanticVersion getHighestVersion(final List<String> tags) {
     SemanticVersion highest = new SemanticVersion(0, 0, 0);
     for (final String tag : tags) {
-      final Matcher semanticVersionMatcher =
-          Pattern.compile("[0-9]+\\.[0-9]+\\.?[0-9]+?").matcher(tag);
-      if (semanticVersionMatcher.find()) {
-        final String[] dotParts = semanticVersionMatcher.group().split("\\.");
-        Integer patch = 0;
-        if (dotParts.length > 2) {
-          patch = new Integer(dotParts[2]);
-        }
-        final SemanticVersion candidate =
-            new SemanticVersion(
-                new Integer(dotParts[0]), //
-                new Integer(dotParts[1]), //
-                patch);
-        candidate.setTag(tag);
+      final Optional<SemanticVersion> candidateOpt = findSemanticVersion(tag);
+      if (candidateOpt.isPresent()) {
+        final SemanticVersion candidate = candidateOpt.get();
         if (candidate.getMajor() > highest.getMajor()) {
           highest = candidate;
           continue;
@@ -95,6 +85,31 @@ public class SemanticVersioning {
       }
     }
     return highest;
+  }
+
+  public static Optional<SemanticVersion> findSemanticVersion(final String tag) {
+    final Matcher semanticVersionMatcher =
+        Pattern.compile("[0-9]+\\.[0-9]+\\.?[0-9]+?").matcher(tag);
+    if (!semanticVersionMatcher.find()) {
+      return Optional.empty();
+    }
+    final String[] dotParts = semanticVersionMatcher.group().split("\\.");
+    Integer patch = 0;
+    if (dotParts.length > 2) {
+      patch = new Integer(dotParts[2]);
+    }
+    final SemanticVersion candidate =
+        new SemanticVersion(
+            new Integer(dotParts[0]), //
+            new Integer(dotParts[1]), //
+            patch);
+    candidate.setTag(tag);
+    return Optional.of(candidate);
+  }
+
+  public static boolean isSemantic(final String tag) {
+    final Optional<SemanticVersion> foundSemanticOpt = SemanticVersioning.findSemanticVersion(tag);
+    return foundSemanticOpt.isPresent();
   }
 
   private VERSION_STEP getVersionStep() {
