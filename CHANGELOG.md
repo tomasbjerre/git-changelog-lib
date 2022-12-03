@@ -2,6 +2,12 @@
 
 Changelog of git-changelog-lib.
 
+## 1.168.5 (2022-12-03)
+
+### Bug Fixes
+
+-  let semantic tag have priority if several tags on same commit ([13a82](https://github.com/tomasbjerre/git-changelog-lib/commit/13a8220c2493c8b) Tomas Bjerre)  
+
 ## 1.168.4 (2022-10-24)
 
 ### Bug Fixes
