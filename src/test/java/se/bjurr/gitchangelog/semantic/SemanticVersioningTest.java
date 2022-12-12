@@ -10,10 +10,8 @@ import static se.bjurr.gitchangelog.internal.semantic.SemanticVersioning.VERSION
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import org.junit.Before;
 import org.junit.Test;
-
 import se.bjurr.gitchangelog.api.GitChangelogApi;
 import se.bjurr.gitchangelog.internal.semantic.SemanticVersion;
 import se.bjurr.gitchangelog.internal.semantic.SemanticVersioning;
@@ -183,8 +181,8 @@ public class SemanticVersioningTest {
 
   @Test
   public void testLongPatchMatches() throws Throwable {
-	    this.tags.add("1.2.33333");
-	    this.tags.add("1.2.3");
+    this.tags.add("1.2.33333");
+    this.tags.add("1.2.3");
 
     final SemanticVersion highestVersion = SemanticVersioning.getHighestVersion(this.tags);
     assertThat(highestVersion.toString()) //
@@ -193,8 +191,8 @@ public class SemanticVersioningTest {
 
   @Test
   public void testLongPatchMatches_reverse_order() throws Throwable {
-	    this.tags.add("1.2.3");
-	    this.tags.add("1.2.33333");
+    this.tags.add("1.2.3");
+    this.tags.add("1.2.33333");
 
     final SemanticVersion highestVersion = SemanticVersioning.getHighestVersion(this.tags);
     assertThat(highestVersion.toString()) //
@@ -203,8 +201,8 @@ public class SemanticVersioningTest {
 
   @Test
   public void testLongMinorMatches() throws Throwable {
-	    this.tags.add("1.22222");
-	    this.tags.add("1.2");
+    this.tags.add("1.22222");
+    this.tags.add("1.2");
 
     final SemanticVersion highestVersion = SemanticVersioning.getHighestVersion(this.tags);
     assertThat(highestVersion.toString()) //
@@ -213,14 +211,14 @@ public class SemanticVersioningTest {
 
   @Test
   public void testLongMinorMatches_reverse_order() throws Throwable {
-	    this.tags.add("1.2");
-	    this.tags.add("1.22222");
+    this.tags.add("1.2");
+    this.tags.add("1.22222");
 
     final SemanticVersion highestVersion = SemanticVersioning.getHighestVersion(this.tags);
     assertThat(highestVersion.toString()) //
-    .isEqualTo("1.22222.0");
+        .isEqualTo("1.22222.0");
     assertThat(highestVersion.findTag().orElse("")) //
-    .isEqualTo("1.22222");
+        .isEqualTo("1.22222");
   }
 
   @Test
