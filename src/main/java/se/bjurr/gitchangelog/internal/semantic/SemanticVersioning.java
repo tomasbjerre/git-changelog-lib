@@ -89,7 +89,7 @@ public class SemanticVersioning {
 
   public static Optional<SemanticVersion> findSemanticVersion(final String tag) {
     final Matcher semanticVersionMatcher =
-        Pattern.compile("[0-9]+\\.[0-9]+\\.?[0-9]+?").matcher(tag);
+        Pattern.compile("[0-9]+\\.[0-9]+\\.?[0-9]*").matcher(tag);
     if (!semanticVersionMatcher.find()) {
       return Optional.empty();
     }
