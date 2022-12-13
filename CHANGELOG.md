@@ -2,6 +2,12 @@
 
 Changelog of git-changelog-lib.
 
+## 1.168.6 (2022-12-12)
+
+### Bug Fixes
+
+-  making semantic version match not greedy ([14d0f](https://github.com/tomasbjerre/git-changelog-lib/commit/14d0f0860f67f23) Tomas Bjerre)  [#142](https://github.com/tomasbjerre/git-changelog-lib/issues/142)  
+
 ## 1.168.5 (2022-12-03)
 
 ### Bug Fixes
