@@ -2,6 +2,16 @@
 
 Changelog of git-changelog-lib.
 
+## 1.168.7 (2023-01-04)
+
+### Other changes
+
+**fix(#143) : allow space before ":" in commit message**
+
+
+[09d15](https://github.com/tomasbjerre/git-changelog-lib/commit/09d150c76d0369a) THAVEAU Alexis *2023-01-04 10:59:51*
+
+
 ## 1.168.6 (2022-12-12)
 
 ### Bug Fixes
