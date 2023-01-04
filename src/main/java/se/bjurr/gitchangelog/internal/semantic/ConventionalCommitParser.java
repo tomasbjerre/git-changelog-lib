@@ -1,23 +1,22 @@
 package se.bjurr.gitchangelog.internal.semantic;
 
 import com.github.jknack.handlebars.Options;
-import se.bjurr.gitchangelog.api.model.Commit;
-import se.bjurr.gitchangelog.api.model.Issue;
-import se.bjurr.gitchangelog.api.model.Tag;
-import se.bjurr.gitchangelog.internal.model.Transformer;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import se.bjurr.gitchangelog.api.model.Commit;
+import se.bjurr.gitchangelog.api.model.Issue;
+import se.bjurr.gitchangelog.api.model.Tag;
+import se.bjurr.gitchangelog.internal.model.Transformer;
 
 public class ConventionalCommitParser {
   private static final Pattern CONVENTIONAL_PATTERN =
-          Pattern.compile("^(\\w+)(\\(([\\w\\-\\.:]+)\\)?)?(\\!?)[\\s?]*:(.+)");
+      Pattern.compile("^(\\w+)(\\(([\\w\\-\\.:]+)\\)?)?(\\!?)[\\s?]*:(.+)");
   private static final Pattern FOOTER_PATTERN =
-          Pattern.compile("^(BREAKING[ -]CHANGE|[^ ]+)(((: )|( #))(.+))");
+      Pattern.compile("^(BREAKING[ -]CHANGE|[^ ]+)(((: )|( #))(.+))");
 
   public static String getDate(final String tagTime) {
     if (tagTime == null || !tagTime.contains(" ")) {
