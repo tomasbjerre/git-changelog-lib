@@ -16,6 +16,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.PriorityQueue;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -425,45 +426,46 @@ public class GitRepo implements Closeable {
   /** This can be done recursively but will result in {@link StackOverflowError} for large repos. */
   private void populateComitPerTag(
       final RevCommit from,
-      final ObjectId to,
+      final RevCommit to,
       final Map<String, Ref> tagPerCommitHash,
       final Map<String, String> tagPerCommitsHash,
       final Map<String, Set<GitCommit>> commitsPerTag,
       final Map<String, Date> datePerTag,
       final String startingTagName)
       throws Exception {
-    final Set<TraversalWork> moreWork =
-        this.populateCommitPerTag(
-            from,
-            to,
-            commitsPerTag,
-            tagPerCommitHash,
-            tagPerCommitsHash,
-            datePerTag,
-            startingTagName);
-    do {
-      final Set<TraversalWork> evenMoreWork = new TreeSet<>();
-      for (final TraversalWork tw : new ArrayList<>(moreWork)) {
-        moreWork.remove(tw);
-        final Set<TraversalWork> newWork =
+
+    final RevCommit thisCommit = this.revWalk.lookupCommit(to);
+    this.revWalk.parseHeaders(thisCommit);
+
+    final PriorityQueue<TraversalWork> moreWork =
+        new PriorityQueue<>(
             this.populateCommitPerTag(
                 from,
-                tw.getTo(),
+                to,
                 commitsPerTag,
                 tagPerCommitHash,
                 tagPerCommitsHash,
                 datePerTag,
-                tw.getCurrentTagName());
-        evenMoreWork.addAll(newWork);
-      }
-      moreWork.addAll(evenMoreWork);
+                startingTagName));
+
+    while (!moreWork.isEmpty()) {
+      final TraversalWork next = moreWork.remove();
+      moreWork.addAll(
+          this.populateCommitPerTag(
+              from,
+              next.getTo(),
+              commitsPerTag,
+              tagPerCommitHash,
+              tagPerCommitsHash,
+              datePerTag,
+              next.getCurrentTagName()));
       LOG.debug("Work left: " + moreWork.size());
-    } while (!moreWork.isEmpty());
+    }
   }
 
   private Set<TraversalWork> populateCommitPerTag(
       final RevCommit from,
-      final ObjectId to,
+      final RevCommit to,
       final Map<String, Set<GitCommit>> commitsPerTagName,
       final Map<String, Ref> tagPerCommitHash,
       final Map<String, String> tagPerCommitsHash,
@@ -474,21 +476,20 @@ public class GitRepo implements Closeable {
     if (this.isMappedToAnotherTag(tagPerCommitsHash, thisCommitHash)) {
       return new TreeSet<>();
     }
-    final RevCommit thisCommit = this.revWalk.lookupCommit(to);
-    this.revWalk.parseHeaders(thisCommit);
     if (this.thisIsANewTag(tagPerCommitHash, thisCommitHash)) {
       currentTagName = this.getTagName(tagPerCommitHash, thisCommitHash);
     }
     if (currentTagName != null) {
-      if (this.addCommitToCurrentTag(commitsPerTagName, currentTagName, thisCommit)) {
-        datePerTag.put(currentTagName, new Date(thisCommit.getCommitTime() * 1000L));
+      if (this.addCommitToCurrentTag(commitsPerTagName, currentTagName, to)) {
+        datePerTag.put(currentTagName, new Date(to.getCommitTime() * 1000L));
       }
       this.noteThatTheCommitWasMapped(tagPerCommitsHash, currentTagName, thisCommitHash);
     }
     if (this.notFirstIncludedCommit(from, to)) {
       final Set<TraversalWork> work = new TreeSet<>();
-      for (final RevCommit parent : thisCommit.getParents()) {
+      for (final RevCommit parent : to.getParents()) {
         if (this.shouldInclude(parent)) {
+          this.revWalk.parseHeaders(parent);
           work.add(new TraversalWork(parent, currentTagName));
         }
       }
@@ -541,9 +542,7 @@ public class GitRepo implements Closeable {
         merge);
   }
 
-  /**
-   * @param pathFilter use when filtering commits
-   */
+  /** @param pathFilter use when filtering commits */
   public void setTreeFilter(final String pathFilter) {
     this.pathFilter = pathFilter == null ? "" : pathFilter;
   }

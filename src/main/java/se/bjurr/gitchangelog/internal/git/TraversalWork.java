@@ -8,6 +8,9 @@ class TraversalWork implements Comparable<TraversalWork> {
 
   public TraversalWork(final RevCommit to, final String currentTagName) {
     this.to = to;
+    if (to.getCommitTime() == 0) {
+      throw new RuntimeException("to.getCommitTime() == 0");
+    }
     this.currentTagName = currentTagName;
   }
 
@@ -69,8 +72,8 @@ class TraversalWork implements Comparable<TraversalWork> {
   }
 
   int compareTo(final int selfCommitTime, final int otherCommitTime) {
-    return Integer.valueOf(selfCommitTime) //
-        .compareTo(otherCommitTime);
+    return Integer.valueOf(otherCommitTime) //
+        .compareTo(selfCommitTime);
   }
 
   @Override
