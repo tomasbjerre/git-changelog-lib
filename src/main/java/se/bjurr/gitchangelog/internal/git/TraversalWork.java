@@ -69,8 +69,8 @@ class TraversalWork implements Comparable<TraversalWork> {
   }
 
   int compareTo(final int selfCommitTime, final int otherCommitTime) {
-    return Integer.valueOf(selfCommitTime) //
-        .compareTo(otherCommitTime);
+    return Integer.valueOf(otherCommitTime) //
+        .compareTo(selfCommitTime);
   }
 
   @Override
