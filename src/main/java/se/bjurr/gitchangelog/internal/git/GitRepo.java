@@ -463,28 +463,43 @@ public class GitRepo implements Closeable {
 
   private Set<TraversalWork> populateCommitPerTag(
       final RevCommit from,
-      final ObjectId to,
+      ObjectId to,
       final Map<String, Set<GitCommit>> commitsPerTagName,
       final Map<String, Ref> tagPerCommitHash,
       final Map<String, String> tagPerCommitsHash,
       final Map<String, Date> datePerTag,
       String currentTagName)
       throws Exception {
-    final String thisCommitHash = to.getName();
-    if (this.isMappedToAnotherTag(tagPerCommitsHash, thisCommitHash)) {
-      return new TreeSet<>();
-    }
-    final RevCommit thisCommit = this.revWalk.lookupCommit(to);
-    this.revWalk.parseHeaders(thisCommit);
-    if (this.thisIsANewTag(tagPerCommitHash, thisCommitHash)) {
-      currentTagName = this.getTagName(tagPerCommitHash, thisCommitHash);
-    }
-    if (currentTagName != null) {
-      if (this.addCommitToCurrentTag(commitsPerTagName, currentTagName, thisCommit)) {
-        datePerTag.put(currentTagName, new Date(thisCommit.getCommitTime() * 1000L));
+
+    RevCommit thisCommit;
+    do {
+      final String thisCommitHash = to.getName();
+      if (this.isMappedToAnotherTag(tagPerCommitsHash, thisCommitHash)) {
+        return new TreeSet<>();
       }
-      this.noteThatTheCommitWasMapped(tagPerCommitsHash, currentTagName, thisCommitHash);
-    }
+      thisCommit = this.revWalk.lookupCommit(to);
+      this.revWalk.parseHeaders(thisCommit);
+      if (this.thisIsANewTag(tagPerCommitHash, thisCommitHash)) {
+        currentTagName = this.getTagName(tagPerCommitHash, thisCommitHash);
+      }
+      if (currentTagName != null) {
+        if (this.addCommitToCurrentTag(commitsPerTagName, currentTagName, thisCommit)) {
+          datePerTag.put(currentTagName, new Date(thisCommit.getCommitTime() * 1000L));
+        }
+        this.noteThatTheCommitWasMapped(tagPerCommitsHash, currentTagName, thisCommitHash);
+      }
+      if (thisCommit.getParents().length == 1) {
+        final RevCommit parent = thisCommit.getParents()[0];
+        if (this.notFirstIncludedCommit(from, to) && this.shouldInclude(parent)) {
+          to = parent;
+        } else {
+          break;
+        }
+      } else {
+        break;
+      }
+    } while (true);
+
     if (this.notFirstIncludedCommit(from, to)) {
       final Set<TraversalWork> work = new TreeSet<>();
       for (final RevCommit parent : thisCommit.getParents()) {
@@ -498,7 +513,8 @@ public class GitRepo implements Closeable {
   }
 
   private boolean shouldInclude(final RevCommit candidate) throws Exception {
-    // If we use a path filter we can't skip parent commits, as their grandparents might be included
+    // If we use a path filter we can't skip parent commits, as their grandparents
+    // might be included
     // again
     return this.hasPathFilter() || this.commitsToInclude.contains(candidate);
   }
@@ -541,9 +557,7 @@ public class GitRepo implements Closeable {
         merge);
   }
 
-  /**
-   * @param pathFilter use when filtering commits
-   */
+  /** @param pathFilter use when filtering commits */
   public void setTreeFilter(final String pathFilter) {
     this.pathFilter = pathFilter == null ? "" : pathFilter;
   }
