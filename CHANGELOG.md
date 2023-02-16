@@ -2,6 +2,12 @@
 
 Changelog of git-changelog-lib.
 
+## 1.168.8 (2023-02-16)
+
+### Bug Fixes
+
+-  parsing newest commits first ([55086](https://github.com/tomasbjerre/git-changelog-lib/commit/550868293a0456f) Tomas Bjerre)  [#147](https://github.com/tomasbjerre/git-changelog-lib/issues/147)  
+
 ## 1.168.7 (2023-01-04)
 
 ### Other changes
