@@ -2,6 +2,12 @@
 
 Changelog of git-changelog-lib.
 
+## 1.168.9 (2023-03-12)
+
+### Bug Fixes
+
+-  avoiding stuck execution ([0f5ec](https://github.com/tomasbjerre/git-changelog-lib/commit/0f5ec29ebe6e968) Tomas Bjerre)  [#95](https://github.com/tomasbjerre/git-changelog-lib/issues/95)  
+
 ## 1.168.8 (2023-02-16)
 
 ### Bug Fixes
