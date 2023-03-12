@@ -23,7 +23,6 @@ class TraversalWork implements Comparable<TraversalWork> {
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result = prime * result + ((this.currentTagName == null) ? 0 : this.currentTagName.hashCode());
     result = prime * result + ((this.to == null) ? 0 : this.to.hashCode());
     return result;
   }
@@ -40,13 +39,6 @@ class TraversalWork implements Comparable<TraversalWork> {
       return false;
     }
     final TraversalWork other = (TraversalWork) obj;
-    if (this.currentTagName == null) {
-      if (other.currentTagName != null) {
-        return false;
-      }
-    } else if (!this.currentTagName.equals(other.currentTagName)) {
-      return false;
-    }
     if (this.to == null) {
       if (other.to != null) {
         return false;
@@ -62,8 +54,7 @@ class TraversalWork implements Comparable<TraversalWork> {
     final int otherCommitTime = o.getTo().getCommitTime();
     final int compareTo = this.compareTo(this.to.getCommitTime(), otherCommitTime);
     if (compareTo == 0) {
-      return (this.to.getName() + this.currentTagName)
-          .compareTo(o.getTo().getName() + o.getCurrentTagName());
+      return (this.to.getName()).compareTo(o.getTo().getName());
     }
     return compareTo;
   }

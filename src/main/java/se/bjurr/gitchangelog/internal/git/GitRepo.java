@@ -21,6 +21,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
+
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.LogCommand;
 import org.eclipse.jgit.lib.AnyObjectId;
@@ -33,6 +34,7 @@ import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import se.bjurr.gitchangelog.api.GitChangelogApiConstants;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
@@ -437,44 +439,36 @@ public class GitRepo implements Closeable {
     final RevCommit thisCommit = this.revWalk.lookupCommit(to);
     this.revWalk.parseHeaders(thisCommit);
 
-    final PriorityQueue<TraversalWork> moreWork =
-        new PriorityQueue<>(
-            this.populateCommitPerTag(
-                from,
-                to,
-                commitsPerTag,
-                tagPerCommitHash,
-                tagPerCommitsHash,
-                datePerTag,
-                startingTagName));
-
-    while (!moreWork.isEmpty()) {
+    final PriorityQueue<TraversalWork> moreWork = new PriorityQueue<>();
+    moreWork.add(new TraversalWork(to, startingTagName));
+    do {
       final TraversalWork next = moreWork.remove();
-      moreWork.addAll(
-          this.populateCommitPerTag(
-              from,
-              next.getTo(),
-              commitsPerTag,
-              tagPerCommitHash,
-              tagPerCommitsHash,
-              datePerTag,
-              next.getCurrentTagName()));
+      this.populateCommitPerTag(
+          from,
+          next.getTo(),
+          commitsPerTag,
+          tagPerCommitHash,
+          tagPerCommitsHash,
+          datePerTag,
+          next.getCurrentTagName(),
+          moreWork);
       LOG.debug("Work left: " + moreWork.size());
-    }
+    } while (!moreWork.isEmpty());
   }
 
-  private Set<TraversalWork> populateCommitPerTag(
+  private void populateCommitPerTag(
       final RevCommit from,
       final RevCommit to,
       final Map<String, Set<GitCommit>> commitsPerTagName,
       final Map<String, Ref> tagPerCommitHash,
       final Map<String, String> tagPerCommitsHash,
       final Map<String, Date> datePerTag,
-      String currentTagName)
+      String currentTagName,
+      final PriorityQueue<TraversalWork> moreWork)
       throws Exception {
     final String thisCommitHash = to.getName();
     if (this.isMappedToAnotherTag(tagPerCommitsHash, thisCommitHash)) {
-      return new TreeSet<>();
+      return;
     }
     if (this.thisIsANewTag(tagPerCommitHash, thisCommitHash)) {
       currentTagName = this.getTagName(tagPerCommitHash, thisCommitHash);
@@ -486,16 +480,20 @@ public class GitRepo implements Closeable {
       this.noteThatTheCommitWasMapped(tagPerCommitsHash, currentTagName, thisCommitHash);
     }
     if (this.notFirstIncludedCommit(from, to)) {
-      final Set<TraversalWork> work = new TreeSet<>();
       for (final RevCommit parent : to.getParents()) {
         if (this.shouldInclude(parent)) {
           this.revWalk.parseHeaders(parent);
-          work.add(new TraversalWork(parent, currentTagName));
+          final TraversalWork work = new TraversalWork(parent, currentTagName);
+          if (moreWork.contains(work)) {
+        	  LOG.info("Removing "+work.getTo().getName());
+            moreWork.remove(work); // Remove work added from reference by a newer commit
+          }
+    	  LOG.info("Adding "+work.getTo().getName() + " tag: "+work.getCurrentTagName());
+          moreWork.add(work); // Add work from this older reference
         }
       }
-      return work;
     }
-    return new TreeSet<>();
+    return;
   }
 
   private boolean shouldInclude(final RevCommit candidate) throws Exception {
