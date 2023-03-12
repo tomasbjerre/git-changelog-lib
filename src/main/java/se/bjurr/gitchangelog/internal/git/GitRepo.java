@@ -21,7 +21,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.LogCommand;
 import org.eclipse.jgit.lib.AnyObjectId;
@@ -34,7 +33,6 @@ import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import se.bjurr.gitchangelog.api.GitChangelogApiConstants;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
@@ -485,10 +483,10 @@ public class GitRepo implements Closeable {
           this.revWalk.parseHeaders(parent);
           final TraversalWork work = new TraversalWork(parent, currentTagName);
           if (moreWork.contains(work)) {
-        	  LOG.info("Removing "+work.getTo().getName());
+            LOG.info("Removing " + work.getTo().getName());
             moreWork.remove(work); // Remove work added from reference by a newer commit
           }
-    	  LOG.info("Adding "+work.getTo().getName() + " tag: "+work.getCurrentTagName());
+          LOG.info("Adding " + work.getTo().getName() + " tag: " + work.getCurrentTagName());
           moreWork.add(work); // Add work from this older reference
         }
       }
