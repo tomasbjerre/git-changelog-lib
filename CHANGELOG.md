@@ -2,6 +2,12 @@
 
 Changelog of git-changelog-lib.
 
+## 1.168.10 (2023-03-12)
+
+### Bug Fixes
+
+-  reduce logging ([25c9c](https://github.com/tomasbjerre/git-changelog-lib/commit/25c9cb51cc77c24) Tomas Bjerre)  
+
 ## 1.168.9 (2023-03-12)
 
 ### Bug Fixes
