@@ -132,6 +132,9 @@ Has paragraphs: {{hash}}
 {{/commits}}
 
 
+## StringHelpers
+
+{{capitalizeFirst 'hello'}}
 
 ---------------------------------------------
 
@@ -681,6 +684,9 @@ This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.
 
 
 
+## StringHelpers
+
+Hello
 
 ---------------------------------------------
 

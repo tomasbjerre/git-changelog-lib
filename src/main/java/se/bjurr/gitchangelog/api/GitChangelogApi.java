@@ -12,6 +12,7 @@ import com.github.jknack.handlebars.Context;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Helper;
 import com.github.jknack.handlebars.Template;
+import com.github.jknack.handlebars.helper.StringHelpers;
 import com.github.jknack.handlebars.io.FileTemplateLoader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -62,6 +63,7 @@ public class GitChangelogApi {
     this.settings = new Settings();
     this.handlebars = new Handlebars();
     this.handlebars.setPrettyPrint(true);
+    this.handlebars.registerHelpers(StringHelpers.class);
     for (final Entry<String, Helper<?>> helper : Helpers.ALL.entrySet()) {
       this.handlebars.registerHelper(helper.getKey(), helper.getValue());
     }
