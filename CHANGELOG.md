@@ -2,6 +2,12 @@
 
 Changelog of git-changelog-lib.
 
+## 1.169.0 (2023-04-22)
+
+### Features
+
+-  stringHelpers ([1a6ba](https://github.com/tomasbjerre/git-changelog-lib/commit/1a6bae0968e2d85) Tomas Bjerre)  [#148](https://github.com/tomasbjerre/git-changelog-lib/issues/148)  
+
 ## 1.168.10 (2023-03-12)
 
 ### Bug Fixes
