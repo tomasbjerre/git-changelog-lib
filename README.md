@@ -7,7 +7,7 @@ This is a library that can:
 - Generate a changelog, or releasenotes, from a GIT repository.
 - Determine next version, based on format of commits since last release.
 
-It is fully configurable with a [Mustache (Handlebars)](https://github.com/jknack/handlebars.java) template and [helpers](#Helpers).
+It is fully configurable with a [Mustache (Handlebars)](https://github.com/jknack/handlebars.java) template filled with a [context of placeholders](#Context) and [helpers](#Helpers).
 
 The changelog can:
 
@@ -446,15 +446,16 @@ Works just like [Java substring](<https://docs.oracle.com/javase/7/docs/api/java
 
 ## Context
 
-The template is supplied with this context:
+The template is supplied with this context of prepopulated mustache/handlebars variables:
 
 <details><summary>Click here to show context</summary>
 <p>
 
 ```
-- ownerName (Derived from the clone URL, for this repo it would be "tomasbjerre")
-- repoName (Derived from the clone URL, for this repo it would be "git-changelog-lib")
-- urlParts (Derived from the clone URL, for this repo it would be [git-changelog-lib, tomasbjerre, git@github.com])
+(ownerName, repoName, urlParts - derived from the clone URL, git remote origin MUST BE SET)
+- ownerName (for this repo it would be "tomasbjerre")
+- repoName (for this repo it would be "git-changelog-lib")
+- urlParts (for this repo it would be [git-changelog-lib, tomasbjerre, git@github.com])
 * commits
  - authorName
  - authorEmailAddress
