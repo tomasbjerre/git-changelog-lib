@@ -4,17 +4,35 @@ template:
 
 Changelog of Git Changelog.
 
-{{#authors}}
-* {{authorName}}
- {{#commits}}
-
-[{{hash}}](https://server/{{hash}}) {{authorName}} *{{commitTime}}*
-
-{{{message}}}
-
- {{/commits}}
-
-{{/authors}}
+{{#issues}}
+  {{#additionalFields.customfield_10000}}
+## {{name}} {{title}} {{additionalFields.customfield_10000}} has customfield_10000
+  {{/additionalFields.customfield_10000}}
+  {{^additionalFields.customfield_10000}}
+## {{name}} {{title}} {{additionalFields.customfield_10000}} does not have customfield_10000
+  {{/additionalFields.customfield_10000}}
+  {{#additionalFields.customfield_10001}}
+## {{name}} {{title}} has customfield_10001
+  {{/additionalFields.customfield_10001}}
+  {{^additionalFields.customfield_10001}}
+## {{name}} {{title}} does not have customfield_10001
+  {{/additionalFields.customfield_10001}}
+  {{#additionalFields.customfield_10002}}
+## {{name}} {{title}} has customfield_10002
+  {{/additionalFields.customfield_10002}}
+  {{^additionalFields.customfield_10002}}
+## {{name}} {{title}} does not have customfield_10002
+  {{/additionalFields.customfield_10002}}
+  {{#hasAdditionalFields}}
+### We have additional fields
+  {{/hasAdditionalFields}}  
+  {{^hasAdditionalFields}}
+### We do not have additional fields
+  {{/hasAdditionalFields}}
+  {{#each additionalFields}}
+#### for key "{{@key}}" we have value "{{this}}"
+  {{/each}}
+{{/issues}}
 
 ---------------------------------------------
 
@@ -27,7 +45,7 @@ settings:
   "ignoreTagsIfNameMatches": ".*tag-in-test-feature$",
   "ignoreCommitsIfMessageMatches": "^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*",
   "untaggedName": "No tag",
-  "templatePath": "templatetest/testAuthorsCommits.mustache",
+  "templatePath": "templatetest/testIssueAdditionalField.mustache",
   "readableTagName": "/([^/]+?)$",
   "dateFormat": "YYYY-MM-dd HH:mm:ss",
   "noIssueName": "No issue supplied",
@@ -36,6 +54,10 @@ settings:
   "jiraEnabled": true,
   "jiraServer": "https://jiraserver/jira",
   "jiraIssuePattern": "\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b",
+  "jiraIssueAdditionalFields": [
+    "customfield_10000",
+    "customfield_10002"
+  ],
   "jiraUsername": "user",
   "jiraPassword": "code",
   "redmineEnabled": true,
@@ -80,86 +102,44 @@ changelog:
 
 Changelog of Git Changelog.
 
-* Tomas Bjerre
-
-[8371342ad0d887d](https://server/8371342ad0d887d) Tomas Bjerre *2016-04-06 18:40:51*
-
-Some stuff in test again
-
-
-[090e7f4b11223c4](https://server/090e7f4b11223c4) Tomas Bjerre *2016-04-06 15:13:04*
-
-Some stuff in test-feature
-
-
-[c5d37f5e964afd5](https://server/c5d37f5e964afd5) Tomas Bjerre *2016-04-06 15:12:12*
-
-some stuff in test branch
-
-
-[87c0d7288896171](https://server/87c0d7288896171) Tomas Bjerre *2016-03-19 20:32:32*
-
-Multiple issues
-
-
-[20e333f8e108f77](https://server/20e333f8e108f77) Tomas Bjerre *2016-03-19 20:32:19*
-
-More stuff tagged with  twice
-
-
-[d50a3e332f9fcba](https://server/d50a3e332f9fcba) Tomas Bjerre *2016-02-15 16:30:35*
-
-Adding stuff  gh 12
-
-
-[cc0fbbd8bc63955](https://server/cc0fbbd8bc63955) Tomas Bjerre *2016-02-15 16:30:35*
-
-Adding stuff with a jira
-
-
-[a9bd03b34b255ff](https://server/a9bd03b34b255ff) Tomas Bjerre *2016-02-15 16:30:35*
-
-Adding cq stuff with CQ
-
-
-[5607ea23fa8aaf7](https://server/5607ea23fa8aaf7) Tomas Bjerre *2016-02-15 16:30:35*
-
-Adding stuff
- with gh again
-
-
-[3f62b35d1317311](https://server/3f62b35d1317311) Tomas Bjerre *2016-02-15 16:30:35*
-
-This is 1.0 tagged commit
-
-
-[071a14f29020758](https://server/071a14f29020758) Tomas Bjerre *2016-02-15 16:12:02*
-
-Adding stuff with a jira
-
-
-[7cd30508cecdc5b](https://server/7cd30508cecdc5b) Tomas Bjerre *2016-02-15 16:09:35*
-
-Adding stuff without issue
-
-
-[a1aa5ff5b625e63](https://server/a1aa5ff5b625e63) Tomas Bjerre *2015-11-12 05:29:31*
-
-Initial commit
-
-
-* T B
-
-[71d845c18924504](https://server/71d845c18924504) T B *2016-02-15 16:30:25*
-
-Adding stuff, no issue
-
-
-[326d4d01c0a9415](https://server/326d4d01c0a9415) T B *2016-02-15 16:11:12*
-
-Adding stuff with gh 20
-
-
+## Bugs Mixed bugs  does not have customfield_10000
+## Bugs Mixed bugs does not have customfield_10001
+## Bugs Mixed bugs does not have customfield_10002
+### We do not have additional fields
+## CQ 1234  does not have customfield_10000
+## CQ 1234 does not have customfield_10001
+## CQ 1234 does not have customfield_10002
+### We do not have additional fields
+## GitHub Strange chars in PULL_REQUEST_URL  does not have customfield_10000
+## GitHub Strange chars in PULL_REQUEST_URL does not have customfield_10001
+## GitHub Strange chars in PULL_REQUEST_URL does not have customfield_10002
+### We do not have additional fields
+## GitHub Parameterized Jenkins&#x27; job error  does not have customfield_10000
+## GitHub Parameterized Jenkins&#x27; job error does not have customfield_10001
+## GitHub Parameterized Jenkins&#x27; job error does not have customfield_10002
+### We do not have additional fields
+## GitHub Enable  configuration in per-repository hook screen  does not have customfield_10000
+## GitHub Enable  configuration in per-repository hook screen does not have customfield_10001
+## GitHub Enable  configuration in per-repository hook screen does not have customfield_10002
+### We do not have additional fields
+## GitHub   does not have customfield_10000
+## GitHub  does not have customfield_10001
+## GitHub  does not have customfield_10002
+### We do not have additional fields
+## Jira Title of jira 1234 Custom Field 10000 for jira 1234 has customfield_10000
+## Jira Title of jira 1234 does not have customfield_10001
+## Jira Title of jira 1234 does not have customfield_10002
+### We have additional fields
+#### for key "customfield_10000" we have value "Custom Field 10000 for jira 1234"
+## Jira The Title of jira 5262 Custom Field 10000 for jira 5262 has customfield_10000
+## Jira The Title of jira 5262 does not have customfield_10001
+## Jira The Title of jira 5262 does not have customfield_10002
+### We have additional fields
+#### for key "customfield_10000" we have value "Custom Field 10000 for jira 5262"
+## No issue supplied   does not have customfield_10000
+## No issue supplied  does not have customfield_10001
+## No issue supplied  does not have customfield_10002
+### We do not have additional fields
 
 
 ---------------------------------------------
@@ -724,8 +704,10 @@ context:
           "hasLinkedIssues": false,
           "issueType": "JIRA",
           "linkedIssues": [],
-          "hasAdditionalFields": false,
-          "additionalFields": {}
+          "hasAdditionalFields": true,
+          "additionalFields": {
+            "customfield_10000": "Custom Field 10000 for jira 1234"
+          }
         },
         {
           "commits": [
@@ -1084,8 +1066,10 @@ context:
               "hasLinkedIssues": false,
               "issueType": "JIRA",
               "linkedIssues": [],
-              "hasAdditionalFields": false,
-              "additionalFields": {}
+              "hasAdditionalFields": true,
+              "additionalFields": {
+                "customfield_10000": "Custom Field 10000 for jira 1234"
+              }
             }
           ],
           "type": "JIRA"
@@ -1623,8 +1607,10 @@ context:
             "JIRSD-490",
             "JIRSD-567"
           ],
-          "hasAdditionalFields": false,
-          "additionalFields": {}
+          "hasAdditionalFields": true,
+          "additionalFields": {
+            "customfield_10000": "Custom Field 10000 for jira 5262"
+          }
         },
         {
           "commits": [
@@ -1883,8 +1869,10 @@ context:
                 "JIRSD-490",
                 "JIRSD-567"
               ],
-              "hasAdditionalFields": false,
-              "additionalFields": {}
+              "hasAdditionalFields": true,
+              "additionalFields": {
+                "customfield_10000": "Custom Field 10000 for jira 5262"
+              }
             }
           ],
           "type": "JIRA"
@@ -2679,8 +2667,10 @@ context:
       "hasLinkedIssues": false,
       "issueType": "JIRA",
       "linkedIssues": [],
-      "hasAdditionalFields": false,
-      "additionalFields": {}
+      "hasAdditionalFields": true,
+      "additionalFields": {
+        "customfield_10000": "Custom Field 10000 for jira 1234"
+      }
     },
     {
       "commits": [
@@ -2732,8 +2722,10 @@ context:
         "JIRSD-490",
         "JIRSD-567"
       ],
-      "hasAdditionalFields": false,
-      "additionalFields": {}
+      "hasAdditionalFields": true,
+      "additionalFields": {
+        "customfield_10000": "Custom Field 10000 for jira 5262"
+      }
     },
     {
       "commits": [
@@ -3308,8 +3300,10 @@ context:
           "hasLinkedIssues": false,
           "issueType": "JIRA",
           "linkedIssues": [],
-          "hasAdditionalFields": false,
-          "additionalFields": {}
+          "hasAdditionalFields": true,
+          "additionalFields": {
+            "customfield_10000": "Custom Field 10000 for jira 1234"
+          }
         },
         {
           "commits": [
@@ -3361,8 +3355,10 @@ context:
             "JIRSD-490",
             "JIRSD-567"
           ],
-          "hasAdditionalFields": false,
-          "additionalFields": {}
+          "hasAdditionalFields": true,
+          "additionalFields": {
+            "customfield_10000": "Custom Field 10000 for jira 5262"
+          }
         }
       ],
       "type": "JIRA"

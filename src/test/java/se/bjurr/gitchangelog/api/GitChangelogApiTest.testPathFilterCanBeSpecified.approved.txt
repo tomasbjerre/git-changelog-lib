@@ -1225,7 +1225,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -1296,7 +1298,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -1386,7 +1390,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -1439,7 +1445,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -1635,7 +1643,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -1721,7 +1731,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -1794,7 +1806,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -1886,7 +1900,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -2026,7 +2042,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -2103,7 +2121,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -2193,7 +2213,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -2246,7 +2268,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -2336,7 +2360,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -2389,7 +2415,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -2477,7 +2505,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -2528,7 +2558,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -2664,7 +2696,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -2736,7 +2770,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -2789,7 +2825,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -2867,7 +2905,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -2955,7 +2995,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -3006,7 +3048,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -3096,7 +3140,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -3149,7 +3195,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -3241,7 +3289,9 @@ context:
           "hasLabels": true,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -3296,7 +3346,9 @@ context:
               "hasLabels": true,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -3412,7 +3464,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -3458,7 +3512,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -3511,7 +3567,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -3563,7 +3621,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -3653,7 +3713,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -3706,7 +3768,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -3816,7 +3880,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -3862,7 +3928,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -3915,7 +3983,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -3967,7 +4037,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -4055,7 +4127,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -4106,7 +4180,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -4216,7 +4292,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -4262,7 +4340,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -4315,7 +4395,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -4367,7 +4449,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -4495,7 +4579,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -4566,7 +4652,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -4656,7 +4744,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -4709,7 +4799,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -4799,7 +4891,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -4852,7 +4946,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -4940,7 +5036,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -4991,7 +5089,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -5079,7 +5179,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -5130,7 +5232,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -5218,7 +5322,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -5269,7 +5375,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -5359,7 +5467,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -5405,7 +5515,8 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "JIRA"
+          "issueType": "JIRA",
+          "hasAdditionalFields": false
         }
       ],
       "issueTypes": [
@@ -5458,7 +5569,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -5510,7 +5623,8 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "JIRA"
+              "issueType": "JIRA",
+              "hasAdditionalFields": false
             }
           ],
           "type": "JIRA"
@@ -5598,7 +5712,8 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "JIRA"
+          "issueType": "JIRA",
+          "hasAdditionalFields": false
         }
       ],
       "issueTypes": [
@@ -5649,7 +5764,8 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "JIRA"
+              "issueType": "JIRA",
+              "hasAdditionalFields": false
             }
           ],
           "type": "JIRA"
@@ -5737,7 +5853,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -5788,7 +5906,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -5880,7 +6000,9 @@ context:
           "hasLabels": true,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -5935,7 +6057,9 @@ context:
               "hasLabels": true,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -6027,7 +6151,9 @@ context:
           "hasLabels": true,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -6082,7 +6208,9 @@ context:
               "hasLabels": true,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -6174,7 +6302,9 @@ context:
           "hasLabels": true,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -6229,7 +6359,9 @@ context:
               "hasLabels": true,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -6317,7 +6449,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -6368,7 +6502,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -6458,7 +6594,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -6511,7 +6649,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -6701,7 +6841,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -6749,7 +6891,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -6815,7 +6959,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -6888,7 +7034,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             },
             {
               "commits": [
@@ -6936,7 +7084,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -7008,7 +7158,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -7096,7 +7248,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -7147,7 +7301,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -7235,7 +7391,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -7286,7 +7444,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -7396,7 +7556,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -7442,7 +7604,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -7495,7 +7659,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -7547,7 +7713,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -7663,7 +7831,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -7711,7 +7881,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -7759,7 +7931,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -7812,7 +7986,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             },
             {
               "commits": [
@@ -7860,7 +8036,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             },
             {
               "commits": [
@@ -7908,7 +8086,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -8018,7 +8198,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -8064,7 +8246,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -8117,7 +8301,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -8169,7 +8355,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -8257,7 +8445,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -8308,7 +8498,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -8396,7 +8588,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -8447,7 +8641,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -8535,7 +8731,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -8586,7 +8784,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -8674,7 +8874,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -8725,7 +8927,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -8813,7 +9017,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -8864,7 +9070,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -8994,7 +9202,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -9067,7 +9277,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -9157,7 +9369,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -9210,7 +9424,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -9338,7 +9554,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -9409,7 +9627,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -9577,7 +9797,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -9668,7 +9890,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -9756,7 +9980,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -9807,7 +10033,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -9975,7 +10203,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -10066,7 +10296,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -10156,7 +10388,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -10209,7 +10443,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -10297,7 +10533,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -10348,7 +10586,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -10436,7 +10676,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -10487,7 +10729,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -10575,7 +10819,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -10626,7 +10872,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -10714,7 +10962,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -10765,7 +11015,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -10853,7 +11105,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -10904,7 +11158,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -10992,7 +11248,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -11043,7 +11301,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -11153,7 +11413,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -11201,7 +11463,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -11254,7 +11518,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             },
             {
               "commits": [
@@ -11302,7 +11568,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -11390,7 +11658,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -11441,7 +11711,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -11529,7 +11801,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -11580,7 +11854,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -11708,7 +11984,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -11779,7 +12057,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -11867,7 +12147,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -11918,7 +12200,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -12006,7 +12290,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -12057,7 +12343,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -12185,7 +12473,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -12256,7 +12546,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -12344,7 +12636,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -12395,7 +12689,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -12505,7 +12801,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -12551,7 +12849,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -12604,7 +12904,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -12656,7 +12958,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -12746,7 +13050,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -12799,7 +13105,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -12929,7 +13237,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -12995,7 +13305,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -13048,7 +13360,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -13120,7 +13434,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -13368,7 +13684,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -13499,7 +13817,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -13667,7 +13987,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -13758,7 +14080,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -13845,7 +14169,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -13896,7 +14222,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -15043,7 +15371,9 @@ context:
       "hasLabels": false,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -15091,7 +15421,9 @@ context:
       "hasLabels": false,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -15179,7 +15511,9 @@ context:
       "hasLabels": false,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -15227,7 +15561,9 @@ context:
       "hasLabels": false,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -15275,7 +15611,9 @@ context:
       "hasLabels": false,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -15343,7 +15681,9 @@ context:
       "hasLabels": false,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -15431,7 +15771,9 @@ context:
       "hasLabels": false,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -15499,7 +15841,9 @@ context:
       "hasLabels": false,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -15547,7 +15891,9 @@ context:
       "hasLabels": false,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -15637,7 +15983,9 @@ context:
       "hasLabels": true,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -15685,7 +16033,9 @@ context:
       "hasLabels": false,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -15753,7 +16103,9 @@ context:
       "hasLabels": false,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -15821,7 +16173,9 @@ context:
       "hasLabels": false,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -15869,7 +16223,9 @@ context:
       "hasLabels": false,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -15917,7 +16273,9 @@ context:
       "hasLabels": false,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -15965,7 +16323,9 @@ context:
       "hasLabels": false,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -16015,7 +16375,9 @@ context:
       "hasLabels": true,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -16063,7 +16425,9 @@ context:
       "hasLabels": false,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -16111,7 +16475,9 @@ context:
       "hasLabels": false,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -16159,7 +16525,9 @@ context:
       "hasLabels": false,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -16207,7 +16575,9 @@ context:
       "hasLabels": false,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -16275,7 +16645,9 @@ context:
       "hasLabels": false,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -16323,7 +16695,9 @@ context:
       "hasLabels": false,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -16391,7 +16765,9 @@ context:
       "hasLabels": false,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -16437,7 +16813,8 @@ context:
       "description": "",
       "hasLabels": false,
       "hasLinkedIssues": false,
-      "issueType": "JIRA"
+      "issueType": "JIRA",
+      "hasAdditionalFields": false
     },
     {
       "commits": [
@@ -16483,7 +16860,8 @@ context:
       "description": "",
       "hasLabels": false,
       "hasLinkedIssues": false,
-      "issueType": "JIRA"
+      "issueType": "JIRA",
+      "hasAdditionalFields": false
     },
     {
       "commits": [
@@ -17913,7 +18291,9 @@ context:
       "description": "",
       "hasLabels": false,
       "hasLinkedIssues": false,
-      "issueType": "NOISSUE"
+      "issueType": "NOISSUE",
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     }
   ],
   "issueTypes": [
@@ -17966,7 +18346,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -18014,7 +18396,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -18102,7 +18486,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -18150,7 +18536,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -18198,7 +18586,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -18266,7 +18656,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -18354,7 +18746,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -18422,7 +18816,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -18470,7 +18866,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -18560,7 +18958,9 @@ context:
           "hasLabels": true,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -18608,7 +19008,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -18676,7 +19078,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -18744,7 +19148,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -18792,7 +19198,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -18840,7 +19248,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -18888,7 +19298,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -18938,7 +19350,9 @@ context:
           "hasLabels": true,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -18986,7 +19400,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -19034,7 +19450,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -19082,7 +19500,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -19130,7 +19550,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -19198,7 +19620,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -19246,7 +19670,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -19314,7 +19740,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "type": "GITHUB"
@@ -19366,7 +19794,8 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "JIRA"
+          "issueType": "JIRA",
+          "hasAdditionalFields": false
         },
         {
           "commits": [
@@ -19412,7 +19841,8 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "JIRA"
+          "issueType": "JIRA",
+          "hasAdditionalFields": false
         }
       ],
       "type": "JIRA"
@@ -20848,7 +21278,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "type": "NOISSUE"

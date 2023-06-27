@@ -27,6 +27,11 @@ import se.bjurr.gitchangelog.internal.integrations.rest.RestClientMock;
 import se.bjurr.gitchangelog.test.ApprovalsWrapper;
 
 public class GitChangelogApiTest {
+
+  private static final String JIRA_ISSUE_FIELDS =
+      "fields=parent,summary,issuetype,labels,description,issuelinks";
+  private static final String JIRA_BASE_PATH = "/jira/rest/api/2";
+
   private RestClientMock mockedRestClient;
   private GitHubMockInterceptor gitHubMockInterceptor;
 
@@ -44,14 +49,14 @@ public class GitChangelogApiTest {
                     Paths.get(TemplatesTest.class.getResource("/github-issues.json").toURI())),
                 UTF_8)) //
         .addMockedResponse(
-            "/jira/rest/api/2/issue/JIR-1234?fields=parent,summary,issuetype,labels,description,issuelinks",
+            JIRA_BASE_PATH + "/issue/JIR-1234?" + JIRA_ISSUE_FIELDS,
             new String(
                 Files.readAllBytes(
                     Paths.get(
                         TemplatesTest.class.getResource("/jira-issue-jir-1234.json").toURI())),
                 UTF_8)) //
         .addMockedResponse(
-            "/jira/rest/api/2/issue/JIR-5262?fields=parent,summary,issuetype,labels,description,issuelinks",
+            JIRA_BASE_PATH + "/issue/JIR-5262?" + JIRA_ISSUE_FIELDS,
             new String(
                 Files.readAllBytes(
                     Paths.get(

@@ -213,7 +213,8 @@ public class Transformer {
                 candidate.getTitle().orElse(null),
                 candidate.getIssueType(),
                 candidate.getLinkedIssues(),
-                candidate.getLabels());
+                candidate.getLabels(),
+                candidate.getAdditionalFields());
         parsedIssue.addCommits(candidateCommits);
         parsedIssues.add(parsedIssue);
       }
@@ -246,7 +247,8 @@ public class Transformer {
         input.getLink(), //
         input.getIssueType(), //
         input.getLinkedIssues(), //
-        input.getLabels());
+        input.getLabels(),
+        input.getAdditionalFields());
   }
 
   private String removeIssuesFromString(

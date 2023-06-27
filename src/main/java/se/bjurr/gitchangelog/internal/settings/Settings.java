@@ -142,6 +142,8 @@ public class Settings implements Serializable {
    * <code>\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b</code>
    */
   private String jiraIssuePattern;
+  /** Additional fields to load for the issues. */
+  private List<String> jiraIssueAdditionalFields;
   /** Authenticate to JIRA. */
   private String jiraUsername;
   /** Authenticate to JIRA. */
@@ -686,5 +688,24 @@ public class Settings implements Serializable {
 
   public Charset getEncoding() {
     return Charset.forName(this.encoding);
+  }
+
+  public List<String> getJiraIssueAdditionalFields() {
+    if (this.jiraIssueAdditionalFields == null) {
+      return new ArrayList<>();
+    } else {
+      return this.jiraIssueAdditionalFields;
+    }
+  }
+
+  public void setJiraIssueAdditionalFields(final List<String> jiraIssueAdditionalFields) {
+    this.jiraIssueAdditionalFields = jiraIssueAdditionalFields;
+  }
+
+  public void addJiraIssueAdditionalField(final String jiraIssueAdditionalField) {
+    if (this.jiraIssueAdditionalFields == null) {
+      this.jiraIssueAdditionalFields = new ArrayList<>();
+    }
+    this.jiraIssueAdditionalFields.add(jiraIssueAdditionalField);
   }
 }

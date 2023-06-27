@@ -211,7 +211,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "CUSTOM"
+          "issueType": "CUSTOM",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -262,7 +264,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "CUSTOM"
+              "issueType": "CUSTOM",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "CUSTOM"
@@ -350,7 +354,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "CUSTOM"
+          "issueType": "CUSTOM",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -401,7 +407,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "CUSTOM"
+              "issueType": "CUSTOM",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "CUSTOM"
@@ -486,7 +494,9 @@ context:
       "description": "",
       "hasLabels": false,
       "hasLinkedIssues": false,
-      "issueType": "CUSTOM"
+      "issueType": "CUSTOM",
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -532,7 +542,9 @@ context:
       "description": "",
       "hasLabels": false,
       "hasLinkedIssues": false,
-      "issueType": "CUSTOM"
+      "issueType": "CUSTOM",
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     }
   ],
   "issueTypes": [
@@ -583,7 +595,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "CUSTOM"
+          "issueType": "CUSTOM",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -629,7 +643,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "CUSTOM"
+          "issueType": "CUSTOM",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "type": "CUSTOM"

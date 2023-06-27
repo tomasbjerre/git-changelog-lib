@@ -514,6 +514,20 @@ public class GitChangelogApi {
   }
 
   /**
+   * Additional Fields for Jira. When configured, we will return from Jira the results of these
+   * fields, if they exist.<br>
+   * <code>"customfield_10000"</code><br>
+   * <br>
+   * <code>
+   * /rest/api/2/issue/JIR-1234?fields=parent,summary,issuetype,labels,description,issuelinks,customfield_10000
+   * </code>
+   */
+  public GitChangelogApi withJiraIssueAdditionalField(final String field) {
+    this.settings.addJiraIssueAdditionalField(field);
+    return this;
+  }
+
+  /**
    * This is a "virtual issue" that is added to {@link Changelog#getIssues()}. It contains all
    * commits that has no issue in the commit comment. This could be used as a "wall of shame"
    * listing commiters that did not tag there commits with an issue.
