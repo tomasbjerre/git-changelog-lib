@@ -174,7 +174,7 @@ public class IssueParser {
   private JiraClient createJiraClient() {
     JiraClient jiraClient = null;
     if (this.settings.getJiraServer().isPresent()) {
-      jiraClient = JiraClientFactory.createJiraClient(this.settings.getJiraServer().get());
+      jiraClient = JiraClientFactory.createJiraClient(settings);
       if (this.settings.getJiraUsername().isPresent()) {
         jiraClient.withBasicCredentials(
             this.settings.getJiraUsername().get(), this.settings.getJiraPassword().get());
@@ -185,6 +185,9 @@ public class IssueParser {
       }
       if (this.settings.getExtendedRestHeaders() != null) {
         jiraClient.withHeaders(this.settings.getExtendedRestHeaders());
+      }
+      if (settings.getJiraIssueFieldsFilter() != null && !settings.getJiraIssueFieldsFilter().isEmpty()) {
+        jiraClient.withAdditionalFields(settings.getJiraIssueFieldsFilter());
       }
     }
     return jiraClient;

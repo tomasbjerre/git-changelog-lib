@@ -1,5 +1,7 @@
 package se.bjurr.gitchangelog.internal.integrations.jira;
 
+import se.bjurr.gitchangelog.internal.settings.Settings;
+
 public class JiraClientFactory {
 
   private static JiraClient jiraClient;
@@ -13,10 +15,14 @@ public class JiraClientFactory {
     JiraClientFactory.jiraClient = jiraClient;
   }
 
-  public static JiraClient createJiraClient(final String apiUrl) {
+  public static JiraClient createJiraClient(Settings settings) {
     if (jiraClient != null) {
       return jiraClient;
     }
-    return new DefaultJiraClient(apiUrl);
+    if (!settings.getJiraIssueFieldsFilter().isEmpty()) {
+      return new JqlSearchJiraClient(settings.getJiraServer().get());
+    } else {
+      return new DefaultJiraClient(settings.getJiraServer().get());
+    }
   }
 }

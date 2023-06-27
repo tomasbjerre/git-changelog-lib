@@ -513,6 +513,12 @@ public class GitChangelogApi {
     return this;
   }
 
+  /** Additional Filter Fields for Jira. */
+  public GitChangelogApi withJiraIssueFieldsFilter(Map map) {
+    this.settings.setJiraIssueFieldsFilter(map);
+    return this;
+  }
+
   /**
    * This is a "virtual issue" that is added to {@link Changelog#getIssues()}. It contains all
    * commits that has no issue in the commit comment. This could be used as a "wall of shame"
