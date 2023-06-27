@@ -146,7 +146,9 @@ public class Settings implements Serializable {
    * Additional fields to filter the issues.<br>
    * if this is used, Jira's search-API is used instead of issues-API <br>
    */
-  private Map<String, String> jiraIssueFieldsFilter = new HashMap<>();
+  private List<SettingsJiraIssueFieldFilter> jiraIssueFieldFilters;
+  /** Additional fields to load for the issues. */
+  private List<String> jiraIssueAdditionalFields;
   /** Authenticate to JIRA. */
   private String jiraUsername;
   /** Authenticate to JIRA. */
@@ -693,11 +695,42 @@ public class Settings implements Serializable {
     return Charset.forName(this.encoding);
   }
 
-  public Map<String, String> getJiraIssueFieldsFilter() {
-    return jiraIssueFieldsFilter;
+  public List<SettingsJiraIssueFieldFilter> getJiraIssueFieldFilters() {
+    if (this.jiraIssueFieldFilters == null) {
+      return new ArrayList<>();
+    } else {
+      return this.jiraIssueFieldFilters;
+    }
   }
 
-  public void setJiraIssueFieldsFilter(Map<String, String> jiraIssueFieldsFilter) {
-    this.jiraIssueFieldsFilter = jiraIssueFieldsFilter;
+  public void setJiraIssueFieldFilters(final List<SettingsJiraIssueFieldFilter> jiraIssueFieldFilters) {
+    this.jiraIssueFieldFilters = jiraIssueFieldFilters;
+  }
+
+  public void addJiraIssueFieldFilter(final SettingsJiraIssueFieldFilter jiraIssueFieldFilter) {
+    if (this.jiraIssueFieldFilters == null) {
+      this.jiraIssueFieldFilters = new ArrayList<>();
+    }
+    this.jiraIssueFieldFilters.add(jiraIssueFieldFilter);
+  }
+
+
+  public List<String> getJiraIssueAdditionalFields() {
+    if (this.jiraIssueAdditionalFields == null) {
+      return new ArrayList<>();
+    } else {
+      return this.jiraIssueAdditionalFields;
+    }
+  }
+
+  public void setJiraIssueAdditionalFields(final List<String> jiraIssueAdditionalFields) {
+    this.jiraIssueAdditionalFields = jiraIssueAdditionalFields;
+  }
+
+  public void addJiraIssueAdditionalField(final String jiraIssueAdditionalField) {
+    if (this.jiraIssueAdditionalFields == null) {
+      this.jiraIssueAdditionalFields = new ArrayList<>();
+    }
+    this.jiraIssueAdditionalFields.add(jiraIssueAdditionalField);
   }
 }

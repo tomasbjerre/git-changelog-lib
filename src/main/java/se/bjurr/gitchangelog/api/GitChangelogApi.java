@@ -46,6 +46,7 @@ import se.bjurr.gitchangelog.internal.semantic.SemanticVersion;
 import se.bjurr.gitchangelog.internal.semantic.SemanticVersioning;
 import se.bjurr.gitchangelog.internal.settings.Settings;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
+import se.bjurr.gitchangelog.internal.settings.SettingsJiraIssueFieldFilter;
 import se.bjurr.gitchangelog.internal.util.ResourceLoader;
 
 public class GitChangelogApi {
@@ -514,8 +515,9 @@ public class GitChangelogApi {
   }
 
   /** Additional Filter Fields for Jira. */
-  public GitChangelogApi withJiraIssueFieldsFilter(Map map) {
-    this.settings.setJiraIssueFieldsFilter(map);
+  public GitChangelogApi withJiraIssueFieldsFilter(
+      final String operator, final String key, final String value) {
+    this.settings.addJiraIssueFieldFilter(new SettingsJiraIssueFieldFilter(operator, key, value));
     return this;
   }
 

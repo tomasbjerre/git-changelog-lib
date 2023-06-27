@@ -5,6 +5,7 @@ import static se.bjurr.gitchangelog.internal.util.Preconditions.emptyToNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.model.interfaces.IGitCommitReferer;
@@ -21,6 +22,7 @@ public class ParsedIssue implements IGitCommitReferer {
   private final List<String> labels;
   private final String description;
   private final SettingsIssueType settingsIssueType;
+  private final Map<String, Object> additionalFields;
 
   public ParsedIssue(
       final SettingsIssueType settingsIssueType,
@@ -31,7 +33,8 @@ public class ParsedIssue implements IGitCommitReferer {
       final String title,
       final String issueType,
       final List<String> linkedIssues,
-      final List<String> labels) {
+      final List<String> labels,
+      final Map<String, Object> additionalFields) {
     this.name = checkNotNull(name, "name");
     this.title = emptyToNull(title);
     this.issue = issue;
@@ -41,6 +44,7 @@ public class ParsedIssue implements IGitCommitReferer {
     this.linkedIssues = linkedIssues;
     this.labels = labels;
     this.description = description;
+    this.additionalFields = additionalFields;
   }
 
   public SettingsIssueType getSettingsIssueType() {
@@ -116,5 +120,9 @@ public class ParsedIssue implements IGitCommitReferer {
 
   public List<String> getLinkedIssues() {
     return this.linkedIssues;
+  }
+
+  public Map<String, Object> getAdditionalFields() {
+    return this.additionalFields;
   }
 }

@@ -4,6 +4,7 @@ import com.github.jknack.handlebars.Options;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -161,6 +162,16 @@ public class ConventionalCommitParser {
   public static boolean issueType(final String issueType, final Options options) {
     final String type = options.hash("type").toString();
     return issueType.matches(type);
+  }
+
+  public static boolean issueHasAdditionalField(final Map<String, Object> additionalFields, final Options options) {
+    final String key = options.hash("key").toString();
+    return additionalFields.containsKey(key);
+  }
+
+  public static Object issueAdditionalField(final Map<String, Object> additionalFields, final Options options) {
+    final String key = options.hash("key").toString();
+    return additionalFields.getOrDefault(key, null);
   }
 
   public static boolean commitType(final String commitMessage, final Options options) {

@@ -13,6 +13,8 @@ import static se.bjurr.gitchangelog.internal.util.Preconditions.nullToEmpty;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
+
 import se.bjurr.gitchangelog.api.model.interfaces.IAuthors;
 import se.bjurr.gitchangelog.api.model.interfaces.ICommits;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssueType;
@@ -55,6 +57,9 @@ public class Issue implements ICommits, IAuthors, Serializable {
   private final SettingsIssueType issueType;
   private final List<String> linkedIssues;
 
+  private final boolean hasAdditionalFields;
+  private final Map<String, Object> additionalFields;
+
   public Issue(
       final List<Commit> commits,
       final List<Author> authors,
@@ -66,7 +71,8 @@ public class Issue implements ICommits, IAuthors, Serializable {
       final String link,
       final String type,
       final List<String> linkedIssues,
-      final List<String> labels) {
+      final List<String> labels,
+      final Map<String, Object> additionalFields) {
     checkState(!commits.isEmpty(), "commits");
     this.commits = commits;
     this.authors = checkNotNull(authors, "authors");
@@ -86,6 +92,8 @@ public class Issue implements ICommits, IAuthors, Serializable {
     this.hasLinkedIssues = linkedIssues != null && !linkedIssues.isEmpty();
     this.linkedIssues = linkedIssues;
     this.labels = labels;
+    this.hasAdditionalFields = additionalFields != null && !additionalFields.isEmpty();
+    this.additionalFields = additionalFields;
   }
 
   public SettingsIssueType getIssueType() {
@@ -186,6 +194,14 @@ public class Issue implements ICommits, IAuthors, Serializable {
     return this.hasLinkedIssues;
   }
 
+  public boolean hasAdditionalFields() {
+    return hasAdditionalFields;
+  }
+
+  public Map<String, Object> getAdditionalFields() {
+    return additionalFields;
+  }
+
   @Override
   public String toString() {
     return "Issue: " + this.issue + " Title: " + this.title;
@@ -205,6 +221,7 @@ public class Issue implements ICommits, IAuthors, Serializable {
     result = prime * result + (this.hasLinkedIssues ? 1231 : 1237);
     result = prime * result + (this.hasTitle ? 1231 : 1237);
     result = prime * result + (this.hasType ? 1231 : 1237);
+    result = prime * result + (this.hasAdditionalFields ? 1231 : 1237);
     result = prime * result + ((this.issue == null) ? 0 : this.issue.hashCode());
     result = prime * result + ((this.issueType == null) ? 0 : this.issueType.hashCode());
     result = prime * result + ((this.labels == null) ? 0 : this.labels.hashCode());
@@ -213,6 +230,7 @@ public class Issue implements ICommits, IAuthors, Serializable {
     result = prime * result + ((this.name == null) ? 0 : this.name.hashCode());
     result = prime * result + ((this.title == null) ? 0 : this.title.hashCode());
     result = prime * result + ((this.type == null) ? 0 : this.type.hashCode());
+    result = prime * result + ((this.additionalFields == null) ? 0 : this.additionalFields.hashCode());
     return result;
   }
 
@@ -270,6 +288,9 @@ public class Issue implements ICommits, IAuthors, Serializable {
     if (this.hasType != other.hasType) {
       return false;
     }
+    if (this.hasAdditionalFields != other.hasAdditionalFields) {
+      return false;
+    }
     if (this.issue == null) {
       if (other.issue != null) {
         return false;
@@ -320,6 +341,13 @@ public class Issue implements ICommits, IAuthors, Serializable {
         return false;
       }
     } else if (!this.type.equals(other.type)) {
+      return false;
+    }
+    if (this.additionalFields == null) {
+      if (other.additionalFields != null) {
+        return false;
+      }
+    } else if (!this.additionalFields.equals(other.additionalFields)) {
       return false;
     }
     return true;

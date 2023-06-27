@@ -14,8 +14,10 @@ import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.c
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsTypeOtherThan;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.getDate;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.getMessageParts;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.issueHasAdditionalField;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.isReleaseTag;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.issueType;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.issueAdditionalField;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.revertedCommit;
 
 import com.github.jknack.handlebars.Helper;
@@ -132,6 +134,16 @@ public class Helpers {
         "ifIssueTypeOtherThan",
         (final Issue issue, final Options options) -> {
           return conditional(options, !issueType(issue.getType(), options));
+        });
+    ALL.put(
+        "ifIssueHasAdditionalField",
+        (final Issue issue, final Options options) -> {
+          return conditional(options, issueHasAdditionalField(issue.getAdditionalFields(), options));
+        });
+    ALL.put(
+        "issueAdditionalField",
+        (final Issue issue, final Options options) -> {
+          return issueAdditionalField(issue.getAdditionalFields(), options);
         });
 
     ALL.put(

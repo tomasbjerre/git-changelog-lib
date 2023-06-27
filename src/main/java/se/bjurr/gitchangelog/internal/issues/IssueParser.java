@@ -103,6 +103,8 @@ public class IssueParser {
         final String issueType = null;
         final List<String> linkedIssues = null;
         final List<String> labels = null;
+        final Map<String, Object> additionalFields = new HashMap<>();
+
         final ParsedIssue noIssue =
             new ParsedIssue(
                 NOISSUE,
@@ -113,7 +115,8 @@ public class IssueParser {
                 title,
                 issueType,
                 linkedIssues,
-                labels);
+                labels,
+                additionalFields);
         if (!parsedIssuePerIssue.containsKey(noIssue.getName())) {
           parsedIssuePerIssue.put(noIssue.getName(), noIssue);
         }
@@ -134,6 +137,7 @@ public class IssueParser {
     String title = "";
     final List<String> linkedIssues = new ArrayList<>();
     List<String> labels = new ArrayList<>();
+    final Map<String, Object> additionalFields = new HashMap<>();
     if (matchedIssueString.startsWith("#")) {
       matchedIssueString = matchedIssueString.substring(1);
     }
@@ -158,7 +162,8 @@ public class IssueParser {
         title, //
         issueType, //
         linkedIssues, //
-        labels);
+        labels,
+        additionalFields);
   }
 
   private GitLabClient createGitLabClient() {
@@ -186,8 +191,12 @@ public class IssueParser {
       if (this.settings.getExtendedRestHeaders() != null) {
         jiraClient.withHeaders(this.settings.getExtendedRestHeaders());
       }
-      if (settings.getJiraIssueFieldsFilter() != null && !settings.getJiraIssueFieldsFilter().isEmpty()) {
-        jiraClient.withAdditionalFields(settings.getJiraIssueFieldsFilter());
+      if (settings.getJiraIssueFieldFilters() != null && !settings.getJiraIssueFieldFilters().isEmpty()) {
+        jiraClient.withIssueFieldFilters(settings.getJiraIssueFieldFilters());
+      }
+
+      if (settings.getJiraIssueAdditionalFields() != null && !settings.getJiraIssueAdditionalFields().isEmpty()) {
+        jiraClient.withIssueAdditionalFields(settings.getJiraIssueAdditionalFields());
       }
     }
     return jiraClient;
@@ -227,6 +236,7 @@ public class IssueParser {
     final String issueType = null;
     final List<String> linkedIssues = null;
     final List<String> labels = null;
+    final Map<String, Object> additionalFields = new HashMap<>();
     return new ParsedIssue( //
         CUSTOM, //
         issuePattern.getName(), //
@@ -236,7 +246,8 @@ public class IssueParser {
         title, //
         issueType, //
         linkedIssues, //
-        labels);
+        labels,
+        additionalFields);
   }
 
   private ParsedIssue createParsedIssue(
@@ -247,6 +258,7 @@ public class IssueParser {
     String issueType = null;
     List<String> linkedIssues = null;
     List<String> labels = null;
+    Map<String, Object> additionalFields = null;
     try {
       if (jiraClient != null && jiraClient.getIssue(matchedIssue).isPresent()) {
         final JiraIssue jiraIssue = jiraClient.getIssue(matchedIssue).get();
@@ -256,6 +268,7 @@ public class IssueParser {
         linkedIssues = jiraIssue.getLinkedIssues();
         labels = jiraIssue.getLabels();
         desc = jiraIssue.getDescription();
+        additionalFields = jiraIssue.getAdditionalFields();
       }
     } catch (final GitChangelogIntegrationException e) {
       LOG.error(matchedIssue, e);
@@ -269,7 +282,8 @@ public class IssueParser {
         title, //
         issueType, //
         linkedIssues,
-        labels);
+        labels,
+        additionalFields);
   }
 
   private ParsedIssue createParsedIssue(
@@ -282,6 +296,7 @@ public class IssueParser {
     String issueType = null;
     final List<String> linkedIssues = null;
     final List<String> labels = null;
+    final Map<String, Object> additionalFields = new HashMap<>();
     try {
       if (redmineClient != null && redmineClient.getIssue(matchedIssue).isPresent()) {
         final RedmineIssue redmineIssue = redmineClient.getIssue(matchedIssue).get();
@@ -302,7 +317,8 @@ public class IssueParser {
         title, //
         issueType, //
         linkedIssues,
-        labels);
+        labels,
+        additionalFields);
   }
 
   private ParsedIssue createParsedIssue(
@@ -313,6 +329,7 @@ public class IssueParser {
     String title = "";
     final List<String> linkedIssues = new ArrayList<>();
     final List<String> labels = new ArrayList<>();
+    final Map<String, Object> additionalFields = new HashMap<>();
     try {
       if (gitHubHelper != null) {
         final java.util.Optional<GitHubIssue> issues = gitHubHelper.getIssueFromAll(matchedIssue);
@@ -338,7 +355,8 @@ public class IssueParser {
         title, //
         issueType, //
         linkedIssues, //
-        labels);
+        labels,
+        additionalFields);
   }
 
   private String render(String string, final Matcher matcher, final String matched) {

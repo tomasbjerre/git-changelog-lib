@@ -19,7 +19,7 @@ public class JiraClientFactory {
     if (jiraClient != null) {
       return jiraClient;
     }
-    if (!settings.getJiraIssueFieldsFilter().isEmpty()) {
+    if (!settings.getJiraIssueFieldFilters().isEmpty()) {
       return new JqlSearchJiraClient(settings.getJiraServer().get());
     } else {
       return new DefaultJiraClient(settings.getJiraServer().get());

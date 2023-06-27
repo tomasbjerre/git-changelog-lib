@@ -1,6 +1,7 @@
 package se.bjurr.gitchangelog.internal.integrations.jira;
 
 import java.util.List;
+import java.util.Map;
 
 public class JiraIssue {
 
@@ -11,6 +12,7 @@ public class JiraIssue {
   private final String description;
   private final List<String> linkedIssues;
   private final List<String> labels;
+  private final Map<String, Object> additionalFields;
 
   public JiraIssue(
       String title,
@@ -19,7 +21,8 @@ public class JiraIssue {
       String issue,
       String issueType,
       List<String> linkedIssues,
-      List<String> labels) {
+      List<String> labels,
+      Map<String, Object> additionalFields) {
     this.title = title;
     this.link = link;
     this.issue = issue;
@@ -27,6 +30,7 @@ public class JiraIssue {
     this.linkedIssues = linkedIssues;
     this.labels = labels;
     this.description = description;
+    this.additionalFields = additionalFields;
   }
 
   public String getIssue() {
@@ -54,8 +58,11 @@ public class JiraIssue {
   }
 
   public String getDescription() {
-
     return description;
+  }
+
+  public Map<String, Object> getAdditionalFields() {
+    return additionalFields;
   }
 
   @Override

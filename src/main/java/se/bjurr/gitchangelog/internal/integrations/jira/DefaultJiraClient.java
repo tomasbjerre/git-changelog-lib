@@ -1,9 +1,11 @@
 package se.bjurr.gitchangelog.internal.integrations.jira;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 import se.bjurr.gitchangelog.internal.integrations.rest.RestClient;
+import se.bjurr.gitchangelog.internal.settings.SettingsJiraIssueFieldFilter;
 
 public class DefaultJiraClient extends JiraClient {
 
@@ -54,7 +56,8 @@ public class DefaultJiraClient extends JiraClient {
     return Optional.empty();
   }
 
-  public JiraClient withAdditionalFields(Map<String, String> fields) {
+  @Override
+  public JiraClient withIssueFieldFilters(List<SettingsJiraIssueFieldFilter> filters) {
     return this;
   }
 }
