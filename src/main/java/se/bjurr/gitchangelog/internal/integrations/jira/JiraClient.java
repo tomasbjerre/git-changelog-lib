@@ -5,6 +5,7 @@ import static org.slf4j.LoggerFactory.getLogger;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +24,7 @@ public abstract class JiraClient {
   private static final Logger LOG = getLogger(JiraClient.class);
 
   private final String api;
-  private List<String> fields = List.of();
+  private List<String> fields = Collections.unmodifiableList(new ArrayList<>());
 
   public JiraClient(final String api) {
     if (api.endsWith("/")) {

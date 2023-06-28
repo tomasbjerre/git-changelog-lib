@@ -2,13 +2,15 @@ package se.bjurr.gitchangelog.internal.integrations.jira;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import se.bjurr.gitchangelog.internal.settings.SettingsJiraIssueFieldFilter;
 
 public class JqlSearchJiraClient extends DefaultJiraClient {
 
-    private List<SettingsJiraIssueFieldFilter> filters = List.of();
+    private List<SettingsJiraIssueFieldFilter> filters = Collections.unmodifiableList(new ArrayList<>());
 
     public JqlSearchJiraClient(String api) {
         super(api);
