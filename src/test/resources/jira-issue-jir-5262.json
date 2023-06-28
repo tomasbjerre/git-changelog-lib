@@ -4,6 +4,7 @@
  "self":"https://domain/jira/rest/api/2/issue/139925",
  "key":"JIR-5262",
  "fields":{
+  "customfield_10000":"Custom Field 10000 for jira 5262",
   "summary":"The Title of jira 5262",
   "issuetype": {
    "name": "Bug"

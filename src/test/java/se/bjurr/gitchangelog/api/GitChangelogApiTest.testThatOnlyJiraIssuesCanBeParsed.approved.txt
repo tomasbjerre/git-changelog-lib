@@ -216,7 +216,8 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "JIRA"
+          "issueType": "JIRA",
+          "hasAdditionalFields": false
         }
       ],
       "issueTypes": [
@@ -267,7 +268,8 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "JIRA"
+              "issueType": "JIRA",
+              "hasAdditionalFields": false
             }
           ],
           "type": "JIRA"
@@ -355,7 +357,8 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "JIRA"
+          "issueType": "JIRA",
+          "hasAdditionalFields": false
         }
       ],
       "issueTypes": [
@@ -406,7 +409,8 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "JIRA"
+              "issueType": "JIRA",
+              "hasAdditionalFields": false
             }
           ],
           "type": "JIRA"
@@ -491,7 +495,8 @@ context:
       "description": "",
       "hasLabels": false,
       "hasLinkedIssues": false,
-      "issueType": "JIRA"
+      "issueType": "JIRA",
+      "hasAdditionalFields": false
     },
     {
       "commits": [
@@ -537,7 +542,8 @@ context:
       "description": "",
       "hasLabels": false,
       "hasLinkedIssues": false,
-      "issueType": "JIRA"
+      "issueType": "JIRA",
+      "hasAdditionalFields": false
     }
   ],
   "issueTypes": [
@@ -588,7 +594,8 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "JIRA"
+          "issueType": "JIRA",
+          "hasAdditionalFields": false
         },
         {
           "commits": [
@@ -634,7 +641,8 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "JIRA"
+          "issueType": "JIRA",
+          "hasAdditionalFields": false
         }
       ],
       "type": "JIRA"

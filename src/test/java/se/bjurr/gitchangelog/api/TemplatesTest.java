@@ -5,8 +5,11 @@ import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 import static se.bjurr.gitchangelog.internal.integrations.rest.RestClient.mock;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,21 +33,12 @@ public class TemplatesTest {
             new String(
                 Files.readAllBytes(
                     Paths.get(TemplatesTest.class.getResource("/github-issues.json").toURI())),
-                UTF_8)) //
-        .addMockedResponse(
-            "/jira/rest/api/2/issue/JIR-1234?fields=parent,summary,issuetype,labels,description,issuelinks",
-            new String(
-                Files.readAllBytes(
-                    Paths.get(
-                        TemplatesTest.class.getResource("/jira-issue-jir-1234.json").toURI())),
-                UTF_8)) //
-        .addMockedResponse(
-            "/jira/rest/api/2/issue/JIR-5262?fields=parent,summary,issuetype,labels,description,issuelinks",
-            new String(
-                Files.readAllBytes(
-                    Paths.get(
-                        TemplatesTest.class.getResource("/jira-issue-jir-5262.json").toURI())),
-                UTF_8));
+                UTF_8)); //
+
+     mockJiraResponses(mockedRestClient);
+     mockJiraResponses(mockedRestClient, "customfield_10000,customfield_10002");
+
+      
     mock(mockedRestClient);
 
     final GitHubMockInterceptor gitHubMockInterceptor = new GitHubMockInterceptor();
@@ -87,6 +81,30 @@ public class TemplatesTest {
             .withCustomIssue(
                 "CQ", "CQ([0-9]+)", "http://cq/${PATTERN_GROUP_1}", "${PATTERN_GROUP_1}") //
             .withCustomIssue("Bugs", "#bug", null, "Mixed bugs");
+  }
+
+  private RestClientMock mockJiraResponses(final RestClientMock mockedRestClient)
+    throws IOException, URISyntaxException {
+      return mockJiraResponses(mockedRestClient, null);
+  }
+
+  private RestClientMock mockJiraResponses(final RestClientMock mockedRestClient, final String additionalFields)
+    throws IOException, URISyntaxException {
+        return mockedRestClient
+            .addMockedResponse(
+                "/jira/rest/api/2/issue/JIR-1234?fields=parent,summary,issuetype,labels,description,issuelinks" + (additionalFields != null ? "," + additionalFields : ""),
+                new String(
+                    Files.readAllBytes(
+                        Paths.get(
+                            TemplatesTest.class.getResource("/jira-issue-jir-1234.json").toURI())),
+                    UTF_8)) //
+            .addMockedResponse(
+                "/jira/rest/api/2/issue/JIR-5262?fields=parent,summary,issuetype,labels,description,issuelinks" + (additionalFields != null ? "," + additionalFields : ""),
+                new String(
+                    Files.readAllBytes(
+                        Paths.get(
+                            TemplatesTest.class.getResource("/jira-issue-jir-5262.json").toURI())),
+                    UTF_8));
   }
 
   @After
@@ -174,6 +192,16 @@ public class TemplatesTest {
     final GitChangelogApi given =
         this.baseBuilder.withTemplatePath(
             "templatetest/" + "testIssueTypesIssuesCommits" + ".mustache");
+    ApprovalsWrapper.verify(given);
+  }
+
+  @Test
+  public void testIssueAdditionalField() throws Exception {
+    final GitChangelogApi given =
+        this.baseBuilder
+            .withTemplatePath("templatetest/" + "testIssueAdditionalField" + ".mustache")
+            .withJiraIssueAdditionalField("customfield_10000")
+            .withJiraIssueAdditionalField("customfield_10002");
     ApprovalsWrapper.verify(given);
   }
 

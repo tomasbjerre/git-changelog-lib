@@ -141,6 +141,11 @@ public class Helpers {
           return conditional(options, issueHasAdditionalField(issue.getAdditionalFields(), options));
         });
     ALL.put(
+        "ifIssueDoesNotHasAdditionalField",
+        (final Issue issue, final Options options) -> {
+          return conditional(options, !issueHasAdditionalField(issue.getAdditionalFields(), options));
+        });
+    ALL.put(
         "issueAdditionalField",
         (final Issue issue, final Options options) -> {
           return issueAdditionalField(issue.getAdditionalFields(), options);

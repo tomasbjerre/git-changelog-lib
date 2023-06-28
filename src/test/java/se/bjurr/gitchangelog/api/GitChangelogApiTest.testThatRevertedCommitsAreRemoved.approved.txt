@@ -142,7 +142,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -193,7 +195,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -268,7 +272,9 @@ context:
       "description": "",
       "hasLabels": false,
       "hasLinkedIssues": false,
-      "issueType": "NOISSUE"
+      "issueType": "NOISSUE",
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     }
   ],
   "issueTypes": [
@@ -319,7 +325,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "type": "NOISSUE"

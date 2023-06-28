@@ -521,7 +521,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "CUSTOM"
+          "issueType": "CUSTOM",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -571,7 +573,9 @@ context:
           "hasLabels": true,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -621,7 +625,9 @@ context:
           "hasLabels": true,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -669,7 +675,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -720,7 +728,9 @@ context:
           "hasLabels": true,
           "hasLinkedIssues": false,
           "issueType": "JIRA",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -806,7 +816,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -857,7 +869,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "CUSTOM"
+              "issueType": "CUSTOM",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "CUSTOM"
@@ -913,7 +927,9 @@ context:
               "hasLabels": true,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             },
             {
               "commits": [
@@ -963,7 +979,9 @@ context:
               "hasLabels": true,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             },
             {
               "commits": [
@@ -1011,7 +1029,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -1068,7 +1088,9 @@ context:
               "hasLabels": true,
               "hasLinkedIssues": false,
               "issueType": "JIRA",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "JIRA"
@@ -1160,7 +1182,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -1247,7 +1271,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "CUSTOM"
+          "issueType": "CUSTOM",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -1298,7 +1324,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "CUSTOM"
+              "issueType": "CUSTOM",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "CUSTOM"
@@ -1494,7 +1522,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -1544,7 +1574,9 @@ context:
           "hasLabels": true,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -1595,7 +1627,9 @@ context:
           "linkedIssues": [
             "JIRSD-490",
             "JIRSD-567"
-          ]
+          ],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -1687,7 +1721,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -1740,7 +1776,9 @@ context:
               "hasLabels": false,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             },
             {
               "commits": [
@@ -1790,7 +1828,9 @@ context:
               "hasLabels": true,
               "hasLinkedIssues": false,
               "issueType": "GITHUB",
-              "linkedIssues": []
+              "linkedIssues": [],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "GITHUB"
@@ -1847,7 +1887,9 @@ context:
               "linkedIssues": [
                 "JIRSD-490",
                 "JIRSD-567"
-              ]
+              ],
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "JIRA"
@@ -1945,7 +1987,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -2032,7 +2076,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "issueTypes": [
@@ -2083,7 +2129,9 @@ context:
               "description": "",
               "hasLabels": false,
               "hasLinkedIssues": false,
-              "issueType": "NOISSUE"
+              "issueType": "NOISSUE",
+              "hasAdditionalFields": false,
+              "additionalFields": {}
             }
           ],
           "type": "NOISSUE"
@@ -2304,7 +2352,9 @@ context:
       "description": "",
       "hasLabels": false,
       "hasLinkedIssues": false,
-      "issueType": "CUSTOM"
+      "issueType": "CUSTOM",
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -2350,7 +2400,9 @@ context:
       "description": "",
       "hasLabels": false,
       "hasLinkedIssues": false,
-      "issueType": "CUSTOM"
+      "issueType": "CUSTOM",
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -2398,7 +2450,9 @@ context:
       "hasLabels": false,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -2474,7 +2528,9 @@ context:
       "hasLabels": true,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -2524,7 +2580,9 @@ context:
       "hasLabels": true,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -2572,7 +2630,9 @@ context:
       "hasLabels": false,
       "hasLinkedIssues": false,
       "issueType": "GITHUB",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -2623,7 +2683,9 @@ context:
       "hasLabels": true,
       "hasLinkedIssues": false,
       "issueType": "JIRA",
-      "linkedIssues": []
+      "linkedIssues": [],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -2674,7 +2736,9 @@ context:
       "linkedIssues": [
         "JIRSD-490",
         "JIRSD-567"
-      ]
+      ],
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     },
     {
       "commits": [
@@ -2846,7 +2910,9 @@ context:
       "description": "",
       "hasLabels": false,
       "hasLinkedIssues": false,
-      "issueType": "NOISSUE"
+      "issueType": "NOISSUE",
+      "hasAdditionalFields": false,
+      "additionalFields": {}
     }
   ],
   "issueTypes": [
@@ -2897,7 +2963,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "CUSTOM"
+          "issueType": "CUSTOM",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "type": "CUSTOM"
@@ -2949,7 +3017,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "CUSTOM"
+          "issueType": "CUSTOM",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "type": "CUSTOM"
@@ -3003,7 +3073,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -3079,7 +3151,9 @@ context:
           "hasLabels": true,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -3129,7 +3203,9 @@ context:
           "hasLabels": true,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -3177,7 +3253,9 @@ context:
           "hasLabels": false,
           "hasLinkedIssues": false,
           "issueType": "GITHUB",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "type": "GITHUB"
@@ -3234,7 +3312,9 @@ context:
           "hasLabels": true,
           "hasLinkedIssues": false,
           "issueType": "JIRA",
-          "linkedIssues": []
+          "linkedIssues": [],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         },
         {
           "commits": [
@@ -3285,7 +3365,9 @@ context:
           "linkedIssues": [
             "JIRSD-490",
             "JIRSD-567"
-          ]
+          ],
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "type": "JIRA"
@@ -3463,7 +3545,9 @@ context:
           "description": "",
           "hasLabels": false,
           "hasLinkedIssues": false,
-          "issueType": "NOISSUE"
+          "issueType": "NOISSUE",
+          "hasAdditionalFields": false,
+          "additionalFields": {}
         }
       ],
       "type": "NOISSUE"

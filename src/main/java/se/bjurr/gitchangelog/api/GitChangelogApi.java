@@ -514,10 +514,16 @@ public class GitChangelogApi {
     return this;
   }
 
-  /** Additional Filter Fields for Jira. */
-  public GitChangelogApi withJiraIssueFieldsFilter(
+  /** Issue Filter Fields for Jira. */
+  public GitChangelogApi withJiraIssueFieldFilter(
       final String operator, final String key, final String value) {
     this.settings.addJiraIssueFieldFilter(new SettingsJiraIssueFieldFilter(operator, key, value));
+    return this;
+  }
+
+  /** Additional Fields for Jira. */
+  public GitChangelogApi withJiraIssueAdditionalField(final String field) {
+    this.settings.addJiraIssueAdditionalField(field);
     return this;
   }
 
