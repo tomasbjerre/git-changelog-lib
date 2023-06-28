@@ -5,50 +5,51 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 import se.bjurr.gitchangelog.internal.settings.SettingsJiraIssueFieldFilter;
 
 public class JqlSearchJiraClient extends DefaultJiraClient {
 
-    private List<SettingsJiraIssueFieldFilter> filters = Collections.unmodifiableList(new ArrayList<>());
+  private List<SettingsJiraIssueFieldFilter> filters =
+      Collections.unmodifiableList(new ArrayList<>());
 
-    public JqlSearchJiraClient(String api) {
-        super(api);
+  public JqlSearchJiraClient(String api) {
+    super(api);
+  }
+
+  protected String getFieldPrefix() {
+    return "$.issues[0].fields.";
+  }
+
+  public JiraClient withIssueFieldFilters(List<SettingsJiraIssueFieldFilter> filters) {
+    this.filters = filters;
+    return this;
+  }
+
+  @Override
+  protected String getEndpoint(String issue) {
+    return getApi()
+        + "/rest/api/2/search?jql=issue="
+        + issue
+        + (hasIssueFieldFilters() ? getIssueFieldFiltersQuery() : "")
+        + "&fields=parent,summary,issuetype,labels,description,issuelinks"
+        + (hasIssueAdditionalFields() ? "," + getIssueAdditionalFieldsQuery() : "");
+  }
+
+  private boolean hasIssueFieldFilters() {
+    return !filters.isEmpty();
+  }
+
+  private String getIssueFieldFiltersQuery() {
+    final StringBuffer queryBuffer = new StringBuffer();
+
+    for (SettingsJiraIssueFieldFilter filter : filters) {
+      queryBuffer.append(
+          " AND " + filter.getKey() + filter.getOperator() + "'" + filter.getValue() + "'");
     }
-
-    protected String getFieldPrefix() {
-        return "$.issues[0].fields.";
+    try {
+      return URLEncoder.encode(queryBuffer.toString(), "UTF-8");
+    } catch (UnsupportedEncodingException e) {
+      return "";
     }
-
-    public JiraClient withIssueFieldFilters(List<SettingsJiraIssueFieldFilter> filters)  {
-        this.filters = filters;
-        return this;
-    }
-
-    @Override
-    protected String getEndpoint(String issue) {
-        return getApi()
-                + "/rest/api/2/search?jql=issue="
-                + issue
-                + (hasIssueFieldFilters() ? getIssueFieldFiltersQuery() : "")
-                + "&fields=parent,summary,issuetype,labels,description,issuelinks"
-                + (hasIssueAdditionalFields() ? "," + getIssueAdditionalFieldsQuery() : "");
-    }
-
-    private boolean hasIssueFieldFilters() {
-        return !filters.isEmpty();
-    }
-
-    private String getIssueFieldFiltersQuery() {
-        final StringBuffer queryBuffer = new StringBuffer();
-
-        for (SettingsJiraIssueFieldFilter filter : filters) {
-            queryBuffer.append(" AND " + filter.getKey() + filter.getOperator() + "'" + filter.getValue() + "'");
-        }
-        try {
-            return URLEncoder.encode(queryBuffer.toString(), "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            return "";
-        }
-    }
+  }
 }

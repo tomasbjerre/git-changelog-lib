@@ -703,7 +703,8 @@ public class Settings implements Serializable {
     }
   }
 
-  public void setJiraIssueFieldFilters(final List<SettingsJiraIssueFieldFilter> jiraIssueFieldFilters) {
+  public void setJiraIssueFieldFilters(
+      final List<SettingsJiraIssueFieldFilter> jiraIssueFieldFilters) {
     this.jiraIssueFieldFilters = jiraIssueFieldFilters;
   }
 
@@ -713,7 +714,6 @@ public class Settings implements Serializable {
     }
     this.jiraIssueFieldFilters.add(jiraIssueFieldFilter);
   }
-
 
   public List<String> getJiraIssueAdditionalFields() {
     if (this.jiraIssueAdditionalFields == null) {

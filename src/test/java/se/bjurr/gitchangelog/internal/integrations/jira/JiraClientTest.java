@@ -56,7 +56,7 @@ public class JiraClientTest {
 
       @Override
       public JiraClient withIssueFieldFilters(List<SettingsJiraIssueFieldFilter> filters) {
-          return null;
+        return null;
       }
     };
   }

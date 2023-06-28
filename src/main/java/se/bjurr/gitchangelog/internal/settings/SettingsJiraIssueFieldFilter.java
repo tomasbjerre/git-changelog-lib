@@ -13,17 +13,13 @@ public class SettingsJiraIssueFieldFilter implements Serializable {
   /** Value of the filter. */
   private final String value;
 
-  public SettingsJiraIssueFieldFilter(
-      final String key, final String value) {
+  public SettingsJiraIssueFieldFilter(final String key, final String value) {
     this.operator = "=";
     this.key = checkNotNull(key, "key");
     this.value = checkNotNull(value, "value");
   }
 
-  public SettingsJiraIssueFieldFilter(
-      final String operator,
-      final String key,
-      final String value) {
+  public SettingsJiraIssueFieldFilter(final String operator, final String key, final String value) {
     this.operator = operator;
     this.key = checkNotNull(key, "key");
     this.value = checkNotNull(value, "value");

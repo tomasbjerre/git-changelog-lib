@@ -164,12 +164,14 @@ public class ConventionalCommitParser {
     return issueType.matches(type);
   }
 
-  public static boolean issueHasAdditionalField(final Map<String, Object> additionalFields, final Options options) {
+  public static boolean issueHasAdditionalField(
+      final Map<String, Object> additionalFields, final Options options) {
     final String key = options.hash("key").toString();
     return additionalFields.containsKey(key);
   }
 
-  public static Object issueAdditionalField(final Map<String, Object> additionalFields, final Options options) {
+  public static Object issueAdditionalField(
+      final Map<String, Object> additionalFields, final Options options) {
     final String key = options.hash("key").toString();
     return additionalFields.getOrDefault(key, null);
   }

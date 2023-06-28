@@ -14,10 +14,10 @@ import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.c
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsTypeOtherThan;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.getDate;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.getMessageParts;
-import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.issueHasAdditionalField;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.isReleaseTag;
-import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.issueType;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.issueAdditionalField;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.issueHasAdditionalField;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.issueType;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.revertedCommit;
 
 import com.github.jknack.handlebars.Helper;
@@ -138,12 +138,14 @@ public class Helpers {
     ALL.put(
         "ifIssueHasAdditionalField",
         (final Issue issue, final Options options) -> {
-          return conditional(options, issueHasAdditionalField(issue.getAdditionalFieldsMap(), options));
+          return conditional(
+              options, issueHasAdditionalField(issue.getAdditionalFieldsMap(), options));
         });
     ALL.put(
         "ifIssueDoesNotHasAdditionalField",
         (final Issue issue, final Options options) -> {
-          return conditional(options, !issueHasAdditionalField(issue.getAdditionalFieldsMap(), options));
+          return conditional(
+              options, !issueHasAdditionalField(issue.getAdditionalFieldsMap(), options));
         });
     ALL.put(
         "issueAdditionalField",

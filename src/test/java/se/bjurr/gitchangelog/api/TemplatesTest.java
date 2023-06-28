@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,16 +28,15 @@ public class TemplatesTest {
     final RestClientMock mockedRestClient = new RestClientMock();
     mockedRestClient //
         .addMockedResponse(
-            "/repos/tomasbjerre/git-changelog-lib/issues?state=all",
-            new String(
-                Files.readAllBytes(
-                    Paths.get(TemplatesTest.class.getResource("/github-issues.json").toURI())),
-                UTF_8)); //
+        "/repos/tomasbjerre/git-changelog-lib/issues?state=all",
+        new String(
+            Files.readAllBytes(
+                Paths.get(TemplatesTest.class.getResource("/github-issues.json").toURI())),
+            UTF_8)); //
 
-     mockJiraResponses(mockedRestClient);
-     mockJiraResponses(mockedRestClient, "customfield_10000,customfield_10002");
+    mockJiraResponses(mockedRestClient);
+    mockJiraResponses(mockedRestClient, "customfield_10000,customfield_10002");
 
-      
     mock(mockedRestClient);
 
     final GitHubMockInterceptor gitHubMockInterceptor = new GitHubMockInterceptor();
@@ -84,27 +82,30 @@ public class TemplatesTest {
   }
 
   private RestClientMock mockJiraResponses(final RestClientMock mockedRestClient)
-    throws IOException, URISyntaxException {
-      return mockJiraResponses(mockedRestClient, null);
+      throws IOException, URISyntaxException {
+    return mockJiraResponses(mockedRestClient, null);
   }
 
-  private RestClientMock mockJiraResponses(final RestClientMock mockedRestClient, final String additionalFields)
-    throws IOException, URISyntaxException {
-        return mockedRestClient
-            .addMockedResponse(
-                "/jira/rest/api/2/issue/JIR-1234?fields=parent,summary,issuetype,labels,description,issuelinks" + (additionalFields != null ? "," + additionalFields : ""),
-                new String(
-                    Files.readAllBytes(
-                        Paths.get(
-                            TemplatesTest.class.getResource("/jira-issue-jir-1234.json").toURI())),
-                    UTF_8)) //
-            .addMockedResponse(
-                "/jira/rest/api/2/issue/JIR-5262?fields=parent,summary,issuetype,labels,description,issuelinks" + (additionalFields != null ? "," + additionalFields : ""),
-                new String(
-                    Files.readAllBytes(
-                        Paths.get(
-                            TemplatesTest.class.getResource("/jira-issue-jir-5262.json").toURI())),
-                    UTF_8));
+  private RestClientMock mockJiraResponses(
+      final RestClientMock mockedRestClient, final String additionalFields)
+      throws IOException, URISyntaxException {
+    return mockedRestClient
+        .addMockedResponse(
+            "/jira/rest/api/2/issue/JIR-1234?fields=parent,summary,issuetype,labels,description,issuelinks"
+                + (additionalFields != null ? "," + additionalFields : ""),
+            new String(
+                Files.readAllBytes(
+                    Paths.get(
+                        TemplatesTest.class.getResource("/jira-issue-jir-1234.json").toURI())),
+                UTF_8)) //
+        .addMockedResponse(
+            "/jira/rest/api/2/issue/JIR-5262?fields=parent,summary,issuetype,labels,description,issuelinks"
+                + (additionalFields != null ? "," + additionalFields : ""),
+            new String(
+                Files.readAllBytes(
+                    Paths.get(
+                        TemplatesTest.class.getResource("/jira-issue-jir-5262.json").toURI())),
+                UTF_8));
   }
 
   @After

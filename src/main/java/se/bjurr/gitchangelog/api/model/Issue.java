@@ -15,7 +15,6 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
 import se.bjurr.gitchangelog.api.model.interfaces.IAuthors;
 import se.bjurr.gitchangelog.api.model.interfaces.ICommits;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssueType;
@@ -199,11 +198,11 @@ public class Issue implements ICommits, IAuthors, Serializable {
     return this.hasAdditionalFields;
   }
 
-  public Set<Map.Entry<String,Object>> getAdditionalFields() {
+  public Set<Map.Entry<String, Object>> getAdditionalFields() {
     return this.additionalFields.entrySet();
   }
 
-  public Map<String,Object> getAdditionalFieldsMap() {
+  public Map<String, Object> getAdditionalFieldsMap() {
     return this.additionalFields;
   }
 
@@ -235,7 +234,8 @@ public class Issue implements ICommits, IAuthors, Serializable {
     result = prime * result + ((this.name == null) ? 0 : this.name.hashCode());
     result = prime * result + ((this.title == null) ? 0 : this.title.hashCode());
     result = prime * result + ((this.type == null) ? 0 : this.type.hashCode());
-    result = prime * result + ((this.additionalFields == null) ? 0 : this.additionalFields.hashCode());
+    result =
+        prime * result + ((this.additionalFields == null) ? 0 : this.additionalFields.hashCode());
     return result;
   }
 

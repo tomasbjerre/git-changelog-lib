@@ -3,6 +3,7 @@ package se.bjurr.gitchangelog.internal.integrations.jira;
 import static com.jayway.jsonpath.JsonPath.read;
 import static org.slf4j.LoggerFactory.getLogger;
 
+import com.jayway.jsonpath.PathNotFoundException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -12,9 +13,6 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
-import com.jayway.jsonpath.PathNotFoundException;
-
 import org.slf4j.Logger;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 import se.bjurr.gitchangelog.internal.settings.SettingsJiraIssueFieldFilter;
@@ -40,10 +38,10 @@ public abstract class JiraClient {
 
   protected String getEndpoint(final String issue) {
     return this.api
-            + "/rest/api/2/issue/"
-            + issue
-            + "?fields=parent,summary,issuetype,labels,description,issuelinks"
-            + (hasIssueAdditionalFields() ? "," + getIssueAdditionalFieldsQuery() : "");
+        + "/rest/api/2/issue/"
+        + issue
+        + "?fields=parent,summary,issuetype,labels,description,issuelinks"
+        + (hasIssueAdditionalFields() ? "," + getIssueAdditionalFieldsQuery() : "");
   }
 
   public JiraClient withIssueAdditionalFields(final List<String> fields) {
@@ -56,7 +54,7 @@ public abstract class JiraClient {
   }
 
   protected boolean hasIssueAdditionalFields() {
-      return fields != null && !fields.isEmpty();
+    return fields != null && !fields.isEmpty();
   }
 
   protected String getIssueAdditionalFieldsQuery() {
@@ -82,19 +80,18 @@ public abstract class JiraClient {
     linkedIssues.addAll(outwardKey);
 
     final Map<String, Object> additionalFields =
-        fields.stream().reduce(
-            (Map<String, Object>) new HashMap<String, Object>(),
-              (fields, field) -> getAdditionalField(json, fieldPrefix, fields, field),
-              (leftSide, rightSide) -> 
-                  Stream.of(leftSide, rightSide)
-                      .map(Map::entrySet)
-                      .flatMap(Collection::stream)
-                      .collect(
-                          Collectors.toMap(
-                              Map.Entry::getKey,
-                              Map.Entry::getValue)));
+        fields.stream()
+            .reduce(
+                (Map<String, Object>) new HashMap<String, Object>(),
+                (fields, field) -> getAdditionalField(json, fieldPrefix, fields, field),
+                (leftSide, rightSide) ->
+                    Stream.of(leftSide, rightSide)
+                        .map(Map::entrySet)
+                        .flatMap(Collection::stream)
+                        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)));
 
-    return new JiraIssue(title, description, link, issue, type, linkedIssues, labels, additionalFields);
+    return new JiraIssue(
+        title, description, link, issue, type, linkedIssues, labels, additionalFields);
   }
 
   private Map<String, Object> getAdditionalField(
