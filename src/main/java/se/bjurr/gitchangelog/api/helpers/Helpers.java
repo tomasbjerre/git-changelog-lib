@@ -138,17 +138,17 @@ public class Helpers {
     ALL.put(
         "ifIssueHasAdditionalField",
         (final Issue issue, final Options options) -> {
-          return conditional(options, issueHasAdditionalField(issue.getAdditionalFields(), options));
+          return conditional(options, issueHasAdditionalField(issue.getAdditionalFieldsMap(), options));
         });
     ALL.put(
         "ifIssueDoesNotHasAdditionalField",
         (final Issue issue, final Options options) -> {
-          return conditional(options, !issueHasAdditionalField(issue.getAdditionalFields(), options));
+          return conditional(options, !issueHasAdditionalField(issue.getAdditionalFieldsMap(), options));
         });
     ALL.put(
         "issueAdditionalField",
         (final Issue issue, final Options options) -> {
-          return issueAdditionalField(issue.getAdditionalFields(), options);
+          return issueAdditionalField(issue.getAdditionalFieldsMap(), options);
         });
 
     ALL.put(

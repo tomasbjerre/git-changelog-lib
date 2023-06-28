@@ -14,6 +14,7 @@ import static se.bjurr.gitchangelog.internal.util.Preconditions.nullToEmpty;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import se.bjurr.gitchangelog.api.model.interfaces.IAuthors;
 import se.bjurr.gitchangelog.api.model.interfaces.ICommits;
@@ -194,12 +195,16 @@ public class Issue implements ICommits, IAuthors, Serializable {
     return this.hasLinkedIssues;
   }
 
-  public boolean hasAdditionalFields() {
-    return hasAdditionalFields;
+  public boolean getHasAdditionalFields() {
+    return this.hasAdditionalFields;
   }
 
-  public Map<String, Object> getAdditionalFields() {
-    return additionalFields;
+  public Set<Map.Entry<String,Object>> getAdditionalFields() {
+    return this.additionalFields.entrySet();
+  }
+
+  public Map<String,Object> getAdditionalFieldsMap() {
+    return this.additionalFields;
   }
 
   @Override

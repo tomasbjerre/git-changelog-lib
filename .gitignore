@@ -15,6 +15,7 @@ couscous.phar
 classes
 *.iml
 .vscode
+.sdkmanrc
 
 /.nb-gradle/
 *.received.txt

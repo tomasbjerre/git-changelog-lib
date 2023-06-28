@@ -40,14 +40,15 @@ public class JqlSearchJiraClient extends DefaultJiraClient {
     }
 
     private String getIssueFieldFiltersQuery() {
-        String query = "";
+        final StringBuffer queryBuffer = new StringBuffer();
+
         for (SettingsJiraIssueFieldFilter filter : filters) {
-            query += " AND " + filter.getKey() + filter.getOperator() + "'" + filter.getValue() + "'";
+            queryBuffer.append(" AND " + filter.getKey() + filter.getOperator() + "'" + filter.getValue() + "'");
         }
         try {
-            return URLEncoder.encode(query, "UTF-8");
+            return URLEncoder.encode(queryBuffer.toString(), "UTF-8");
         } catch (UnsupportedEncodingException e) {
-            return query;
+            return "";
         }
     }
 }
