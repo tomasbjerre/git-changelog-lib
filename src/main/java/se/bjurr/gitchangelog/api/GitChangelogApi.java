@@ -514,14 +514,28 @@ public class GitChangelogApi {
     return this;
   }
 
-  /** Issue Filter Fields for Jira. */
+  /**
+   * Issue Filter Fields for Jira. When configured, we will use Jira's search API is used instead of
+   * issues API. These will narrow down the issues returned.<br>
+   * <br>
+   * <code>"description", "=", "Testing"</code> becomes<br>
+   * <code>description='Testing'</code>
+   */
   public GitChangelogApi withJiraIssueFieldFilter(
       final String operator, final String key, final String value) {
     this.settings.addJiraIssueFieldFilter(new SettingsJiraIssueFieldFilter(operator, key, value));
     return this;
   }
 
-  /** Additional Fields for Jira. */
+  /**
+   * Additional Fields for Jira. When configured, we will return from Jira the results of these
+   * fields, if they exist.<br>
+   * <code>"customfield_10000"</code><br>
+   * <br>
+   * <code>
+   * /rest/api/2/issue/JIR-1234?fields=parent,summary,issuetype,labels,description,issuelinks,customfield_10000
+   * </code>
+   */
   public GitChangelogApi withJiraIssueAdditionalField(final String field) {
     this.settings.addJiraIssueAdditionalField(field);
     return this;

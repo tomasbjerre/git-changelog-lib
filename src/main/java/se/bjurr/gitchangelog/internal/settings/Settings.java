@@ -144,7 +144,7 @@ public class Settings implements Serializable {
   private String jiraIssuePattern;
   /**
    * Additional fields to filter the issues.<br>
-   * if this is used, Jira's search-API is used instead of issues-API <br>
+   * if this is used, Jira's search API is used instead of issues API<br>
    */
   private List<SettingsJiraIssueFieldFilter> jiraIssueFieldFilters;
   /** Additional fields to load for the issues. */

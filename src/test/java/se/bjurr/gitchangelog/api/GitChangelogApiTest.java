@@ -27,6 +27,11 @@ import se.bjurr.gitchangelog.internal.integrations.rest.RestClientMock;
 import se.bjurr.gitchangelog.test.ApprovalsWrapper;
 
 public class GitChangelogApiTest {
+
+  private static final String JIRA_ISSUE_FIELDS =
+      "fields=parent,summary,issuetype,labels,description,issuelinks";
+  private static final String JIRA_BASE_PATH = "/jira/rest/api/2";
+
   private RestClientMock mockedRestClient;
   private GitHubMockInterceptor gitHubMockInterceptor;
 
@@ -44,18 +49,40 @@ public class GitChangelogApiTest {
                     Paths.get(TemplatesTest.class.getResource("/github-issues.json").toURI())),
                 UTF_8)) //
         .addMockedResponse(
-            "/jira/rest/api/2/issue/JIR-1234?fields=parent,summary,issuetype,labels,description,issuelinks",
+            JIRA_BASE_PATH + "/issue/JIR-1234?" + JIRA_ISSUE_FIELDS,
             new String(
                 Files.readAllBytes(
                     Paths.get(
                         TemplatesTest.class.getResource("/jira-issue-jir-1234.json").toURI())),
                 UTF_8)) //
         .addMockedResponse(
-            "/jira/rest/api/2/issue/JIR-5262?fields=parent,summary,issuetype,labels,description,issuelinks",
+            JIRA_BASE_PATH + "/issue/JIR-5262?" + JIRA_ISSUE_FIELDS,
             new String(
                 Files.readAllBytes(
                     Paths.get(
                         TemplatesTest.class.getResource("/jira-issue-jir-5262.json").toURI())),
+                UTF_8)) //
+        .addMockedResponse(
+            JIRA_BASE_PATH
+                + "/search?jql=issue=JIR-1234+AND+assignee%3D%27tthorntone%40gmail.com%27&"
+                + JIRA_ISSUE_FIELDS,
+            new String(
+                Files.readAllBytes(
+                    Paths.get(
+                        TemplatesTest.class
+                            .getResource("/jira-search-issue-jir-1234.json")
+                            .toURI())),
+                UTF_8)) //
+        .addMockedResponse(
+            JIRA_BASE_PATH
+                + "/search?jql=issue=JIR-5262+AND+assignee%3D%27tthorntone%40gmail.com%27&"
+                + JIRA_ISSUE_FIELDS,
+            new String(
+                Files.readAllBytes(
+                    Paths.get(
+                        TemplatesTest.class
+                            .getResource("/jira-search-issue-jir-5262.json")
+                            .toURI())),
                 UTF_8)) //
         .addMockedResponse(
             "/redmine/issues/1234.json?null",
@@ -355,6 +382,28 @@ public class GitChangelogApiTest {
             .withToRef("1.71") //
             .withPathFilter("src")
             .withIgnoreCommitsWithoutIssue(true);
+
+    ApprovalsWrapper.verify(given);
+  }
+
+  @Test
+  public void testThatJiraIssuesCanBeFiltered() throws Exception {
+
+    final URL settingsFile =
+        GitChangelogApiTest.class
+            .getResource("/settings/git-changelog-test-settings.json")
+            .toURI()
+            .toURL();
+    final String templatePath = "templatetest/testIssuesCommits.mustache";
+
+    final GitChangelogApi given =
+        gitChangelogApiBuilder()
+            .withJiraEnabled(true)
+            .withFromCommit(ZERO_COMMIT)
+            .withToRef("test")
+            .withSettings(settingsFile)
+            .withTemplatePath(templatePath)
+            .withJiraIssueFieldFilter("=", "assignee", "tthorntone@gmail.com");
 
     ApprovalsWrapper.verify(given);
   }

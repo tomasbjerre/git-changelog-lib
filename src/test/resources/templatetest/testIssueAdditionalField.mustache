@@ -3,31 +3,31 @@
 Changelog of Git Changelog.
 
 {{#issues}}
-  {{#ifIssueHasAdditionalField . key="customfield_10000"}}
-## {{name}} {{title}} {{issueAdditionalField . key="customfield_10000"}} has customfield_10000
-  {{/ifIssueHasAdditionalField}}
-  {{#ifIssueDoesNotHasAdditionalField . key="customfield_10000"}}
-## {{name}} {{title}} {{issueAdditionalField . key="customfield_10000"}} does not have customfield_10000
-  {{/ifIssueDoesNotHasAdditionalField}}
-  {{#ifIssueHasAdditionalField . key="customfield_10001"}}
+  {{#additionalFields.customfield_10000}}
+## {{name}} {{title}} {{additionalFields.customfield_10000}} has customfield_10000
+  {{/additionalFields.customfield_10000}}
+  {{^additionalFields.customfield_10000}}
+## {{name}} {{title}} {{additionalFields.customfield_10000}} does not have customfield_10000
+  {{/additionalFields.customfield_10000}}
+  {{#additionalFields.customfield_10001}}
 ## {{name}} {{title}} has customfield_10001
-  {{/ifIssueHasAdditionalField}}
-  {{#ifIssueDoesNotHasAdditionalField . key="customfield_10001"}}
+  {{/additionalFields.customfield_10001}}
+  {{^additionalFields.customfield_10001}}
 ## {{name}} {{title}} does not have customfield_10001
-  {{/ifIssueDoesNotHasAdditionalField}}
-  {{#ifIssueHasAdditionalField . key="customfield_10002"}}
+  {{/additionalFields.customfield_10001}}
+  {{#additionalFields.customfield_10002}}
 ## {{name}} {{title}} has customfield_10002
-  {{/ifIssueHasAdditionalField}}
-  {{#ifIssueDoesNotHasAdditionalField . key="customfield_10002"}}
+  {{/additionalFields.customfield_10002}}
+  {{^additionalFields.customfield_10002}}
 ## {{name}} {{title}} does not have customfield_10002
-  {{/ifIssueDoesNotHasAdditionalField}}
+  {{/additionalFields.customfield_10002}}
   {{#hasAdditionalFields}}
 ### We have additional fields
   {{/hasAdditionalFields}}  
   {{^hasAdditionalFields}}
 ### We do not have additional fields
   {{/hasAdditionalFields}}
-  {{#additionalFields}}
-#### for key "{{key}}" we have value "{{value}}"
-  {{/additionalFields}}
+  {{#each additionalFields}}
+#### for key "{{@key}}" we have value "{{this}}"
+  {{/each}}
 {{/issues}}
