@@ -277,26 +277,6 @@ Conditional, renders a block if given `Issue` is of `type`.
 {{/issues}}
 ```
 
-### `ifIssueHasAdditionalField <Issue> key="<key>"`
-
-Conditional, renders a block if given `Issue` has the additional field `key`.
-
-```hbs
-{{#issues}}
- {{#ifIssueHasAdditionalField . key="customfield_10000"}} has additional fields {{/ifIssueHasAdditionalField}}
-{{/issues}}
-```
-
-### `issueAdditionalField <Issue> key="<key>"`
-
-Renders the additional field `key` for an `Issue`, null if it doesn't exist.
-
-```hbs
-{{#issues}}
- {{issueAdditionalField . key="customfield_10000"}}
-{{/issues}}
-```
-
 ### `ifCommitType <Commit> type="<type>"`
 
 Conditional, renders a block if given `Commit` is of `type`.
