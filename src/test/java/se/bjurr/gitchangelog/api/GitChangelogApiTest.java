@@ -63,28 +63,6 @@ public class GitChangelogApiTest {
                         TemplatesTest.class.getResource("/jira-issue-jir-5262.json").toURI())),
                 UTF_8)) //
         .addMockedResponse(
-            JIRA_BASE_PATH
-                + "/search?jql=issue=JIR-1234+AND+assignee%3D%27tthorntone%40gmail.com%27&"
-                + JIRA_ISSUE_FIELDS,
-            new String(
-                Files.readAllBytes(
-                    Paths.get(
-                        TemplatesTest.class
-                            .getResource("/jira-search-issue-jir-1234.json")
-                            .toURI())),
-                UTF_8)) //
-        .addMockedResponse(
-            JIRA_BASE_PATH
-                + "/search?jql=issue=JIR-5262+AND+assignee%3D%27tthorntone%40gmail.com%27&"
-                + JIRA_ISSUE_FIELDS,
-            new String(
-                Files.readAllBytes(
-                    Paths.get(
-                        TemplatesTest.class
-                            .getResource("/jira-search-issue-jir-5262.json")
-                            .toURI())),
-                UTF_8)) //
-        .addMockedResponse(
             "/redmine/issues/1234.json?null",
             new String(
                 Files.readAllBytes(
@@ -382,28 +360,6 @@ public class GitChangelogApiTest {
             .withToRef("1.71") //
             .withPathFilter("src")
             .withIgnoreCommitsWithoutIssue(true);
-
-    ApprovalsWrapper.verify(given);
-  }
-
-  @Test
-  public void testThatJiraIssuesCanBeFiltered() throws Exception {
-
-    final URL settingsFile =
-        GitChangelogApiTest.class
-            .getResource("/settings/git-changelog-test-settings.json")
-            .toURI()
-            .toURL();
-    final String templatePath = "templatetest/testIssuesCommits.mustache";
-
-    final GitChangelogApi given =
-        gitChangelogApiBuilder()
-            .withJiraEnabled(true)
-            .withFromCommit(ZERO_COMMIT)
-            .withToRef("test")
-            .withSettings(settingsFile)
-            .withTemplatePath(templatePath)
-            .withJiraIssueFieldFilter("=", "assignee", "tthorntone@gmail.com");
 
     ApprovalsWrapper.verify(given);
   }

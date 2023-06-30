@@ -2,12 +2,10 @@ package se.bjurr.gitchangelog.internal.integrations.jira;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import org.junit.Test;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
-import se.bjurr.gitchangelog.internal.settings.SettingsJiraIssueFieldFilter;
 
 public class JiraClientTest {
 
@@ -51,11 +49,6 @@ public class JiraClientTest {
       @Override
       public Optional<JiraIssue> getIssue(final String matched)
           throws GitChangelogIntegrationException {
-        return null;
-      }
-
-      @Override
-      public JiraClient withIssueFieldFilters(List<SettingsJiraIssueFieldFilter> filters) {
         return null;
       }
     };

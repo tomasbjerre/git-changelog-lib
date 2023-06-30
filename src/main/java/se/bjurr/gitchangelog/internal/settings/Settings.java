@@ -142,11 +142,6 @@ public class Settings implements Serializable {
    * <code>\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b</code>
    */
   private String jiraIssuePattern;
-  /**
-   * Additional fields to filter the issues.<br>
-   * if this is used, Jira's search API is used instead of issues API<br>
-   */
-  private List<SettingsJiraIssueFieldFilter> jiraIssueFieldFilters;
   /** Additional fields to load for the issues. */
   private List<String> jiraIssueAdditionalFields;
   /** Authenticate to JIRA. */
@@ -693,26 +688,6 @@ public class Settings implements Serializable {
 
   public Charset getEncoding() {
     return Charset.forName(this.encoding);
-  }
-
-  public List<SettingsJiraIssueFieldFilter> getJiraIssueFieldFilters() {
-    if (this.jiraIssueFieldFilters == null) {
-      return new ArrayList<>();
-    } else {
-      return this.jiraIssueFieldFilters;
-    }
-  }
-
-  public void setJiraIssueFieldFilters(
-      final List<SettingsJiraIssueFieldFilter> jiraIssueFieldFilters) {
-    this.jiraIssueFieldFilters = jiraIssueFieldFilters;
-  }
-
-  public void addJiraIssueFieldFilter(final SettingsJiraIssueFieldFilter jiraIssueFieldFilter) {
-    if (this.jiraIssueFieldFilters == null) {
-      this.jiraIssueFieldFilters = new ArrayList<>();
-    }
-    this.jiraIssueFieldFilters.add(jiraIssueFieldFilter);
   }
 
   public List<String> getJiraIssueAdditionalFields() {

@@ -46,7 +46,6 @@ import se.bjurr.gitchangelog.internal.semantic.SemanticVersion;
 import se.bjurr.gitchangelog.internal.semantic.SemanticVersioning;
 import se.bjurr.gitchangelog.internal.settings.Settings;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
-import se.bjurr.gitchangelog.internal.settings.SettingsJiraIssueFieldFilter;
 import se.bjurr.gitchangelog.internal.util.ResourceLoader;
 
 public class GitChangelogApi {
@@ -511,19 +510,6 @@ public class GitChangelogApi {
   /** Authenticate to Redmine. */
   public GitChangelogApi withRedmineUsername(final String string) {
     this.settings.setRedmineUsername(string);
-    return this;
-  }
-
-  /**
-   * Issue Filter Fields for Jira. When configured, we will use Jira's search API is used instead of
-   * issues API. These will narrow down the issues returned.<br>
-   * <br>
-   * <code>"description", "=", "Testing"</code> becomes<br>
-   * <code>description='Testing'</code>
-   */
-  public GitChangelogApi withJiraIssueFieldFilter(
-      final String operator, final String key, final String value) {
-    this.settings.addJiraIssueFieldFilter(new SettingsJiraIssueFieldFilter(operator, key, value));
     return this;
   }
 

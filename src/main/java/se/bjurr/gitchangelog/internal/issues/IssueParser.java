@@ -191,9 +191,6 @@ public class IssueParser {
       if (this.settings.getExtendedRestHeaders() != null) {
         jiraClient.withHeaders(this.settings.getExtendedRestHeaders());
       }
-      if (!settings.getJiraIssueFieldFilters().isEmpty()) {
-        jiraClient.withIssueFieldFilters(settings.getJiraIssueFieldFilters());
-      }
       if (!settings.getJiraIssueAdditionalFields().isEmpty()) {
         jiraClient.withIssueAdditionalFields(settings.getJiraIssueAdditionalFields());
       }
