@@ -7,10 +7,10 @@ import com.jayway.jsonpath.PathNotFoundException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.slf4j.Logger;
@@ -90,7 +90,7 @@ public abstract class JiraClient {
     final Map<String, Object> additionalFields =
         fields.stream()
             .reduce(
-                (Map<String, Object>) new HashMap<String, Object>(),
+                (Map<String, Object>) new TreeMap<String, Object>(),
                 (fields, field) -> getAdditionalField(json, fieldPrefix, fields, field),
                 (leftSide, rightSide) ->
                     Stream.of(leftSide, rightSide)

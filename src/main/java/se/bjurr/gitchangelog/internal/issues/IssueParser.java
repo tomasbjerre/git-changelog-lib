@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.regex.Matcher;
 import org.slf4j.Logger;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
@@ -103,7 +104,7 @@ public class IssueParser {
         final String issueType = null;
         final List<String> linkedIssues = null;
         final List<String> labels = null;
-        final Map<String, Object> additionalFields = new HashMap<>();
+        final Map<String, Object> additionalFields = new TreeMap<>();
 
         final ParsedIssue noIssue =
             new ParsedIssue(
@@ -137,7 +138,7 @@ public class IssueParser {
     String title = "";
     final List<String> linkedIssues = new ArrayList<>();
     List<String> labels = new ArrayList<>();
-    final Map<String, Object> additionalFields = new HashMap<>();
+    final Map<String, Object> additionalFields = new TreeMap<>();
     if (matchedIssueString.startsWith("#")) {
       matchedIssueString = matchedIssueString.substring(1);
     }
@@ -232,7 +233,7 @@ public class IssueParser {
     final String issueType = null;
     final List<String> linkedIssues = null;
     final List<String> labels = null;
-    final Map<String, Object> additionalFields = new HashMap<>();
+    final Map<String, Object> additionalFields = new TreeMap<>();
     return new ParsedIssue( //
         CUSTOM, //
         issuePattern.getName(), //
@@ -292,7 +293,7 @@ public class IssueParser {
     String issueType = null;
     final List<String> linkedIssues = null;
     final List<String> labels = null;
-    final Map<String, Object> additionalFields = new HashMap<>();
+    final Map<String, Object> additionalFields = new TreeMap<>();
     try {
       if (redmineClient != null && redmineClient.getIssue(matchedIssue).isPresent()) {
         final RedmineIssue redmineIssue = redmineClient.getIssue(matchedIssue).get();
@@ -325,7 +326,7 @@ public class IssueParser {
     String title = "";
     final List<String> linkedIssues = new ArrayList<>();
     final List<String> labels = new ArrayList<>();
-    final Map<String, Object> additionalFields = new HashMap<>();
+    final Map<String, Object> additionalFields = new TreeMap<>();
     try {
       if (gitHubHelper != null) {
         final java.util.Optional<GitHubIssue> issues = gitHubHelper.getIssueFromAll(matchedIssue);
