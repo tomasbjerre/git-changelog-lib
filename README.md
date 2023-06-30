@@ -521,6 +521,8 @@ The template is supplied with this context of prepopulated mustache/handlebars v
    - labels
    - hasLinkedIssues
    - linkedIssues
+   - hasAdditionalFields
+   - additionalFields
    * commits
     - authorName
     - authorEmailAddress
@@ -567,6 +569,8 @@ The template is supplied with this context of prepopulated mustache/handlebars v
   - labels
   - hasLinkedIssues
   - linkedIssues
+  - hasAdditionalFields
+  - additionalFields
   * commits
    - authorName
    - authorEmailAddress
@@ -627,6 +631,8 @@ The template is supplied with this context of prepopulated mustache/handlebars v
  - labels
  - hasLinkedIssues
  - linkedIssues
+ - hasAdditionalFields
+ - additionalFields
  * commits
   - authorName
   - authorEmailAddress
