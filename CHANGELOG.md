@@ -2,6 +2,20 @@
 
 Changelog of git-changelog-lib.
 
+## 1.170.0 (2023-07-02)
+
+### Features
+
+-  enable additional fields from jira integration ([705da](https://github.com/tomasbjerre/git-changelog-lib/commit/705da818b1f7987) Taylore)  [#153](https://github.com/tomasbjerre/git-changelog-lib/issues/153)  
+
+### Other changes
+
+**refine context explanation, git remote origin requirement**
+
+
+[7e978](https://github.com/tomasbjerre/git-changelog-lib/commit/7e978fb3466d5e3) edeso *2023-05-07 16:12:02*
+
+
 ## 1.169.0 (2023-04-22)
 
 ### Features
