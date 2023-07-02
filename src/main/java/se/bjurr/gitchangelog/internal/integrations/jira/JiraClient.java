@@ -43,38 +43,42 @@ public abstract class JiraClient {
   }
 
   protected String getIssuePath() {
-    return ISSUE_API;
+    return JiraClient.ISSUE_API;
   }
 
   protected String getEndpoint(final String issue) {
     return this.api
-        + BASE_PATH
-        + getIssuePath()
+        + JiraClient.BASE_PATH
+        + this.getIssuePath()
         + issue
-        + QUESTION_MARK
-        + DEFAULT_FIELDS
-        + (hasIssueAdditionalFields() ? COMMA + getIssueAdditionalFieldsQuery() : EMPTY_STRING);
+        + JiraClient.QUESTION_MARK
+        + JiraClient.DEFAULT_FIELDS
+        + (this.hasIssueAdditionalFields()
+            ? JiraClient.COMMA + this.getIssueAdditionalFieldsQuery()
+            : JiraClient.EMPTY_STRING);
   }
 
   public JiraClient withIssueAdditionalFields(final List<String> fields) {
-    this.fields = fields;
+    final List<String> newFields = new ArrayList<String>(fields);
+    Collections.sort(newFields);
+    this.fields = Collections.unmodifiableList(newFields);
     return this;
   }
 
   private boolean hasIssueAdditionalFields() {
-    return fields != null && !fields.isEmpty();
+    return this.fields != null && !this.fields.isEmpty();
   }
 
   private String getIssueAdditionalFieldsQuery() {
-    return String.join(COMMA, fields);
+    return String.join(JiraClient.COMMA, this.fields);
   }
 
   private String getFieldPrefix() {
-    return ISSUE_API_FIELD_PREFIX;
+    return JiraClient.ISSUE_API_FIELD_PREFIX;
   }
 
   protected JiraIssue toJiraIssue(final String issue, final String json) {
-    final String fieldPrefix = getFieldPrefix();
+    final String fieldPrefix = this.getFieldPrefix();
 
     final String title = read(json, fieldPrefix + "summary");
     final String description = read(json, fieldPrefix + "description");
@@ -88,10 +92,10 @@ public abstract class JiraClient {
     linkedIssues.addAll(outwardKey);
 
     final Map<String, Object> additionalFields =
-        fields.stream()
+        this.fields.stream()
             .reduce(
                 (Map<String, Object>) new TreeMap<String, Object>(),
-                (fields, field) -> getAdditionalField(json, fieldPrefix, fields, field),
+                (fields, field) -> this.getAdditionalField(json, fieldPrefix, fields, field),
                 (leftSide, rightSide) ->
                     Stream.of(leftSide, rightSide)
                         .map(Map::entrySet)
@@ -109,8 +113,8 @@ public abstract class JiraClient {
       final String additionalFieldString) {
     try {
       additionalFields.put(additionalFieldString, read(json, fieldPrefix + additionalFieldString));
-    } catch (PathNotFoundException e) {
-      LOG.warn("Could not find the additional field", e);
+    } catch (final PathNotFoundException e) {
+      JiraClient.LOG.warn("Could not find the additional field", e);
     }
 
     return additionalFields;

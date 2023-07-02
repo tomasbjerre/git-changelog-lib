@@ -15,14 +15,14 @@ public class JiraIssue {
   private final Map<String, Object> additionalFields;
 
   public JiraIssue(
-      String title,
-      String description,
-      String link,
-      String issue,
-      String issueType,
-      List<String> linkedIssues,
-      List<String> labels,
-      Map<String, Object> additionalFields) {
+      final String title,
+      final String description,
+      final String link,
+      final String issue,
+      final String issueType,
+      final List<String> linkedIssues,
+      final List<String> labels,
+      final Map<String, Object> additionalFields) {
     this.title = title;
     this.link = link;
     this.issue = issue;
@@ -34,51 +34,55 @@ public class JiraIssue {
   }
 
   public String getIssue() {
-    return issue;
+    return this.issue;
   }
 
   public String getLink() {
-    return link;
+    return this.link;
   }
 
   public String getTitle() {
-    return title;
+    return this.title;
   }
 
   public String getIssueType() {
-    return issueType;
+    return this.issueType;
   }
 
   public List<String> getLinkedIssues() {
-    return linkedIssues;
+    return this.linkedIssues;
   }
 
   public List<String> getLabels() {
-    return labels;
+    return this.labels;
   }
 
   public String getDescription() {
-    return description;
+    return this.description;
   }
 
   public Map<String, Object> getAdditionalFields() {
-    return additionalFields;
+    return this.additionalFields;
   }
 
   @Override
   public String toString() {
     return "JiraIssue [title="
-        + title
+        + this.title
         + ", link="
-        + link
+        + this.link
         + ", issue="
-        + issue
+        + this.issue
         + ", issueType="
-        + issueType
+        + this.issueType
+        + ", description="
+        + this.description
         + ", linkedIssues="
-        + linkedIssues
+        + this.linkedIssues
         + ", labels="
-        + labels
+        + this.labels
+        + ", additionalFields="
+        + this.additionalFields
         + "]";
   }
 }
