@@ -20,6 +20,9 @@ dependencies {
  implementation 'com.jayway.jsonpath:json-path:2.7.0'
  implementation 'org.eclipse.jgit:org.eclipse.jgit:5.13.1.202206130422-r'
  implementation 'org.gitlab:java-gitlab-api:4.1.1'
+ implementation 'com.fasterxml.jackson.core:jackson-core:2.15.2' // Transitive from java-gitlab-api
+ implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2' // Transitive from java-gitlab-api
+ implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.15.2' // Transitive from java-gitlab-api
 
  testImplementation 'org.slf4j:slf4j-simple:1.8.0-beta2' // Same as JGit
  testImplementation 'junit:junit:4.13.2'
