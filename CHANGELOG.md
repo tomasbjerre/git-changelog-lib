@@ -2,6 +2,12 @@
 
 Changelog of git-changelog-lib.
 
+## 1.170.1 (2023-07-10)
+
+### Bug Fixes
+
+-  step jackson 2.5.3 to 2.15.2 ([d93f0](https://github.com/tomasbjerre/git-changelog-lib/commit/d93f00068674df0) Tomas Bjerre)  
+
 ## 1.170.0 (2023-07-02)
 
 ### Features
