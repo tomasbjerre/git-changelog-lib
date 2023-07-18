@@ -22,6 +22,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.api.LogCommand;
 import org.eclipse.jgit.lib.AnyObjectId;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.Ref;
@@ -33,6 +34,7 @@ import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import se.bjurr.gitchangelog.api.GitChangelogApiConstants;
+import se.bjurr.gitchangelog.api.InclusivenessStrategy;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
@@ -237,8 +239,31 @@ public class GitRepo implements Closeable {
     return tagPerCommit;
   }
 
-  private List<RevCommit> getCommitList(final RevCommitBoundary from, final RevCommitBoundary to) throws Exception {
-    return RevCommitBoundary.listCommits(git, revWalk, from, to, pathFilter);
+  private static List<RevCommit> getCommitList(Git git, RevWalk revWalk, final RevCommitBoundary from, final RevCommitBoundary to, String pathFilter) throws Exception {
+    final LogCommand logCommand = git.log().addRange(from.getRevCommit(), to.getRevCommit());
+    if (pathFilter != null && !pathFilter.isEmpty()) {
+      logCommand.addPath(pathFilter);
+    }
+    final List<RevCommit> list = new ArrayList<>();
+
+    for (RevCommit commit : logCommand.call()) {
+      list.add(commit);
+    }
+
+    if (from.getInclusivenessStrategy() == InclusivenessStrategy.LEGACY) {
+      revWalk.parseHeaders(from.getRevCommit());
+      if (from.getRevCommit().getParentCount() == 0) {
+        list.add(from.getRevCommit());
+      }
+    }
+    if (from.getInclusivenessStrategy() == InclusivenessStrategy.INCLUSIVE) {
+      list.add(from.getRevCommit());
+    }
+    if (to.getInclusivenessStrategy() == InclusivenessStrategy.EXCLUSIVE) {
+      list.remove(to.getRevCommit());
+    }
+
+    return list;
   }
 
   private boolean hasPathFilter() {
@@ -315,7 +340,7 @@ public class GitRepo implements Closeable {
     final RevCommitBoundary from = fromObjectId.lookupCommit(this.revWalk);
     final RevCommitBoundary to = toObjectId.lookupCommit(this.revWalk);
 
-    this.commitsToInclude = this.getCommitList(from, to);
+    this.commitsToInclude = getCommitList(this.git, this.revWalk, from, to, this.pathFilter);
 
     final List<Ref> tagList = this.tagsBetweenFromAndTo(from, to);
     /**
@@ -488,7 +513,7 @@ public class GitRepo implements Closeable {
   private List<Ref> tagsBetweenFromAndTo(final RevCommitBoundary from, final RevCommitBoundary to)
       throws Exception {
     final List<Ref> tagList = this.git.tagList().call();
-    final List<RevCommit> icludedCommits = RevCommitBoundary.listCommits(git, revWalk, from, to, null);
+    final List<RevCommit> icludedCommits = getCommitList(this.git, this.revWalk, from, to, null);
 
     final List<Ref> includedTags = new ArrayList<>();
     for (final Ref tag : tagList) {
