@@ -679,6 +679,16 @@ Switching to Handlebars from Mustache
 
 ## No issue supplied 
   
+### Réda Housni Alaoui - 2023-07-18 15:56:55
+[70a727785b1206d](https://server/70a727785b1206d)
+
+Make RevisionBoundary serializable
+
+### Réda Housni Alaoui - 2023-07-18 15:54:01
+[491a664b449c59d](https://server/491a664b449c59d)
+
+Fix merge conflicts
+
 ### Réda Housni Alaoui - 2023-07-18 15:41:06
 [125cacdbec1462d](https://server/125cacdbec1462d)
 
@@ -2512,6 +2522,26 @@ context:
 
 {
   "commits": [
+    {
+      "authorEmailAddress": "reda-alaoui@hey.com",
+      "authorName": "Réda Housni Alaoui",
+      "commitTime": "2023-07-18 15:56:55",
+      "commitTimeLong": 1689695815000,
+      "hash": "70a727785b1206d",
+      "hashFull": "70a727785b1206d6735a01cc9ccd01510d19468c",
+      "merge": false,
+      "message": "Make RevisionBoundary serializable"
+    },
+    {
+      "authorEmailAddress": "reda-alaoui@hey.com",
+      "authorName": "Réda Housni Alaoui",
+      "commitTime": "2023-07-18 15:54:01",
+      "commitTimeLong": 1689695641000,
+      "hash": "491a664b449c59d",
+      "hashFull": "491a664b449c59d2753b326d6ddaa5e1dc8c60e7",
+      "merge": false,
+      "message": "Fix merge conflicts"
+    },
     {
       "authorEmailAddress": "reda-alaoui@hey.com",
       "authorName": "Réda Housni Alaoui",
@@ -6851,6 +6881,26 @@ context:
             {
               "authorEmailAddress": "reda-alaoui@hey.com",
               "authorName": "Réda Housni Alaoui",
+              "commitTime": "2023-07-18 15:56:55",
+              "commitTimeLong": 1689695815000,
+              "hash": "70a727785b1206d",
+              "hashFull": "70a727785b1206d6735a01cc9ccd01510d19468c",
+              "merge": false,
+              "message": "Make RevisionBoundary serializable"
+            },
+            {
+              "authorEmailAddress": "reda-alaoui@hey.com",
+              "authorName": "Réda Housni Alaoui",
+              "commitTime": "2023-07-18 15:54:01",
+              "commitTimeLong": 1689695641000,
+              "hash": "491a664b449c59d",
+              "hashFull": "491a664b449c59d2753b326d6ddaa5e1dc8c60e7",
+              "merge": false,
+              "message": "Fix merge conflicts"
+            },
+            {
+              "authorEmailAddress": "reda-alaoui@hey.com",
+              "authorName": "Réda Housni Alaoui",
               "commitTime": "2023-07-18 15:41:06",
               "commitTimeLong": 1689694866000,
               "hash": "125cacdbec1462d",
@@ -6913,6 +6963,26 @@ context:
         {
           "authorEmailAddress": "reda-alaoui@hey.com",
           "authorName": "Réda Housni Alaoui",
+          "commitTime": "2023-07-18 15:56:55",
+          "commitTimeLong": 1689695815000,
+          "hash": "70a727785b1206d",
+          "hashFull": "70a727785b1206d6735a01cc9ccd01510d19468c",
+          "merge": false,
+          "message": "Make RevisionBoundary serializable"
+        },
+        {
+          "authorEmailAddress": "reda-alaoui@hey.com",
+          "authorName": "Réda Housni Alaoui",
+          "commitTime": "2023-07-18 15:54:01",
+          "commitTimeLong": 1689695641000,
+          "hash": "491a664b449c59d",
+          "hashFull": "491a664b449c59d2753b326d6ddaa5e1dc8c60e7",
+          "merge": false,
+          "message": "Fix merge conflicts"
+        },
+        {
+          "authorEmailAddress": "reda-alaoui@hey.com",
+          "authorName": "Réda Housni Alaoui",
           "commitTime": "2023-07-18 15:41:06",
           "commitTimeLong": 1689694866000,
           "hash": "125cacdbec1462d",
@@ -6967,6 +7037,26 @@ context:
             {
               "authorEmailAddress": "reda-alaoui@hey.com",
               "authorName": "Réda Housni Alaoui",
+              "commitTime": "2023-07-18 15:56:55",
+              "commitTimeLong": 1689695815000,
+              "hash": "70a727785b1206d",
+              "hashFull": "70a727785b1206d6735a01cc9ccd01510d19468c",
+              "merge": false,
+              "message": "Make RevisionBoundary serializable"
+            },
+            {
+              "authorEmailAddress": "reda-alaoui@hey.com",
+              "authorName": "Réda Housni Alaoui",
+              "commitTime": "2023-07-18 15:54:01",
+              "commitTimeLong": 1689695641000,
+              "hash": "491a664b449c59d",
+              "hashFull": "491a664b449c59d2753b326d6ddaa5e1dc8c60e7",
+              "merge": false,
+              "message": "Fix merge conflicts"
+            },
+            {
+              "authorEmailAddress": "reda-alaoui@hey.com",
+              "authorName": "Réda Housni Alaoui",
               "commitTime": "2023-07-18 15:41:06",
               "commitTimeLong": 1689694866000,
               "hash": "125cacdbec1462d",
@@ -7018,6 +7108,26 @@ context:
           "authors": [
             {
               "commits": [
+                {
+                  "authorEmailAddress": "reda-alaoui@hey.com",
+                  "authorName": "Réda Housni Alaoui",
+                  "commitTime": "2023-07-18 15:56:55",
+                  "commitTimeLong": 1689695815000,
+                  "hash": "70a727785b1206d",
+                  "hashFull": "70a727785b1206d6735a01cc9ccd01510d19468c",
+                  "merge": false,
+                  "message": "Make RevisionBoundary serializable"
+                },
+                {
+                  "authorEmailAddress": "reda-alaoui@hey.com",
+                  "authorName": "Réda Housni Alaoui",
+                  "commitTime": "2023-07-18 15:54:01",
+                  "commitTimeLong": 1689695641000,
+                  "hash": "491a664b449c59d",
+                  "hashFull": "491a664b449c59d2753b326d6ddaa5e1dc8c60e7",
+                  "merge": false,
+                  "message": "Fix merge conflicts"
+                },
                 {
                   "authorEmailAddress": "reda-alaoui@hey.com",
                   "authorName": "Réda Housni Alaoui",
@@ -7106,6 +7216,26 @@ context:
                 {
                   "authorEmailAddress": "reda-alaoui@hey.com",
                   "authorName": "Réda Housni Alaoui",
+                  "commitTime": "2023-07-18 15:56:55",
+                  "commitTimeLong": 1689695815000,
+                  "hash": "70a727785b1206d",
+                  "hashFull": "70a727785b1206d6735a01cc9ccd01510d19468c",
+                  "merge": false,
+                  "message": "Make RevisionBoundary serializable"
+                },
+                {
+                  "authorEmailAddress": "reda-alaoui@hey.com",
+                  "authorName": "Réda Housni Alaoui",
+                  "commitTime": "2023-07-18 15:54:01",
+                  "commitTimeLong": 1689695641000,
+                  "hash": "491a664b449c59d",
+                  "hashFull": "491a664b449c59d2753b326d6ddaa5e1dc8c60e7",
+                  "merge": false,
+                  "message": "Fix merge conflicts"
+                },
+                {
+                  "authorEmailAddress": "reda-alaoui@hey.com",
+                  "authorName": "Réda Housni Alaoui",
                   "commitTime": "2023-07-18 15:41:06",
                   "commitTimeLong": 1689694866000,
                   "hash": "125cacdbec1462d",
@@ -7157,6 +7287,26 @@ context:
               "authors": [
                 {
                   "commits": [
+                    {
+                      "authorEmailAddress": "reda-alaoui@hey.com",
+                      "authorName": "Réda Housni Alaoui",
+                      "commitTime": "2023-07-18 15:56:55",
+                      "commitTimeLong": 1689695815000,
+                      "hash": "70a727785b1206d",
+                      "hashFull": "70a727785b1206d6735a01cc9ccd01510d19468c",
+                      "merge": false,
+                      "message": "Make RevisionBoundary serializable"
+                    },
+                    {
+                      "authorEmailAddress": "reda-alaoui@hey.com",
+                      "authorName": "Réda Housni Alaoui",
+                      "commitTime": "2023-07-18 15:54:01",
+                      "commitTimeLong": 1689695641000,
+                      "hash": "491a664b449c59d",
+                      "hashFull": "491a664b449c59d2753b326d6ddaa5e1dc8c60e7",
+                      "merge": false,
+                      "message": "Fix merge conflicts"
+                    },
                     {
                       "authorEmailAddress": "reda-alaoui@hey.com",
                       "authorName": "Réda Housni Alaoui",
@@ -51337,6 +51487,26 @@ context:
         {
           "authorEmailAddress": "reda-alaoui@hey.com",
           "authorName": "Réda Housni Alaoui",
+          "commitTime": "2023-07-18 15:56:55",
+          "commitTimeLong": 1689695815000,
+          "hash": "70a727785b1206d",
+          "hashFull": "70a727785b1206d6735a01cc9ccd01510d19468c",
+          "merge": false,
+          "message": "Make RevisionBoundary serializable"
+        },
+        {
+          "authorEmailAddress": "reda-alaoui@hey.com",
+          "authorName": "Réda Housni Alaoui",
+          "commitTime": "2023-07-18 15:54:01",
+          "commitTimeLong": 1689695641000,
+          "hash": "491a664b449c59d",
+          "hashFull": "491a664b449c59d2753b326d6ddaa5e1dc8c60e7",
+          "merge": false,
+          "message": "Fix merge conflicts"
+        },
+        {
+          "authorEmailAddress": "reda-alaoui@hey.com",
+          "authorName": "Réda Housni Alaoui",
           "commitTime": "2023-07-18 15:41:06",
           "commitTimeLong": 1689694866000,
           "hash": "125cacdbec1462d",
@@ -59296,6 +59466,26 @@ context:
         {
           "authorEmailAddress": "reda-alaoui@hey.com",
           "authorName": "Réda Housni Alaoui",
+          "commitTime": "2023-07-18 15:56:55",
+          "commitTimeLong": 1689695815000,
+          "hash": "70a727785b1206d",
+          "hashFull": "70a727785b1206d6735a01cc9ccd01510d19468c",
+          "merge": false,
+          "message": "Make RevisionBoundary serializable"
+        },
+        {
+          "authorEmailAddress": "reda-alaoui@hey.com",
+          "authorName": "Réda Housni Alaoui",
+          "commitTime": "2023-07-18 15:54:01",
+          "commitTimeLong": 1689695641000,
+          "hash": "491a664b449c59d",
+          "hashFull": "491a664b449c59d2753b326d6ddaa5e1dc8c60e7",
+          "merge": false,
+          "message": "Fix merge conflicts"
+        },
+        {
+          "authorEmailAddress": "reda-alaoui@hey.com",
+          "authorName": "Réda Housni Alaoui",
           "commitTime": "2023-07-18 15:41:06",
           "commitTimeLong": 1689694866000,
           "hash": "125cacdbec1462d",
@@ -62807,6 +62997,26 @@ context:
       "authors": [
         {
           "commits": [
+            {
+              "authorEmailAddress": "reda-alaoui@hey.com",
+              "authorName": "Réda Housni Alaoui",
+              "commitTime": "2023-07-18 15:56:55",
+              "commitTimeLong": 1689695815000,
+              "hash": "70a727785b1206d",
+              "hashFull": "70a727785b1206d6735a01cc9ccd01510d19468c",
+              "merge": false,
+              "message": "Make RevisionBoundary serializable"
+            },
+            {
+              "authorEmailAddress": "reda-alaoui@hey.com",
+              "authorName": "Réda Housni Alaoui",
+              "commitTime": "2023-07-18 15:54:01",
+              "commitTimeLong": 1689695641000,
+              "hash": "491a664b449c59d",
+              "hashFull": "491a664b449c59d2753b326d6ddaa5e1dc8c60e7",
+              "merge": false,
+              "message": "Fix merge conflicts"
+            },
             {
               "authorEmailAddress": "reda-alaoui@hey.com",
               "authorName": "Réda Housni Alaoui",
@@ -69958,6 +70168,26 @@ context:
             {
               "authorEmailAddress": "reda-alaoui@hey.com",
               "authorName": "Réda Housni Alaoui",
+              "commitTime": "2023-07-18 15:56:55",
+              "commitTimeLong": 1689695815000,
+              "hash": "70a727785b1206d",
+              "hashFull": "70a727785b1206d6735a01cc9ccd01510d19468c",
+              "merge": false,
+              "message": "Make RevisionBoundary serializable"
+            },
+            {
+              "authorEmailAddress": "reda-alaoui@hey.com",
+              "authorName": "Réda Housni Alaoui",
+              "commitTime": "2023-07-18 15:54:01",
+              "commitTimeLong": 1689695641000,
+              "hash": "491a664b449c59d",
+              "hashFull": "491a664b449c59d2753b326d6ddaa5e1dc8c60e7",
+              "merge": false,
+              "message": "Fix merge conflicts"
+            },
+            {
+              "authorEmailAddress": "reda-alaoui@hey.com",
+              "authorName": "Réda Housni Alaoui",
               "commitTime": "2023-07-18 15:41:06",
               "commitTimeLong": 1689694866000,
               "hash": "125cacdbec1462d",
@@ -73469,6 +73699,26 @@ context:
           "authors": [
             {
               "commits": [
+                {
+                  "authorEmailAddress": "reda-alaoui@hey.com",
+                  "authorName": "Réda Housni Alaoui",
+                  "commitTime": "2023-07-18 15:56:55",
+                  "commitTimeLong": 1689695815000,
+                  "hash": "70a727785b1206d",
+                  "hashFull": "70a727785b1206d6735a01cc9ccd01510d19468c",
+                  "merge": false,
+                  "message": "Make RevisionBoundary serializable"
+                },
+                {
+                  "authorEmailAddress": "reda-alaoui@hey.com",
+                  "authorName": "Réda Housni Alaoui",
+                  "commitTime": "2023-07-18 15:54:01",
+                  "commitTimeLong": 1689695641000,
+                  "hash": "491a664b449c59d",
+                  "hashFull": "491a664b449c59d2753b326d6ddaa5e1dc8c60e7",
+                  "merge": false,
+                  "message": "Fix merge conflicts"
+                },
                 {
                   "authorEmailAddress": "reda-alaoui@hey.com",
                   "authorName": "Réda Housni Alaoui",
