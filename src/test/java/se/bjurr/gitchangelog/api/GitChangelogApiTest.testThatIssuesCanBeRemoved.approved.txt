@@ -679,6 +679,16 @@ Switching to Handlebars from Mustache
 
 ## No issue supplied 
   
+### Réda Housni Alaoui - 2023-07-18 15:41:06
+[125cacdbec1462d](https://server/125cacdbec1462d)
+
+Allow to select which kind of inclusiveness to use for commit boundaries
+
+### Tomas Bjerre - 2023-07-18 15:39:46
+[57928fb89df058f](https://server/57928fb89df058f)
+
+chore: correcting testcases after merge
+
 ### Réda Housni Alaoui - 2023-07-18 09:09:13
 [d5e16f4586e2d41](https://server/d5e16f4586e2d41)
 
@@ -2502,6 +2512,26 @@ context:
 
 {
   "commits": [
+    {
+      "authorEmailAddress": "reda-alaoui@hey.com",
+      "authorName": "Réda Housni Alaoui",
+      "commitTime": "2023-07-18 15:41:06",
+      "commitTimeLong": 1689694866000,
+      "hash": "125cacdbec1462d",
+      "hashFull": "125cacdbec1462d669af340e09b50651a1c6034d",
+      "merge": false,
+      "message": "Allow to select which kind of inclusiveness to use for commit boundaries"
+    },
+    {
+      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+      "authorName": "Tomas Bjerre",
+      "commitTime": "2023-07-18 15:39:46",
+      "commitTimeLong": 1689694786000,
+      "hash": "57928fb89df058f",
+      "hashFull": "57928fb89df058ff787122f15ff90f6e658013e5",
+      "merge": false,
+      "message": "chore: correcting testcases after merge"
+    },
     {
       "authorEmailAddress": "reda-alaoui@hey.com",
       "authorName": "Réda Housni Alaoui",
@@ -6821,6 +6851,16 @@ context:
             {
               "authorEmailAddress": "reda-alaoui@hey.com",
               "authorName": "Réda Housni Alaoui",
+              "commitTime": "2023-07-18 15:41:06",
+              "commitTimeLong": 1689694866000,
+              "hash": "125cacdbec1462d",
+              "hashFull": "125cacdbec1462d669af340e09b50651a1c6034d",
+              "merge": false,
+              "message": "Allow to select which kind of inclusiveness to use for commit boundaries"
+            },
+            {
+              "authorEmailAddress": "reda-alaoui@hey.com",
+              "authorName": "Réda Housni Alaoui",
               "commitTime": "2023-07-18 09:09:13",
               "commitTimeLong": 1689671353000,
               "hash": "d5e16f4586e2d41",
@@ -6847,6 +6887,16 @@ context:
             {
               "authorEmailAddress": "tomas.bjerre85@gmail.com",
               "authorName": "Tomas Bjerre",
+              "commitTime": "2023-07-18 15:39:46",
+              "commitTimeLong": 1689694786000,
+              "hash": "57928fb89df058f",
+              "hashFull": "57928fb89df058ff787122f15ff90f6e658013e5",
+              "merge": false,
+              "message": "chore: correcting testcases after merge"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
               "commitTime": "2023-07-10 06:55:37",
               "commitTimeLong": 1688972137000,
               "hash": "d5a14eca9ffed77",
@@ -6860,6 +6910,26 @@ context:
         }
       ],
       "commits": [
+        {
+          "authorEmailAddress": "reda-alaoui@hey.com",
+          "authorName": "Réda Housni Alaoui",
+          "commitTime": "2023-07-18 15:41:06",
+          "commitTimeLong": 1689694866000,
+          "hash": "125cacdbec1462d",
+          "hashFull": "125cacdbec1462d669af340e09b50651a1c6034d",
+          "merge": false,
+          "message": "Allow to select which kind of inclusiveness to use for commit boundaries"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2023-07-18 15:39:46",
+          "commitTimeLong": 1689694786000,
+          "hash": "57928fb89df058f",
+          "hashFull": "57928fb89df058ff787122f15ff90f6e658013e5",
+          "merge": false,
+          "message": "chore: correcting testcases after merge"
+        },
         {
           "authorEmailAddress": "reda-alaoui@hey.com",
           "authorName": "Réda Housni Alaoui",
@@ -6897,6 +6967,26 @@ context:
             {
               "authorEmailAddress": "reda-alaoui@hey.com",
               "authorName": "Réda Housni Alaoui",
+              "commitTime": "2023-07-18 15:41:06",
+              "commitTimeLong": 1689694866000,
+              "hash": "125cacdbec1462d",
+              "hashFull": "125cacdbec1462d669af340e09b50651a1c6034d",
+              "merge": false,
+              "message": "Allow to select which kind of inclusiveness to use for commit boundaries"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2023-07-18 15:39:46",
+              "commitTimeLong": 1689694786000,
+              "hash": "57928fb89df058f",
+              "hashFull": "57928fb89df058ff787122f15ff90f6e658013e5",
+              "merge": false,
+              "message": "chore: correcting testcases after merge"
+            },
+            {
+              "authorEmailAddress": "reda-alaoui@hey.com",
+              "authorName": "Réda Housni Alaoui",
               "commitTime": "2023-07-18 09:09:13",
               "commitTimeLong": 1689671353000,
               "hash": "d5e16f4586e2d41",
@@ -6931,6 +7021,16 @@ context:
                 {
                   "authorEmailAddress": "reda-alaoui@hey.com",
                   "authorName": "Réda Housni Alaoui",
+                  "commitTime": "2023-07-18 15:41:06",
+                  "commitTimeLong": 1689694866000,
+                  "hash": "125cacdbec1462d",
+                  "hashFull": "125cacdbec1462d669af340e09b50651a1c6034d",
+                  "merge": false,
+                  "message": "Allow to select which kind of inclusiveness to use for commit boundaries"
+                },
+                {
+                  "authorEmailAddress": "reda-alaoui@hey.com",
+                  "authorName": "Réda Housni Alaoui",
                   "commitTime": "2023-07-18 09:09:13",
                   "commitTimeLong": 1689671353000,
                   "hash": "d5e16f4586e2d41",
@@ -6954,6 +7054,16 @@ context:
             },
             {
               "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2023-07-18 15:39:46",
+                  "commitTimeLong": 1689694786000,
+                  "hash": "57928fb89df058f",
+                  "hashFull": "57928fb89df058ff787122f15ff90f6e658013e5",
+                  "merge": false,
+                  "message": "chore: correcting testcases after merge"
+                },
                 {
                   "authorEmailAddress": "tomas.bjerre85@gmail.com",
                   "authorName": "Tomas Bjerre",
@@ -6996,6 +7106,26 @@ context:
                 {
                   "authorEmailAddress": "reda-alaoui@hey.com",
                   "authorName": "Réda Housni Alaoui",
+                  "commitTime": "2023-07-18 15:41:06",
+                  "commitTimeLong": 1689694866000,
+                  "hash": "125cacdbec1462d",
+                  "hashFull": "125cacdbec1462d669af340e09b50651a1c6034d",
+                  "merge": false,
+                  "message": "Allow to select which kind of inclusiveness to use for commit boundaries"
+                },
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2023-07-18 15:39:46",
+                  "commitTimeLong": 1689694786000,
+                  "hash": "57928fb89df058f",
+                  "hashFull": "57928fb89df058ff787122f15ff90f6e658013e5",
+                  "merge": false,
+                  "message": "chore: correcting testcases after merge"
+                },
+                {
+                  "authorEmailAddress": "reda-alaoui@hey.com",
+                  "authorName": "Réda Housni Alaoui",
                   "commitTime": "2023-07-18 09:09:13",
                   "commitTimeLong": 1689671353000,
                   "hash": "d5e16f4586e2d41",
@@ -7030,6 +7160,16 @@ context:
                     {
                       "authorEmailAddress": "reda-alaoui@hey.com",
                       "authorName": "Réda Housni Alaoui",
+                      "commitTime": "2023-07-18 15:41:06",
+                      "commitTimeLong": 1689694866000,
+                      "hash": "125cacdbec1462d",
+                      "hashFull": "125cacdbec1462d669af340e09b50651a1c6034d",
+                      "merge": false,
+                      "message": "Allow to select which kind of inclusiveness to use for commit boundaries"
+                    },
+                    {
+                      "authorEmailAddress": "reda-alaoui@hey.com",
+                      "authorName": "Réda Housni Alaoui",
                       "commitTime": "2023-07-18 09:09:13",
                       "commitTimeLong": 1689671353000,
                       "hash": "d5e16f4586e2d41",
@@ -7053,6 +7193,16 @@ context:
                 },
                 {
                   "commits": [
+                    {
+                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                      "authorName": "Tomas Bjerre",
+                      "commitTime": "2023-07-18 15:39:46",
+                      "commitTimeLong": 1689694786000,
+                      "hash": "57928fb89df058f",
+                      "hashFull": "57928fb89df058ff787122f15ff90f6e658013e5",
+                      "merge": false,
+                      "message": "chore: correcting testcases after merge"
+                    },
                     {
                       "authorEmailAddress": "tomas.bjerre85@gmail.com",
                       "authorName": "Tomas Bjerre",
@@ -51187,6 +51337,16 @@ context:
         {
           "authorEmailAddress": "reda-alaoui@hey.com",
           "authorName": "Réda Housni Alaoui",
+          "commitTime": "2023-07-18 15:41:06",
+          "commitTimeLong": 1689694866000,
+          "hash": "125cacdbec1462d",
+          "hashFull": "125cacdbec1462d669af340e09b50651a1c6034d",
+          "merge": false,
+          "message": "Allow to select which kind of inclusiveness to use for commit boundaries"
+        },
+        {
+          "authorEmailAddress": "reda-alaoui@hey.com",
+          "authorName": "Réda Housni Alaoui",
           "commitTime": "2023-07-18 09:09:13",
           "commitTimeLong": 1689671353000,
           "hash": "d5e16f4586e2d41",
@@ -51210,6 +51370,16 @@ context:
     },
     {
       "commits": [
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2023-07-18 15:39:46",
+          "commitTimeLong": 1689694786000,
+          "hash": "57928fb89df058f",
+          "hashFull": "57928fb89df058ff787122f15ff90f6e658013e5",
+          "merge": false,
+          "message": "chore: correcting testcases after merge"
+        },
         {
           "authorEmailAddress": "tomas.bjerre85@gmail.com",
           "authorName": "Tomas Bjerre",
@@ -59126,6 +59296,26 @@ context:
         {
           "authorEmailAddress": "reda-alaoui@hey.com",
           "authorName": "Réda Housni Alaoui",
+          "commitTime": "2023-07-18 15:41:06",
+          "commitTimeLong": 1689694866000,
+          "hash": "125cacdbec1462d",
+          "hashFull": "125cacdbec1462d669af340e09b50651a1c6034d",
+          "merge": false,
+          "message": "Allow to select which kind of inclusiveness to use for commit boundaries"
+        },
+        {
+          "authorEmailAddress": "tomas.bjerre85@gmail.com",
+          "authorName": "Tomas Bjerre",
+          "commitTime": "2023-07-18 15:39:46",
+          "commitTimeLong": 1689694786000,
+          "hash": "57928fb89df058f",
+          "hashFull": "57928fb89df058ff787122f15ff90f6e658013e5",
+          "merge": false,
+          "message": "chore: correcting testcases after merge"
+        },
+        {
+          "authorEmailAddress": "reda-alaoui@hey.com",
+          "authorName": "Réda Housni Alaoui",
           "commitTime": "2023-07-18 09:09:13",
           "commitTimeLong": 1689671353000,
           "hash": "d5e16f4586e2d41",
@@ -62620,6 +62810,16 @@ context:
             {
               "authorEmailAddress": "reda-alaoui@hey.com",
               "authorName": "Réda Housni Alaoui",
+              "commitTime": "2023-07-18 15:41:06",
+              "commitTimeLong": 1689694866000,
+              "hash": "125cacdbec1462d",
+              "hashFull": "125cacdbec1462d669af340e09b50651a1c6034d",
+              "merge": false,
+              "message": "Allow to select which kind of inclusiveness to use for commit boundaries"
+            },
+            {
+              "authorEmailAddress": "reda-alaoui@hey.com",
+              "authorName": "Réda Housni Alaoui",
               "commitTime": "2023-07-18 09:09:13",
               "commitTimeLong": 1689671353000,
               "hash": "d5e16f4586e2d41",
@@ -62643,6 +62843,16 @@ context:
         },
         {
           "commits": [
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2023-07-18 15:39:46",
+              "commitTimeLong": 1689694786000,
+              "hash": "57928fb89df058f",
+              "hashFull": "57928fb89df058ff787122f15ff90f6e658013e5",
+              "merge": false,
+              "message": "chore: correcting testcases after merge"
+            },
             {
               "authorEmailAddress": "tomas.bjerre85@gmail.com",
               "authorName": "Tomas Bjerre",
@@ -69748,6 +69958,26 @@ context:
             {
               "authorEmailAddress": "reda-alaoui@hey.com",
               "authorName": "Réda Housni Alaoui",
+              "commitTime": "2023-07-18 15:41:06",
+              "commitTimeLong": 1689694866000,
+              "hash": "125cacdbec1462d",
+              "hashFull": "125cacdbec1462d669af340e09b50651a1c6034d",
+              "merge": false,
+              "message": "Allow to select which kind of inclusiveness to use for commit boundaries"
+            },
+            {
+              "authorEmailAddress": "tomas.bjerre85@gmail.com",
+              "authorName": "Tomas Bjerre",
+              "commitTime": "2023-07-18 15:39:46",
+              "commitTimeLong": 1689694786000,
+              "hash": "57928fb89df058f",
+              "hashFull": "57928fb89df058ff787122f15ff90f6e658013e5",
+              "merge": false,
+              "message": "chore: correcting testcases after merge"
+            },
+            {
+              "authorEmailAddress": "reda-alaoui@hey.com",
+              "authorName": "Réda Housni Alaoui",
               "commitTime": "2023-07-18 09:09:13",
               "commitTimeLong": 1689671353000,
               "hash": "d5e16f4586e2d41",
@@ -73242,6 +73472,16 @@ context:
                 {
                   "authorEmailAddress": "reda-alaoui@hey.com",
                   "authorName": "Réda Housni Alaoui",
+                  "commitTime": "2023-07-18 15:41:06",
+                  "commitTimeLong": 1689694866000,
+                  "hash": "125cacdbec1462d",
+                  "hashFull": "125cacdbec1462d669af340e09b50651a1c6034d",
+                  "merge": false,
+                  "message": "Allow to select which kind of inclusiveness to use for commit boundaries"
+                },
+                {
+                  "authorEmailAddress": "reda-alaoui@hey.com",
+                  "authorName": "Réda Housni Alaoui",
                   "commitTime": "2023-07-18 09:09:13",
                   "commitTimeLong": 1689671353000,
                   "hash": "d5e16f4586e2d41",
@@ -73265,6 +73505,16 @@ context:
             },
             {
               "commits": [
+                {
+                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
+                  "authorName": "Tomas Bjerre",
+                  "commitTime": "2023-07-18 15:39:46",
+                  "commitTimeLong": 1689694786000,
+                  "hash": "57928fb89df058f",
+                  "hashFull": "57928fb89df058ff787122f15ff90f6e658013e5",
+                  "merge": false,
+                  "message": "chore: correcting testcases after merge"
+                },
                 {
                   "authorEmailAddress": "tomas.bjerre85@gmail.com",
                   "authorName": "Tomas Bjerre",
