@@ -2,6 +2,7 @@ package se.bjurr.gitchangelog.internal.settings;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serializable;
 import java.util.Optional;
 import org.eclipse.jgit.lib.ObjectId;
 import se.bjurr.gitchangelog.api.InclusivenessStrategy;
@@ -12,7 +13,7 @@ import se.bjurr.gitchangelog.internal.git.ObjectIdBoundary;
 /**
  * @author Réda Housni Alaoui
  */
-public class RevisionBoundary {
+public class RevisionBoundary implements Serializable {
 	private final String revision;
 	private final InclusivenessStrategy inclusivenessStrategy;
 
