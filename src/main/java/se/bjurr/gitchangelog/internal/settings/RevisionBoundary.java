@@ -20,7 +20,7 @@ public class RevisionBoundary implements Serializable {
 	private final String revision;
 	private final InclusivenessStrategy inclusivenessStrategy;
 
-	private RevisionBoundary(String revision, InclusivenessStrategy inclusivenessStrategy) {
+	public RevisionBoundary(String revision, InclusivenessStrategy inclusivenessStrategy) {
 		this.revision = requireNonNull(revision);
 		this.inclusivenessStrategy = requireNonNull(inclusivenessStrategy);
 	}
