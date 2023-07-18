@@ -14,6 +14,9 @@ import se.bjurr.gitchangelog.internal.git.ObjectIdBoundary;
  * @author Réda Housni Alaoui
  */
 public class RevisionBoundary implements Serializable {
+
+	private static final long serialVersionUID = 1628515977948507257L;
+
 	private final String revision;
 	private final InclusivenessStrategy inclusivenessStrategy;
 
