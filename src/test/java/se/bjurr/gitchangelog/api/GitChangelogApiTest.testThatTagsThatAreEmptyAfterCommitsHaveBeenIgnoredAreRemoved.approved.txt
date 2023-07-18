@@ -15,8 +15,8 @@ Extended variable: {{customVariable}}
 settings:
 
 {
-  "toRef": "test",
-  "fromCommit": "0000000000000000000000000000000000000000",
+  "fromRevision": "0000000000000000000000000000000000000000",
+  "toRevision": "test",
   "ignoreCommitsIfMessageMatches": ".*",
   "templatePath": "templatetest/testAuthorsCommitsExtended.mustache",
   "removeIssueFromMessage": false,

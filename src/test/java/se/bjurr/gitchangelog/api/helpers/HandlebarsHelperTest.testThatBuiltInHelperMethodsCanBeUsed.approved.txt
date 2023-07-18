@@ -142,8 +142,8 @@ settings:
 
 {
   "fromRepo": ".",
-  "fromCommit": "ed95e6a",
-  "toCommit": "65cfb90",
+  "fromRevision": "ed95e6a",
+  "toRevision": "65cfb90",
   "templatePath": "templatetest/helpers/testThatBuiltInHelperMethodsCanBeUsed.mustache",
   "removeIssueFromMessage": false,
   "jiraEnabled": true,

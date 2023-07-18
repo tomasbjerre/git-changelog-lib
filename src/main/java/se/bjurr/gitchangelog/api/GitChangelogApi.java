@@ -1,7 +1,5 @@
 package se.bjurr.gitchangelog.api;
 
-import static java.util.Optional.empty;
-import static java.util.Optional.of;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.REF_HEAD;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.REF_MASTER;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
@@ -183,7 +181,7 @@ public class GitChangelogApi {
    */
   public SemanticVersion getNextSemanticVersion() throws GitChangelogRepositoryException {
     final boolean fromGiven =
-        this.settings.getFromRef().isPresent() || this.settings.getFromCommit().isPresent();
+            this.settings.getFromRevision().isPresent();
     final SemanticVersion highestSemanticVersion = this.getHighestSemanticVersion();
     if (!fromGiven) {
       final Optional<String> tag = highestSemanticVersion.findTag();
@@ -300,17 +298,31 @@ public class GitChangelogApi {
   }
 
   /**
-   * Include all commits from here. Any commit hash. There is a constant pointing at the first
-   * commit here: reference{GitChangelogApiConstants#ZERO_COMMIT}.
+   * Include all commits from here. Any tag or branch name or commit hash. There is a constant pointing at the first commit here: reference{GitChangelogApiConstants#ZERO_COMMIT}.
    */
-  public GitChangelogApi withFromCommit(final String fromCommit) {
-    this.settings.setFromCommit(fromCommit);
+  public GitChangelogApi withFromRevision(final String fromRevision) {
+    this.settings.setFromRevision(fromRevision);
     return this;
   }
 
-  /** Include all commits from here. Any tag or branch name. */
+  /**
+   * Include all commits from here. Any commit hash. There is a constant pointing at the first
+   * commit here: reference{GitChangelogApiConstants#ZERO_COMMIT}.
+   * @deprecated Use {@link #withFromRevision(String)} instead
+   */
+  @Deprecated
+  public GitChangelogApi withFromCommit(final String fromCommit) {
+    this.settings.setFromRevision(fromCommit);
+    return this;
+  }
+
+  /**
+   * Include all commits from here. Any tag or branch name.
+   * @deprecated Use {@link #withFromRevision(String)} instead
+   */
+  @Deprecated
   public GitChangelogApi withFromRef(final String fromBranch) {
-    this.settings.setFromRef(fromBranch);
+    this.settings.setFromRevision(fromBranch);
     return this;
   }
 
@@ -604,18 +616,32 @@ public class GitChangelogApi {
     return this;
   }
 
-  /** Include all commits to here. Any commit hash. */
+  /**
+   * Include all commits to this revision. Any tag or branch name or commit hash. There is a constant for master here: reference{GitChangelogApiConstants#REF_MASTER}.
+   */
+  public GitChangelogApi withToRevision(final String toRevision) {
+    this.settings.setToRevision(toRevision);
+    return this;
+  }
+
+  /**
+   * Include all commits to here. Any commit hash.
+   * @deprecated Use {@link #withToRevision(String)} instead
+   */
+  @Deprecated
   public GitChangelogApi withToCommit(final String toCommit) {
-    this.settings.setToCommit(toCommit);
+    this.settings.setToRevision(toCommit);
     return this;
   }
 
   /**
    * Include all commits to this reference. Any tag or branch name. There is a constant for master
    * here: reference{GitChangelogApiConstants#REF_MASTER}.
+   * @deprecated Use {@link #withToRevision(String)} instead
    */
+  @Deprecated
   public GitChangelogApi withToRef(final String toBranch) {
-    this.settings.setToRef(toBranch);
+    this.settings.setToRevision(toBranch);
     return this;
   }
 
@@ -642,10 +668,10 @@ public class GitChangelogApi {
       throws GitChangelogRepositoryException {
     gitRepo.setTreeFilter(this.settings.getSubDirFilter());
     final ObjectId fromId =
-        this.getId(gitRepo, this.settings.getFromRef(), this.settings.getFromCommit()) //
+        this.getId(gitRepo, this.settings.getFromRevision()) //
             .orElse(gitRepo.getCommit(ZERO_COMMIT));
     final Optional<ObjectId> toIdOpt =
-        this.getId(gitRepo, this.settings.getToRef(), this.settings.getToCommit());
+        this.getId(gitRepo, this.settings.getToRevision());
     ObjectId toId;
     if (toIdOpt.isPresent()) {
       toId = toIdOpt.get();
@@ -693,15 +719,18 @@ public class GitChangelogApi {
   }
 
   private Optional<ObjectId> getId(
-      final GitRepo gitRepo, final Optional<String> ref, final Optional<String> commit)
+      final GitRepo gitRepo, final Optional<String> revision)
       throws GitChangelogRepositoryException {
-    if (ref.isPresent()) {
-      return of(gitRepo.getRef(ref.get()));
+
+    if (!revision.isPresent()) {
+      return Optional.empty();
     }
-    if (commit.isPresent()) {
-      return of(gitRepo.getCommit(commit.get()));
+
+    Optional<ObjectId> objectId = gitRepo.findRef(revision.get());
+    if (objectId.isPresent()) {
+      return objectId;
     }
-    return empty();
+    return Optional.ofNullable(gitRepo.getCommit(revision.get()));
   }
 
   public GitChangelogApi withJiraEnabled(final boolean b) {

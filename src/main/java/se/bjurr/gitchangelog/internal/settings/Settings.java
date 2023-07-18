@@ -16,7 +16,6 @@ import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_REMOVE_
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_TIMEZONE;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_UNTAGGED_NAME;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
-import static se.bjurr.gitchangelog.internal.util.Preconditions.emptyToNull;
 
 import com.google.gson.Gson;
 import java.io.Serializable;
@@ -44,20 +43,13 @@ public class Settings implements Serializable {
 
   /** Folder where repo lives. */
   private String fromRepo;
-  /** Include all commits from here. Any tag or branch name. */
-  private String fromRef;
+  /** Include all commits from here. Any tag or branch name or commit hash. There is a constant pointing at the first commit here: reference{GitChangelogApiConstants#ZERO_COMMIT}. */
+  private String fromRevision;
   /**
-   * Include all commits to this reference. Any tag or branch name. There is a constant for master
+   * Include all commits to this revision. Any tag or branch name or commit hash. There is a constant for master
    * here: reference{GitChangelogApiConstants#REF_MASTER}.
    */
-  private String toRef;
-  /**
-   * Include all commits from here. Any commit hash. There is a constant pointing at the first
-   * commit here: reference{GitChangelogApiConstants#ZERO_COMMIT}.
-   */
-  private String fromCommit;
-  /** Include all commits to here. Any commit hash. */
-  private String toCommit;
+  private String toRevision;
   /**
    * A regular expression that is evaluated on each tag. If it matches, the tag will be filtered out
    * and not included in the changelog.
@@ -252,28 +244,28 @@ public class Settings implements Serializable {
     this.customIssues = customIssues;
   }
 
-  public void setFromRef(final String fromRef) {
-    if (fromRef == null || fromRef.trim().isEmpty()) {
-      this.fromRef = null;
+  public void setFromRevision(final String fromRevision) {
+    if (fromRevision == null || fromRevision.trim().isEmpty()) {
+      this.fromRevision = null;
     } else {
-      this.fromRef = fromRef.trim();
+      this.fromRevision = fromRevision.trim();
     }
   }
 
-  public void setToRef(final String toRef) {
-    if (toRef == null || toRef.trim().isEmpty()) {
-      this.toRef = null;
+  public void setToRevision(final String toRevision) {
+    if (toRevision == null || toRevision.trim().isEmpty()) {
+      this.toRevision = null;
     } else {
-      this.toRef = toRef.trim();
+      this.toRevision = toRevision.trim();
     }
   }
 
-  public Optional<String> getFromRef() {
-    return ofNullable(this.fromRef);
+  public Optional<String> getFromRevision() {
+    return ofNullable(this.fromRevision);
   }
 
-  public Optional<String> getToRef() {
-    return ofNullable(this.toRef);
+  public Optional<String> getToRevision() {
+    return ofNullable(this.toRevision);
   }
 
   public void setFromRepo(final String fromRepo) {
@@ -364,22 +356,6 @@ public class Settings implements Serializable {
     }
   }
 
-  public void setFromCommit(final String fromCommit) {
-    this.fromCommit = fromCommit;
-  }
-
-  public void setToCommit(final String toCommit) {
-    this.toCommit = toCommit;
-  }
-
-  public Optional<String> getFromCommit() {
-    return ofNullable(emptyToNull(this.fromCommit));
-  }
-
-  public Optional<String> getToCommit() {
-    return ofNullable(emptyToNull(this.toCommit));
-  }
-
   public String getUntaggedName() {
     return ofNullable(this.untaggedName).orElse(DEFAULT_UNTAGGED_NAME);
   }
@@ -451,8 +427,8 @@ public class Settings implements Serializable {
   public static Settings defaultSettings() {
     final Settings s = new Settings();
     s.setFromRepo(".");
-    s.setFromCommit(ZERO_COMMIT);
-    s.setToRef("refs/heads/master");
+    s.setFromRevision(ZERO_COMMIT);
+    s.setToRevision("refs/heads/master");
     s.setIgnoreCommitsIfMessageMatches("^Merge.*");
     s.setTemplateSuffix(".hbs");
     s.setReadableTagName("/([^/]+?)$");

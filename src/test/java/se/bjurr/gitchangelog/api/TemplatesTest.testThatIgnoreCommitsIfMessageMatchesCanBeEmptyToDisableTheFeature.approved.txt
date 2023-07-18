@@ -15,8 +15,8 @@ settings:
 
 {
   "fromRepo": ".",
-  "toRef": "test",
-  "fromCommit": "0000000000000000000000000000000000000000",
+  "fromRevision": "0000000000000000000000000000000000000000",
+  "toRevision": "test",
   "ignoreTagsIfNameMatches": ".*tag-in-test-feature$",
   "ignoreCommitsIfMessageMatches": "",
   "untaggedName": "No tag",

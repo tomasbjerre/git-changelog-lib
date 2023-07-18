@@ -17,8 +17,8 @@ Changelog of Git Changelog.
 settings:
 
 {
-  "fromCommit": "aa1fd33",
-  "toCommit": "4c6e078",
+  "fromRevision": "aa1fd33",
+  "toRevision": "4c6e078",
   "templatePath": "templatetest/testThatRevertedCommitsAreRemoved.mustache",
   "removeIssueFromMessage": false,
   "jiraEnabled": true,

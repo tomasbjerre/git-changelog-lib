@@ -63,8 +63,8 @@ Changelog of {{repoName}}.
 settings:
 
 {
-  "fromCommit": "0000000000000000000000000000000000000000",
-  "toCommit": "0.0.1",
+  "fromRevision": "0000000000000000000000000000000000000000",
+  "toRevision": "0.0.1",
   "removeIssueFromMessage": false,
   "jiraEnabled": false,
   "redmineEnabled": false,
