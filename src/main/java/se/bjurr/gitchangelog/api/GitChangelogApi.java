@@ -302,9 +302,18 @@ public class GitChangelogApi {
   /**
    * Include all commits from here. Any tag or branch name or commit hash. There is a constant pointing at the first commit here: reference{GitChangelogApiConstants#ZERO_COMMIT}.
    */
-  public GitChangelogApi withFromRevision(final String fromRevision) {
-    this.settings.setFromRevision(RevisionBoundary.parse(fromRevision, InclusivenessStrategy.LEGACY).orElse(null));
+  public GitChangelogApi withFromRevision(final RevisionBoundary fromRevisionBoundary) {
+    this.settings.setFromRevision(fromRevisionBoundary);
     return this;
+  }
+
+  /**
+   * Include all commits from here. Any tag or branch name or commit hash. There is a constant pointing at the first commit here: reference{GitChangelogApiConstants#ZERO_COMMIT}.
+   * @deprecated Use {@link #withFromRevision(RevisionBoundary)} instead
+   */
+  @Deprecated
+  public GitChangelogApi withFromRevision(final String fromRevision) {
+    return withFromRevision(RevisionBoundary.parse(fromRevision, InclusivenessStrategy.LEGACY).orElse(null));
   }
 
   /**
@@ -621,9 +630,18 @@ public class GitChangelogApi {
   /**
    * Include all commits to this revision. Any tag or branch name or commit hash. There is a constant for master here: reference{GitChangelogApiConstants#REF_MASTER}.
    */
-  public GitChangelogApi withToRevision(final String toRevision) {
-    this.settings.setToRevision(RevisionBoundary.parse(toRevision, InclusivenessStrategy.LEGACY).orElse(null));
+  public GitChangelogApi withToRevision(final RevisionBoundary toRevision) {
+    this.settings.setToRevision(toRevision);
     return this;
+  }
+
+  /**
+   * Include all commits to this revision. Any tag or branch name or commit hash. There is a constant for master here: reference{GitChangelogApiConstants#REF_MASTER}.
+   * @deprecated Use {@link #withToRevision(RevisionBoundary)} instead
+   */
+  @Deprecated
+  public GitChangelogApi withToRevision(final String toRevision) {
+    return withToRevision(RevisionBoundary.parse(toRevision, InclusivenessStrategy.LEGACY).orElse(null));
   }
 
   /**
