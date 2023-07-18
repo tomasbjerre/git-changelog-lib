@@ -1,7 +1,13 @@
 {
  "fromRepo": ".",
- "fromCommit": "0000000000000000000000000000000000000000",
- "toRef": "test",
+ "fromRevision": {
+    "revision": "0000000000000000000000000000000000000000",
+    "inclusivenessStrategy": "LEGACY"
+ },
+ "toRevision": {
+  "revision": "test",
+  "inclusivenessStrategy": "LEGACY"
+ },
  
  "ignoreCommitsIfMessageMatches": "^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*",
  "ignoreTagsIfNameMatches": ".*tag-in-test-feature$",
