@@ -22,7 +22,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import org.eclipse.jgit.api.Git;
-import org.eclipse.jgit.api.LogCommand;
 import org.eclipse.jgit.lib.AnyObjectId;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.Ref;
@@ -107,8 +106,8 @@ public class GitRepo implements Closeable {
    * @param to To and including this commit.
    */
   public GitRepoData getGitRepoData(
-      final ObjectId from,
-      final ObjectId to,
+      final ObjectIdBoundary from,
+      final ObjectIdBoundary to,
       final String untaggedName,
       final Optional<String> ignoreTagsIfNameMatches)
       throws GitChangelogRepositoryException {
@@ -238,22 +237,8 @@ public class GitRepo implements Closeable {
     return tagPerCommit;
   }
 
-  private List<RevCommit> getCommitList(final RevCommit from, final RevCommit to) throws Exception {
-    final LogCommand logCommand = this.git.log().addRange(from, to);
-    if (this.hasPathFilter()) {
-      logCommand.addPath(this.pathFilter);
-    }
-    final List<RevCommit> list = new ArrayList<>();
-    final Iterator<RevCommit> itr = logCommand.call().iterator();
-
-    while (itr.hasNext()) {
-      list.add(itr.next());
-    }
-    this.revWalk.parseHeaders(from);
-    if (from.getParentCount() == 0) {
-      list.add(from);
-    }
-    return list;
+  private List<RevCommit> getCommitList(final RevCommitBoundary from, final RevCommitBoundary to) throws Exception {
+    return RevCommitBoundary.listCommits(git, revWalk, from, to, pathFilter);
   }
 
   private boolean hasPathFilter() {
@@ -322,13 +307,13 @@ public class GitRepo implements Closeable {
   }
 
   private List<GitTag> gitTags(
-      final ObjectId fromObjectId,
-      final ObjectId toObjectId,
+      final ObjectIdBoundary fromObjectId,
+      final ObjectIdBoundary toObjectId,
       final String untaggedName,
       final Optional<String> ignoreTagsIfNameMatches)
       throws Exception {
-    final RevCommit from = this.revWalk.lookupCommit(fromObjectId);
-    final RevCommit to = this.revWalk.lookupCommit(toObjectId);
+    final RevCommitBoundary from = fromObjectId.lookupCommit(this.revWalk);
+    final RevCommitBoundary to = toObjectId.lookupCommit(this.revWalk);
 
     this.commitsToInclude = this.getCommitList(from, to);
 
@@ -360,9 +345,9 @@ public class GitRepo implements Closeable {
     final Map<String, Date> datePerTag = new TreeMap<>();
 
     this.populateComitPerTag(
-        from, to, tagPerCommitHash, tagPerCommitsHash, commitsPerTag, datePerTag, null);
+        from.getRevCommit(), to.getRevCommit(), tagPerCommitHash, tagPerCommitsHash, commitsPerTag, datePerTag, null);
     this.populateComitPerTag(
-        from, to, tagPerCommitHash, tagPerCommitsHash, commitsPerTag, datePerTag, untaggedName);
+        from.getRevCommit(), to.getRevCommit(), tagPerCommitHash, tagPerCommitsHash, commitsPerTag, datePerTag, untaggedName);
 
     if (this.hasPathFilter()) {
       this.pruneCommitsPerTag(commitsPerTag);
@@ -500,22 +485,15 @@ public class GitRepo implements Closeable {
     return this.hasPathFilter() || this.commitsToInclude.contains(candidate);
   }
 
-  private List<Ref> tagsBetweenFromAndTo(final RevCommit from, final RevCommit to)
+  private List<Ref> tagsBetweenFromAndTo(final RevCommitBoundary from, final RevCommitBoundary to)
       throws Exception {
     final List<Ref> tagList = this.git.tagList().call();
-    final List<RevCommit> icludedCommits = new ArrayList<>();
-    final Iterator<RevCommit> itr = this.git.log().addRange(from, to).call().iterator();
-    while (itr.hasNext()) {
-      icludedCommits.add(itr.next());
-    }
-
-    this.revWalk.parseHeaders(from);
-    final boolean includeFrom = from.getParentCount() == 0;
+    final List<RevCommit> icludedCommits = RevCommitBoundary.listCommits(git, revWalk, from, to, null);
 
     final List<Ref> includedTags = new ArrayList<>();
     for (final Ref tag : tagList) {
       final ObjectId peeledTag = this.getPeeled(tag);
-      if (icludedCommits.contains(peeledTag) || includeFrom && from.equals(peeledTag)) {
+      if (icludedCommits.contains(peeledTag)) {
         includedTags.add(tag);
       }
     }

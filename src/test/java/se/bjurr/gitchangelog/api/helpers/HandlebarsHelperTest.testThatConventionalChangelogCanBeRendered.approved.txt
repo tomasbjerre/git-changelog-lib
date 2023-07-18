@@ -45,8 +45,14 @@ settings:
 
 {
   "fromRepo": ".",
-  "fromRevision": "ed95e6a",
-  "toRevision": "65cfb90",
+  "fromRevision": {
+    "revision": "ed95e6a",
+    "inclusivenessStrategy": "LEGACY"
+  },
+  "toRevision": {
+    "revision": "65cfb90",
+    "inclusivenessStrategy": "LEGACY"
+  },
   "templatePath": "templatetest/helpers/testThatConventionalChangelogCanBeRendered.mustache",
   "removeIssueFromMessage": false,
   "jiraEnabled": true,

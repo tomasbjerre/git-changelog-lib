@@ -15,6 +15,7 @@ import java.util.TreeMap;
 import org.eclipse.jgit.lib.ObjectId;
 import org.junit.Before;
 import org.junit.Test;
+import se.bjurr.gitchangelog.api.InclusivenessStrategy;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 
@@ -37,7 +38,7 @@ public class GitRepoTest {
     final List<GitCommit> diff =
         gitRepo
             .getGitRepoData(
-                firstCommit, lastCommit, "No tag", Optional.of(".*tag-in-test-feature$"))
+                new ObjectIdBoundary(firstCommit, InclusivenessStrategy.LEGACY), new ObjectIdBoundary(lastCommit, InclusivenessStrategy.LEGACY), "No tag", Optional.of(".*tag-in-test-feature$"))
             .getGitCommits();
     assertThat(diff).isNotEmpty();
     Collections.reverse(diff);
@@ -58,7 +59,7 @@ public class GitRepoTest {
     final List<GitCommit> diff =
         gitRepo
             .getGitRepoData(
-                firstCommit, lastCommit, "No tag", Optional.of(".*tag-in-test-feature$"))
+                    new ObjectIdBoundary(firstCommit, InclusivenessStrategy.LEGACY), new ObjectIdBoundary(lastCommit, InclusivenessStrategy.LEGACY), "No tag", Optional.of(".*tag-in-test-feature$"))
             .getGitCommits();
     assertThat(diff.size()).isGreaterThan(10);
     Collections.reverse(diff);
@@ -72,7 +73,7 @@ public class GitRepoTest {
     final ObjectId lastCommit = gitRepo.getCommit(TAG_1_0_HASH);
     final GitRepoData gitRepoData =
         gitRepo.getGitRepoData(
-            firstCommit, lastCommit, "No tag", Optional.of(".*tag-in-test-feature$"));
+                new ObjectIdBoundary(firstCommit, InclusivenessStrategy.LEGACY), new ObjectIdBoundary(lastCommit, InclusivenessStrategy.LEGACY), "No tag", Optional.of(".*tag-in-test-feature$"));
     assertThat(gitRepoData.getGitCommits())
         .as("Commits in first release.") //
         .hasSize(6);
@@ -101,7 +102,7 @@ public class GitRepoTest {
     final ObjectId to = gitRepo.getCommit("bb2f35b");
 
     final GitRepoData gitRepoData =
-        gitRepo.getGitRepoData(from, to, "No tag", Optional.<String>empty());
+        gitRepo.getGitRepoData(new ObjectIdBoundary(from, InclusivenessStrategy.LEGACY), new ObjectIdBoundary(to, InclusivenessStrategy.LEGACY), "No tag", Optional.<String>empty());
     final List<String> noTagNames = this.messages(gitRepoData.getGitCommits());
     assertThat(noTagNames) //
         .containsExactly( //
@@ -117,7 +118,7 @@ public class GitRepoTest {
     List<GitCommit> diff =
         gitRepo
             .getGitRepoData(
-                firstRelease, secondRelease, "No tag", Optional.of(".*tag-in-test-feature$"))
+                    new ObjectIdBoundary(firstRelease, InclusivenessStrategy.LEGACY), new ObjectIdBoundary(secondRelease, InclusivenessStrategy.LEGACY), "No tag", Optional.of(".*tag-in-test-feature$"))
             .getGitCommits();
     assertThat(diff) //
         .as("Commits in second release from 1.0.") //
@@ -131,7 +132,7 @@ public class GitRepoTest {
     diff =
         gitRepo
             .getGitRepoData(
-                firstCommit, secondRelease, "No tag", Optional.of(".*tag-in-test-feature$"))
+                    new ObjectIdBoundary(firstCommit, InclusivenessStrategy.LEGACY), new ObjectIdBoundary(secondRelease, InclusivenessStrategy.LEGACY), "No tag", Optional.of(".*tag-in-test-feature$"))
             .getGitCommits();
     assertThat(diff) //
         .as("Commits in second release from zero commit.") //
@@ -149,7 +150,7 @@ public class GitRepoTest {
     final ObjectId lastCommit = gitRepo.getRef("test");
     final GitRepoData gitRepoData =
         gitRepo.getGitRepoData(
-            firstCommit, lastCommit, "No tag", Optional.of(".*tag-in-test-feature$"));
+                new ObjectIdBoundary(firstCommit, InclusivenessStrategy.LEGACY), new ObjectIdBoundary(lastCommit, InclusivenessStrategy.LEGACY), "No tag", Optional.of(".*tag-in-test-feature$"));
     assertThat(gitRepoData.getGitCommits())
         .as("Commits in first release.") //
         .hasSize(16);
@@ -185,7 +186,7 @@ public class GitRepoTest {
     final ObjectId to = gitRepo.getRef("test");
 
     final GitRepoData gitRepoData =
-        gitRepo.getGitRepoData(from, to, "No tag", Optional.of(".*tag-in-test-feature$"));
+        gitRepo.getGitRepoData(new ObjectIdBoundary(from, InclusivenessStrategy.LEGACY), new ObjectIdBoundary(to, InclusivenessStrategy.LEGACY), "No tag", Optional.of(".*tag-in-test-feature$"));
     final Map<String, GitTag> perTag = this.perTag(gitRepoData.getGitTags());
     assertThat(gitRepoData.getGitTags()) //
         .hasSize(1);
@@ -212,7 +213,7 @@ public class GitRepoTest {
     final ObjectId to = gitRepo.getRef("test");
 
     final GitRepoData gitRepoData =
-        gitRepo.getGitRepoData(from, to, "No tag", Optional.<String>empty());
+        gitRepo.getGitRepoData(new ObjectIdBoundary(from, InclusivenessStrategy.LEGACY), new ObjectIdBoundary(to, InclusivenessStrategy.LEGACY), "No tag", Optional.<String>empty());
     final Map<String, GitTag> perTag = this.perTag(gitRepoData.getGitTags());
     assertThat(perTag.keySet()) //
         .hasSize(2) //
@@ -243,7 +244,7 @@ public class GitRepoTest {
     final ObjectId to = gitRepo.getCommit("8371342");
 
     final GitRepoData gitRepoData =
-        gitRepo.getGitRepoData(from, to, "refs/tags/test", Optional.<String>empty());
+        gitRepo.getGitRepoData(new ObjectIdBoundary(from, InclusivenessStrategy.LEGACY), new ObjectIdBoundary(to, InclusivenessStrategy.LEGACY), "refs/tags/test", Optional.<String>empty());
     final Map<String, GitTag> perTag = this.perTag(gitRepoData.getGitTags());
     assertThat(perTag.keySet()) //
         .hasSize(1) //
@@ -263,8 +264,8 @@ public class GitRepoTest {
     final GitRepo gitRepo = this.getGitRepo();
     final GitRepoData gitRepoData =
         gitRepo.getGitRepoData(
-            gitRepo.getCommit(ZERO_COMMIT),
-            gitRepo.getRef(REF_MASTER),
+            new ObjectIdBoundary(gitRepo.getCommit(ZERO_COMMIT), InclusivenessStrategy.LEGACY),
+                new ObjectIdBoundary(gitRepo.getRef(REF_MASTER), InclusivenessStrategy.LEGACY),
             "No tag",
             Optional.of(".*tag-in-test-feature$"));
     assertThat(gitRepoData.getGitTags()).isNotEmpty();
@@ -287,7 +288,7 @@ public class GitRepoTest {
 
     final GitRepoData gitRepoData =
         gitRepo.getGitRepoData(
-            firstCommit, lastCommit, "No tag", Optional.of(".*tag-in-test-feature$"));
+                new ObjectIdBoundary(firstCommit, InclusivenessStrategy.LEGACY), new ObjectIdBoundary(lastCommit, InclusivenessStrategy.LEGACY), "No tag", Optional.of(".*tag-in-test-feature$"));
 
     final List<GitCommit> gitCommits = gitRepoData.getGitCommits();
     assertThat(gitCommits)
