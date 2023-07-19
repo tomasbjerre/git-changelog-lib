@@ -481,7 +481,7 @@ public class GitRepo implements Closeable {
     if (this.thisIsANewTag(tagPerCommitHash, thisCommitHash)) {
       currentTagName = this.getTagName(tagPerCommitHash, thisCommitHash);
     }
-    if (currentTagName != null) {
+    if (currentTagName != null && shouldInclude(to)) {
       if (this.addCommitToCurrentTag(commitsPerTagName, currentTagName, to)) {
         datePerTag.put(currentTagName, new Date(to.getCommitTime() * 1000L));
       }
