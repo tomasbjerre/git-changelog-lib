@@ -18,8 +18,8 @@ public class BoundaryTest {
 	public void testThatFirstVersionAndLastVersionCanBeIncluded() throws Exception {
 		final Changelog actual =
 				gitChangelogApiBuilder() //
-						.withFromRevision(new RevisionBoundary(ZERO_COMMIT, InclusivenessStrategy.INCLUSIVE)) //
-						.withToRevision(new RevisionBoundary("test", InclusivenessStrategy.INCLUSIVE)) //
+						.withFromRevision(RevisionBoundary.parseOrFail(ZERO_COMMIT, InclusivenessStrategy.INCLUSIVE)) //
+						.withToRevision(RevisionBoundary.parseOrFail("test", InclusivenessStrategy.INCLUSIVE)) //
 						.getChangelog();
 
 		assertThat(actual.getCommits().stream().map(Commit::getHash))
@@ -31,8 +31,8 @@ public class BoundaryTest {
 	public void testThatFirstVersionAndLastVersionCanBeExcluded() throws Exception {
 		final Changelog actual =
 				gitChangelogApiBuilder() //
-						.withFromRevision(new RevisionBoundary(ZERO_COMMIT, InclusivenessStrategy.EXCLUSIVE)) //
-						.withToRevision(new RevisionBoundary("test", InclusivenessStrategy.EXCLUSIVE)) //
+						.withFromRevision(RevisionBoundary.parseOrFail(ZERO_COMMIT, InclusivenessStrategy.EXCLUSIVE)) //
+						.withToRevision(RevisionBoundary.parseOrFail("test", InclusivenessStrategy.EXCLUSIVE)) //
 						.getChangelog();
 
 		assertThat(actual.getCommits().stream().map(Commit::getHash))
@@ -44,8 +44,8 @@ public class BoundaryTest {
 	public void testThatFirstVersionCanBeIncludedAndLastVersionCanBeExcluded() throws Exception {
 		final Changelog actual =
 				gitChangelogApiBuilder() //
-						.withFromRevision(new RevisionBoundary(ZERO_COMMIT, InclusivenessStrategy.INCLUSIVE)) //
-						.withToRevision(new RevisionBoundary("test", InclusivenessStrategy.EXCLUSIVE)) //
+						.withFromRevision(RevisionBoundary.parseOrFail(ZERO_COMMIT, InclusivenessStrategy.INCLUSIVE)) //
+						.withToRevision(RevisionBoundary.parseOrFail("test", InclusivenessStrategy.EXCLUSIVE)) //
 						.getChangelog();
 
 		assertThat(actual.getCommits().stream().map(Commit::getHash))
@@ -57,8 +57,8 @@ public class BoundaryTest {
 	public void testThatFirstVersionCanBeExcludedAndLastVersionCanBeIncluded() throws Exception {
 		final Changelog actual =
 				gitChangelogApiBuilder() //
-						.withFromRevision(new RevisionBoundary(ZERO_COMMIT, InclusivenessStrategy.EXCLUSIVE)) //
-						.withToRevision(new RevisionBoundary("test", InclusivenessStrategy.INCLUSIVE)) //
+						.withFromRevision(RevisionBoundary.parseOrFail(ZERO_COMMIT, InclusivenessStrategy.EXCLUSIVE)) //
+						.withToRevision(RevisionBoundary.parseOrFail("test", InclusivenessStrategy.INCLUSIVE)) //
 						.getChangelog();
 
 		assertThat(actual.getCommits().stream().map(Commit::getHash))

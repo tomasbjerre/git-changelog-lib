@@ -20,7 +20,7 @@ public class RevisionBoundary implements Serializable {
 	private final String revision;
 	private final InclusivenessStrategy inclusivenessStrategy;
 
-	public RevisionBoundary(String revision, InclusivenessStrategy inclusivenessStrategy) {
+	private RevisionBoundary(String revision, InclusivenessStrategy inclusivenessStrategy) {
 		this.revision = requireNonNull(revision);
 		this.inclusivenessStrategy = requireNonNull(inclusivenessStrategy);
 	}
@@ -28,9 +28,12 @@ public class RevisionBoundary implements Serializable {
 	public static Optional<RevisionBoundary> parse(String revision, InclusivenessStrategy inclusivenessStrategy) {
 		if (revision == null || revision.trim().isEmpty()) {
 			return Optional.empty();
-		} else {
-			return Optional.of(new RevisionBoundary(revision.trim(), inclusivenessStrategy));
 		}
+		return Optional.of(new RevisionBoundary(revision.trim(), inclusivenessStrategy));
+	}
+
+	public static RevisionBoundary parseOrFail(String revision, InclusivenessStrategy inclusivenessStrategy) {
+		return parse(revision, inclusivenessStrategy).orElseThrow(() -> new IllegalArgumentException(String.format("Parsing failed for revision '%s' and inclusivenessStrategy '%s'", revision, inclusivenessStrategy)));
 	}
 
 	public Optional<ObjectIdBoundary> findObjectId(final GitRepo gitRepo) throws GitChangelogRepositoryException {
