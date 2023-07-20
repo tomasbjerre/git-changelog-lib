@@ -2,6 +2,25 @@
 
 Changelog of git-changelog-lib.
 
+## 1.171.0 (2023-07-20)
+
+### Features
+
+-  optionally include/exclude from/to revisions ([237f3](https://github.com/tomasbjerre/git-changelog-lib/commit/237f3e9878f3151) Réda Housni Alaoui)  [#154](https://github.com/tomasbjerre/git-changelog-lib/issues/154)  
+
+### Other changes
+
+**Replace to/from commit/reference with to/from revision**
+
+
+[d5e16](https://github.com/tomasbjerre/git-changelog-lib/commit/d5e16f4586e2d41) Réda Housni Alaoui *2023-07-18 09:09:13*
+
+**Upgrade Gradle to be able to build via the wrapper**
+
+
+[7c6c3](https://github.com/tomasbjerre/git-changelog-lib/commit/7c6c37e2496895b) Réda Housni Alaoui *2023-07-17 19:08:30*
+
+
 ## 1.170.1 (2023-07-10)
 
 ### Bug Fixes
