@@ -35,7 +35,7 @@ import se.bjurr.gitchangelog.api.model.Changelog;
 import se.bjurr.gitchangelog.api.model.Issue;
 import se.bjurr.gitchangelog.internal.git.GitRepo;
 import se.bjurr.gitchangelog.internal.git.GitRepoData;
-import se.bjurr.gitchangelog.internal.git.ObjectIdBoundary;
+import se.bjurr.gitchangelog.internal.git.RevisionBoundary;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 import se.bjurr.gitchangelog.internal.issues.IssueParser;
@@ -43,7 +43,6 @@ import se.bjurr.gitchangelog.internal.model.ParsedIssue;
 import se.bjurr.gitchangelog.internal.model.Transformer;
 import se.bjurr.gitchangelog.internal.semantic.SemanticVersion;
 import se.bjurr.gitchangelog.internal.semantic.SemanticVersioning;
-import se.bjurr.gitchangelog.internal.settings.RevisionBoundary;
 import se.bjurr.gitchangelog.internal.settings.Settings;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
 import se.bjurr.gitchangelog.internal.util.ResourceLoader;
@@ -182,13 +181,12 @@ public class GitChangelogApi {
    * been configured.
    */
   public SemanticVersion getNextSemanticVersion() throws GitChangelogRepositoryException {
-    final boolean fromGiven =
-            this.settings.getFromRevision().isPresent();
+    final boolean fromGiven = this.settings.getFromRevision().isPresent();
     final SemanticVersion highestSemanticVersion = this.getHighestSemanticVersion();
     if (!fromGiven) {
       final Optional<String> tag = highestSemanticVersion.findTag();
       if (tag.isPresent()) {
-        this.withFromRef(tag.get());
+        this.withFromRevision(tag.get());
       }
     }
     final Changelog changelog = this.getChangelog(false);
@@ -300,41 +298,43 @@ public class GitChangelogApi {
   }
 
   /**
-   * Include all commits from here. Any tag or branch name or commit hash. There is a constant pointing at the first commit here: reference{GitChangelogApiConstants#ZERO_COMMIT}.
+   * Include all commits from here. Any tag or branch name or commit hash. There is a constant
+   * pointing at the first commit here: reference{GitChangelogApiConstants#ZERO_COMMIT}.
    */
-  public GitChangelogApi withFromRevision(final RevisionBoundary fromRevisionBoundary) {
-    this.settings.setFromRevision(fromRevisionBoundary);
+  public GitChangelogApi withFromRevision(
+      final String revision, final InclusivenessStrategy strategy) {
+    this.settings.setFromRevision(revision);
+    this.settings.setFromRevisionStrategy(strategy);
     return this;
   }
 
   /**
-   * Include all commits from here. Any tag or branch name or commit hash. There is a constant pointing at the first commit here: reference{GitChangelogApiConstants#ZERO_COMMIT}.
-   * @deprecated Use {@link #withFromRevision(RevisionBoundary)} instead
+   * Include all commits from here. Any tag or branch name or commit hash. There is a constant
+   * pointing at the first commit here: reference{GitChangelogApiConstants#ZERO_COMMIT}.
    */
-  @Deprecated
   public GitChangelogApi withFromRevision(final String fromRevision) {
-    return withFromRevision(RevisionBoundary.parse(fromRevision, InclusivenessStrategy.LEGACY).orElse(null));
+    return this.withFromRevision(fromRevision, InclusivenessStrategy.DEFAULT);
   }
 
   /**
    * Include all commits from here. Any commit hash. There is a constant pointing at the first
    * commit here: reference{GitChangelogApiConstants#ZERO_COMMIT}.
+   *
    * @deprecated Use {@link #withFromRevision(String)} instead
    */
   @Deprecated
   public GitChangelogApi withFromCommit(final String fromCommit) {
-    this.settings.setFromRevision(RevisionBoundary.parse(fromCommit, InclusivenessStrategy.LEGACY).orElse(null));
-    return this;
+    return this.withFromRevision(fromCommit);
   }
 
   /**
    * Include all commits from here. Any tag or branch name.
+   *
    * @deprecated Use {@link #withFromRevision(String)} instead
    */
   @Deprecated
   public GitChangelogApi withFromRef(final String fromBranch) {
-    this.settings.setFromRevision(RevisionBoundary.parse(fromBranch, InclusivenessStrategy.LEGACY).orElse(null));
-    return this;
+    return this.withFromRevision(fromBranch);
   }
 
   /** Folder where repo lives. */
@@ -628,41 +628,43 @@ public class GitChangelogApi {
   }
 
   /**
-   * Include all commits to this revision. Any tag or branch name or commit hash. There is a constant for master here: reference{GitChangelogApiConstants#REF_MASTER}.
+   * Include all commits to this revision. Any tag or branch name or commit hash. There is a
+   * constant for master here: reference{GitChangelogApiConstants#REF_MASTER}.
    */
-  public GitChangelogApi withToRevision(final RevisionBoundary toRevision) {
-    this.settings.setToRevision(toRevision);
+  public GitChangelogApi withToRevision(
+      final String revision, final InclusivenessStrategy strategy) {
+    this.settings.setToRevision(revision);
+    this.settings.setToRevisionStrategy(strategy);
     return this;
   }
 
   /**
-   * Include all commits to this revision. Any tag or branch name or commit hash. There is a constant for master here: reference{GitChangelogApiConstants#REF_MASTER}.
-   * @deprecated Use {@link #withToRevision(RevisionBoundary)} instead
+   * Include all commits to this revision. Any tag or branch name or commit hash. There is a
+   * constant for master here: reference{GitChangelogApiConstants#REF_MASTER}.
    */
-  @Deprecated
   public GitChangelogApi withToRevision(final String toRevision) {
-    return withToRevision(RevisionBoundary.parse(toRevision, InclusivenessStrategy.LEGACY).orElse(null));
+    return this.withToRevision(toRevision, InclusivenessStrategy.DEFAULT);
   }
 
   /**
    * Include all commits to here. Any commit hash.
+   *
    * @deprecated Use {@link #withToRevision(String)} instead
    */
   @Deprecated
   public GitChangelogApi withToCommit(final String toCommit) {
-    this.settings.setToRevision(RevisionBoundary.parse(toCommit, InclusivenessStrategy.LEGACY).orElse(null));
-    return this;
+    return this.withToRevision(toCommit);
   }
 
   /**
    * Include all commits to this reference. Any tag or branch name. There is a constant for master
    * here: reference{GitChangelogApiConstants#REF_MASTER}.
+   *
    * @deprecated Use {@link #withToRevision(String)} instead
    */
   @Deprecated
   public GitChangelogApi withToRef(final String toBranch) {
-    this.settings.setToRevision(RevisionBoundary.parse(toBranch, InclusivenessStrategy.LEGACY).orElse(null));
-    return this;
+    return this.withToRevision(toBranch);
   }
 
   /**
@@ -687,20 +689,27 @@ public class GitChangelogApi {
   private Changelog getChangelog(final GitRepo gitRepo, final boolean useIntegrations)
       throws GitChangelogRepositoryException {
     gitRepo.setTreeFilter(this.settings.getSubDirFilter());
-    final ObjectIdBoundary fromId =
-        this.getId(gitRepo, this.settings.getFromRevision()) //
-            .orElse(new ObjectIdBoundary(gitRepo.getCommit(ZERO_COMMIT), InclusivenessStrategy.INCLUSIVE));
-    final Optional<ObjectIdBoundary> toIdOpt =
-        this.getId(gitRepo, this.settings.getToRevision());
-    ObjectIdBoundary toId;
+    final RevisionBoundary<ObjectId> fromId =
+        this.getId(
+                gitRepo,
+                this.settings.getFromRevision(),
+                this.settings.getFromRevisionStrategy()) //
+            .orElse(
+                new RevisionBoundary<ObjectId>(
+                    gitRepo.getCommit(ZERO_COMMIT), InclusivenessStrategy.INCLUSIVE));
+    final Optional<RevisionBoundary<ObjectId>> toIdOpt =
+        this.getId(gitRepo, this.settings.getToRevision(), this.settings.getToRevisionStrategy());
+    RevisionBoundary<ObjectId> toId;
     if (toIdOpt.isPresent()) {
       toId = toIdOpt.get();
     } else {
       final Optional<ObjectId> headOpt = gitRepo.findRef(REF_HEAD);
       if (headOpt.isPresent()) {
-        toId = new ObjectIdBoundary(headOpt.get(), InclusivenessStrategy.INCLUSIVE);
+        toId = new RevisionBoundary<ObjectId>(headOpt.get(), InclusivenessStrategy.INCLUSIVE);
       } else {
-        toId = new ObjectIdBoundary(gitRepo.getRef(REF_MASTER), InclusivenessStrategy.INCLUSIVE);
+        toId =
+            new RevisionBoundary<ObjectId>(
+                gitRepo.getRef(REF_MASTER), InclusivenessStrategy.INCLUSIVE);
       }
     }
     GitRepoData gitRepoData =
@@ -738,15 +747,17 @@ public class GitChangelogApi {
         gitRepoData.getUrlPartsList());
   }
 
-  private Optional<ObjectIdBoundary> getId(
-      final GitRepo gitRepo, final Optional<RevisionBoundary> revision)
+  private Optional<RevisionBoundary<ObjectId>> getId(
+      final GitRepo gitRepo,
+      final Optional<String> revision,
+      final InclusivenessStrategy inclusivenessStrategy)
       throws GitChangelogRepositoryException {
 
     if (!revision.isPresent()) {
       return Optional.empty();
     }
 
-    return revision.get().findObjectId(gitRepo);
+    return gitRepo.findObjectId(revision.get(), inclusivenessStrategy);
   }
 
   public GitChangelogApi withJiraEnabled(final boolean b) {

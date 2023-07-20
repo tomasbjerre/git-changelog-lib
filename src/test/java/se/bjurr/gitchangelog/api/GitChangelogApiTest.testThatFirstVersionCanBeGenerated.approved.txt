@@ -63,14 +63,10 @@ Changelog of {{repoName}}.
 settings:
 
 {
-  "fromRevision": {
-    "revision": "0000000000000000000000000000000000000000",
-    "inclusivenessStrategy": "LEGACY"
-  },
-  "toRevision": {
-    "revision": "0.0.1",
-    "inclusivenessStrategy": "LEGACY"
-  },
+  "fromRevision": "0000000000000000000000000000000000000000",
+  "fromRevisionStrategy": "DEFAULT",
+  "toRevision": "0.0.1",
+  "toRevisionStrategy": "DEFAULT",
   "removeIssueFromMessage": false,
   "jiraEnabled": false,
   "redmineEnabled": false,

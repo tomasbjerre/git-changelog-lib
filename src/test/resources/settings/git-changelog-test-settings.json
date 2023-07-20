@@ -1,14 +1,9 @@
 {
  "fromRepo": ".",
- "fromRevision": {
-    "revision": "0000000000000000000000000000000000000000",
-    "inclusivenessStrategy": "LEGACY"
- },
- "toRevision": {
-  "revision": "test",
-  "inclusivenessStrategy": "LEGACY"
- },
- 
+ "fromRevision": "0000000000000000000000000000000000000000",
+ "fromRevisionStrategy": "DEFAULT",
+ "toRevision": "test",
+ "toRevisionStrategy": "DEFAULT",
  "ignoreCommitsIfMessageMatches": "^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*",
  "ignoreTagsIfNameMatches": ".*tag-in-test-feature$",
  "readableTagName": "/([^/]+?)$",

@@ -17,14 +17,10 @@ Changelog of Git Changelog.
 settings:
 
 {
-  "fromRevision": {
-    "revision": "aa1fd33",
-    "inclusivenessStrategy": "LEGACY"
-  },
-  "toRevision": {
-    "revision": "4c6e078",
-    "inclusivenessStrategy": "LEGACY"
-  },
+  "fromRevision": "aa1fd33",
+  "fromRevisionStrategy": "DEFAULT",
+  "toRevision": "4c6e078",
+  "toRevisionStrategy": "DEFAULT",
   "templatePath": "templatetest/testThatRevertedCommitsAreRemoved.mustache",
   "removeIssueFromMessage": false,
   "jiraEnabled": true,

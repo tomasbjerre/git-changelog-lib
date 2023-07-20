@@ -44,13 +44,20 @@ public class Settings implements Serializable {
 
   /** Folder where repo lives. */
   private String fromRepo;
-  /** Include all commits from here. Any tag or branch name or commit hash. There is a constant pointing at the first commit here: reference{GitChangelogApiConstants#ZERO_COMMIT}. */
-  private RevisionBoundary fromRevision;
   /**
-   * Include all commits to this revision. Any tag or branch name or commit hash. There is a constant for master
-   * here: reference{GitChangelogApiConstants#REF_MASTER}.
+   * Include all commits from here. Any tag or branch name or commit hash. There is a constant
+   * pointing at the first commit here: reference{GitChangelogApiConstants#ZERO_COMMIT}.
    */
-  private RevisionBoundary toRevision;
+  private String fromRevision;
+
+  private InclusivenessStrategy fromRevisionStrategy;
+  /**
+   * Include all commits to this revision. Any tag or branch name or commit hash. There is a
+   * constant for master here: reference{GitChangelogApiConstants#REF_MASTER}.
+   */
+  private String toRevision;
+
+  private InclusivenessStrategy toRevisionStrategy;
   /**
    * A regular expression that is evaluated on each tag. If it matches, the tag will be filtered out
    * and not included in the changelog.
@@ -245,20 +252,42 @@ public class Settings implements Serializable {
     this.customIssues = customIssues;
   }
 
-  public void setFromRevision(final RevisionBoundary fromRevision) {
-    this.fromRevision = fromRevision;
+  public void setFromRevision(final String revision) {
+    if (revision == null || revision.trim().isEmpty()) {
+      this.fromRevision = null;
+    }
+    this.fromRevision = revision.trim();
   }
 
-  public void setToRevision(final RevisionBoundary toRevision) {
-    this.toRevision = toRevision;
+  public void setFromRevisionStrategy(final InclusivenessStrategy fromRevisionStrategy) {
+    this.fromRevisionStrategy = fromRevisionStrategy;
   }
 
-  public Optional<RevisionBoundary> getFromRevision() {
+  public void setToRevision(final String revision) {
+    if (revision == null || revision.trim().isEmpty()) {
+      this.toRevision = null;
+    }
+    this.toRevision = revision.trim();
+  }
+
+  public void setToRevisionStrategy(final InclusivenessStrategy toRevisionStrategy) {
+    this.toRevisionStrategy = toRevisionStrategy;
+  }
+
+  public Optional<String> getFromRevision() {
     return ofNullable(this.fromRevision);
   }
 
-  public Optional<RevisionBoundary> getToRevision() {
+  public InclusivenessStrategy getFromRevisionStrategy() {
+    return ofNullable(this.fromRevisionStrategy).orElse(InclusivenessStrategy.DEFAULT);
+  }
+
+  public Optional<String> getToRevision() {
     return ofNullable(this.toRevision);
+  }
+
+  public InclusivenessStrategy getToRevisionStrategy() {
+    return ofNullable(this.toRevisionStrategy).orElse(InclusivenessStrategy.DEFAULT);
   }
 
   public void setFromRepo(final String fromRepo) {
@@ -420,8 +449,10 @@ public class Settings implements Serializable {
   public static Settings defaultSettings() {
     final Settings s = new Settings();
     s.setFromRepo(".");
-    s.setFromRevision(RevisionBoundary.parse(ZERO_COMMIT, InclusivenessStrategy.LEGACY).orElse(null));
-    s.setToRevision(RevisionBoundary.parse("refs/heads/master", InclusivenessStrategy.LEGACY).orElse(null));
+    s.setFromRevision(ZERO_COMMIT);
+    s.setFromRevisionStrategy(InclusivenessStrategy.DEFAULT);
+    s.setToRevision("refs/heads/master");
+    s.setToRevisionStrategy(InclusivenessStrategy.DEFAULT);
     s.setIgnoreCommitsIfMessageMatches("^Merge.*");
     s.setTemplateSuffix(".hbs");
     s.setReadableTagName("/([^/]+?)$");

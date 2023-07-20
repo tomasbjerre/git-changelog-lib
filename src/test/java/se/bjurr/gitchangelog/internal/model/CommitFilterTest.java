@@ -9,13 +9,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import org.eclipse.jgit.lib.ObjectId;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import se.bjurr.gitchangelog.api.InclusivenessStrategy;
 import se.bjurr.gitchangelog.api.model.Commit;
 import se.bjurr.gitchangelog.internal.git.GitRepo;
-import se.bjurr.gitchangelog.internal.git.ObjectIdBoundary;
+import se.bjurr.gitchangelog.internal.git.RevisionBoundary;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.settings.Settings;
 
@@ -45,8 +46,10 @@ public class CommitFilterTest {
     this.commits =
         this.gitRepo
             .getGitRepoData(
-                new ObjectIdBoundary(this.gitRepo.getCommit(ZERO_COMMIT), InclusivenessStrategy.LEGACY),
-                    new ObjectIdBoundary(this.gitRepo.getCommit(LATEST_COMMIT_HASH), InclusivenessStrategy.LEGACY),
+                new RevisionBoundary<ObjectId>(
+                    this.gitRepo.getCommit(ZERO_COMMIT), InclusivenessStrategy.DEFAULT),
+                new RevisionBoundary<ObjectId>(
+                    this.gitRepo.getCommit(LATEST_COMMIT_HASH), InclusivenessStrategy.DEFAULT),
                 null,
                 Optional.of(""))
             .getGitCommits();
