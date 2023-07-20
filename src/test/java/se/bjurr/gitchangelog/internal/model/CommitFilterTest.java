@@ -12,8 +12,10 @@ import java.util.Optional;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import se.bjurr.gitchangelog.api.InclusivenessStrategy;
 import se.bjurr.gitchangelog.api.model.Commit;
 import se.bjurr.gitchangelog.internal.git.GitRepo;
+import se.bjurr.gitchangelog.internal.git.ObjectIdBoundary;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.settings.Settings;
 
@@ -43,8 +45,8 @@ public class CommitFilterTest {
     this.commits =
         this.gitRepo
             .getGitRepoData(
-                this.gitRepo.getCommit(ZERO_COMMIT),
-                this.gitRepo.getCommit(LATEST_COMMIT_HASH),
+                new ObjectIdBoundary(this.gitRepo.getCommit(ZERO_COMMIT), InclusivenessStrategy.LEGACY),
+                    new ObjectIdBoundary(this.gitRepo.getCommit(LATEST_COMMIT_HASH), InclusivenessStrategy.LEGACY),
                 null,
                 Optional.of(""))
             .getGitCommits();

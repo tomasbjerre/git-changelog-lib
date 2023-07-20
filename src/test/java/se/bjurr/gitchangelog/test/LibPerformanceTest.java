@@ -13,8 +13,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import se.bjurr.gitchangelog.api.GitChangelogApi;
+import se.bjurr.gitchangelog.api.InclusivenessStrategy;
 import se.bjurr.gitchangelog.internal.git.GitRepo;
 import se.bjurr.gitchangelog.internal.git.GitRepoData;
+import se.bjurr.gitchangelog.internal.git.ObjectIdBoundary;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 
 public class LibPerformanceTest {
@@ -54,7 +56,7 @@ public class LibPerformanceTest {
     final ObjectId fromId = this.gitRepo.getCommit(ZERO_COMMIT);
     final ObjectId toId = this.gitRepo.getRef(REF_MASTER);
     final GitRepoData gitRepoData =
-        this.gitRepo.getGitRepoData(fromId, toId, UNTAGGED_NAME, Optional.<String>empty());
+        this.gitRepo.getGitRepoData(new ObjectIdBoundary(fromId, InclusivenessStrategy.LEGACY), new ObjectIdBoundary(toId, InclusivenessStrategy.LEGACY), UNTAGGED_NAME, Optional.<String>empty());
     // LOG.info(this.stopwatch.elapsed(SECONDS) + "s. Done zero to master.");
     final List<GitTag> allTags = gitRepoData.getGitTags();
     for (final GitTag from : allTags) {

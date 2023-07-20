@@ -15,8 +15,14 @@ Extended variable: {{customVariable}}
 settings:
 
 {
-  "fromRevision": "0000000000000000000000000000000000000000",
-  "toRevision": "test",
+  "fromRevision": {
+    "revision": "0000000000000000000000000000000000000000",
+    "inclusivenessStrategy": "LEGACY"
+  },
+  "toRevision": {
+    "revision": "test",
+    "inclusivenessStrategy": "LEGACY"
+  },
   "ignoreCommitsIfMessageMatches": ".*",
   "templatePath": "templatetest/testAuthorsCommitsExtended.mustache",
   "removeIssueFromMessage": false,

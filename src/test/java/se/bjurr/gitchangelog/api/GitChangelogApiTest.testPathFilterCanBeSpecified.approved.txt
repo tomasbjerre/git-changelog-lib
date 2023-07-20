@@ -15,8 +15,14 @@ Extended variable: {{customVariable}}
 settings:
 
 {
-  "fromRevision": "0000000000000000000000000000000000000000",
-  "toRevision": "1.71",
+  "fromRevision": {
+    "revision": "0000000000000000000000000000000000000000",
+    "inclusivenessStrategy": "LEGACY"
+  },
+  "toRevision": {
+    "revision": "1.71",
+    "inclusivenessStrategy": "LEGACY"
+  },
   "templatePath": "templatetest/testAuthorsCommitsExtended.mustache",
   "removeIssueFromMessage": false,
   "jiraEnabled": true,

@@ -35,6 +35,7 @@ import se.bjurr.gitchangelog.api.model.Changelog;
 import se.bjurr.gitchangelog.api.model.Issue;
 import se.bjurr.gitchangelog.internal.git.GitRepo;
 import se.bjurr.gitchangelog.internal.git.GitRepoData;
+import se.bjurr.gitchangelog.internal.git.ObjectIdBoundary;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 import se.bjurr.gitchangelog.internal.issues.IssueParser;
@@ -42,6 +43,7 @@ import se.bjurr.gitchangelog.internal.model.ParsedIssue;
 import se.bjurr.gitchangelog.internal.model.Transformer;
 import se.bjurr.gitchangelog.internal.semantic.SemanticVersion;
 import se.bjurr.gitchangelog.internal.semantic.SemanticVersioning;
+import se.bjurr.gitchangelog.internal.settings.RevisionBoundary;
 import se.bjurr.gitchangelog.internal.settings.Settings;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
 import se.bjurr.gitchangelog.internal.util.ResourceLoader;
@@ -300,9 +302,18 @@ public class GitChangelogApi {
   /**
    * Include all commits from here. Any tag or branch name or commit hash. There is a constant pointing at the first commit here: reference{GitChangelogApiConstants#ZERO_COMMIT}.
    */
-  public GitChangelogApi withFromRevision(final String fromRevision) {
-    this.settings.setFromRevision(fromRevision);
+  public GitChangelogApi withFromRevision(final RevisionBoundary fromRevisionBoundary) {
+    this.settings.setFromRevision(fromRevisionBoundary);
     return this;
+  }
+
+  /**
+   * Include all commits from here. Any tag or branch name or commit hash. There is a constant pointing at the first commit here: reference{GitChangelogApiConstants#ZERO_COMMIT}.
+   * @deprecated Use {@link #withFromRevision(RevisionBoundary)} instead
+   */
+  @Deprecated
+  public GitChangelogApi withFromRevision(final String fromRevision) {
+    return withFromRevision(RevisionBoundary.parse(fromRevision, InclusivenessStrategy.LEGACY).orElse(null));
   }
 
   /**
@@ -312,7 +323,7 @@ public class GitChangelogApi {
    */
   @Deprecated
   public GitChangelogApi withFromCommit(final String fromCommit) {
-    this.settings.setFromRevision(fromCommit);
+    this.settings.setFromRevision(RevisionBoundary.parse(fromCommit, InclusivenessStrategy.LEGACY).orElse(null));
     return this;
   }
 
@@ -322,7 +333,7 @@ public class GitChangelogApi {
    */
   @Deprecated
   public GitChangelogApi withFromRef(final String fromBranch) {
-    this.settings.setFromRevision(fromBranch);
+    this.settings.setFromRevision(RevisionBoundary.parse(fromBranch, InclusivenessStrategy.LEGACY).orElse(null));
     return this;
   }
 
@@ -619,9 +630,18 @@ public class GitChangelogApi {
   /**
    * Include all commits to this revision. Any tag or branch name or commit hash. There is a constant for master here: reference{GitChangelogApiConstants#REF_MASTER}.
    */
-  public GitChangelogApi withToRevision(final String toRevision) {
+  public GitChangelogApi withToRevision(final RevisionBoundary toRevision) {
     this.settings.setToRevision(toRevision);
     return this;
+  }
+
+  /**
+   * Include all commits to this revision. Any tag or branch name or commit hash. There is a constant for master here: reference{GitChangelogApiConstants#REF_MASTER}.
+   * @deprecated Use {@link #withToRevision(RevisionBoundary)} instead
+   */
+  @Deprecated
+  public GitChangelogApi withToRevision(final String toRevision) {
+    return withToRevision(RevisionBoundary.parse(toRevision, InclusivenessStrategy.LEGACY).orElse(null));
   }
 
   /**
@@ -630,7 +650,7 @@ public class GitChangelogApi {
    */
   @Deprecated
   public GitChangelogApi withToCommit(final String toCommit) {
-    this.settings.setToRevision(toCommit);
+    this.settings.setToRevision(RevisionBoundary.parse(toCommit, InclusivenessStrategy.LEGACY).orElse(null));
     return this;
   }
 
@@ -641,7 +661,7 @@ public class GitChangelogApi {
    */
   @Deprecated
   public GitChangelogApi withToRef(final String toBranch) {
-    this.settings.setToRevision(toBranch);
+    this.settings.setToRevision(RevisionBoundary.parse(toBranch, InclusivenessStrategy.LEGACY).orElse(null));
     return this;
   }
 
@@ -667,20 +687,20 @@ public class GitChangelogApi {
   private Changelog getChangelog(final GitRepo gitRepo, final boolean useIntegrations)
       throws GitChangelogRepositoryException {
     gitRepo.setTreeFilter(this.settings.getSubDirFilter());
-    final ObjectId fromId =
+    final ObjectIdBoundary fromId =
         this.getId(gitRepo, this.settings.getFromRevision()) //
-            .orElse(gitRepo.getCommit(ZERO_COMMIT));
-    final Optional<ObjectId> toIdOpt =
+            .orElse(new ObjectIdBoundary(gitRepo.getCommit(ZERO_COMMIT), InclusivenessStrategy.INCLUSIVE));
+    final Optional<ObjectIdBoundary> toIdOpt =
         this.getId(gitRepo, this.settings.getToRevision());
-    ObjectId toId;
+    ObjectIdBoundary toId;
     if (toIdOpt.isPresent()) {
       toId = toIdOpt.get();
     } else {
       final Optional<ObjectId> headOpt = gitRepo.findRef(REF_HEAD);
       if (headOpt.isPresent()) {
-        toId = headOpt.get();
+        toId = new ObjectIdBoundary(headOpt.get(), InclusivenessStrategy.INCLUSIVE);
       } else {
-        toId = gitRepo.getRef(REF_MASTER);
+        toId = new ObjectIdBoundary(gitRepo.getRef(REF_MASTER), InclusivenessStrategy.INCLUSIVE);
       }
     }
     GitRepoData gitRepoData =
@@ -718,19 +738,15 @@ public class GitChangelogApi {
         gitRepoData.getUrlPartsList());
   }
 
-  private Optional<ObjectId> getId(
-      final GitRepo gitRepo, final Optional<String> revision)
+  private Optional<ObjectIdBoundary> getId(
+      final GitRepo gitRepo, final Optional<RevisionBoundary> revision)
       throws GitChangelogRepositoryException {
 
     if (!revision.isPresent()) {
       return Optional.empty();
     }
 
-    Optional<ObjectId> objectId = gitRepo.findRef(revision.get());
-    if (objectId.isPresent()) {
-      return objectId;
-    }
-    return Optional.ofNullable(gitRepo.getCommit(revision.get()));
+    return revision.get().findObjectId(gitRepo);
   }
 
   public GitChangelogApi withJiraEnabled(final boolean b) {

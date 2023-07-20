@@ -38,8 +38,14 @@ Changelog of Git Changelog.
 settings:
 
 {
-  "fromRevision": "0000000000000000000000000000000000000000",
-  "toRevision": "test",
+  "fromRevision": {
+    "revision": "0000000000000000000000000000000000000000",
+    "inclusivenessStrategy": "LEGACY"
+  },
+  "toRevision": {
+    "revision": "test",
+    "inclusivenessStrategy": "LEGACY"
+  },
   "templatePath": "templatetest/testThatCommitsWithoutIssueCanBeIgnoredTagsIssuesCommits.mustache",
   "removeIssueFromMessage": false,
   "jiraEnabled": true,

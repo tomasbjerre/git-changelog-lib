@@ -33,6 +33,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
+import se.bjurr.gitchangelog.api.InclusivenessStrategy;
 import se.bjurr.gitchangelog.api.model.Changelog;
 import se.bjurr.gitchangelog.api.model.Issue;
 
@@ -44,12 +45,12 @@ public class Settings implements Serializable {
   /** Folder where repo lives. */
   private String fromRepo;
   /** Include all commits from here. Any tag or branch name or commit hash. There is a constant pointing at the first commit here: reference{GitChangelogApiConstants#ZERO_COMMIT}. */
-  private String fromRevision;
+  private RevisionBoundary fromRevision;
   /**
    * Include all commits to this revision. Any tag or branch name or commit hash. There is a constant for master
    * here: reference{GitChangelogApiConstants#REF_MASTER}.
    */
-  private String toRevision;
+  private RevisionBoundary toRevision;
   /**
    * A regular expression that is evaluated on each tag. If it matches, the tag will be filtered out
    * and not included in the changelog.
@@ -244,27 +245,19 @@ public class Settings implements Serializable {
     this.customIssues = customIssues;
   }
 
-  public void setFromRevision(final String fromRevision) {
-    if (fromRevision == null || fromRevision.trim().isEmpty()) {
-      this.fromRevision = null;
-    } else {
-      this.fromRevision = fromRevision.trim();
-    }
+  public void setFromRevision(final RevisionBoundary fromRevision) {
+    this.fromRevision = fromRevision;
   }
 
-  public void setToRevision(final String toRevision) {
-    if (toRevision == null || toRevision.trim().isEmpty()) {
-      this.toRevision = null;
-    } else {
-      this.toRevision = toRevision.trim();
-    }
+  public void setToRevision(final RevisionBoundary toRevision) {
+    this.toRevision = toRevision;
   }
 
-  public Optional<String> getFromRevision() {
+  public Optional<RevisionBoundary> getFromRevision() {
     return ofNullable(this.fromRevision);
   }
 
-  public Optional<String> getToRevision() {
+  public Optional<RevisionBoundary> getToRevision() {
     return ofNullable(this.toRevision);
   }
 
@@ -427,8 +420,8 @@ public class Settings implements Serializable {
   public static Settings defaultSettings() {
     final Settings s = new Settings();
     s.setFromRepo(".");
-    s.setFromRevision(ZERO_COMMIT);
-    s.setToRevision("refs/heads/master");
+    s.setFromRevision(RevisionBoundary.parse(ZERO_COMMIT, InclusivenessStrategy.LEGACY).orElse(null));
+    s.setToRevision(RevisionBoundary.parse("refs/heads/master", InclusivenessStrategy.LEGACY).orElse(null));
     s.setIgnoreCommitsIfMessageMatches("^Merge.*");
     s.setTemplateSuffix(".hbs");
     s.setReadableTagName("/([^/]+?)$");
