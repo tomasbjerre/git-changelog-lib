@@ -255,6 +255,7 @@ public class Settings implements Serializable {
   public void setFromRevision(final String revision) {
     if (revision == null || revision.trim().isEmpty()) {
       this.fromRevision = null;
+      return;
     }
     this.fromRevision = revision.trim();
   }
@@ -266,6 +267,7 @@ public class Settings implements Serializable {
   public void setToRevision(final String revision) {
     if (revision == null || revision.trim().isEmpty()) {
       this.toRevision = null;
+      return;
     }
     this.toRevision = revision.trim();
   }
