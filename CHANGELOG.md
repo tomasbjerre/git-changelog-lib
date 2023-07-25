@@ -2,6 +2,12 @@
 
 Changelog of git-changelog-lib.
 
+## 1.171.1 (2023-07-25)
+
+### Bug Fixes
+
+-  NPE when Settings#setToRevision or Settings#setFromRevision with null values ([0d050](https://github.com/tomasbjerre/git-changelog-lib/commit/0d050d7c8b8637b) Réda Housni Alaoui)  [#159](https://github.com/tomasbjerre/git-changelog-lib/issues/159)  
+
 ## 1.171.0 (2023-07-20)
 
 ### Features
