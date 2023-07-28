@@ -1,5 +1,17 @@
 {{#tags}}
 ## {{name}}
+{{#ifContainsIssueLabel issues label='enhancement'}}
+### Enhancements
+{{#issues}}
+  {{#ifIssueLabel . label='enhancement'}}Found a enhancement{{/ifIssueLabel}}
+{{/issues}}
+{{/ifContainsIssueLabel}}
+{{#ifContainsIssueLabel issues label='bug'}}
+### Bugs
+{{#issues}}
+  {{#ifIssueLabel . label='bug'}}Found a bug{{/ifIssueLabel}}
+{{/issues}}
+{{/ifContainsIssueLabel}}
 {{#issues}}
  {{hasLabels}}
  {{#labels}}
