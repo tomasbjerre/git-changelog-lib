@@ -176,8 +176,6 @@ public class ConventionalCommitParser {
     return false;
   }
 
-
-
   public static boolean issueType(final String issueType, final Options options) {
     final String type = options.hash("type").toString();
     return issueType.matches(type);
@@ -187,12 +185,12 @@ public class ConventionalCommitParser {
     boolean result;
     String label = options.hash("label").toString();
 
-    if(!issue.getHasLabels()) {
+    if (!issue.getHasLabels()) {
       result = false;
     } else {
       boolean found = false;
-      for(String l: issue.getLabels()) {
-        if(label.equals(l)) {
+      for (String l : issue.getLabels()) {
+        if (label.equals(l)) {
           found = true;
           break;
         }

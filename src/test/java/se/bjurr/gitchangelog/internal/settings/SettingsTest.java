@@ -9,18 +9,17 @@ import org.junit.Test;
  */
 public class SettingsTest {
 
-	@Test
-	public void nullFromRevisionCanBeSet() {
-		Settings settings = new Settings();
-		settings.setFromRevision(null);
-		assertThat(settings.getFromRevision()).isEmpty();
-	}
+  @Test
+  public void nullFromRevisionCanBeSet() {
+    Settings settings = new Settings();
+    settings.setFromRevision(null);
+    assertThat(settings.getFromRevision()).isEmpty();
+  }
 
-	@Test
-	public void nullToRevisionCanBeSet() {
-		Settings settings = new Settings();
-		settings.setToRevision(null);
-		assertThat(settings.getToRevision()).isEmpty();
-	}
-
+  @Test
+  public void nullToRevisionCanBeSet() {
+    Settings settings = new Settings();
+    settings.setToRevision(null);
+    assertThat(settings.getToRevision()).isEmpty();
+  }
 }

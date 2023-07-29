@@ -147,7 +147,6 @@ public class Helpers {
           return conditional(options, issueLabel(issue, options));
         });
 
-
     ALL.put(
         "ifIssueTypeOtherThan",
         (final Issue issue, final Options options) -> {
@@ -221,9 +220,6 @@ public class Helpers {
           return conditional(options, !footer.value.trim().isEmpty());
         });
   }
-
-
-
 
   private static Object each(final Options options, final List<?> elements) throws IOException {
     return new EachHelper().apply(elements, options);
