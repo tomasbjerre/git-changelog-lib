@@ -8,6 +8,8 @@ import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.c
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.commitScopes;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.commitType;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsBreaking;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsIssueLabel;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsIssueLabelOtherThan;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsIssueType;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsIssueTypeOtherThan;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsType;
@@ -15,6 +17,7 @@ import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.c
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.getDate;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.getMessageParts;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.isReleaseTag;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.issueLabel;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.issueType;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.revertedCommit;
 
@@ -122,12 +125,29 @@ public class Helpers {
         (final List<Issue> issues, final Options options) -> {
           return conditional(options, containsIssueTypeOtherThan(issues, options));
         });
+    ALL.put(
+        "ifContainsIssueLabel",
+        (final List<Issue> issues, final Options options) -> {
+          return conditional(options, containsIssueLabel(issues, options));
+        });
+    ALL.put(
+        "ifContainsIssueLabelOtherThan",
+        (final List<Issue> issues, final Options options) -> {
+          return conditional(options, containsIssueLabelOtherThan(issues, options));
+        });
 
     ALL.put(
         "ifIssueType",
         (final Issue issue, final Options options) -> {
           return conditional(options, issueType(issue.getType(), options));
         });
+    ALL.put(
+        "ifIssueLabel",
+        (final Issue issue, final Options options) -> {
+          return conditional(options, issueLabel(issue, options));
+        });
+
+
     ALL.put(
         "ifIssueTypeOtherThan",
         (final Issue issue, final Options options) -> {
@@ -201,6 +221,9 @@ public class Helpers {
           return conditional(options, !footer.value.trim().isEmpty());
         });
   }
+
+
+
 
   private static Object each(final Options options, final List<?> elements) throws IOException {
     return new EachHelper().apply(elements, options);

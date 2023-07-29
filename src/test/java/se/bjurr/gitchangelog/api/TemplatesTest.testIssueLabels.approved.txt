@@ -2,6 +2,18 @@ template:
 
 {{#tags}}
 ## {{name}}
+{{#ifContainsIssueLabel issues label='enhancement'}}
+### Enhancements
+{{#issues}}
+  {{#ifIssueLabel . label='enhancement'}}Found a enhancement{{/ifIssueLabel}}
+{{/issues}}
+{{/ifContainsIssueLabel}}
+{{#ifContainsIssueLabel issues label='bug'}}
+### Bugs
+{{#issues}}
+  {{#ifIssueLabel . label='bug'}}Found a bug{{/ifIssueLabel}}
+{{/issues}}
+{{/ifContainsIssueLabel}}
 {{#issues}}
  {{hasLabels}}
  {{#labels}}
@@ -73,6 +85,20 @@ settings:
 changelog:
 
 ## test
+### Enhancements
+  
+  
+  Found a enhancement
+  
+  
+  
+### Bugs
+  
+  Found a bug
+  
+  
+  
+  
  false
  true
   bug
@@ -86,6 +112,11 @@ changelog:
 ## test-lightweight-2
  false
 ## test-1.0
+### Bugs
+  
+  Found a bug
+  
+  
  false
  true
   bug

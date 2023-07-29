@@ -158,9 +158,48 @@ public class ConventionalCommitParser {
     return false;
   }
 
+  public static boolean containsIssueLabel(List<Issue> issues, Options options) {
+    for (final Issue issue : issues) {
+      if (issueLabel(issue, options)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public static boolean containsIssueLabelOtherThan(List<Issue> issues, Options options) {
+    for (final Issue issue : issues) {
+      if (!issueLabel(issue, options)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+
+
   public static boolean issueType(final String issueType, final Options options) {
     final String type = options.hash("type").toString();
     return issueType.matches(type);
+  }
+
+  public static boolean issueLabel(final Issue issue, final Options options) {
+    boolean result;
+    String label = options.hash("label").toString();
+
+    if(!issue.getHasLabels()) {
+      result = false;
+    } else {
+      boolean found = false;
+      for(String l: issue.getLabels()) {
+        if(label.equals(l)) {
+          found = true;
+          break;
+        }
+      }
+      result = found;
+    }
+    return result;
   }
 
   public static boolean commitType(final String commitMessage, final Options options) {
