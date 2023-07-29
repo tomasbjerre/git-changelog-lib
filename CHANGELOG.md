@@ -2,6 +2,12 @@
 
 Changelog of git-changelog-lib.
 
+## 1.172.0 (2023-07-29)
+
+### Features
+
+-  ifContainsIssueLabel and ifIssueLabel ([dfa37](https://github.com/tomasbjerre/git-changelog-lib/commit/dfa37436e7566af) Jeremy Custenborder)  [#161](https://github.com/tomasbjerre/git-changelog-lib/issues/161)  
+
 ## 1.171.1 (2023-07-25)
 
 ### Bug Fixes
