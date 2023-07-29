@@ -197,6 +197,36 @@ Conditional, renders a block if given `List<Issue>` contains issues that don't m
 {{/ifContainsIssueTypeOtherThan}}
 ```
 
+### `ifContainsIssueLabel <List<Issue>> label="<value>"`
+
+Conditional, renders a block if given `List<Issue>` contains given `label`.
+
+```hbs
+{{#ifContainsIssueLabel issues label='enhancement'}}
+  content here
+{{/ifContainsIssueLabel}}
+```
+
+### `ifContainsIssueLabelOtherThan <List<Issue>>`
+
+Conditional, renders a block if given `List<Issue>` contains labels that don't match the given `label`.
+
+```hbs
+{{#ifContainsIssueLabelOtherThan issues label='enhancement'}}
+  content here
+{{/ifContainsIssueLabel}}
+```
+
+### `ifIssueLabel <label> label="<value>"`
+
+Conditional, renders a block if given `label` matches the given `value`.
+
+```hbs
+{{#ifIssueLabel . label='enhancement'}}
+  Found a enhancement
+{{/ifIssueLabel}}
+```
+
 ### `ifContainsType <List<Commit>>`
 
 Conditional, renders a block if given `List<Commits>` contains given `type`.
