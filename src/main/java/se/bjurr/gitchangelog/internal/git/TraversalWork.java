@@ -1,9 +1,7 @@
 package se.bjurr.gitchangelog.internal.git;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.eclipse.jgit.revwalk.RevCommit;
 
-@SuppressFBWarnings("CRLF_INJECTION_LOGS")
 class TraversalWork implements Comparable<TraversalWork> {
   private final RevCommit to;
   private final String currentTagName;

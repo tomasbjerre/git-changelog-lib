@@ -2,7 +2,6 @@ package se.bjurr.gitchangelog.internal.integrations.rest;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -15,10 +14,11 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
+
 import org.slf4j.Logger;
+
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 
-@SuppressFBWarnings({"URLCONNECTION_SSRF_FD", "CRLF_INJECTION_LOGS"})
 public class RestClient {
   private static Logger logger = getLogger(RestClient.class);
   private static RestClient mockedRestClient;
