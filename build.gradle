@@ -9,6 +9,11 @@ buildscript {
   classpath 'se.bjurr.gradle:gradle-scripts:2.+'
  }
 }
+project.ext.buildConfig = [
+  staticCodeAnalysis: [
+    maxViolations: 0
+  ]
+]
 apply from: project.buildscript.classLoader.getResource('main.gradle').toURI()
 
 

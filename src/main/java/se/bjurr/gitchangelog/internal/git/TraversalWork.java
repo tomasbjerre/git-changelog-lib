@@ -1,7 +1,9 @@
 package se.bjurr.gitchangelog.internal.git;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.eclipse.jgit.revwalk.RevCommit;
 
+@SuppressFBWarnings("CRLF_INJECTION_LOGS")
 class TraversalWork implements Comparable<TraversalWork> {
   private final RevCommit to;
   private final String currentTagName;
@@ -59,9 +61,8 @@ class TraversalWork implements Comparable<TraversalWork> {
     return compareTo;
   }
 
-  int compareTo(final int selfCommitTime, final int otherCommitTime) {
-    return Integer.valueOf(otherCommitTime) //
-        .compareTo(selfCommitTime);
+  int compareTo(final int y, final int x) {
+    return (x < y) ? -1 : ((x == y) ? 0 : 1);
   }
 
   @Override

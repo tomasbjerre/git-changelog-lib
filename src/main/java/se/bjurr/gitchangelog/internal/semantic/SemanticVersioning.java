@@ -96,12 +96,12 @@ public class SemanticVersioning {
     final String[] dotParts = semanticVersionMatcher.group().split("\\.");
     Integer patch = 0;
     if (dotParts.length > 2) {
-      patch = new Integer(dotParts[2]);
+      patch = Integer.parseInt(dotParts[2]);
     }
     final SemanticVersion candidate =
         new SemanticVersion(
-            new Integer(dotParts[0]), //
-            new Integer(dotParts[1]), //
+            Integer.parseInt(dotParts[0]), //
+            Integer.parseInt(dotParts[1]), //
             patch);
     candidate.setTag(tag);
     return Optional.of(candidate);

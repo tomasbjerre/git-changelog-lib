@@ -2,6 +2,7 @@ package se.bjurr.gitchangelog.internal.integrations.rest;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -17,6 +18,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.slf4j.Logger;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 
+@SuppressFBWarnings({"URLCONNECTION_SSRF_FD", "CRLF_INJECTION_LOGS"})
 public class RestClient {
   private static Logger logger = getLogger(RestClient.class);
   private static RestClient mockedRestClient;
@@ -104,10 +106,11 @@ public class RestClient {
   protected String getResponse(final HttpURLConnection conn) throws Exception {
     if (mockedRestClient == null) {
       final InputStream inputStream = conn.getInputStream();
-      InputStreamReader inputStreamReader =
+      final InputStreamReader inputStreamReader =
           new InputStreamReader(inputStream, StandardCharsets.UTF_8);
-      BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-      return bufferedReader.readLine();
+      try (BufferedReader bufferedReader = new BufferedReader(inputStreamReader)) {
+        return bufferedReader.readLine();
+      }
     }
     return mockedRestClient.getResponse(conn);
   }

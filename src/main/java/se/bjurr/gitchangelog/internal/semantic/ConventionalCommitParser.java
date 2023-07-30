@@ -1,6 +1,7 @@
 package se.bjurr.gitchangelog.internal.semantic;
 
 import com.github.jknack.handlebars.Options;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,9 +13,11 @@ import se.bjurr.gitchangelog.api.model.Issue;
 import se.bjurr.gitchangelog.api.model.Tag;
 import se.bjurr.gitchangelog.internal.model.Transformer;
 
+@SuppressFBWarnings("REDOS")
 public class ConventionalCommitParser {
   private static final Pattern CONVENTIONAL_PATTERN =
       Pattern.compile("^(\\w+)(\\(([\\w\\-\\.:]+)\\)?)?(\\!?)[\\s?]*:(.+)");
+
   private static final Pattern FOOTER_PATTERN =
       Pattern.compile("^(BREAKING[ -]CHANGE|[^ ]+)(((: )|( #))(.+))");
 
@@ -94,7 +97,7 @@ public class ConventionalCommitParser {
     if (type.matches("[Bb]reaking")) {
       return true;
     }
-    final Matcher matcher = CONVENTIONAL_PATTERN.matcher(commitMessage.toString());
+    final Matcher matcher = CONVENTIONAL_PATTERN.matcher(commitMessage);
     if (!matcher.find()) {
       return false;
     }
@@ -158,7 +161,7 @@ public class ConventionalCommitParser {
     return false;
   }
 
-  public static boolean containsIssueLabel(List<Issue> issues, Options options) {
+  public static boolean containsIssueLabel(final List<Issue> issues, final Options options) {
     for (final Issue issue : issues) {
       if (issueLabel(issue, options)) {
         return true;
@@ -167,7 +170,8 @@ public class ConventionalCommitParser {
     return false;
   }
 
-  public static boolean containsIssueLabelOtherThan(List<Issue> issues, Options options) {
+  public static boolean containsIssueLabelOtherThan(
+      final List<Issue> issues, final Options options) {
     for (final Issue issue : issues) {
       if (!issueLabel(issue, options)) {
         return true;
@@ -177,19 +181,19 @@ public class ConventionalCommitParser {
   }
 
   public static boolean issueType(final String issueType, final Options options) {
-    final String type = options.hash("type").toString();
+    final String type = options.hash("type");
     return issueType.matches(type);
   }
 
   public static boolean issueLabel(final Issue issue, final Options options) {
     boolean result;
-    String label = options.hash("label").toString();
+    final String label = options.hash("label");
 
     if (!issue.getHasLabels()) {
       result = false;
     } else {
       boolean found = false;
-      for (String l : issue.getLabels()) {
+      for (final String l : issue.getLabels()) {
         if (label.equals(l)) {
           found = true;
           break;
@@ -201,12 +205,12 @@ public class ConventionalCommitParser {
   }
 
   public static boolean commitType(final String commitMessage, final Options options) {
-    final String type = options.hash("type").toString();
+    final String type = options.hash("type");
     return getType(commitMessage).matches(type);
   }
 
   private static String getType(final String commitMessage) {
-    final Matcher matcher = CONVENTIONAL_PATTERN.matcher(commitMessage.toString());
+    final Matcher matcher = CONVENTIONAL_PATTERN.matcher(commitMessage);
     if (!matcher.find()) {
       final boolean matchesRevert = Transformer.PATTERN_THIS_REVERTS.matcher(commitMessage).find();
       if (matchesRevert) {
@@ -243,7 +247,7 @@ public class ConventionalCommitParser {
         currentFooter.value += "\n" + line;
       }
 
-      if (paragraphs && !empty && paragraphs) {
+      if (paragraphs && !empty) {
         if (currentParagraph == null) {
           currentParagraph = line;
         } else {

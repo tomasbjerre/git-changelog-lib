@@ -11,6 +11,7 @@ import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.JIRA;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.NOISSUE;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.REDMINE;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -36,6 +37,7 @@ import se.bjurr.gitchangelog.internal.settings.IssuesUtil;
 import se.bjurr.gitchangelog.internal.settings.Settings;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
 
+@SuppressFBWarnings("CRLF_INJECTION_LOGS")
 public class IssueParser {
 
   private static final Logger LOG = getLogger(IssueParser.class);
@@ -180,7 +182,7 @@ public class IssueParser {
   private JiraClient createJiraClient() {
     JiraClient jiraClient = null;
     if (this.settings.getJiraServer().isPresent()) {
-      jiraClient = JiraClientFactory.createJiraClient(settings.getJiraServer().get());
+      jiraClient = JiraClientFactory.createJiraClient(this.settings.getJiraServer().get());
       if (this.settings.getJiraUsername().isPresent()) {
         jiraClient.withBasicCredentials(
             this.settings.getJiraUsername().get(), this.settings.getJiraPassword().get());
@@ -192,8 +194,8 @@ public class IssueParser {
       if (this.settings.getExtendedRestHeaders() != null) {
         jiraClient.withHeaders(this.settings.getExtendedRestHeaders());
       }
-      if (!settings.getJiraIssueAdditionalFields().isEmpty()) {
-        jiraClient.withIssueAdditionalFields(settings.getJiraIssueAdditionalFields());
+      if (!this.settings.getJiraIssueAdditionalFields().isEmpty()) {
+        jiraClient.withIssueAdditionalFields(this.settings.getJiraIssueAdditionalFields());
       }
     }
     return jiraClient;

@@ -5,12 +5,15 @@ import static java.util.regex.Pattern.DOTALL;
 import static java.util.regex.Pattern.compile;
 import static java.util.stream.Collectors.toList;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -63,13 +66,14 @@ public class Transformer {
   }
 
   private String getKey(final String authorName, final String authorEmail) {
-    return ("name:" + authorName + "-email:" + authorEmail).toLowerCase();
+    return ("name:" + authorName + "-email:" + authorEmail).toLowerCase(Locale.ENGLISH);
   }
 
   private boolean isRevertCommit(final GitCommit commit) {
     return this.getRevertCommitHash(commit) != null;
   }
 
+  @SuppressFBWarnings("UNSAFE_HASH_EQUALS")
   private boolean isRevertedCommit(
       final GitCommit commit, final Iterable<GitCommit> revertCommits) {
     for (final GitCommit revertCommit : revertCommits) {
@@ -158,8 +162,8 @@ public class Transformer {
     }
 
     final List<IssueType> issueTypes = new ArrayList<>();
-    for (final String name : issuesPerName.keySet()) {
-      issueTypes.add(new IssueType(issuesPerName.get(name), name));
+    for (final Entry<String, List<Issue>> entry : issuesPerName.entrySet()) {
+      issueTypes.add(new IssueType(entry.getValue(), entry.getKey()));
     }
     return issueTypes;
   }

@@ -37,24 +37,23 @@ import se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.Footer;
 
 public class Helpers {
 
-  public static final Map<String, Helper<?>> ALL = new TreeMap<>();
-
-  static {
-    ALL.put(
+  public static Map<String, Helper<?>> getAll() {
+    final TreeMap<String, Helper<?>> helpers = new TreeMap<>();
+    helpers.put(
         "ifEquals",
         (final Object a, final Options options) -> {
           final Object b = options.params[0];
           final boolean equality = a.equals(b);
           return conditional(options, equality);
         });
-    ALL.put(
+    helpers.put(
         "ifMatches",
         (final Object a, final Options options) -> {
           final String regexp = (String) options.params[0];
           final boolean equality = a.toString().matches(regexp);
           return conditional(options, equality);
         });
-    ALL.put(
+    helpers.put(
         "subString",
         (final Object a, final Options options) -> {
           final Integer from = (Integer) options.params[0];
@@ -66,159 +65,160 @@ public class Helpers {
           }
         });
 
-    ALL.put(
+    helpers.put(
         "ifReleaseTag",
         (final Tag tag, final Options options) -> {
           return conditional(options, isReleaseTag(tag));
         });
 
-    ALL.put(
+    helpers.put(
         "tagDate",
         (final Tag tag, final Options options) -> {
           return getDate(tag.getTagTime());
         });
 
-    ALL.put(
+    helpers.put(
         "commitDate",
         (final Commit commit, final Options options) -> {
           return getDate(commit.getCommitTime());
         });
-    ALL.put(
+    helpers.put(
         "ifContainsType",
         (final List<Commit> commits, final Options options) -> {
           return conditional(options, containsType(commits, options));
         });
-    ALL.put(
+    helpers.put(
         "ifContainsTypeOtherThan",
         (final List<Commit> commits, final Options options) -> {
           return conditional(options, containsTypeOtherThan(commits, options));
         });
-    ALL.put(
+    helpers.put(
         "ifContainsBreaking",
         (final List<Commit> commits, final Options options) -> {
           return conditional(options, containsBreaking(commits, options));
         });
 
-    ALL.put(
+    helpers.put(
         "ifCommitType",
         (final Commit commit, final Options options) -> {
           return conditional(options, commitType(commit.getMessage(), options));
         });
-    ALL.put(
+    helpers.put(
         "ifCommitTypeOtherThan",
         (final Commit commit, final Options options) -> {
           return conditional(options, !commitType(commit.getMessage(), options));
         });
 
-    ALL.put(
+    helpers.put(
         "ifCommitBreaking",
         (final Commit commit, final Options options) -> {
           return conditional(options, commitBreaking(commit.getMessage()));
         });
-    ALL.put(
+    helpers.put(
         "ifContainsIssueType",
         (final List<Issue> issues, final Options options) -> {
           return conditional(options, containsIssueType(issues, options));
         });
-    ALL.put(
+    helpers.put(
         "ifContainsIssueTypeOtherThan",
         (final List<Issue> issues, final Options options) -> {
           return conditional(options, containsIssueTypeOtherThan(issues, options));
         });
-    ALL.put(
+    helpers.put(
         "ifContainsIssueLabel",
         (final List<Issue> issues, final Options options) -> {
           return conditional(options, containsIssueLabel(issues, options));
         });
-    ALL.put(
+    helpers.put(
         "ifContainsIssueLabelOtherThan",
         (final List<Issue> issues, final Options options) -> {
           return conditional(options, containsIssueLabelOtherThan(issues, options));
         });
 
-    ALL.put(
+    helpers.put(
         "ifIssueType",
         (final Issue issue, final Options options) -> {
           return conditional(options, issueType(issue.getType(), options));
         });
-    ALL.put(
+    helpers.put(
         "ifIssueLabel",
         (final Issue issue, final Options options) -> {
           return conditional(options, issueLabel(issue, options));
         });
 
-    ALL.put(
+    helpers.put(
         "ifIssueTypeOtherThan",
         (final Issue issue, final Options options) -> {
           return conditional(options, !issueType(issue.getType(), options));
         });
 
-    ALL.put(
+    helpers.put(
         "ifCommitScope",
         (final Commit commit, final Options options) -> {
           return conditional(options, commitScope(commit, options));
         });
 
-    ALL.put(
+    helpers.put(
         "ifCommitHasFooters",
         (final Commit commit, final Options options) -> {
           return conditional(options, getMessageParts(commit.getMessage()).footers.size() > 0);
         });
 
-    ALL.put(
+    helpers.put(
         "ifCommitHasParagraphs",
         (final Commit commit, final Options options) -> {
           return conditional(options, getMessageParts(commit.getMessage()).paragraphs.size() > 0);
         });
 
-    ALL.put(
+    helpers.put(
         "eachCommitScope",
         (final Commit commit, final Options options) -> {
           return each(options, commitScopes(commit.getMessage()));
         });
 
-    ALL.put(
+    helpers.put(
         "commitDescription",
         (final Commit commit, final Options options) -> {
           return commitDescription(commit.getMessage());
         });
 
-    ALL.put(
+    helpers.put(
         "eachCommitRefs",
         (final Commit commit, final Options options) -> {
           return each(options, commitRefs(commit.getMessage()));
         });
 
-    ALL.put(
+    helpers.put(
         "eachCommitFixes",
         (final Commit commit, final Options options) -> {
           return each(options, commitFixes(commit.getMessage()));
         });
 
-    ALL.put(
+    helpers.put(
         "revertedCommit",
         (final Commit commit, final Options options) -> {
           return revertedCommit(commit.getMessage());
         });
 
-    ALL.put(
+    helpers.put(
         "eachCommitParagraph",
         (final Commit commit, final Options options) -> {
           return each(options, getMessageParts(commit.getMessage()).paragraphs);
         });
 
-    ALL.put(
+    helpers.put(
         "eachCommitFooter",
         (final Commit commit, final Options options) -> {
           return each(
               options, ConventionalCommitParser.getMessageParts(commit.getMessage()).footers);
         });
 
-    ALL.put(
+    helpers.put(
         "ifFooterHasValue",
         (final Footer footer, final Options options) -> {
           return conditional(options, !footer.value.trim().isEmpty());
         });
+    return helpers;
   }
 
   private static Object each(final Options options, final List<?> elements) throws IOException {

@@ -5,6 +5,7 @@ import static java.util.stream.Collectors.toList;
 import static org.eclipse.jgit.lib.Constants.HEAD;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
@@ -40,6 +41,12 @@ import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 import se.bjurr.gitchangelog.internal.semantic.SemanticVersioning;
 
+@SuppressFBWarnings({
+  "CRLF_INJECTION_LOGS",
+  "BC_VACUOUS_INSTANCEOF",
+  "BC_UNCONFIRMED_CAST_OF_RETURN_VALUE",
+  "PATH_TRAVERSAL_IN"
+})
 public class GitRepo implements Closeable {
   private static final Logger LOG = LoggerFactory.getLogger(GitRepo.class);
   private List<RevCommit> commitsToInclude;

@@ -2,6 +2,7 @@ package se.bjurr.gitchangelog.internal.integrations.github;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.io.File;
 import java.util.Optional;
 import okhttp3.Cache;
@@ -11,6 +12,7 @@ import okhttp3.Request;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+@SuppressFBWarnings("RV_RETURN_VALUE_IGNORED_BAD_PRACTICE")
 public class GitHubServiceFactory {
   static Interceptor interceptor;
 

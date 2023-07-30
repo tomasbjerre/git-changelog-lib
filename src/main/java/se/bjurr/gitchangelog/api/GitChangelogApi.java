@@ -12,6 +12,7 @@ import com.github.jknack.handlebars.Helper;
 import com.github.jknack.handlebars.Template;
 import com.github.jknack.handlebars.helper.StringHelpers;
 import com.github.jknack.handlebars.io.FileTemplateLoader;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -47,6 +48,7 @@ import se.bjurr.gitchangelog.internal.settings.Settings;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
 import se.bjurr.gitchangelog.internal.util.ResourceLoader;
 
+@SuppressFBWarnings("PATH_TRAVERSAL_IN")
 public class GitChangelogApi {
 
   public static GitChangelogApi gitChangelogApiBuilder() {
@@ -63,7 +65,7 @@ public class GitChangelogApi {
     this.handlebars = new Handlebars();
     this.handlebars.setPrettyPrint(true);
     this.handlebars.registerHelpers(StringHelpers.class);
-    for (final Entry<String, Helper<?>> helper : Helpers.ALL.entrySet()) {
+    for (final Entry<String, Helper<?>> helper : Helpers.getAll().entrySet()) {
       this.handlebars.registerHelper(helper.getKey(), helper.getValue());
     }
   }
@@ -138,6 +140,7 @@ public class GitChangelogApi {
   }
 
   /** Get the changelog. */
+  @SuppressFBWarnings("PATH_TRAVERSAL_IN")
   public String render() throws GitChangelogRepositoryException {
     final Writer writer = new StringWriter();
     this.render(writer);
@@ -171,10 +174,10 @@ public class GitChangelogApi {
     final byte[] bytesToPrepend = this.render().getBytes(this.settings.getEncoding());
     final byte[] originalBytes = Files.readAllBytes(file.toPath());
 
-    final FileOutputStream outputStream = new FileOutputStream(file);
-    outputStream.write(bytesToPrepend);
-    outputStream.write(originalBytes);
-    outputStream.close();
+    try (final FileOutputStream outputStream = new FileOutputStream(file)) {
+      outputStream.write(bytesToPrepend);
+      outputStream.write(originalBytes);
+    }
   }
   /**
    * Get next semantic version. This requires version-pattern and major/minor/patch patterns to have

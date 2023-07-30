@@ -6,6 +6,7 @@ import static se.bjurr.gitchangelog.internal.util.Preconditions.emptyToNull;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.model.interfaces.IGitCommitReferer;
@@ -78,24 +79,8 @@ public class ParsedIssue implements IGitCommitReferer {
   }
 
   @Override
-  public int hashCode() {
-    return this.toString().hashCode();
-  }
-
-  @Override
   public String toString() {
     return this.name + this.issue;
-  }
-
-  @Override
-  public boolean equals(final Object obj) {
-    if (obj == null) {
-      return false;
-    }
-    if (obj.getClass() != ParsedIssue.class) {
-      return false;
-    }
-    return this.name.equals(((ParsedIssue) obj).getName());
   }
 
   public void addCommit(final GitCommit gitCommit) {
@@ -124,5 +109,25 @@ public class ParsedIssue implements IGitCommitReferer {
 
   public Map<String, Object> getAdditionalFields() {
     return this.additionalFields;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(this.name);
+  }
+
+  @Override
+  public boolean equals(final Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (obj == null) {
+      return false;
+    }
+    if (this.getClass() != obj.getClass()) {
+      return false;
+    }
+    final ParsedIssue other = (ParsedIssue) obj;
+    return Objects.equals(this.name, other.name);
   }
 }
