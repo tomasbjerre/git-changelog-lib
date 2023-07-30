@@ -11,7 +11,6 @@ import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.JIRA;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.NOISSUE;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.REDMINE;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -37,7 +36,6 @@ import se.bjurr.gitchangelog.internal.settings.IssuesUtil;
 import se.bjurr.gitchangelog.internal.settings.Settings;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
 
-@SuppressFBWarnings("CRLF_INJECTION_LOGS")
 public class IssueParser {
 
   private static final Logger LOG = getLogger(IssueParser.class);

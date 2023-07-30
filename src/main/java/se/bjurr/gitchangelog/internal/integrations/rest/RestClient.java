@@ -14,9 +14,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
-
 import org.slf4j.Logger;
-
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 
 public class RestClient {

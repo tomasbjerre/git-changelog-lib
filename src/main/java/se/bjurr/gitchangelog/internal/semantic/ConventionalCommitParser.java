@@ -1,7 +1,6 @@
 package se.bjurr.gitchangelog.internal.semantic;
 
 import com.github.jknack.handlebars.Options;
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -13,7 +12,6 @@ import se.bjurr.gitchangelog.api.model.Issue;
 import se.bjurr.gitchangelog.api.model.Tag;
 import se.bjurr.gitchangelog.internal.model.Transformer;
 
-@SuppressFBWarnings("REDOS")
 public class ConventionalCommitParser {
   private static final Pattern CONVENTIONAL_PATTERN =
       Pattern.compile("^(\\w+)(\\(([\\w\\-\\.:]+)\\)?)?(\\!?)[\\s?]*:(.+)");

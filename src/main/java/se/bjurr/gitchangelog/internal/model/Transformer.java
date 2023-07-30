@@ -5,7 +5,6 @@ import static java.util.regex.Pattern.DOTALL;
 import static java.util.regex.Pattern.compile;
 import static java.util.stream.Collectors.toList;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -73,7 +72,6 @@ public class Transformer {
     return this.getRevertCommitHash(commit) != null;
   }
 
-  @SuppressFBWarnings("UNSAFE_HASH_EQUALS")
   private boolean isRevertedCommit(
       final GitCommit commit, final Iterable<GitCommit> revertCommits) {
     for (final GitCommit revertCommit : revertCommits) {

@@ -4,7 +4,6 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
 import java.io.File;
 import java.util.Optional;
-
 import okhttp3.Cache;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;

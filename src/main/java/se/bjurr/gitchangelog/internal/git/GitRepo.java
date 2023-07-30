@@ -21,7 +21,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.LogCommand;
 import org.eclipse.jgit.lib.AnyObjectId;
@@ -34,7 +33,6 @@ import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import se.bjurr.gitchangelog.api.GitChangelogApiConstants;
 import se.bjurr.gitchangelog.api.InclusivenessStrategy;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
