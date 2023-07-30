@@ -16,7 +16,8 @@ public class ConventionalCommitParser {
 
   private static final Pattern CONVENTIONAL_PATTERN =
 
-      Pattern.compile("^(\\w+)(\\(([\\w\\-\\.:]+)\\)?)?(\\!?)[\\s?]*:(.+)");
+      Pattern
+        .compile("^(\\w+)(\\(([\\w\\-\\.:]+)\\)?)?(\\!?)[\\s?]*:(.+)");
 
 
   private static final Pattern FOOTER_PATTERN =
