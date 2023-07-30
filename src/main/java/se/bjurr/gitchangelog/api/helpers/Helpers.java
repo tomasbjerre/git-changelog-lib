@@ -61,13 +61,13 @@ public class Helpers {
             return a.toString().substring(from);
           } else {
             final Integer to = (Integer) options.params[1];
-            return a.toString().substring(from, to);
-          }
+              return a.toString().substring(from, to);
+          } 
         });
 
     helpers.put(
         "ifReleaseTag",
-        (final Tag tag, final Options options) -> {
+        (final Tag tag,final Options options) -> {
           return conditional(options, isReleaseTag(tag));
         });
 
