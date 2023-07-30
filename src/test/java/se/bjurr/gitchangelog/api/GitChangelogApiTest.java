@@ -239,7 +239,7 @@ public class GitChangelogApiTest {
           gitChangelogApiBuilder() //
               .withFromCommit(ZERO_COMMIT) //
               .withSettings(settingsFile) //
-              .withToRef("/test") //
+              .withToRef("test") //
               .withRemoveIssueFromMessageArgument(true) //
               .withTemplatePath(templatePath) //
               .withReadableTagName("[0-9]+?") //

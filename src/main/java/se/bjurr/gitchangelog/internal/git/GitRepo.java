@@ -143,23 +143,42 @@ public class GitRepo implements Closeable {
     }
   }
 
-  public ObjectId getRef(final String fromRef) throws GitChangelogRepositoryException {
+  public ObjectId getRef(final String ref) throws GitChangelogRepositoryException {
     try {
-      for (final Ref foundRef : this.getAllRefs().values()) {
-        if (foundRef.getName().endsWith(fromRef)) {
-          final Ref ref = this.getAllRefs().get(foundRef.getName());
-          final Ref peeledRef = this.repository.peel(ref);
-          if (peeledRef.getPeeledObjectId() != null) {
-            return peeledRef.getPeeledObjectId();
-          } else {
-            return ref.getObjectId();
-          }
+      final Optional<ObjectId> foundOpt = this.findRef(ref, true);
+      if (foundOpt.isPresent()) {
+        return foundOpt.get();
+      }
+      return this.findRef(ref, false).get();
+    } catch (final Exception e) {
+      throw new GitChangelogRepositoryException(ref + " not found in:\n" + this.toString(), e);
+    }
+  }
+
+  public Optional<ObjectId> findRef(final String findRef, final boolean exact) {
+    for (final Ref foundRef : this.getAllRefs().values()) {
+      final boolean match = this.isMatching(findRef, exact, foundRef);
+      if (match) {
+        final Ref ref = this.getAllRefs().get(foundRef.getName());
+        final Ref peeledRef = this.repository.peel(ref);
+        if (peeledRef.getPeeledObjectId() != null) {
+          return Optional.of(peeledRef.getPeeledObjectId());
+        } else {
+          return Optional.of(ref.getObjectId());
         }
       }
-    } catch (final Exception e) {
-      throw new GitChangelogRepositoryException(fromRef + " not found in:\n" + this.toString(), e);
     }
-    throw new GitChangelogRepositoryException(fromRef + " not found in:\n" + this.toString());
+    return Optional.empty();
+  }
+
+  private boolean isMatching(final String findRef, final boolean exact, final Ref candidate) {
+    final String candidateName = candidate.getName();
+    if (exact) {
+      return candidateName.equalsIgnoreCase(findRef) //
+          || candidateName.equalsIgnoreCase("refs/tags/" + findRef) //
+          || candidateName.equalsIgnoreCase("refs/heads/" + findRef);
+    }
+    return candidateName.endsWith(findRef);
   }
 
   public Optional<ObjectId> findRef(final String ref) {

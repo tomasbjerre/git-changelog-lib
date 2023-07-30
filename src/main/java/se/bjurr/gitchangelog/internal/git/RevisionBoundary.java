@@ -23,4 +23,9 @@ public class RevisionBoundary<T> {
   public InclusivenessStrategy getInclusivenessStrategy() {
     return this.inclusivenessStrategy;
   }
+
+  @Override
+  public String toString() {
+    return this.revision + " " + this.inclusivenessStrategy;
+  }
 }
