@@ -2,6 +2,13 @@
 
 Changelog of git-changelog-lib.
 
+## 1.172.1 (2023-07-30)
+
+### Bug Fixes
+
+-  look for exact revision name before finding using endswith ([b5b9c](https://github.com/tomasbjerre/git-changelog-lib/commit/b5b9c7855b0a31f) Tomas Bjerre)  
+-  various fixes found by static code analysis ([d0cb4](https://github.com/tomasbjerre/git-changelog-lib/commit/d0cb46b4dc95e5b) Tomas Bjerre)  
+
 ## 1.172.0 (2023-07-29)
 
 ### Features
