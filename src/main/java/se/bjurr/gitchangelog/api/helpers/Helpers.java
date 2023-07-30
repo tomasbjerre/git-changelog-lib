@@ -37,6 +37,13 @@ import se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.Footer;
 
 public class Helpers {
 
+  static {
+    String s = null;
+    if (false) {
+      if (s.toString() == "") {}
+    }
+  }
+
   public static Map<String, Helper<?>> getAll() {
     final TreeMap<String, Helper<?>> helpers = new TreeMap<>();
     helpers.put(
