@@ -138,6 +138,7 @@ context:
   ],
   "tags": [
     {
+      "annotation": "A tag in test-feature\n",
       "authors": [
         {
           "commits": [
@@ -274,9 +275,9 @@ context:
           "type": "CUSTOM"
         }
       ],
-      "name": "test",
-      "tagTime": "2016-04-06 18:40:51",
-      "tagTimeLong": 1459968051000,
+      "name": "tag-in-test-feature",
+      "tagTime": "2016-04-06 15:13:04",
+      "tagTimeLong": 1459955584000,
       "hasTagTime": true
     },
     {

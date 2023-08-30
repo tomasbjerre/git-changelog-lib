@@ -339,6 +339,23 @@ public class GitRepoTest {
     assertThat(gitCommits.get(0).getHash()).startsWith("a1aa");
   }
 
+  @Test
+  public void priorityTags() throws Exception {
+    assertThat(GitRepo.shouldPrioritizeNewWork(null, null)).isFalse();
+
+    assertThat(GitRepo.shouldPrioritizeNewWork(null, "hello")).isTrue();
+    assertThat(GitRepo.shouldPrioritizeNewWork("hello", null)).isFalse();
+    assertThat(GitRepo.shouldPrioritizeNewWork("hello", "hello")).isFalse();
+
+    assertThat(GitRepo.shouldPrioritizeNewWork("1.2.3", "hello")).isFalse();
+    assertThat(GitRepo.shouldPrioritizeNewWork("hello", "1.2.3")).isTrue();
+    assertThat(GitRepo.shouldPrioritizeNewWork("hello", "hello")).isFalse();
+
+    assertThat(GitRepo.shouldPrioritizeNewWork("1.2.3", "1.2.3")).isFalse();
+    assertThat(GitRepo.shouldPrioritizeNewWork("1.2.3", "1.2.4")).isFalse();
+    assertThat(GitRepo.shouldPrioritizeNewWork("1.2.4", "1.2.3")).isTrue();
+  }
+
   private GitRepo getGitRepo() throws Exception {
     return new GitRepo(this.gitRepoFile);
   }
