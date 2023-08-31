@@ -2,6 +2,12 @@
 
 Changelog of git-changelog-lib.
 
+## 1.172.2 (2023-08-31)
+
+### Bug Fixes
+
+-  prioritizing commits semantically when adding to tags ([bd601](https://github.com/tomasbjerre/git-changelog-lib/commit/bd601cafdeb78fa) Tomas Bjerre)  [#166](https://github.com/tomasbjerre/git-changelog-lib/issues/166)  
+
 ## 1.172.1 (2023-07-30)
 
 ### Bug Fixes
