@@ -10,6 +10,7 @@ import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -39,6 +40,7 @@ import se.bjurr.gitchangelog.api.InclusivenessStrategy;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
+import se.bjurr.gitchangelog.internal.semantic.SemanticVersion;
 import se.bjurr.gitchangelog.internal.semantic.SemanticVersioning;
 
 @SuppressFBWarnings({
@@ -556,16 +558,55 @@ public class GitRepo implements Closeable {
         if (this.shouldInclude(parent)) {
           this.revWalk.parseHeaders(parent);
           final TraversalWork work = new TraversalWork(parent, currentTagName);
-          if (moreWork.contains(work)) {
-            LOG.debug("Removing " + work.getTo().getName());
-            moreWork.remove(work); // Remove work added from reference by a newer commit
+          final Optional<TraversalWork> existingWorkOpt =
+              moreWork.stream().filter(it -> it.getTo().equals(parent)).findFirst();
+          if (existingWorkOpt.isPresent()) {
+            if (this.shouldPrioritizeNewWork(existingWorkOpt.get(), work)) {
+              moreWork.remove(existingWorkOpt.get());
+              moreWork.add(work);
+            }
+          } else {
+            moreWork.add(work);
           }
-          LOG.debug("Adding " + work.getTo().getName() + " tag: " + work.getCurrentTagName());
-          moreWork.add(work); // Add work from this older reference
         }
       }
     }
     return;
+  }
+
+  private boolean shouldPrioritizeNewWork(
+      final TraversalWork existingWork, final TraversalWork newWork) {
+    final String existingTagName = existingWork.getCurrentTagName();
+    final String newTagName = newWork.getCurrentTagName();
+    return shouldPrioritizeNewWork(existingTagName, newTagName);
+  }
+
+  static boolean shouldPrioritizeNewWork(final String existingTagName, final String newTagName) {
+    if (existingTagName == null && newTagName == null) {
+      return false;
+    }
+    if (existingTagName == null && newTagName != null) {
+      return true;
+    }
+    if (newTagName == null) {
+      return false;
+    }
+    if (existingTagName.equals(newTagName)) {
+      return false;
+    }
+    final boolean newTagIsSemantic = SemanticVersioning.isSemantic(newTagName);
+    if (newTagIsSemantic) {
+      final boolean existingTagNameIsSemantic = SemanticVersioning.isSemantic(existingTagName);
+      if (!existingTagNameIsSemantic) {
+        return true;
+      }
+      final SemanticVersion highest =
+          SemanticVersioning.getHighestVersion(Arrays.asList(existingTagName, newTagName));
+      if (highest.findTag().orElse("").equals(existingTagName)) {
+        return true;
+      }
+    }
+    return false;
   }
 
   private boolean shouldInclude(final RevCommit candidate) throws Exception {

@@ -34,8 +34,8 @@ public class TemplatesTest {
                 Paths.get(TemplatesTest.class.getResource("/github-issues.json").toURI())),
             UTF_8)); //
 
-    mockJiraResponses(mockedRestClient);
-    mockJiraResponses(mockedRestClient, "customfield_10000,customfield_10002");
+    this.mockJiraResponses(mockedRestClient);
+    this.mockJiraResponses(mockedRestClient, "customfield_10000,customfield_10002");
 
     mock(mockedRestClient);
 
@@ -83,7 +83,7 @@ public class TemplatesTest {
 
   private RestClientMock mockJiraResponses(final RestClientMock mockedRestClient)
       throws IOException, URISyntaxException {
-    return mockJiraResponses(mockedRestClient, null);
+    return this.mockJiraResponses(mockedRestClient, null);
   }
 
   private RestClientMock mockJiraResponses(
