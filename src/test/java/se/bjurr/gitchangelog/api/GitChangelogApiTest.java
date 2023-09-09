@@ -25,6 +25,7 @@ import se.bjurr.gitchangelog.internal.integrations.jira.JiraClientFactory;
 import se.bjurr.gitchangelog.internal.integrations.redmine.RedmineClientFactory;
 import se.bjurr.gitchangelog.internal.integrations.rest.RestClientMock;
 import se.bjurr.gitchangelog.test.ApprovalsWrapper;
+import se.bjurr.gitchangelog.test.GitChangelogLibAssertions;
 
 public class GitChangelogApiTest {
 
@@ -37,6 +38,7 @@ public class GitChangelogApiTest {
 
   @Before
   public void before() throws Exception {
+    GitChangelogLibAssertions.assertHavingMainRepoAsOrigin();
     JiraClientFactory.reset();
     RedmineClientFactory.reset();
 

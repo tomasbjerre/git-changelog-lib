@@ -6,12 +6,14 @@ import org.junit.Before;
 import org.junit.Test;
 import se.bjurr.gitchangelog.api.GitChangelogApi;
 import se.bjurr.gitchangelog.test.ApprovalsWrapper;
+import se.bjurr.gitchangelog.test.GitChangelogLibAssertions;
 
 public class HandlebarsHelperTest {
   private GitChangelogApi baseBuilder;
 
   @Before
   public void before() {
+    GitChangelogLibAssertions.assertHavingMainRepoAsOrigin();
     this.baseBuilder =
         gitChangelogApiBuilder() //
             .withUseIntegrations(false)

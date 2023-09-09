@@ -17,12 +17,14 @@ import se.bjurr.gitchangelog.internal.integrations.github.GitHubServiceFactory;
 import se.bjurr.gitchangelog.internal.integrations.jira.JiraClientFactory;
 import se.bjurr.gitchangelog.internal.integrations.rest.RestClientMock;
 import se.bjurr.gitchangelog.test.ApprovalsWrapper;
+import se.bjurr.gitchangelog.test.GitChangelogLibAssertions;
 
 public class TemplatesTest {
   private GitChangelogApi baseBuilder;
 
   @Before
   public void before() throws Exception {
+    GitChangelogLibAssertions.assertHavingMainRepoAsOrigin();
     JiraClientFactory.reset();
 
     final RestClientMock mockedRestClient = new RestClientMock();
