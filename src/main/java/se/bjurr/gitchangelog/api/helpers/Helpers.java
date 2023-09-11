@@ -29,10 +29,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.stream.Collectors;
 import se.bjurr.gitchangelog.api.model.Commit;
 import se.bjurr.gitchangelog.api.model.Issue;
 import se.bjurr.gitchangelog.api.model.Tag;
-import se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser;
 import se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.Footer;
 
 public class Helpers {
@@ -209,8 +209,15 @@ public class Helpers {
     helpers.put(
         "eachCommitFooter",
         (final Commit commit, final Options options) -> {
-          return each(
-              options, ConventionalCommitParser.getMessageParts(commit.getMessage()).footers);
+          if (options.hash.containsKey("tokenMatching")) {
+            final String regex = options.hash("tokenMatching");
+            return each(
+                options,
+                getMessageParts(commit.getMessage()).footers.stream()
+                    .filter(it -> it.token.matches(regex))
+                    .collect(Collectors.toList()));
+          }
+          return each(options, getMessageParts(commit.getMessage()).footers);
         });
 
     helpers.put(

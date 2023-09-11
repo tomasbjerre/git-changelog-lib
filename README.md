@@ -427,6 +427,8 @@ Renders block for each `footer` in `Commit`.
 {{/commits}}
 ```
 
+Optional `tokenMatching` regex parameter filters footer tokens.
+
 ### `ifFooterHasValue <Footer>`
 
 Conditional, renders a block if given `Footer` has `value`.
