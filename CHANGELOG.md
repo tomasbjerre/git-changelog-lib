@@ -2,6 +2,12 @@
 
 Changelog of git-changelog-lib.
 
+## 1.173.0 (2023-09-11)
+
+### Features
+
+-  add filtering for footer tokens (#169) ([a09bb](https://github.com/tomasbjerre/git-changelog-lib/commit/a09bb57f6382b84) Luke Armitage)  
+
 ## 1.172.2 (2023-08-31)
 
 ### Bug Fixes
