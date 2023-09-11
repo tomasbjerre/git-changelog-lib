@@ -57,6 +57,10 @@ Has footers: {{hash}}
 ```
 
 {{/eachCommitFooter}}
+{{#eachCommitFooter . tokenMatching="first.*|Refs"}}
+ - "{{token}}" matches `first.*|Refs`
+
+{{/eachCommitFooter}}
 {{/commits}}
 
 

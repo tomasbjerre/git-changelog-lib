@@ -59,6 +59,10 @@ Has footers: {{hash}}
 ```
 
 {{/eachCommitFooter}}
+{{#eachCommitFooter . tokenMatching="first.*|Refs"}}
+ - "{{token}}" matches `first.*|Refs`
+
+{{/eachCommitFooter}}
 {{/commits}}
 
 
@@ -254,6 +258,8 @@ value of second token
 ----footer-value-ends---
 ```
 
+ - "first-token-here" matches `first.*|Refs`
+
 Has footers: c18e11ebd1244b9 
  - "Reviewed-by"
 ```
@@ -268,6 +274,8 @@ Z
 133 
 ----footer-value-ends---
 ```
+
+ - "Refs" matches `first.*|Refs`
 
 Has footers: ed18f49f74281ba 
  - "BREAKING CHANGE"
