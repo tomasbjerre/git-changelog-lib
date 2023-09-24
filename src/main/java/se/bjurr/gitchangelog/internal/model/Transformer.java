@@ -5,6 +5,7 @@ import static java.util.regex.Pattern.DOTALL;
 import static java.util.regex.Pattern.compile;
 import static java.util.stream.Collectors.toList;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,8 +20,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import se.bjurr.gitchangelog.api.model.Author;
 import se.bjurr.gitchangelog.api.model.Commit;
 import se.bjurr.gitchangelog.api.model.Issue;
@@ -183,7 +182,8 @@ public class Transformer {
                   final List<Issue> issues = Transformer.this.toIssues(parsedIssues);
                   final List<IssueType> issueTypes = Transformer.this.toIssueTypes(parsedIssues);
                   return new Tag(
-                      Transformer.toReadableTagName(input.getName(),this.settings.getReadableTagName()),
+                      Transformer.toReadableTagName(
+                          input.getName(), this.settings.getReadableTagName()),
                       input.findAnnotation().orElse(null),
                       commits,
                       authors,
@@ -285,11 +285,7 @@ public class Transformer {
     if (matcher.find()) {
       if (matcher.groupCount() == 0) {
         throw new RuntimeException(
-            "Pattern: \""
-                + readableTagName
-                + "\" did not match any group in: \""
-                + input
-                + "\"");
+            "Pattern: \"" + readableTagName + "\" did not match any group in: \"" + input + "\"");
       }
       return matcher.group(1);
     }
