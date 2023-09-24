@@ -10,8 +10,10 @@ import static se.bjurr.gitchangelog.internal.semantic.SemanticVersioning.VERSION
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
+
 import se.bjurr.gitchangelog.api.GitChangelogApi;
 import se.bjurr.gitchangelog.internal.semantic.SemanticVersion;
 import se.bjurr.gitchangelog.internal.semantic.SemanticVersioning;
@@ -55,6 +57,7 @@ public class SemanticVersioningTest {
             .withSemanticMajorVersionPattern("breaking:.*") //
             .withSemanticMinorVersionPattern("update:.*");
     assertThat(builder2.getHighestSemanticVersion().toString()).isEqualTo("1.144.4");
+    assertThat(builder2.getHighestSemanticVersion().findTag().orElse(null)).isEqualTo("1.144.4");
     assertThat(builder2.getNextSemanticVersion().getVersionStep()).isEqualTo(VERSION_STEP.PATCH);
   }
 
@@ -241,6 +244,31 @@ public class SemanticVersioningTest {
     assertThat(this.getTagNameFrom("1.2.3.4whatever-5.6.7")).isEqualTo("1.2.3");
     assertThat(this.getTagNameFrom("whatever-v1-1.2.3")).isEqualTo("1.2.3");
     assertThat(this.getTagNameFrom("whatever-v1-1.2.3.4")).isEqualTo("1.2.3");
+  }
+
+  @Test
+  public void testCurrentSemanticVersion_tagged_commit() throws Throwable {
+    final SemanticVersion currentSemanticVersion =
+        gitChangelogApiBuilder().withToRevision("1.144.4").getCurrentSemanticVersion();
+    assertThat(currentSemanticVersion.getVersion()).isEqualTo("1.144.4");
+    assertThat(currentSemanticVersion.findTag().orElse(null)).isEqualTo("1.144.4");
+    assertThat(this.getSnapshotVersion(currentSemanticVersion)).isEqualTo("1.144.4");
+  }
+
+  @Test
+  public void testCurrentSemanticVersion_untagged_commit() throws Throwable {
+    final SemanticVersion currentSemanticVersion =
+        gitChangelogApiBuilder().withToRevision("be739eb").getCurrentSemanticVersion();
+    assertThat(currentSemanticVersion.getVersion()).isEqualTo("1.144.5");
+    assertThat(currentSemanticVersion.findTag().orElse(null)).isEqualTo(null);
+    assertThat(this.getSnapshotVersion(currentSemanticVersion)).isEqualTo("1.144.5-SNAPSHOT");
+  }
+
+  private String getSnapshotVersion(final SemanticVersion currentSemanticVersion) {
+    if (currentSemanticVersion.findTag().isPresent()) {
+      return currentSemanticVersion.getVersion();
+    }
+    return currentSemanticVersion.getVersion() + "-SNAPSHOT";
   }
 
   private String getTagNameFrom(final String tagName) {

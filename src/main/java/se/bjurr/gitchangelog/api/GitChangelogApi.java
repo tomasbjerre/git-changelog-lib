@@ -6,13 +6,6 @@ import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 import static se.bjurr.gitchangelog.internal.git.GitRepoDataHelper.removeCommitsWithoutIssue;
 import static se.bjurr.gitchangelog.internal.settings.Settings.fromFile;
 
-import com.github.jknack.handlebars.Context;
-import com.github.jknack.handlebars.Handlebars;
-import com.github.jknack.handlebars.Helper;
-import com.github.jknack.handlebars.Template;
-import com.github.jknack.handlebars.helper.StringHelpers;
-import com.github.jknack.handlebars.io.FileTemplateLoader;
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -29,7 +22,17 @@ import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
+
 import org.eclipse.jgit.lib.ObjectId;
+
+import com.github.jknack.handlebars.Context;
+import com.github.jknack.handlebars.Handlebars;
+import com.github.jknack.handlebars.Helper;
+import com.github.jknack.handlebars.Template;
+import com.github.jknack.handlebars.helper.StringHelpers;
+import com.github.jknack.handlebars.io.FileTemplateLoader;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
 import se.bjurr.gitchangelog.api.helpers.Helpers;
 import se.bjurr.gitchangelog.api.model.Changelog;
@@ -211,6 +214,24 @@ public class GitChangelogApi {
     final Changelog changelog = this.getChangelog(false);
     final List<String> tags = this.getTagsAsStrings(changelog);
     return SemanticVersioning.getHighestVersion(tags);
+  }
+
+  public SemanticVersion getCurrentSemanticVersion() throws GitChangelogRepositoryException {
+    final Optional<String> toRevisionOpt = this.settings.getToRevision();
+    if (toRevisionOpt.isPresent()) {
+      try (GitRepo gitRepo = new GitRepo(new File(this.settings.getFromRepo()))) {
+        final List<String> tags =
+            gitRepo.getTags(toRevisionOpt.get(), this.settings.getToRevisionStrategy())
+            .stream().map(it -> Transformer.toReadableTagName(it,this.settings.getReadableTagName()))
+            .collect(Collectors.toList());
+        if (!tags.isEmpty()) {
+          return SemanticVersioning.getHighestVersion(tags);
+        }
+      } catch (final IOException e) {
+        throw new GitChangelogRepositoryException("", e);
+      }
+    }
+    return this.getNextSemanticVersion();
   }
 
   private List<String> getCommitMessages(final Changelog changelog) {

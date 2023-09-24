@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.PriorityQueue;
 import java.util.Set;
@@ -162,15 +163,19 @@ public class GitRepo implements Closeable {
       final boolean match = this.isMatching(findRef, exact, foundRef);
       if (match) {
         final Ref ref = this.getAllRefs().get(foundRef.getName());
-        final Ref peeledRef = this.repository.peel(ref);
-        if (peeledRef.getPeeledObjectId() != null) {
-          return Optional.of(peeledRef.getPeeledObjectId());
-        } else {
-          return Optional.of(ref.getObjectId());
-        }
+        return this.getPeeledObjectId(ref);
       }
     }
     return Optional.empty();
+  }
+
+  private Optional<ObjectId> getPeeledObjectId(final Ref ref) {
+    final Ref peeledRef = this.repository.peel(ref);
+    if (peeledRef.getPeeledObjectId() != null) {
+      return Optional.of(peeledRef.getPeeledObjectId());
+    } else {
+      return Optional.of(ref.getObjectId());
+    }
   }
 
   private boolean isMatching(final String findRef, final boolean exact, final Ref candidate) {
@@ -652,5 +657,21 @@ public class GitRepo implements Closeable {
    */
   public void setTreeFilter(final String pathFilter) {
     this.pathFilter = pathFilter == null ? "" : pathFilter;
+  }
+
+  public List<String> getTags(
+      final String revision, final InclusivenessStrategy inclusivenessStrategy)
+      throws GitChangelogRepositoryException {
+    final Optional<RevisionBoundary<ObjectId>> objectId =
+        this.findObjectId(revision, inclusivenessStrategy);
+    final String commitIdOfRevision = objectId.get().getRevision().getName();
+    final List<String> tags = new ArrayList<String>();
+    for (final Entry<String, Ref> entry : this.getAllRefs().entrySet()) {
+      final String commitIdOfRef = this.getPeeledObjectId(entry.getValue()).get().getName();
+      if (commitIdOfRef.equals(commitIdOfRevision)) {
+        tags.add(entry.getValue().getName());
+      }
+    }
+    return tags;
   }
 }
