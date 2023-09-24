@@ -2,6 +2,12 @@
 
 Changelog of git-changelog-lib.
 
+## 1.174.1 (2023-09-24)
+
+### Bug Fixes
+
+-  current version ([1f538](https://github.com/tomasbjerre/git-changelog-lib/commit/1f538aaa767028e) Tomas Bjerre)  
+
 ## 1.174.0 (2023-09-24)
 
 ### Features
