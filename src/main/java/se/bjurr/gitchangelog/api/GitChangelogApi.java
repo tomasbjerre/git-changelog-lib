@@ -213,20 +213,19 @@ public class GitChangelogApi {
     return SemanticVersioning.getHighestVersion(tags);
   }
 
-  public SemanticVersion getCurrentSemanticVersion() throws GitChangelogRepositoryException {
-    final Optional<String> toRevisionOpt = this.settings.getToRevision();
-    if (toRevisionOpt.isPresent()) {
-      try (GitRepo gitRepo = new GitRepo(new File(this.settings.getFromRepo()))) {
-        final List<String> tags =
-            gitRepo.getTags(toRevisionOpt.get(), this.settings.getToRevisionStrategy()).stream()
-                .map(it -> Transformer.toReadableTagName(it, this.settings.getReadableTagName()))
-                .collect(Collectors.toList());
-        if (!tags.isEmpty()) {
-          return SemanticVersioning.getHighestVersion(tags);
-        }
-      } catch (final IOException e) {
-        throw new GitChangelogRepositoryException("", e);
+  public SemanticVersion getCurrentSemanticVersion() throws Exception {
+    try (GitRepo gitRepo = new GitRepo(new File(this.settings.getFromRepo()))) {
+      final RevisionBoundary<ObjectId> from = this.getFrom(gitRepo, this.settings);
+      final RevisionBoundary<ObjectId> to = this.getTo(gitRepo, this.settings);
+      final List<String> tags =
+          gitRepo.getTags(from, to).stream()
+              .map(it -> Transformer.toReadableTagName(it, this.settings.getReadableTagName()))
+              .collect(Collectors.toList());
+      if (!tags.isEmpty()) {
+        return SemanticVersioning.getHighestVersion(tags);
       }
+    } catch (final IOException e) {
+      throw new GitChangelogRepositoryException("", e);
     }
     return this.getNextSemanticVersion();
   }
@@ -713,29 +712,8 @@ public class GitChangelogApi {
   private Changelog getChangelog(final GitRepo gitRepo, final boolean useIntegrations)
       throws GitChangelogRepositoryException {
     gitRepo.setTreeFilter(this.settings.getSubDirFilter());
-    final RevisionBoundary<ObjectId> fromId =
-        this.getId(
-                gitRepo,
-                this.settings.getFromRevision(),
-                this.settings.getFromRevisionStrategy()) //
-            .orElse(
-                new RevisionBoundary<ObjectId>(
-                    gitRepo.getCommit(ZERO_COMMIT), InclusivenessStrategy.INCLUSIVE));
-    final Optional<RevisionBoundary<ObjectId>> toIdOpt =
-        this.getId(gitRepo, this.settings.getToRevision(), this.settings.getToRevisionStrategy());
-    RevisionBoundary<ObjectId> toId;
-    if (toIdOpt.isPresent()) {
-      toId = toIdOpt.get();
-    } else {
-      final Optional<ObjectId> headOpt = gitRepo.findRef(REF_HEAD);
-      if (headOpt.isPresent()) {
-        toId = new RevisionBoundary<ObjectId>(headOpt.get(), InclusivenessStrategy.INCLUSIVE);
-      } else {
-        toId =
-            new RevisionBoundary<ObjectId>(
-                gitRepo.getRef(REF_MASTER), InclusivenessStrategy.INCLUSIVE);
-      }
-    }
+    final RevisionBoundary<ObjectId> fromId = this.getFrom(gitRepo, this.settings);
+    final RevisionBoundary<ObjectId> toId = this.getTo(gitRepo, this.settings);
     GitRepoData gitRepoData =
         gitRepo.getGitRepoData(
             fromId,
@@ -769,6 +747,31 @@ public class GitChangelogApi {
         gitRepoData.findOwnerName().orElse(null), //
         gitRepoData.findRepoName().orElse(null),
         gitRepoData.getUrlPartsList());
+  }
+
+  private RevisionBoundary<ObjectId> getTo(final GitRepo gitRepo, final Settings settings)
+      throws GitChangelogRepositoryException {
+    final Optional<RevisionBoundary<ObjectId>> toIdOpt =
+        this.getId(gitRepo, settings.getToRevision(), settings.getToRevisionStrategy());
+    if (toIdOpt.isPresent()) {
+      return toIdOpt.get();
+    } else {
+      final Optional<ObjectId> headOpt = gitRepo.findRef(REF_HEAD);
+      if (headOpt.isPresent()) {
+        return new RevisionBoundary<ObjectId>(headOpt.get(), InclusivenessStrategy.INCLUSIVE);
+      } else {
+        return new RevisionBoundary<ObjectId>(
+            gitRepo.getRef(REF_MASTER), InclusivenessStrategy.INCLUSIVE);
+      }
+    }
+  }
+
+  private RevisionBoundary<ObjectId> getFrom(final GitRepo gitRepo, final Settings settings)
+      throws GitChangelogRepositoryException {
+    return this.getId(gitRepo, settings.getFromRevision(), settings.getFromRevisionStrategy()) //
+        .orElse(
+            new RevisionBoundary<ObjectId>(
+                gitRepo.getCommit(ZERO_COMMIT), InclusivenessStrategy.INCLUSIVE));
   }
 
   private Optional<RevisionBoundary<ObjectId>> getId(

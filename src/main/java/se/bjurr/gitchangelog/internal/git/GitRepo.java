@@ -17,7 +17,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.PriorityQueue;
 import java.util.Set;
@@ -390,14 +389,8 @@ public class GitRepo implements Closeable {
       final String untaggedName,
       final Optional<String> ignoreTagsIfNameMatches)
       throws Exception {
-    final RevisionBoundary<RevCommit> from =
-        new RevisionBoundary<RevCommit>(
-            this.revWalk.lookupCommit(fromObjectId.getRevision()),
-            fromObjectId.getInclusivenessStrategy());
-    final RevisionBoundary<RevCommit> to =
-        new RevisionBoundary<RevCommit>(
-            this.revWalk.lookupCommit(toObjectId.getRevision()),
-            toObjectId.getInclusivenessStrategy());
+    final RevisionBoundary<RevCommit> from = this.toRevCommit(fromObjectId);
+    final RevisionBoundary<RevCommit> to = this.toRevCommit(toObjectId);
 
     this.commitsToInclude = this.getCommitList(this.revWalk, from, to, this.pathFilter);
 
@@ -462,6 +455,12 @@ public class GitRepo implements Closeable {
           annotatedTagPerTagName);
     }
     return tags;
+  }
+
+  private RevisionBoundary<RevCommit> toRevCommit(final RevisionBoundary<ObjectId> fromObjectId) {
+    return new RevisionBoundary<RevCommit>(
+        this.revWalk.lookupCommit(fromObjectId.getRevision()),
+        fromObjectId.getInclusivenessStrategy());
   }
 
   /**
@@ -660,16 +659,17 @@ public class GitRepo implements Closeable {
   }
 
   public List<String> getTags(
-      final String revision, final InclusivenessStrategy inclusivenessStrategy)
-      throws GitChangelogRepositoryException {
-    final Optional<RevisionBoundary<ObjectId>> objectId =
-        this.findObjectId(revision, inclusivenessStrategy);
-    final String commitIdOfRevision = objectId.get().getRevision().getName();
+      final RevisionBoundary<ObjectId> fromObjectId, final RevisionBoundary<ObjectId> toObjectId)
+      throws Exception {
+
+    final RevisionBoundary<RevCommit> from = this.toRevCommit(fromObjectId);
+    final RevisionBoundary<RevCommit> to = this.toRevCommit(toObjectId);
+
     final List<String> tags = new ArrayList<String>();
-    for (final Entry<String, Ref> entry : this.getAllRefs().entrySet()) {
-      final String commitIdOfRef = this.getPeeledObjectId(entry.getValue()).get().getName();
-      if (commitIdOfRef.equals(commitIdOfRevision)) {
-        tags.add(entry.getValue().getName());
+    for (final Ref tagRef : this.tagsBetweenFromAndTo(from, to)) {
+      final String commitIdOfRef = this.getPeeled(tagRef).name();
+      if (commitIdOfRef.equals(to.getRevision().getName())) {
+        tags.add(tagRef.getName());
       }
     }
     return tags;
