@@ -2,6 +2,12 @@
 
 Changelog of git-changelog-lib.
 
+## 1.173.1 (2023-09-24)
+
+### Bug Fixes
+
+-  avoid changing state when calling getNextSemanticVersion ([d1d97](https://github.com/tomasbjerre/git-changelog-lib/commit/d1d97c0c3bc4599) Tomas Bjerre)  [#170](https://github.com/tomasbjerre/git-changelog-lib/issues/170)  
+
 ## 1.173.0 (2023-09-11)
 
 ### Features
