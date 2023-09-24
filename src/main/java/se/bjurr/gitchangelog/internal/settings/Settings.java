@@ -30,6 +30,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
@@ -373,11 +374,23 @@ public class Settings implements Serializable {
 
   public static Settings fromFile(final URL url) {
     try {
-      return gson.fromJson(
-          new String(Files.readAllBytes(Paths.get(url.toURI())), UTF_8), Settings.class);
+      final String json = new String(Files.readAllBytes(Paths.get(url.toURI())), UTF_8);
+      return fromJson(json);
     } catch (final Exception e) {
       throw new RuntimeException("Cannot read " + url, e);
     }
+  }
+
+  public static Settings fromJson(final String json) {
+    return gson.fromJson(json, Settings.class);
+  }
+
+  public String toJson() {
+    return gson.toJson(this);
+  }
+
+  public Settings copy() {
+    return Settings.fromJson(this.toJson());
   }
 
   public String getUntaggedName() {
@@ -709,5 +722,229 @@ public class Settings implements Serializable {
       this.jiraIssueAdditionalFields = new ArrayList<>();
     }
     this.jiraIssueAdditionalFields.add(jiraIssueAdditionalField);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(
+        this.customIssues,
+        this.dateFormat,
+        this.encoding,
+        this.extendedRestHeaders,
+        this.extendedVariables,
+        this.fromRepo,
+        this.fromRevision,
+        this.fromRevisionStrategy,
+        this.gitHubApi,
+        this.gitHubEnabled,
+        this.gitHubIssuePattern,
+        this.gitHubToken,
+        this.gitLabEnabled,
+        this.gitLabIssuePattern,
+        this.gitLabProjectName,
+        this.gitLabServer,
+        this.gitLabToken,
+        this.ignoreCommitsIfMessageMatches,
+        this.ignoreCommitsIfOlderThan,
+        this.ignoreCommitsWithoutIssue,
+        this.ignoreTagsIfNameMatches,
+        this.jiraBearer,
+        this.jiraEnabled,
+        this.jiraIssueAdditionalFields,
+        this.jiraIssuePattern,
+        this.jiraPassword,
+        this.jiraServer,
+        this.jiraToken,
+        this.jiraUsername,
+        this.noIssueName,
+        this.readableTagName,
+        this.redmineEnabled,
+        this.redmineIssuePattern,
+        this.redminePassword,
+        this.redmineServer,
+        this.redmineToken,
+        this.redmineUsername,
+        this.removeIssueFromMessage,
+        this.semanticMajorPattern,
+        this.semanticMinorPattern,
+        this.semanticPatchPattern,
+        this.subDirFilter,
+        this.templateBaseDir,
+        this.templatePath,
+        this.templateSuffix,
+        this.timeZone,
+        this.toRevision,
+        this.toRevisionStrategy,
+        this.untaggedName,
+        this.useIntegrations);
+  }
+
+  @Override
+  public boolean equals(final Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (obj == null) {
+      return false;
+    }
+    if (this.getClass() != obj.getClass()) {
+      return false;
+    }
+    final Settings other = (Settings) obj;
+    return Objects.equals(this.customIssues, other.customIssues)
+        && Objects.equals(this.dateFormat, other.dateFormat)
+        && Objects.equals(this.encoding, other.encoding)
+        && Objects.equals(this.extendedRestHeaders, other.extendedRestHeaders)
+        && Objects.equals(this.extendedVariables, other.extendedVariables)
+        && Objects.equals(this.fromRepo, other.fromRepo)
+        && Objects.equals(this.fromRevision, other.fromRevision)
+        && this.fromRevisionStrategy == other.fromRevisionStrategy
+        && Objects.equals(this.gitHubApi, other.gitHubApi)
+        && this.gitHubEnabled == other.gitHubEnabled
+        && Objects.equals(this.gitHubIssuePattern, other.gitHubIssuePattern)
+        && Objects.equals(this.gitHubToken, other.gitHubToken)
+        && this.gitLabEnabled == other.gitLabEnabled
+        && Objects.equals(this.gitLabIssuePattern, other.gitLabIssuePattern)
+        && Objects.equals(this.gitLabProjectName, other.gitLabProjectName)
+        && Objects.equals(this.gitLabServer, other.gitLabServer)
+        && Objects.equals(this.gitLabToken, other.gitLabToken)
+        && Objects.equals(this.ignoreCommitsIfMessageMatches, other.ignoreCommitsIfMessageMatches)
+        && Objects.equals(this.ignoreCommitsIfOlderThan, other.ignoreCommitsIfOlderThan)
+        && this.ignoreCommitsWithoutIssue == other.ignoreCommitsWithoutIssue
+        && Objects.equals(this.ignoreTagsIfNameMatches, other.ignoreTagsIfNameMatches)
+        && Objects.equals(this.jiraBearer, other.jiraBearer)
+        && this.jiraEnabled == other.jiraEnabled
+        && Objects.equals(this.jiraIssueAdditionalFields, other.jiraIssueAdditionalFields)
+        && Objects.equals(this.jiraIssuePattern, other.jiraIssuePattern)
+        && Objects.equals(this.jiraPassword, other.jiraPassword)
+        && Objects.equals(this.jiraServer, other.jiraServer)
+        && Objects.equals(this.jiraToken, other.jiraToken)
+        && Objects.equals(this.jiraUsername, other.jiraUsername)
+        && Objects.equals(this.noIssueName, other.noIssueName)
+        && Objects.equals(this.readableTagName, other.readableTagName)
+        && this.redmineEnabled == other.redmineEnabled
+        && Objects.equals(this.redmineIssuePattern, other.redmineIssuePattern)
+        && Objects.equals(this.redminePassword, other.redminePassword)
+        && Objects.equals(this.redmineServer, other.redmineServer)
+        && Objects.equals(this.redmineToken, other.redmineToken)
+        && Objects.equals(this.redmineUsername, other.redmineUsername)
+        && this.removeIssueFromMessage == other.removeIssueFromMessage
+        && Objects.equals(this.semanticMajorPattern, other.semanticMajorPattern)
+        && Objects.equals(this.semanticMinorPattern, other.semanticMinorPattern)
+        && Objects.equals(this.semanticPatchPattern, other.semanticPatchPattern)
+        && Objects.equals(this.subDirFilter, other.subDirFilter)
+        && Objects.equals(this.templateBaseDir, other.templateBaseDir)
+        && Objects.equals(this.templatePath, other.templatePath)
+        && Objects.equals(this.templateSuffix, other.templateSuffix)
+        && Objects.equals(this.timeZone, other.timeZone)
+        && Objects.equals(this.toRevision, other.toRevision)
+        && this.toRevisionStrategy == other.toRevisionStrategy
+        && Objects.equals(this.untaggedName, other.untaggedName)
+        && this.useIntegrations == other.useIntegrations;
+  }
+
+  @Override
+  public String toString() {
+    return "Settings [fromRepo="
+        + this.fromRepo
+        + ", fromRevision="
+        + this.fromRevision
+        + ", fromRevisionStrategy="
+        + this.fromRevisionStrategy
+        + ", toRevision="
+        + this.toRevision
+        + ", toRevisionStrategy="
+        + this.toRevisionStrategy
+        + ", ignoreTagsIfNameMatches="
+        + this.ignoreTagsIfNameMatches
+        + ", ignoreCommitsIfMessageMatches="
+        + this.ignoreCommitsIfMessageMatches
+        + ", ignoreCommitsIfOlderThan="
+        + this.ignoreCommitsIfOlderThan
+        + ", untaggedName="
+        + this.untaggedName
+        + ", templatePath="
+        + this.templatePath
+        + ", templateBaseDir="
+        + this.templateBaseDir
+        + ", templateSuffix="
+        + this.templateSuffix
+        + ", readableTagName="
+        + this.readableTagName
+        + ", dateFormat="
+        + this.dateFormat
+        + ", noIssueName="
+        + this.noIssueName
+        + ", timeZone="
+        + this.timeZone
+        + ", removeIssueFromMessage="
+        + this.removeIssueFromMessage
+        + ", jiraEnabled="
+        + this.jiraEnabled
+        + ", jiraServer="
+        + this.jiraServer
+        + ", jiraIssuePattern="
+        + this.jiraIssuePattern
+        + ", jiraIssueAdditionalFields="
+        + this.jiraIssueAdditionalFields
+        + ", jiraUsername="
+        + this.jiraUsername
+        + ", jiraPassword="
+        + this.jiraPassword
+        + ", jiraToken="
+        + this.jiraToken
+        + ", jiraBearer="
+        + this.jiraBearer
+        + ", redmineEnabled="
+        + this.redmineEnabled
+        + ", redmineServer="
+        + this.redmineServer
+        + ", redmineIssuePattern="
+        + this.redmineIssuePattern
+        + ", redmineUsername="
+        + this.redmineUsername
+        + ", redminePassword="
+        + this.redminePassword
+        + ", redmineToken="
+        + this.redmineToken
+        + ", gitHubEnabled="
+        + this.gitHubEnabled
+        + ", gitHubApi="
+        + this.gitHubApi
+        + ", gitHubToken="
+        + this.gitHubToken
+        + ", gitHubIssuePattern="
+        + this.gitHubIssuePattern
+        + ", customIssues="
+        + this.customIssues
+        + ", extendedVariables="
+        + this.extendedVariables
+        + ", extendedRestHeaders="
+        + this.extendedRestHeaders
+        + ", ignoreCommitsWithoutIssue="
+        + this.ignoreCommitsWithoutIssue
+        + ", gitLabEnabled="
+        + this.gitLabEnabled
+        + ", gitLabServer="
+        + this.gitLabServer
+        + ", gitLabToken="
+        + this.gitLabToken
+        + ", gitLabIssuePattern="
+        + this.gitLabIssuePattern
+        + ", gitLabProjectName="
+        + this.gitLabProjectName
+        + ", semanticMajorPattern="
+        + this.semanticMajorPattern
+        + ", semanticMinorPattern="
+        + this.semanticMinorPattern
+        + ", semanticPatchPattern="
+        + this.semanticPatchPattern
+        + ", useIntegrations="
+        + this.useIntegrations
+        + ", subDirFilter="
+        + this.subDirFilter
+        + ", encoding="
+        + this.encoding
+        + "]";
   }
 }

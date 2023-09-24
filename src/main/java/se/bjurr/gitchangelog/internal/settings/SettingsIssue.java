@@ -5,6 +5,7 @@ import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.CUSTOM;
 import static se.bjurr.gitchangelog.internal.util.Preconditions.checkNotNull;
 
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.Optional;
 import se.bjurr.gitchangelog.api.model.Issue;
 
@@ -71,5 +72,44 @@ public class SettingsIssue implements Serializable {
 
   public String getPattern() {
     return this.pattern;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(this.link, this.name, this.pattern, this.title, this.type);
+  }
+
+  @Override
+  public boolean equals(final Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (obj == null) {
+      return false;
+    }
+    if (this.getClass() != obj.getClass()) {
+      return false;
+    }
+    final SettingsIssue other = (SettingsIssue) obj;
+    return Objects.equals(this.link, other.link)
+        && Objects.equals(this.name, other.name)
+        && Objects.equals(this.pattern, other.pattern)
+        && Objects.equals(this.title, other.title)
+        && this.type == other.type;
+  }
+
+  @Override
+  public String toString() {
+    return "SettingsIssue [type="
+        + this.type
+        + ", name="
+        + this.name
+        + ", title="
+        + this.title
+        + ", pattern="
+        + this.pattern
+        + ", link="
+        + this.link
+        + "]";
   }
 }

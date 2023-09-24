@@ -11,15 +11,32 @@ public class SettingsTest {
 
   @Test
   public void nullFromRevisionCanBeSet() {
-    Settings settings = new Settings();
+    final Settings settings = new Settings();
     settings.setFromRevision(null);
     assertThat(settings.getFromRevision()).isEmpty();
   }
 
   @Test
   public void nullToRevisionCanBeSet() {
-    Settings settings = new Settings();
+    final Settings settings = new Settings();
     settings.setToRevision(null);
     assertThat(settings.getToRevision()).isEmpty();
+  }
+
+  @Test
+  public void canBeSerializedAndDeserialized() {
+    final Settings settings =
+        Settings.fromFile(Settings.class.getResource("/settings/git-changelog-test-settings.json"));
+    final String settingsSerialized = settings.toJson();
+    final Settings settingsDeserialized = Settings.fromJson(settingsSerialized);
+    assertThat(settingsDeserialized).isEqualTo(settings);
+  }
+
+  @Test
+  public void canBeCopied() {
+    final Settings settings =
+        Settings.fromFile(Settings.class.getResource("/settings/git-changelog-test-settings.json"));
+    final Settings settingsCopy = settings.copy();
+    assertThat(settingsCopy).isEqualTo(settings);
   }
 }

@@ -42,7 +42,7 @@ public class SemanticVersioningTest {
   public void smokeTest1() throws Throwable {
     final GitChangelogApi builder1 =
         gitChangelogApiBuilder() //
-            .withToCommit("7c1c366") //
+            .withToRevision("7c1c366") //
             .withSemanticMajorVersionPattern("breaking:.*") //
             .withSemanticMinorVersionPattern("update:.*");
 
@@ -51,7 +51,7 @@ public class SemanticVersioningTest {
 
     final GitChangelogApi builder2 =
         gitChangelogApiBuilder() //
-            .withToCommit("7c1c366") //
+            .withToRevision("7c1c366") //
             .withSemanticMajorVersionPattern("breaking:.*") //
             .withSemanticMinorVersionPattern("update:.*");
     assertThat(builder2.getHighestSemanticVersion().toString()).isEqualTo("1.144.4");
@@ -62,12 +62,25 @@ public class SemanticVersioningTest {
   public void smokeTest2() throws Throwable {
     final SemanticVersion nextSemanticVersion =
         gitChangelogApiBuilder()
-            .withToRef("1.155.0") //
+            .withToRevision("1.155.0") //
             .withSemanticMajorVersionPattern("^[Bb]reaking.*")
             .withSemanticMinorVersionPattern("^[Ff]eat.*")
             .getNextSemanticVersion();
     assertThat(nextSemanticVersion.toString()).isEqualTo("1.155.1");
     assertThat(nextSemanticVersion.getVersionStep()).isEqualTo(PATCH);
+  }
+
+  @Test
+  public void nextSemanticVersionShouldNotEffectHighestSemanticVersion() throws Throwable {
+    final GitChangelogApi api = gitChangelogApiBuilder().withToRevision("1.155.0");
+    assertThat(api.getNextSemanticVersion().toString()).isEqualTo("1.155.1");
+    assertThat(api.getNextSemanticVersion().toString()).isEqualTo("1.155.1");
+    assertThat(api.getHighestSemanticVersion().toString()).isEqualTo("1.155.0");
+    assertThat(api.getHighestSemanticVersion().toString()).isEqualTo("1.155.0");
+    assertThat(api.getNextSemanticVersion().toString()).isEqualTo("1.155.1");
+    assertThat(api.getNextSemanticVersion().toString()).isEqualTo("1.155.1");
+    assertThat(api.getHighestSemanticVersion().toString()).isEqualTo("1.155.0");
+    assertThat(api.getHighestSemanticVersion().toString()).isEqualTo("1.155.0");
   }
 
   @Test

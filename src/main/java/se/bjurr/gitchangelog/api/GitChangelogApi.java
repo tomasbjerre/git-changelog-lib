@@ -184,20 +184,23 @@ public class GitChangelogApi {
    * been configured.
    */
   public SemanticVersion getNextSemanticVersion() throws GitChangelogRepositoryException {
-    final boolean fromGiven = this.settings.getFromRevision().isPresent();
-    final SemanticVersion highestSemanticVersion = this.getHighestSemanticVersion();
+    final GitChangelogApi api = GitChangelogApi.gitChangelogApiBuilder();
+    api.settings = this.settings.copy();
+
+    final boolean fromGiven = api.getSettings().getFromRevision().isPresent();
+    final SemanticVersion highestSemanticVersion = api.getHighestSemanticVersion();
     if (!fromGiven) {
       final Optional<String> tag = highestSemanticVersion.findTag();
       if (tag.isPresent()) {
-        this.withFromRevision(tag.get());
+        api.withFromRevision(tag.get());
       }
     }
-    final Changelog changelog = this.getChangelog(false);
-    final List<String> tags = this.getTagsAsStrings(changelog);
-    final List<String> commits = this.getCommitMessages(changelog);
-    final String majorVersionPattern = this.settings.getSemanticMajorPattern().orElse(null);
-    final String minorVersionPattern = this.settings.getSemanticMinorPattern();
-    final String patchVersionPattern = this.settings.getSemanticPatchPattern();
+    final Changelog changelog = api.getChangelog(false);
+    final List<String> tags = api.getTagsAsStrings(changelog);
+    final List<String> commits = api.getCommitMessages(changelog);
+    final String majorVersionPattern = api.settings.getSemanticMajorPattern().orElse(null);
+    final String minorVersionPattern = api.settings.getSemanticMinorPattern();
+    final String patchVersionPattern = api.settings.getSemanticPatchPattern();
     final SemanticVersioning semanticVersioning =
         new SemanticVersioning(
             tags, commits, majorVersionPattern, minorVersionPattern, patchVersionPattern);
