@@ -2,6 +2,12 @@
 
 Changelog of git-changelog-lib.
 
+## 1.174.0 (2023-09-24)
+
+### Features
+
+-  getCurrentSemanticVersion ([8813c](https://github.com/tomasbjerre/git-changelog-lib/commit/8813c6cc9dd3097) Tomas Bjerre)  
+
 ## 1.173.1 (2023-09-24)
 
 ### Bug Fixes
