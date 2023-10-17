@@ -35,7 +35,7 @@ public class GitLabClient {
           e);
     }
     final Integer projectId = project.getId();
-    final String httpUrl = project.getHttpUrl();
+    final String httpUrl = project.getWebUrl();
     try {
       if (this.issues == null) {
         this.issues = this.getAllIssues(this.hostUrl, this.apiToken, projectId);
@@ -53,7 +53,7 @@ public class GitLabClient {
 
   private GitLabIssue createGitLabIssue(final String projectUrl, final GitlabIssue candidate) {
     final String title = candidate.getTitle();
-    final String link = projectUrl + "/issues/" + candidate.getIid();
+    final String link = projectUrl + "/-/issues/" + candidate.getIid();
     final List<String> labels = new ArrayList<>();
     for (final String l : candidate.getLabels()) {
       labels.add(l);
