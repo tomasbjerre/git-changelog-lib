@@ -2,6 +2,12 @@
 
 Changelog of git-changelog-lib.
 
+## 1.174.2 (2023-10-17)
+
+### Bug Fixes
+
+-  fixed gitlab issues url (#172) ([7a2eb](https://github.com/tomasbjerre/git-changelog-lib/commit/7a2eb00bafd5433) Antoine de Choudens)  
+
 ## 1.174.1 (2023-09-24)
 
 ### Bug Fixes
