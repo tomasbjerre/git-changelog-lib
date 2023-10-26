@@ -51,11 +51,11 @@ import se.bjurr.gitchangelog.internal.semantic.SemanticVersioning;
 })
 public class GitRepo implements Closeable {
   private static final Logger LOG = LoggerFactory.getLogger(GitRepo.class);
-  private List<RevCommit> commitsToInclude;
-  private Git git;
   private final Repository repository;
   private final RevWalk revWalk;
-  private String pathFilter = "";
+  private List<RevCommit> commitsToInclude;
+  private Git git;
+  private List<String> pathFilters = new ArrayList<>();
 
   public GitRepo() {
     this.repository = null;
@@ -84,6 +84,34 @@ public class GitRepo implements Closeable {
       throw new GitChangelogRepositoryException(
           "Could not use GIT repo in " + repo.getAbsolutePath(), e);
     }
+  }
+
+  static boolean shouldPrioritizeNewWork(final String existingTagName, final String newTagName) {
+    if (existingTagName == null && newTagName == null) {
+      return false;
+    }
+    if (existingTagName == null && newTagName != null) {
+      return true;
+    }
+    if (newTagName == null) {
+      return false;
+    }
+    if (existingTagName.equals(newTagName)) {
+      return false;
+    }
+    final boolean newTagIsSemantic = SemanticVersioning.isSemantic(newTagName);
+    if (newTagIsSemantic) {
+      final boolean existingTagNameIsSemantic = SemanticVersioning.isSemantic(existingTagName);
+      if (!existingTagNameIsSemantic) {
+        return true;
+      }
+      final SemanticVersion highest =
+          SemanticVersioning.getHighestVersion(Arrays.asList(existingTagName, newTagName));
+      if (highest.findTag().orElse("").equals(existingTagName)) {
+        return true;
+      }
+    }
+    return false;
   }
 
   @Override
@@ -288,13 +316,15 @@ public class GitRepo implements Closeable {
       final RevWalk revWalk,
       final RevisionBoundary<RevCommit> fromBoundary,
       final RevisionBoundary<RevCommit> toBoundary,
-      final String pathFilterParam)
+      final List<String> pathFilters)
       throws Exception {
     final RevCommit from = fromBoundary.getRevision();
     final RevCommit to = toBoundary.getRevision();
     final LogCommand logCommand = this.git.log().addRange(from, to);
-    if (pathFilterParam != null && !pathFilterParam.isEmpty()) {
-      logCommand.addPath(pathFilterParam);
+    if (pathFilters != null && !pathFilters.isEmpty()) {
+      for (String pathFilter:pathFilters) {
+        logCommand.addPath(pathFilter);
+      }
     }
     final List<RevCommit> list = new ArrayList<>();
 
@@ -319,7 +349,7 @@ public class GitRepo implements Closeable {
   }
 
   private boolean hasPathFilter() {
-    return this.pathFilter != null && !this.pathFilter.isEmpty();
+    return this.pathFilters != null && !this.pathFilters.isEmpty();
   }
 
   private ObjectId getPeeled(final Ref tag) {
@@ -392,7 +422,7 @@ public class GitRepo implements Closeable {
     final RevisionBoundary<RevCommit> from = this.toRevCommit(fromObjectId);
     final RevisionBoundary<RevCommit> to = this.toRevCommit(toObjectId);
 
-    this.commitsToInclude = this.getCommitList(this.revWalk, from, to, this.pathFilter);
+    this.commitsToInclude = this.getCommitList(this.revWalk, from, to, this.pathFilters);
 
     final List<Ref> tagList = this.tagsBetweenFromAndTo(from, to);
     /**
@@ -585,34 +615,6 @@ public class GitRepo implements Closeable {
     return shouldPrioritizeNewWork(existingTagName, newTagName);
   }
 
-  static boolean shouldPrioritizeNewWork(final String existingTagName, final String newTagName) {
-    if (existingTagName == null && newTagName == null) {
-      return false;
-    }
-    if (existingTagName == null && newTagName != null) {
-      return true;
-    }
-    if (newTagName == null) {
-      return false;
-    }
-    if (existingTagName.equals(newTagName)) {
-      return false;
-    }
-    final boolean newTagIsSemantic = SemanticVersioning.isSemantic(newTagName);
-    if (newTagIsSemantic) {
-      final boolean existingTagNameIsSemantic = SemanticVersioning.isSemantic(existingTagName);
-      if (!existingTagNameIsSemantic) {
-        return true;
-      }
-      final SemanticVersion highest =
-          SemanticVersioning.getHighestVersion(Arrays.asList(existingTagName, newTagName));
-      if (highest.findTag().orElse("").equals(existingTagName)) {
-        return true;
-      }
-    }
-    return false;
-  }
-
   private boolean shouldInclude(final RevCommit candidate) throws Exception {
     // If we use a path filter we can't skip parent commits, as their grandparents might be included
     // again
@@ -652,10 +654,21 @@ public class GitRepo implements Closeable {
   }
 
   /**
-   * @param pathFilter use when filtering commits
+   * Sets the pathFilters to be used when filtering commits
+   * @param pathFilter used when filtering commits from single path (kept to ensure backwards compatibility)
+   * @param pathFilters used when filtering commits from multiple paths
    */
-  public void setTreeFilter(final String pathFilter) {
-    this.pathFilter = pathFilter == null ? "" : pathFilter;
+  public void setPathFilters(final String pathFilter, List<String> pathFilters) {
+    if(pathFilters == null ){
+      if(pathFilter != null && !pathFilter.isEmpty()) {
+        this.pathFilters.add(pathFilter);
+      }
+    } else {
+      if(pathFilter != null && !pathFilter.isEmpty()) {
+        pathFilters.add(pathFilter);
+      }
+      this.pathFilters = pathFilters;
+    }
   }
 
   public List<String> getTags(

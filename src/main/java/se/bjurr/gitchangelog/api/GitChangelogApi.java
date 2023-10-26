@@ -51,15 +51,10 @@ import se.bjurr.gitchangelog.internal.util.ResourceLoader;
 @SuppressFBWarnings("PATH_TRAVERSAL_IN")
 public class GitChangelogApi {
 
-  public static GitChangelogApi gitChangelogApiBuilder() {
-    return new GitChangelogApi();
-  }
-
+  private final AtomicInteger helperCounter = new AtomicInteger();
   private Settings settings;
   private String templateContent;
   private Handlebars handlebars;
-  private final AtomicInteger helperCounter = new AtomicInteger();
-
   private GitChangelogApi() {
     this.settings = new Settings();
     this.handlebars = new Handlebars();
@@ -72,6 +67,10 @@ public class GitChangelogApi {
 
   private GitChangelogApi(final Settings settings) {
     this.settings = settings;
+  }
+
+  public static GitChangelogApi gitChangelogApiBuilder() {
+    return new GitChangelogApi();
   }
 
   /**
@@ -700,6 +699,16 @@ public class GitChangelogApi {
   }
 
   /**
+   * Filter commits using the provided path filters, analogous to using the cli command git log --
+   * git log <path>...
+   * @param pathFilters the path filters to be used for filtering.
+   */
+  public GitChangelogApi withPathFilters(final List<String> pathFilters) {
+    this.settings.setPathFilters(pathFilters);
+    return this;
+  }
+
+  /**
    * Some commits may not be included in any tag. Commits that not released yet may not be tagged.
    * This is a "virtual tag", added to {@link Changelog#getTags()}, that includes those commits. A
    * fitting value may be "Next release".
@@ -711,7 +720,7 @@ public class GitChangelogApi {
 
   private Changelog getChangelog(final GitRepo gitRepo, final boolean useIntegrations)
       throws GitChangelogRepositoryException {
-    gitRepo.setTreeFilter(this.settings.getSubDirFilter());
+    gitRepo.setPathFilters(this.settings.getSubDirFilter(), this.settings.getPathFilters());
     final RevisionBoundary<ObjectId> fromId = this.getFrom(gitRepo, this.settings);
     final RevisionBoundary<ObjectId> toId = this.getTo(gitRepo, this.settings);
     GitRepoData gitRepoData =

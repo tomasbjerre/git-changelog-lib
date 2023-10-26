@@ -13,6 +13,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import org.junit.After;
@@ -145,6 +147,24 @@ public class GitChangelogApiTest {
             .withToRef("1.71") //
             .withTemplatePath(templatePath) //
             .withPathFilter("src");
+
+    ApprovalsWrapper.verify(given);
+  }
+
+  @Test
+  public void testPathFiltersCanBeSpecified() throws Exception {
+    final String templatePath = "templatetest/testAuthorsCommitsExtended.mustache";
+
+    final GitChangelogApi given =
+        gitChangelogApiBuilder() //
+            .withJiraEnabled(true)
+            .withGitHubEnabled(true)
+            .withGitLabEnabled(true)
+            .withRedmineEnabled(true)
+            .withFromRevision(ZERO_COMMIT)
+            .withToRevision("1.71") //
+            .withTemplatePath(templatePath) //
+            .withPathFilters(new ArrayList<>(Arrays.asList("src")));
 
     ApprovalsWrapper.verify(given);
   }

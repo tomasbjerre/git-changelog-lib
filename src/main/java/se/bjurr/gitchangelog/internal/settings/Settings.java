@@ -245,6 +245,9 @@ public class Settings implements Serializable {
 
   private String subDirFilter;
 
+  /** Path filters to use for filtering commits */
+  private List<String> pathFilters;
+
   private String encoding = StandardCharsets.UTF_8.name();
 
   public Settings() {}
@@ -705,6 +708,14 @@ public class Settings implements Serializable {
     return Charset.forName(this.encoding);
   }
 
+  public void setPathFilters(List<String> pathFilters) {
+    this.pathFilters = pathFilters;
+  }
+
+  public List<String> getPathFilters() {
+    return ofNullable(this.pathFilters).orElse(new ArrayList<>());
+  }
+
   public List<String> getJiraIssueAdditionalFields() {
     if (this.jiraIssueAdditionalFields == null) {
       return new ArrayList<>();
@@ -769,6 +780,7 @@ public class Settings implements Serializable {
         this.semanticMinorPattern,
         this.semanticPatchPattern,
         this.subDirFilter,
+        this.pathFilters,
         this.templateBaseDir,
         this.templatePath,
         this.templateSuffix,
@@ -833,6 +845,7 @@ public class Settings implements Serializable {
         && Objects.equals(this.semanticMinorPattern, other.semanticMinorPattern)
         && Objects.equals(this.semanticPatchPattern, other.semanticPatchPattern)
         && Objects.equals(this.subDirFilter, other.subDirFilter)
+        && Objects.equals(this.pathFilters, other.pathFilters)
         && Objects.equals(this.templateBaseDir, other.templateBaseDir)
         && Objects.equals(this.templatePath, other.templatePath)
         && Objects.equals(this.templateSuffix, other.templateSuffix)
@@ -943,6 +956,8 @@ public class Settings implements Serializable {
         + this.useIntegrations
         + ", subDirFilter="
         + this.subDirFilter
+        + ", pathFilters="
+        + this.pathFilters
         + ", encoding="
         + this.encoding
         + "]";
