@@ -55,7 +55,7 @@ public class GitRepo implements Closeable {
   private Git git;
   private final Repository repository;
   private final RevWalk revWalk;
-  private String pathFilter = "";
+  private List<String> pathFilters = new ArrayList<>();
 
   public GitRepo() {
     this.repository = null;
@@ -288,13 +288,15 @@ public class GitRepo implements Closeable {
       final RevWalk revWalk,
       final RevisionBoundary<RevCommit> fromBoundary,
       final RevisionBoundary<RevCommit> toBoundary,
-      final String pathFilterParam)
+      final List<String> pathFilters)
       throws Exception {
     final RevCommit from = fromBoundary.getRevision();
     final RevCommit to = toBoundary.getRevision();
     final LogCommand logCommand = this.git.log().addRange(from, to);
-    if (pathFilterParam != null && !pathFilterParam.isEmpty()) {
-      logCommand.addPath(pathFilterParam);
+    if (pathFilters != null && !pathFilters.isEmpty()) {
+      for (String pathFilter : pathFilters) {
+        logCommand.addPath(pathFilter);
+      }
     }
     final List<RevCommit> list = new ArrayList<>();
 
@@ -319,7 +321,7 @@ public class GitRepo implements Closeable {
   }
 
   private boolean hasPathFilter() {
-    return this.pathFilter != null && !this.pathFilter.isEmpty();
+    return this.pathFilters != null && !this.pathFilters.isEmpty();
   }
 
   private ObjectId getPeeled(final Ref tag) {
@@ -392,7 +394,7 @@ public class GitRepo implements Closeable {
     final RevisionBoundary<RevCommit> from = this.toRevCommit(fromObjectId);
     final RevisionBoundary<RevCommit> to = this.toRevCommit(toObjectId);
 
-    this.commitsToInclude = this.getCommitList(this.revWalk, from, to, this.pathFilter);
+    this.commitsToInclude = this.getCommitList(this.revWalk, from, to, this.pathFilters);
 
     final List<Ref> tagList = this.tagsBetweenFromAndTo(from, to);
     /**
@@ -652,10 +654,23 @@ public class GitRepo implements Closeable {
   }
 
   /**
-   * @param pathFilter use when filtering commits
+   * Sets the pathFilters to be used when filtering commits
+   *
+   * @param pathFilter used when filtering commits from single path (kept to ensure backwards
+   *     compatibility)
+   * @param pathFilters used when filtering commits from multiple paths
    */
-  public void setTreeFilter(final String pathFilter) {
-    this.pathFilter = pathFilter == null ? "" : pathFilter;
+  public void setPathFilters(final String pathFilter, List<String> pathFilters) {
+    if (pathFilters == null) {
+      if (pathFilter != null && !pathFilter.isEmpty()) {
+        this.pathFilters.add(pathFilter);
+      }
+    } else {
+      if (pathFilter != null && !pathFilter.isEmpty()) {
+        pathFilters.add(pathFilter);
+      }
+      this.pathFilters = pathFilters;
+    }
   }
 
   public List<String> getTags(
