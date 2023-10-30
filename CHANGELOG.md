@@ -2,7 +2,7 @@
 
 Changelog of git-changelog-lib.
 
-## 1.175.0 (2023-10-30)
+## 1.175.1 (2023-10-30)
 
 ### Features
 
