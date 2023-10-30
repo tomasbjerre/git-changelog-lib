@@ -2,6 +2,13 @@
 
 Changelog of git-changelog-lib.
 
+## 1.175.0 (2023-10-30)
+
+### Features
+
+-  adjustments after merge ([3b52d](https://github.com/tomasbjerre/git-changelog-lib/commit/3b52d87bc81d177) Tomas Bjerre)  [#175](https://github.com/tomasbjerre/git-changelog-lib/issues/175)  
+-  enable support for filtering commits with multiple path filters ([f6c2b](https://github.com/tomasbjerre/git-changelog-lib/commit/f6c2b3ff057a2c6) Ulrik Enevoldsen)  [#173](https://github.com/tomasbjerre/git-changelog-lib/issues/173)  
+
 ## 1.174.2 (2023-10-17)
 
 ### Bug Fixes
