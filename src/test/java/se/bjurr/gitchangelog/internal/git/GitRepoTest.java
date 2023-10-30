@@ -7,6 +7,7 @@ import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 import java.io.File;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -318,7 +319,7 @@ public class GitRepoTest {
   @Test
   public void testThatRepoFilterReducesTheNumberOfCommits() throws Exception {
     final GitRepo gitRepo = this.getGitRepo();
-    gitRepo.setTreeFilter("src/");
+    gitRepo.setPathFilters(Arrays.asList("src/"));
     final ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
     final ObjectId lastCommit = gitRepo.getRef("1.71");
 
@@ -333,6 +334,81 @@ public class GitRepoTest {
     assertThat(gitCommits)
         .as("Commits in first release.") //
         .hasSize(105);
+
+    assertThat(gitCommits.get(0).getHash()).startsWith("a394e04");
+    Collections.reverse(gitCommits);
+    assertThat(gitCommits.get(0).getHash()).startsWith("a1aa");
+  }
+
+  @Test
+  public void testThatRepoFilterReducesTheNumberOfCommitsUsingPathFilters() throws Exception {
+    final GitRepo gitRepo = this.getGitRepo();
+    gitRepo.setPathFilters(Arrays.asList("src/"));
+    final ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
+    final ObjectId lastCommit = gitRepo.getRef("1.71");
+
+    final GitRepoData gitRepoData =
+        gitRepo.getGitRepoData(
+            new RevisionBoundary<ObjectId>(firstCommit, InclusivenessStrategy.DEFAULT),
+            new RevisionBoundary<ObjectId>(lastCommit, InclusivenessStrategy.DEFAULT),
+            "No tag",
+            Optional.of(".*tag-in-test-feature$"));
+
+    final List<GitCommit> gitCommits = gitRepoData.getGitCommits();
+    assertThat(gitCommits)
+        .as("Commits in first release.") //
+        .hasSize(105);
+
+    assertThat(gitCommits.get(0).getHash()).startsWith("a394e04");
+    Collections.reverse(gitCommits);
+    assertThat(gitCommits.get(0).getHash()).startsWith("a1aa");
+  }
+
+  @Test
+  public void testThatRepoFilterIncreasesTheNumberOfCommitsUsingMultiplePathFilters()
+      throws Exception {
+    final GitRepo gitRepo = this.getGitRepo();
+    gitRepo.setPathFilters(Arrays.asList("src/", "examples/"));
+    final ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
+    final ObjectId lastCommit = gitRepo.getRef("1.71");
+
+    final GitRepoData gitRepoData =
+        gitRepo.getGitRepoData(
+            new RevisionBoundary<ObjectId>(firstCommit, InclusivenessStrategy.DEFAULT),
+            new RevisionBoundary<ObjectId>(lastCommit, InclusivenessStrategy.DEFAULT),
+            "No tag",
+            Optional.of(".*tag-in-test-feature$"));
+
+    final List<GitCommit> gitCommits = gitRepoData.getGitCommits();
+    assertThat(gitCommits)
+        .as("Commits in first release.") //
+        .hasSize(106);
+
+    assertThat(gitCommits.get(0).getHash()).startsWith("a394e04");
+    Collections.reverse(gitCommits);
+    assertThat(gitCommits.get(0).getHash()).startsWith("a1aa");
+  }
+
+  @Test
+  public void
+      testThatRepoFilterIncreasesTheNumberOfCommitsUsingBothPathFilterAndMultiplePathFilters()
+          throws Exception {
+    final GitRepo gitRepo = this.getGitRepo();
+    gitRepo.setPathFilters(Arrays.asList("src/", "examples/"));
+    final ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
+    final ObjectId lastCommit = gitRepo.getRef("1.71");
+
+    final GitRepoData gitRepoData =
+        gitRepo.getGitRepoData(
+            new RevisionBoundary<ObjectId>(firstCommit, InclusivenessStrategy.DEFAULT),
+            new RevisionBoundary<ObjectId>(lastCommit, InclusivenessStrategy.DEFAULT),
+            "No tag",
+            Optional.of(".*tag-in-test-feature$"));
+
+    final List<GitCommit> gitCommits = gitRepoData.getGitCommits();
+    assertThat(gitCommits)
+        .as("Commits in first release.") //
+        .hasSize(106);
 
     assertThat(gitCommits.get(0).getHash()).startsWith("a394e04");
     Collections.reverse(gitCommits);

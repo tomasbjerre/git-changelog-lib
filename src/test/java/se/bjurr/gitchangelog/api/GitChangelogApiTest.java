@@ -144,7 +144,25 @@ public class GitChangelogApiTest {
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("1.71") //
             .withTemplatePath(templatePath) //
-            .withPathFilter("src");
+            .withPathFilters("src");
+
+    ApprovalsWrapper.verify(given);
+  }
+
+  @Test
+  public void testPathFiltersCanBeSpecified() throws Exception {
+    final String templatePath = "templatetest/testAuthorsCommitsExtended.mustache";
+
+    final GitChangelogApi given =
+        gitChangelogApiBuilder() //
+            .withJiraEnabled(true)
+            .withGitHubEnabled(true)
+            .withGitLabEnabled(true)
+            .withRedmineEnabled(true)
+            .withFromRevision(ZERO_COMMIT)
+            .withToRevision("1.71") //
+            .withTemplatePath(templatePath) //
+            .withPathFilters("src");
 
     ApprovalsWrapper.verify(given);
   }
@@ -347,7 +365,7 @@ public class GitChangelogApiTest {
             .withUseIntegrations(true)
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("1.71") //
-            .withPathFilter("src")
+            .withPathFilters("src")
             .withIgnoreCommitsWithoutIssue(true);
 
     ApprovalsWrapper.verify(given);
@@ -360,7 +378,7 @@ public class GitChangelogApiTest {
             .withJiraEnabled(true)
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("1.71") //
-            .withPathFilter("src")
+            .withPathFilters("src")
             .withIgnoreCommitsWithoutIssue(true);
 
     ApprovalsWrapper.verify(given);
