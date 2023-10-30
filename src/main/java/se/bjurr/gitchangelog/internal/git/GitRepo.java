@@ -653,24 +653,8 @@ public class GitRepo implements Closeable {
         merge);
   }
 
-  /**
-   * Sets the pathFilters to be used when filtering commits
-   *
-   * @param pathFilter used when filtering commits from single path (kept to ensure backwards
-   *     compatibility)
-   * @param pathFilters used when filtering commits from multiple paths
-   */
-  public void setPathFilters(final String pathFilter, List<String> pathFilters) {
-    if (pathFilters == null) {
-      if (pathFilter != null && !pathFilter.isEmpty()) {
-        this.pathFilters.add(pathFilter);
-      }
-    } else {
-      if (pathFilter != null && !pathFilter.isEmpty()) {
-        pathFilters.add(pathFilter);
-      }
-      this.pathFilters = pathFilters;
-    }
+  public void setPathFilters(List<String> pathFilters) {
+    this.pathFilters = pathFilters;
   }
 
   public List<String> getTags(

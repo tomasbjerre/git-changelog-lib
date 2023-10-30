@@ -13,8 +13,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import org.junit.After;
@@ -146,7 +144,7 @@ public class GitChangelogApiTest {
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("1.71") //
             .withTemplatePath(templatePath) //
-            .withPathFilter("src");
+            .withPathFilters("src");
 
     ApprovalsWrapper.verify(given);
   }
@@ -164,7 +162,7 @@ public class GitChangelogApiTest {
             .withFromRevision(ZERO_COMMIT)
             .withToRevision("1.71") //
             .withTemplatePath(templatePath) //
-            .withPathFilters(new ArrayList<>(Arrays.asList("src")));
+            .withPathFilters("src");
 
     ApprovalsWrapper.verify(given);
   }
@@ -367,7 +365,7 @@ public class GitChangelogApiTest {
             .withUseIntegrations(true)
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("1.71") //
-            .withPathFilter("src")
+            .withPathFilters("src")
             .withIgnoreCommitsWithoutIssue(true);
 
     ApprovalsWrapper.verify(given);
@@ -380,7 +378,7 @@ public class GitChangelogApiTest {
             .withJiraEnabled(true)
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("1.71") //
-            .withPathFilter("src")
+            .withPathFilters("src")
             .withIgnoreCommitsWithoutIssue(true);
 
     ApprovalsWrapper.verify(given);

@@ -319,7 +319,7 @@ public class GitRepoTest {
   @Test
   public void testThatRepoFilterReducesTheNumberOfCommits() throws Exception {
     final GitRepo gitRepo = this.getGitRepo();
-    gitRepo.setPathFilters("src/", null);
+    gitRepo.setPathFilters(Arrays.asList("src/"));
     final ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
     final ObjectId lastCommit = gitRepo.getRef("1.71");
 
@@ -343,7 +343,7 @@ public class GitRepoTest {
   @Test
   public void testThatRepoFilterReducesTheNumberOfCommitsUsingPathFilters() throws Exception {
     final GitRepo gitRepo = this.getGitRepo();
-    gitRepo.setPathFilters(null, Arrays.asList("src/"));
+    gitRepo.setPathFilters(Arrays.asList("src/"));
     final ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
     final ObjectId lastCommit = gitRepo.getRef("1.71");
 
@@ -368,7 +368,7 @@ public class GitRepoTest {
   public void testThatRepoFilterIncreasesTheNumberOfCommitsUsingMultiplePathFilters()
       throws Exception {
     final GitRepo gitRepo = this.getGitRepo();
-    gitRepo.setPathFilters(null, Arrays.asList("src/", "examples/"));
+    gitRepo.setPathFilters(Arrays.asList("src/", "examples/"));
     final ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
     final ObjectId lastCommit = gitRepo.getRef("1.71");
 
@@ -394,7 +394,7 @@ public class GitRepoTest {
       testThatRepoFilterIncreasesTheNumberOfCommitsUsingBothPathFilterAndMultiplePathFilters()
           throws Exception {
     final GitRepo gitRepo = this.getGitRepo();
-    gitRepo.setPathFilters("src/", new ArrayList<>(Arrays.asList("examples/")));
+    gitRepo.setPathFilters(Arrays.asList("src/", "examples/"));
     final ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
     final ObjectId lastCommit = gitRepo.getRef("1.71");
 

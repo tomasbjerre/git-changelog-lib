@@ -30,7 +30,9 @@ settings:
   "gitLabEnabled": true,
   "gitLabProjectName": "tomasbjerre",
   "useIntegrations": false,
-  "subDirFilter": "src",
+  "pathFilters": [
+    "src"
+  ],
   "encoding": "UTF-8"
 }
 

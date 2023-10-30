@@ -22,6 +22,7 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -689,24 +690,14 @@ public class GitChangelogApi {
   public GitChangelogApi withToRef(final String toBranch) {
     return this.withToRevision(toBranch);
   }
-
-  /**
-   * Filter commits using the provided path filter, analogous to using the cli command git log --
-   * 'pathFilter'
-   */
-  public GitChangelogApi withPathFilter(final String pathFilter) {
-    this.settings.setPathFilter(pathFilter);
-    return this;
-  }
-
   /**
    * Filter commits using the provided path filters, analogous to using the cli command git log --
    * git log <path>...
    *
    * @param pathFilters the path filters to be used for filtering.
    */
-  public GitChangelogApi withPathFilters(final List<String> pathFilters) {
-    this.settings.setPathFilters(pathFilters);
+  public GitChangelogApi withPathFilters(final String... pathFilters) {
+    this.settings.setPathFilters(Arrays.asList(pathFilters));
     return this;
   }
 
@@ -722,7 +713,7 @@ public class GitChangelogApi {
 
   private Changelog getChangelog(final GitRepo gitRepo, final boolean useIntegrations)
       throws GitChangelogRepositoryException {
-    gitRepo.setPathFilters(this.settings.getSubDirFilter(), this.settings.getPathFilters());
+    gitRepo.setPathFilters(this.settings.getPathFilters());
     final RevisionBoundary<ObjectId> fromId = this.getFrom(gitRepo, this.settings);
     final RevisionBoundary<ObjectId> toId = this.getTo(gitRepo, this.settings);
     GitRepoData gitRepoData =
