@@ -294,7 +294,7 @@ public class GitRepo implements Closeable {
     final RevCommit to = toBoundary.getRevision();
     final LogCommand logCommand = this.git.log().addRange(from, to);
     if (pathFilters != null && !pathFilters.isEmpty()) {
-      for (String pathFilter : pathFilters) {
+      for (final String pathFilter : pathFilters) {
         logCommand.addPath(pathFilter);
       }
     }
@@ -490,8 +490,16 @@ public class GitRepo implements Closeable {
   }
 
   private boolean isMappedToAnotherTag(
-      final Map<String, String> tagPerCommitsHash, final String thisCommitHash) {
-    return tagPerCommitsHash.containsKey(thisCommitHash);
+      final Map<String, String> tagPerCommitsHash,
+      final String thisCommitHash,
+      final String thisTagName) {
+    final String existingTagName = tagPerCommitsHash.get(thisCommitHash);
+    if (existingTagName == null) {
+      /** It was not mapped. */
+      return false;
+    }
+    /** If mapped, map it to the lowest version. Where it was first released. */
+    return isFirstTagSemanticallyHighest(thisTagName, existingTagName);
   }
 
   private String noteThatTheCommitWasMapped(
@@ -547,7 +555,7 @@ public class GitRepo implements Closeable {
       final PriorityQueue<TraversalWork> moreWork)
       throws Exception {
     final String thisCommitHash = to.getName();
-    if (this.isMappedToAnotherTag(tagPerCommitsHash, thisCommitHash)) {
+    if (this.isMappedToAnotherTag(tagPerCommitsHash, thisCommitHash, currentTagName)) {
       return;
     }
     if (this.thisIsANewTag(tagPerCommitHash, thisCommitHash)) {
@@ -584,31 +592,32 @@ public class GitRepo implements Closeable {
       final TraversalWork existingWork, final TraversalWork newWork) {
     final String existingTagName = existingWork.getCurrentTagName();
     final String newTagName = newWork.getCurrentTagName();
-    return shouldPrioritizeNewWork(existingTagName, newTagName);
+    return isFirstTagSemanticallyHighest(existingTagName, newTagName);
   }
 
-  static boolean shouldPrioritizeNewWork(final String existingTagName, final String newTagName) {
-    if (existingTagName == null && newTagName == null) {
+  static boolean isFirstTagSemanticallyHighest(
+      final String firstTagName, final String secondTagName) {
+    if (firstTagName == null && secondTagName == null) {
       return false;
     }
-    if (existingTagName == null && newTagName != null) {
+    if (firstTagName == null && secondTagName != null) {
       return true;
     }
-    if (newTagName == null) {
+    if (secondTagName == null) {
       return false;
     }
-    if (existingTagName.equals(newTagName)) {
+    if (firstTagName.equals(secondTagName)) {
       return false;
     }
-    final boolean newTagIsSemantic = SemanticVersioning.isSemantic(newTagName);
+    final boolean newTagIsSemantic = SemanticVersioning.isSemantic(secondTagName);
     if (newTagIsSemantic) {
-      final boolean existingTagNameIsSemantic = SemanticVersioning.isSemantic(existingTagName);
+      final boolean existingTagNameIsSemantic = SemanticVersioning.isSemantic(firstTagName);
       if (!existingTagNameIsSemantic) {
         return true;
       }
       final SemanticVersion highest =
-          SemanticVersioning.getHighestVersion(Arrays.asList(existingTagName, newTagName));
-      if (highest.findTag().orElse("").equals(existingTagName)) {
+          SemanticVersioning.getHighestVersion(Arrays.asList(firstTagName, secondTagName));
+      if (highest.findTag().orElse("").equals(firstTagName)) {
         return true;
       }
     }
@@ -653,7 +662,7 @@ public class GitRepo implements Closeable {
         merge);
   }
 
-  public void setPathFilters(List<String> pathFilters) {
+  public void setPathFilters(final List<String> pathFilters) {
     this.pathFilters = pathFilters;
   }
 

@@ -417,19 +417,19 @@ public class GitRepoTest {
 
   @Test
   public void priorityTags() throws Exception {
-    assertThat(GitRepo.shouldPrioritizeNewWork(null, null)).isFalse();
+    assertThat(GitRepo.isFirstTagSemanticallyHighest(null, null)).isFalse();
 
-    assertThat(GitRepo.shouldPrioritizeNewWork(null, "hello")).isTrue();
-    assertThat(GitRepo.shouldPrioritizeNewWork("hello", null)).isFalse();
-    assertThat(GitRepo.shouldPrioritizeNewWork("hello", "hello")).isFalse();
+    assertThat(GitRepo.isFirstTagSemanticallyHighest(null, "hello")).isTrue();
+    assertThat(GitRepo.isFirstTagSemanticallyHighest("hello", null)).isFalse();
+    assertThat(GitRepo.isFirstTagSemanticallyHighest("hello", "hello")).isFalse();
 
-    assertThat(GitRepo.shouldPrioritizeNewWork("1.2.3", "hello")).isFalse();
-    assertThat(GitRepo.shouldPrioritizeNewWork("hello", "1.2.3")).isTrue();
-    assertThat(GitRepo.shouldPrioritizeNewWork("hello", "hello")).isFalse();
+    assertThat(GitRepo.isFirstTagSemanticallyHighest("1.2.3", "hello")).isFalse();
+    assertThat(GitRepo.isFirstTagSemanticallyHighest("hello", "1.2.3")).isTrue();
+    assertThat(GitRepo.isFirstTagSemanticallyHighest("hello", "hello")).isFalse();
 
-    assertThat(GitRepo.shouldPrioritizeNewWork("1.2.3", "1.2.3")).isFalse();
-    assertThat(GitRepo.shouldPrioritizeNewWork("1.2.3", "1.2.4")).isFalse();
-    assertThat(GitRepo.shouldPrioritizeNewWork("1.2.4", "1.2.3")).isTrue();
+    assertThat(GitRepo.isFirstTagSemanticallyHighest("1.2.3", "1.2.3")).isFalse();
+    assertThat(GitRepo.isFirstTagSemanticallyHighest("1.2.3", "1.2.4")).isFalse();
+    assertThat(GitRepo.isFirstTagSemanticallyHighest("1.2.4", "1.2.3")).isTrue();
   }
 
   private GitRepo getGitRepo() throws Exception {
