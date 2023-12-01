@@ -2,7 +2,13 @@
 
 Changelog of git-changelog-lib.
 
-## 1.175.1 (2023-10-30)
+## 1.175.2 (2023-12-01)
+
+### Bug Fixes
+
+-  mapping commits to lowest possible semantic tag ([e33a0](https://github.com/tomasbjerre/git-changelog-lib/commit/e33a0f843bf97be) Tomas Bjerre)  [#176](https://github.com/tomasbjerre/git-changelog-lib/issues/176)  
+
+## 1.175.0 (2023-10-30)
 
 ### Features
 
