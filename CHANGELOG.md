@@ -2,6 +2,16 @@
 
 Changelog of git-changelog-lib.
 
+## 2.0.0 (2024-01-27)
+
+### Breaking changes
+
+-  stepping JGit and JsonPath dependencies (#179) ([cc817](https://github.com/tomasbjerre/git-changelog-lib/commit/cc817d6804c1ffa) Tomas Bjerre)  [#177](https://github.com/tomasbjerre/git-changelog-lib/issues/177)  
+
+### Features
+
+-  stepping JGit and JsonPath dependencies (#179) ([cc817](https://github.com/tomasbjerre/git-changelog-lib/commit/cc817d6804c1ffa) Tomas Bjerre)  [#177](https://github.com/tomasbjerre/git-changelog-lib/issues/177)  
+
 ## 1.175.2 (2023-12-01)
 
 ### Bug Fixes
