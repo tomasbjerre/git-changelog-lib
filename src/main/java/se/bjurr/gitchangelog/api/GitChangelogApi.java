@@ -14,8 +14,8 @@ import com.github.jknack.handlebars.helper.StringHelpers;
 import com.github.jknack.handlebars.io.FileTemplateLoader;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.net.URL;
@@ -50,16 +50,16 @@ import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
 import se.bjurr.gitchangelog.internal.util.ResourceLoader;
 
 @SuppressFBWarnings("PATH_TRAVERSAL_IN")
-public class GitChangelogApi {
-
-  public static GitChangelogApi gitChangelogApiBuilder() {
-    return new GitChangelogApi();
-  }
+public final class GitChangelogApi {
 
   private Settings settings;
   private String templateContent;
   private Handlebars handlebars;
   private final AtomicInteger helperCounter = new AtomicInteger();
+
+  public static GitChangelogApi gitChangelogApiBuilder() {
+    return new GitChangelogApi();
+  }
 
   private GitChangelogApi() {
     this.settings = new Settings();
@@ -103,7 +103,6 @@ public class GitChangelogApi {
    * @throws GitChangelogRepositoryException
    */
   public void render(final Writer writer) throws GitChangelogRepositoryException {
-    Template template = null;
     final String templateString = this.getTemplateString();
 
     if (this.settings.getTemplateBaseDir() != null) {
@@ -112,6 +111,7 @@ public class GitChangelogApi {
               this.settings.getTemplateBaseDir(), this.settings.getTemplateSuffix()));
     }
 
+    Template template;
     try {
       template = this.handlebars.compileInline(templateString);
     } catch (final IOException e) {
@@ -119,11 +119,11 @@ public class GitChangelogApi {
     }
 
     try {
-      final Changelog changelog = this.getChangelog(this.settings.isUseIntegrations());
       final Map<String, Object> extendedVariables = this.settings.getExtendedVariables();
       if (extendedVariables == null) {
         throw new IllegalStateException("extendedVariables cannot be null");
       }
+      final Changelog changelog = this.getChangelog(this.settings.isUseIntegrations());
       final Context changelogContext = Context.newContext(changelog).combine(extendedVariables);
       template.apply(changelogContext, writer);
     } catch (final IOException e) {
@@ -175,7 +175,7 @@ public class GitChangelogApi {
     final byte[] bytesToPrepend = this.render().getBytes(this.settings.getEncoding());
     final byte[] originalBytes = Files.readAllBytes(file.toPath());
 
-    try (final FileOutputStream outputStream = new FileOutputStream(file)) {
+    try (final OutputStream outputStream = Files.newOutputStream(file.toPath())) {
       outputStream.write(bytesToPrepend);
       outputStream.write(originalBytes);
     }
@@ -197,14 +197,14 @@ public class GitChangelogApi {
       }
     }
     final Changelog changelog = api.getChangelog(false);
-    final List<String> tags = api.getTagsAsStrings(changelog);
+    api.getTagsAsStrings(changelog);
     final List<String> commits = api.getCommitMessages(changelog);
     final String majorVersionPattern = api.settings.getSemanticMajorPattern().orElse(null);
     final String minorVersionPattern = api.settings.getSemanticMinorPattern();
     final String patchVersionPattern = api.settings.getSemanticPatchPattern();
     final SemanticVersioning semanticVersioning =
         new SemanticVersioning(
-            tags, commits, majorVersionPattern, minorVersionPattern, patchVersionPattern);
+            commits, majorVersionPattern, minorVersionPattern, patchVersionPattern);
     return semanticVersioning.getNextVersion(highestSemanticVersion);
   }
 
@@ -290,7 +290,7 @@ public class GitChangelogApi {
    * Custom issues are added to support any kind of issue management, perhaps something that is
    * internal to your project. See {@link SettingsIssue}.
    */
-  public GitChangelogApi withCustomIssue(
+  public GitChangelogApi withCustomIssue( // NOPMD
       final String name, final String pattern, final String link, final String title) {
     this.settings.addCustomIssue(new SettingsIssue(name, pattern, link, title));
     return this;

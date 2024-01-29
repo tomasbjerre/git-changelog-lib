@@ -35,7 +35,6 @@ import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import se.bjurr.gitchangelog.api.GitChangelogApiConstants;
 import se.bjurr.gitchangelog.api.InclusivenessStrategy;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
@@ -126,7 +125,7 @@ public class GitRepo implements Closeable {
 
   /**
    * @param from From, but not including, this commit. Except for the {@link
-   *     GitChangelogApiConstants#ZERO_COMMIT}, it is included.
+   *     se.bjurr.gitchangelog.api.GitChangelogApiConstants#ZERO_COMMIT}, it is included.
    * @param to To and including this commit.
    */
   public GitRepoData getGitRepoData(
@@ -239,11 +238,9 @@ public class GitRepo implements Closeable {
   }
 
   private RevCommit firstCommit() {
-    Git git = null;
-    try {
-      git = new Git(this.repository);
-      final AnyObjectId master = this.getRef(HEAD);
-      final Iterator<RevCommit> itr = git.log().add(master).call().iterator();
+    try (Git git = new Git(this.repository)) {
+      final AnyObjectId head = this.getRef(HEAD);
+      final Iterator<RevCommit> itr = git.log().add(head).call().iterator();
       RevCommit last = null;
       while (itr.hasNext()) {
         last = itr.next();
@@ -251,10 +248,6 @@ public class GitRepo implements Closeable {
       return last;
     } catch (final Exception e) {
       throw new RuntimeException("First commit not found in " + this.repository.getDirectory(), e);
-    } finally {
-      if (git != null) {
-        git.close();
-      }
     }
   }
 
@@ -585,7 +578,6 @@ public class GitRepo implements Closeable {
         }
       }
     }
-    return;
   }
 
   private boolean shouldPrioritizeNewWork(
@@ -673,7 +665,7 @@ public class GitRepo implements Closeable {
     final RevisionBoundary<RevCommit> from = this.toRevCommit(fromObjectId);
     final RevisionBoundary<RevCommit> to = this.toRevCommit(toObjectId);
 
-    final List<String> tags = new ArrayList<String>();
+    final List<String> tags = new ArrayList<>();
     for (final Ref tagRef : this.tagsBetweenFromAndTo(from, to)) {
       final String commitIdOfRef = this.getPeeled(tagRef).name();
       if (commitIdOfRef.equals(to.getRevision().getName())) {

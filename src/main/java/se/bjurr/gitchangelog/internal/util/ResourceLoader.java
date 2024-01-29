@@ -16,13 +16,15 @@ public final class ResourceLoader {
 
   public static String getResourceOrFile(final String resourceName, final Charset encoding) {
     String templateString = null;
-    try {
+    InputStream inputStream = null;
+    try { // NOPMD
       final Path templatePath = Paths.get(resourceName);
       if (templatePath.toFile().exists()) {
         templateString = new String(Files.readAllBytes(templatePath), encoding);
       } else {
-        InputStream inputStream =
-            getResourceFromClassLoader(resourceName, ResourceLoader.class.getClassLoader());
+        inputStream =
+            getResourceFromClassLoader(
+                resourceName, ResourceLoader.class.getClassLoader()); // NOPMD
         if (inputStream == null) {
           inputStream =
               getResourceFromClassLoader(
@@ -39,6 +41,14 @@ public final class ResourceLoader {
       }
     } catch (final IOException e) {
       throw new RuntimeException(resourceName, e);
+    } finally { // NOPMD
+      if (inputStream != null) {
+        try {
+          inputStream.close();
+        } catch (final IOException e) {
+          throw new RuntimeException(e);
+        }
+      }
     }
     return templateString;
   }
@@ -47,7 +57,7 @@ public final class ResourceLoader {
       final String resourceName, final ClassLoader classLoader) {
     InputStream inputStream = classLoader.getResourceAsStream(resourceName);
     if (inputStream == null) {
-      inputStream = classLoader.getResourceAsStream("/" + resourceName);
+      inputStream = classLoader.getResourceAsStream("/" + resourceName); // NOPMD
     }
     return inputStream;
   }

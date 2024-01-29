@@ -224,10 +224,10 @@ public class Settings implements Serializable {
   private String gitLabProjectName;
 
   /** Regular expression to use when determining next semantic version based on commits. */
-  private String semanticMajorPattern = null;
+  private String semanticMajorPattern;
 
   /** Regular expression to use when determining next semantic version based on commits. */
-  private String semanticMinorPattern = null;
+  private String semanticMinorPattern;
 
   /** Regular expression to use when determining next semantic version based on commits. */
   private String semanticPatchPattern;
@@ -645,7 +645,7 @@ public class Settings implements Serializable {
     try {
       Pattern.compile(pattern);
     } catch (final PatternSyntaxException e) {
-      throw new RuntimeException(pattern + " in " + string + " is not valid regexp.");
+      throw new RuntimeException(pattern + " in " + string + " is not valid regexp.", e);
     }
     return pattern;
   }

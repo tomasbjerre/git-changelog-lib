@@ -104,9 +104,6 @@ public class IssueType implements Serializable {
     } else if (!this.name.equals(other.name)) {
       return false;
     }
-    if (this.type != other.type) {
-      return false;
-    }
-    return true;
+    return this.type == other.type;
   }
 }

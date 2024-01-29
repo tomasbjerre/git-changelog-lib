@@ -59,7 +59,7 @@ public abstract class JiraClient {
   }
 
   public JiraClient withIssueAdditionalFields(final List<String> fields) {
-    final List<String> newFields = new ArrayList<String>(fields);
+    final List<String> newFields = new ArrayList<>(fields);
     Collections.sort(newFields);
     this.fields = Collections.unmodifiableList(newFields);
     return this;

@@ -105,11 +105,21 @@ public class RestClient {
 
   protected String getResponse(final HttpURLConnection conn) throws Exception {
     if (mockedRestClient == null) {
-      final InputStream inputStream = conn.getInputStream();
-      final InputStreamReader inputStreamReader =
-          new InputStreamReader(inputStream, StandardCharsets.UTF_8);
-      try (BufferedReader bufferedReader = new BufferedReader(inputStreamReader)) {
-        return bufferedReader.readLine();
+      try (final InputStream inputStream = conn.getInputStream()) {
+        try (final InputStreamReader inputStreamReader =
+            new InputStreamReader(inputStream, StandardCharsets.UTF_8)) {
+          try (BufferedReader bufferedReader = new BufferedReader(inputStreamReader)) {
+            final StringBuilder sb = new StringBuilder();
+            while (true) {
+              final String nextline = bufferedReader.readLine();
+              if (nextline == null) {
+                break;
+              }
+              sb.append(nextline);
+            }
+            return sb.toString();
+          }
+        }
       }
     }
     return mockedRestClient.getResponse(conn);

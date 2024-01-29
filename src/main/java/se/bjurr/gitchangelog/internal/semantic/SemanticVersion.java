@@ -10,19 +10,18 @@ public class SemanticVersion implements Serializable {
   private final int minor;
   private final int major;
   private String tag;
-  private VERSION_STEP versionStep;
-
-  public SemanticVersion(final int major, final int minor, final int patch) {
-    this.major = major;
-    this.minor = minor;
-    this.patch = patch;
-    this.versionStep = VERSION_STEP.NONE;
-  }
+  private final VERSION_STEP versionStep;
 
   public SemanticVersion(
       final int major, final int minor, final int patch, final VERSION_STEP versionStep) {
-    this(major, minor, patch);
+    this.major = major;
+    this.minor = minor;
+    this.patch = patch;
     this.versionStep = versionStep;
+  }
+
+  public SemanticVersion(final int major, final int minor, final int patch) {
+    this(major, minor, patch, VERSION_STEP.NONE);
   }
 
   public int getMajor() {

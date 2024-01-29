@@ -35,7 +35,7 @@ public class SemanticVersioningTest {
     this.patchPattern = null;
     this.sut =
         new SemanticVersioning(
-            this.tags, this.commits, this.majorPattern, this.minorPattern, this.patchPattern);
+            this.commits, this.majorPattern, this.minorPattern, this.patchPattern);
   }
 
   @Test
@@ -156,7 +156,7 @@ public class SemanticVersioningTest {
     this.patchPattern = "fix:.*";
     this.sut =
         new SemanticVersioning(
-            this.tags, this.commits, this.majorPattern, this.minorPattern, this.patchPattern);
+            this.commits, this.majorPattern, this.minorPattern, this.patchPattern);
     final SemanticVersion highestVersion = SemanticVersioning.getHighestVersion(this.tags);
     assertThat(highestVersion + " -> " + this.sut.getNextVersion(highestVersion)) //
         .isEqualTo("1.0.0 -> 1.0.0");
@@ -172,7 +172,7 @@ public class SemanticVersioningTest {
     this.patchPattern = "fix:.*";
     this.sut =
         new SemanticVersioning(
-            this.tags, this.commits, this.majorPattern, this.minorPattern, this.patchPattern);
+            this.commits, this.majorPattern, this.minorPattern, this.patchPattern);
     assertThat(highestVersion + " -> " + this.sut.getNextVersion(highestVersion)) //
         .isEqualTo("1.0.0 -> 1.0.0");
     assertThat(this.sut.getNextVersion(highestVersion).getVersionStep()).isEqualTo(NONE);
@@ -187,7 +187,7 @@ public class SemanticVersioningTest {
     this.patchPattern = "fix:.*";
     this.sut =
         new SemanticVersioning(
-            this.tags, this.commits, this.majorPattern, this.minorPattern, this.patchPattern);
+            this.commits, this.majorPattern, this.minorPattern, this.patchPattern);
     assertThat(highestVersion + " -> " + this.sut.getNextVersion(highestVersion)) //
         .isEqualTo("1.0.0 -> 1.0.1");
     assertThat(this.sut.getNextVersion(highestVersion).getVersionStep()).isEqualTo(PATCH);

@@ -9,7 +9,7 @@ import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
 import se.bjurr.gitchangelog.internal.model.ParsedIssue;
 
-public class GitRepoDataHelper {
+public final class GitRepoDataHelper {
   public static GitRepoData removeCommitsWithoutIssue(
       final List<ParsedIssue> allParsedIssues, final GitRepoData gitRepoData) {
     final Set<GitCommit> commitsWithIssues = new TreeSet<>();

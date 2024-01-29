@@ -77,7 +77,7 @@ public class IssueParser {
             continue;
           }
           if (!parsedIssuePerIssue.containsKey(matchedIssue)) {
-            ParsedIssue parsedIssue = null;
+            ParsedIssue parsedIssue;
             if (issuePattern.getType() == GITHUB) {
               parsedIssue = this.createParsedIssue(gitHubHelper, issuePattern, matchedIssue);
             } else if (issuePattern.getType() == GITLAB) {

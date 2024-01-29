@@ -21,7 +21,6 @@ public class SemanticVersioning {
   private final Pattern patchPattern;
 
   public SemanticVersioning(
-      final List<String> tags,
       final List<String> commits,
       final String majorPattern,
       final String minorPattern,

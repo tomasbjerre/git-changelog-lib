@@ -10,6 +10,15 @@ import java.util.stream.Collectors;
 public class Commit implements Serializable {
   private static final long serialVersionUID = 6622555148468372816L;
 
+  private final String authorEmailAddress;
+  private final String authorName;
+  private final String commitTime;
+  private final Long commitTimeLong;
+  private final String hash;
+  private final String hashFull;
+  private final Boolean merge;
+  private final String message;
+
   private static List<String> notFirst(final List<String> stringList) {
     return stringList.subList(1, stringList.size());
   }
@@ -57,20 +66,11 @@ public class Commit implements Serializable {
 
   static String toMessageTitle(final String message) {
     final List<String> stringList = toNoEmptyStringsList(message);
-    if (stringList.size() > 0) {
+    if (!stringList.isEmpty()) {
       return stringList.get(0).trim();
     }
     return "";
   }
-
-  private final String authorEmailAddress;
-  private final String authorName;
-  private final String commitTime;
-  private final Long commitTimeLong;
-  private final String hash;
-  private final String hashFull;
-  private final Boolean merge;
-  private final String message;
 
   public Commit(
       final String authorName,

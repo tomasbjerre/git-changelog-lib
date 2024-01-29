@@ -234,7 +234,7 @@ public class Transformer {
   }
 
   private String format(final Date commitTime) {
-    final SimpleDateFormat df = new SimpleDateFormat(this.settings.getDateFormat());
+    final SimpleDateFormat df = new SimpleDateFormat(this.settings.getDateFormat(), Locale.ENGLISH);
     df.setTimeZone(getTimeZone(this.settings.getTimeZone()));
     return df.format(commitTime);
   }

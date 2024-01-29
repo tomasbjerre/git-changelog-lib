@@ -22,23 +22,21 @@ public abstract class RedmineClient {
   }
 
   protected String getEndpoint(final String issue) {
-    final String issueNo = getIssueNumber(issue);
-    final String endpoint = this.api + "/issues/" + issueNo + ".json";
-    return endpoint;
+    final String issueNo = this.getIssueNumber(issue);
+    return this.api + "/issues/" + issueNo + ".json";
   }
 
   protected RedmineIssue toRedmineIssue(final String issue, final String json) {
-    final String issueNo = getIssueNumber(issue);
+    final String issueNo = this.getIssueNumber(issue);
     final String title = read(json, "$.issue.subject");
     final String description = read(json, "$.issue.description");
     final String type = read(json, "$.issue.tracker.name");
     final String link = this.api + "/issues/" + issueNo;
 
-    final RedmineIssue redmineIssue = new RedmineIssue(title, description, link, issue, type);
-    return redmineIssue;
+    return new RedmineIssue(title, description, link, issue, type);
   }
 
-  protected String getIssueNumber(String issue) {
+  protected String getIssueNumber(final String issue) {
     return issue.startsWith("#") ? issue.substring(1) : issue;
   }
 

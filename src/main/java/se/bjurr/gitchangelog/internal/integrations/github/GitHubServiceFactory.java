@@ -14,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 @SuppressFBWarnings("RV_RETURN_VALUE_IGNORED_BAD_PRACTICE")
 public class GitHubServiceFactory {
-  static Interceptor interceptor;
+  static Interceptor interceptor; // NOPMD
 
   public static void setInterceptor(final Interceptor interceptor) {
     GitHubServiceFactory.interceptor = interceptor;
@@ -27,7 +27,7 @@ public class GitHubServiceFactory {
     }
     final File cacheDir = new File(".okhttpcache");
     cacheDir.mkdir();
-    final Cache cache = new Cache(cacheDir, 1024 * 1024 * 10);
+    final Cache cache = new Cache(cacheDir, 1024 * 1024 * 10); // NOPMD
 
     final OkHttpClient.Builder builder =
         new OkHttpClient.Builder().cache(cache).connectTimeout(10, SECONDS);
