@@ -32,5 +32,7 @@ public class ConventionalCommitParserTest {
         .containsOnly("org.test");
     assertThat(ConventionalCommitParser.commitScopes("feat(123) : add polish language"))
         .containsOnly("123");
+    assertThat(ConventionalCommitParser.commitScopes("feat(namespaceA,namespaceB): add polish language"))
+            .containsOnly("namespaceA,namespaceB");
   }
 }
