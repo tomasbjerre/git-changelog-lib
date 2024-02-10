@@ -16,7 +16,7 @@ import se.bjurr.gitchangelog.internal.model.Transformer;
 @SuppressFBWarnings("REDOS")
 public class ConventionalCommitParser {
   private static final Pattern CONVENTIONAL_PATTERN =
-      Pattern.compile("^(\\w+)(\\(([\\w\\-\\.\\,:]+)\\)?)?(\\!?)[\\s?]*:(.+)");
+      Pattern.compile("^(\\w+)(\\(([\\w\\-\\.\\,\\s:]+)\\)?)?(\\!?)[\\s?]*:(.+)");
 
   private static final Pattern FOOTER_PATTERN =
       Pattern.compile("^(BREAKING[ -]CHANGE|[^ ]+)(((: )|( #))(.+))");
@@ -89,7 +89,7 @@ public class ConventionalCommitParser {
     if (group == null) {
       return new ArrayList<>();
     }
-    return Arrays.stream(group.split(":")).map((it) -> it.trim()).collect(Collectors.toList());
+    return Arrays.stream(group.split("[:,]")).map((it) -> it.trim()).collect(Collectors.toList());
   }
 
   public static boolean commitBreaking(final String commitMessage) {
