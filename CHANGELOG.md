@@ -2,6 +2,18 @@
 
 Changelog of git-changelog-lib.
 
+## 2.1.0 (2024-02-10)
+
+### Features
+
+-  **conventional-commits**  allow whitespace in scope ([96cef](https://github.com/tomasbjerre/git-changelog-lib/commit/96cef85df9da68f) Tomas Bjerre)  [#180](https://github.com/tomasbjerre/git-changelog-lib/issues/180)  
+-  allow comma in conventional commit scope ([45d7e](https://github.com/tomasbjerre/git-changelog-lib/commit/45d7e6b4d60db21) Hlavac Jan)  
+
+### Bug Fixes
+
+-  formatting ([26908](https://github.com/tomasbjerre/git-changelog-lib/commit/269088a293362ec) Hlavac Jan)  
+-  findings from static code analysis (PMD) ([cf0bf](https://github.com/tomasbjerre/git-changelog-lib/commit/cf0bfeb65a35948) Tomas Bjerre)  
+
 ## 2.0.0 (2024-01-27)
 
 ### Breaking changes
