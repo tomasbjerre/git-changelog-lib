@@ -2,6 +2,12 @@
 
 Changelog of git-changelog-lib.
 
+## 2.1.1 (2024-02-25)
+
+### Bug Fixes
+
+-  building with java 21 ([b43b2](https://github.com/tomasbjerre/git-changelog-lib/commit/b43b24adb9c9c64) Tomas Bjerre)  
+
 ## 2.1.0 (2024-02-10)
 
 ### Features
