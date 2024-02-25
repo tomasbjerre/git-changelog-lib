@@ -45,6 +45,7 @@ public class Settings implements Serializable {
 
   /** Folder where repo lives. */
   private String fromRepo;
+
   /**
    * Include all commits from here. Any tag or branch name or commit hash. There is a constant
    * pointing at the first commit here: reference{GitChangelogApiConstants#ZERO_COMMIT}.
@@ -52,6 +53,7 @@ public class Settings implements Serializable {
   private String fromRevision;
 
   private InclusivenessStrategy fromRevisionStrategy;
+
   /**
    * Include all commits to this revision. Any tag or branch name or commit hash. There is a
    * constant for master here: reference{GitChangelogApiConstants#REF_MASTER}.
@@ -59,11 +61,13 @@ public class Settings implements Serializable {
   private String toRevision;
 
   private InclusivenessStrategy toRevisionStrategy;
+
   /**
    * A regular expression that is evaluated on each tag. If it matches, the tag will be filtered out
    * and not included in the changelog.
    */
   private String ignoreTagsIfNameMatches;
+
   /**
    * A regular expression that is evaluated on the commit message of each commit. If it matches, the
    * commit will be filtered out and not included in the changelog.<br>
@@ -79,30 +83,36 @@ public class Settings implements Serializable {
    * </code>
    */
   private String ignoreCommitsIfMessageMatches;
+
   /**
    * A date that is evaluated on the commit time of each commit. If the commit is older than the
    * point in time given, then it will be filtered out and not included in the changelog. <br>
    * See {@link SimpleDateFormat}.
    */
   private Date ignoreCommitsIfOlderThan;
+
   /**
    * Some commits may not be included in any tag. Commits that not released yet may not be tagged.
    * This is a "virtual tag", added to {@link Changelog#getTags()}, that includes those commits. A
    * fitting value may be "Next release".
    */
   private String untaggedName;
+
   /**
    * Path of template-file to use. It is a Mustache (https://mustache.github.io/) template. Supplied
    * with the context of {@link Changelog}.
    */
   private String templatePath;
+
   /**
    * Path to the base directory for template partial files. If not null, handlebars will be
    * configured with a FileTemplateLoader with this as base directory.
    */
   private String templateBaseDir;
+
   /** The filename suffix of template partial files. Requires "templateBaseDir" to be set. */
   private String templateSuffix;
+
   /**
    * Your tags may look something like <code>git-changelog-maven-plugin-1.6</code>. But in the
    * changelog you just want <code>1.6</code>. With this regular expression, the numbering can be
@@ -110,32 +120,39 @@ public class Settings implements Serializable {
    * <code>/([^-]+?)$</code>
    */
   private String readableTagName;
+
   /** Format of dates, see {@link SimpleDateFormat}. */
   private String dateFormat;
+
   /**
    * This is a "virtual issue" that is added to {@link Changelog#getIssues()}. It contains all
    * commits that has no issue in the commit comment. This could be used as a "wall of shame"
    * listing commiters that did not tag there commits with an issue.
    */
   private String noIssueName;
+
   /**
    * When date of commits are translated to a string, this timezone is used.<br>
    * <code>UTC</code>
    */
   private String timeZone;
+
   /**
    * If true, the changelog will not contain the issue in the commit comment. If your changelog is
    * grouped by issues, you may want this to be true. If not grouped by issue, perhaps false.
    */
   private boolean removeIssueFromMessage;
+
   /** Use any configured feature with Jira. */
   private boolean jiraEnabled;
+
   /**
    * URL pointing at your JIRA server. When configured, the {@link Issue#getTitle()} will be
    * populated with title from JIRA.<br>
    * <code>https://jiraserver/jira</code>
    */
   private String jiraServer;
+
   /**
    * Pattern to recognize JIRA:s. <code>\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\b</code><br>
    * <br>
@@ -143,54 +160,70 @@ public class Settings implements Serializable {
    * <code>\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b</code>
    */
   private String jiraIssuePattern;
+
   /** Additional fields to load for the issues. */
   private List<String> jiraIssueAdditionalFields;
+
   /** Authenticate to JIRA. */
   private String jiraUsername;
+
   /** Authenticate to JIRA. */
   private String jiraPassword;
+
   /** Authenticate to JIRA. */
   private String jiraToken;
+
   /** Authenticate to JIRA. */
   private String jiraBearer;
 
   /** Use any configured feature with Redmine. */
   private boolean redmineEnabled;
+
   /**
    * URL pointing at your Redmine server. When configured, the {@link Issue#getTitle()} will be
    * populated with title from Redmine.<br>
    * <code>https://redmine/redmine</code>
    */
   private String redmineServer;
+
   /** Pattern to recognize Redmine:s. <code>#([0-9]+)</code> */
   private String redmineIssuePattern;
+
   /** Authenticate to Redmine. */
   private String redmineUsername;
+
   /** Authenticate to Redmine. */
   private String redminePassword;
+
   /** Authenticate to Redmine whith API_KEY */
   private String redmineToken;
+
   /** Use any configured feature with Github. */
   private boolean gitHubEnabled;
+
   /**
    * URL pointing at GitHub API. When configured, the {@link Issue#getTitle()} will be populated
    * with title from GitHub.<br>
    * <code>https://api.github.com/repos/tomasbjerre/git-changelog-lib</code>
    */
   private String gitHubApi;
+
   /**
    * GitHub authentication token. Configure to avoid low rate limits imposed by GitHub in case you
    * have a lot of issues and/or pull requests.<br>
    * <code>https://api.github.com/repos/tomasbjerre/git-changelog-lib</code>
    */
   private String gitHubToken;
+
   /** Pattern to recognize GitHub:s. <code>#([0-9]+)</code> */
   private String gitHubIssuePattern;
+
   /**
    * Custom issues are added to support any kind of issue management, perhaps something that is
    * internal to your project. See {@link SettingsIssue}.
    */
   private List<SettingsIssue> customIssues;
+
   /**
    * Extended variables is simply a key-value mapping of variables that are made available in the
    * template. Is used, for example, by the Bitbucket plugin to supply some internal variables to
@@ -209,6 +242,7 @@ public class Settings implements Serializable {
 
   /** Use any configured feature with Gitlab. */
   private boolean gitLabEnabled;
+
   /** GitLab server URL, like https://gitlab.com/. */
   private String gitLabServer;
 

@@ -23,6 +23,7 @@ public class Issue implements ICommits, IAuthors, Serializable {
   private static final long serialVersionUID = -7571341639024417199L;
   private final List<Commit> commits;
   private final List<Author> authors;
+
   /** Like JIRA, or GitHub. */
   private final String name;
 
@@ -48,6 +49,7 @@ public class Issue implements ICommits, IAuthors, Serializable {
 
   private final boolean hasDescription;
   private final String description;
+
   /** Labels on the issue, for GitHub it may be bug, enhancement, ... */
   private final List<String> labels;
 

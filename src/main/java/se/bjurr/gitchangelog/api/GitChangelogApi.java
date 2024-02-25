@@ -180,6 +180,7 @@ public final class GitChangelogApi {
       outputStream.write(originalBytes);
     }
   }
+
   /**
    * Get next semantic version. This requires version-pattern and major/minor/patch patterns to have
    * been configured.
@@ -690,6 +691,7 @@ public final class GitChangelogApi {
   public GitChangelogApi withToRef(final String toBranch) {
     return this.withToRevision(toBranch);
   }
+
   /**
    * Filter commits using the provided path filters, analogous to using the cli command git log --
    * git log <path>...
