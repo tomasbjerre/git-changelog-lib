@@ -153,7 +153,7 @@ gitChangelogApi
 
 ## Helpers
 
-Some [helpers](/src/main/java/se/bjurr/gitchangelog/api/helpers) are implemented in this library. And users can also add more helpers as described in [Handlebars](https://github.com/jknack/handlebars.java).
+Some [helpers](/src/main/java/se/bjurr/gitchangelog/api/helpers) are implemented in this library. And users can also add more helpers as described in [Handlebars](https://github.com/jknack/handlebars.java). If you add your own helpers, using Javascript, you will need to add a scriptengine like [Nashorn](https://central.sonatype.com/artifact/org.openjdk.nashorn/nashorn-core/overview) to your classpath.
 
 ### `ifReleaseTag <Tag>`
 
