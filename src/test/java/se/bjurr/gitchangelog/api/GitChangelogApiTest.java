@@ -94,6 +94,17 @@ public class GitChangelogApiTest {
   }
 
   @Test
+  public void testIssue182() throws Exception {
+    final GitChangelogApi given =
+        gitChangelogApiBuilder() //
+            .withTemplatePath("changelog-with-unreleased.mustache")
+            .withFromRevision(ZERO_COMMIT) //
+            .withToRevision("test/issue-182");
+
+    ApprovalsWrapper.verify(given);
+  }
+
+  @Test
   public void testThatFirstVersionCanBeGenerated() throws Exception {
     final GitChangelogApi given =
         gitChangelogApiBuilder() //
