@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -29,6 +30,9 @@ public final class ResourceLoader {
           inputStream =
               getResourceFromClassLoader(
                   resourceName, Thread.currentThread().getContextClassLoader());
+        }
+        if (inputStream == null) {
+          inputStream = getResourceFromURL(resourceName);
         }
 
         if (inputStream == null) {
@@ -60,5 +64,14 @@ public final class ResourceLoader {
       inputStream = classLoader.getResourceAsStream("/" + resourceName); // NOPMD
     }
     return inputStream;
+  }
+
+  private static InputStream getResourceFromURL(final String resourceName) {
+    try {
+      URL url = new URL(resourceName);
+      return url.openStream();
+    } catch (IOException e) {
+      return null;
+    }
   }
 }
