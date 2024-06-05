@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -30,10 +31,13 @@ public final class ResourceLoader {
               getResourceFromClassLoader(
                   resourceName, Thread.currentThread().getContextClassLoader());
         }
+        if (inputStream == null) {
+          inputStream = getResourceFromURL(resourceName);
+        }
 
         if (inputStream == null) {
           throw new FileNotFoundException(
-              "Was unable to find file, or resouce, \"" + resourceName + "\"");
+                  "Was unable to find file, or resource, \"" + resourceName + "\"");
         }
         try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, encoding))) {
           templateString = br.lines().collect(Collectors.joining("\n"));
@@ -60,5 +64,14 @@ public final class ResourceLoader {
       inputStream = classLoader.getResourceAsStream("/" + resourceName); // NOPMD
     }
     return inputStream;
+  }
+
+  private static InputStream getResourceFromURL(final String resourceName) {
+    try {
+      URL url = new URL(resourceName);
+      return url.openStream();
+    } catch (IOException e) {
+      return null;
+    }
   }
 }
