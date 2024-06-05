@@ -33,7 +33,7 @@ public final class ResourceLoader {
 
         if (inputStream == null) {
           throw new FileNotFoundException(
-              "Was unable to find file, or resouce, \"" + resourceName + "\"");
+                  "Was unable to find file, or resource, \"" + resourceName + "\"");
         }
         try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, encoding))) {
           templateString = br.lines().collect(Collectors.joining("\n"));
