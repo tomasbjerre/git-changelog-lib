@@ -2,6 +2,12 @@
 
 Changelog of git-changelog-lib.
 
+## 2.1.3 (2024-07-06)
+
+### Bug Fixes
+
+-  updating dependencies ([f0ef4](https://github.com/tomasbjerre/git-changelog-lib/commit/f0ef41d56530c6f) Tomas Bjerre)  
+
 ## 2.1.1 (2024-02-25)
 
 ### Bug Fixes
