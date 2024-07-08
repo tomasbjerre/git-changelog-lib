@@ -1,0 +1,265 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/tomasbjerre/git-changelog-lib/master/settings-schema.json",
+  "title": "Settings",
+  "description": "Settings for the Git Changelog Lib",
+  "type": "object",
+  "properties": {
+    "fromRepo": {
+      "description": "Folder where repo lives",
+      "type": "string"
+    },
+    "fromRevision": {
+      "description": "Include all commits to this revision. Any tag or branch name or commit hash. There is a constant for master here: reference{GitChangelogApiConstants#REF_MASTER}",
+      "$ref": "#/$defs/InclusivenessStrategy"
+    },
+    "fromRevisionStrategy": {
+      "$ref": "#/$defs/InclusivenessStrategy"
+    },
+    "toRevision": {
+      "description": "Include all commits to this revision. Any tag or branch name or commit hash. There is a constant for master here: reference{GitChangelogApiConstants#REF_MASTER}",
+      "type": "string"
+    },
+    "toRevisionStrategy": {
+      "$ref": "#/$defs/InclusivenessStrategy"
+    },
+    "ignoreTagsIfNameMatches": {
+      "description": "A regular expression that is evaluated on each tag. If it matches, the tag will be filtered out and not included in the changelog",  
+      "type": "string"
+    },
+    "ignoreCommitsIfMessageMatches": {
+      "description": "A regular expression that is evaluated on the commit message of each commit. If it matches, the commit will be filtered out and not included in the changelog.<br><br>To ignore tags created by Maven and Gradle release plugins, perhaps you want this: <br><code>^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*</code><br><br>Remember to escape it, if added to the json-file it would look like this:<br><code>^\\\\[maven-release-plugin\\\\].*|^\\\\[Gradle Release Plugin\\\\].*|^Merge.*</code>",
+      "type": "string"
+    },
+    "ignoreCommitsIfOlderThan": {
+      "description": "A date that is evaluated on the commit time of each commit. If the commit is older than the point in time given, then it will be filtered out and not included in the changelog. <br>See {@link SimpleDateFormat",
+      "type": "date-time"
+    },
+    "untaggedName": {
+      "description": " Some commits may not be included in any tag. Commits that not released yet may not be tagged. This is a \"virtual tag\", added to {@link Changelog#getTags()}, that includes those commits. A fitting value may be \"Next release\"",
+      "type": "string"
+    },
+    "templatePath": {
+      "description": "Path of template-file to use. It is a Mustache (https://mustache.github.io/) template. Supplied with the context of {@link Changelog}",
+      "type": "string"
+    },
+    "templateBaseDir": {
+      "description": "Path to the base directory for template partial files. If not null, handlebars will be configured with a FileTemplateLoader with this as base directory",
+      "type": "string"
+    },
+    "templateSuffix": {
+      "description": "The filename suffix of template partial files. Requires \"templateBaseDir\" to be set",
+      "type": "string"
+    },
+    "readableTagName": {
+      "description": "Your tags may look something like <code>git-changelog-maven-plugin-1.6</code>. But in the changelog you just want <code>1.6</code>. With this regular expression, the numbering can be extracted from the tag name.<br> <code>/([^-]+?)$</code>",
+      "type": "string"
+    },
+    "dateFormat": {
+      "description": "Format of dates, see {@link SimpleDateFormat}",
+      "type": "string"
+    },
+    "noIssueName": {
+      "description": "This is a \"virtual issue\" that is added to {@link Changelog#getIssues()}. It contains all commits that has no issue in the commit comment. This could be used as a \"wall of shame\" listing commiters that did not tag there commits with an issue",
+      "type": "string"
+    },
+    "timeZone": {
+      "description": "When date of commits are translated to a string, this timezone is used.<br> <code>UTC</code>",
+      "type": "string"
+    },
+    "removeIssueFromMessage": {
+      "description": "If true, the changelog will not contain the issue in the commit comment. If your changelog is grouped by issues, you may want this to be true. If not grouped by issue, perhaps false",
+      "type": "boolean"
+    },
+    "jiraEnabled": {
+      "description": "Use any configured feature with Jira",
+      "type": "boolean"
+    },
+    "jiraServer": {
+      "description": "URL pointing at your JIRA server. When configured, the {@link Issue#getTitle()} will be populated with title from JIRA.<br>  <code>https://jiraserver/jira</code>",
+      "type": "string",
+      "format": "uri-reference"
+    },
+    "jiraIssuePattern": {
+      "description": "Pattern to recognize JIRA:s. <code>\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b</code><br> <br> Or escaped if added to json-file:<br> <code>\\\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\\\b</code>",
+      "type": "string"
+    },
+    "jiraIssueAdditionalFields": {
+      "description": "Additional fields to load for the issues",
+      "type": "array",
+      "items": {
+          "type": "string"
+      }
+    },
+    "jiraUsername": {
+      "description": "Authenticate to JIRA",
+      "type": "string"
+    },
+    "jiraPassword": {
+      "description": "Authenticate to JIRA",
+      "type": "string"
+    },
+    "jiraToken": {
+      "description": "Authenticate to JIRA",
+      "type": "string"
+    },
+    "jiraBearer": {
+      "description": "Authenticate to JIRA",
+      "type": "string"
+    },
+    "redmineEnabled": {
+      "description": "Use any configured feature with Redmine",
+      "type": "boolean"
+    },
+    "redmineServer": {
+      "description": "URL pointing at your Redmine server. When configured, the {@link Issue#getTitle()} will be populated with title from Redmine.<br> <code>https://redmine/redmine</code>",
+      "type": "string",
+      "format": "uri-reference"
+    },
+    "redmineIssuePattern": {
+      "description": "Pattern to recognize Redmine:s. <code>#([0-9]+)</code>",
+      "type": "string"
+    },
+    "redmineUsername": {
+      "description": "Authenticate to Redmine",
+      "type": "string"
+    },
+    "redminePassword": {
+      "description": "Authenticate to Redmine",
+      "type": "string"
+    },
+    "redmineToken": {
+      "description": "Authenticate to Redmine whith API_KEY ",
+      "type": "string"
+    },
+    "gitHubEnabled": {
+      "description": "Use any configured feature with Github",
+      "type": "boolean"
+    },
+    "gitHubApi": {
+      "description": "URL pointing at GitHub API. When configured, the {@link Issue#getTitle()} will be populated with title from GitHub.<br> <code>https://api.github.com/repos/tomasbjerre/git-changelog-lib</code>",
+      "type": "string"
+    },
+    "gitHubToken": {
+      "description": "GitHub authentication token. Configure to avoid low rate limits imposed by GitHub in case you have a lot of issues and/or pull requests.<br> <code>https://api.github.com/repos/tomasbjerre/git-changelog-lib</code>",
+      "type": "string"
+    },
+    "gitHubIssuePattern": {
+      "description": "Pattern to recognize GitHub:s. <code>#([0-9]+)</code>",
+      "type": "string",
+      "format": "regex",
+      "default": "#([0-9]+)"
+    },
+    "customIssues": {
+      "description": "Custom issues are added to support any kind of issue management, perhaps something that is internal to your project. See {@link SettingsIssue}",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/SettingsIssue"
+      }
+    },
+    "extendedVariables": {
+      "description": "Extended variables is simply a key-value mapping of variables that are made available in the template. Is used, for example, by the Bitbucket plugin to supply some internal variables to the changelog context",
+      "type": "object",
+      "additionalProperties": { "type": "object" }
+    },
+    "extendedRestHeaders": {
+      "description": "Extended headers is simply a key-value mapping of headers that will be passed to REST request.Is used, for example, to bypass 2-factor authentication.",
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "ignoreCommitsWithoutIssue": {
+      "description": "Commits that don't have any issue in their commit message will not be included",
+      "type": "boolean"
+    },
+    "gitLabEnabled": {
+      "description": "Use any configured feature with Gitlab",
+      "type": "boolean"
+    },
+    "gitLabServer": {
+      "description": "GitLab server URL, like https://gitlab.com/",
+      "type": "string",
+      "format": "uri-reference",
+      "default": "https://gitlab.com/"
+    },
+    "gitLabToken": {
+      "description": "",
+      "type": "string"
+    },
+    "gitLabIssuePattern": {
+      "description": "Pattern to recognize GitLab:s. <code>#([0-9]+)</code>",
+      "type": "string",
+      "format": "regex",
+      "default": "#([0-9]+)"
+    },
+    "gitLabProjectName": {
+      "description": "",
+      "type": "string"
+    },
+    "semanticMajorPattern": {
+      "description": "Regular expression to use when determining next semantic version based on commits",
+      "type": "string",
+      "format": "regex"
+    },
+    "semanticMinorPattern": {
+      "description": "Regular expression to use when determining next semantic version based on commits",
+      "type": "string",
+      "format": "regex"
+    },
+    "semanticPatchPattern": {
+      "description": "Regular expression to use when determining next semantic version based on commits",
+      "type": "string",
+      "format": "regex"
+    },
+    "useIntegrations": {
+      "description": "Integrate with services to get more details about issues",
+      "type": "boolean"
+    },
+    "pathFilters": {
+      "description": "Path filters to use for filtering commits",
+      "type": "array",
+      "items": {
+          "type": "string"
+      }
+    },
+    "encoding": {
+      "description": "",
+      "type": "string",
+      "default": "UTF-8"
+    }
+  },
+  "$defs": {
+    "InclusivenessStrategy": {
+      "description": "This strategy will:\n<ul>\n<li>include the lower bound zero commit revision</li>\n<li>exclude lower bound non-zero commit revision</li>\n<li>include the upper bound revision</li>\n</ul>",
+      "type": "string",
+      "enum": ["INCLUSIVE", "EXCLUSIVE", "DEFAULT"]
+    },
+    "SettingsIssue": {
+      "description": "",
+      "type": "object",
+      "properties": {
+        "type": {
+            "description": "",
+            "enum": ["NOISSUE", "CUSTOM", "JIRA", "GITHUB", "GITLAB", "REDMINE"]
+          },
+        "name": {
+          "description": "Name of the issue manager. This is the {@link Issue#getName()}. Perhaps \"GitHub\" or \"JIRA\".",
+          "type": "string"
+        },
+        "title": {
+          "description": "Title of the issues. Optional and can, for example, be used when when grouping issues per issue type",
+          "type": "string"
+        },
+        "pattern": {
+          "description": "Regular expression that is evaluated in commit comment. If true, the commit is available in {@link Issue#getCommits()}",
+          "type": "string",
+          "format": "regex"
+        },
+        "link": {
+          "description": "Link pointing at the issue. It supports variables like:<br><code>${PATTERN_GROUP}</code><br><code>${PATTERN_GROUP_1}</code><br>",
+          "type": "string", 
+          "format": "uri-reference"
+        }
+      }
+    }
+  }
+}
