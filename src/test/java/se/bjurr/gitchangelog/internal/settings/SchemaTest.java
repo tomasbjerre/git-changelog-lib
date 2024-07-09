@@ -18,12 +18,13 @@ public class SchemaTest {
     }
     
     @Test
-    public void testSchema() throws MalformedURLException {
+    public void testThatAllExamplesAreValid() throws MalformedURLException {
         final Settings settings = Settings.fromFile(file.toURI().toURL());
     }
     
     @Parameters
-    public static File[] data() {
-        return new File("src/test/resources/settings").listFiles();
+    public static File[] getExampleSettings() {
+        return new File("src/test/resources/settings")
+                .listFiles(file -> file.isFile() && file.getName().endsWith(".json"));
     }
 }
