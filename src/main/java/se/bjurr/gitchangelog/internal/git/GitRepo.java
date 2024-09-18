@@ -156,7 +156,7 @@ public class GitRepo implements Closeable {
     }
   }
 
-  public Optional<ObjectId> findRef(final String findRef, final boolean exact) {
+  public Optional<ObjectId> findRef(final String findRef, final boolean exact) throws IOException {
     for (final Ref foundRef : this.getAllRefs().values()) {
       final boolean match = this.isMatching(findRef, exact, foundRef);
       if (match) {
@@ -167,8 +167,8 @@ public class GitRepo implements Closeable {
     return Optional.empty();
   }
 
-  private Optional<ObjectId> getPeeledObjectId(final Ref ref) {
-    final Ref peeledRef = this.repository.peel(ref);
+  private Optional<ObjectId> getPeeledObjectId(final Ref ref) throws IOException {
+    final Ref peeledRef = this.repository.getRefDatabase().peel(ref);
     if (peeledRef.getPeeledObjectId() != null) {
       return Optional.of(peeledRef.getPeeledObjectId());
     } else {
@@ -256,7 +256,7 @@ public class GitRepo implements Closeable {
   }
 
   private Map<String, RevTag> getAnnotatedTagPerTagName(
-      final Optional<String> ignoreTagsIfNameMatches, final List<Ref> tagList) {
+      final Optional<String> ignoreTagsIfNameMatches, final List<Ref> tagList) throws IOException {
     final Map<String, RevTag> tagPerCommit = new TreeMap<>();
     for (final Ref tag : tagList) {
       if (ignoreTagsIfNameMatches.isPresent()) {
@@ -264,7 +264,7 @@ public class GitRepo implements Closeable {
           continue;
         }
       }
-      final Ref peeledTag = this.repository.peel(tag);
+      final Ref peeledTag = this.repository.getRefDatabase().peel(tag);
       if (peeledTag.getPeeledObjectId() != null) {
         try {
           final RevTag revTag = RevTag.parse(this.repository.open(tag.getObjectId()).getBytes());
@@ -317,8 +317,8 @@ public class GitRepo implements Closeable {
     return this.pathFilters != null && !this.pathFilters.isEmpty();
   }
 
-  private ObjectId getPeeled(final Ref tag) {
-    final Ref peeledTag = this.repository.peel(tag);
+  private ObjectId getPeeled(final Ref tag) throws IOException {
+    final Ref peeledTag = this.repository.getRefDatabase().peel(tag);
     if (peeledTag.getPeeledObjectId() != null) {
       return peeledTag.getPeeledObjectId();
     } else {
@@ -330,9 +330,9 @@ public class GitRepo implements Closeable {
     return refs.stream()
         .sorted(
             (final Ref o1, final Ref o2) -> {
-              final RevCommit revCommit1 =
-                  GitRepo.this.revWalk.lookupCommit(GitRepo.this.getPeeled(o1));
               try {
+                final RevCommit revCommit1 =
+                    GitRepo.this.revWalk.lookupCommit(GitRepo.this.getPeeled(o1));
                 GitRepo.this.revWalk.parseHeaders(revCommit1);
                 final RevCommit revCommit2 =
                     GitRepo.this.revWalk.lookupCommit(GitRepo.this.getPeeled(o2));
@@ -341,7 +341,7 @@ public class GitRepo implements Closeable {
                     .toGitCommit(revCommit1)
                     .compareTo(GitRepo.this.toGitCommit(revCommit2));
               } catch (final Exception e) {
-                throw new RuntimeException(e);
+                throw new RuntimeException(e.getMessage(), e);
               }
             })
         .collect(toList());
@@ -352,7 +352,7 @@ public class GitRepo implements Closeable {
   }
 
   private Map<String, Ref> getTagPerCommitHash(
-      final Optional<String> ignoreTagsIfNameMatches, final List<Ref> tagList) {
+      final Optional<String> ignoreTagsIfNameMatches, final List<Ref> tagList) throws IOException {
     final Map<String, Ref> tagPerCommit = new TreeMap<>();
     for (final Ref tag : tagList) {
       if (ignoreTagsIfNameMatches.isPresent()) {
@@ -617,7 +617,8 @@ public class GitRepo implements Closeable {
   }
 
   private boolean shouldInclude(final RevCommit candidate) throws Exception {
-    // If we use a path filter we can't skip parent commits, as their grandparents might be included
+    // If we use a path filter we can't skip parent commits, as their grandparents
+    // might be included
     // again
     return this.hasPathFilter() || this.commitsToInclude.contains(candidate);
   }
