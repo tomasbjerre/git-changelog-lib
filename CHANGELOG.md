@@ -2,6 +2,16 @@
 
 Changelog of git-changelog-lib.
 
+## 2.2.0 (2024-09-18)
+
+### Features
+
+-  add json schema for settings validation ([26701](https://github.com/tomasbjerre/git-changelog-lib/commit/267017f2700fded) David Larochette)  
+
+### Bug Fixes
+
+-  avoiding some deprecated methods in JGit and updating to JGit 7 ([c9d24](https://github.com/tomasbjerre/git-changelog-lib/commit/c9d24415c97dc24) Tomas Bjerre)  
+
 ## 2.1.3 (2024-07-06)
 
 ### Bug Fixes
