@@ -24,7 +24,7 @@
       "$ref": "#/$defs/InclusivenessStrategy"
     },
     "ignoreTagsIfNameMatches": {
-      "description": "A regular expression that is evaluated on each tag. If it matches, the tag will be filtered out and not included in the changelog",  
+      "description": "A regular expression that is evaluated on each tag. If it matches, the tag will be filtered out and not included in the changelog",
       "type": "string"
     },
     "ignoreCommitsIfMessageMatches": {
@@ -88,7 +88,7 @@
       "description": "Additional fields to load for the issues",
       "type": "array",
       "items": {
-          "type": "string"
+        "type": "string"
       }
     },
     "jiraUsername": {
@@ -160,12 +160,16 @@
     "extendedVariables": {
       "description": "Extended variables is simply a key-value mapping of variables that are made available in the template. Is used, for example, by the Bitbucket plugin to supply some internal variables to the changelog context",
       "type": "object",
-      "additionalProperties": { "type": "object" }
+      "additionalProperties": {
+        "type": "object"
+      }
     },
     "extendedRestHeaders": {
       "description": "Extended headers is simply a key-value mapping of headers that will be passed to REST request.Is used, for example, to bypass 2-factor authentication.",
       "type": "object",
-      "additionalProperties": { "type": "string" }
+      "additionalProperties": {
+        "type": "string"
+      }
     },
     "ignoreCommitsWithoutIssue": {
       "description": "Commits that don't have any issue in their commit message will not be included",
@@ -218,7 +222,7 @@
       "description": "Path filters to use for filtering commits",
       "type": "array",
       "items": {
-          "type": "string"
+        "type": "string"
       }
     },
     "encoding": {
@@ -231,16 +235,27 @@
     "InclusivenessStrategy": {
       "description": "This strategy will:\n<ul>\n<li>include the lower bound zero commit revision</li>\n<li>exclude lower bound non-zero commit revision</li>\n<li>include the upper bound revision</li>\n</ul>",
       "type": "string",
-      "enum": ["INCLUSIVE", "EXCLUSIVE", "DEFAULT"]
+      "enum": [
+        "INCLUSIVE",
+        "EXCLUSIVE",
+        "DEFAULT"
+      ]
     },
     "SettingsIssue": {
       "description": "",
       "type": "object",
       "properties": {
         "type": {
-            "description": "",
-            "enum": ["NOISSUE", "CUSTOM", "JIRA", "GITHUB", "GITLAB", "REDMINE"]
-          },
+          "description": "",
+          "enum": [
+            "NOISSUE",
+            "CUSTOM",
+            "JIRA",
+            "GITHUB",
+            "GITLAB",
+            "REDMINE"
+          ]
+        },
         "name": {
           "description": "Name of the issue manager. This is the {@link Issue#getName()}. Perhaps \"GitHub\" or \"JIRA\".",
           "type": "string"
@@ -256,7 +271,7 @@
         },
         "link": {
           "description": "Link pointing at the issue. It supports variables like:<br><code>${PATTERN_GROUP}</code><br><code>${PATTERN_GROUP_1}</code><br>",
-          "type": "string", 
+          "type": "string",
           "format": "uri-reference"
         }
       }

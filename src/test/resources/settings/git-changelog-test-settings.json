@@ -1,33 +1,47 @@
 {
- "fromRepo": ".",
- "fromRevision": "0000000000000000000000000000000000000000",
- "fromRevisionStrategy": "DEFAULT",
- "toRevision": "test",
- "toRevisionStrategy": "DEFAULT",
- "ignoreCommitsIfMessageMatches": "^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*",
- "ignoreTagsIfNameMatches": ".*tag-in-test-feature$",
- "readableTagName": "/([^/]+?)$",
- "dateFormat": "YYYY-MM-dd HH:mm:ss",
- "untaggedName": "No tag",
- "noIssueName": "No issue supplied",
- "ignoreCommitsWithoutIssue": "false",
- "templatePath": "git-changelog-template.mustache",
- "timeZone": "UTC",
- "removeIssueFromMessage": "true",
- "jiraEnabled": true,
- "jiraServer": "https://jiraserver/jira",
- "jiraIssuePattern": "\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b",
- "jiraUsername": "user",
- "jiraPassword": "code",
- "redmineEnabled": true,
- "gitHubEnabled": true,
- "gitHubApi": "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
- "gitHubIssuePattern": "#([0-9]+)",
- "gitLabEnabled": true,
- "useIntegrations": false,
- "customIssues": [
-  { "name": "Incidents", "title": "${PATTERN_GROUP_1}", "pattern": "INC([0-9]*)", "link": "http://inc/${PATTERN_GROUP}" },
-  { "name": "CQ", "title": "${PATTERN_GROUP_1}", "pattern": "CQ([0-9]+)", "link": "http://cq/${PATTERN_GROUP_1}" },
-  { "name": "Bugs", "title": "Mixed bugs", "pattern": "#bug" }
- ]
+  "fromRepo": ".",
+  "fromRevision": "0000000000000000000000000000000000000000",
+  "fromRevisionStrategy": "DEFAULT",
+  "toRevision": "test",
+  "toRevisionStrategy": "DEFAULT",
+  "ignoreCommitsIfMessageMatches": "^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*",
+  "ignoreTagsIfNameMatches": ".*tag-in-test-feature$",
+  "readableTagName": "/([^/]+?)$",
+  "dateFormat": "YYYY-MM-dd HH:mm:ss",
+  "untaggedName": "No tag",
+  "noIssueName": "No issue supplied",
+  "ignoreCommitsWithoutIssue": "false",
+  "templatePath": "git-changelog-template.mustache",
+  "timeZone": "UTC",
+  "removeIssueFromMessage": "true",
+  "jiraEnabled": true,
+  "jiraServer": "https://jiraserver/jira",
+  "jiraIssuePattern": "\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b",
+  "jiraUsername": "user",
+  "jiraPassword": "code",
+  "redmineEnabled": true,
+  "gitHubEnabled": true,
+  "gitHubApi": "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
+  "gitHubIssuePattern": "#([0-9]+)",
+  "gitLabEnabled": true,
+  "useIntegrations": false,
+  "customIssues": [
+    {
+      "name": "Incidents",
+      "title": "${PATTERN_GROUP_1}",
+      "pattern": "INC([0-9]*)",
+      "link": "http://inc/${PATTERN_GROUP}"
+    },
+    {
+      "name": "CQ",
+      "title": "${PATTERN_GROUP_1}",
+      "pattern": "CQ([0-9]+)",
+      "link": "http://cq/${PATTERN_GROUP_1}"
+    },
+    {
+      "name": "Bugs",
+      "title": "Mixed bugs",
+      "pattern": "#bug"
+    }
+  ]
 }

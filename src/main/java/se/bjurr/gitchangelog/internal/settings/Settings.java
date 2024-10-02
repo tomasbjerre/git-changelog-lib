@@ -105,6 +105,12 @@ public class Settings implements Serializable {
   private String templatePath;
 
   /**
+   * Path of template-file to use when prepending. It is a Mustache (https://mustache.github.io/)
+   * template. Supplied with the context of {@link Changelog}.
+   */
+  private String prependTemplatePath;
+
+  /**
    * Path to the base directory for template partial files. If not null, handlebars will be
    * configured with a FileTemplateLoader with this as base directory.
    */
@@ -436,8 +442,16 @@ public class Settings implements Serializable {
     return ofNullable(this.templatePath).orElse("changelog.mustache");
   }
 
+  public String getPrependTemplatePath() {
+    return ofNullable(this.prependTemplatePath).orElse("changelog-prepend.mustache");
+  }
+
   public void setTemplatePath(final String templatePath) {
     this.templatePath = templatePath;
+  }
+
+  public void setPrependTemplatePath(final String templatePath) {
+    this.prependTemplatePath = templatePath;
   }
 
   public String getTemplateBaseDir() {
@@ -806,6 +820,7 @@ public class Settings implements Serializable {
         this.pathFilters,
         this.templateBaseDir,
         this.templatePath,
+        this.prependTemplatePath,
         this.templateSuffix,
         this.timeZone,
         this.toRevision,
@@ -870,6 +885,7 @@ public class Settings implements Serializable {
         && Objects.equals(this.pathFilters, other.pathFilters)
         && Objects.equals(this.templateBaseDir, other.templateBaseDir)
         && Objects.equals(this.templatePath, other.templatePath)
+        && Objects.equals(this.prependTemplatePath, other.prependTemplatePath)
         && Objects.equals(this.templateSuffix, other.templateSuffix)
         && Objects.equals(this.timeZone, other.timeZone)
         && Objects.equals(this.toRevision, other.toRevision)
@@ -900,6 +916,8 @@ public class Settings implements Serializable {
         + this.untaggedName
         + ", templatePath="
         + this.templatePath
+        + ", prependTemplatePath="
+        + this.prependTemplatePath
         + ", templateBaseDir="
         + this.templateBaseDir
         + ", templateSuffix="

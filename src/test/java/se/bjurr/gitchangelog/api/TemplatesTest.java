@@ -216,6 +216,12 @@ public class TemplatesTest {
   }
 
   @Test
+  public void testOnlyLastTag() throws Exception {
+    final GitChangelogApi given = this.baseBuilder.withTemplatePath("changelog-prepend.mustache");
+    ApprovalsWrapper.verify(given);
+  }
+
+  @Test
   public void testTagsIssuesAuthorsCommits() throws Exception {
     final GitChangelogApi given =
         this.baseBuilder.withTemplatePath(

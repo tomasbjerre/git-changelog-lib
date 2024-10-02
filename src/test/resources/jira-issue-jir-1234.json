@@ -1,20 +1,19 @@
 {
- "expand":"renderedFields,names,schema,transitions,operations,editmeta,changelog",
- "id":"139925",
- "self":"https://domain/jira/rest/api/2/issue/139925",
- "key":"JIR-1234",
- "fields":{
-  "customfield_10000":"Custom Field 10000 for jira 1234",
-  "summary":"Title of jira 1234",
-  "issuetype": {
-   "name": "Bug"
-  },
-  "description": "Description",
-  "issuelinks": [],
-  "labels":[
-   "label1",
-   "label2"
-  ]
- }
+  "expand": "renderedFields,names,schema,transitions,operations,editmeta,changelog",
+  "id": "139925",
+  "self": "https://domain/jira/rest/api/2/issue/139925",
+  "key": "JIR-1234",
+  "fields": {
+    "customfield_10000": "Custom Field 10000 for jira 1234",
+    "summary": "Title of jira 1234",
+    "issuetype": {
+      "name": "Bug"
+    },
+    "description": "Description",
+    "issuelinks": [],
+    "labels": [
+      "label1",
+      "label2"
+    ]
+  }
 }
-

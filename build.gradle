@@ -1,37 +1,24 @@
-apply plugin: 'java-library'
-
-buildscript {
- repositories {
-  mavenCentral()
-  mavenLocal()
- }
- dependencies {
-  classpath 'se.bjurr.gradle:gradle-scripts:2.+'
- }
+plugins {
+	id "se.bjurr.gradle.conventional-release" version "0.+"
+	id "se.bjurr.gradle.update-versions" version "0.+"
+	id "se.bjurr.gradle.java-convention" version "0.+"
 }
-project.ext.buildConfig = [
-  staticCodeAnalysis: [
-    maxViolations: 0
-  ]
-]
-apply from: project.buildscript.classLoader.getResource('main.gradle').toURI()
-
 
 dependencies {
- api 'com.github.jknack:handlebars:4.4.0'
+	api 'com.github.jknack:handlebars:4.4.0'
 
- implementation 'com.squareup.retrofit2:retrofit:2.11.0'
- implementation 'com.squareup.retrofit2:converter-gson:2.11.0'
- implementation 'com.jayway.jsonpath:json-path:2.9.0'
- implementation 'org.eclipse.jgit:org.eclipse.jgit:7.0.0.202409031743-r'
- implementation 'org.gitlab:java-gitlab-api:4.1.1'
- implementation 'com.fasterxml.jackson.core:jackson-core:2.17.2'
- implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.2'
- implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.17.2'
+	implementation 'com.squareup.retrofit2:retrofit:2.11.0'
+	implementation 'com.squareup.retrofit2:converter-gson:2.11.0'
+	implementation 'com.jayway.jsonpath:json-path:2.9.0'
+	implementation 'org.eclipse.jgit:org.eclipse.jgit:7.0.0.202409031743-r'
+	implementation 'org.gitlab:java-gitlab-api:4.1.1'
+	implementation 'com.fasterxml.jackson.core:jackson-core:2.17.2'
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.2'
+	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.17.2'
 
- testImplementation 'org.slf4j:slf4j-simple:1.8.0-beta2'
- testImplementation 'junit:junit:4.13.2'
- testImplementation 'org.assertj:assertj-core:3.26.3'
- testImplementation 'com.approvaltests:approvaltests:24.5.0'
- testImplementation 'org.mockito:mockito-core:5.13.0'
+	testImplementation 'org.slf4j:slf4j-simple:1.8.0-beta2'
+	testImplementation 'junit:junit:4.13.2'
+	testImplementation 'org.assertj:assertj-core:3.26.3'
+	testImplementation 'com.approvaltests:approvaltests:24.5.0'
+	testImplementation 'org.mockito:mockito-core:5.13.0'
 }

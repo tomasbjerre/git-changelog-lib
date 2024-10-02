@@ -1,31 +1,40 @@
 {
- "fromRepo": ".",
- "fromCommit": "0000000000000000000000000000000000000000",
- "toRef": "refs/heads/master",
- 
- "ignoreCommitsIfMessageMatches": "^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*",
- "readableTagName": "/([^/]+?)$",
- "dateFormat": "YYYY-MM-dd HH:mm:ss",
- "untaggedName": "Next release",
- "noIssueName": "Other changes",
- "ignoreCommitsWithoutIssue": "false",
- "timeZone": "UTC",
- "removeIssueFromMessage": "true",
-
- "jiraServer": "https://jiraserver/jira",
- "jiraIssuePattern": "\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b",
-
- "gitHubApi": "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
- "gitHubIssuePattern": "#([0-9]+)",
-
- "gitLabServer": "https://gitlab.com/",
- "gitLabToken": "",
- "gitLabIssuePattern": "",
- "gitLabProjectName": "",
-
- "customIssues": [
-  { "name": "Incidents", "title": "${PATTERN_GROUP_1}", "pattern": "INC([0-9]*)", "link": "http://inc/${PATTERN_GROUP}" },
-  { "name": "CQ", "title": "${PATTERN_GROUP_1}", "pattern": "CQ([0-9]+)", "link": "http://cq/${PATTERN_GROUP_1}" },
-  { "name": "Bugs", "title": "Mixed bugs", "pattern": "#bug" }
- ]
+  "fromRepo": ".",
+  "fromCommit": "0000000000000000000000000000000000000000",
+  "toRef": "refs/heads/master",
+  "ignoreCommitsIfMessageMatches": "^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*",
+  "readableTagName": "/([^/]+?)$",
+  "dateFormat": "YYYY-MM-dd HH:mm:ss",
+  "untaggedName": "Next release",
+  "noIssueName": "Other changes",
+  "ignoreCommitsWithoutIssue": "false",
+  "timeZone": "UTC",
+  "removeIssueFromMessage": "true",
+  "jiraServer": "https://jiraserver/jira",
+  "jiraIssuePattern": "\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b",
+  "gitHubApi": "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
+  "gitHubIssuePattern": "#([0-9]+)",
+  "gitLabServer": "https://gitlab.com/",
+  "gitLabToken": "",
+  "gitLabIssuePattern": "",
+  "gitLabProjectName": "",
+  "customIssues": [
+    {
+      "name": "Incidents",
+      "title": "${PATTERN_GROUP_1}",
+      "pattern": "INC([0-9]*)",
+      "link": "http://inc/${PATTERN_GROUP}"
+    },
+    {
+      "name": "CQ",
+      "title": "${PATTERN_GROUP_1}",
+      "pattern": "CQ([0-9]+)",
+      "link": "http://cq/${PATTERN_GROUP_1}"
+    },
+    {
+      "name": "Bugs",
+      "title": "Mixed bugs",
+      "pattern": "#bug"
+    }
+  ]
 }

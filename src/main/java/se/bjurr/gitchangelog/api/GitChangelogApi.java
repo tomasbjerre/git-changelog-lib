@@ -100,9 +100,11 @@ public final class GitChangelogApi {
   /**
    * Get the changelog.
    *
+   * @param prepend
    * @throws GitChangelogRepositoryException
    */
-  public void render(final Writer writer) throws GitChangelogRepositoryException {
+  public void render(final Writer writer, final boolean prepend)
+      throws GitChangelogRepositoryException {
     final String templateString = this.getTemplateString();
 
     if (this.settings.getTemplateBaseDir() != null) {
@@ -133,18 +135,32 @@ public final class GitChangelogApi {
   }
 
   public String getTemplateString() {
+    return this.getTemplateString(false);
+  }
+
+  public String getTemplateString(final boolean prepend) {
     if (this.templateContent != null) {
       return this.templateContent;
     }
-    final String resourceName = this.settings.getTemplatePath();
+    final String resourceName =
+        prepend ? this.settings.getPrependTemplatePath() : this.settings.getTemplatePath();
     return ResourceLoader.getResourceOrFile(resourceName, this.settings.getEncoding());
   }
 
   /** Get the changelog. */
   @SuppressFBWarnings("PATH_TRAVERSAL_IN")
   public String render() throws GitChangelogRepositoryException {
+    return this.render(false);
+  }
+
+  /**
+   * Get the changelog. There is a different default changelog when prepending which is why it can
+   * be supplied
+   */
+  @SuppressFBWarnings("PATH_TRAVERSAL_IN")
+  public String render(final boolean prepend) throws GitChangelogRepositoryException {
     final Writer writer = new StringWriter();
-    this.render(writer);
+    this.render(writer, prepend);
     return writer.toString();
   }
 
@@ -172,7 +188,7 @@ public final class GitChangelogApi {
       return;
     }
 
-    final byte[] bytesToPrepend = this.render().getBytes(this.settings.getEncoding());
+    final byte[] bytesToPrepend = this.render(true).getBytes(this.settings.getEncoding());
     final byte[] originalBytes = Files.readAllBytes(file.toPath());
 
     try (final OutputStream outputStream = Files.newOutputStream(file.toPath())) {
