@@ -443,7 +443,7 @@ public class GitChangelogApiTest {
         .withEncoding(charsetToTest)
         .withFromCommit(ZERO_COMMIT)
         .withToRef("1.71")
-        .withTemplatePath(isoFile1.toFile().getAbsolutePath())
+        .withPrependTemplatePath(isoFile1.toFile().getAbsolutePath())
         .prependToFile(isoFile2.toFile());
 
     final byte[] renderedContent = Files.readAllBytes(isoFile2);

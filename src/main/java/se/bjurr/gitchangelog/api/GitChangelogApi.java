@@ -105,7 +105,7 @@ public final class GitChangelogApi {
    */
   public void render(final Writer writer, final boolean prepend)
       throws GitChangelogRepositoryException {
-    final String templateString = this.getTemplateString();
+    final String templateString = this.getTemplateString(prepend);
 
     if (this.settings.getTemplateBaseDir() != null) {
       this.handlebars.with(
@@ -639,6 +639,15 @@ public final class GitChangelogApi {
    */
   public GitChangelogApi withTemplatePath(final String templatePath) {
     this.settings.setTemplatePath(templatePath);
+    return this;
+  }
+
+  /**
+   * Path of template-file to use when prepending. It is a Mustache (https://mustache.github.io/)
+   * template. Supplied with the context of {@link Changelog}.
+   */
+  public GitChangelogApi withPrependTemplatePath(final String templatePath) {
+    this.settings.setPrependTemplatePath(templatePath);
     return this;
   }
 
