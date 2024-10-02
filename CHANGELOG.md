@@ -2,6 +2,12 @@
 
 Changelog of git-changelog-lib.
 
+## 2.3.2 (2024-10-02)
+
+### Bug Fixes
+
+-  was using wrong template when prepending ([ffd7e](https://github.com/tomasbjerre/git-changelog-lib/commit/ffd7e967bc1cbbb) Tomas Bjerre)  
+
 ## 2.3.1 (2024-10-02)
 
 ### Bug Fixes
