@@ -2,6 +2,23 @@
 
 Changelog of git-changelog-lib.
 
+## 2.3.1 (2024-10-02)
+
+### Bug Fixes
+
+-  build script ([dc8d1](https://github.com/tomasbjerre/git-changelog-lib/commit/dc8d1aa942a4afa) Tomas Bjerre)  
+
+## 2.3.0 (2024-10-02)
+
+### Features
+
+-  use special default template when prepending ([2c6c9](https://github.com/tomasbjerre/git-changelog-lib/commit/2c6c9c70c1ab82a) Tomas Bjerre)  [#187](https://github.com/tomasbjerre/git-changelog-lib/issues/187)  
+
+### Bug Fixes
+
+-  build script ([5d071](https://github.com/tomasbjerre/git-changelog-lib/commit/5d071b502bfd3b5) Tomas Bjerre)  
+-  build script ([6f83c](https://github.com/tomasbjerre/git-changelog-lib/commit/6f83c43c845d968) Tomas Bjerre)  
+
 ## 2.2.0 (2024-09-18)
 
 ### Features
