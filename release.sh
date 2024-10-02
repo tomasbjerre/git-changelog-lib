@@ -7,7 +7,7 @@ set -x
 
 nextVersion=$(npx git-changelog-command-line \
  --print-next-version) \
- && ./gradlew release -Pversion=$nextVersion \
+ && ./gradlew release -Dorg.gradle.project.version=$nextVersion \
  && git commit -a -m "chore(release): ${nextVersion} [GRADLE SCRIPT]" \
  && git push --follow-tags \
  && npx git-changelog-command-line \
