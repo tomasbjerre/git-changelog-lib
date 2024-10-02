@@ -2,7 +2,7 @@
 set -x
 
 #
-# Getting classpath issues when using this lib together with git-changelog-gradle-plugin
+# Getting classpath issues when using this together with git-changelog-gradle-plugin
 #
 
 nextVersion=$(npx git-changelog-command-line \
