@@ -16,6 +16,12 @@ The changelog can:
 
 It can integrate with Jira, Redmine, GitLab and/or GitHub to retrieve the title of issues.
 
+| Version                  | Java Version |
+| ------------------------ | ------------ |
+| version < 2.0.0          | 8            |
+| 2.0.0 <= version < 2.2.0 | 11           |
+| 2.2.0 <= version         | 17           |
+
 ## Usage
 
 This software can be used:
