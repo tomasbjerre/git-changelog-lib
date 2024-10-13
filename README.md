@@ -24,14 +24,15 @@ It can integrate with Jira, Redmine, GitLab and/or GitHub to retrieve the title 
 
 ## Usage
 
-This software can be used:
+This software can be used with:
 
-- With a [Gradle plugin](https://github.com/tomasbjerre/git-changelog-gradle-plugin).
-- With a [Maven plugin](https://github.com/tomasbjerre/git-changelog-maven-plugin).
-- With a [Jenkins plugin](https://github.com/jenkinsci/git-changelog-plugin).
-- From [command line](https://github.com/tomasbjerre/git-changelog-command-line).
-- From [Docker](https://hub.docker.com/r/tomasbjerre/git-changelog-command-line).
-- As a library [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22git-changelog-lib%22).
+- A [Gradle plugin](https://github.com/tomasbjerre/git-changelog-gradle-plugin).
+- A [Maven plugin](https://github.com/tomasbjerre/git-changelog-maven-plugin).
+- A [Jenkins plugin](https://github.com/jenkinsci/git-changelog-plugin).
+- A [command line tool](https://github.com/tomasbjerre/git-changelog-command-line).
+- A [Docker image](https://hub.docker.com/r/tomasbjerre/git-changelog-command-line).
+- A [GitHub Action](https://github.com/tomasbjerre/git-changelog-github-release)
+- A [library](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22git-changelog-lib%22).
 
 There are examples of different templates [in the code](/src/test/resources) that are used for testing.
 
