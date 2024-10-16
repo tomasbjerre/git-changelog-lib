@@ -1,3 +1,9 @@
+## 2.4.1 (2024-10-16)
+
+### Bug Fixes
+
+-  deps in default changelog template ([4190a](https://github.com/tomasbjerre/git-changelog-lib/commit/4190a01be1a07a5) Tomas Bjerre)  
+
 ## 2.4.0 (2024-10-16)
 
 ### Features
