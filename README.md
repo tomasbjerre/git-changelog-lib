@@ -244,6 +244,26 @@ Conditional, renders a block if given `List<Commits>` contains given `type`.
 {{/ifContainsType}}
 ```
 
+### `ifContainsScope <List<Commit>>`
+
+Conditional, renders a block if given `List<Commits>` contains given `scope`.
+
+```hbs
+{{#ifContainsScope commits scope="deps"}}
+  commits contains deps
+{{/ifContainsScope}}
+```
+
+### `ifContainsTypeAndScope <List<Commit>>`
+
+Conditional, renders a block if given `List<Commits>` contains given `type` and `scope`.
+
+```hbs
+{{#ifContainsTypeAndScope commits type="chore" scope="deps"}}
+  commits contains chore with deps
+{{/ifContainsScope}}
+```
+
 ### `ifContainsTypeOtherThan <List<Commit>>`
 
 Conditional, renders a block if given `List<Commits>` contains commits that don't match the given `type`.

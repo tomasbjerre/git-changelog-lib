@@ -31,7 +31,18 @@
 {{/commits}}
 
 {{/ifContainsType}}
-{{#ifContainsType commits type='^($|(?!fix|feat|breaking))'}}
+{{#ifContainsTypeAndScope commits type="chore" scope="deps"}}
+### Dependency updates
+
+{{#commits}}
+{{#ifCommitType . type="feat"}}
+{{#ifCommitScope . scope="utils"}}
+- {{{commitDescription .}}} ([{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}}) {{#eachCommitRefs .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitRefs}} {{#eachCommitFixes .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitFixes}}
+{{/ifCommitScope}}
+{{/ifCommitType}}
+{{/commits}}
+{{/ifContainsTypeAndScope}}
+{{#ifContainsType commits type='^($^|(?!fix|feat|breaking|chore).*)'}}
 ### Other changes
 
 {{#commits}}

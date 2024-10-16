@@ -133,6 +133,24 @@ public class ConventionalCommitParser {
     return false;
   }
 
+  public static boolean containsScope(final List<Commit> commits, final Options options) {
+    for (final Commit commit : commits) {
+      if (commitScope(commit.getMessage(), options)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public static boolean containsTypeAndScope(final List<Commit> commits, final Options options) {
+    for (final Commit commit : commits) {
+      if (commitType(commit.getMessage(), options) && commitScope(commit.getMessage(), options)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   public static boolean containsTypeOtherThan(final List<Commit> commits, final Options options) {
     for (final Commit commit : commits) {
       if (!commitType(commit.getMessage(), options)) {
@@ -207,6 +225,11 @@ public class ConventionalCommitParser {
   public static boolean commitType(final String commitMessage, final Options options) {
     final String type = options.hash("type");
     return getType(commitMessage).matches(type);
+  }
+
+  public static boolean commitScope(final String commitMessage, final Options options) {
+    final String scope = options.hash("scope");
+    return commitScopes(commitMessage).contains(scope);
   }
 
   private static String getType(final String commitMessage) {

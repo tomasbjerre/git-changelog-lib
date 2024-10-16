@@ -43,6 +43,19 @@ ifMatches and subString:
  {{/ifContainsBreaking}}
 
 
+## feat utils:
+ {{#ifContainsTypeAndScope commits type="feat" scope="utils"}}
+  feat and utils exist!
+  {{#commits}}
+   {{#ifCommitType . type="feat"}}
+	{{#ifCommitScope . scope="utils"}}
+	 is feat and utils: {{hash}}
+	{{/ifCommitScope}}
+   {{/ifCommitType}}
+  {{/commits}}
+ {{/ifContainsTypeAndScope}}
+
+
 ## Footers
 {{#commits}}
 {{#ifCommitHasFooters}}
@@ -239,6 +252,11 @@ ifMatches and subString:
     is breaking: 78348fda6cd6d6f 
     is breaking: 1ec1b3038858387 
     is breaking: 2abbccdf2039e7c 
+
+
+## feat utils:
+  feat and utils exist!
+	 is feat and utils: 5fb068c6ccad741
 
 
 ## Footers

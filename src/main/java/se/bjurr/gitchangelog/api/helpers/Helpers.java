@@ -12,7 +12,9 @@ import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.c
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsIssueLabelOtherThan;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsIssueType;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsIssueTypeOtherThan;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsScope;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsType;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsTypeAndScope;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsTypeOtherThan;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.getDate;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.getMessageParts;
@@ -86,6 +88,16 @@ public class Helpers {
         "ifContainsType",
         (final List<Commit> commits, final Options options) -> {
           return conditional(options, containsType(commits, options));
+        });
+    helpers.put(
+        "ifContainsScope",
+        (final List<Commit> commits, final Options options) -> {
+          return conditional(options, containsScope(commits, options));
+        });
+    helpers.put(
+        "ifContainsTypeAndScope",
+        (final List<Commit> commits, final Options options) -> {
+          return conditional(options, containsTypeAndScope(commits, options));
         });
     helpers.put(
         "ifContainsTypeOtherThan",
