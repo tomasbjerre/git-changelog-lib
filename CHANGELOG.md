@@ -1,3 +1,9 @@
+## 2.4.0 (2024-10-16)
+
+### Features
+
+-  scope helpers to support chore(deps) ([ef0c6](https://github.com/tomasbjerre/git-changelog-lib/commit/ef0c63e65bebbee) Tomas Bjerre)  
+
 # git-changelog-lib changelog
 
 Changelog of git-changelog-lib.
