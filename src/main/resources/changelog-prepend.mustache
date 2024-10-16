@@ -35,8 +35,8 @@
 ### Dependency updates
 
 {{#commits}}
-{{#ifCommitType . type="feat"}}
-{{#ifCommitScope . scope="utils"}}
+{{#ifCommitType . type="chore"}}
+{{#ifCommitScope . scope="deps"}}
 - {{{commitDescription .}}} ([{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}}) {{#eachCommitRefs .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitRefs}} {{#eachCommitFixes .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitFixes}}
 {{/ifCommitScope}}
 {{/ifCommitType}}
