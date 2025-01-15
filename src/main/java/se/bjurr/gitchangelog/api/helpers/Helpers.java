@@ -32,6 +32,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
+import se.bjurr.gitchangelog.api.model.Changelog;
 import se.bjurr.gitchangelog.api.model.Commit;
 import se.bjurr.gitchangelog.api.model.Issue;
 import se.bjurr.gitchangelog.api.model.Tag;
@@ -236,6 +237,12 @@ public class Helpers {
         "ifFooterHasValue",
         (final Footer footer, final Options options) -> {
           return conditional(options, !footer.value.trim().isEmpty());
+        });
+
+    helpers.put(
+        "eachUrlPart",
+        (final Changelog changelog, final Options options) -> {
+          return each(options, changelog.getUrlParts());
         });
     return helpers;
   }
