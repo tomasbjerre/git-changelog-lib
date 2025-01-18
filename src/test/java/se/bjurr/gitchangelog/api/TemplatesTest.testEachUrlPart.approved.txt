@@ -1,68 +1,11 @@
 template:
 
-{{#with tags.[0]}}
-## {{name}} ({{tagDate .}})
-
-{{#ifContainsBreaking commits}}
-### Breaking changes
-
-{{#commits}}
-{{#ifCommitBreaking .}}
-- {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}}) {{#eachCommitRefs .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitRefs}} {{#eachCommitFixes .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitFixes}}
-{{/ifCommitBreaking}}
-{{/commits}}
-
-{{/ifContainsBreaking}}
-{{#ifContainsType commits type='feat'}}
-### Features
-
-{{#commits}}
-{{#ifCommitType . type='feat'}}
-- {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}}) {{#eachCommitRefs .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitRefs}} {{#eachCommitFixes .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitFixes}}
-{{/ifCommitType}}
-{{/commits}}
-
-{{/ifContainsType}}
-{{#ifContainsType commits type='fix'}}
-### Bug Fixes
-
-{{#commits}}
-{{#ifCommitType . type='fix'}}
-- {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}}) {{#eachCommitRefs .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitRefs}} {{#eachCommitFixes .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitFixes}}
-{{/ifCommitType}}
-{{/commits}}
-
-{{/ifContainsType}}
-{{#ifContainsTypeAndScope commits type="chore" scope="deps"}}
-### Dependency updates
-
-{{#commits}}
-{{#ifCommitType . type="chore"}}
-{{#ifCommitScope . scope="deps"}}
-- {{{commitDescription .}}} ([{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}}) {{#eachCommitRefs .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitRefs}} {{#eachCommitFixes .}}{{#ifMatches . "^#[0-9]+"}} [{{.}}](https://github.com/{{ownerName}}/{{repoName}}/issues/{{subString . 1}}) {{/ifMatches}}{{/eachCommitFixes}}
-{{/ifCommitScope}}
-{{/ifCommitType}}
-{{/commits}}
-{{/ifContainsTypeAndScope}}
-{{#ifContainsType commits type='^($^|(?!fix|feat|breaking|chore).*)'}}
-### Other changes
-
-{{#commits}}
-{{#ifCommitType . type='^$'}}
-**{{{messageTitle}}}**
-
-{{#messageBodyItems}}
-* {{.}} 
-{{/messageBodyItems}}
-
-[{{subString hash 0 5}}](https://github.com/{{ownerName}}/{{repoName}}/commit/{{hash}}) {{authorName}} *{{commitTime}}*
-
-{{/ifCommitType}}
-{{/commits}}
-
-{{/ifContainsType}}
-{{/with}}
-
+ownerName: {{ownerName}}
+repoName: {{repoName}}
+urlParts: {{urlParts}}
+{{#eachUrlPart .}}
+{{@index}}: {{.}}
+{{/eachUrlPart}}
 
 ---------------------------------------------
 
@@ -77,7 +20,7 @@ settings:
   "ignoreTagsIfNameMatches": ".*tag-in-test-feature$",
   "ignoreCommitsIfMessageMatches": "^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*",
   "untaggedName": "No tag",
-  "templatePath": "changelog-prepend.mustache",
+  "templatePath": "templatetest/testEachUrlPart.mustache",
   "readableTagName": "/([^/]+?)$",
   "dateFormat": "YYYY-MM-dd HH:mm:ss",
   "noIssueName": "No issue supplied",
@@ -126,47 +69,12 @@ settings:
 
 changelog:
 
-## test (2016-04-06)
-
-### Other changes
-
-**Some stuff in test again**
-
-
-[83713](https://github.com/tomasbjerre/git-changelog-lib/commit/8371342ad0d887d) Tomas Bjerre *2016-04-06 18:40:51*
-
-**Some stuff in test-feature**
-
-
-[090e7](https://github.com/tomasbjerre/git-changelog-lib/commit/090e7f4b11223c4) Tomas Bjerre *2016-04-06 15:13:04*
-
-**some stuff in test branch**
-
-
-[c5d37](https://github.com/tomasbjerre/git-changelog-lib/commit/c5d37f5e964afd5) Tomas Bjerre *2016-04-06 15:12:12*
-
-**Multiple issues**
-
-
-[87c0d](https://github.com/tomasbjerre/git-changelog-lib/commit/87c0d7288896171) Tomas Bjerre *2016-03-19 20:32:32*
-
-**More stuff tagged with  twice**
-
-
-[20e33](https://github.com/tomasbjerre/git-changelog-lib/commit/20e333f8e108f77) Tomas Bjerre *2016-03-19 20:32:19*
-
-**Adding stuff with a jira**
-
-
-[cc0fb](https://github.com/tomasbjerre/git-changelog-lib/commit/cc0fbbd8bc63955) Tomas Bjerre *2016-02-15 16:30:35*
-
-**Adding stuff**
-
-* with gh again 
-
-[5607e](https://github.com/tomasbjerre/git-changelog-lib/commit/5607ea23fa8aaf7) Tomas Bjerre *2016-02-15 16:30:35*
-
-
+ownerName: tomasbjerre
+repoName: git-changelog-lib
+urlParts: [git-changelog-lib, tomasbjerre, git@github.com]
+0: git-changelog-lib
+1: tomasbjerre
+2: git@github.com
 
 
 ---------------------------------------------
