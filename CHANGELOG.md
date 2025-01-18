@@ -1,3 +1,12 @@
+## 2.5.0 (2025-01-18)
+
+### Features
+
+-  add eachUrlPart helper (#189) ([0fb5a](https://github.com/tomasbjerre/git-changelog-lib/commit/0fb5a4794ab7d1b) Kiran Thomas)  
+
+### Dependency updates
+
+- upgrading dependencies ([f3cfa](https://github.com/tomasbjerre/git-changelog-lib/commit/f3cfa01e096637e) Tomas Bjerre)  
 ## 2.4.1 (2024-10-16)
 
 ### Bug Fixes
