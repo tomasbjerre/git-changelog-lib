@@ -1,3 +1,10 @@
+## 2.5.1 (2025-01-26)
+
+### Bug Fixes
+
+-  avoid modifying state of context in eachUrlPart ([b2180](https://github.com/tomasbjerre/git-changelog-lib/commit/b218055e178620e) Tomas Bjerre)  
+-  reverse list for eachUrlPart ([57a94](https://github.com/tomasbjerre/git-changelog-lib/commit/57a9407b27ec8d9) Kiran Thomas)  
+
 ## 2.5.0 (2025-01-18)
 
 ### Features
