@@ -167,9 +167,7 @@ Some [helpers](/src/main/java/se/bjurr/gitchangelog/api/helpers) are implemented
 Loop each part of the URL.
 
 ```hbs
-{{#eachUrlPart .}}
-{{@index}}: {{.}}
-{{/eachUrlPart}}
+https://gitlab.com/{{#eachUrlPart .}}{{#if @first}}{{else}}{{.}}/{{/if}}{{/eachUrlPart}}
 ```
 
 ### `ifReleaseTag <Tag>`
