@@ -3,9 +3,7 @@ template:
 ownerName: {{ownerName}}
 repoName: {{repoName}}
 urlParts: {{urlParts}}
-{{#eachUrlPart .}}
-{{@index}}: {{.}}
-{{/eachUrlPart}}
+https://github.com/{{#eachUrlPart .}}{{#if @first}}{{else}}{{.}}/{{/if}}{{/eachUrlPart}}
 
 ---------------------------------------------
 
@@ -72,10 +70,7 @@ changelog:
 ownerName: tomasbjerre
 repoName: git-changelog-lib
 urlParts: [git-changelog-lib, tomasbjerre, git@github.com]
-0: git-changelog-lib
-1: tomasbjerre
-2: git@github.com
-
+https://github.com/tomasbjerre/git-changelog-lib/
 
 ---------------------------------------------
 

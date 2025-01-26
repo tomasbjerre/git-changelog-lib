@@ -28,6 +28,7 @@ import com.github.jknack.handlebars.Options;
 import com.github.jknack.handlebars.Options.Buffer;
 import com.github.jknack.handlebars.helper.EachHelper;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -242,6 +243,7 @@ public class Helpers {
     helpers.put(
         "eachUrlPart",
         (final Changelog changelog, final Options options) -> {
+          Collections.reverse(changelog.getUrlParts());
           return each(options, changelog.getUrlParts());
         });
     return helpers;
