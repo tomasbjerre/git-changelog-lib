@@ -21,6 +21,7 @@ public class ConventionalCommitParserTest {
 
   @Test
   public void testThatScopeCanBeParsed() {
+    this.test("feat(core/node): add polish language", List.of("core/node"));
     this.test("feat(lang): add polish language", List.of("lang"));
     this.test("feat(la-ng): add polish language", List.of("la-ng"));
     this.test("feat(l): add polish language", List.of("l"));
