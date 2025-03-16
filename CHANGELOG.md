@@ -1,3 +1,9 @@
+## 2.5.2 (2025-03-16)
+
+### Dependency updates
+
+- json-smart, commons-io, jackson ([b40f4](https://github.com/tomasbjerre/git-changelog-lib/commit/b40f43c1b508e49) Tomas Bjerre)  
+- adding problematic dependencies to build.gradle ([b02e8](https://github.com/tomasbjerre/git-changelog-lib/commit/b02e81b88588f2c) Tomas Bjerre)  
 ## 2.5.1 (2025-01-26)
 
 ### Bug Fixes
