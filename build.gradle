@@ -8,10 +8,13 @@ dependencies {
 	api 'com.github.jknack:handlebars:4.4.0'
 
 	implementation 'com.squareup.retrofit2:retrofit:2.11.0'
+	implementation 'com.squareup.okio:okio:1.17.2' // retrofit transitive
 	implementation 'com.squareup.retrofit2:converter-gson:2.11.0'
 	implementation 'com.jayway.jsonpath:json-path:2.9.0'
+	implementation 'net.minidev:json-smart:2.5.0' // json-path transitive
 	implementation 'org.eclipse.jgit:org.eclipse.jgit:7.1.0.202411261347-r'
 	implementation 'org.gitlab:java-gitlab-api:4.1.1'
+	implementation 'commons-io:commons-io:2.4' // java-gitlab-api transitive
 	implementation 'com.fasterxml.jackson.core:jackson-core:2.18.2'
 	implementation 'com.fasterxml.jackson.core:jackson-databind:2.18.2'
 	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.2'
