@@ -1,3 +1,9 @@
+## 2.6.0 (2025-03-16)
+
+### Features
+
+-  **ConventionalCommitParser.java**  update regex to include slashes in scope ([3a48d](https://github.com/tomasbjerre/git-changelog-lib/commit/3a48d03afb9e2e1) bsorrentino)  
+
 ## 2.5.2 (2025-03-16)
 
 ### Dependency updates
