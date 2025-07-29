@@ -1,3 +1,8 @@
+## 2.6.1 (2025-07-29)
+
+### Dependency updates
+
+- dependency updates ([45f8c](https://github.com/tomasbjerre/git-changelog-lib/commit/45f8c81826ca0ca) Tomas Bjerre)  
 ## 2.6.0 (2025-03-16)
 
 ### Features
