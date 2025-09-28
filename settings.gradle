@@ -7,5 +7,5 @@ pluginManagement {
 }
 
 plugins {
-	id "se.bjurr.gradle.bundle-jar" version "latest-SNAPSHOT" apply false
+	id "se.bjurr.gradle.bundle-jar" version "1.+" apply false
 }
