@@ -7,7 +7,5 @@ pluginManagement {
 }
 
 plugins {
-	id "se.bjurr.gradle.conventional-release" version "0.+" apply false
-	id "se.bjurr.gradle.java-convention" version "0.+" apply false
-	id "se.bjurr.gradle.update-versions" version "0.+" apply false
+	id "se.bjurr.gradle.bundle-jar" version "1.1.2" apply false
 }

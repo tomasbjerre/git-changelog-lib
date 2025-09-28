@@ -1,27 +1,28 @@
 plugins {
-	id "se.bjurr.gradle.conventional-release"
-	id "se.bjurr.gradle.update-versions"
-	id "se.bjurr.gradle.java-convention"
+	id "se.bjurr.gradle.bundle-jar"
 }
 
 dependencies {
-	api 'com.github.jknack:handlebars:4.4.0'
+	api 'com.github.jknack:handlebars:4.5.0'
 
 	implementation 'com.squareup.retrofit2:retrofit:3.0.0'
 	// okio is transitive from retrofit: https://github.com/square/retrofit/issues/4210
 	implementation 'com.squareup.retrofit2:converter-gson:3.0.0'
 	implementation 'com.jayway.jsonpath:json-path:2.9.0'
-	implementation 'net.minidev:json-smart:2.5.2' // json-path transitive
+	implementation 'net.minidev:json-smart:2.6.0' // json-path transitive
 	implementation 'org.eclipse.jgit:org.eclipse.jgit:7.3.0.202506031305-r'
 	implementation 'org.gitlab:java-gitlab-api:4.1.1'
 	implementation 'commons-io:commons-io:2.20.0' // java-gitlab-api transitive
-	implementation 'com.fasterxml.jackson.core:jackson-core:2.19.2'
-	implementation 'com.fasterxml.jackson.core:jackson-databind:2.19.2'
-	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.19.2'
+	implementation 'com.fasterxml.jackson.core:jackson-core:2.20.0'
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.20.0'
+	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.20.0'
 
 	testImplementation 'org.slf4j:slf4j-simple:2.0.17'
 	testImplementation 'junit:junit:4.13.2'
-	testImplementation 'org.assertj:assertj-core:3.27.3'
-	testImplementation 'com.approvaltests:approvaltests:25.0.23'
-	testImplementation 'org.mockito:mockito-core:5.18.0'
+	testImplementation 'org.assertj:assertj-core:3.27.6'
+	testImplementation 'com.approvaltests:approvaltests:25.4.3'
+	testImplementation 'org.mockito:mockito-core:5.20.0'
 }
+
+sourceCompatibility=17
+targetCompatibility=17
