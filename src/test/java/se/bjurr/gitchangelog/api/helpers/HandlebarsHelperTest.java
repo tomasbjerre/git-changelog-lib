@@ -2,8 +2,8 @@ package se.bjurr.gitchangelog.api.helpers;
 
 import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import se.bjurr.gitchangelog.api.GitChangelogApi;
 import se.bjurr.gitchangelog.test.ApprovalsWrapper;
 import se.bjurr.gitchangelog.test.GitChangelogLibAssertions;
@@ -11,7 +11,7 @@ import se.bjurr.gitchangelog.test.GitChangelogLibAssertions;
 public class HandlebarsHelperTest {
   private GitChangelogApi baseBuilder;
 
-  @Before
+  @BeforeEach
   public void before() {
     GitChangelogLibAssertions.assertHavingMainRepoAsOrigin();
     this.baseBuilder =

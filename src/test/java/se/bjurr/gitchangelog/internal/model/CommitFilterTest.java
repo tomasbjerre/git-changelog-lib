@@ -10,9 +10,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.eclipse.jgit.lib.ObjectId;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import se.bjurr.gitchangelog.api.InclusivenessStrategy;
 import se.bjurr.gitchangelog.api.model.Commit;
 import se.bjurr.gitchangelog.internal.git.GitRepo;
@@ -38,7 +38,7 @@ public class CommitFilterTest {
 
   private Date date2017;
 
-  @Before
+  @BeforeEach
   public void before() throws Exception {
     this.gitRepo =
         new GitRepo(
@@ -93,7 +93,7 @@ public class CommitFilterTest {
         .doesNotContain(LATEST_2016_COMMIT_HASH, A_2017_COMMIT_HASH_MATCHING_MESSAGE_PATTERN);
   }
 
-  @After
+  @AfterEach
   public void after() throws Exception {
     this.gitRepo.close();
   }

@@ -5,7 +5,6 @@ import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.REF_MASTER;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 
 import java.io.File;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -14,8 +13,8 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.TreeMap;
 import org.eclipse.jgit.lib.ObjectId;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import se.bjurr.gitchangelog.api.InclusivenessStrategy;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
@@ -26,8 +25,8 @@ public class GitRepoTest {
   private static final String TAG_1_0_HASH = "01484ce71bbc76e1af75ebb07a52844145ce99dc";
   private File gitRepoFile;
 
-  @Before
-  public void before() throws URISyntaxException {
+  @BeforeEach
+  public void before() throws Exception {
     this.gitRepoFile = new File(GitRepoTest.class.getResource("/github-issues.json").toURI());
   }
 

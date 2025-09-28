@@ -2,6 +2,10 @@ plugins {
 	id "se.bjurr.gradle.bundle-jar"
 }
 
+repositories {
+	mavenCentral()
+}
+
 dependencies {
 	api 'com.github.jknack:handlebars:4.5.0'
 
@@ -18,10 +22,15 @@ dependencies {
 	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.20.0'
 
 	testImplementation 'org.slf4j:slf4j-simple:2.0.17'
-	testImplementation 'junit:junit:4.13.2'
+	testImplementation "org.junit.jupiter:junit-jupiter:5.13.4"
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	testImplementation 'org.assertj:assertj-core:3.27.6'
 	testImplementation 'com.approvaltests:approvaltests:25.4.3'
 	testImplementation 'org.mockito:mockito-core:5.20.0'
+}
+
+test {
+	useJUnitPlatform()
 }
 
 sourceCompatibility=17

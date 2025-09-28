@@ -9,9 +9,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
 import org.eclipse.jgit.lib.ObjectId;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import se.bjurr.gitchangelog.api.GitChangelogApi;
 import se.bjurr.gitchangelog.api.InclusivenessStrategy;
 import se.bjurr.gitchangelog.internal.git.GitRepo;
@@ -26,13 +26,13 @@ public class LibPerformanceTest {
   private GitChangelogApi gitChangelogApiBuilder;
   private GitRepo gitRepo;
 
-  @After
+  @AfterEach
   public void after() {
     // final long elapsedSeconds = this.stopwatch.elapsed(SECONDS);
     // LOG.info("Took: " + elapsedSeconds + "s");
   }
 
-  @Before
+  @BeforeEach
   public void before() throws Exception {
     this.gitChangelogApiBuilder =
         gitChangelogApiBuilder() //

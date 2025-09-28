@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import se.bjurr.gitchangelog.api.model.Changelog;
 import se.bjurr.gitchangelog.api.model.Commit;
 

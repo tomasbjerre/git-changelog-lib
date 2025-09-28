@@ -9,9 +9,9 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import se.bjurr.gitchangelog.internal.integrations.github.GitHubMockInterceptor;
 import se.bjurr.gitchangelog.internal.integrations.github.GitHubServiceFactory;
 import se.bjurr.gitchangelog.internal.integrations.jira.JiraClientFactory;
@@ -22,7 +22,7 @@ import se.bjurr.gitchangelog.test.GitChangelogLibAssertions;
 public class TemplatesTest {
   private GitChangelogApi baseBuilder;
 
-  @Before
+  @BeforeEach
   public void before() throws Exception {
     GitChangelogLibAssertions.assertHavingMainRepoAsOrigin();
     JiraClientFactory.reset();
@@ -110,7 +110,7 @@ public class TemplatesTest {
                 UTF_8));
   }
 
-  @After
+  @AfterEach
   public void after() {
     JiraClientFactory.reset();
     GitHubServiceFactory.setInterceptor(null);

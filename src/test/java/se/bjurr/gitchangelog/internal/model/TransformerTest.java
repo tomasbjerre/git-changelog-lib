@@ -4,8 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Arrays;
 import java.util.List;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import se.bjurr.gitchangelog.internal.settings.Settings;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
 
@@ -17,7 +17,7 @@ public class TransformerTest {
   private final String message =
       "INC123 message title\n\n * INC456 The first item\n * The second item";
 
-  @Before
+  @BeforeEach
   public void before() {
     this.noIssues = Arrays.asList();
     final SettingsIssue issue1 =

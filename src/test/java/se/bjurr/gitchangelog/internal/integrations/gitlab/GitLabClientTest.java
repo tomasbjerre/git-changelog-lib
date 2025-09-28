@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.Optional;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
@@ -19,7 +19,7 @@ public class GitLabClientTest {
   private GitLabClient sut;
   private boolean disabled;
 
-  @Before
+  @BeforeEach
   public void before() throws IOException {
     final String hostUrl = "https://gitlab.com/";
     String apiToken = null;

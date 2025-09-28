@@ -15,9 +15,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
 import se.bjurr.gitchangelog.internal.integrations.github.GitHubMockInterceptor;
 import se.bjurr.gitchangelog.internal.integrations.github.GitHubServiceFactory;
@@ -36,7 +36,7 @@ public class GitChangelogApiTest {
   private RestClientMock mockedRestClient;
   private GitHubMockInterceptor gitHubMockInterceptor;
 
-  @Before
+  @BeforeEach
   public void before() throws Exception {
     GitChangelogLibAssertions.assertHavingMainRepoAsOrigin();
     JiraClientFactory.reset();
@@ -85,7 +85,7 @@ public class GitChangelogApiTest {
         .setInterceptor(this.gitHubMockInterceptor);
   }
 
-  @After
+  @AfterEach
   public void after() {
     JiraClientFactory.reset();
     RedmineClientFactory.reset();
