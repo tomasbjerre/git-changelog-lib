@@ -23,15 +23,17 @@ dependencies {
 
 	testImplementation 'org.slf4j:slf4j-simple:2.0.17'
 	testImplementation "org.junit.jupiter:junit-jupiter:5.13.4"
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	testRuntimeOnly "org.junit.platform:junit-platform-launcher:1.13.4"
 	testImplementation 'org.assertj:assertj-core:3.27.6'
 	testImplementation 'com.approvaltests:approvaltests:25.4.3'
 	testImplementation 'org.mockito:mockito-core:5.20.0'
+	testImplementation 'org.wiremock:wiremock-standalone:3.13.1'
 }
 
 test {
 	useJUnitPlatform()
 }
 
-sourceCompatibility=17
-targetCompatibility=17
+javaExtension {
+	javaVersion = 17
+}
