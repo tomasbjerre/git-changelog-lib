@@ -1,3 +1,9 @@
+## 2.6.3 (2025-09-30)
+
+### Bug Fixes
+
+-  include the Automatic-Module-Name and name ([03ed8](https://github.com/tomasbjerre/git-changelog-lib/commit/03ed81bcf7ddf4f) Tomas Bjerre)  
+
 ## 2.6.2 (2025-09-28)
 
 ### Dependency updates
