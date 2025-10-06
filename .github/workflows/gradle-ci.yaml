@@ -1,0 +1,7 @@
+name: Bundle Gradle CI
+
+on: [workflow_dispatch, push, pull_request]
+
+jobs:
+  call-workflow:
+    uses: tomasbjerre/.github/.github/workflows/bundle-gradle-ci.yaml@master
