@@ -7,6 +7,12 @@ import java.util.regex.Pattern;
 
 public class SemanticVersioning {
 
+  /**
+   * Compiled once, as {@link #isSemantic(String)} is invoked for every edge when walking the commit
+   * graph.
+   */
+  private static final Pattern SEMANTIC_VERSION = Pattern.compile("[0-9]+\\.[0-9]+\\.?[0-9]*");
+
   public enum VERSION_STEP {
     MAJOR,
     MINOR,
@@ -87,8 +93,7 @@ public class SemanticVersioning {
   }
 
   public static Optional<SemanticVersion> findSemanticVersion(final String tag) {
-    final Matcher semanticVersionMatcher =
-        Pattern.compile("[0-9]+\\.[0-9]+\\.?[0-9]*").matcher(tag);
+    final Matcher semanticVersionMatcher = SEMANTIC_VERSION.matcher(tag);
     if (!semanticVersionMatcher.find()) {
       return Optional.empty();
     }

@@ -18,13 +18,11 @@ public final class GitRepoDataHelper {
         commitsWithIssues.add(gitCommit);
       }
     }
-    final List<GitCommit> reducedGitCommits = new ArrayList<>(commitsWithIssues);
-
     final List<GitTag> reducedGitTags = new ArrayList<>();
     for (final GitTag gitTag : gitRepoData.getGitTags()) {
       final List<GitCommit> reducedCommitsInTag =
           gitTag.getGitCommits().stream()
-              .filter(it -> reducedGitCommits.contains(it))
+              .filter(it -> commitsWithIssues.contains(it))
               .collect(Collectors.toList());
       if (reducedCommitsInTag.iterator().hasNext()) {
         final GitTag item =

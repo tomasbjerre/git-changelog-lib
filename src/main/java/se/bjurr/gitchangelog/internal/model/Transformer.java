@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -37,8 +38,22 @@ public class Transformer {
       Pattern.compile("This reverts commit ([a-z0-9]+).", Pattern.MULTILINE);
   private final Settings settings;
 
+  /**
+   * These are the same for every commit and tag that this transformer handles. Compiling them per
+   * commit is expensive, as {@link #toCommits(Collection)} is invoked once per tag, per issue and
+   * per author.
+   */
+  private final Pattern ignoreCommitsIfMessageMatches;
+
+  private final Pattern readableTagName;
+  private final List<SettingsIssue> settingsIssues;
+
   public Transformer(final Settings settings) {
     this.settings = settings;
+    this.ignoreCommitsIfMessageMatches =
+        compile(settings.getIgnoreCommitsIfMessageMatches(), DOTALL);
+    this.readableTagName = compile(settings.getReadableTagName());
+    this.settingsIssues = new IssuesUtil(settings).getIssues();
   }
 
   public List<Author> toAuthors(final List<GitCommit> gitCommits) {
@@ -120,9 +135,7 @@ public class Transformer {
             .filter(
                 gitCommit -> {
                   final boolean messageMatches =
-                      compile(this.settings.getIgnoreCommitsIfMessageMatches(), DOTALL)
-                          .matcher(gitCommit.getMessage())
-                          .matches();
+                      this.ignoreCommitsIfMessageMatches.matcher(gitCommit.getMessage()).matches();
                   if (messageMatches) {
                     return false;
                   }
@@ -182,8 +195,7 @@ public class Transformer {
                   final List<Issue> issues = Transformer.this.toIssues(parsedIssues);
                   final List<IssueType> issueTypes = Transformer.this.toIssueTypes(parsedIssues);
                   return new Tag(
-                      Transformer.toReadableTagName(
-                          input.getName(), this.settings.getReadableTagName()),
+                      Transformer.toReadableTagName(input.getName(), this.readableTagName),
                       input.findAnnotation().orElse(null),
                       commits,
                       authors,
@@ -201,11 +213,17 @@ public class Transformer {
 
   private List<ParsedIssue> reduceParsedIssuesToOnlyGitCommits(
       final List<ParsedIssue> allParsedIssues, final List<GitCommit> gitCommits) {
+    /**
+     * A set, and not the given list, because this is invoked once per tag and every commit of every
+     * issue is looked up in it. {@link GitCommit#equals(Object)} compares the entire commit
+     * message, so a linear scan here dominates the runtime on larger repositories.
+     */
+    final Set<GitCommit> gitCommitsToKeep = new HashSet<>(gitCommits);
     final List<ParsedIssue> parsedIssues = new ArrayList<>();
     for (final ParsedIssue candidate : allParsedIssues) {
       final List<GitCommit> candidateCommits =
           candidate.getGitCommits().stream()
-              .filter(it -> gitCommits.contains(it))
+              .filter(it -> gitCommitsToKeep.contains(it))
               .collect(Collectors.toList());
       if (!candidateCommits.isEmpty()) {
         final ParsedIssue parsedIssue =
@@ -274,18 +292,26 @@ public class Transformer {
         gitCommit.getCommitTime().getTime(), //
         this.toMessage(
             this.settings.removeIssueFromMessage(),
-            new IssuesUtil(this.settings).getIssues(),
+            this.settingsIssues,
             gitCommit.getMessage()), //
         gitCommit.getHash(), //
         gitCommit.isMerge());
   }
 
   public static String toReadableTagName(final String input, final String readableTagName) {
-    final Matcher matcher = compile(readableTagName).matcher(input);
+    return toReadableTagName(input, compile(readableTagName));
+  }
+
+  private static String toReadableTagName(final String input, final Pattern readableTagName) {
+    final Matcher matcher = readableTagName.matcher(input);
     if (matcher.find()) {
       if (matcher.groupCount() == 0) {
         throw new RuntimeException(
-            "Pattern: \"" + readableTagName + "\" did not match any group in: \"" + input + "\"");
+            "Pattern: \""
+                + readableTagName.pattern()
+                + "\" did not match any group in: \""
+                + input
+                + "\"");
       }
       return matcher.group(1);
     }

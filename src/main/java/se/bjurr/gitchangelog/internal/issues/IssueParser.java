@@ -14,10 +14,14 @@ import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.REDMINE;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.slf4j.Logger;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
@@ -65,12 +69,18 @@ public class IssueParser {
     final RedmineClient redmineClient = useIntegrations ? this.createRedmineClient() : null;
     final GitLabClient gitLabClient = useIntegrations ? this.createGitLabClient() : null;
     final List<SettingsIssue> patterns = new IssuesUtil(this.settings).getIssues();
+    final Map<SettingsIssue, Pattern> compiledPatterns = new IdentityHashMap<>();
+    for (final SettingsIssue issuePattern : patterns) {
+      compiledPatterns.put(issuePattern, compile(issuePattern.getPattern()));
+    }
+    /** To avoid scanning the, potentially very long, commit list of an issue for every commit. */
+    final Set<String> commitsPerIssue = new HashSet<>();
 
     for (final GitCommit gitCommit : this.commits) {
       boolean commitMappedToAtLeastOneIssue = false;
       for (final SettingsIssue issuePattern : patterns) {
         final Matcher issueMatcher =
-            compile(issuePattern.getPattern()).matcher(gitCommit.getMessage());
+            compiledPatterns.get(issuePattern).matcher(gitCommit.getMessage());
         while (issueMatcher.find()) {
           final String matchedIssue = issueMatcher.group();
           if (matchedIssue.isEmpty()) {
@@ -93,8 +103,8 @@ public class IssueParser {
             }
             parsedIssuePerIssue.put(matchedIssue, parsedIssue);
           }
-          if (!parsedIssuePerIssue.get(matchedIssue).getGitCommits().contains(gitCommit)) {
-            parsedIssuePerIssue.get(matchedIssue).getGitCommits().add(gitCommit);
+          if (commitsPerIssue.add(matchedIssue + " " + gitCommit.getHash())) {
+            parsedIssuePerIssue.get(matchedIssue).addCommit(gitCommit);
           }
           commitMappedToAtLeastOneIssue = true;
         }

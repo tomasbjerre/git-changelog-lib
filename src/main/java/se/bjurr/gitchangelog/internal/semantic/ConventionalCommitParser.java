@@ -18,6 +18,10 @@ public class ConventionalCommitParser {
   private static final Pattern CONVENTIONAL_PATTERN =
       Pattern.compile("^(\\w+)(\\(([/\\w\\-\\.\\,\\s:]+)\\)?)?(\\!?)[\\s?]*:(.+)");
 
+  private static final Pattern FIXES_PATTERN = Pattern.compile("\\(fixes ([^)]+)");
+
+  private static final Pattern REFS_PATTERN = Pattern.compile("\\(refs ([^)]+)");
+
   private static final Pattern FOOTER_PATTERN =
       Pattern.compile("^(BREAKING[ -]CHANGE|[^ ]+)(((: )|( #))(.+))");
 
@@ -45,7 +49,7 @@ public class ConventionalCommitParser {
   }
 
   public static List<String> commitFixes(final Object commitMessage) {
-    final Matcher matcher = Pattern.compile("\\(fixes ([^)]+)").matcher(commitMessage.toString());
+    final Matcher matcher = FIXES_PATTERN.matcher(commitMessage.toString());
     if (!matcher.find()) {
       return new ArrayList<>();
     }
@@ -55,7 +59,7 @@ public class ConventionalCommitParser {
   }
 
   public static List<String> commitRefs(final Object commitMessage) {
-    final Matcher matcher = Pattern.compile("\\(refs ([^)]+)").matcher(commitMessage.toString());
+    final Matcher matcher = REFS_PATTERN.matcher(commitMessage.toString());
     if (!matcher.find()) {
       return new ArrayList<>();
     }

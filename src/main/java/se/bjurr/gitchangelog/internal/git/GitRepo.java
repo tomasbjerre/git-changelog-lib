@@ -50,7 +50,7 @@ import se.bjurr.gitchangelog.internal.semantic.SemanticVersioning;
 })
 public class GitRepo implements Closeable {
   private static final Logger LOG = LoggerFactory.getLogger(GitRepo.class);
-  private List<RevCommit> commitsToInclude;
+  private Set<ObjectId> commitsToInclude;
   private Git git;
   private final Repository repository;
   private final RevWalk revWalk;
@@ -158,10 +158,8 @@ public class GitRepo implements Closeable {
 
   public Optional<ObjectId> findRef(final String findRef, final boolean exact) throws IOException {
     for (final Ref foundRef : this.getAllRefs().values()) {
-      final boolean match = this.isMatching(findRef, exact, foundRef);
-      if (match) {
-        final Ref ref = this.getAllRefs().get(foundRef.getName());
-        return this.getPeeledObjectId(ref);
+      if (this.isMatching(findRef, exact, foundRef)) {
+        return this.getPeeledObjectId(foundRef);
       }
     }
     return Optional.empty();
@@ -313,6 +311,10 @@ public class GitRepo implements Closeable {
     return list;
   }
 
+  private static Set<ObjectId> toObjectIds(final List<RevCommit> commits) {
+    return commits.stream().map(ObjectId::toObjectId).collect(Collectors.toSet());
+  }
+
   private boolean hasPathFilter() {
     return this.pathFilters != null && !this.pathFilters.isEmpty();
   }
@@ -387,7 +389,8 @@ public class GitRepo implements Closeable {
     final RevisionBoundary<RevCommit> from = this.toRevCommit(fromObjectId);
     final RevisionBoundary<RevCommit> to = this.toRevCommit(toObjectId);
 
-    this.commitsToInclude = this.getCommitList(this.revWalk, from, to, this.pathFilters);
+    this.commitsToInclude =
+        toObjectIds(this.getCommitList(this.revWalk, from, to, this.pathFilters));
 
     final List<Ref> tagList = this.tagsBetweenFromAndTo(from, to);
     /**
@@ -620,19 +623,20 @@ public class GitRepo implements Closeable {
     // If we use a path filter we can't skip parent commits, as their grandparents
     // might be included
     // again
-    return this.hasPathFilter() || this.commitsToInclude.contains(candidate);
+    return this.hasPathFilter() || this.commitsToInclude.contains(candidate.toObjectId());
   }
 
   private List<Ref> tagsBetweenFromAndTo(
       final RevisionBoundary<RevCommit> from, final RevisionBoundary<RevCommit> to)
       throws Exception {
     final List<Ref> tagList = this.git.tagList().call();
-    final List<RevCommit> icludedCommits = this.getCommitList(this.revWalk, from, to, null);
+    final Set<ObjectId> includedCommits =
+        toObjectIds(this.getCommitList(this.revWalk, from, to, null));
 
     final List<Ref> includedTags = new ArrayList<>();
     for (final Ref tag : tagList) {
-      final ObjectId peeledTag = this.getPeeled(tag);
-      if (icludedCommits.contains(peeledTag)) {
+      final ObjectId peeledTag = this.getPeeled(tag).toObjectId();
+      if (includedCommits.contains(peeledTag)) {
         includedTags.add(tag);
       }
     }
