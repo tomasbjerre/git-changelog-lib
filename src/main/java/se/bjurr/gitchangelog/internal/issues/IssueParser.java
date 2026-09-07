@@ -1,5 +1,6 @@
 package se.bjurr.gitchangelog.internal.issues;
 
+import static java.util.Objects.requireNonNullElse;
 import static java.util.regex.Pattern.compile;
 import static java.util.stream.Collectors.toList;
 import static org.slf4j.LoggerFactory.getLogger;
@@ -18,6 +19,7 @@ import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
@@ -91,7 +93,7 @@ public class IssueParser {
             if (issuePattern.getType() == GITHUB) {
               parsedIssue = this.createParsedIssue(gitHubHelper, issuePattern, matchedIssue);
             } else if (issuePattern.getType() == GITLAB) {
-              final String projectName = this.settings.getGitLabProjectName().get();
+              final String projectName = this.settings.getGitLabProjectName().orElse(null);
               parsedIssue =
                   this.createParsedIssue(gitLabClient, projectName, issuePattern, matchedIssue);
             } else if (issuePattern.getType() == JIRA) {
@@ -154,15 +156,23 @@ public class IssueParser {
     if (matchedIssueString.startsWith("#")) {
       matchedIssueString = matchedIssueString.substring(1);
     }
-    final Integer matchedIssue = Integer.parseInt(matchedIssueString);
     try {
-      if (gitLabClient != null && gitLabClient.getIssue(projectName, matchedIssue).isPresent()) {
-        final GitLabIssue gitLabIssue = gitLabClient.getIssue(projectName, matchedIssue).get();
-        link = gitLabIssue.getLink();
-        title = gitLabIssue.getTitle();
-        labels = gitLabIssue.getLabels();
+      /**
+       * Without a project name there is nothing to look the issue up in. That happens when a GitLab
+       * server is configured explicitly, as the project name is only derived from the origin URL
+       * when it is not. The issue is still reported, just without title, link and labels.
+       */
+      if (gitLabClient != null && projectName != null) {
+        final Optional<GitLabIssue> gitLabIssueOpt =
+            gitLabClient.getIssue(projectName, Integer.parseInt(matchedIssueString));
+        if (gitLabIssueOpt.isPresent()) {
+          final GitLabIssue gitLabIssue = gitLabIssueOpt.get();
+          link = gitLabIssue.getLink();
+          title = gitLabIssue.getTitle();
+          labels = gitLabIssue.getLabels();
+        }
       }
-    } catch (final GitChangelogIntegrationException e) {
+    } catch (final GitChangelogIntegrationException | NumberFormatException e) {
       LOG.error(matchedIssueString, e);
     }
     final String issueType = null;
@@ -341,7 +351,7 @@ public class IssueParser {
     final Map<String, Object> additionalFields = new TreeMap<>();
     try {
       if (gitHubHelper != null) {
-        final java.util.Optional<GitHubIssue> issues = gitHubHelper.getIssueFromAll(matchedIssue);
+        final Optional<GitHubIssue> issues = gitHubHelper.getIssueFromAll(matchedIssue);
         if (issues.isPresent()) {
           final GitHubIssue gitHubIssue = issues.get();
           link = gitHubIssue.getLink();
@@ -369,19 +379,17 @@ public class IssueParser {
   }
 
   private String render(String string, final Matcher matcher, final String matched) {
-    string = string.replaceAll("\\$\\{PATTERN_GROUP\\}", matched);
+    /**
+     * The values come from the commit message and are replacements, not patterns, so "$" and "\" in
+     * them must not be interpreted by {@link Matcher#appendReplacement(StringBuilder, String)}.
+     */
+    string = string.replaceAll("\\$\\{PATTERN_GROUP\\}", Matcher.quoteReplacement(matched));
     for (int i = 0; i <= matcher.groupCount(); i++) {
       string =
           string.replaceAll(
-              "\\$\\{PATTERN_GROUP_" + i + "\\}", this.firstNonNull(matcher.group(i), ""));
+              "\\$\\{PATTERN_GROUP_" + i + "\\}",
+              Matcher.quoteReplacement(requireNonNullElse(matcher.group(i), "")));
     }
     return string;
-  }
-
-  private String firstNonNull(final String a, final String b) {
-    if (a == null) {
-      return b;
-    }
-    return a;
   }
 }
