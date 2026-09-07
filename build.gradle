@@ -2,10 +2,6 @@ plugins {
 	id "se.bjurr.gradle.bundle-jar"
 }
 
-repositories {
-	mavenCentral()
-}
-
 dependencies {
 	api 'com.github.jknack:handlebars:4.5.0'
 
