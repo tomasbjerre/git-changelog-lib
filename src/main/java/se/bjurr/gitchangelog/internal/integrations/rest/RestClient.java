@@ -6,7 +6,6 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -20,6 +19,9 @@ import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 
 @SuppressFBWarnings({"URLCONNECTION_SSRF_FD", "CRLF_INJECTION_LOGS"})
 public class RestClient {
+  private static final int CONNECT_TIMEOUT_MILLIS = 10_000;
+  private static final int READ_TIMEOUT_MILLIS = 30_000;
+
   private static Logger logger = getLogger(RestClient.class);
   private static RestClient mockedRestClient;
   private final Map<String, Optional<String>> urlCache = new ConcurrentHashMap<>();
@@ -30,12 +32,9 @@ public class RestClient {
   public RestClient() {}
 
   public RestClient withBasicAuthCredentials(final String username, final String password) {
-    try {
-      this.basicAuthString =
-          Base64.getEncoder().encodeToString((username + ":" + password).getBytes("UTF-8"));
-    } catch (final UnsupportedEncodingException e) {
-      throw new RuntimeException(e);
-    }
+    this.basicAuthString =
+        Base64.getEncoder()
+            .encodeToString((username + ":" + password).getBytes(StandardCharsets.UTF_8));
     return this;
   }
 
@@ -67,12 +66,17 @@ public class RestClient {
   }
 
   private Optional<String> doGet(final String urlParam) {
-    final String response = null;
     HttpURLConnection conn = null;
     try {
       logger.info("GET:\n" + urlParam);
       final URL url = new URL(urlParam);
       conn = this.openConnection(url);
+      /**
+       * Without these, an unresponsive issue server blocks the changelog, and whatever build it is
+       * part of, indefinitely.
+       */
+      conn.setConnectTimeout(CONNECT_TIMEOUT_MILLIS);
+      conn.setReadTimeout(READ_TIMEOUT_MILLIS);
       conn.setRequestProperty("Content-Type", "application/json");
       conn.setRequestProperty("Accept", "application/json");
       if (this.headers != null) {
@@ -87,7 +91,7 @@ public class RestClient {
       }
       return Optional.of(this.getResponse(conn));
     } catch (final Exception e) {
-      logger.error("Got:\n" + response, e);
+      logger.error("Failed to GET " + urlParam, e);
       return Optional.empty();
     } finally {
       if (conn != null) {
