@@ -43,6 +43,10 @@
       "description": "Path of template-file to use. It is a Mustache (https://mustache.github.io/) template. Supplied with the context of {@link Changelog}",
       "type": "string"
     },
+    "prependTemplatePath": {
+      "type": "string",
+      "description": "Path of template-file to use when prepending. It is a Mustache (https://mustache.github.io/) template. Supplied with the context of the changelog."
+    },
     "templateBaseDir": {
       "description": "Path to the base directory for template partial files. If not null, handlebars will be configured with a FileTemplateLoader with this as base directory",
       "type": "string"

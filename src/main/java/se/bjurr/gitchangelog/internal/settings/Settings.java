@@ -12,10 +12,8 @@ import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_NO_ISSU
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_PATCH_PATTERN;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_READABLE_TAG_NAME;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_REDMINE_ISSUE_PATTEN;
-import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_REMOVE_ISSUE;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_TIMEZONE;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_UNTAGGED_NAME;
-import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 
 import com.google.gson.Gson;
 import java.io.Serializable;
@@ -502,31 +500,12 @@ public class Settings implements Serializable {
     return ofNullable(this.timeZone).orElse(DEFAULT_TIMEZONE);
   }
 
-  public static Settings defaultSettings() {
-    final Settings s = new Settings();
-    s.setFromRepo(".");
-    s.setFromRevision(ZERO_COMMIT);
-    s.setFromRevisionStrategy(InclusivenessStrategy.DEFAULT);
-    s.setToRevision("refs/heads/master");
-    s.setToRevisionStrategy(InclusivenessStrategy.DEFAULT);
-    s.setIgnoreCommitsIfMessageMatches("^Merge.*");
-    s.setTemplateSuffix(".hbs");
-    s.setReadableTagName("/([^/]+?)$");
-    s.setDateFormat("YYYY-MM-dd HH:mm:ss");
-    s.setUntaggedName("No tag");
-    s.setNoIssueName("No issue");
-    s.setTimeZone("UTC");
-    s.setRemoveIssueFromMessage(true);
-    s.setJiraIssuePattern("\\\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\\\b");
-    return s;
-  }
-
   public void setRemoveIssueFromMessage(final boolean removeIssueFromMessage) {
     this.removeIssueFromMessage = removeIssueFromMessage;
   }
 
   public Boolean removeIssueFromMessage() {
-    return ofNullable(this.removeIssueFromMessage).orElse(DEFAULT_REMOVE_ISSUE);
+    return this.removeIssueFromMessage;
   }
 
   public Optional<String> getGitHubApi() {
@@ -751,15 +730,11 @@ public class Settings implements Serializable {
   }
 
   public List<String> getPathFilters() {
-    return ofNullable(this.pathFilters).orElse(new ArrayList<>());
+    return ofNullable(this.pathFilters).orElseGet(ArrayList::new);
   }
 
   public List<String> getJiraIssueAdditionalFields() {
-    if (this.jiraIssueAdditionalFields == null) {
-      return new ArrayList<>();
-    } else {
-      return this.jiraIssueAdditionalFields;
-    }
+    return ofNullable(this.jiraIssueAdditionalFields).orElseGet(ArrayList::new);
   }
 
   public void setJiraIssueAdditionalFields(final List<String> jiraIssueAdditionalFields) {

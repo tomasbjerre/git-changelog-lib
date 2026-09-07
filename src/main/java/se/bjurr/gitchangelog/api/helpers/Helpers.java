@@ -40,7 +40,9 @@ import se.bjurr.gitchangelog.api.model.Issue;
 import se.bjurr.gitchangelog.api.model.Tag;
 import se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.Footer;
 
-public class Helpers {
+public final class Helpers {
+
+  private Helpers() {}
 
   public static Map<String, Helper<?>> getAll() {
     final TreeMap<String, Helper<?>> helpers = new TreeMap<>();

@@ -1,6 +1,8 @@
 package se.bjurr.gitchangelog.internal.util;
 
-public class Preconditions {
+public final class Preconditions {
+
+  private Preconditions() {}
 
   public static void checkState(final boolean b, final String string) {
     if (!b) {
@@ -10,7 +12,7 @@ public class Preconditions {
 
   public static void checkArgument(final boolean b, final String string) {
     if (!b) {
-      throw new IllegalStateException(string);
+      throw new IllegalArgumentException(string);
     }
   }
 

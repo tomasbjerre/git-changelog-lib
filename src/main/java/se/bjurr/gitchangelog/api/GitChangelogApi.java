@@ -54,7 +54,7 @@ public final class GitChangelogApi {
 
   private Settings settings;
   private String templateContent;
-  private Handlebars handlebars;
+  private final Handlebars handlebars;
   private final AtomicInteger helperCounter = new AtomicInteger();
 
   public static GitChangelogApi gitChangelogApiBuilder() {
@@ -69,10 +69,6 @@ public final class GitChangelogApi {
     for (final Entry<String, Helper<?>> helper : Helpers.getAll().entrySet()) {
       this.handlebars.registerHelper(helper.getKey(), helper.getValue());
     }
-  }
-
-  private GitChangelogApi(final Settings settings) {
-    this.settings = settings;
   }
 
   /**
@@ -214,7 +210,6 @@ public final class GitChangelogApi {
       }
     }
     final Changelog changelog = api.getChangelog(false);
-    api.getTagsAsStrings(changelog);
     final List<String> commits = api.getCommitMessages(changelog);
     final String majorVersionPattern = api.settings.getSemanticMajorPattern().orElse(null);
     final String minorVersionPattern = api.settings.getSemanticMinorPattern();

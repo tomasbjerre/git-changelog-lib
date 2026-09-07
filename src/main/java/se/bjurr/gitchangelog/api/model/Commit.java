@@ -23,8 +23,10 @@ public class Commit implements Serializable {
     return stringList.subList(1, stringList.size());
   }
 
+  private static final int SHORT_HASH_LENGTH = 15;
+
   private static String toHash(final String input) {
-    return input.substring(0, 15);
+    return input.length() <= SHORT_HASH_LENGTH ? input : input.substring(0, SHORT_HASH_LENGTH);
   }
 
   private static List<String> toNoEmptyStringsList(final String message) {

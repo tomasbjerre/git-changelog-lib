@@ -28,6 +28,7 @@ import org.eclipse.jgit.api.LogCommand;
 import org.eclipse.jgit.lib.AnyObjectId;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.Ref;
+import org.eclipse.jgit.lib.RefDatabase;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevTag;
@@ -42,24 +43,14 @@ import se.bjurr.gitchangelog.internal.git.model.GitTag;
 import se.bjurr.gitchangelog.internal.semantic.SemanticVersion;
 import se.bjurr.gitchangelog.internal.semantic.SemanticVersioning;
 
-@SuppressFBWarnings({
-  "CRLF_INJECTION_LOGS",
-  "BC_VACUOUS_INSTANCEOF",
-  "BC_UNCONFIRMED_CAST_OF_RETURN_VALUE",
-  "PATH_TRAVERSAL_IN"
-})
+@SuppressFBWarnings({"CRLF_INJECTION_LOGS", "PATH_TRAVERSAL_IN"})
 public class GitRepo implements Closeable {
   private static final Logger LOG = LoggerFactory.getLogger(GitRepo.class);
   private Set<ObjectId> commitsToInclude;
-  private Git git;
+  private final Git git;
   private final Repository repository;
   private final RevWalk revWalk;
   private List<String> pathFilters = new ArrayList<>();
-
-  public GitRepo() {
-    this.repository = null;
-    this.revWalk = null;
-  }
 
   public GitRepo(final File repo) throws GitChangelogRepositoryException {
     try {
@@ -89,14 +80,7 @@ public class GitRepo implements Closeable {
   public void close() throws IOException {
     this.git.close();
     this.repository.close();
-    this.revWalk.dispose();
-    if (this.revWalk instanceof AutoCloseable) {
-      try {
-        ((AutoCloseable) this.revWalk).close();
-      } catch (final Exception e) {
-        LOG.error(e.getMessage(), e);
-      }
-    }
+    this.revWalk.close();
   }
 
   public ObjectId getCommit(final String fromCommit) throws GitChangelogRepositoryException {
@@ -157,7 +141,7 @@ public class GitRepo implements Closeable {
   }
 
   public Optional<ObjectId> findRef(final String findRef, final boolean exact) throws IOException {
-    for (final Ref foundRef : this.getAllRefs().values()) {
+    for (final Ref foundRef : this.getAllRefs()) {
       if (this.isMatching(findRef, exact, foundRef)) {
         return this.getPeeledObjectId(foundRef);
       }
@@ -195,8 +179,12 @@ public class GitRepo implements Closeable {
   @Override
   public String toString() {
     final StringBuilder sb = new StringBuilder();
-    for (final Ref foundRef : this.getAllRefs().values()) {
-      sb.append(foundRef.getName() + "\n");
+    try {
+      for (final Ref foundRef : this.getAllRefs()) {
+        sb.append(foundRef.getName() + "\n");
+      }
+    } catch (final IOException e) {
+      sb.append("Could not list refs: " + e.getMessage() + "\n");
     }
     return "Repo: " + this.repository + "\n" + sb.toString();
   }
@@ -249,8 +237,8 @@ public class GitRepo implements Closeable {
     }
   }
 
-  private Map<String, Ref> getAllRefs() {
-    return this.repository.getAllRefs();
+  private List<Ref> getAllRefs() throws IOException {
+    return this.repository.getRefDatabase().getRefsByPrefix(RefDatabase.ALL);
   }
 
   private Map<String, RevTag> getAnnotatedTagPerTagName(
