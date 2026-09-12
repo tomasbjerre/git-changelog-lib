@@ -1,71 +1,60 @@
 package se.bjurr.gitchangelog.internal.integrations.gitlab;
 
-import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
-import org.gitlab.api.GitlabAPI;
-import org.gitlab.api.models.GitlabIssue;
-import org.gitlab.api.models.GitlabProject;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
+import se.bjurr.gitchangelog.internal.integrations.rest.RestClient;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.json.JsonMapper;
 
 public class GitLabClient {
 
-  private final String hostUrl;
-  private final String apiToken;
+  private static final JsonMapper JSON_MAPPER = new JsonMapper();
 
-  private List<GitlabIssue> issues;
+  private final String api;
+  private final RestClient client;
 
   public GitLabClient(final String hostUrl, final String apiToken) {
-    this.hostUrl = hostUrl;
-    this.apiToken = apiToken;
+    final String trimmed =
+        hostUrl.endsWith("/") ? hostUrl.substring(0, hostUrl.length() - 1) : hostUrl;
+    this.api = trimmed + "/api/v4";
+    this.client = new RestClient();
+    if (apiToken != null && !apiToken.isEmpty()) {
+      this.client.withHeaders(Map.of("PRIVATE-TOKEN", apiToken));
+    }
   }
 
   public Optional<GitLabIssue> getIssue(final String projectName, final Integer matchedIssue)
       throws GitChangelogIntegrationException {
-    final GitlabAPI gitLabApi = GitlabAPI.connect(this.hostUrl, this.apiToken);
-    GitlabProject project;
-    try {
-      project = gitLabApi.getProject(projectName);
-    } catch (final Exception e) {
-      throw new GitChangelogIntegrationException(
-          "Unable to find project \""
-              + projectName
-              + "\". It should be \"tomas.bjerre85/violations-test\" for a repo like: https://gitlab.com/tomas.bjerre85/violations-test",
-          e);
+    final String endpoint =
+        this.api
+            + "/projects/"
+            + URLEncoder.encode(projectName, StandardCharsets.UTF_8)
+            + "/issues/"
+            + matchedIssue;
+    final Optional<String> json = this.client.get(endpoint);
+    if (json.isEmpty()) {
+      return Optional.empty();
     }
-    final Integer projectId = project.getId();
-    final String httpUrl = project.getWebUrl();
+    final String jsonString = json.get();
     try {
-      if (this.issues == null) {
-        this.issues = this.getAllIssues(this.hostUrl, this.apiToken, projectId);
-      }
-      for (final GitlabIssue candidate : this.issues) {
-        if (candidate.getIid() == matchedIssue) {
-          return Optional.of(this.createGitLabIssue(httpUrl, candidate));
+      final JsonNode node = JSON_MAPPER.readTree(jsonString);
+      final String title = node.get("title").asString();
+      final String webUrl = node.get("web_url").asString();
+      final List<String> labels = new ArrayList<>();
+      final JsonNode labelsNode = node.get("labels");
+      if (labelsNode != null) {
+        for (final JsonNode label : labelsNode) {
+          labels.add(label.asString());
         }
       }
-      return Optional.empty();
+      return Optional.of(new GitLabIssue(title, webUrl, labels));
     } catch (final Exception e) {
-      throw new GitChangelogIntegrationException(e.getMessage(), e);
+      throw new GitChangelogIntegrationException("Unable to parse:\n" + jsonString, e);
     }
-  }
-
-  private GitLabIssue createGitLabIssue(final String projectUrl, final GitlabIssue candidate) {
-    final String title = candidate.getTitle();
-    final String link = projectUrl + "/-/issues/" + candidate.getIid();
-    final List<String> labels = new ArrayList<>();
-    for (final String l : candidate.getLabels()) {
-      labels.add(l);
-    }
-    return new GitLabIssue(title, link, labels);
-  }
-
-  private List<GitlabIssue> getAllIssues(
-      final String hostUrl, final String apiToken, final Integer projectId) throws IOException {
-    final GitlabAPI gitLabApi = GitlabAPI.connect(hostUrl, apiToken);
-    final GitlabProject project = new GitlabProject();
-    project.setId(projectId);
-    return gitLabApi.getIssues(project);
   }
 }

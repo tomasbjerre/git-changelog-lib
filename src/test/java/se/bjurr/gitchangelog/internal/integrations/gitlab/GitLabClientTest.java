@@ -1,61 +1,91 @@
 package se.bjurr.gitchangelog.internal.integrations.gitlab;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
+import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.get;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
+import com.github.tomakehurst.wiremock.WireMockServer;
+import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 import java.util.Optional;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 
 public class GitLabClientTest {
-  private static Logger LOG = LoggerFactory.getLogger(GitLabClientTest.class);
 
-  private GitLabClient sut;
-  private boolean disabled;
+  private static final String PROJECT_ID = "42";
+
+  private WireMockServer wireMockServer;
+  private GitLabClient gitLabClient;
 
   @BeforeEach
-  public void before() throws IOException {
-    final String hostUrl = "https://gitlab.com/";
-    String apiToken = null;
-    try {
-      apiToken =
-          new String(
-                  Files.readAllBytes(new File("/home/bjerre/gitlabapitoken.txt").toPath()),
-                  StandardCharsets.UTF_8)
-              .trim();
-    } catch (final Exception e) {
-      this.disabled = true;
-      return;
+  public void setUp() {
+    this.wireMockServer = new WireMockServer(WireMockConfiguration.options().dynamicPort());
+    this.wireMockServer.start();
+    final String baseUrl = "http://localhost:" + this.wireMockServer.port();
+    this.gitLabClient = new GitLabClient(baseUrl, "some-token");
+  }
+
+  @AfterEach
+  public void tearDown() {
+    if (this.wireMockServer != null) {
+      this.wireMockServer.stop();
     }
-    this.sut = new GitLabClient(hostUrl, apiToken);
   }
 
   @Test
   public void testGetIssue() throws GitChangelogIntegrationException {
-    if (this.disabled) {
-      return;
-    }
-    final String projectName = "tomas.bjerre85/violations-test";
-    final int issueId = 1;
+    final String mockResponse =
+        """
+        {
+          "title": "Test issue",
+          "web_url": "https://gitlab.com/tomas.bjerre85/violations-test/-/issues/1",
+          "labels": ["bug", "l1"]
+        }
+        """;
 
-    final Optional<GitLabIssue> issueOpt = this.sut.getIssue(projectName, issueId);
+    this.wireMockServer.stubFor(
+        get(urlPathEqualTo("/api/v4/projects/" + PROJECT_ID + "/issues/1"))
+            .withHeader("PRIVATE-TOKEN", equalTo("some-token"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withHeader("Content-Type", "application/json")
+                    .withBody(mockResponse)));
 
-    assertThat(issueOpt.isPresent()) //
-        .isTrue();
+    final Optional<GitLabIssue> issueOpt = this.gitLabClient.getIssue(PROJECT_ID, 1);
 
+    assertThat(issueOpt).isPresent();
     final GitLabIssue issue = issueOpt.get();
-    LOG.info("\n" + issue.getTitle() + " " + issue.getLink() + " " + issue.getLabels());
-    assertThat(issue.getLabels()) //
-        .containsOnly("bug", "l1");
-    assertThat(issue.getTitle()) //
-        .isEqualTo("Test issue");
-    assertThat(issue.getLink()) //
-        .isEqualTo("https://gitlab.com/tomas.bjerre85/violations-test.git/issues/1");
+    assertThat(issue.getTitle()).isEqualTo("Test issue");
+    assertThat(issue.getLink())
+        .isEqualTo("https://gitlab.com/tomas.bjerre85/violations-test/-/issues/1");
+    assertThat(issue.getLabels()).containsOnly("bug", "l1");
+  }
+
+  @Test
+  public void testGetIssueNotFound() throws GitChangelogIntegrationException {
+    this.wireMockServer.stubFor(
+        get(urlPathEqualTo("/api/v4/projects/" + PROJECT_ID + "/issues/404"))
+            .willReturn(
+                aResponse().withStatus(404).withBody("{\"message\":\"404 Issue Not Found\"}")));
+
+    final Optional<GitLabIssue> issueOpt = this.gitLabClient.getIssue(PROJECT_ID, 404);
+
+    assertThat(issueOpt).isEmpty();
+  }
+
+  @Test
+  public void testGetIssueServerError() throws GitChangelogIntegrationException {
+    this.wireMockServer.stubFor(
+        get(urlPathEqualTo("/api/v4/projects/" + PROJECT_ID + "/issues/500"))
+            .willReturn(aResponse().withStatus(500).withBody("Internal Server Error")));
+
+    final Optional<GitLabIssue> issueOpt = this.gitLabClient.getIssue(PROJECT_ID, 500);
+
+    assertThat(issueOpt).isEmpty();
   }
 }

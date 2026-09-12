@@ -3,31 +3,36 @@ package se.bjurr.gitchangelog.internal.integrations.gitlab;
 import java.util.List;
 
 public class GitLabIssue {
-
-  private final String title;
-  private final String link;
+  public final String title;
+  public final String web_url;
   private final List<String> labels;
 
-  public GitLabIssue(String title, String link, List<String> labels) {
+  public GitLabIssue(final String title, final String web_url, final List<String> labels) {
     this.title = title;
-    this.link = link;
+    this.web_url = web_url;
     this.labels = labels;
   }
 
   public List<String> getLabels() {
-    return labels;
+    return this.labels;
   }
 
   public String getLink() {
-    return link;
+    return this.web_url;
   }
 
   public String getTitle() {
-    return title;
+    return this.title;
   }
 
   @Override
   public String toString() {
-    return "GitLabIssue [title=" + title + ", link=" + link + ", labels=" + labels + "]";
+    return "GitLabIssue [title="
+        + this.title
+        + ", web_url="
+        + this.web_url
+        + ", labels="
+        + this.labels
+        + "]";
   }
 }
