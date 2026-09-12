@@ -3,8 +3,8 @@ package se.bjurr.gitchangelog.internal.integrations.gitlab;
 import java.util.List;
 
 public class GitLabIssue {
-  public final String title;
-  public final String web_url;
+  private final String title;
+  private final String web_url;
   private final List<String> labels;
 
   public GitLabIssue(final String title, final String web_url, final List<String> labels) {

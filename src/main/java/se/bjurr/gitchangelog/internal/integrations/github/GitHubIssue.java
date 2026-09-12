@@ -3,9 +3,9 @@ package se.bjurr.gitchangelog.internal.integrations.github;
 import java.util.List;
 
 public class GitHubIssue {
-  public final String title;
-  public final String html_url;
-  public final String number;
+  private final String title;
+  private final String html_url;
+  private final String number;
   private final List<GitHubLabel> labels;
 
   public GitHubIssue(String title, String link, String number, List<GitHubLabel> labels) {
