@@ -8,6 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
+import java.util.Map;
 import java.util.Optional;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -76,6 +77,34 @@ public class GitLabClientTest {
     final Optional<GitLabIssue> issueOpt = this.gitLabClient.getIssue(PROJECT_ID, 404);
 
     assertThat(issueOpt).isEmpty();
+  }
+
+  @Test
+  public void testGetIssueSendsExtendedHeadersAlongsideToken()
+      throws GitChangelogIntegrationException {
+    final String mockResponse =
+        """
+        {
+          "title": "Test issue",
+          "web_url": "https://gitlab.com/tomas.bjerre85/violations-test/-/issues/1",
+          "labels": []
+        }
+        """;
+
+    this.wireMockServer.stubFor(
+        get(urlPathEqualTo("/api/v4/projects/" + PROJECT_ID + "/issues/1"))
+            .withHeader("PRIVATE-TOKEN", equalTo("some-token"))
+            .withHeader("X-Extra", equalTo("extra-value"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withHeader("Content-Type", "application/json")
+                    .withBody(mockResponse)));
+
+    this.gitLabClient.withHeaders(Map.of("X-Extra", "extra-value"));
+    final Optional<GitLabIssue> issueOpt = this.gitLabClient.getIssue(PROJECT_ID, 1);
+
+    assertThat(issueOpt).isPresent();
   }
 
   @Test

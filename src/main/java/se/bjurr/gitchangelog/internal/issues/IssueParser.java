@@ -177,6 +177,9 @@ public class IssueParser {
       final String server = this.settings.getGitLabServer().get();
       final String token = this.settings.getGitLabToken().orElse(null);
       client = new GitLabClient(server, token);
+      if (this.settings.getExtendedRestHeaders() != null) {
+        client.withHeaders(this.settings.getExtendedRestHeaders());
+      }
     }
     return client;
   }
@@ -223,7 +226,12 @@ public class IssueParser {
 
   private GitHubHelper createGitHubClient() {
     if (this.settings.getGitHubApi().isPresent()) {
-      return new GitHubHelper(this.settings.getGitHubApi().get(), this.settings.getGitHubToken());
+      final GitHubHelper gitHubHelper =
+          new GitHubHelper(this.settings.getGitHubApi().get(), this.settings.getGitHubToken());
+      if (this.settings.getExtendedRestHeaders() != null) {
+        gitHubHelper.withHeaders(this.settings.getExtendedRestHeaders());
+      }
+      return gitHubHelper;
     }
     return null;
   }

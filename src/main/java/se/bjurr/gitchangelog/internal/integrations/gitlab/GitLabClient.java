@@ -3,6 +3,7 @@ package se.bjurr.gitchangelog.internal.integrations.gitlab;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -17,6 +18,7 @@ public class GitLabClient {
 
   private final String api;
   private final RestClient client;
+  private final Map<String, String> headers = new HashMap<>();
 
   public GitLabClient(final String hostUrl, final String apiToken) {
     final String trimmed =
@@ -24,8 +26,17 @@ public class GitLabClient {
     this.api = trimmed + "/api/v4";
     this.client = new RestClient();
     if (apiToken != null && !apiToken.isEmpty()) {
-      this.client.withHeaders(Map.of("PRIVATE-TOKEN", apiToken));
+      this.headers.put("PRIVATE-TOKEN", apiToken);
+      this.client.withHeaders(this.headers);
     }
+  }
+
+  public GitLabClient withHeaders(final Map<String, String> headers) {
+    if (headers != null) {
+      this.headers.putAll(headers);
+      this.client.withHeaders(this.headers);
+    }
+    return this;
   }
 
   public Optional<GitLabIssue> getIssue(final String projectName, final Integer matchedIssue)
