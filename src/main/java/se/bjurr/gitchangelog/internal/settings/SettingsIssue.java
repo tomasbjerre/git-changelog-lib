@@ -4,6 +4,8 @@ import static java.util.Optional.ofNullable;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.CUSTOM;
 import static se.bjurr.gitchangelog.internal.util.Preconditions.checkNotNull;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.Optional;
@@ -46,13 +48,14 @@ public class SettingsIssue implements Serializable {
     this.title = title;
   }
 
+  @JsonCreator
   public SettingsIssue(
-      final SettingsIssueType type,
-      final String name,
-      final String pattern,
-      final String link,
-      final String title) {
-    this.type = checkNotNull(type, "type");
+      @JsonProperty("type") final SettingsIssueType type,
+      @JsonProperty("name") final String name,
+      @JsonProperty("pattern") final String pattern,
+      @JsonProperty("link") final String link,
+      @JsonProperty("title") final String title) {
+    this.type = type != null ? type : CUSTOM;
     this.name = checkNotNull(name, "name");
     this.pattern = checkNotNull(pattern, "pattern");
     this.link = link;

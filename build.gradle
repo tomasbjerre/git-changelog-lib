@@ -2,16 +2,9 @@ plugins {
 	id "se.bjurr.gradle.bundle-jar"
 }
 
-repositories {
-	mavenCentral()
-}
-
 dependencies {
 	api "com.github.jknack:handlebars:4.5.4"
 
-	implementation 'com.squareup.retrofit2:retrofit:3.0.0'
-	// okio is transitive from retrofit: https://github.com/square/retrofit/issues/4210
-	implementation 'com.squareup.retrofit2:converter-gson:3.0.0'
 	implementation "com.jayway.jsonpath:json-path:3.0.0"
 	implementation "org.eclipse.jgit:org.eclipse.jgit:7.8.0.202609011348-r"
 	implementation "tools.jackson.core:jackson-databind:3.2.2"

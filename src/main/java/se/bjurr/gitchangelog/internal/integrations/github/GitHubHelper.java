@@ -1,24 +1,28 @@
 package se.bjurr.gitchangelog.internal.integrations.github;
 
-import static java.util.Optional.of;
-
-import java.io.IOException;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import retrofit2.Call;
-import retrofit2.Response;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
+import se.bjurr.gitchangelog.internal.integrations.rest.RestClient;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.json.JsonMapper;
 
 public class GitHubHelper {
 
-  private static Pattern PAGE_PATTERN = Pattern.compile("page=([0-9]+)>");
-  private final GitHubService service;
+  private static final JsonMapper JSON_MAPPER = new JsonMapper();
+  private static final int PER_PAGE = 100;
 
-  public GitHubHelper(final GitHubService service) {
-    this.service = service;
+  private final String api;
+  private final RestClient client;
+
+  public GitHubHelper(final String api, final Optional<String> token) {
+    this.api = api.endsWith("/") ? api : api + "/";
+    this.client = new RestClient();
+    if (token != null && token.isPresent() && !token.get().isEmpty()) {
+      this.client.withHeaders(Map.of("Authorization", "token " + token.get()));
+    }
   }
 
   public Optional<GitHubIssue> getIssueFromAll(String issue)
@@ -28,52 +32,43 @@ public class GitHubHelper {
     }
 
     int page = 1;
-    while (page > 0) {
-      final Call<List<GitHubIssue>> call = this.service.issues(page);
-      page = -1;
+    while (true) {
+      final String endpoint = this.api + "issues?state=all&per_page=" + PER_PAGE + "&page=" + page;
+      final Optional<String> json = this.client.get(endpoint);
+      if (json.isEmpty()) {
+        return Optional.empty();
+      }
 
       try {
-        final Response<List<GitHubIssue>> response = call.execute();
-
-        if (!response.isSuccessful()) {
-          throw new GitChangelogIntegrationException(
-              "Request:"
-                  + response.raw().request().toString()
-                  + "\nError:\n"
-                  + response.errorBody().string());
-        }
-
-        // Pagination
-        if (response.headers().get("Link") != null) {
-          final String link = response.headers().get("Link");
-          String parsedPage = null;
-          PART:
-          for (final String part : Arrays.asList(link.split(","))) {
-            for (final String piece : Arrays.asList(part.split(";"))) {
-              if ("rel=\"next\"".equals(piece.trim()) && parsedPage != null) {
-                // Previous piece pointed to next
-                page = Integer.parseInt(parsedPage);
-                break PART;
-              } else if (piece.contains("&page=")) {
-                final Matcher match = PAGE_PATTERN.matcher(piece);
-                if (match.find()) {
-                  parsedPage = match.group(1);
-                }
-              }
-            }
+        final JsonNode issuesNode = JSON_MAPPER.readTree(json.get());
+        int count = 0;
+        for (final JsonNode issueNode : issuesNode) {
+          count++;
+          if (issue.equals(issueNode.get("number").asString())) {
+            return Optional.of(this.toGitHubIssue(issueNode));
           }
         }
-
-        for (final GitHubIssue gitHubIssue : response.body()) {
-          if (issue.equals(gitHubIssue.getNumber())) {
-            return of(gitHubIssue);
-          }
+        if (count < PER_PAGE) {
+          return Optional.empty();
         }
-
-      } catch (final IOException e) {
+      } catch (final Exception e) {
         throw new GitChangelogIntegrationException(issue, e);
       }
+      page++;
     }
-    return Optional.empty();
+  }
+
+  private GitHubIssue toGitHubIssue(final JsonNode issueNode) {
+    final String title = issueNode.get("title").asString();
+    final String link = issueNode.get("html_url").asString();
+    final String number = issueNode.get("number").asString();
+    final List<GitHubLabel> labels = new ArrayList<>();
+    final JsonNode labelsNode = issueNode.get("labels");
+    if (labelsNode != null) {
+      for (final JsonNode labelNode : labelsNode) {
+        labels.add(new GitHubLabel(labelNode.get("name").asString()));
+      }
+    }
+    return new GitHubIssue(title, link, number, labels);
   }
 }

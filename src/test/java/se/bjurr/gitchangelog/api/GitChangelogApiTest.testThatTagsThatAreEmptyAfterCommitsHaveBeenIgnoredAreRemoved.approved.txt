@@ -15,23 +15,23 @@ Extended variable: {{customVariable}}
 settings:
 
 {
-  "fromRevision": "0000000000000000000000000000000000000000",
-  "fromRevisionStrategy": "DEFAULT",
-  "toRevision": "test",
-  "toRevisionStrategy": "DEFAULT",
-  "ignoreCommitsIfMessageMatches": ".*",
-  "templatePath": "templatetest/testAuthorsCommitsExtended.mustache",
-  "removeIssueFromMessage": false,
-  "jiraEnabled": true,
-  "redmineEnabled": true,
-  "gitHubEnabled": true,
-  "gitHubApi": "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
-  "extendedVariables": {},
-  "ignoreCommitsWithoutIssue": false,
-  "gitLabEnabled": true,
-  "gitLabProjectName": "tomasbjerre",
-  "useIntegrations": false,
-  "encoding": "UTF-8"
+  "encoding" : "UTF-8",
+  "extendedVariables" : { },
+  "fromRevision" : "0000000000000000000000000000000000000000",
+  "fromRevisionStrategy" : "DEFAULT",
+  "gitHubApi" : "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
+  "gitHubEnabled" : true,
+  "gitLabEnabled" : true,
+  "gitLabProjectName" : "tomasbjerre",
+  "ignoreCommitsIfMessageMatches" : ".*",
+  "ignoreCommitsWithoutIssue" : false,
+  "jiraEnabled" : true,
+  "redmineEnabled" : true,
+  "removeIssueFromMessage" : false,
+  "templatePath" : "templatetest/testAuthorsCommitsExtended.mustache",
+  "toRevision" : "test",
+  "toRevisionStrategy" : "DEFAULT",
+  "useIntegrations" : false
 }
 
 ---------------------------------------------
@@ -51,16 +51,12 @@ Extended variable:
 context:
 
 {
-  "commits": [],
-  "tags": [],
-  "authors": [],
-  "issues": [],
-  "issueTypes": [],
-  "ownerName": "tomasbjerre",
-  "repoName": "git-changelog-lib",
-  "urlParts": [
-    "git-changelog-lib",
-    "tomasbjerre",
-    "git@github.com"
-  ]
+  "commits" : [ ],
+  "tags" : [ ],
+  "authors" : [ ],
+  "issues" : [ ],
+  "issueTypes" : [ ],
+  "ownerName" : "tomasbjerre",
+  "repoName" : "git-changelog-lib",
+  "urlParts" : [ "git-changelog-lib", "tomasbjerre", "git@github.com" ]
 }

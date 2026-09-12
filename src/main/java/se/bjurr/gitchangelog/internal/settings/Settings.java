@@ -17,7 +17,9 @@ import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_TIMEZON
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.DEFAULT_UNTAGGED_NAME;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 
-import com.google.gson.Gson;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import java.io.Serializable;
 import java.net.URL;
 import java.nio.charset.Charset;
@@ -37,11 +39,21 @@ import java.util.regex.PatternSyntaxException;
 import se.bjurr.gitchangelog.api.InclusivenessStrategy;
 import se.bjurr.gitchangelog.api.model.Changelog;
 import se.bjurr.gitchangelog.api.model.Issue;
+import tools.jackson.databind.DeserializationFeature;
+import tools.jackson.databind.json.JsonMapper;
 
+@JsonAutoDetect(
+    fieldVisibility = Visibility.ANY,
+    getterVisibility = Visibility.NONE,
+    isGetterVisibility = Visibility.NONE)
 public class Settings implements Serializable {
   private static final long serialVersionUID = 4565886594381385244L;
 
-  private static Gson gson = new Gson();
+  private static final JsonMapper JSON_MAPPER =
+      JsonMapper.builder()
+          .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+          .changeDefaultPropertyInclusion(v -> v.withValueInclusion(Include.NON_NULL))
+          .build();
 
   /** Folder where repo lives. */
   private String fromRepo;
@@ -415,11 +427,11 @@ public class Settings implements Serializable {
   }
 
   public static Settings fromJson(final String json) {
-    return gson.fromJson(json, Settings.class);
+    return JSON_MAPPER.readValue(json, Settings.class);
   }
 
   public String toJson() {
-    return gson.toJson(this);
+    return JSON_MAPPER.writeValueAsString(this);
   }
 
   public Settings copy() {

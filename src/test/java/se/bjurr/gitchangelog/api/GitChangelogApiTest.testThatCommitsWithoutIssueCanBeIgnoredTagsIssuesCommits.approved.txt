@@ -38,34 +38,32 @@ Changelog of Git Changelog.
 settings:
 
 {
-  "fromRevision": "0000000000000000000000000000000000000000",
-  "fromRevisionStrategy": "DEFAULT",
-  "toRevision": "test",
-  "toRevisionStrategy": "DEFAULT",
-  "templatePath": "templatetest/testThatCommitsWithoutIssueCanBeIgnoredTagsIssuesCommits.mustache",
-  "removeIssueFromMessage": false,
-  "jiraEnabled": true,
-  "redmineEnabled": true,
-  "redmineIssuePattern": "nooo",
-  "gitHubEnabled": true,
-  "gitHubApi": "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
-  "gitHubIssuePattern": "nooo",
-  "customIssues": [
-    {
-      "type": "CUSTOM",
-      "name": "JIRA",
-      "title": "${PATTERN_GROUP}",
-      "pattern": "JIR-[0-9]*",
-      "link": "http://${PATTERN_GROUP}"
-    }
-  ],
-  "extendedVariables": {},
-  "ignoreCommitsWithoutIssue": true,
-  "gitLabEnabled": true,
-  "gitLabIssuePattern": "nooo",
-  "gitLabProjectName": "tomasbjerre",
-  "useIntegrations": false,
-  "encoding": "UTF-8"
+  "customIssues" : [ {
+    "type" : "CUSTOM",
+    "name" : "JIRA",
+    "pattern" : "JIR-[0-9]*",
+    "link" : "http://${PATTERN_GROUP}",
+    "title" : "${PATTERN_GROUP}"
+  } ],
+  "encoding" : "UTF-8",
+  "extendedVariables" : { },
+  "fromRevision" : "0000000000000000000000000000000000000000",
+  "fromRevisionStrategy" : "DEFAULT",
+  "gitHubApi" : "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
+  "gitHubEnabled" : true,
+  "gitHubIssuePattern" : "nooo",
+  "gitLabEnabled" : true,
+  "gitLabIssuePattern" : "nooo",
+  "gitLabProjectName" : "tomasbjerre",
+  "ignoreCommitsWithoutIssue" : true,
+  "jiraEnabled" : true,
+  "redmineEnabled" : true,
+  "redmineIssuePattern" : "nooo",
+  "removeIssueFromMessage" : false,
+  "templatePath" : "templatetest/testThatCommitsWithoutIssueCanBeIgnoredTagsIssuesCommits.mustache",
+  "toRevision" : "test",
+  "toRevisionStrategy" : "DEFAULT",
+  "useIntegrations" : false
 }
 
 ---------------------------------------------
@@ -114,551 +112,456 @@ Adding stuff with a jira
 context:
 
 {
-  "commits": [
-    {
-      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-      "authorName": "Tomas Bjerre",
-      "commitTime": "2016-02-15 16:30:35",
-      "commitTimeLong": 1455553835000,
-      "hash": "cc0fbbd8bc63955",
-      "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
-      "merge": false,
-      "message": "Adding stuff with a jira JIR-1234"
-    },
-    {
-      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-      "authorName": "Tomas Bjerre",
-      "commitTime": "2016-02-15 16:12:02",
-      "commitTimeLong": 1455552722000,
-      "hash": "071a14f29020758",
-      "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
-      "merge": false,
-      "message": "Adding stuff with a jira\n  JIR-5262"
-    }
-  ],
-  "tags": [
-    {
-      "annotation": "A tag in test-feature\n",
-      "authors": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:30:35",
-              "commitTimeLong": 1455553835000,
-              "hash": "cc0fbbd8bc63955",
-              "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
-              "merge": false,
-              "message": "Adding stuff with a jira JIR-1234"
-            }
-          ],
-          "authorName": "Tomas Bjerre",
-          "authorEmail": "tomas.bjerre85@gmail.com"
-        }
-      ],
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:30:35",
-          "commitTimeLong": 1455553835000,
-          "hash": "cc0fbbd8bc63955",
-          "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
-          "merge": false,
-          "message": "Adding stuff with a jira JIR-1234"
-        }
-      ],
-      "issues": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:30:35",
-              "commitTimeLong": 1455553835000,
-              "hash": "cc0fbbd8bc63955",
-              "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
-              "merge": false,
-              "message": "Adding stuff with a jira JIR-1234"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:30:35",
-                  "commitTimeLong": 1455553835000,
-                  "hash": "cc0fbbd8bc63955",
-                  "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
-                  "merge": false,
-                  "message": "Adding stuff with a jira JIR-1234"
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            }
-          ],
-          "name": "JIRA",
-          "title": "JIR-1234",
-          "hasTitle": true,
-          "issue": "JIR-1234",
-          "hasIssue": true,
-          "link": "http://JIR-1234",
-          "hasLink": true,
-          "type": "",
-          "hasType": false,
-          "hasDescription": false,
-          "description": "",
-          "hasLabels": false,
-          "hasLinkedIssues": false,
-          "issueType": "CUSTOM",
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        }
-      ],
-      "issueTypes": [
-        {
-          "name": "JIRA",
-          "issues": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:30:35",
-                  "commitTimeLong": 1455553835000,
-                  "hash": "cc0fbbd8bc63955",
-                  "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
-                  "merge": false,
-                  "message": "Adding stuff with a jira JIR-1234"
-                }
-              ],
-              "authors": [
-                {
-                  "commits": [
-                    {
-                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                      "authorName": "Tomas Bjerre",
-                      "commitTime": "2016-02-15 16:30:35",
-                      "commitTimeLong": 1455553835000,
-                      "hash": "cc0fbbd8bc63955",
-                      "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
-                      "merge": false,
-                      "message": "Adding stuff with a jira JIR-1234"
-                    }
-                  ],
-                  "authorName": "Tomas Bjerre",
-                  "authorEmail": "tomas.bjerre85@gmail.com"
-                }
-              ],
-              "name": "JIRA",
-              "title": "JIR-1234",
-              "hasTitle": true,
-              "issue": "JIR-1234",
-              "hasIssue": true,
-              "link": "http://JIR-1234",
-              "hasLink": true,
-              "type": "",
-              "hasType": false,
-              "hasDescription": false,
-              "description": "",
-              "hasLabels": false,
-              "hasLinkedIssues": false,
-              "issueType": "CUSTOM",
-              "hasAdditionalFields": false,
-              "additionalFields": {}
-            }
-          ],
-          "type": "CUSTOM"
-        }
-      ],
-      "name": "tag-in-test-feature",
-      "tagTime": "2016-04-06 15:13:04",
-      "tagTimeLong": 1459955584000,
-      "hasTagTime": true
-    },
-    {
-      "annotation": "this is the tag for test-1.0\n",
-      "authors": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:12:02",
-              "commitTimeLong": 1455552722000,
-              "hash": "071a14f29020758",
-              "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
-              "merge": false,
-              "message": "Adding stuff with a jira\n  JIR-5262"
-            }
-          ],
-          "authorName": "Tomas Bjerre",
-          "authorEmail": "tomas.bjerre85@gmail.com"
-        }
-      ],
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:12:02",
-          "commitTimeLong": 1455552722000,
-          "hash": "071a14f29020758",
-          "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
-          "merge": false,
-          "message": "Adding stuff with a jira\n  JIR-5262"
-        }
-      ],
-      "issues": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:12:02",
-              "commitTimeLong": 1455552722000,
-              "hash": "071a14f29020758",
-              "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
-              "merge": false,
-              "message": "Adding stuff with a jira\n  JIR-5262"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:12:02",
-                  "commitTimeLong": 1455552722000,
-                  "hash": "071a14f29020758",
-                  "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
-                  "merge": false,
-                  "message": "Adding stuff with a jira\n  JIR-5262"
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            }
-          ],
-          "name": "JIRA",
-          "title": "JIR-5262",
-          "hasTitle": true,
-          "issue": "JIR-5262",
-          "hasIssue": true,
-          "link": "http://JIR-5262",
-          "hasLink": true,
-          "type": "",
-          "hasType": false,
-          "hasDescription": false,
-          "description": "",
-          "hasLabels": false,
-          "hasLinkedIssues": false,
-          "issueType": "CUSTOM",
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        }
-      ],
-      "issueTypes": [
-        {
-          "name": "JIRA",
-          "issues": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:12:02",
-                  "commitTimeLong": 1455552722000,
-                  "hash": "071a14f29020758",
-                  "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
-                  "merge": false,
-                  "message": "Adding stuff with a jira\n  JIR-5262"
-                }
-              ],
-              "authors": [
-                {
-                  "commits": [
-                    {
-                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                      "authorName": "Tomas Bjerre",
-                      "commitTime": "2016-02-15 16:12:02",
-                      "commitTimeLong": 1455552722000,
-                      "hash": "071a14f29020758",
-                      "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
-                      "merge": false,
-                      "message": "Adding stuff with a jira\n  JIR-5262"
-                    }
-                  ],
-                  "authorName": "Tomas Bjerre",
-                  "authorEmail": "tomas.bjerre85@gmail.com"
-                }
-              ],
-              "name": "JIRA",
-              "title": "JIR-5262",
-              "hasTitle": true,
-              "issue": "JIR-5262",
-              "hasIssue": true,
-              "link": "http://JIR-5262",
-              "hasLink": true,
-              "type": "",
-              "hasType": false,
-              "hasDescription": false,
-              "description": "",
-              "hasLabels": false,
-              "hasLinkedIssues": false,
-              "issueType": "CUSTOM",
-              "hasAdditionalFields": false,
-              "additionalFields": {}
-            }
-          ],
-          "type": "CUSTOM"
-        }
-      ],
-      "name": "test-1.0",
-      "tagTime": "2016-02-15 16:30:35",
-      "tagTimeLong": 1455553835000,
-      "hasTagTime": true
-    }
-  ],
-  "authors": [
-    {
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:30:35",
-          "commitTimeLong": 1455553835000,
-          "hash": "cc0fbbd8bc63955",
-          "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
-          "merge": false,
-          "message": "Adding stuff with a jira JIR-1234"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:12:02",
-          "commitTimeLong": 1455552722000,
-          "hash": "071a14f29020758",
-          "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
-          "merge": false,
-          "message": "Adding stuff with a jira\n  JIR-5262"
-        }
-      ],
-      "authorName": "Tomas Bjerre",
-      "authorEmail": "tomas.bjerre85@gmail.com"
-    }
-  ],
-  "issues": [
-    {
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:30:35",
-          "commitTimeLong": 1455553835000,
-          "hash": "cc0fbbd8bc63955",
-          "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
-          "merge": false,
-          "message": "Adding stuff with a jira JIR-1234"
-        }
-      ],
-      "authors": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:30:35",
-              "commitTimeLong": 1455553835000,
-              "hash": "cc0fbbd8bc63955",
-              "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
-              "merge": false,
-              "message": "Adding stuff with a jira JIR-1234"
-            }
-          ],
-          "authorName": "Tomas Bjerre",
-          "authorEmail": "tomas.bjerre85@gmail.com"
-        }
-      ],
-      "name": "JIRA",
-      "title": "JIR-1234",
-      "hasTitle": true,
-      "issue": "JIR-1234",
-      "hasIssue": true,
-      "link": "http://JIR-1234",
-      "hasLink": true,
-      "type": "",
-      "hasType": false,
-      "hasDescription": false,
-      "description": "",
-      "hasLabels": false,
-      "hasLinkedIssues": false,
-      "issueType": "CUSTOM",
-      "hasAdditionalFields": false,
-      "additionalFields": {}
-    },
-    {
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:12:02",
-          "commitTimeLong": 1455552722000,
-          "hash": "071a14f29020758",
-          "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
-          "merge": false,
-          "message": "Adding stuff with a jira\n  JIR-5262"
-        }
-      ],
-      "authors": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:12:02",
-              "commitTimeLong": 1455552722000,
-              "hash": "071a14f29020758",
-              "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
-              "merge": false,
-              "message": "Adding stuff with a jira\n  JIR-5262"
-            }
-          ],
-          "authorName": "Tomas Bjerre",
-          "authorEmail": "tomas.bjerre85@gmail.com"
-        }
-      ],
-      "name": "JIRA",
-      "title": "JIR-5262",
-      "hasTitle": true,
-      "issue": "JIR-5262",
-      "hasIssue": true,
-      "link": "http://JIR-5262",
-      "hasLink": true,
-      "type": "",
-      "hasType": false,
-      "hasDescription": false,
-      "description": "",
-      "hasLabels": false,
-      "hasLinkedIssues": false,
-      "issueType": "CUSTOM",
-      "hasAdditionalFields": false,
-      "additionalFields": {}
-    }
-  ],
-  "issueTypes": [
-    {
-      "name": "JIRA",
-      "issues": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:30:35",
-              "commitTimeLong": 1455553835000,
-              "hash": "cc0fbbd8bc63955",
-              "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
-              "merge": false,
-              "message": "Adding stuff with a jira JIR-1234"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:30:35",
-                  "commitTimeLong": 1455553835000,
-                  "hash": "cc0fbbd8bc63955",
-                  "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
-                  "merge": false,
-                  "message": "Adding stuff with a jira JIR-1234"
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            }
-          ],
-          "name": "JIRA",
-          "title": "JIR-1234",
-          "hasTitle": true,
-          "issue": "JIR-1234",
-          "hasIssue": true,
-          "link": "http://JIR-1234",
-          "hasLink": true,
-          "type": "",
-          "hasType": false,
-          "hasDescription": false,
-          "description": "",
-          "hasLabels": false,
-          "hasLinkedIssues": false,
-          "issueType": "CUSTOM",
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        },
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:12:02",
-              "commitTimeLong": 1455552722000,
-              "hash": "071a14f29020758",
-              "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
-              "merge": false,
-              "message": "Adding stuff with a jira\n  JIR-5262"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:12:02",
-                  "commitTimeLong": 1455552722000,
-                  "hash": "071a14f29020758",
-                  "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
-                  "merge": false,
-                  "message": "Adding stuff with a jira\n  JIR-5262"
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            }
-          ],
-          "name": "JIRA",
-          "title": "JIR-5262",
-          "hasTitle": true,
-          "issue": "JIR-5262",
-          "hasIssue": true,
-          "link": "http://JIR-5262",
-          "hasLink": true,
-          "type": "",
-          "hasType": false,
-          "hasDescription": false,
-          "description": "",
-          "hasLabels": false,
-          "hasLinkedIssues": false,
-          "issueType": "CUSTOM",
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        }
-      ],
-      "type": "CUSTOM"
-    }
-  ],
-  "ownerName": "tomasbjerre",
-  "repoName": "git-changelog-lib",
-  "urlParts": [
-    "git-changelog-lib",
-    "tomasbjerre",
-    "git@github.com"
-  ]
+  "commits" : [ {
+    "authorName" : "Tomas Bjerre",
+    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+    "commitTime" : "2016-02-15 16:30:35",
+    "commitTimeLong" : 1455553835000,
+    "message" : "Adding stuff with a jira JIR-1234",
+    "hash" : "cc0fbbd8bc63955",
+    "merge" : false,
+    "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
+  }, {
+    "authorName" : "Tomas Bjerre",
+    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+    "commitTime" : "2016-02-15 16:12:02",
+    "commitTimeLong" : 1455552722000,
+    "message" : "Adding stuff with a jira\n  JIR-5262",
+    "hash" : "071a14f29020758",
+    "merge" : false,
+    "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
+  } ],
+  "tags" : [ {
+    "name" : "tag-in-test-feature",
+    "annotation" : "A tag in test-feature\n",
+    "commits" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-02-15 16:30:35",
+      "commitTimeLong" : 1455553835000,
+      "message" : "Adding stuff with a jira JIR-1234",
+      "hash" : "cc0fbbd8bc63955",
+      "merge" : false,
+      "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
+    } ],
+    "authors" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmail" : "tomas.bjerre85@gmail.com",
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:30:35",
+        "commitTimeLong" : 1455553835000,
+        "message" : "Adding stuff with a jira JIR-1234",
+        "hash" : "cc0fbbd8bc63955",
+        "merge" : false,
+        "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
+      } ]
+    } ],
+    "issues" : [ {
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:30:35",
+        "commitTimeLong" : 1455553835000,
+        "message" : "Adding stuff with a jira JIR-1234",
+        "hash" : "cc0fbbd8bc63955",
+        "merge" : false,
+        "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
+      } ],
+      "authors" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-02-15 16:30:35",
+          "commitTimeLong" : 1455553835000,
+          "message" : "Adding stuff with a jira JIR-1234",
+          "hash" : "cc0fbbd8bc63955",
+          "merge" : false,
+          "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
+        } ]
+      } ],
+      "name" : "JIRA",
+      "title" : "JIR-1234",
+      "issue" : "JIR-1234",
+      "issueType" : "CUSTOM",
+      "description" : "",
+      "link" : "http://JIR-1234",
+      "type" : "",
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : false,
+      "hasIssue" : true,
+      "hasLabels" : false,
+      "hasLink" : true,
+      "hasLinkedIssues" : false,
+      "hasTitle" : true,
+      "hasType" : false
+    } ],
+    "issueTypes" : [ {
+      "issues" : [ {
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-02-15 16:30:35",
+          "commitTimeLong" : 1455553835000,
+          "message" : "Adding stuff with a jira JIR-1234",
+          "hash" : "cc0fbbd8bc63955",
+          "merge" : false,
+          "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
+        } ],
+        "authors" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmail" : "tomas.bjerre85@gmail.com",
+          "commits" : [ {
+            "authorName" : "Tomas Bjerre",
+            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+            "commitTime" : "2016-02-15 16:30:35",
+            "commitTimeLong" : 1455553835000,
+            "message" : "Adding stuff with a jira JIR-1234",
+            "hash" : "cc0fbbd8bc63955",
+            "merge" : false,
+            "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
+          } ]
+        } ],
+        "name" : "JIRA",
+        "title" : "JIR-1234",
+        "issue" : "JIR-1234",
+        "issueType" : "CUSTOM",
+        "description" : "",
+        "link" : "http://JIR-1234",
+        "type" : "",
+        "additionalFields" : { },
+        "hasAdditionalFields" : false,
+        "hasDescription" : false,
+        "hasIssue" : true,
+        "hasLabels" : false,
+        "hasLink" : true,
+        "hasLinkedIssues" : false,
+        "hasTitle" : true,
+        "hasType" : false
+      } ],
+      "name" : "JIRA",
+      "type" : "CUSTOM"
+    } ],
+    "tagTime" : "2016-04-06 15:13:04",
+    "tagTimeLong" : 1459955584000,
+    "hasTagTime" : true
+  }, {
+    "name" : "test-1.0",
+    "annotation" : "this is the tag for test-1.0\n",
+    "commits" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-02-15 16:12:02",
+      "commitTimeLong" : 1455552722000,
+      "message" : "Adding stuff with a jira\n  JIR-5262",
+      "hash" : "071a14f29020758",
+      "merge" : false,
+      "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
+    } ],
+    "authors" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmail" : "tomas.bjerre85@gmail.com",
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:12:02",
+        "commitTimeLong" : 1455552722000,
+        "message" : "Adding stuff with a jira\n  JIR-5262",
+        "hash" : "071a14f29020758",
+        "merge" : false,
+        "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
+      } ]
+    } ],
+    "issues" : [ {
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:12:02",
+        "commitTimeLong" : 1455552722000,
+        "message" : "Adding stuff with a jira\n  JIR-5262",
+        "hash" : "071a14f29020758",
+        "merge" : false,
+        "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
+      } ],
+      "authors" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-02-15 16:12:02",
+          "commitTimeLong" : 1455552722000,
+          "message" : "Adding stuff with a jira\n  JIR-5262",
+          "hash" : "071a14f29020758",
+          "merge" : false,
+          "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
+        } ]
+      } ],
+      "name" : "JIRA",
+      "title" : "JIR-5262",
+      "issue" : "JIR-5262",
+      "issueType" : "CUSTOM",
+      "description" : "",
+      "link" : "http://JIR-5262",
+      "type" : "",
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : false,
+      "hasIssue" : true,
+      "hasLabels" : false,
+      "hasLink" : true,
+      "hasLinkedIssues" : false,
+      "hasTitle" : true,
+      "hasType" : false
+    } ],
+    "issueTypes" : [ {
+      "issues" : [ {
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-02-15 16:12:02",
+          "commitTimeLong" : 1455552722000,
+          "message" : "Adding stuff with a jira\n  JIR-5262",
+          "hash" : "071a14f29020758",
+          "merge" : false,
+          "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
+        } ],
+        "authors" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmail" : "tomas.bjerre85@gmail.com",
+          "commits" : [ {
+            "authorName" : "Tomas Bjerre",
+            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+            "commitTime" : "2016-02-15 16:12:02",
+            "commitTimeLong" : 1455552722000,
+            "message" : "Adding stuff with a jira\n  JIR-5262",
+            "hash" : "071a14f29020758",
+            "merge" : false,
+            "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
+          } ]
+        } ],
+        "name" : "JIRA",
+        "title" : "JIR-5262",
+        "issue" : "JIR-5262",
+        "issueType" : "CUSTOM",
+        "description" : "",
+        "link" : "http://JIR-5262",
+        "type" : "",
+        "additionalFields" : { },
+        "hasAdditionalFields" : false,
+        "hasDescription" : false,
+        "hasIssue" : true,
+        "hasLabels" : false,
+        "hasLink" : true,
+        "hasLinkedIssues" : false,
+        "hasTitle" : true,
+        "hasType" : false
+      } ],
+      "name" : "JIRA",
+      "type" : "CUSTOM"
+    } ],
+    "tagTime" : "2016-02-15 16:30:35",
+    "tagTimeLong" : 1455553835000,
+    "hasTagTime" : true
+  } ],
+  "authors" : [ {
+    "authorName" : "Tomas Bjerre",
+    "authorEmail" : "tomas.bjerre85@gmail.com",
+    "commits" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-02-15 16:30:35",
+      "commitTimeLong" : 1455553835000,
+      "message" : "Adding stuff with a jira JIR-1234",
+      "hash" : "cc0fbbd8bc63955",
+      "merge" : false,
+      "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-02-15 16:12:02",
+      "commitTimeLong" : 1455552722000,
+      "message" : "Adding stuff with a jira\n  JIR-5262",
+      "hash" : "071a14f29020758",
+      "merge" : false,
+      "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
+    } ]
+  } ],
+  "issues" : [ {
+    "commits" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-02-15 16:30:35",
+      "commitTimeLong" : 1455553835000,
+      "message" : "Adding stuff with a jira JIR-1234",
+      "hash" : "cc0fbbd8bc63955",
+      "merge" : false,
+      "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
+    } ],
+    "authors" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmail" : "tomas.bjerre85@gmail.com",
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:30:35",
+        "commitTimeLong" : 1455553835000,
+        "message" : "Adding stuff with a jira JIR-1234",
+        "hash" : "cc0fbbd8bc63955",
+        "merge" : false,
+        "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
+      } ]
+    } ],
+    "name" : "JIRA",
+    "title" : "JIR-1234",
+    "issue" : "JIR-1234",
+    "issueType" : "CUSTOM",
+    "description" : "",
+    "link" : "http://JIR-1234",
+    "type" : "",
+    "additionalFields" : { },
+    "hasAdditionalFields" : false,
+    "hasDescription" : false,
+    "hasIssue" : true,
+    "hasLabels" : false,
+    "hasLink" : true,
+    "hasLinkedIssues" : false,
+    "hasTitle" : true,
+    "hasType" : false
+  }, {
+    "commits" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-02-15 16:12:02",
+      "commitTimeLong" : 1455552722000,
+      "message" : "Adding stuff with a jira\n  JIR-5262",
+      "hash" : "071a14f29020758",
+      "merge" : false,
+      "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
+    } ],
+    "authors" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmail" : "tomas.bjerre85@gmail.com",
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:12:02",
+        "commitTimeLong" : 1455552722000,
+        "message" : "Adding stuff with a jira\n  JIR-5262",
+        "hash" : "071a14f29020758",
+        "merge" : false,
+        "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
+      } ]
+    } ],
+    "name" : "JIRA",
+    "title" : "JIR-5262",
+    "issue" : "JIR-5262",
+    "issueType" : "CUSTOM",
+    "description" : "",
+    "link" : "http://JIR-5262",
+    "type" : "",
+    "additionalFields" : { },
+    "hasAdditionalFields" : false,
+    "hasDescription" : false,
+    "hasIssue" : true,
+    "hasLabels" : false,
+    "hasLink" : true,
+    "hasLinkedIssues" : false,
+    "hasTitle" : true,
+    "hasType" : false
+  } ],
+  "issueTypes" : [ {
+    "issues" : [ {
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:30:35",
+        "commitTimeLong" : 1455553835000,
+        "message" : "Adding stuff with a jira JIR-1234",
+        "hash" : "cc0fbbd8bc63955",
+        "merge" : false,
+        "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
+      } ],
+      "authors" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-02-15 16:30:35",
+          "commitTimeLong" : 1455553835000,
+          "message" : "Adding stuff with a jira JIR-1234",
+          "hash" : "cc0fbbd8bc63955",
+          "merge" : false,
+          "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
+        } ]
+      } ],
+      "name" : "JIRA",
+      "title" : "JIR-1234",
+      "issue" : "JIR-1234",
+      "issueType" : "CUSTOM",
+      "description" : "",
+      "link" : "http://JIR-1234",
+      "type" : "",
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : false,
+      "hasIssue" : true,
+      "hasLabels" : false,
+      "hasLink" : true,
+      "hasLinkedIssues" : false,
+      "hasTitle" : true,
+      "hasType" : false
+    }, {
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:12:02",
+        "commitTimeLong" : 1455552722000,
+        "message" : "Adding stuff with a jira\n  JIR-5262",
+        "hash" : "071a14f29020758",
+        "merge" : false,
+        "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
+      } ],
+      "authors" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-02-15 16:12:02",
+          "commitTimeLong" : 1455552722000,
+          "message" : "Adding stuff with a jira\n  JIR-5262",
+          "hash" : "071a14f29020758",
+          "merge" : false,
+          "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
+        } ]
+      } ],
+      "name" : "JIRA",
+      "title" : "JIR-5262",
+      "issue" : "JIR-5262",
+      "issueType" : "CUSTOM",
+      "description" : "",
+      "link" : "http://JIR-5262",
+      "type" : "",
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : false,
+      "hasIssue" : true,
+      "hasLabels" : false,
+      "hasLink" : true,
+      "hasLinkedIssues" : false,
+      "hasTitle" : true,
+      "hasType" : false
+    } ],
+    "name" : "JIRA",
+    "type" : "CUSTOM"
+  } ],
+  "ownerName" : "tomasbjerre",
+  "repoName" : "git-changelog-lib",
+  "urlParts" : [ "git-changelog-lib", "tomasbjerre", "git@github.com" ]
 }

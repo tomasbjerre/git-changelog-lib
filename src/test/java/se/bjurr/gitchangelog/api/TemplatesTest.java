@@ -12,8 +12,6 @@ import java.nio.file.Paths;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import se.bjurr.gitchangelog.internal.integrations.github.GitHubMockInterceptor;
-import se.bjurr.gitchangelog.internal.integrations.github.GitHubServiceFactory;
 import se.bjurr.gitchangelog.internal.integrations.jira.JiraClientFactory;
 import se.bjurr.gitchangelog.internal.integrations.rest.RestClientMock;
 import se.bjurr.gitchangelog.test.ApprovalsWrapper;
@@ -30,7 +28,7 @@ public class TemplatesTest {
     final RestClientMock mockedRestClient = new RestClientMock();
     mockedRestClient //
         .addMockedResponse(
-        "/repos/tomasbjerre/git-changelog-lib/issues?state=all",
+        "/repos/tomasbjerre/git-changelog-lib/issues?state=all&per_page=100&page=1",
         new String(
             Files.readAllBytes(
                 Paths.get(TemplatesTest.class.getResource("/github-issues.json").toURI())),
@@ -40,16 +38,6 @@ public class TemplatesTest {
     this.mockJiraResponses(mockedRestClient, "customfield_10000,customfield_10002");
 
     mock(mockedRestClient);
-
-    final GitHubMockInterceptor gitHubMockInterceptor = new GitHubMockInterceptor();
-    gitHubMockInterceptor.addMockedResponse(
-        "https://api.github.com/repos/tomasbjerre/git-changelog-lib/issues?state=all&per_page=100&page=1",
-        new String(
-            Files.readAllBytes(
-                Paths.get(TemplatesTest.class.getResource("/github-issues.json").toURI())),
-            UTF_8));
-
-    GitHubServiceFactory.setInterceptor(gitHubMockInterceptor);
 
     this.baseBuilder =
         gitChangelogApiBuilder() //
@@ -113,7 +101,6 @@ public class TemplatesTest {
   @AfterEach
   public void after() {
     JiraClientFactory.reset();
-    GitHubServiceFactory.setInterceptor(null);
     mock(null);
   }
 

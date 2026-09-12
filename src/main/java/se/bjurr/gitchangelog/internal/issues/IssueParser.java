@@ -3,7 +3,6 @@ package se.bjurr.gitchangelog.internal.issues;
 import static java.util.regex.Pattern.compile;
 import static java.util.stream.Collectors.toList;
 import static org.slf4j.LoggerFactory.getLogger;
-import static se.bjurr.gitchangelog.internal.integrations.github.GitHubServiceFactory.getGitHubService;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.CUSTOM;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITHUB;
 import static se.bjurr.gitchangelog.internal.settings.SettingsIssueType.GITLAB;
@@ -221,8 +220,7 @@ public class IssueParser {
 
   private GitHubHelper createGitHubClient() {
     if (this.settings.getGitHubApi().isPresent()) {
-      return new GitHubHelper(
-          getGitHubService(this.settings.getGitHubApi().get(), this.settings.getGitHubToken()));
+      return new GitHubHelper(this.settings.getGitHubApi().get(), this.settings.getGitHubToken());
     }
     return null;
   }

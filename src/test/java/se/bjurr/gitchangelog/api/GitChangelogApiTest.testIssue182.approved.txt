@@ -61,22 +61,22 @@ Changelog of {{repoName}}.
 settings:
 
 {
-  "fromRevision": "0000000000000000000000000000000000000000",
-  "fromRevisionStrategy": "DEFAULT",
-  "toRevision": "test/issue-182",
-  "toRevisionStrategy": "DEFAULT",
-  "templatePath": "changelog-with-unreleased.mustache",
-  "removeIssueFromMessage": false,
-  "jiraEnabled": false,
-  "redmineEnabled": false,
-  "gitHubEnabled": false,
-  "gitHubApi": "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
-  "extendedVariables": {},
-  "ignoreCommitsWithoutIssue": false,
-  "gitLabEnabled": false,
-  "gitLabProjectName": "tomasbjerre",
-  "useIntegrations": false,
-  "encoding": "UTF-8"
+  "encoding" : "UTF-8",
+  "extendedVariables" : { },
+  "fromRevision" : "0000000000000000000000000000000000000000",
+  "fromRevisionStrategy" : "DEFAULT",
+  "gitHubApi" : "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
+  "gitHubEnabled" : false,
+  "gitLabEnabled" : false,
+  "gitLabProjectName" : "tomasbjerre",
+  "ignoreCommitsWithoutIssue" : false,
+  "jiraEnabled" : false,
+  "redmineEnabled" : false,
+  "removeIssueFromMessage" : false,
+  "templatePath" : "changelog-with-unreleased.mustache",
+  "toRevision" : "test/issue-182",
+  "toRevisionStrategy" : "DEFAULT",
+  "useIntegrations" : false
 }
 
 ---------------------------------------------
@@ -118,733 +118,624 @@ Changelog of git-changelog-lib.
 context:
 
 {
-  "commits": [
-    {
-      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-      "authorName": "Tomas Bjerre",
-      "commitTime": "2024-03-27 16:31:06",
-      "commitTimeLong": 1711557066000,
-      "hash": "583f3a3ced05979",
-      "hashFull": "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112",
-      "merge": false,
-      "message": "chore: X"
-    },
-    {
-      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-      "authorName": "Tomas Bjerre",
-      "commitTime": "2024-03-27 16:30:36",
-      "commitTimeLong": 1711557036000,
-      "hash": "0c1cd1179ab9e0b",
-      "hashFull": "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb",
-      "merge": true,
-      "message": "Merge branch \u0027issue-182-branch\u0027 into test/issue-182"
-    },
-    {
-      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-      "authorName": "Tomas Bjerre",
-      "commitTime": "2024-03-27 16:30:14",
-      "commitTimeLong": 1711557014000,
-      "hash": "d0555d2e1ee3b1c",
-      "hashFull": "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06",
-      "merge": false,
-      "message": "feat: Y"
-    },
-    {
-      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-      "authorName": "Tomas Bjerre",
-      "commitTime": "2015-11-12 05:29:31",
-      "commitTimeLong": 1447306171000,
-      "hash": "a1aa5ff5b625e63",
-      "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-      "merge": false,
-      "message": "Initial commit"
-    }
-  ],
-  "tags": [
-    {
-      "authors": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2024-03-27 16:31:06",
-              "commitTimeLong": 1711557066000,
-              "hash": "583f3a3ced05979",
-              "hashFull": "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112",
-              "merge": false,
-              "message": "chore: X"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2024-03-27 16:30:36",
-              "commitTimeLong": 1711557036000,
-              "hash": "0c1cd1179ab9e0b",
-              "hashFull": "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb",
-              "merge": true,
-              "message": "Merge branch \u0027issue-182-branch\u0027 into test/issue-182"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2024-03-27 16:30:14",
-              "commitTimeLong": 1711557014000,
-              "hash": "d0555d2e1ee3b1c",
-              "hashFull": "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06",
-              "merge": false,
-              "message": "feat: Y"
-            }
-          ],
-          "authorName": "Tomas Bjerre",
-          "authorEmail": "tomas.bjerre85@gmail.com"
-        }
-      ],
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2024-03-27 16:31:06",
-          "commitTimeLong": 1711557066000,
-          "hash": "583f3a3ced05979",
-          "hashFull": "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112",
-          "merge": false,
-          "message": "chore: X"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2024-03-27 16:30:36",
-          "commitTimeLong": 1711557036000,
-          "hash": "0c1cd1179ab9e0b",
-          "hashFull": "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb",
-          "merge": true,
-          "message": "Merge branch \u0027issue-182-branch\u0027 into test/issue-182"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2024-03-27 16:30:14",
-          "commitTimeLong": 1711557014000,
-          "hash": "d0555d2e1ee3b1c",
-          "hashFull": "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06",
-          "merge": false,
-          "message": "feat: Y"
-        }
-      ],
-      "issues": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2024-03-27 16:31:06",
-              "commitTimeLong": 1711557066000,
-              "hash": "583f3a3ced05979",
-              "hashFull": "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112",
-              "merge": false,
-              "message": "chore: X"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2024-03-27 16:30:36",
-              "commitTimeLong": 1711557036000,
-              "hash": "0c1cd1179ab9e0b",
-              "hashFull": "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb",
-              "merge": true,
-              "message": "Merge branch \u0027issue-182-branch\u0027 into test/issue-182"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2024-03-27 16:30:14",
-              "commitTimeLong": 1711557014000,
-              "hash": "d0555d2e1ee3b1c",
-              "hashFull": "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06",
-              "merge": false,
-              "message": "feat: Y"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2024-03-27 16:31:06",
-                  "commitTimeLong": 1711557066000,
-                  "hash": "583f3a3ced05979",
-                  "hashFull": "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112",
-                  "merge": false,
-                  "message": "chore: X"
-                },
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2024-03-27 16:30:36",
-                  "commitTimeLong": 1711557036000,
-                  "hash": "0c1cd1179ab9e0b",
-                  "hashFull": "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb",
-                  "merge": true,
-                  "message": "Merge branch \u0027issue-182-branch\u0027 into test/issue-182"
-                },
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2024-03-27 16:30:14",
-                  "commitTimeLong": 1711557014000,
-                  "hash": "d0555d2e1ee3b1c",
-                  "hashFull": "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06",
-                  "merge": false,
-                  "message": "feat: Y"
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            }
-          ],
-          "name": "No issue",
-          "title": "",
-          "hasTitle": false,
-          "issue": "",
-          "hasIssue": false,
-          "link": "",
-          "hasLink": false,
-          "type": "",
-          "hasType": false,
-          "hasDescription": false,
-          "description": "",
-          "hasLabels": false,
-          "hasLinkedIssues": false,
-          "issueType": "NOISSUE",
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        }
-      ],
-      "issueTypes": [
-        {
-          "name": "No issue",
-          "issues": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2024-03-27 16:31:06",
-                  "commitTimeLong": 1711557066000,
-                  "hash": "583f3a3ced05979",
-                  "hashFull": "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112",
-                  "merge": false,
-                  "message": "chore: X"
-                },
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2024-03-27 16:30:36",
-                  "commitTimeLong": 1711557036000,
-                  "hash": "0c1cd1179ab9e0b",
-                  "hashFull": "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb",
-                  "merge": true,
-                  "message": "Merge branch \u0027issue-182-branch\u0027 into test/issue-182"
-                },
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2024-03-27 16:30:14",
-                  "commitTimeLong": 1711557014000,
-                  "hash": "d0555d2e1ee3b1c",
-                  "hashFull": "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06",
-                  "merge": false,
-                  "message": "feat: Y"
-                }
-              ],
-              "authors": [
-                {
-                  "commits": [
-                    {
-                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                      "authorName": "Tomas Bjerre",
-                      "commitTime": "2024-03-27 16:31:06",
-                      "commitTimeLong": 1711557066000,
-                      "hash": "583f3a3ced05979",
-                      "hashFull": "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112",
-                      "merge": false,
-                      "message": "chore: X"
-                    },
-                    {
-                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                      "authorName": "Tomas Bjerre",
-                      "commitTime": "2024-03-27 16:30:36",
-                      "commitTimeLong": 1711557036000,
-                      "hash": "0c1cd1179ab9e0b",
-                      "hashFull": "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb",
-                      "merge": true,
-                      "message": "Merge branch \u0027issue-182-branch\u0027 into test/issue-182"
-                    },
-                    {
-                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                      "authorName": "Tomas Bjerre",
-                      "commitTime": "2024-03-27 16:30:14",
-                      "commitTimeLong": 1711557014000,
-                      "hash": "d0555d2e1ee3b1c",
-                      "hashFull": "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06",
-                      "merge": false,
-                      "message": "feat: Y"
-                    }
-                  ],
-                  "authorName": "Tomas Bjerre",
-                  "authorEmail": "tomas.bjerre85@gmail.com"
-                }
-              ],
-              "name": "No issue",
-              "title": "",
-              "hasTitle": false,
-              "issue": "",
-              "hasIssue": false,
-              "link": "",
-              "hasLink": false,
-              "type": "",
-              "hasType": false,
-              "hasDescription": false,
-              "description": "",
-              "hasLabels": false,
-              "hasLinkedIssues": false,
-              "issueType": "NOISSUE",
-              "hasAdditionalFields": false,
-              "additionalFields": {}
-            }
-          ],
-          "type": "NOISSUE"
-        }
-      ],
-      "name": "Unreleased",
-      "tagTime": "",
-      "tagTimeLong": -1,
-      "hasTagTime": false
-    },
-    {
-      "authors": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-12 05:29:31",
-              "commitTimeLong": 1447306171000,
-              "hash": "a1aa5ff5b625e63",
-              "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-              "merge": false,
-              "message": "Initial commit"
-            }
-          ],
-          "authorName": "Tomas Bjerre",
-          "authorEmail": "tomas.bjerre85@gmail.com"
-        }
-      ],
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2015-11-12 05:29:31",
-          "commitTimeLong": 1447306171000,
-          "hash": "a1aa5ff5b625e63",
-          "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-          "merge": false,
-          "message": "Initial commit"
-        }
-      ],
-      "issues": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-12 05:29:31",
-              "commitTimeLong": 1447306171000,
-              "hash": "a1aa5ff5b625e63",
-              "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-              "merge": false,
-              "message": "Initial commit"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2015-11-12 05:29:31",
-                  "commitTimeLong": 1447306171000,
-                  "hash": "a1aa5ff5b625e63",
-                  "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-                  "merge": false,
-                  "message": "Initial commit"
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            }
-          ],
-          "name": "No issue",
-          "title": "",
-          "hasTitle": false,
-          "issue": "",
-          "hasIssue": false,
-          "link": "",
-          "hasLink": false,
-          "type": "",
-          "hasType": false,
-          "hasDescription": false,
-          "description": "",
-          "hasLabels": false,
-          "hasLinkedIssues": false,
-          "issueType": "NOISSUE",
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        }
-      ],
-      "issueTypes": [
-        {
-          "name": "No issue",
-          "issues": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2015-11-12 05:29:31",
-                  "commitTimeLong": 1447306171000,
-                  "hash": "a1aa5ff5b625e63",
-                  "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-                  "merge": false,
-                  "message": "Initial commit"
-                }
-              ],
-              "authors": [
-                {
-                  "commits": [
-                    {
-                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                      "authorName": "Tomas Bjerre",
-                      "commitTime": "2015-11-12 05:29:31",
-                      "commitTimeLong": 1447306171000,
-                      "hash": "a1aa5ff5b625e63",
-                      "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-                      "merge": false,
-                      "message": "Initial commit"
-                    }
-                  ],
-                  "authorName": "Tomas Bjerre",
-                  "authorEmail": "tomas.bjerre85@gmail.com"
-                }
-              ],
-              "name": "No issue",
-              "title": "",
-              "hasTitle": false,
-              "issue": "",
-              "hasIssue": false,
-              "link": "",
-              "hasLink": false,
-              "type": "",
-              "hasType": false,
-              "hasDescription": false,
-              "description": "",
-              "hasLabels": false,
-              "hasLinkedIssues": false,
-              "issueType": "NOISSUE",
-              "hasAdditionalFields": false,
-              "additionalFields": {}
-            }
-          ],
-          "type": "NOISSUE"
-        }
-      ],
-      "name": "0.0.1",
-      "tagTime": "2015-11-12 05:29:31",
-      "tagTimeLong": 1447306171000,
-      "hasTagTime": true
-    }
-  ],
-  "authors": [
-    {
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2024-03-27 16:31:06",
-          "commitTimeLong": 1711557066000,
-          "hash": "583f3a3ced05979",
-          "hashFull": "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112",
-          "merge": false,
-          "message": "chore: X"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2024-03-27 16:30:36",
-          "commitTimeLong": 1711557036000,
-          "hash": "0c1cd1179ab9e0b",
-          "hashFull": "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb",
-          "merge": true,
-          "message": "Merge branch \u0027issue-182-branch\u0027 into test/issue-182"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2024-03-27 16:30:14",
-          "commitTimeLong": 1711557014000,
-          "hash": "d0555d2e1ee3b1c",
-          "hashFull": "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06",
-          "merge": false,
-          "message": "feat: Y"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2015-11-12 05:29:31",
-          "commitTimeLong": 1447306171000,
-          "hash": "a1aa5ff5b625e63",
-          "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-          "merge": false,
-          "message": "Initial commit"
-        }
-      ],
-      "authorName": "Tomas Bjerre",
-      "authorEmail": "tomas.bjerre85@gmail.com"
-    }
-  ],
-  "issues": [
-    {
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2024-03-27 16:31:06",
-          "commitTimeLong": 1711557066000,
-          "hash": "583f3a3ced05979",
-          "hashFull": "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112",
-          "merge": false,
-          "message": "chore: X"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2024-03-27 16:30:36",
-          "commitTimeLong": 1711557036000,
-          "hash": "0c1cd1179ab9e0b",
-          "hashFull": "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb",
-          "merge": true,
-          "message": "Merge branch \u0027issue-182-branch\u0027 into test/issue-182"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2024-03-27 16:30:14",
-          "commitTimeLong": 1711557014000,
-          "hash": "d0555d2e1ee3b1c",
-          "hashFull": "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06",
-          "merge": false,
-          "message": "feat: Y"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2015-11-12 05:29:31",
-          "commitTimeLong": 1447306171000,
-          "hash": "a1aa5ff5b625e63",
-          "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-          "merge": false,
-          "message": "Initial commit"
-        }
-      ],
-      "authors": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2024-03-27 16:31:06",
-              "commitTimeLong": 1711557066000,
-              "hash": "583f3a3ced05979",
-              "hashFull": "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112",
-              "merge": false,
-              "message": "chore: X"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2024-03-27 16:30:36",
-              "commitTimeLong": 1711557036000,
-              "hash": "0c1cd1179ab9e0b",
-              "hashFull": "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb",
-              "merge": true,
-              "message": "Merge branch \u0027issue-182-branch\u0027 into test/issue-182"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2024-03-27 16:30:14",
-              "commitTimeLong": 1711557014000,
-              "hash": "d0555d2e1ee3b1c",
-              "hashFull": "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06",
-              "merge": false,
-              "message": "feat: Y"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-12 05:29:31",
-              "commitTimeLong": 1447306171000,
-              "hash": "a1aa5ff5b625e63",
-              "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-              "merge": false,
-              "message": "Initial commit"
-            }
-          ],
-          "authorName": "Tomas Bjerre",
-          "authorEmail": "tomas.bjerre85@gmail.com"
-        }
-      ],
-      "name": "No issue",
-      "title": "",
-      "hasTitle": false,
-      "issue": "",
-      "hasIssue": false,
-      "link": "",
-      "hasLink": false,
-      "type": "",
-      "hasType": false,
-      "hasDescription": false,
-      "description": "",
-      "hasLabels": false,
-      "hasLinkedIssues": false,
-      "issueType": "NOISSUE",
-      "hasAdditionalFields": false,
-      "additionalFields": {}
-    }
-  ],
-  "issueTypes": [
-    {
-      "name": "No issue",
-      "issues": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2024-03-27 16:31:06",
-              "commitTimeLong": 1711557066000,
-              "hash": "583f3a3ced05979",
-              "hashFull": "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112",
-              "merge": false,
-              "message": "chore: X"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2024-03-27 16:30:36",
-              "commitTimeLong": 1711557036000,
-              "hash": "0c1cd1179ab9e0b",
-              "hashFull": "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb",
-              "merge": true,
-              "message": "Merge branch \u0027issue-182-branch\u0027 into test/issue-182"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2024-03-27 16:30:14",
-              "commitTimeLong": 1711557014000,
-              "hash": "d0555d2e1ee3b1c",
-              "hashFull": "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06",
-              "merge": false,
-              "message": "feat: Y"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-12 05:29:31",
-              "commitTimeLong": 1447306171000,
-              "hash": "a1aa5ff5b625e63",
-              "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-              "merge": false,
-              "message": "Initial commit"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2024-03-27 16:31:06",
-                  "commitTimeLong": 1711557066000,
-                  "hash": "583f3a3ced05979",
-                  "hashFull": "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112",
-                  "merge": false,
-                  "message": "chore: X"
-                },
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2024-03-27 16:30:36",
-                  "commitTimeLong": 1711557036000,
-                  "hash": "0c1cd1179ab9e0b",
-                  "hashFull": "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb",
-                  "merge": true,
-                  "message": "Merge branch \u0027issue-182-branch\u0027 into test/issue-182"
-                },
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2024-03-27 16:30:14",
-                  "commitTimeLong": 1711557014000,
-                  "hash": "d0555d2e1ee3b1c",
-                  "hashFull": "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06",
-                  "merge": false,
-                  "message": "feat: Y"
-                },
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2015-11-12 05:29:31",
-                  "commitTimeLong": 1447306171000,
-                  "hash": "a1aa5ff5b625e63",
-                  "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-                  "merge": false,
-                  "message": "Initial commit"
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            }
-          ],
-          "name": "No issue",
-          "title": "",
-          "hasTitle": false,
-          "issue": "",
-          "hasIssue": false,
-          "link": "",
-          "hasLink": false,
-          "type": "",
-          "hasType": false,
-          "hasDescription": false,
-          "description": "",
-          "hasLabels": false,
-          "hasLinkedIssues": false,
-          "issueType": "NOISSUE",
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        }
-      ],
-      "type": "NOISSUE"
-    }
-  ],
-  "ownerName": "tomasbjerre",
-  "repoName": "git-changelog-lib",
-  "urlParts": [
-    "git-changelog-lib",
-    "tomasbjerre",
-    "git@github.com"
-  ]
+  "commits" : [ {
+    "authorName" : "Tomas Bjerre",
+    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+    "commitTime" : "2024-03-27 16:31:06",
+    "commitTimeLong" : 1711557066000,
+    "message" : "chore: X",
+    "hash" : "583f3a3ced05979",
+    "merge" : false,
+    "hashFull" : "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112"
+  }, {
+    "authorName" : "Tomas Bjerre",
+    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+    "commitTime" : "2024-03-27 16:30:36",
+    "commitTimeLong" : 1711557036000,
+    "message" : "Merge branch 'issue-182-branch' into test/issue-182",
+    "hash" : "0c1cd1179ab9e0b",
+    "merge" : true,
+    "hashFull" : "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb"
+  }, {
+    "authorName" : "Tomas Bjerre",
+    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+    "commitTime" : "2024-03-27 16:30:14",
+    "commitTimeLong" : 1711557014000,
+    "message" : "feat: Y",
+    "hash" : "d0555d2e1ee3b1c",
+    "merge" : false,
+    "hashFull" : "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06"
+  }, {
+    "authorName" : "Tomas Bjerre",
+    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+    "commitTime" : "2015-11-12 05:29:31",
+    "commitTimeLong" : 1447306171000,
+    "message" : "Initial commit",
+    "hash" : "a1aa5ff5b625e63",
+    "merge" : false,
+    "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+  } ],
+  "tags" : [ {
+    "name" : "Unreleased",
+    "commits" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2024-03-27 16:31:06",
+      "commitTimeLong" : 1711557066000,
+      "message" : "chore: X",
+      "hash" : "583f3a3ced05979",
+      "merge" : false,
+      "hashFull" : "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2024-03-27 16:30:36",
+      "commitTimeLong" : 1711557036000,
+      "message" : "Merge branch 'issue-182-branch' into test/issue-182",
+      "hash" : "0c1cd1179ab9e0b",
+      "merge" : true,
+      "hashFull" : "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2024-03-27 16:30:14",
+      "commitTimeLong" : 1711557014000,
+      "message" : "feat: Y",
+      "hash" : "d0555d2e1ee3b1c",
+      "merge" : false,
+      "hashFull" : "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06"
+    } ],
+    "authors" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmail" : "tomas.bjerre85@gmail.com",
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2024-03-27 16:31:06",
+        "commitTimeLong" : 1711557066000,
+        "message" : "chore: X",
+        "hash" : "583f3a3ced05979",
+        "merge" : false,
+        "hashFull" : "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2024-03-27 16:30:36",
+        "commitTimeLong" : 1711557036000,
+        "message" : "Merge branch 'issue-182-branch' into test/issue-182",
+        "hash" : "0c1cd1179ab9e0b",
+        "merge" : true,
+        "hashFull" : "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2024-03-27 16:30:14",
+        "commitTimeLong" : 1711557014000,
+        "message" : "feat: Y",
+        "hash" : "d0555d2e1ee3b1c",
+        "merge" : false,
+        "hashFull" : "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06"
+      } ]
+    } ],
+    "issues" : [ {
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2024-03-27 16:31:06",
+        "commitTimeLong" : 1711557066000,
+        "message" : "chore: X",
+        "hash" : "583f3a3ced05979",
+        "merge" : false,
+        "hashFull" : "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2024-03-27 16:30:36",
+        "commitTimeLong" : 1711557036000,
+        "message" : "Merge branch 'issue-182-branch' into test/issue-182",
+        "hash" : "0c1cd1179ab9e0b",
+        "merge" : true,
+        "hashFull" : "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2024-03-27 16:30:14",
+        "commitTimeLong" : 1711557014000,
+        "message" : "feat: Y",
+        "hash" : "d0555d2e1ee3b1c",
+        "merge" : false,
+        "hashFull" : "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06"
+      } ],
+      "authors" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2024-03-27 16:31:06",
+          "commitTimeLong" : 1711557066000,
+          "message" : "chore: X",
+          "hash" : "583f3a3ced05979",
+          "merge" : false,
+          "hashFull" : "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112"
+        }, {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2024-03-27 16:30:36",
+          "commitTimeLong" : 1711557036000,
+          "message" : "Merge branch 'issue-182-branch' into test/issue-182",
+          "hash" : "0c1cd1179ab9e0b",
+          "merge" : true,
+          "hashFull" : "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb"
+        }, {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2024-03-27 16:30:14",
+          "commitTimeLong" : 1711557014000,
+          "message" : "feat: Y",
+          "hash" : "d0555d2e1ee3b1c",
+          "merge" : false,
+          "hashFull" : "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06"
+        } ]
+      } ],
+      "name" : "No issue",
+      "title" : "",
+      "issue" : "",
+      "issueType" : "NOISSUE",
+      "description" : "",
+      "link" : "",
+      "type" : "",
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : false,
+      "hasIssue" : false,
+      "hasLabels" : false,
+      "hasLink" : false,
+      "hasLinkedIssues" : false,
+      "hasTitle" : false,
+      "hasType" : false
+    } ],
+    "issueTypes" : [ {
+      "issues" : [ {
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2024-03-27 16:31:06",
+          "commitTimeLong" : 1711557066000,
+          "message" : "chore: X",
+          "hash" : "583f3a3ced05979",
+          "merge" : false,
+          "hashFull" : "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112"
+        }, {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2024-03-27 16:30:36",
+          "commitTimeLong" : 1711557036000,
+          "message" : "Merge branch 'issue-182-branch' into test/issue-182",
+          "hash" : "0c1cd1179ab9e0b",
+          "merge" : true,
+          "hashFull" : "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb"
+        }, {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2024-03-27 16:30:14",
+          "commitTimeLong" : 1711557014000,
+          "message" : "feat: Y",
+          "hash" : "d0555d2e1ee3b1c",
+          "merge" : false,
+          "hashFull" : "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06"
+        } ],
+        "authors" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmail" : "tomas.bjerre85@gmail.com",
+          "commits" : [ {
+            "authorName" : "Tomas Bjerre",
+            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+            "commitTime" : "2024-03-27 16:31:06",
+            "commitTimeLong" : 1711557066000,
+            "message" : "chore: X",
+            "hash" : "583f3a3ced05979",
+            "merge" : false,
+            "hashFull" : "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112"
+          }, {
+            "authorName" : "Tomas Bjerre",
+            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+            "commitTime" : "2024-03-27 16:30:36",
+            "commitTimeLong" : 1711557036000,
+            "message" : "Merge branch 'issue-182-branch' into test/issue-182",
+            "hash" : "0c1cd1179ab9e0b",
+            "merge" : true,
+            "hashFull" : "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb"
+          }, {
+            "authorName" : "Tomas Bjerre",
+            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+            "commitTime" : "2024-03-27 16:30:14",
+            "commitTimeLong" : 1711557014000,
+            "message" : "feat: Y",
+            "hash" : "d0555d2e1ee3b1c",
+            "merge" : false,
+            "hashFull" : "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06"
+          } ]
+        } ],
+        "name" : "No issue",
+        "title" : "",
+        "issue" : "",
+        "issueType" : "NOISSUE",
+        "description" : "",
+        "link" : "",
+        "type" : "",
+        "additionalFields" : { },
+        "hasAdditionalFields" : false,
+        "hasDescription" : false,
+        "hasIssue" : false,
+        "hasLabels" : false,
+        "hasLink" : false,
+        "hasLinkedIssues" : false,
+        "hasTitle" : false,
+        "hasType" : false
+      } ],
+      "name" : "No issue",
+      "type" : "NOISSUE"
+    } ],
+    "tagTime" : "",
+    "tagTimeLong" : -1,
+    "hasTagTime" : false
+  }, {
+    "name" : "0.0.1",
+    "commits" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2015-11-12 05:29:31",
+      "commitTimeLong" : 1447306171000,
+      "message" : "Initial commit",
+      "hash" : "a1aa5ff5b625e63",
+      "merge" : false,
+      "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+    } ],
+    "authors" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmail" : "tomas.bjerre85@gmail.com",
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-12 05:29:31",
+        "commitTimeLong" : 1447306171000,
+        "message" : "Initial commit",
+        "hash" : "a1aa5ff5b625e63",
+        "merge" : false,
+        "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+      } ]
+    } ],
+    "issues" : [ {
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-12 05:29:31",
+        "commitTimeLong" : 1447306171000,
+        "message" : "Initial commit",
+        "hash" : "a1aa5ff5b625e63",
+        "merge" : false,
+        "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+      } ],
+      "authors" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2015-11-12 05:29:31",
+          "commitTimeLong" : 1447306171000,
+          "message" : "Initial commit",
+          "hash" : "a1aa5ff5b625e63",
+          "merge" : false,
+          "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+        } ]
+      } ],
+      "name" : "No issue",
+      "title" : "",
+      "issue" : "",
+      "issueType" : "NOISSUE",
+      "description" : "",
+      "link" : "",
+      "type" : "",
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : false,
+      "hasIssue" : false,
+      "hasLabels" : false,
+      "hasLink" : false,
+      "hasLinkedIssues" : false,
+      "hasTitle" : false,
+      "hasType" : false
+    } ],
+    "issueTypes" : [ {
+      "issues" : [ {
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2015-11-12 05:29:31",
+          "commitTimeLong" : 1447306171000,
+          "message" : "Initial commit",
+          "hash" : "a1aa5ff5b625e63",
+          "merge" : false,
+          "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+        } ],
+        "authors" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmail" : "tomas.bjerre85@gmail.com",
+          "commits" : [ {
+            "authorName" : "Tomas Bjerre",
+            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+            "commitTime" : "2015-11-12 05:29:31",
+            "commitTimeLong" : 1447306171000,
+            "message" : "Initial commit",
+            "hash" : "a1aa5ff5b625e63",
+            "merge" : false,
+            "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+          } ]
+        } ],
+        "name" : "No issue",
+        "title" : "",
+        "issue" : "",
+        "issueType" : "NOISSUE",
+        "description" : "",
+        "link" : "",
+        "type" : "",
+        "additionalFields" : { },
+        "hasAdditionalFields" : false,
+        "hasDescription" : false,
+        "hasIssue" : false,
+        "hasLabels" : false,
+        "hasLink" : false,
+        "hasLinkedIssues" : false,
+        "hasTitle" : false,
+        "hasType" : false
+      } ],
+      "name" : "No issue",
+      "type" : "NOISSUE"
+    } ],
+    "tagTime" : "2015-11-12 05:29:31",
+    "tagTimeLong" : 1447306171000,
+    "hasTagTime" : true
+  } ],
+  "authors" : [ {
+    "authorName" : "Tomas Bjerre",
+    "authorEmail" : "tomas.bjerre85@gmail.com",
+    "commits" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2024-03-27 16:31:06",
+      "commitTimeLong" : 1711557066000,
+      "message" : "chore: X",
+      "hash" : "583f3a3ced05979",
+      "merge" : false,
+      "hashFull" : "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2024-03-27 16:30:36",
+      "commitTimeLong" : 1711557036000,
+      "message" : "Merge branch 'issue-182-branch' into test/issue-182",
+      "hash" : "0c1cd1179ab9e0b",
+      "merge" : true,
+      "hashFull" : "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2024-03-27 16:30:14",
+      "commitTimeLong" : 1711557014000,
+      "message" : "feat: Y",
+      "hash" : "d0555d2e1ee3b1c",
+      "merge" : false,
+      "hashFull" : "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2015-11-12 05:29:31",
+      "commitTimeLong" : 1447306171000,
+      "message" : "Initial commit",
+      "hash" : "a1aa5ff5b625e63",
+      "merge" : false,
+      "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+    } ]
+  } ],
+  "issues" : [ {
+    "commits" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2024-03-27 16:31:06",
+      "commitTimeLong" : 1711557066000,
+      "message" : "chore: X",
+      "hash" : "583f3a3ced05979",
+      "merge" : false,
+      "hashFull" : "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2024-03-27 16:30:36",
+      "commitTimeLong" : 1711557036000,
+      "message" : "Merge branch 'issue-182-branch' into test/issue-182",
+      "hash" : "0c1cd1179ab9e0b",
+      "merge" : true,
+      "hashFull" : "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2024-03-27 16:30:14",
+      "commitTimeLong" : 1711557014000,
+      "message" : "feat: Y",
+      "hash" : "d0555d2e1ee3b1c",
+      "merge" : false,
+      "hashFull" : "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2015-11-12 05:29:31",
+      "commitTimeLong" : 1447306171000,
+      "message" : "Initial commit",
+      "hash" : "a1aa5ff5b625e63",
+      "merge" : false,
+      "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+    } ],
+    "authors" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmail" : "tomas.bjerre85@gmail.com",
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2024-03-27 16:31:06",
+        "commitTimeLong" : 1711557066000,
+        "message" : "chore: X",
+        "hash" : "583f3a3ced05979",
+        "merge" : false,
+        "hashFull" : "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2024-03-27 16:30:36",
+        "commitTimeLong" : 1711557036000,
+        "message" : "Merge branch 'issue-182-branch' into test/issue-182",
+        "hash" : "0c1cd1179ab9e0b",
+        "merge" : true,
+        "hashFull" : "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2024-03-27 16:30:14",
+        "commitTimeLong" : 1711557014000,
+        "message" : "feat: Y",
+        "hash" : "d0555d2e1ee3b1c",
+        "merge" : false,
+        "hashFull" : "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-12 05:29:31",
+        "commitTimeLong" : 1447306171000,
+        "message" : "Initial commit",
+        "hash" : "a1aa5ff5b625e63",
+        "merge" : false,
+        "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+      } ]
+    } ],
+    "name" : "No issue",
+    "title" : "",
+    "issue" : "",
+    "issueType" : "NOISSUE",
+    "description" : "",
+    "link" : "",
+    "type" : "",
+    "additionalFields" : { },
+    "hasAdditionalFields" : false,
+    "hasDescription" : false,
+    "hasIssue" : false,
+    "hasLabels" : false,
+    "hasLink" : false,
+    "hasLinkedIssues" : false,
+    "hasTitle" : false,
+    "hasType" : false
+  } ],
+  "issueTypes" : [ {
+    "issues" : [ {
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2024-03-27 16:31:06",
+        "commitTimeLong" : 1711557066000,
+        "message" : "chore: X",
+        "hash" : "583f3a3ced05979",
+        "merge" : false,
+        "hashFull" : "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2024-03-27 16:30:36",
+        "commitTimeLong" : 1711557036000,
+        "message" : "Merge branch 'issue-182-branch' into test/issue-182",
+        "hash" : "0c1cd1179ab9e0b",
+        "merge" : true,
+        "hashFull" : "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2024-03-27 16:30:14",
+        "commitTimeLong" : 1711557014000,
+        "message" : "feat: Y",
+        "hash" : "d0555d2e1ee3b1c",
+        "merge" : false,
+        "hashFull" : "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-12 05:29:31",
+        "commitTimeLong" : 1447306171000,
+        "message" : "Initial commit",
+        "hash" : "a1aa5ff5b625e63",
+        "merge" : false,
+        "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+      } ],
+      "authors" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2024-03-27 16:31:06",
+          "commitTimeLong" : 1711557066000,
+          "message" : "chore: X",
+          "hash" : "583f3a3ced05979",
+          "merge" : false,
+          "hashFull" : "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112"
+        }, {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2024-03-27 16:30:36",
+          "commitTimeLong" : 1711557036000,
+          "message" : "Merge branch 'issue-182-branch' into test/issue-182",
+          "hash" : "0c1cd1179ab9e0b",
+          "merge" : true,
+          "hashFull" : "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb"
+        }, {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2024-03-27 16:30:14",
+          "commitTimeLong" : 1711557014000,
+          "message" : "feat: Y",
+          "hash" : "d0555d2e1ee3b1c",
+          "merge" : false,
+          "hashFull" : "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06"
+        }, {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2015-11-12 05:29:31",
+          "commitTimeLong" : 1447306171000,
+          "message" : "Initial commit",
+          "hash" : "a1aa5ff5b625e63",
+          "merge" : false,
+          "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+        } ]
+      } ],
+      "name" : "No issue",
+      "title" : "",
+      "issue" : "",
+      "issueType" : "NOISSUE",
+      "description" : "",
+      "link" : "",
+      "type" : "",
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : false,
+      "hasIssue" : false,
+      "hasLabels" : false,
+      "hasLink" : false,
+      "hasLinkedIssues" : false,
+      "hasTitle" : false,
+      "hasType" : false
+    } ],
+    "name" : "No issue",
+    "type" : "NOISSUE"
+  } ],
+  "ownerName" : "tomasbjerre",
+  "repoName" : "git-changelog-lib",
+  "urlParts" : [ "git-changelog-lib", "tomasbjerre", "git@github.com" ]
 }

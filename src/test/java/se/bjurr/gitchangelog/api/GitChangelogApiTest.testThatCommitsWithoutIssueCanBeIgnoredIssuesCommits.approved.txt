@@ -26,54 +26,53 @@ Changelog of Git Changelog.
 settings:
 
 {
-  "fromRepo": ".",
-  "fromRevision": "0000000000000000000000000000000000000000",
-  "fromRevisionStrategy": "DEFAULT",
-  "toRevision": "test",
-  "toRevisionStrategy": "DEFAULT",
-  "ignoreTagsIfNameMatches": ".*tag-in-test-feature$",
-  "ignoreCommitsIfMessageMatches": "^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*",
-  "untaggedName": "No tag",
-  "templatePath": "templatetest/testIssuesCommits.mustache",
-  "readableTagName": "/([^/]+?)$",
-  "dateFormat": "YYYY-MM-dd HH:mm:ss",
-  "noIssueName": "No issue supplied",
-  "timeZone": "UTC",
-  "removeIssueFromMessage": true,
-  "jiraEnabled": true,
-  "jiraServer": "https://jiraserver/jira",
-  "jiraIssuePattern": "\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b",
-  "jiraUsername": "user",
-  "jiraPassword": "code",
-  "redmineEnabled": true,
-  "gitHubEnabled": true,
-  "gitHubApi": "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
-  "gitHubIssuePattern": "#([0-9]+)",
-  "customIssues": [
-    {
-      "name": "Incidents",
-      "title": "${PATTERN_GROUP_1}",
-      "pattern": "INC([0-9]*)",
-      "link": "http://inc/${PATTERN_GROUP}"
-    },
-    {
-      "name": "CQ",
-      "title": "${PATTERN_GROUP_1}",
-      "pattern": "CQ([0-9]+)",
-      "link": "http://cq/${PATTERN_GROUP_1}"
-    },
-    {
-      "name": "Bugs",
-      "title": "Mixed bugs",
-      "pattern": "#bug"
-    }
-  ],
-  "extendedVariables": {},
-  "ignoreCommitsWithoutIssue": true,
-  "gitLabEnabled": true,
-  "gitLabProjectName": "tomasbjerre",
-  "useIntegrations": true,
-  "encoding": "UTF-8"
+  "customIssues" : [ {
+    "type" : "CUSTOM",
+    "name" : "Incidents",
+    "pattern" : "INC([0-9]*)",
+    "link" : "http://inc/${PATTERN_GROUP}",
+    "title" : "${PATTERN_GROUP_1}"
+  }, {
+    "type" : "CUSTOM",
+    "name" : "CQ",
+    "pattern" : "CQ([0-9]+)",
+    "link" : "http://cq/${PATTERN_GROUP_1}",
+    "title" : "${PATTERN_GROUP_1}"
+  }, {
+    "type" : "CUSTOM",
+    "name" : "Bugs",
+    "pattern" : "#bug",
+    "title" : "Mixed bugs"
+  } ],
+  "dateFormat" : "YYYY-MM-dd HH:mm:ss",
+  "encoding" : "UTF-8",
+  "extendedVariables" : { },
+  "fromRepo" : ".",
+  "fromRevision" : "0000000000000000000000000000000000000000",
+  "fromRevisionStrategy" : "DEFAULT",
+  "gitHubApi" : "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
+  "gitHubEnabled" : true,
+  "gitHubIssuePattern" : "#([0-9]+)",
+  "gitLabEnabled" : true,
+  "gitLabProjectName" : "tomasbjerre",
+  "ignoreCommitsIfMessageMatches" : "^\\[maven-release-plugin\\].*|^\\[Gradle Release Plugin\\].*|^Merge.*",
+  "ignoreCommitsWithoutIssue" : true,
+  "ignoreTagsIfNameMatches" : ".*tag-in-test-feature$",
+  "jiraEnabled" : true,
+  "jiraIssuePattern" : "\\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\\b",
+  "jiraPassword" : "code",
+  "jiraServer" : "https://jiraserver/jira",
+  "jiraUsername" : "user",
+  "noIssueName" : "No issue supplied",
+  "readableTagName" : "/([^/]+?)$",
+  "redmineEnabled" : true,
+  "removeIssueFromMessage" : true,
+  "templatePath" : "templatetest/testIssuesCommits.mustache",
+  "timeZone" : "UTC",
+  "toRevision" : "test",
+  "toRevisionStrategy" : "DEFAULT",
+  "untaggedName" : "No tag",
+  "useIntegrations" : true
 }
 
 ---------------------------------------------
@@ -153,2260 +152,1882 @@ Adding stuff with a jira
 context:
 
 {
-  "commits": [
-    {
-      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-      "authorName": "Tomas Bjerre",
-      "commitTime": "2016-03-19 20:32:32",
-      "commitTimeLong": 1458419552000,
-      "hash": "87c0d7288896171",
-      "hashFull": "87c0d72888961712d4d63dd6298c24c1133a6b51",
-      "merge": false,
-      "message": "Multiple issues"
-    },
-    {
-      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-      "authorName": "Tomas Bjerre",
-      "commitTime": "2016-03-19 20:32:19",
-      "commitTimeLong": 1458419539000,
-      "hash": "20e333f8e108f77",
-      "hashFull": "20e333f8e108f77b9345516f2c407d9673b16ff8",
-      "merge": false,
-      "message": "More stuff tagged with  twice"
-    },
-    {
-      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-      "authorName": "Tomas Bjerre",
-      "commitTime": "2016-02-15 16:30:35",
-      "commitTimeLong": 1455553835000,
-      "hash": "d50a3e332f9fcba",
-      "hashFull": "d50a3e332f9fcbabac24c2b411ef60b70970dea7",
-      "merge": false,
-      "message": "Adding stuff  gh 12"
-    },
-    {
-      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-      "authorName": "Tomas Bjerre",
-      "commitTime": "2016-02-15 16:30:35",
-      "commitTimeLong": 1455553835000,
-      "hash": "cc0fbbd8bc63955",
-      "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
-      "merge": false,
-      "message": "Adding stuff with a jira"
-    },
-    {
-      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-      "authorName": "Tomas Bjerre",
-      "commitTime": "2016-02-15 16:30:35",
-      "commitTimeLong": 1455553835000,
-      "hash": "a9bd03b34b255ff",
-      "hashFull": "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3",
-      "merge": false,
-      "message": "Adding cq stuff with CQ"
-    },
-    {
-      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-      "authorName": "Tomas Bjerre",
-      "commitTime": "2016-02-15 16:30:35",
-      "commitTimeLong": 1455553835000,
-      "hash": "5607ea23fa8aaf7",
-      "hashFull": "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37",
-      "merge": false,
-      "message": "Adding stuff\n with gh again"
-    },
-    {
-      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-      "authorName": "Tomas Bjerre",
-      "commitTime": "2016-02-15 16:12:02",
-      "commitTimeLong": 1455552722000,
-      "hash": "071a14f29020758",
-      "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
-      "merge": false,
-      "message": "Adding stuff with a jira"
-    },
-    {
-      "authorEmailAddress": "tomas.b@example.com",
-      "authorName": "T B",
-      "commitTime": "2016-02-15 16:11:12",
-      "commitTimeLong": 1455552672000,
-      "hash": "326d4d01c0a9415",
-      "hashFull": "326d4d01c0a941538cea89f7391999066874738a",
-      "merge": false,
-      "message": "Adding stuff with gh 20"
-    }
-  ],
-  "tags": [
-    {
-      "authors": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-03-19 20:32:32",
-              "commitTimeLong": 1458419552000,
-              "hash": "87c0d7288896171",
-              "hashFull": "87c0d72888961712d4d63dd6298c24c1133a6b51",
-              "merge": false,
-              "message": "Multiple issues"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-03-19 20:32:19",
-              "commitTimeLong": 1458419539000,
-              "hash": "20e333f8e108f77",
-              "hashFull": "20e333f8e108f77b9345516f2c407d9673b16ff8",
-              "merge": false,
-              "message": "More stuff tagged with  twice"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:30:35",
-              "commitTimeLong": 1455553835000,
-              "hash": "cc0fbbd8bc63955",
-              "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
-              "merge": false,
-              "message": "Adding stuff with a jira"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:30:35",
-              "commitTimeLong": 1455553835000,
-              "hash": "5607ea23fa8aaf7",
-              "hashFull": "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37",
-              "merge": false,
-              "message": "Adding stuff\n with gh again"
-            }
-          ],
-          "authorName": "Tomas Bjerre",
-          "authorEmail": "tomas.bjerre85@gmail.com"
-        }
-      ],
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-03-19 20:32:32",
-          "commitTimeLong": 1458419552000,
-          "hash": "87c0d7288896171",
-          "hashFull": "87c0d72888961712d4d63dd6298c24c1133a6b51",
-          "merge": false,
-          "message": "Multiple issues"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-03-19 20:32:19",
-          "commitTimeLong": 1458419539000,
-          "hash": "20e333f8e108f77",
-          "hashFull": "20e333f8e108f77b9345516f2c407d9673b16ff8",
-          "merge": false,
-          "message": "More stuff tagged with  twice"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:30:35",
-          "commitTimeLong": 1455553835000,
-          "hash": "cc0fbbd8bc63955",
-          "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
-          "merge": false,
-          "message": "Adding stuff with a jira"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:30:35",
-          "commitTimeLong": 1455553835000,
-          "hash": "5607ea23fa8aaf7",
-          "hashFull": "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37",
-          "merge": false,
-          "message": "Adding stuff\n with gh again"
-        }
-      ],
-      "issues": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-03-19 20:32:19",
-              "commitTimeLong": 1458419539000,
-              "hash": "20e333f8e108f77",
-              "hashFull": "20e333f8e108f77b9345516f2c407d9673b16ff8",
-              "merge": false,
-              "message": "More stuff tagged with  twice"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-03-19 20:32:19",
-                  "commitTimeLong": 1458419539000,
-                  "hash": "20e333f8e108f77",
-                  "hashFull": "20e333f8e108f77b9345516f2c407d9673b16ff8",
-                  "merge": false,
-                  "message": "More stuff tagged with  twice"
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            }
-          ],
-          "name": "Bugs",
-          "title": "Mixed bugs",
-          "hasTitle": true,
-          "issue": "#bug",
-          "hasIssue": true,
-          "link": "",
-          "hasLink": false,
-          "type": "",
-          "hasType": false,
-          "hasDescription": false,
-          "description": "",
-          "hasLabels": false,
-          "hasLinkedIssues": false,
-          "issueType": "CUSTOM",
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        },
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-03-19 20:32:32",
-              "commitTimeLong": 1458419552000,
-              "hash": "87c0d7288896171",
-              "hashFull": "87c0d72888961712d4d63dd6298c24c1133a6b51",
-              "merge": false,
-              "message": "Multiple issues"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-03-19 20:32:32",
-                  "commitTimeLong": 1458419552000,
-                  "hash": "87c0d7288896171",
-                  "hashFull": "87c0d72888961712d4d63dd6298c24c1133a6b51",
-                  "merge": false,
-                  "message": "Multiple issues"
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            }
-          ],
-          "name": "GitHub",
-          "title": "Parameterized Jenkins\u0027 job error",
-          "hasTitle": true,
-          "issue": "#20",
-          "hasIssue": true,
-          "link": "https://github.com/tomasbjerre/made-up-mocked-repo/issues/20",
-          "hasLink": true,
-          "type": "",
-          "hasType": false,
-          "hasDescription": false,
-          "description": "",
-          "labels": [
-            "bug"
-          ],
-          "hasLabels": true,
-          "hasLinkedIssues": false,
-          "issueType": "GITHUB",
-          "linkedIssues": [],
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        },
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-03-19 20:32:32",
-              "commitTimeLong": 1458419552000,
-              "hash": "87c0d7288896171",
-              "hashFull": "87c0d72888961712d4d63dd6298c24c1133a6b51",
-              "merge": false,
-              "message": "Multiple issues"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-03-19 20:32:32",
-                  "commitTimeLong": 1458419552000,
-                  "hash": "87c0d7288896171",
-                  "hashFull": "87c0d72888961712d4d63dd6298c24c1133a6b51",
-                  "merge": false,
-                  "message": "Multiple issues"
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            }
-          ],
-          "name": "GitHub",
-          "title": "Enable  configuration in per-repository hook screen",
-          "hasTitle": true,
-          "issue": "#25",
-          "hasIssue": true,
-          "link": "https://github.com/tomasbjerre/made-up-mocked-repo/issues/25",
-          "hasLink": true,
-          "type": "",
-          "hasType": false,
-          "hasDescription": false,
-          "description": "",
-          "labels": [
-            "enhancement"
-          ],
-          "hasLabels": true,
-          "hasLinkedIssues": false,
-          "issueType": "GITHUB",
-          "linkedIssues": [],
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        },
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:30:35",
-              "commitTimeLong": 1455553835000,
-              "hash": "5607ea23fa8aaf7",
-              "hashFull": "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37",
-              "merge": false,
-              "message": "Adding stuff\n with gh again"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:30:35",
-                  "commitTimeLong": 1455553835000,
-                  "hash": "5607ea23fa8aaf7",
-                  "hashFull": "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37",
-                  "merge": false,
-                  "message": "Adding stuff\n with gh again"
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            }
-          ],
-          "name": "GitHub",
-          "title": "",
-          "hasTitle": false,
-          "issue": "#30",
-          "hasIssue": true,
-          "link": "",
-          "hasLink": false,
-          "type": "",
-          "hasType": false,
-          "hasDescription": false,
-          "description": "",
-          "labels": [],
-          "hasLabels": false,
-          "hasLinkedIssues": false,
-          "issueType": "GITHUB",
-          "linkedIssues": [],
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        },
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:30:35",
-              "commitTimeLong": 1455553835000,
-              "hash": "cc0fbbd8bc63955",
-              "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
-              "merge": false,
-              "message": "Adding stuff with a jira"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:30:35",
-                  "commitTimeLong": 1455553835000,
-                  "hash": "cc0fbbd8bc63955",
-                  "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
-                  "merge": false,
-                  "message": "Adding stuff with a jira"
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            }
-          ],
-          "name": "Jira",
-          "title": "Title of jira 1234",
-          "hasTitle": true,
-          "issue": "JIR-1234",
-          "hasIssue": true,
-          "link": "https://jiraserver/jira/browse/JIR-1234",
-          "hasLink": true,
-          "type": "Bug",
-          "hasType": true,
-          "hasDescription": true,
-          "description": "Description",
-          "labels": [
-            "label1",
-            "label2"
-          ],
-          "hasLabels": true,
-          "hasLinkedIssues": false,
-          "issueType": "JIRA",
-          "linkedIssues": [],
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        }
-      ],
-      "issueTypes": [
-        {
-          "name": "Bugs",
-          "issues": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-03-19 20:32:19",
-                  "commitTimeLong": 1458419539000,
-                  "hash": "20e333f8e108f77",
-                  "hashFull": "20e333f8e108f77b9345516f2c407d9673b16ff8",
-                  "merge": false,
-                  "message": "More stuff tagged with  twice"
-                }
-              ],
-              "authors": [
-                {
-                  "commits": [
-                    {
-                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                      "authorName": "Tomas Bjerre",
-                      "commitTime": "2016-03-19 20:32:19",
-                      "commitTimeLong": 1458419539000,
-                      "hash": "20e333f8e108f77",
-                      "hashFull": "20e333f8e108f77b9345516f2c407d9673b16ff8",
-                      "merge": false,
-                      "message": "More stuff tagged with  twice"
-                    }
-                  ],
-                  "authorName": "Tomas Bjerre",
-                  "authorEmail": "tomas.bjerre85@gmail.com"
-                }
-              ],
-              "name": "Bugs",
-              "title": "Mixed bugs",
-              "hasTitle": true,
-              "issue": "#bug",
-              "hasIssue": true,
-              "link": "",
-              "hasLink": false,
-              "type": "",
-              "hasType": false,
-              "hasDescription": false,
-              "description": "",
-              "hasLabels": false,
-              "hasLinkedIssues": false,
-              "issueType": "CUSTOM",
-              "hasAdditionalFields": false,
-              "additionalFields": {}
-            }
-          ],
-          "type": "CUSTOM"
-        },
-        {
-          "name": "GitHub",
-          "issues": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-03-19 20:32:32",
-                  "commitTimeLong": 1458419552000,
-                  "hash": "87c0d7288896171",
-                  "hashFull": "87c0d72888961712d4d63dd6298c24c1133a6b51",
-                  "merge": false,
-                  "message": "Multiple issues"
-                }
-              ],
-              "authors": [
-                {
-                  "commits": [
-                    {
-                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                      "authorName": "Tomas Bjerre",
-                      "commitTime": "2016-03-19 20:32:32",
-                      "commitTimeLong": 1458419552000,
-                      "hash": "87c0d7288896171",
-                      "hashFull": "87c0d72888961712d4d63dd6298c24c1133a6b51",
-                      "merge": false,
-                      "message": "Multiple issues"
-                    }
-                  ],
-                  "authorName": "Tomas Bjerre",
-                  "authorEmail": "tomas.bjerre85@gmail.com"
-                }
-              ],
-              "name": "GitHub",
-              "title": "Parameterized Jenkins\u0027 job error",
-              "hasTitle": true,
-              "issue": "#20",
-              "hasIssue": true,
-              "link": "https://github.com/tomasbjerre/made-up-mocked-repo/issues/20",
-              "hasLink": true,
-              "type": "",
-              "hasType": false,
-              "hasDescription": false,
-              "description": "",
-              "labels": [
-                "bug"
-              ],
-              "hasLabels": true,
-              "hasLinkedIssues": false,
-              "issueType": "GITHUB",
-              "linkedIssues": [],
-              "hasAdditionalFields": false,
-              "additionalFields": {}
-            },
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-03-19 20:32:32",
-                  "commitTimeLong": 1458419552000,
-                  "hash": "87c0d7288896171",
-                  "hashFull": "87c0d72888961712d4d63dd6298c24c1133a6b51",
-                  "merge": false,
-                  "message": "Multiple issues"
-                }
-              ],
-              "authors": [
-                {
-                  "commits": [
-                    {
-                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                      "authorName": "Tomas Bjerre",
-                      "commitTime": "2016-03-19 20:32:32",
-                      "commitTimeLong": 1458419552000,
-                      "hash": "87c0d7288896171",
-                      "hashFull": "87c0d72888961712d4d63dd6298c24c1133a6b51",
-                      "merge": false,
-                      "message": "Multiple issues"
-                    }
-                  ],
-                  "authorName": "Tomas Bjerre",
-                  "authorEmail": "tomas.bjerre85@gmail.com"
-                }
-              ],
-              "name": "GitHub",
-              "title": "Enable  configuration in per-repository hook screen",
-              "hasTitle": true,
-              "issue": "#25",
-              "hasIssue": true,
-              "link": "https://github.com/tomasbjerre/made-up-mocked-repo/issues/25",
-              "hasLink": true,
-              "type": "",
-              "hasType": false,
-              "hasDescription": false,
-              "description": "",
-              "labels": [
-                "enhancement"
-              ],
-              "hasLabels": true,
-              "hasLinkedIssues": false,
-              "issueType": "GITHUB",
-              "linkedIssues": [],
-              "hasAdditionalFields": false,
-              "additionalFields": {}
-            },
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:30:35",
-                  "commitTimeLong": 1455553835000,
-                  "hash": "5607ea23fa8aaf7",
-                  "hashFull": "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37",
-                  "merge": false,
-                  "message": "Adding stuff\n with gh again"
-                }
-              ],
-              "authors": [
-                {
-                  "commits": [
-                    {
-                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                      "authorName": "Tomas Bjerre",
-                      "commitTime": "2016-02-15 16:30:35",
-                      "commitTimeLong": 1455553835000,
-                      "hash": "5607ea23fa8aaf7",
-                      "hashFull": "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37",
-                      "merge": false,
-                      "message": "Adding stuff\n with gh again"
-                    }
-                  ],
-                  "authorName": "Tomas Bjerre",
-                  "authorEmail": "tomas.bjerre85@gmail.com"
-                }
-              ],
-              "name": "GitHub",
-              "title": "",
-              "hasTitle": false,
-              "issue": "#30",
-              "hasIssue": true,
-              "link": "",
-              "hasLink": false,
-              "type": "",
-              "hasType": false,
-              "hasDescription": false,
-              "description": "",
-              "labels": [],
-              "hasLabels": false,
-              "hasLinkedIssues": false,
-              "issueType": "GITHUB",
-              "linkedIssues": [],
-              "hasAdditionalFields": false,
-              "additionalFields": {}
-            }
-          ],
-          "type": "GITHUB"
-        },
-        {
-          "name": "Jira",
-          "issues": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:30:35",
-                  "commitTimeLong": 1455553835000,
-                  "hash": "cc0fbbd8bc63955",
-                  "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
-                  "merge": false,
-                  "message": "Adding stuff with a jira"
-                }
-              ],
-              "authors": [
-                {
-                  "commits": [
-                    {
-                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                      "authorName": "Tomas Bjerre",
-                      "commitTime": "2016-02-15 16:30:35",
-                      "commitTimeLong": 1455553835000,
-                      "hash": "cc0fbbd8bc63955",
-                      "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
-                      "merge": false,
-                      "message": "Adding stuff with a jira"
-                    }
-                  ],
-                  "authorName": "Tomas Bjerre",
-                  "authorEmail": "tomas.bjerre85@gmail.com"
-                }
-              ],
-              "name": "Jira",
-              "title": "Title of jira 1234",
-              "hasTitle": true,
-              "issue": "JIR-1234",
-              "hasIssue": true,
-              "link": "https://jiraserver/jira/browse/JIR-1234",
-              "hasLink": true,
-              "type": "Bug",
-              "hasType": true,
-              "hasDescription": true,
-              "description": "Description",
-              "labels": [
-                "label1",
-                "label2"
-              ],
-              "hasLabels": true,
-              "hasLinkedIssues": false,
-              "issueType": "JIRA",
-              "linkedIssues": [],
-              "hasAdditionalFields": false,
-              "additionalFields": {}
-            }
-          ],
-          "type": "JIRA"
-        }
-      ],
-      "name": "test",
-      "tagTime": "2016-04-06 18:40:51",
-      "tagTimeLong": 1459968051000,
-      "hasTagTime": true
-    },
-    {
-      "authors": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:30:35",
-              "commitTimeLong": 1455553835000,
-              "hash": "a9bd03b34b255ff",
-              "hashFull": "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3",
-              "merge": false,
-              "message": "Adding cq stuff with CQ"
-            }
-          ],
-          "authorName": "Tomas Bjerre",
-          "authorEmail": "tomas.bjerre85@gmail.com"
-        }
-      ],
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:30:35",
-          "commitTimeLong": 1455553835000,
-          "hash": "a9bd03b34b255ff",
-          "hashFull": "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3",
-          "merge": false,
-          "message": "Adding cq stuff with CQ"
-        }
-      ],
-      "issues": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:30:35",
-              "commitTimeLong": 1455553835000,
-              "hash": "a9bd03b34b255ff",
-              "hashFull": "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3",
-              "merge": false,
-              "message": "Adding cq stuff with CQ"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:30:35",
-                  "commitTimeLong": 1455553835000,
-                  "hash": "a9bd03b34b255ff",
-                  "hashFull": "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3",
-                  "merge": false,
-                  "message": "Adding cq stuff with CQ"
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            }
-          ],
-          "name": "CQ",
-          "title": "1234",
-          "hasTitle": true,
-          "issue": "CQ1234",
-          "hasIssue": true,
-          "link": "http://cq/1234",
-          "hasLink": true,
-          "type": "",
-          "hasType": false,
-          "hasDescription": false,
-          "description": "",
-          "hasLabels": false,
-          "hasLinkedIssues": false,
-          "issueType": "CUSTOM",
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        }
-      ],
-      "issueTypes": [
-        {
-          "name": "CQ",
-          "issues": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:30:35",
-                  "commitTimeLong": 1455553835000,
-                  "hash": "a9bd03b34b255ff",
-                  "hashFull": "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3",
-                  "merge": false,
-                  "message": "Adding cq stuff with CQ"
-                }
-              ],
-              "authors": [
-                {
-                  "commits": [
-                    {
-                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                      "authorName": "Tomas Bjerre",
-                      "commitTime": "2016-02-15 16:30:35",
-                      "commitTimeLong": 1455553835000,
-                      "hash": "a9bd03b34b255ff",
-                      "hashFull": "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3",
-                      "merge": false,
-                      "message": "Adding cq stuff with CQ"
-                    }
-                  ],
-                  "authorName": "Tomas Bjerre",
-                  "authorEmail": "tomas.bjerre85@gmail.com"
-                }
-              ],
-              "name": "CQ",
-              "title": "1234",
-              "hasTitle": true,
-              "issue": "CQ1234",
-              "hasIssue": true,
-              "link": "http://cq/1234",
-              "hasLink": true,
-              "type": "",
-              "hasType": false,
-              "hasDescription": false,
-              "description": "",
-              "hasLabels": false,
-              "hasLinkedIssues": false,
-              "issueType": "CUSTOM",
-              "hasAdditionalFields": false,
-              "additionalFields": {}
-            }
-          ],
-          "type": "CUSTOM"
-        }
-      ],
-      "name": "test-lightweight-2",
-      "tagTime": "2016-02-15 16:30:35",
-      "tagTimeLong": 1455553835000,
-      "hasTagTime": true
-    },
-    {
-      "annotation": "this is the tag for test-1.0\n",
-      "authors": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:30:35",
-              "commitTimeLong": 1455553835000,
-              "hash": "d50a3e332f9fcba",
-              "hashFull": "d50a3e332f9fcbabac24c2b411ef60b70970dea7",
-              "merge": false,
-              "message": "Adding stuff  gh 12"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:12:02",
-              "commitTimeLong": 1455552722000,
-              "hash": "071a14f29020758",
-              "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
-              "merge": false,
-              "message": "Adding stuff with a jira"
-            }
-          ],
-          "authorName": "Tomas Bjerre",
-          "authorEmail": "tomas.bjerre85@gmail.com"
-        },
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.b@example.com",
-              "authorName": "T B",
-              "commitTime": "2016-02-15 16:11:12",
-              "commitTimeLong": 1455552672000,
-              "hash": "326d4d01c0a9415",
-              "hashFull": "326d4d01c0a941538cea89f7391999066874738a",
-              "merge": false,
-              "message": "Adding stuff with gh 20"
-            }
-          ],
-          "authorName": "T B",
-          "authorEmail": "tomas.b@example.com"
-        }
-      ],
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:30:35",
-          "commitTimeLong": 1455553835000,
-          "hash": "d50a3e332f9fcba",
-          "hashFull": "d50a3e332f9fcbabac24c2b411ef60b70970dea7",
-          "merge": false,
-          "message": "Adding stuff  gh 12"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:12:02",
-          "commitTimeLong": 1455552722000,
-          "hash": "071a14f29020758",
-          "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
-          "merge": false,
-          "message": "Adding stuff with a jira"
-        },
-        {
-          "authorEmailAddress": "tomas.b@example.com",
-          "authorName": "T B",
-          "commitTime": "2016-02-15 16:11:12",
-          "commitTimeLong": 1455552672000,
-          "hash": "326d4d01c0a9415",
-          "hashFull": "326d4d01c0a941538cea89f7391999066874738a",
-          "merge": false,
-          "message": "Adding stuff with gh 20"
-        }
-      ],
-      "issues": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:30:35",
-              "commitTimeLong": 1455553835000,
-              "hash": "d50a3e332f9fcba",
-              "hashFull": "d50a3e332f9fcbabac24c2b411ef60b70970dea7",
-              "merge": false,
-              "message": "Adding stuff  gh 12"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:30:35",
-                  "commitTimeLong": 1455553835000,
-                  "hash": "d50a3e332f9fcba",
-                  "hashFull": "d50a3e332f9fcbabac24c2b411ef60b70970dea7",
-                  "merge": false,
-                  "message": "Adding stuff  gh 12"
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            }
-          ],
-          "name": "GitHub",
-          "title": "Strange chars in PULL_REQUEST_URL",
-          "hasTitle": true,
-          "issue": "#12",
-          "hasIssue": true,
-          "link": "https://github.com/tomasbjerre/made-up-mocked-repo/issues/12",
-          "hasLink": true,
-          "type": "",
-          "hasType": false,
-          "hasDescription": false,
-          "description": "",
-          "labels": [],
-          "hasLabels": false,
-          "hasLinkedIssues": false,
-          "issueType": "GITHUB",
-          "linkedIssues": [],
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        },
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.b@example.com",
-              "authorName": "T B",
-              "commitTime": "2016-02-15 16:11:12",
-              "commitTimeLong": 1455552672000,
-              "hash": "326d4d01c0a9415",
-              "hashFull": "326d4d01c0a941538cea89f7391999066874738a",
-              "merge": false,
-              "message": "Adding stuff with gh 20"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.b@example.com",
-                  "authorName": "T B",
-                  "commitTime": "2016-02-15 16:11:12",
-                  "commitTimeLong": 1455552672000,
-                  "hash": "326d4d01c0a9415",
-                  "hashFull": "326d4d01c0a941538cea89f7391999066874738a",
-                  "merge": false,
-                  "message": "Adding stuff with gh 20"
-                }
-              ],
-              "authorName": "T B",
-              "authorEmail": "tomas.b@example.com"
-            }
-          ],
-          "name": "GitHub",
-          "title": "Parameterized Jenkins\u0027 job error",
-          "hasTitle": true,
-          "issue": "#20",
-          "hasIssue": true,
-          "link": "https://github.com/tomasbjerre/made-up-mocked-repo/issues/20",
-          "hasLink": true,
-          "type": "",
-          "hasType": false,
-          "hasDescription": false,
-          "description": "",
-          "labels": [
-            "bug"
-          ],
-          "hasLabels": true,
-          "hasLinkedIssues": false,
-          "issueType": "GITHUB",
-          "linkedIssues": [],
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        },
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:12:02",
-              "commitTimeLong": 1455552722000,
-              "hash": "071a14f29020758",
-              "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
-              "merge": false,
-              "message": "Adding stuff with a jira"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:12:02",
-                  "commitTimeLong": 1455552722000,
-                  "hash": "071a14f29020758",
-                  "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
-                  "merge": false,
-                  "message": "Adding stuff with a jira"
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            }
-          ],
-          "name": "Jira",
-          "title": "The Title of jira 5262",
-          "hasTitle": true,
-          "issue": "JIR-5262",
-          "hasIssue": true,
-          "link": "https://jiraserver/jira/browse/JIR-5262",
-          "hasLink": true,
-          "type": "Bug",
-          "hasType": true,
-          "hasDescription": true,
-          "description": "Description",
-          "labels": [],
-          "hasLabels": false,
-          "hasLinkedIssues": true,
-          "issueType": "JIRA",
-          "linkedIssues": [
-            "JIRSD-490",
-            "JIRSD-567"
-          ],
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        }
-      ],
-      "issueTypes": [
-        {
-          "name": "GitHub",
-          "issues": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:30:35",
-                  "commitTimeLong": 1455553835000,
-                  "hash": "d50a3e332f9fcba",
-                  "hashFull": "d50a3e332f9fcbabac24c2b411ef60b70970dea7",
-                  "merge": false,
-                  "message": "Adding stuff  gh 12"
-                }
-              ],
-              "authors": [
-                {
-                  "commits": [
-                    {
-                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                      "authorName": "Tomas Bjerre",
-                      "commitTime": "2016-02-15 16:30:35",
-                      "commitTimeLong": 1455553835000,
-                      "hash": "d50a3e332f9fcba",
-                      "hashFull": "d50a3e332f9fcbabac24c2b411ef60b70970dea7",
-                      "merge": false,
-                      "message": "Adding stuff  gh 12"
-                    }
-                  ],
-                  "authorName": "Tomas Bjerre",
-                  "authorEmail": "tomas.bjerre85@gmail.com"
-                }
-              ],
-              "name": "GitHub",
-              "title": "Strange chars in PULL_REQUEST_URL",
-              "hasTitle": true,
-              "issue": "#12",
-              "hasIssue": true,
-              "link": "https://github.com/tomasbjerre/made-up-mocked-repo/issues/12",
-              "hasLink": true,
-              "type": "",
-              "hasType": false,
-              "hasDescription": false,
-              "description": "",
-              "labels": [],
-              "hasLabels": false,
-              "hasLinkedIssues": false,
-              "issueType": "GITHUB",
-              "linkedIssues": [],
-              "hasAdditionalFields": false,
-              "additionalFields": {}
-            },
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.b@example.com",
-                  "authorName": "T B",
-                  "commitTime": "2016-02-15 16:11:12",
-                  "commitTimeLong": 1455552672000,
-                  "hash": "326d4d01c0a9415",
-                  "hashFull": "326d4d01c0a941538cea89f7391999066874738a",
-                  "merge": false,
-                  "message": "Adding stuff with gh 20"
-                }
-              ],
-              "authors": [
-                {
-                  "commits": [
-                    {
-                      "authorEmailAddress": "tomas.b@example.com",
-                      "authorName": "T B",
-                      "commitTime": "2016-02-15 16:11:12",
-                      "commitTimeLong": 1455552672000,
-                      "hash": "326d4d01c0a9415",
-                      "hashFull": "326d4d01c0a941538cea89f7391999066874738a",
-                      "merge": false,
-                      "message": "Adding stuff with gh 20"
-                    }
-                  ],
-                  "authorName": "T B",
-                  "authorEmail": "tomas.b@example.com"
-                }
-              ],
-              "name": "GitHub",
-              "title": "Parameterized Jenkins\u0027 job error",
-              "hasTitle": true,
-              "issue": "#20",
-              "hasIssue": true,
-              "link": "https://github.com/tomasbjerre/made-up-mocked-repo/issues/20",
-              "hasLink": true,
-              "type": "",
-              "hasType": false,
-              "hasDescription": false,
-              "description": "",
-              "labels": [
-                "bug"
-              ],
-              "hasLabels": true,
-              "hasLinkedIssues": false,
-              "issueType": "GITHUB",
-              "linkedIssues": [],
-              "hasAdditionalFields": false,
-              "additionalFields": {}
-            }
-          ],
-          "type": "GITHUB"
-        },
-        {
-          "name": "Jira",
-          "issues": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:12:02",
-                  "commitTimeLong": 1455552722000,
-                  "hash": "071a14f29020758",
-                  "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
-                  "merge": false,
-                  "message": "Adding stuff with a jira"
-                }
-              ],
-              "authors": [
-                {
-                  "commits": [
-                    {
-                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                      "authorName": "Tomas Bjerre",
-                      "commitTime": "2016-02-15 16:12:02",
-                      "commitTimeLong": 1455552722000,
-                      "hash": "071a14f29020758",
-                      "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
-                      "merge": false,
-                      "message": "Adding stuff with a jira"
-                    }
-                  ],
-                  "authorName": "Tomas Bjerre",
-                  "authorEmail": "tomas.bjerre85@gmail.com"
-                }
-              ],
-              "name": "Jira",
-              "title": "The Title of jira 5262",
-              "hasTitle": true,
-              "issue": "JIR-5262",
-              "hasIssue": true,
-              "link": "https://jiraserver/jira/browse/JIR-5262",
-              "hasLink": true,
-              "type": "Bug",
-              "hasType": true,
-              "hasDescription": true,
-              "description": "Description",
-              "labels": [],
-              "hasLabels": false,
-              "hasLinkedIssues": true,
-              "issueType": "JIRA",
-              "linkedIssues": [
-                "JIRSD-490",
-                "JIRSD-567"
-              ],
-              "hasAdditionalFields": false,
-              "additionalFields": {}
-            }
-          ],
-          "type": "JIRA"
-        }
-      ],
-      "name": "test-1.0",
-      "tagTime": "2016-02-15 16:30:35",
-      "tagTimeLong": 1455553835000,
-      "hasTagTime": true
-    }
-  ],
-  "authors": [
-    {
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-03-19 20:32:32",
-          "commitTimeLong": 1458419552000,
-          "hash": "87c0d7288896171",
-          "hashFull": "87c0d72888961712d4d63dd6298c24c1133a6b51",
-          "merge": false,
-          "message": "Multiple issues"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-03-19 20:32:19",
-          "commitTimeLong": 1458419539000,
-          "hash": "20e333f8e108f77",
-          "hashFull": "20e333f8e108f77b9345516f2c407d9673b16ff8",
-          "merge": false,
-          "message": "More stuff tagged with  twice"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:30:35",
-          "commitTimeLong": 1455553835000,
-          "hash": "d50a3e332f9fcba",
-          "hashFull": "d50a3e332f9fcbabac24c2b411ef60b70970dea7",
-          "merge": false,
-          "message": "Adding stuff  gh 12"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:30:35",
-          "commitTimeLong": 1455553835000,
-          "hash": "cc0fbbd8bc63955",
-          "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
-          "merge": false,
-          "message": "Adding stuff with a jira"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:30:35",
-          "commitTimeLong": 1455553835000,
-          "hash": "a9bd03b34b255ff",
-          "hashFull": "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3",
-          "merge": false,
-          "message": "Adding cq stuff with CQ"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:30:35",
-          "commitTimeLong": 1455553835000,
-          "hash": "5607ea23fa8aaf7",
-          "hashFull": "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37",
-          "merge": false,
-          "message": "Adding stuff\n with gh again"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:12:02",
-          "commitTimeLong": 1455552722000,
-          "hash": "071a14f29020758",
-          "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
-          "merge": false,
-          "message": "Adding stuff with a jira"
-        }
-      ],
-      "authorName": "Tomas Bjerre",
-      "authorEmail": "tomas.bjerre85@gmail.com"
-    },
-    {
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.b@example.com",
-          "authorName": "T B",
-          "commitTime": "2016-02-15 16:11:12",
-          "commitTimeLong": 1455552672000,
-          "hash": "326d4d01c0a9415",
-          "hashFull": "326d4d01c0a941538cea89f7391999066874738a",
-          "merge": false,
-          "message": "Adding stuff with gh 20"
-        }
-      ],
-      "authorName": "T B",
-      "authorEmail": "tomas.b@example.com"
-    }
-  ],
-  "issues": [
-    {
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-03-19 20:32:19",
-          "commitTimeLong": 1458419539000,
-          "hash": "20e333f8e108f77",
-          "hashFull": "20e333f8e108f77b9345516f2c407d9673b16ff8",
-          "merge": false,
-          "message": "More stuff tagged with  twice"
-        }
-      ],
-      "authors": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-03-19 20:32:19",
-              "commitTimeLong": 1458419539000,
-              "hash": "20e333f8e108f77",
-              "hashFull": "20e333f8e108f77b9345516f2c407d9673b16ff8",
-              "merge": false,
-              "message": "More stuff tagged with  twice"
-            }
-          ],
-          "authorName": "Tomas Bjerre",
-          "authorEmail": "tomas.bjerre85@gmail.com"
-        }
-      ],
-      "name": "Bugs",
-      "title": "Mixed bugs",
-      "hasTitle": true,
-      "issue": "#bug",
-      "hasIssue": true,
-      "link": "",
-      "hasLink": false,
-      "type": "",
-      "hasType": false,
-      "hasDescription": false,
-      "description": "",
-      "hasLabels": false,
-      "hasLinkedIssues": false,
-      "issueType": "CUSTOM",
-      "hasAdditionalFields": false,
-      "additionalFields": {}
-    },
-    {
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:30:35",
-          "commitTimeLong": 1455553835000,
-          "hash": "a9bd03b34b255ff",
-          "hashFull": "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3",
-          "merge": false,
-          "message": "Adding cq stuff with CQ"
-        }
-      ],
-      "authors": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:30:35",
-              "commitTimeLong": 1455553835000,
-              "hash": "a9bd03b34b255ff",
-              "hashFull": "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3",
-              "merge": false,
-              "message": "Adding cq stuff with CQ"
-            }
-          ],
-          "authorName": "Tomas Bjerre",
-          "authorEmail": "tomas.bjerre85@gmail.com"
-        }
-      ],
-      "name": "CQ",
-      "title": "1234",
-      "hasTitle": true,
-      "issue": "CQ1234",
-      "hasIssue": true,
-      "link": "http://cq/1234",
-      "hasLink": true,
-      "type": "",
-      "hasType": false,
-      "hasDescription": false,
-      "description": "",
-      "hasLabels": false,
-      "hasLinkedIssues": false,
-      "issueType": "CUSTOM",
-      "hasAdditionalFields": false,
-      "additionalFields": {}
-    },
-    {
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:30:35",
-          "commitTimeLong": 1455553835000,
-          "hash": "d50a3e332f9fcba",
-          "hashFull": "d50a3e332f9fcbabac24c2b411ef60b70970dea7",
-          "merge": false,
-          "message": "Adding stuff  gh 12"
-        }
-      ],
-      "authors": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:30:35",
-              "commitTimeLong": 1455553835000,
-              "hash": "d50a3e332f9fcba",
-              "hashFull": "d50a3e332f9fcbabac24c2b411ef60b70970dea7",
-              "merge": false,
-              "message": "Adding stuff  gh 12"
-            }
-          ],
-          "authorName": "Tomas Bjerre",
-          "authorEmail": "tomas.bjerre85@gmail.com"
-        }
-      ],
-      "name": "GitHub",
-      "title": "Strange chars in PULL_REQUEST_URL",
-      "hasTitle": true,
-      "issue": "#12",
-      "hasIssue": true,
-      "link": "https://github.com/tomasbjerre/made-up-mocked-repo/issues/12",
-      "hasLink": true,
-      "type": "",
-      "hasType": false,
-      "hasDescription": false,
-      "description": "",
-      "labels": [],
-      "hasLabels": false,
-      "hasLinkedIssues": false,
-      "issueType": "GITHUB",
-      "linkedIssues": [],
-      "hasAdditionalFields": false,
-      "additionalFields": {}
-    },
-    {
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-03-19 20:32:32",
-          "commitTimeLong": 1458419552000,
-          "hash": "87c0d7288896171",
-          "hashFull": "87c0d72888961712d4d63dd6298c24c1133a6b51",
-          "merge": false,
-          "message": "Multiple issues"
-        },
-        {
-          "authorEmailAddress": "tomas.b@example.com",
-          "authorName": "T B",
-          "commitTime": "2016-02-15 16:11:12",
-          "commitTimeLong": 1455552672000,
-          "hash": "326d4d01c0a9415",
-          "hashFull": "326d4d01c0a941538cea89f7391999066874738a",
-          "merge": false,
-          "message": "Adding stuff with gh 20"
-        }
-      ],
-      "authors": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-03-19 20:32:32",
-              "commitTimeLong": 1458419552000,
-              "hash": "87c0d7288896171",
-              "hashFull": "87c0d72888961712d4d63dd6298c24c1133a6b51",
-              "merge": false,
-              "message": "Multiple issues"
-            }
-          ],
-          "authorName": "Tomas Bjerre",
-          "authorEmail": "tomas.bjerre85@gmail.com"
-        },
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.b@example.com",
-              "authorName": "T B",
-              "commitTime": "2016-02-15 16:11:12",
-              "commitTimeLong": 1455552672000,
-              "hash": "326d4d01c0a9415",
-              "hashFull": "326d4d01c0a941538cea89f7391999066874738a",
-              "merge": false,
-              "message": "Adding stuff with gh 20"
-            }
-          ],
-          "authorName": "T B",
-          "authorEmail": "tomas.b@example.com"
-        }
-      ],
-      "name": "GitHub",
-      "title": "Parameterized Jenkins\u0027 job error",
-      "hasTitle": true,
-      "issue": "#20",
-      "hasIssue": true,
-      "link": "https://github.com/tomasbjerre/made-up-mocked-repo/issues/20",
-      "hasLink": true,
-      "type": "",
-      "hasType": false,
-      "hasDescription": false,
-      "description": "",
-      "labels": [
-        "bug"
-      ],
-      "hasLabels": true,
-      "hasLinkedIssues": false,
-      "issueType": "GITHUB",
-      "linkedIssues": [],
-      "hasAdditionalFields": false,
-      "additionalFields": {}
-    },
-    {
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-03-19 20:32:32",
-          "commitTimeLong": 1458419552000,
-          "hash": "87c0d7288896171",
-          "hashFull": "87c0d72888961712d4d63dd6298c24c1133a6b51",
-          "merge": false,
-          "message": "Multiple issues"
-        }
-      ],
-      "authors": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-03-19 20:32:32",
-              "commitTimeLong": 1458419552000,
-              "hash": "87c0d7288896171",
-              "hashFull": "87c0d72888961712d4d63dd6298c24c1133a6b51",
-              "merge": false,
-              "message": "Multiple issues"
-            }
-          ],
-          "authorName": "Tomas Bjerre",
-          "authorEmail": "tomas.bjerre85@gmail.com"
-        }
-      ],
-      "name": "GitHub",
-      "title": "Enable  configuration in per-repository hook screen",
-      "hasTitle": true,
-      "issue": "#25",
-      "hasIssue": true,
-      "link": "https://github.com/tomasbjerre/made-up-mocked-repo/issues/25",
-      "hasLink": true,
-      "type": "",
-      "hasType": false,
-      "hasDescription": false,
-      "description": "",
-      "labels": [
-        "enhancement"
-      ],
-      "hasLabels": true,
-      "hasLinkedIssues": false,
-      "issueType": "GITHUB",
-      "linkedIssues": [],
-      "hasAdditionalFields": false,
-      "additionalFields": {}
-    },
-    {
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:30:35",
-          "commitTimeLong": 1455553835000,
-          "hash": "5607ea23fa8aaf7",
-          "hashFull": "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37",
-          "merge": false,
-          "message": "Adding stuff\n with gh again"
-        }
-      ],
-      "authors": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:30:35",
-              "commitTimeLong": 1455553835000,
-              "hash": "5607ea23fa8aaf7",
-              "hashFull": "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37",
-              "merge": false,
-              "message": "Adding stuff\n with gh again"
-            }
-          ],
-          "authorName": "Tomas Bjerre",
-          "authorEmail": "tomas.bjerre85@gmail.com"
-        }
-      ],
-      "name": "GitHub",
-      "title": "",
-      "hasTitle": false,
-      "issue": "#30",
-      "hasIssue": true,
-      "link": "",
-      "hasLink": false,
-      "type": "",
-      "hasType": false,
-      "hasDescription": false,
-      "description": "",
-      "labels": [],
-      "hasLabels": false,
-      "hasLinkedIssues": false,
-      "issueType": "GITHUB",
-      "linkedIssues": [],
-      "hasAdditionalFields": false,
-      "additionalFields": {}
-    },
-    {
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:30:35",
-          "commitTimeLong": 1455553835000,
-          "hash": "cc0fbbd8bc63955",
-          "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
-          "merge": false,
-          "message": "Adding stuff with a jira"
-        }
-      ],
-      "authors": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:30:35",
-              "commitTimeLong": 1455553835000,
-              "hash": "cc0fbbd8bc63955",
-              "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
-              "merge": false,
-              "message": "Adding stuff with a jira"
-            }
-          ],
-          "authorName": "Tomas Bjerre",
-          "authorEmail": "tomas.bjerre85@gmail.com"
-        }
-      ],
-      "name": "Jira",
-      "title": "Title of jira 1234",
-      "hasTitle": true,
-      "issue": "JIR-1234",
-      "hasIssue": true,
-      "link": "https://jiraserver/jira/browse/JIR-1234",
-      "hasLink": true,
-      "type": "Bug",
-      "hasType": true,
-      "hasDescription": true,
-      "description": "Description",
-      "labels": [
-        "label1",
-        "label2"
-      ],
-      "hasLabels": true,
-      "hasLinkedIssues": false,
-      "issueType": "JIRA",
-      "linkedIssues": [],
-      "hasAdditionalFields": false,
-      "additionalFields": {}
-    },
-    {
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2016-02-15 16:12:02",
-          "commitTimeLong": 1455552722000,
-          "hash": "071a14f29020758",
-          "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
-          "merge": false,
-          "message": "Adding stuff with a jira"
-        }
-      ],
-      "authors": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:12:02",
-              "commitTimeLong": 1455552722000,
-              "hash": "071a14f29020758",
-              "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
-              "merge": false,
-              "message": "Adding stuff with a jira"
-            }
-          ],
-          "authorName": "Tomas Bjerre",
-          "authorEmail": "tomas.bjerre85@gmail.com"
-        }
-      ],
-      "name": "Jira",
-      "title": "The Title of jira 5262",
-      "hasTitle": true,
-      "issue": "JIR-5262",
-      "hasIssue": true,
-      "link": "https://jiraserver/jira/browse/JIR-5262",
-      "hasLink": true,
-      "type": "Bug",
-      "hasType": true,
-      "hasDescription": true,
-      "description": "Description",
-      "labels": [],
-      "hasLabels": false,
-      "hasLinkedIssues": true,
-      "issueType": "JIRA",
-      "linkedIssues": [
-        "JIRSD-490",
-        "JIRSD-567"
-      ],
-      "hasAdditionalFields": false,
-      "additionalFields": {}
-    }
-  ],
-  "issueTypes": [
-    {
-      "name": "Bugs",
-      "issues": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-03-19 20:32:19",
-              "commitTimeLong": 1458419539000,
-              "hash": "20e333f8e108f77",
-              "hashFull": "20e333f8e108f77b9345516f2c407d9673b16ff8",
-              "merge": false,
-              "message": "More stuff tagged with  twice"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-03-19 20:32:19",
-                  "commitTimeLong": 1458419539000,
-                  "hash": "20e333f8e108f77",
-                  "hashFull": "20e333f8e108f77b9345516f2c407d9673b16ff8",
-                  "merge": false,
-                  "message": "More stuff tagged with  twice"
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            }
-          ],
-          "name": "Bugs",
-          "title": "Mixed bugs",
-          "hasTitle": true,
-          "issue": "#bug",
-          "hasIssue": true,
-          "link": "",
-          "hasLink": false,
-          "type": "",
-          "hasType": false,
-          "hasDescription": false,
-          "description": "",
-          "hasLabels": false,
-          "hasLinkedIssues": false,
-          "issueType": "CUSTOM",
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        }
-      ],
-      "type": "CUSTOM"
-    },
-    {
-      "name": "CQ",
-      "issues": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:30:35",
-              "commitTimeLong": 1455553835000,
-              "hash": "a9bd03b34b255ff",
-              "hashFull": "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3",
-              "merge": false,
-              "message": "Adding cq stuff with CQ"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:30:35",
-                  "commitTimeLong": 1455553835000,
-                  "hash": "a9bd03b34b255ff",
-                  "hashFull": "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3",
-                  "merge": false,
-                  "message": "Adding cq stuff with CQ"
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            }
-          ],
-          "name": "CQ",
-          "title": "1234",
-          "hasTitle": true,
-          "issue": "CQ1234",
-          "hasIssue": true,
-          "link": "http://cq/1234",
-          "hasLink": true,
-          "type": "",
-          "hasType": false,
-          "hasDescription": false,
-          "description": "",
-          "hasLabels": false,
-          "hasLinkedIssues": false,
-          "issueType": "CUSTOM",
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        }
-      ],
-      "type": "CUSTOM"
-    },
-    {
-      "name": "GitHub",
-      "issues": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:30:35",
-              "commitTimeLong": 1455553835000,
-              "hash": "d50a3e332f9fcba",
-              "hashFull": "d50a3e332f9fcbabac24c2b411ef60b70970dea7",
-              "merge": false,
-              "message": "Adding stuff  gh 12"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:30:35",
-                  "commitTimeLong": 1455553835000,
-                  "hash": "d50a3e332f9fcba",
-                  "hashFull": "d50a3e332f9fcbabac24c2b411ef60b70970dea7",
-                  "merge": false,
-                  "message": "Adding stuff  gh 12"
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            }
-          ],
-          "name": "GitHub",
-          "title": "Strange chars in PULL_REQUEST_URL",
-          "hasTitle": true,
-          "issue": "#12",
-          "hasIssue": true,
-          "link": "https://github.com/tomasbjerre/made-up-mocked-repo/issues/12",
-          "hasLink": true,
-          "type": "",
-          "hasType": false,
-          "hasDescription": false,
-          "description": "",
-          "labels": [],
-          "hasLabels": false,
-          "hasLinkedIssues": false,
-          "issueType": "GITHUB",
-          "linkedIssues": [],
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        },
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-03-19 20:32:32",
-              "commitTimeLong": 1458419552000,
-              "hash": "87c0d7288896171",
-              "hashFull": "87c0d72888961712d4d63dd6298c24c1133a6b51",
-              "merge": false,
-              "message": "Multiple issues"
-            },
-            {
-              "authorEmailAddress": "tomas.b@example.com",
-              "authorName": "T B",
-              "commitTime": "2016-02-15 16:11:12",
-              "commitTimeLong": 1455552672000,
-              "hash": "326d4d01c0a9415",
-              "hashFull": "326d4d01c0a941538cea89f7391999066874738a",
-              "merge": false,
-              "message": "Adding stuff with gh 20"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-03-19 20:32:32",
-                  "commitTimeLong": 1458419552000,
-                  "hash": "87c0d7288896171",
-                  "hashFull": "87c0d72888961712d4d63dd6298c24c1133a6b51",
-                  "merge": false,
-                  "message": "Multiple issues"
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            },
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.b@example.com",
-                  "authorName": "T B",
-                  "commitTime": "2016-02-15 16:11:12",
-                  "commitTimeLong": 1455552672000,
-                  "hash": "326d4d01c0a9415",
-                  "hashFull": "326d4d01c0a941538cea89f7391999066874738a",
-                  "merge": false,
-                  "message": "Adding stuff with gh 20"
-                }
-              ],
-              "authorName": "T B",
-              "authorEmail": "tomas.b@example.com"
-            }
-          ],
-          "name": "GitHub",
-          "title": "Parameterized Jenkins\u0027 job error",
-          "hasTitle": true,
-          "issue": "#20",
-          "hasIssue": true,
-          "link": "https://github.com/tomasbjerre/made-up-mocked-repo/issues/20",
-          "hasLink": true,
-          "type": "",
-          "hasType": false,
-          "hasDescription": false,
-          "description": "",
-          "labels": [
-            "bug"
-          ],
-          "hasLabels": true,
-          "hasLinkedIssues": false,
-          "issueType": "GITHUB",
-          "linkedIssues": [],
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        },
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-03-19 20:32:32",
-              "commitTimeLong": 1458419552000,
-              "hash": "87c0d7288896171",
-              "hashFull": "87c0d72888961712d4d63dd6298c24c1133a6b51",
-              "merge": false,
-              "message": "Multiple issues"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-03-19 20:32:32",
-                  "commitTimeLong": 1458419552000,
-                  "hash": "87c0d7288896171",
-                  "hashFull": "87c0d72888961712d4d63dd6298c24c1133a6b51",
-                  "merge": false,
-                  "message": "Multiple issues"
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            }
-          ],
-          "name": "GitHub",
-          "title": "Enable  configuration in per-repository hook screen",
-          "hasTitle": true,
-          "issue": "#25",
-          "hasIssue": true,
-          "link": "https://github.com/tomasbjerre/made-up-mocked-repo/issues/25",
-          "hasLink": true,
-          "type": "",
-          "hasType": false,
-          "hasDescription": false,
-          "description": "",
-          "labels": [
-            "enhancement"
-          ],
-          "hasLabels": true,
-          "hasLinkedIssues": false,
-          "issueType": "GITHUB",
-          "linkedIssues": [],
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        },
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:30:35",
-              "commitTimeLong": 1455553835000,
-              "hash": "5607ea23fa8aaf7",
-              "hashFull": "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37",
-              "merge": false,
-              "message": "Adding stuff\n with gh again"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:30:35",
-                  "commitTimeLong": 1455553835000,
-                  "hash": "5607ea23fa8aaf7",
-                  "hashFull": "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37",
-                  "merge": false,
-                  "message": "Adding stuff\n with gh again"
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            }
-          ],
-          "name": "GitHub",
-          "title": "",
-          "hasTitle": false,
-          "issue": "#30",
-          "hasIssue": true,
-          "link": "",
-          "hasLink": false,
-          "type": "",
-          "hasType": false,
-          "hasDescription": false,
-          "description": "",
-          "labels": [],
-          "hasLabels": false,
-          "hasLinkedIssues": false,
-          "issueType": "GITHUB",
-          "linkedIssues": [],
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        }
-      ],
-      "type": "GITHUB"
-    },
-    {
-      "name": "Jira",
-      "issues": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:30:35",
-              "commitTimeLong": 1455553835000,
-              "hash": "cc0fbbd8bc63955",
-              "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
-              "merge": false,
-              "message": "Adding stuff with a jira"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:30:35",
-                  "commitTimeLong": 1455553835000,
-                  "hash": "cc0fbbd8bc63955",
-                  "hashFull": "cc0fbbd8bc63955e4576e24feb481ab315efec31",
-                  "merge": false,
-                  "message": "Adding stuff with a jira"
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            }
-          ],
-          "name": "Jira",
-          "title": "Title of jira 1234",
-          "hasTitle": true,
-          "issue": "JIR-1234",
-          "hasIssue": true,
-          "link": "https://jiraserver/jira/browse/JIR-1234",
-          "hasLink": true,
-          "type": "Bug",
-          "hasType": true,
-          "hasDescription": true,
-          "description": "Description",
-          "labels": [
-            "label1",
-            "label2"
-          ],
-          "hasLabels": true,
-          "hasLinkedIssues": false,
-          "issueType": "JIRA",
-          "linkedIssues": [],
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        },
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2016-02-15 16:12:02",
-              "commitTimeLong": 1455552722000,
-              "hash": "071a14f29020758",
-              "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
-              "merge": false,
-              "message": "Adding stuff with a jira"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2016-02-15 16:12:02",
-                  "commitTimeLong": 1455552722000,
-                  "hash": "071a14f29020758",
-                  "hashFull": "071a14f29020758bc46ac0a45e7cfc074c872850",
-                  "merge": false,
-                  "message": "Adding stuff with a jira"
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            }
-          ],
-          "name": "Jira",
-          "title": "The Title of jira 5262",
-          "hasTitle": true,
-          "issue": "JIR-5262",
-          "hasIssue": true,
-          "link": "https://jiraserver/jira/browse/JIR-5262",
-          "hasLink": true,
-          "type": "Bug",
-          "hasType": true,
-          "hasDescription": true,
-          "description": "Description",
-          "labels": [],
-          "hasLabels": false,
-          "hasLinkedIssues": true,
-          "issueType": "JIRA",
-          "linkedIssues": [
-            "JIRSD-490",
-            "JIRSD-567"
-          ],
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        }
-      ],
-      "type": "JIRA"
-    }
-  ],
-  "ownerName": "tomasbjerre",
-  "repoName": "git-changelog-lib",
-  "urlParts": [
-    "git-changelog-lib",
-    "tomasbjerre",
-    "git@github.com"
-  ]
+  "commits" : [ {
+    "authorName" : "Tomas Bjerre",
+    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+    "commitTime" : "2016-03-19 20:32:32",
+    "commitTimeLong" : 1458419552000,
+    "message" : "Multiple issues",
+    "hash" : "87c0d7288896171",
+    "merge" : false,
+    "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
+  }, {
+    "authorName" : "Tomas Bjerre",
+    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+    "commitTime" : "2016-03-19 20:32:19",
+    "commitTimeLong" : 1458419539000,
+    "message" : "More stuff tagged with  twice",
+    "hash" : "20e333f8e108f77",
+    "merge" : false,
+    "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
+  }, {
+    "authorName" : "Tomas Bjerre",
+    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+    "commitTime" : "2016-02-15 16:30:35",
+    "commitTimeLong" : 1455553835000,
+    "message" : "Adding stuff  gh 12",
+    "hash" : "d50a3e332f9fcba",
+    "merge" : false,
+    "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
+  }, {
+    "authorName" : "Tomas Bjerre",
+    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+    "commitTime" : "2016-02-15 16:30:35",
+    "commitTimeLong" : 1455553835000,
+    "message" : "Adding stuff with a jira",
+    "hash" : "cc0fbbd8bc63955",
+    "merge" : false,
+    "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
+  }, {
+    "authorName" : "Tomas Bjerre",
+    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+    "commitTime" : "2016-02-15 16:30:35",
+    "commitTimeLong" : 1455553835000,
+    "message" : "Adding cq stuff with CQ",
+    "hash" : "a9bd03b34b255ff",
+    "merge" : false,
+    "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
+  }, {
+    "authorName" : "Tomas Bjerre",
+    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+    "commitTime" : "2016-02-15 16:30:35",
+    "commitTimeLong" : 1455553835000,
+    "message" : "Adding stuff\n with gh again",
+    "hash" : "5607ea23fa8aaf7",
+    "merge" : false,
+    "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
+  }, {
+    "authorName" : "Tomas Bjerre",
+    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+    "commitTime" : "2016-02-15 16:12:02",
+    "commitTimeLong" : 1455552722000,
+    "message" : "Adding stuff with a jira",
+    "hash" : "071a14f29020758",
+    "merge" : false,
+    "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
+  }, {
+    "authorName" : "T B",
+    "authorEmailAddress" : "tomas.b@example.com",
+    "commitTime" : "2016-02-15 16:11:12",
+    "commitTimeLong" : 1455552672000,
+    "message" : "Adding stuff with gh 20",
+    "hash" : "326d4d01c0a9415",
+    "merge" : false,
+    "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
+  } ],
+  "tags" : [ {
+    "name" : "test",
+    "commits" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-03-19 20:32:32",
+      "commitTimeLong" : 1458419552000,
+      "message" : "Multiple issues",
+      "hash" : "87c0d7288896171",
+      "merge" : false,
+      "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-03-19 20:32:19",
+      "commitTimeLong" : 1458419539000,
+      "message" : "More stuff tagged with  twice",
+      "hash" : "20e333f8e108f77",
+      "merge" : false,
+      "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-02-15 16:30:35",
+      "commitTimeLong" : 1455553835000,
+      "message" : "Adding stuff with a jira",
+      "hash" : "cc0fbbd8bc63955",
+      "merge" : false,
+      "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-02-15 16:30:35",
+      "commitTimeLong" : 1455553835000,
+      "message" : "Adding stuff\n with gh again",
+      "hash" : "5607ea23fa8aaf7",
+      "merge" : false,
+      "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
+    } ],
+    "authors" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmail" : "tomas.bjerre85@gmail.com",
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-03-19 20:32:32",
+        "commitTimeLong" : 1458419552000,
+        "message" : "Multiple issues",
+        "hash" : "87c0d7288896171",
+        "merge" : false,
+        "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-03-19 20:32:19",
+        "commitTimeLong" : 1458419539000,
+        "message" : "More stuff tagged with  twice",
+        "hash" : "20e333f8e108f77",
+        "merge" : false,
+        "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:30:35",
+        "commitTimeLong" : 1455553835000,
+        "message" : "Adding stuff with a jira",
+        "hash" : "cc0fbbd8bc63955",
+        "merge" : false,
+        "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:30:35",
+        "commitTimeLong" : 1455553835000,
+        "message" : "Adding stuff\n with gh again",
+        "hash" : "5607ea23fa8aaf7",
+        "merge" : false,
+        "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
+      } ]
+    } ],
+    "issues" : [ {
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-03-19 20:32:19",
+        "commitTimeLong" : 1458419539000,
+        "message" : "More stuff tagged with  twice",
+        "hash" : "20e333f8e108f77",
+        "merge" : false,
+        "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
+      } ],
+      "authors" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-03-19 20:32:19",
+          "commitTimeLong" : 1458419539000,
+          "message" : "More stuff tagged with  twice",
+          "hash" : "20e333f8e108f77",
+          "merge" : false,
+          "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
+        } ]
+      } ],
+      "name" : "Bugs",
+      "title" : "Mixed bugs",
+      "issue" : "#bug",
+      "issueType" : "CUSTOM",
+      "description" : "",
+      "link" : "",
+      "type" : "",
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : false,
+      "hasIssue" : true,
+      "hasLabels" : false,
+      "hasLink" : false,
+      "hasLinkedIssues" : false,
+      "hasTitle" : true,
+      "hasType" : false
+    }, {
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-03-19 20:32:32",
+        "commitTimeLong" : 1458419552000,
+        "message" : "Multiple issues",
+        "hash" : "87c0d7288896171",
+        "merge" : false,
+        "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
+      } ],
+      "authors" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-03-19 20:32:32",
+          "commitTimeLong" : 1458419552000,
+          "message" : "Multiple issues",
+          "hash" : "87c0d7288896171",
+          "merge" : false,
+          "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
+        } ]
+      } ],
+      "name" : "GitHub",
+      "title" : "Parameterized Jenkins' job error",
+      "issue" : "#20",
+      "issueType" : "GITHUB",
+      "description" : "",
+      "link" : "https://github.com/tomasbjerre/made-up-mocked-repo/issues/20",
+      "type" : "",
+      "linkedIssues" : [ ],
+      "labels" : [ "bug" ],
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : false,
+      "hasIssue" : true,
+      "hasLabels" : true,
+      "hasLink" : true,
+      "hasLinkedIssues" : false,
+      "hasTitle" : true,
+      "hasType" : false
+    }, {
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-03-19 20:32:32",
+        "commitTimeLong" : 1458419552000,
+        "message" : "Multiple issues",
+        "hash" : "87c0d7288896171",
+        "merge" : false,
+        "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
+      } ],
+      "authors" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-03-19 20:32:32",
+          "commitTimeLong" : 1458419552000,
+          "message" : "Multiple issues",
+          "hash" : "87c0d7288896171",
+          "merge" : false,
+          "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
+        } ]
+      } ],
+      "name" : "GitHub",
+      "title" : "Enable  configuration in per-repository hook screen",
+      "issue" : "#25",
+      "issueType" : "GITHUB",
+      "description" : "",
+      "link" : "https://github.com/tomasbjerre/made-up-mocked-repo/issues/25",
+      "type" : "",
+      "linkedIssues" : [ ],
+      "labels" : [ "enhancement" ],
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : false,
+      "hasIssue" : true,
+      "hasLabels" : true,
+      "hasLink" : true,
+      "hasLinkedIssues" : false,
+      "hasTitle" : true,
+      "hasType" : false
+    }, {
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:30:35",
+        "commitTimeLong" : 1455553835000,
+        "message" : "Adding stuff\n with gh again",
+        "hash" : "5607ea23fa8aaf7",
+        "merge" : false,
+        "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
+      } ],
+      "authors" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-02-15 16:30:35",
+          "commitTimeLong" : 1455553835000,
+          "message" : "Adding stuff\n with gh again",
+          "hash" : "5607ea23fa8aaf7",
+          "merge" : false,
+          "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
+        } ]
+      } ],
+      "name" : "GitHub",
+      "title" : "",
+      "issue" : "#30",
+      "issueType" : "GITHUB",
+      "description" : "",
+      "link" : "",
+      "type" : "",
+      "linkedIssues" : [ ],
+      "labels" : [ ],
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : false,
+      "hasIssue" : true,
+      "hasLabels" : false,
+      "hasLink" : false,
+      "hasLinkedIssues" : false,
+      "hasTitle" : false,
+      "hasType" : false
+    }, {
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:30:35",
+        "commitTimeLong" : 1455553835000,
+        "message" : "Adding stuff with a jira",
+        "hash" : "cc0fbbd8bc63955",
+        "merge" : false,
+        "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
+      } ],
+      "authors" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-02-15 16:30:35",
+          "commitTimeLong" : 1455553835000,
+          "message" : "Adding stuff with a jira",
+          "hash" : "cc0fbbd8bc63955",
+          "merge" : false,
+          "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
+        } ]
+      } ],
+      "name" : "Jira",
+      "title" : "Title of jira 1234",
+      "issue" : "JIR-1234",
+      "issueType" : "JIRA",
+      "description" : "Description",
+      "link" : "https://jiraserver/jira/browse/JIR-1234",
+      "type" : "Bug",
+      "linkedIssues" : [ ],
+      "labels" : [ "label1", "label2" ],
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : true,
+      "hasIssue" : true,
+      "hasLabels" : true,
+      "hasLink" : true,
+      "hasLinkedIssues" : false,
+      "hasTitle" : true,
+      "hasType" : true
+    } ],
+    "issueTypes" : [ {
+      "issues" : [ {
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-03-19 20:32:19",
+          "commitTimeLong" : 1458419539000,
+          "message" : "More stuff tagged with  twice",
+          "hash" : "20e333f8e108f77",
+          "merge" : false,
+          "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
+        } ],
+        "authors" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmail" : "tomas.bjerre85@gmail.com",
+          "commits" : [ {
+            "authorName" : "Tomas Bjerre",
+            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+            "commitTime" : "2016-03-19 20:32:19",
+            "commitTimeLong" : 1458419539000,
+            "message" : "More stuff tagged with  twice",
+            "hash" : "20e333f8e108f77",
+            "merge" : false,
+            "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
+          } ]
+        } ],
+        "name" : "Bugs",
+        "title" : "Mixed bugs",
+        "issue" : "#bug",
+        "issueType" : "CUSTOM",
+        "description" : "",
+        "link" : "",
+        "type" : "",
+        "additionalFields" : { },
+        "hasAdditionalFields" : false,
+        "hasDescription" : false,
+        "hasIssue" : true,
+        "hasLabels" : false,
+        "hasLink" : false,
+        "hasLinkedIssues" : false,
+        "hasTitle" : true,
+        "hasType" : false
+      } ],
+      "name" : "Bugs",
+      "type" : "CUSTOM"
+    }, {
+      "issues" : [ {
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-03-19 20:32:32",
+          "commitTimeLong" : 1458419552000,
+          "message" : "Multiple issues",
+          "hash" : "87c0d7288896171",
+          "merge" : false,
+          "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
+        } ],
+        "authors" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmail" : "tomas.bjerre85@gmail.com",
+          "commits" : [ {
+            "authorName" : "Tomas Bjerre",
+            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+            "commitTime" : "2016-03-19 20:32:32",
+            "commitTimeLong" : 1458419552000,
+            "message" : "Multiple issues",
+            "hash" : "87c0d7288896171",
+            "merge" : false,
+            "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
+          } ]
+        } ],
+        "name" : "GitHub",
+        "title" : "Parameterized Jenkins' job error",
+        "issue" : "#20",
+        "issueType" : "GITHUB",
+        "description" : "",
+        "link" : "https://github.com/tomasbjerre/made-up-mocked-repo/issues/20",
+        "type" : "",
+        "linkedIssues" : [ ],
+        "labels" : [ "bug" ],
+        "additionalFields" : { },
+        "hasAdditionalFields" : false,
+        "hasDescription" : false,
+        "hasIssue" : true,
+        "hasLabels" : true,
+        "hasLink" : true,
+        "hasLinkedIssues" : false,
+        "hasTitle" : true,
+        "hasType" : false
+      }, {
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-03-19 20:32:32",
+          "commitTimeLong" : 1458419552000,
+          "message" : "Multiple issues",
+          "hash" : "87c0d7288896171",
+          "merge" : false,
+          "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
+        } ],
+        "authors" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmail" : "tomas.bjerre85@gmail.com",
+          "commits" : [ {
+            "authorName" : "Tomas Bjerre",
+            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+            "commitTime" : "2016-03-19 20:32:32",
+            "commitTimeLong" : 1458419552000,
+            "message" : "Multiple issues",
+            "hash" : "87c0d7288896171",
+            "merge" : false,
+            "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
+          } ]
+        } ],
+        "name" : "GitHub",
+        "title" : "Enable  configuration in per-repository hook screen",
+        "issue" : "#25",
+        "issueType" : "GITHUB",
+        "description" : "",
+        "link" : "https://github.com/tomasbjerre/made-up-mocked-repo/issues/25",
+        "type" : "",
+        "linkedIssues" : [ ],
+        "labels" : [ "enhancement" ],
+        "additionalFields" : { },
+        "hasAdditionalFields" : false,
+        "hasDescription" : false,
+        "hasIssue" : true,
+        "hasLabels" : true,
+        "hasLink" : true,
+        "hasLinkedIssues" : false,
+        "hasTitle" : true,
+        "hasType" : false
+      }, {
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-02-15 16:30:35",
+          "commitTimeLong" : 1455553835000,
+          "message" : "Adding stuff\n with gh again",
+          "hash" : "5607ea23fa8aaf7",
+          "merge" : false,
+          "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
+        } ],
+        "authors" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmail" : "tomas.bjerre85@gmail.com",
+          "commits" : [ {
+            "authorName" : "Tomas Bjerre",
+            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+            "commitTime" : "2016-02-15 16:30:35",
+            "commitTimeLong" : 1455553835000,
+            "message" : "Adding stuff\n with gh again",
+            "hash" : "5607ea23fa8aaf7",
+            "merge" : false,
+            "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
+          } ]
+        } ],
+        "name" : "GitHub",
+        "title" : "",
+        "issue" : "#30",
+        "issueType" : "GITHUB",
+        "description" : "",
+        "link" : "",
+        "type" : "",
+        "linkedIssues" : [ ],
+        "labels" : [ ],
+        "additionalFields" : { },
+        "hasAdditionalFields" : false,
+        "hasDescription" : false,
+        "hasIssue" : true,
+        "hasLabels" : false,
+        "hasLink" : false,
+        "hasLinkedIssues" : false,
+        "hasTitle" : false,
+        "hasType" : false
+      } ],
+      "name" : "GitHub",
+      "type" : "GITHUB"
+    }, {
+      "issues" : [ {
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-02-15 16:30:35",
+          "commitTimeLong" : 1455553835000,
+          "message" : "Adding stuff with a jira",
+          "hash" : "cc0fbbd8bc63955",
+          "merge" : false,
+          "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
+        } ],
+        "authors" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmail" : "tomas.bjerre85@gmail.com",
+          "commits" : [ {
+            "authorName" : "Tomas Bjerre",
+            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+            "commitTime" : "2016-02-15 16:30:35",
+            "commitTimeLong" : 1455553835000,
+            "message" : "Adding stuff with a jira",
+            "hash" : "cc0fbbd8bc63955",
+            "merge" : false,
+            "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
+          } ]
+        } ],
+        "name" : "Jira",
+        "title" : "Title of jira 1234",
+        "issue" : "JIR-1234",
+        "issueType" : "JIRA",
+        "description" : "Description",
+        "link" : "https://jiraserver/jira/browse/JIR-1234",
+        "type" : "Bug",
+        "linkedIssues" : [ ],
+        "labels" : [ "label1", "label2" ],
+        "additionalFields" : { },
+        "hasAdditionalFields" : false,
+        "hasDescription" : true,
+        "hasIssue" : true,
+        "hasLabels" : true,
+        "hasLink" : true,
+        "hasLinkedIssues" : false,
+        "hasTitle" : true,
+        "hasType" : true
+      } ],
+      "name" : "Jira",
+      "type" : "JIRA"
+    } ],
+    "tagTime" : "2016-04-06 18:40:51",
+    "tagTimeLong" : 1459968051000,
+    "hasTagTime" : true
+  }, {
+    "name" : "test-lightweight-2",
+    "commits" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-02-15 16:30:35",
+      "commitTimeLong" : 1455553835000,
+      "message" : "Adding cq stuff with CQ",
+      "hash" : "a9bd03b34b255ff",
+      "merge" : false,
+      "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
+    } ],
+    "authors" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmail" : "tomas.bjerre85@gmail.com",
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:30:35",
+        "commitTimeLong" : 1455553835000,
+        "message" : "Adding cq stuff with CQ",
+        "hash" : "a9bd03b34b255ff",
+        "merge" : false,
+        "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
+      } ]
+    } ],
+    "issues" : [ {
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:30:35",
+        "commitTimeLong" : 1455553835000,
+        "message" : "Adding cq stuff with CQ",
+        "hash" : "a9bd03b34b255ff",
+        "merge" : false,
+        "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
+      } ],
+      "authors" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-02-15 16:30:35",
+          "commitTimeLong" : 1455553835000,
+          "message" : "Adding cq stuff with CQ",
+          "hash" : "a9bd03b34b255ff",
+          "merge" : false,
+          "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
+        } ]
+      } ],
+      "name" : "CQ",
+      "title" : "1234",
+      "issue" : "CQ1234",
+      "issueType" : "CUSTOM",
+      "description" : "",
+      "link" : "http://cq/1234",
+      "type" : "",
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : false,
+      "hasIssue" : true,
+      "hasLabels" : false,
+      "hasLink" : true,
+      "hasLinkedIssues" : false,
+      "hasTitle" : true,
+      "hasType" : false
+    } ],
+    "issueTypes" : [ {
+      "issues" : [ {
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-02-15 16:30:35",
+          "commitTimeLong" : 1455553835000,
+          "message" : "Adding cq stuff with CQ",
+          "hash" : "a9bd03b34b255ff",
+          "merge" : false,
+          "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
+        } ],
+        "authors" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmail" : "tomas.bjerre85@gmail.com",
+          "commits" : [ {
+            "authorName" : "Tomas Bjerre",
+            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+            "commitTime" : "2016-02-15 16:30:35",
+            "commitTimeLong" : 1455553835000,
+            "message" : "Adding cq stuff with CQ",
+            "hash" : "a9bd03b34b255ff",
+            "merge" : false,
+            "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
+          } ]
+        } ],
+        "name" : "CQ",
+        "title" : "1234",
+        "issue" : "CQ1234",
+        "issueType" : "CUSTOM",
+        "description" : "",
+        "link" : "http://cq/1234",
+        "type" : "",
+        "additionalFields" : { },
+        "hasAdditionalFields" : false,
+        "hasDescription" : false,
+        "hasIssue" : true,
+        "hasLabels" : false,
+        "hasLink" : true,
+        "hasLinkedIssues" : false,
+        "hasTitle" : true,
+        "hasType" : false
+      } ],
+      "name" : "CQ",
+      "type" : "CUSTOM"
+    } ],
+    "tagTime" : "2016-02-15 16:30:35",
+    "tagTimeLong" : 1455553835000,
+    "hasTagTime" : true
+  }, {
+    "name" : "test-1.0",
+    "annotation" : "this is the tag for test-1.0\n",
+    "commits" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-02-15 16:30:35",
+      "commitTimeLong" : 1455553835000,
+      "message" : "Adding stuff  gh 12",
+      "hash" : "d50a3e332f9fcba",
+      "merge" : false,
+      "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-02-15 16:12:02",
+      "commitTimeLong" : 1455552722000,
+      "message" : "Adding stuff with a jira",
+      "hash" : "071a14f29020758",
+      "merge" : false,
+      "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
+    }, {
+      "authorName" : "T B",
+      "authorEmailAddress" : "tomas.b@example.com",
+      "commitTime" : "2016-02-15 16:11:12",
+      "commitTimeLong" : 1455552672000,
+      "message" : "Adding stuff with gh 20",
+      "hash" : "326d4d01c0a9415",
+      "merge" : false,
+      "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
+    } ],
+    "authors" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmail" : "tomas.bjerre85@gmail.com",
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:30:35",
+        "commitTimeLong" : 1455553835000,
+        "message" : "Adding stuff  gh 12",
+        "hash" : "d50a3e332f9fcba",
+        "merge" : false,
+        "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:12:02",
+        "commitTimeLong" : 1455552722000,
+        "message" : "Adding stuff with a jira",
+        "hash" : "071a14f29020758",
+        "merge" : false,
+        "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
+      } ]
+    }, {
+      "authorName" : "T B",
+      "authorEmail" : "tomas.b@example.com",
+      "commits" : [ {
+        "authorName" : "T B",
+        "authorEmailAddress" : "tomas.b@example.com",
+        "commitTime" : "2016-02-15 16:11:12",
+        "commitTimeLong" : 1455552672000,
+        "message" : "Adding stuff with gh 20",
+        "hash" : "326d4d01c0a9415",
+        "merge" : false,
+        "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
+      } ]
+    } ],
+    "issues" : [ {
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:30:35",
+        "commitTimeLong" : 1455553835000,
+        "message" : "Adding stuff  gh 12",
+        "hash" : "d50a3e332f9fcba",
+        "merge" : false,
+        "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
+      } ],
+      "authors" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-02-15 16:30:35",
+          "commitTimeLong" : 1455553835000,
+          "message" : "Adding stuff  gh 12",
+          "hash" : "d50a3e332f9fcba",
+          "merge" : false,
+          "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
+        } ]
+      } ],
+      "name" : "GitHub",
+      "title" : "Strange chars in PULL_REQUEST_URL",
+      "issue" : "#12",
+      "issueType" : "GITHUB",
+      "description" : "",
+      "link" : "https://github.com/tomasbjerre/made-up-mocked-repo/issues/12",
+      "type" : "",
+      "linkedIssues" : [ ],
+      "labels" : [ ],
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : false,
+      "hasIssue" : true,
+      "hasLabels" : false,
+      "hasLink" : true,
+      "hasLinkedIssues" : false,
+      "hasTitle" : true,
+      "hasType" : false
+    }, {
+      "commits" : [ {
+        "authorName" : "T B",
+        "authorEmailAddress" : "tomas.b@example.com",
+        "commitTime" : "2016-02-15 16:11:12",
+        "commitTimeLong" : 1455552672000,
+        "message" : "Adding stuff with gh 20",
+        "hash" : "326d4d01c0a9415",
+        "merge" : false,
+        "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
+      } ],
+      "authors" : [ {
+        "authorName" : "T B",
+        "authorEmail" : "tomas.b@example.com",
+        "commits" : [ {
+          "authorName" : "T B",
+          "authorEmailAddress" : "tomas.b@example.com",
+          "commitTime" : "2016-02-15 16:11:12",
+          "commitTimeLong" : 1455552672000,
+          "message" : "Adding stuff with gh 20",
+          "hash" : "326d4d01c0a9415",
+          "merge" : false,
+          "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
+        } ]
+      } ],
+      "name" : "GitHub",
+      "title" : "Parameterized Jenkins' job error",
+      "issue" : "#20",
+      "issueType" : "GITHUB",
+      "description" : "",
+      "link" : "https://github.com/tomasbjerre/made-up-mocked-repo/issues/20",
+      "type" : "",
+      "linkedIssues" : [ ],
+      "labels" : [ "bug" ],
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : false,
+      "hasIssue" : true,
+      "hasLabels" : true,
+      "hasLink" : true,
+      "hasLinkedIssues" : false,
+      "hasTitle" : true,
+      "hasType" : false
+    }, {
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:12:02",
+        "commitTimeLong" : 1455552722000,
+        "message" : "Adding stuff with a jira",
+        "hash" : "071a14f29020758",
+        "merge" : false,
+        "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
+      } ],
+      "authors" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-02-15 16:12:02",
+          "commitTimeLong" : 1455552722000,
+          "message" : "Adding stuff with a jira",
+          "hash" : "071a14f29020758",
+          "merge" : false,
+          "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
+        } ]
+      } ],
+      "name" : "Jira",
+      "title" : "The Title of jira 5262",
+      "issue" : "JIR-5262",
+      "issueType" : "JIRA",
+      "description" : "Description",
+      "link" : "https://jiraserver/jira/browse/JIR-5262",
+      "type" : "Bug",
+      "linkedIssues" : [ "JIRSD-490", "JIRSD-567" ],
+      "labels" : [ ],
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : true,
+      "hasIssue" : true,
+      "hasLabels" : false,
+      "hasLink" : true,
+      "hasLinkedIssues" : true,
+      "hasTitle" : true,
+      "hasType" : true
+    } ],
+    "issueTypes" : [ {
+      "issues" : [ {
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-02-15 16:30:35",
+          "commitTimeLong" : 1455553835000,
+          "message" : "Adding stuff  gh 12",
+          "hash" : "d50a3e332f9fcba",
+          "merge" : false,
+          "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
+        } ],
+        "authors" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmail" : "tomas.bjerre85@gmail.com",
+          "commits" : [ {
+            "authorName" : "Tomas Bjerre",
+            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+            "commitTime" : "2016-02-15 16:30:35",
+            "commitTimeLong" : 1455553835000,
+            "message" : "Adding stuff  gh 12",
+            "hash" : "d50a3e332f9fcba",
+            "merge" : false,
+            "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
+          } ]
+        } ],
+        "name" : "GitHub",
+        "title" : "Strange chars in PULL_REQUEST_URL",
+        "issue" : "#12",
+        "issueType" : "GITHUB",
+        "description" : "",
+        "link" : "https://github.com/tomasbjerre/made-up-mocked-repo/issues/12",
+        "type" : "",
+        "linkedIssues" : [ ],
+        "labels" : [ ],
+        "additionalFields" : { },
+        "hasAdditionalFields" : false,
+        "hasDescription" : false,
+        "hasIssue" : true,
+        "hasLabels" : false,
+        "hasLink" : true,
+        "hasLinkedIssues" : false,
+        "hasTitle" : true,
+        "hasType" : false
+      }, {
+        "commits" : [ {
+          "authorName" : "T B",
+          "authorEmailAddress" : "tomas.b@example.com",
+          "commitTime" : "2016-02-15 16:11:12",
+          "commitTimeLong" : 1455552672000,
+          "message" : "Adding stuff with gh 20",
+          "hash" : "326d4d01c0a9415",
+          "merge" : false,
+          "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
+        } ],
+        "authors" : [ {
+          "authorName" : "T B",
+          "authorEmail" : "tomas.b@example.com",
+          "commits" : [ {
+            "authorName" : "T B",
+            "authorEmailAddress" : "tomas.b@example.com",
+            "commitTime" : "2016-02-15 16:11:12",
+            "commitTimeLong" : 1455552672000,
+            "message" : "Adding stuff with gh 20",
+            "hash" : "326d4d01c0a9415",
+            "merge" : false,
+            "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
+          } ]
+        } ],
+        "name" : "GitHub",
+        "title" : "Parameterized Jenkins' job error",
+        "issue" : "#20",
+        "issueType" : "GITHUB",
+        "description" : "",
+        "link" : "https://github.com/tomasbjerre/made-up-mocked-repo/issues/20",
+        "type" : "",
+        "linkedIssues" : [ ],
+        "labels" : [ "bug" ],
+        "additionalFields" : { },
+        "hasAdditionalFields" : false,
+        "hasDescription" : false,
+        "hasIssue" : true,
+        "hasLabels" : true,
+        "hasLink" : true,
+        "hasLinkedIssues" : false,
+        "hasTitle" : true,
+        "hasType" : false
+      } ],
+      "name" : "GitHub",
+      "type" : "GITHUB"
+    }, {
+      "issues" : [ {
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-02-15 16:12:02",
+          "commitTimeLong" : 1455552722000,
+          "message" : "Adding stuff with a jira",
+          "hash" : "071a14f29020758",
+          "merge" : false,
+          "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
+        } ],
+        "authors" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmail" : "tomas.bjerre85@gmail.com",
+          "commits" : [ {
+            "authorName" : "Tomas Bjerre",
+            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+            "commitTime" : "2016-02-15 16:12:02",
+            "commitTimeLong" : 1455552722000,
+            "message" : "Adding stuff with a jira",
+            "hash" : "071a14f29020758",
+            "merge" : false,
+            "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
+          } ]
+        } ],
+        "name" : "Jira",
+        "title" : "The Title of jira 5262",
+        "issue" : "JIR-5262",
+        "issueType" : "JIRA",
+        "description" : "Description",
+        "link" : "https://jiraserver/jira/browse/JIR-5262",
+        "type" : "Bug",
+        "linkedIssues" : [ "JIRSD-490", "JIRSD-567" ],
+        "labels" : [ ],
+        "additionalFields" : { },
+        "hasAdditionalFields" : false,
+        "hasDescription" : true,
+        "hasIssue" : true,
+        "hasLabels" : false,
+        "hasLink" : true,
+        "hasLinkedIssues" : true,
+        "hasTitle" : true,
+        "hasType" : true
+      } ],
+      "name" : "Jira",
+      "type" : "JIRA"
+    } ],
+    "tagTime" : "2016-02-15 16:30:35",
+    "tagTimeLong" : 1455553835000,
+    "hasTagTime" : true
+  } ],
+  "authors" : [ {
+    "authorName" : "Tomas Bjerre",
+    "authorEmail" : "tomas.bjerre85@gmail.com",
+    "commits" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-03-19 20:32:32",
+      "commitTimeLong" : 1458419552000,
+      "message" : "Multiple issues",
+      "hash" : "87c0d7288896171",
+      "merge" : false,
+      "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-03-19 20:32:19",
+      "commitTimeLong" : 1458419539000,
+      "message" : "More stuff tagged with  twice",
+      "hash" : "20e333f8e108f77",
+      "merge" : false,
+      "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-02-15 16:30:35",
+      "commitTimeLong" : 1455553835000,
+      "message" : "Adding stuff  gh 12",
+      "hash" : "d50a3e332f9fcba",
+      "merge" : false,
+      "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-02-15 16:30:35",
+      "commitTimeLong" : 1455553835000,
+      "message" : "Adding stuff with a jira",
+      "hash" : "cc0fbbd8bc63955",
+      "merge" : false,
+      "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-02-15 16:30:35",
+      "commitTimeLong" : 1455553835000,
+      "message" : "Adding cq stuff with CQ",
+      "hash" : "a9bd03b34b255ff",
+      "merge" : false,
+      "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-02-15 16:30:35",
+      "commitTimeLong" : 1455553835000,
+      "message" : "Adding stuff\n with gh again",
+      "hash" : "5607ea23fa8aaf7",
+      "merge" : false,
+      "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-02-15 16:12:02",
+      "commitTimeLong" : 1455552722000,
+      "message" : "Adding stuff with a jira",
+      "hash" : "071a14f29020758",
+      "merge" : false,
+      "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
+    } ]
+  }, {
+    "authorName" : "T B",
+    "authorEmail" : "tomas.b@example.com",
+    "commits" : [ {
+      "authorName" : "T B",
+      "authorEmailAddress" : "tomas.b@example.com",
+      "commitTime" : "2016-02-15 16:11:12",
+      "commitTimeLong" : 1455552672000,
+      "message" : "Adding stuff with gh 20",
+      "hash" : "326d4d01c0a9415",
+      "merge" : false,
+      "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
+    } ]
+  } ],
+  "issues" : [ {
+    "commits" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-03-19 20:32:19",
+      "commitTimeLong" : 1458419539000,
+      "message" : "More stuff tagged with  twice",
+      "hash" : "20e333f8e108f77",
+      "merge" : false,
+      "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
+    } ],
+    "authors" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmail" : "tomas.bjerre85@gmail.com",
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-03-19 20:32:19",
+        "commitTimeLong" : 1458419539000,
+        "message" : "More stuff tagged with  twice",
+        "hash" : "20e333f8e108f77",
+        "merge" : false,
+        "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
+      } ]
+    } ],
+    "name" : "Bugs",
+    "title" : "Mixed bugs",
+    "issue" : "#bug",
+    "issueType" : "CUSTOM",
+    "description" : "",
+    "link" : "",
+    "type" : "",
+    "additionalFields" : { },
+    "hasAdditionalFields" : false,
+    "hasDescription" : false,
+    "hasIssue" : true,
+    "hasLabels" : false,
+    "hasLink" : false,
+    "hasLinkedIssues" : false,
+    "hasTitle" : true,
+    "hasType" : false
+  }, {
+    "commits" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-02-15 16:30:35",
+      "commitTimeLong" : 1455553835000,
+      "message" : "Adding cq stuff with CQ",
+      "hash" : "a9bd03b34b255ff",
+      "merge" : false,
+      "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
+    } ],
+    "authors" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmail" : "tomas.bjerre85@gmail.com",
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:30:35",
+        "commitTimeLong" : 1455553835000,
+        "message" : "Adding cq stuff with CQ",
+        "hash" : "a9bd03b34b255ff",
+        "merge" : false,
+        "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
+      } ]
+    } ],
+    "name" : "CQ",
+    "title" : "1234",
+    "issue" : "CQ1234",
+    "issueType" : "CUSTOM",
+    "description" : "",
+    "link" : "http://cq/1234",
+    "type" : "",
+    "additionalFields" : { },
+    "hasAdditionalFields" : false,
+    "hasDescription" : false,
+    "hasIssue" : true,
+    "hasLabels" : false,
+    "hasLink" : true,
+    "hasLinkedIssues" : false,
+    "hasTitle" : true,
+    "hasType" : false
+  }, {
+    "commits" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-02-15 16:30:35",
+      "commitTimeLong" : 1455553835000,
+      "message" : "Adding stuff  gh 12",
+      "hash" : "d50a3e332f9fcba",
+      "merge" : false,
+      "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
+    } ],
+    "authors" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmail" : "tomas.bjerre85@gmail.com",
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:30:35",
+        "commitTimeLong" : 1455553835000,
+        "message" : "Adding stuff  gh 12",
+        "hash" : "d50a3e332f9fcba",
+        "merge" : false,
+        "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
+      } ]
+    } ],
+    "name" : "GitHub",
+    "title" : "Strange chars in PULL_REQUEST_URL",
+    "issue" : "#12",
+    "issueType" : "GITHUB",
+    "description" : "",
+    "link" : "https://github.com/tomasbjerre/made-up-mocked-repo/issues/12",
+    "type" : "",
+    "linkedIssues" : [ ],
+    "labels" : [ ],
+    "additionalFields" : { },
+    "hasAdditionalFields" : false,
+    "hasDescription" : false,
+    "hasIssue" : true,
+    "hasLabels" : false,
+    "hasLink" : true,
+    "hasLinkedIssues" : false,
+    "hasTitle" : true,
+    "hasType" : false
+  }, {
+    "commits" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-03-19 20:32:32",
+      "commitTimeLong" : 1458419552000,
+      "message" : "Multiple issues",
+      "hash" : "87c0d7288896171",
+      "merge" : false,
+      "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
+    }, {
+      "authorName" : "T B",
+      "authorEmailAddress" : "tomas.b@example.com",
+      "commitTime" : "2016-02-15 16:11:12",
+      "commitTimeLong" : 1455552672000,
+      "message" : "Adding stuff with gh 20",
+      "hash" : "326d4d01c0a9415",
+      "merge" : false,
+      "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
+    } ],
+    "authors" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmail" : "tomas.bjerre85@gmail.com",
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-03-19 20:32:32",
+        "commitTimeLong" : 1458419552000,
+        "message" : "Multiple issues",
+        "hash" : "87c0d7288896171",
+        "merge" : false,
+        "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
+      } ]
+    }, {
+      "authorName" : "T B",
+      "authorEmail" : "tomas.b@example.com",
+      "commits" : [ {
+        "authorName" : "T B",
+        "authorEmailAddress" : "tomas.b@example.com",
+        "commitTime" : "2016-02-15 16:11:12",
+        "commitTimeLong" : 1455552672000,
+        "message" : "Adding stuff with gh 20",
+        "hash" : "326d4d01c0a9415",
+        "merge" : false,
+        "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
+      } ]
+    } ],
+    "name" : "GitHub",
+    "title" : "Parameterized Jenkins' job error",
+    "issue" : "#20",
+    "issueType" : "GITHUB",
+    "description" : "",
+    "link" : "https://github.com/tomasbjerre/made-up-mocked-repo/issues/20",
+    "type" : "",
+    "linkedIssues" : [ ],
+    "labels" : [ "bug" ],
+    "additionalFields" : { },
+    "hasAdditionalFields" : false,
+    "hasDescription" : false,
+    "hasIssue" : true,
+    "hasLabels" : true,
+    "hasLink" : true,
+    "hasLinkedIssues" : false,
+    "hasTitle" : true,
+    "hasType" : false
+  }, {
+    "commits" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-03-19 20:32:32",
+      "commitTimeLong" : 1458419552000,
+      "message" : "Multiple issues",
+      "hash" : "87c0d7288896171",
+      "merge" : false,
+      "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
+    } ],
+    "authors" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmail" : "tomas.bjerre85@gmail.com",
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-03-19 20:32:32",
+        "commitTimeLong" : 1458419552000,
+        "message" : "Multiple issues",
+        "hash" : "87c0d7288896171",
+        "merge" : false,
+        "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
+      } ]
+    } ],
+    "name" : "GitHub",
+    "title" : "Enable  configuration in per-repository hook screen",
+    "issue" : "#25",
+    "issueType" : "GITHUB",
+    "description" : "",
+    "link" : "https://github.com/tomasbjerre/made-up-mocked-repo/issues/25",
+    "type" : "",
+    "linkedIssues" : [ ],
+    "labels" : [ "enhancement" ],
+    "additionalFields" : { },
+    "hasAdditionalFields" : false,
+    "hasDescription" : false,
+    "hasIssue" : true,
+    "hasLabels" : true,
+    "hasLink" : true,
+    "hasLinkedIssues" : false,
+    "hasTitle" : true,
+    "hasType" : false
+  }, {
+    "commits" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-02-15 16:30:35",
+      "commitTimeLong" : 1455553835000,
+      "message" : "Adding stuff\n with gh again",
+      "hash" : "5607ea23fa8aaf7",
+      "merge" : false,
+      "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
+    } ],
+    "authors" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmail" : "tomas.bjerre85@gmail.com",
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:30:35",
+        "commitTimeLong" : 1455553835000,
+        "message" : "Adding stuff\n with gh again",
+        "hash" : "5607ea23fa8aaf7",
+        "merge" : false,
+        "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
+      } ]
+    } ],
+    "name" : "GitHub",
+    "title" : "",
+    "issue" : "#30",
+    "issueType" : "GITHUB",
+    "description" : "",
+    "link" : "",
+    "type" : "",
+    "linkedIssues" : [ ],
+    "labels" : [ ],
+    "additionalFields" : { },
+    "hasAdditionalFields" : false,
+    "hasDescription" : false,
+    "hasIssue" : true,
+    "hasLabels" : false,
+    "hasLink" : false,
+    "hasLinkedIssues" : false,
+    "hasTitle" : false,
+    "hasType" : false
+  }, {
+    "commits" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-02-15 16:30:35",
+      "commitTimeLong" : 1455553835000,
+      "message" : "Adding stuff with a jira",
+      "hash" : "cc0fbbd8bc63955",
+      "merge" : false,
+      "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
+    } ],
+    "authors" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmail" : "tomas.bjerre85@gmail.com",
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:30:35",
+        "commitTimeLong" : 1455553835000,
+        "message" : "Adding stuff with a jira",
+        "hash" : "cc0fbbd8bc63955",
+        "merge" : false,
+        "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
+      } ]
+    } ],
+    "name" : "Jira",
+    "title" : "Title of jira 1234",
+    "issue" : "JIR-1234",
+    "issueType" : "JIRA",
+    "description" : "Description",
+    "link" : "https://jiraserver/jira/browse/JIR-1234",
+    "type" : "Bug",
+    "linkedIssues" : [ ],
+    "labels" : [ "label1", "label2" ],
+    "additionalFields" : { },
+    "hasAdditionalFields" : false,
+    "hasDescription" : true,
+    "hasIssue" : true,
+    "hasLabels" : true,
+    "hasLink" : true,
+    "hasLinkedIssues" : false,
+    "hasTitle" : true,
+    "hasType" : true
+  }, {
+    "commits" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2016-02-15 16:12:02",
+      "commitTimeLong" : 1455552722000,
+      "message" : "Adding stuff with a jira",
+      "hash" : "071a14f29020758",
+      "merge" : false,
+      "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
+    } ],
+    "authors" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmail" : "tomas.bjerre85@gmail.com",
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:12:02",
+        "commitTimeLong" : 1455552722000,
+        "message" : "Adding stuff with a jira",
+        "hash" : "071a14f29020758",
+        "merge" : false,
+        "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
+      } ]
+    } ],
+    "name" : "Jira",
+    "title" : "The Title of jira 5262",
+    "issue" : "JIR-5262",
+    "issueType" : "JIRA",
+    "description" : "Description",
+    "link" : "https://jiraserver/jira/browse/JIR-5262",
+    "type" : "Bug",
+    "linkedIssues" : [ "JIRSD-490", "JIRSD-567" ],
+    "labels" : [ ],
+    "additionalFields" : { },
+    "hasAdditionalFields" : false,
+    "hasDescription" : true,
+    "hasIssue" : true,
+    "hasLabels" : false,
+    "hasLink" : true,
+    "hasLinkedIssues" : true,
+    "hasTitle" : true,
+    "hasType" : true
+  } ],
+  "issueTypes" : [ {
+    "issues" : [ {
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-03-19 20:32:19",
+        "commitTimeLong" : 1458419539000,
+        "message" : "More stuff tagged with  twice",
+        "hash" : "20e333f8e108f77",
+        "merge" : false,
+        "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
+      } ],
+      "authors" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-03-19 20:32:19",
+          "commitTimeLong" : 1458419539000,
+          "message" : "More stuff tagged with  twice",
+          "hash" : "20e333f8e108f77",
+          "merge" : false,
+          "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
+        } ]
+      } ],
+      "name" : "Bugs",
+      "title" : "Mixed bugs",
+      "issue" : "#bug",
+      "issueType" : "CUSTOM",
+      "description" : "",
+      "link" : "",
+      "type" : "",
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : false,
+      "hasIssue" : true,
+      "hasLabels" : false,
+      "hasLink" : false,
+      "hasLinkedIssues" : false,
+      "hasTitle" : true,
+      "hasType" : false
+    } ],
+    "name" : "Bugs",
+    "type" : "CUSTOM"
+  }, {
+    "issues" : [ {
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:30:35",
+        "commitTimeLong" : 1455553835000,
+        "message" : "Adding cq stuff with CQ",
+        "hash" : "a9bd03b34b255ff",
+        "merge" : false,
+        "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
+      } ],
+      "authors" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-02-15 16:30:35",
+          "commitTimeLong" : 1455553835000,
+          "message" : "Adding cq stuff with CQ",
+          "hash" : "a9bd03b34b255ff",
+          "merge" : false,
+          "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
+        } ]
+      } ],
+      "name" : "CQ",
+      "title" : "1234",
+      "issue" : "CQ1234",
+      "issueType" : "CUSTOM",
+      "description" : "",
+      "link" : "http://cq/1234",
+      "type" : "",
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : false,
+      "hasIssue" : true,
+      "hasLabels" : false,
+      "hasLink" : true,
+      "hasLinkedIssues" : false,
+      "hasTitle" : true,
+      "hasType" : false
+    } ],
+    "name" : "CQ",
+    "type" : "CUSTOM"
+  }, {
+    "issues" : [ {
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:30:35",
+        "commitTimeLong" : 1455553835000,
+        "message" : "Adding stuff  gh 12",
+        "hash" : "d50a3e332f9fcba",
+        "merge" : false,
+        "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
+      } ],
+      "authors" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-02-15 16:30:35",
+          "commitTimeLong" : 1455553835000,
+          "message" : "Adding stuff  gh 12",
+          "hash" : "d50a3e332f9fcba",
+          "merge" : false,
+          "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
+        } ]
+      } ],
+      "name" : "GitHub",
+      "title" : "Strange chars in PULL_REQUEST_URL",
+      "issue" : "#12",
+      "issueType" : "GITHUB",
+      "description" : "",
+      "link" : "https://github.com/tomasbjerre/made-up-mocked-repo/issues/12",
+      "type" : "",
+      "linkedIssues" : [ ],
+      "labels" : [ ],
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : false,
+      "hasIssue" : true,
+      "hasLabels" : false,
+      "hasLink" : true,
+      "hasLinkedIssues" : false,
+      "hasTitle" : true,
+      "hasType" : false
+    }, {
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-03-19 20:32:32",
+        "commitTimeLong" : 1458419552000,
+        "message" : "Multiple issues",
+        "hash" : "87c0d7288896171",
+        "merge" : false,
+        "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
+      }, {
+        "authorName" : "T B",
+        "authorEmailAddress" : "tomas.b@example.com",
+        "commitTime" : "2016-02-15 16:11:12",
+        "commitTimeLong" : 1455552672000,
+        "message" : "Adding stuff with gh 20",
+        "hash" : "326d4d01c0a9415",
+        "merge" : false,
+        "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
+      } ],
+      "authors" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-03-19 20:32:32",
+          "commitTimeLong" : 1458419552000,
+          "message" : "Multiple issues",
+          "hash" : "87c0d7288896171",
+          "merge" : false,
+          "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
+        } ]
+      }, {
+        "authorName" : "T B",
+        "authorEmail" : "tomas.b@example.com",
+        "commits" : [ {
+          "authorName" : "T B",
+          "authorEmailAddress" : "tomas.b@example.com",
+          "commitTime" : "2016-02-15 16:11:12",
+          "commitTimeLong" : 1455552672000,
+          "message" : "Adding stuff with gh 20",
+          "hash" : "326d4d01c0a9415",
+          "merge" : false,
+          "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
+        } ]
+      } ],
+      "name" : "GitHub",
+      "title" : "Parameterized Jenkins' job error",
+      "issue" : "#20",
+      "issueType" : "GITHUB",
+      "description" : "",
+      "link" : "https://github.com/tomasbjerre/made-up-mocked-repo/issues/20",
+      "type" : "",
+      "linkedIssues" : [ ],
+      "labels" : [ "bug" ],
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : false,
+      "hasIssue" : true,
+      "hasLabels" : true,
+      "hasLink" : true,
+      "hasLinkedIssues" : false,
+      "hasTitle" : true,
+      "hasType" : false
+    }, {
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-03-19 20:32:32",
+        "commitTimeLong" : 1458419552000,
+        "message" : "Multiple issues",
+        "hash" : "87c0d7288896171",
+        "merge" : false,
+        "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
+      } ],
+      "authors" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-03-19 20:32:32",
+          "commitTimeLong" : 1458419552000,
+          "message" : "Multiple issues",
+          "hash" : "87c0d7288896171",
+          "merge" : false,
+          "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
+        } ]
+      } ],
+      "name" : "GitHub",
+      "title" : "Enable  configuration in per-repository hook screen",
+      "issue" : "#25",
+      "issueType" : "GITHUB",
+      "description" : "",
+      "link" : "https://github.com/tomasbjerre/made-up-mocked-repo/issues/25",
+      "type" : "",
+      "linkedIssues" : [ ],
+      "labels" : [ "enhancement" ],
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : false,
+      "hasIssue" : true,
+      "hasLabels" : true,
+      "hasLink" : true,
+      "hasLinkedIssues" : false,
+      "hasTitle" : true,
+      "hasType" : false
+    }, {
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:30:35",
+        "commitTimeLong" : 1455553835000,
+        "message" : "Adding stuff\n with gh again",
+        "hash" : "5607ea23fa8aaf7",
+        "merge" : false,
+        "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
+      } ],
+      "authors" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-02-15 16:30:35",
+          "commitTimeLong" : 1455553835000,
+          "message" : "Adding stuff\n with gh again",
+          "hash" : "5607ea23fa8aaf7",
+          "merge" : false,
+          "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
+        } ]
+      } ],
+      "name" : "GitHub",
+      "title" : "",
+      "issue" : "#30",
+      "issueType" : "GITHUB",
+      "description" : "",
+      "link" : "",
+      "type" : "",
+      "linkedIssues" : [ ],
+      "labels" : [ ],
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : false,
+      "hasIssue" : true,
+      "hasLabels" : false,
+      "hasLink" : false,
+      "hasLinkedIssues" : false,
+      "hasTitle" : false,
+      "hasType" : false
+    } ],
+    "name" : "GitHub",
+    "type" : "GITHUB"
+  }, {
+    "issues" : [ {
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:30:35",
+        "commitTimeLong" : 1455553835000,
+        "message" : "Adding stuff with a jira",
+        "hash" : "cc0fbbd8bc63955",
+        "merge" : false,
+        "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
+      } ],
+      "authors" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-02-15 16:30:35",
+          "commitTimeLong" : 1455553835000,
+          "message" : "Adding stuff with a jira",
+          "hash" : "cc0fbbd8bc63955",
+          "merge" : false,
+          "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
+        } ]
+      } ],
+      "name" : "Jira",
+      "title" : "Title of jira 1234",
+      "issue" : "JIR-1234",
+      "issueType" : "JIRA",
+      "description" : "Description",
+      "link" : "https://jiraserver/jira/browse/JIR-1234",
+      "type" : "Bug",
+      "linkedIssues" : [ ],
+      "labels" : [ "label1", "label2" ],
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : true,
+      "hasIssue" : true,
+      "hasLabels" : true,
+      "hasLink" : true,
+      "hasLinkedIssues" : false,
+      "hasTitle" : true,
+      "hasType" : true
+    }, {
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2016-02-15 16:12:02",
+        "commitTimeLong" : 1455552722000,
+        "message" : "Adding stuff with a jira",
+        "hash" : "071a14f29020758",
+        "merge" : false,
+        "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
+      } ],
+      "authors" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2016-02-15 16:12:02",
+          "commitTimeLong" : 1455552722000,
+          "message" : "Adding stuff with a jira",
+          "hash" : "071a14f29020758",
+          "merge" : false,
+          "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
+        } ]
+      } ],
+      "name" : "Jira",
+      "title" : "The Title of jira 5262",
+      "issue" : "JIR-5262",
+      "issueType" : "JIRA",
+      "description" : "Description",
+      "link" : "https://jiraserver/jira/browse/JIR-5262",
+      "type" : "Bug",
+      "linkedIssues" : [ "JIRSD-490", "JIRSD-567" ],
+      "labels" : [ ],
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : true,
+      "hasIssue" : true,
+      "hasLabels" : false,
+      "hasLink" : true,
+      "hasLinkedIssues" : true,
+      "hasTitle" : true,
+      "hasType" : true
+    } ],
+    "name" : "Jira",
+    "type" : "JIRA"
+  } ],
+  "ownerName" : "tomasbjerre",
+  "repoName" : "git-changelog-lib",
+  "urlParts" : [ "git-changelog-lib", "tomasbjerre", "git@github.com" ]
 }

@@ -74,21 +74,21 @@ Changelog of {{repoName}}.
 settings:
 
 {
-  "fromRevision": "0000000000000000000000000000000000000000",
-  "fromRevisionStrategy": "DEFAULT",
-  "toRevision": "1.0",
-  "toRevisionStrategy": "DEFAULT",
-  "removeIssueFromMessage": false,
-  "jiraEnabled": false,
-  "redmineEnabled": false,
-  "gitHubEnabled": false,
-  "gitHubApi": "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
-  "extendedVariables": {},
-  "ignoreCommitsWithoutIssue": false,
-  "gitLabEnabled": false,
-  "gitLabProjectName": "tomasbjerre",
-  "useIntegrations": false,
-  "encoding": "UTF-8"
+  "encoding" : "UTF-8",
+  "extendedVariables" : { },
+  "fromRevision" : "0000000000000000000000000000000000000000",
+  "fromRevisionStrategy" : "DEFAULT",
+  "gitHubApi" : "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
+  "gitHubEnabled" : false,
+  "gitLabEnabled" : false,
+  "gitLabProjectName" : "tomasbjerre",
+  "ignoreCommitsWithoutIssue" : false,
+  "jiraEnabled" : false,
+  "redmineEnabled" : false,
+  "removeIssueFromMessage" : false,
+  "toRevision" : "1.0",
+  "toRevisionStrategy" : "DEFAULT",
+  "useIntegrations" : false
 }
 
 ---------------------------------------------
@@ -146,974 +146,841 @@ Changelog of git-changelog-lib.
 context:
 
 {
-  "commits": [
-    {
-      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-      "authorName": "Tomas Bjerre",
-      "commitTime": "2015-11-14 20:19:50",
-      "commitTimeLong": 1447532390000,
-      "hash": "01484ce71bbc76e",
-      "hashFull": "01484ce71bbc76e1af75ebb07a52844145ce99dc",
-      "merge": false,
-      "message": "[Gradle Release Plugin] - pre tag commit:  \u00271.0\u0027."
-    },
-    {
-      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-      "authorName": "Tomas Bjerre",
-      "commitTime": "2015-11-14 19:36:21",
-      "commitTimeLong": 1447529781000,
-      "hash": "83a8a7b2f96ba88",
-      "hashFull": "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e",
-      "merge": false,
-      "message": "Doc"
-    },
-    {
-      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-      "authorName": "Tomas Bjerre",
-      "commitTime": "2015-11-14 19:00:17",
-      "commitTimeLong": 1447527617000,
-      "hash": "5c54861708099d9",
-      "hashFull": "5c54861708099d999ac2b1c94aae90ee77984c25",
-      "merge": false,
-      "message": "Test"
-    },
-    {
-      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-      "authorName": "Tomas Bjerre",
-      "commitTime": "2015-11-14 12:14:41",
-      "commitTimeLong": 1447503281000,
-      "hash": "051effe72405e78",
-      "hashFull": "051effe72405e7828e7f25a273a1030400651f7b",
-      "merge": false,
-      "message": "Work for 1.0"
-    },
-    {
-      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-      "authorName": "Tomas Bjerre",
-      "commitTime": "2015-11-14 09:46:23",
-      "commitTimeLong": 1447494383000,
-      "hash": "5aaeb907f68915a",
-      "hashFull": "5aaeb907f68915aab5483f59d7026206935c0dc7",
-      "merge": false,
-      "message": "Initial commit"
-    },
-    {
-      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-      "authorName": "Tomas Bjerre",
-      "commitTime": "2015-11-12 05:29:31",
-      "commitTimeLong": 1447306171000,
-      "hash": "a1aa5ff5b625e63",
-      "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-      "merge": false,
-      "message": "Initial commit"
-    }
-  ],
-  "tags": [
-    {
-      "annotation": "[Gradle Release Plugin] - creating tag:  \u00271.0\u0027.\n",
-      "authors": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-14 20:19:50",
-              "commitTimeLong": 1447532390000,
-              "hash": "01484ce71bbc76e",
-              "hashFull": "01484ce71bbc76e1af75ebb07a52844145ce99dc",
-              "merge": false,
-              "message": "[Gradle Release Plugin] - pre tag commit:  \u00271.0\u0027."
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-14 19:36:21",
-              "commitTimeLong": 1447529781000,
-              "hash": "83a8a7b2f96ba88",
-              "hashFull": "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e",
-              "merge": false,
-              "message": "Doc"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-14 19:00:17",
-              "commitTimeLong": 1447527617000,
-              "hash": "5c54861708099d9",
-              "hashFull": "5c54861708099d999ac2b1c94aae90ee77984c25",
-              "merge": false,
-              "message": "Test"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-14 12:14:41",
-              "commitTimeLong": 1447503281000,
-              "hash": "051effe72405e78",
-              "hashFull": "051effe72405e7828e7f25a273a1030400651f7b",
-              "merge": false,
-              "message": "Work for 1.0"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-14 09:46:23",
-              "commitTimeLong": 1447494383000,
-              "hash": "5aaeb907f68915a",
-              "hashFull": "5aaeb907f68915aab5483f59d7026206935c0dc7",
-              "merge": false,
-              "message": "Initial commit"
-            }
-          ],
-          "authorName": "Tomas Bjerre",
-          "authorEmail": "tomas.bjerre85@gmail.com"
-        }
-      ],
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2015-11-14 20:19:50",
-          "commitTimeLong": 1447532390000,
-          "hash": "01484ce71bbc76e",
-          "hashFull": "01484ce71bbc76e1af75ebb07a52844145ce99dc",
-          "merge": false,
-          "message": "[Gradle Release Plugin] - pre tag commit:  \u00271.0\u0027."
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2015-11-14 19:36:21",
-          "commitTimeLong": 1447529781000,
-          "hash": "83a8a7b2f96ba88",
-          "hashFull": "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e",
-          "merge": false,
-          "message": "Doc"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2015-11-14 19:00:17",
-          "commitTimeLong": 1447527617000,
-          "hash": "5c54861708099d9",
-          "hashFull": "5c54861708099d999ac2b1c94aae90ee77984c25",
-          "merge": false,
-          "message": "Test"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2015-11-14 12:14:41",
-          "commitTimeLong": 1447503281000,
-          "hash": "051effe72405e78",
-          "hashFull": "051effe72405e7828e7f25a273a1030400651f7b",
-          "merge": false,
-          "message": "Work for 1.0"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2015-11-14 09:46:23",
-          "commitTimeLong": 1447494383000,
-          "hash": "5aaeb907f68915a",
-          "hashFull": "5aaeb907f68915aab5483f59d7026206935c0dc7",
-          "merge": false,
-          "message": "Initial commit"
-        }
-      ],
-      "issues": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-14 20:19:50",
-              "commitTimeLong": 1447532390000,
-              "hash": "01484ce71bbc76e",
-              "hashFull": "01484ce71bbc76e1af75ebb07a52844145ce99dc",
-              "merge": false,
-              "message": "[Gradle Release Plugin] - pre tag commit:  \u00271.0\u0027."
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-14 19:36:21",
-              "commitTimeLong": 1447529781000,
-              "hash": "83a8a7b2f96ba88",
-              "hashFull": "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e",
-              "merge": false,
-              "message": "Doc"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-14 19:00:17",
-              "commitTimeLong": 1447527617000,
-              "hash": "5c54861708099d9",
-              "hashFull": "5c54861708099d999ac2b1c94aae90ee77984c25",
-              "merge": false,
-              "message": "Test"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-14 12:14:41",
-              "commitTimeLong": 1447503281000,
-              "hash": "051effe72405e78",
-              "hashFull": "051effe72405e7828e7f25a273a1030400651f7b",
-              "merge": false,
-              "message": "Work for 1.0"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-14 09:46:23",
-              "commitTimeLong": 1447494383000,
-              "hash": "5aaeb907f68915a",
-              "hashFull": "5aaeb907f68915aab5483f59d7026206935c0dc7",
-              "merge": false,
-              "message": "Initial commit"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2015-11-14 20:19:50",
-                  "commitTimeLong": 1447532390000,
-                  "hash": "01484ce71bbc76e",
-                  "hashFull": "01484ce71bbc76e1af75ebb07a52844145ce99dc",
-                  "merge": false,
-                  "message": "[Gradle Release Plugin] - pre tag commit:  \u00271.0\u0027."
-                },
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2015-11-14 19:36:21",
-                  "commitTimeLong": 1447529781000,
-                  "hash": "83a8a7b2f96ba88",
-                  "hashFull": "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e",
-                  "merge": false,
-                  "message": "Doc"
-                },
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2015-11-14 19:00:17",
-                  "commitTimeLong": 1447527617000,
-                  "hash": "5c54861708099d9",
-                  "hashFull": "5c54861708099d999ac2b1c94aae90ee77984c25",
-                  "merge": false,
-                  "message": "Test"
-                },
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2015-11-14 12:14:41",
-                  "commitTimeLong": 1447503281000,
-                  "hash": "051effe72405e78",
-                  "hashFull": "051effe72405e7828e7f25a273a1030400651f7b",
-                  "merge": false,
-                  "message": "Work for 1.0"
-                },
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2015-11-14 09:46:23",
-                  "commitTimeLong": 1447494383000,
-                  "hash": "5aaeb907f68915a",
-                  "hashFull": "5aaeb907f68915aab5483f59d7026206935c0dc7",
-                  "merge": false,
-                  "message": "Initial commit"
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            }
-          ],
-          "name": "No issue",
-          "title": "",
-          "hasTitle": false,
-          "issue": "",
-          "hasIssue": false,
-          "link": "",
-          "hasLink": false,
-          "type": "",
-          "hasType": false,
-          "hasDescription": false,
-          "description": "",
-          "hasLabels": false,
-          "hasLinkedIssues": false,
-          "issueType": "NOISSUE",
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        }
-      ],
-      "issueTypes": [
-        {
-          "name": "No issue",
-          "issues": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2015-11-14 20:19:50",
-                  "commitTimeLong": 1447532390000,
-                  "hash": "01484ce71bbc76e",
-                  "hashFull": "01484ce71bbc76e1af75ebb07a52844145ce99dc",
-                  "merge": false,
-                  "message": "[Gradle Release Plugin] - pre tag commit:  \u00271.0\u0027."
-                },
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2015-11-14 19:36:21",
-                  "commitTimeLong": 1447529781000,
-                  "hash": "83a8a7b2f96ba88",
-                  "hashFull": "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e",
-                  "merge": false,
-                  "message": "Doc"
-                },
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2015-11-14 19:00:17",
-                  "commitTimeLong": 1447527617000,
-                  "hash": "5c54861708099d9",
-                  "hashFull": "5c54861708099d999ac2b1c94aae90ee77984c25",
-                  "merge": false,
-                  "message": "Test"
-                },
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2015-11-14 12:14:41",
-                  "commitTimeLong": 1447503281000,
-                  "hash": "051effe72405e78",
-                  "hashFull": "051effe72405e7828e7f25a273a1030400651f7b",
-                  "merge": false,
-                  "message": "Work for 1.0"
-                },
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2015-11-14 09:46:23",
-                  "commitTimeLong": 1447494383000,
-                  "hash": "5aaeb907f68915a",
-                  "hashFull": "5aaeb907f68915aab5483f59d7026206935c0dc7",
-                  "merge": false,
-                  "message": "Initial commit"
-                }
-              ],
-              "authors": [
-                {
-                  "commits": [
-                    {
-                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                      "authorName": "Tomas Bjerre",
-                      "commitTime": "2015-11-14 20:19:50",
-                      "commitTimeLong": 1447532390000,
-                      "hash": "01484ce71bbc76e",
-                      "hashFull": "01484ce71bbc76e1af75ebb07a52844145ce99dc",
-                      "merge": false,
-                      "message": "[Gradle Release Plugin] - pre tag commit:  \u00271.0\u0027."
-                    },
-                    {
-                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                      "authorName": "Tomas Bjerre",
-                      "commitTime": "2015-11-14 19:36:21",
-                      "commitTimeLong": 1447529781000,
-                      "hash": "83a8a7b2f96ba88",
-                      "hashFull": "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e",
-                      "merge": false,
-                      "message": "Doc"
-                    },
-                    {
-                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                      "authorName": "Tomas Bjerre",
-                      "commitTime": "2015-11-14 19:00:17",
-                      "commitTimeLong": 1447527617000,
-                      "hash": "5c54861708099d9",
-                      "hashFull": "5c54861708099d999ac2b1c94aae90ee77984c25",
-                      "merge": false,
-                      "message": "Test"
-                    },
-                    {
-                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                      "authorName": "Tomas Bjerre",
-                      "commitTime": "2015-11-14 12:14:41",
-                      "commitTimeLong": 1447503281000,
-                      "hash": "051effe72405e78",
-                      "hashFull": "051effe72405e7828e7f25a273a1030400651f7b",
-                      "merge": false,
-                      "message": "Work for 1.0"
-                    },
-                    {
-                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                      "authorName": "Tomas Bjerre",
-                      "commitTime": "2015-11-14 09:46:23",
-                      "commitTimeLong": 1447494383000,
-                      "hash": "5aaeb907f68915a",
-                      "hashFull": "5aaeb907f68915aab5483f59d7026206935c0dc7",
-                      "merge": false,
-                      "message": "Initial commit"
-                    }
-                  ],
-                  "authorName": "Tomas Bjerre",
-                  "authorEmail": "tomas.bjerre85@gmail.com"
-                }
-              ],
-              "name": "No issue",
-              "title": "",
-              "hasTitle": false,
-              "issue": "",
-              "hasIssue": false,
-              "link": "",
-              "hasLink": false,
-              "type": "",
-              "hasType": false,
-              "hasDescription": false,
-              "description": "",
-              "hasLabels": false,
-              "hasLinkedIssues": false,
-              "issueType": "NOISSUE",
-              "hasAdditionalFields": false,
-              "additionalFields": {}
-            }
-          ],
-          "type": "NOISSUE"
-        }
-      ],
-      "name": "1.0",
-      "tagTime": "2015-11-14 20:19:50",
-      "tagTimeLong": 1447532390000,
-      "hasTagTime": true
-    },
-    {
-      "authors": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-12 05:29:31",
-              "commitTimeLong": 1447306171000,
-              "hash": "a1aa5ff5b625e63",
-              "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-              "merge": false,
-              "message": "Initial commit"
-            }
-          ],
-          "authorName": "Tomas Bjerre",
-          "authorEmail": "tomas.bjerre85@gmail.com"
-        }
-      ],
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2015-11-12 05:29:31",
-          "commitTimeLong": 1447306171000,
-          "hash": "a1aa5ff5b625e63",
-          "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-          "merge": false,
-          "message": "Initial commit"
-        }
-      ],
-      "issues": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-12 05:29:31",
-              "commitTimeLong": 1447306171000,
-              "hash": "a1aa5ff5b625e63",
-              "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-              "merge": false,
-              "message": "Initial commit"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2015-11-12 05:29:31",
-                  "commitTimeLong": 1447306171000,
-                  "hash": "a1aa5ff5b625e63",
-                  "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-                  "merge": false,
-                  "message": "Initial commit"
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            }
-          ],
-          "name": "No issue",
-          "title": "",
-          "hasTitle": false,
-          "issue": "",
-          "hasIssue": false,
-          "link": "",
-          "hasLink": false,
-          "type": "",
-          "hasType": false,
-          "hasDescription": false,
-          "description": "",
-          "hasLabels": false,
-          "hasLinkedIssues": false,
-          "issueType": "NOISSUE",
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        }
-      ],
-      "issueTypes": [
-        {
-          "name": "No issue",
-          "issues": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2015-11-12 05:29:31",
-                  "commitTimeLong": 1447306171000,
-                  "hash": "a1aa5ff5b625e63",
-                  "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-                  "merge": false,
-                  "message": "Initial commit"
-                }
-              ],
-              "authors": [
-                {
-                  "commits": [
-                    {
-                      "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                      "authorName": "Tomas Bjerre",
-                      "commitTime": "2015-11-12 05:29:31",
-                      "commitTimeLong": 1447306171000,
-                      "hash": "a1aa5ff5b625e63",
-                      "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-                      "merge": false,
-                      "message": "Initial commit"
-                    }
-                  ],
-                  "authorName": "Tomas Bjerre",
-                  "authorEmail": "tomas.bjerre85@gmail.com"
-                }
-              ],
-              "name": "No issue",
-              "title": "",
-              "hasTitle": false,
-              "issue": "",
-              "hasIssue": false,
-              "link": "",
-              "hasLink": false,
-              "type": "",
-              "hasType": false,
-              "hasDescription": false,
-              "description": "",
-              "hasLabels": false,
-              "hasLinkedIssues": false,
-              "issueType": "NOISSUE",
-              "hasAdditionalFields": false,
-              "additionalFields": {}
-            }
-          ],
-          "type": "NOISSUE"
-        }
-      ],
-      "name": "0.0.1",
-      "tagTime": "2015-11-12 05:29:31",
-      "tagTimeLong": 1447306171000,
-      "hasTagTime": true
-    }
-  ],
-  "authors": [
-    {
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2015-11-14 20:19:50",
-          "commitTimeLong": 1447532390000,
-          "hash": "01484ce71bbc76e",
-          "hashFull": "01484ce71bbc76e1af75ebb07a52844145ce99dc",
-          "merge": false,
-          "message": "[Gradle Release Plugin] - pre tag commit:  \u00271.0\u0027."
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2015-11-14 19:36:21",
-          "commitTimeLong": 1447529781000,
-          "hash": "83a8a7b2f96ba88",
-          "hashFull": "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e",
-          "merge": false,
-          "message": "Doc"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2015-11-14 19:00:17",
-          "commitTimeLong": 1447527617000,
-          "hash": "5c54861708099d9",
-          "hashFull": "5c54861708099d999ac2b1c94aae90ee77984c25",
-          "merge": false,
-          "message": "Test"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2015-11-14 12:14:41",
-          "commitTimeLong": 1447503281000,
-          "hash": "051effe72405e78",
-          "hashFull": "051effe72405e7828e7f25a273a1030400651f7b",
-          "merge": false,
-          "message": "Work for 1.0"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2015-11-14 09:46:23",
-          "commitTimeLong": 1447494383000,
-          "hash": "5aaeb907f68915a",
-          "hashFull": "5aaeb907f68915aab5483f59d7026206935c0dc7",
-          "merge": false,
-          "message": "Initial commit"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2015-11-12 05:29:31",
-          "commitTimeLong": 1447306171000,
-          "hash": "a1aa5ff5b625e63",
-          "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-          "merge": false,
-          "message": "Initial commit"
-        }
-      ],
-      "authorName": "Tomas Bjerre",
-      "authorEmail": "tomas.bjerre85@gmail.com"
-    }
-  ],
-  "issues": [
-    {
-      "commits": [
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2015-11-14 20:19:50",
-          "commitTimeLong": 1447532390000,
-          "hash": "01484ce71bbc76e",
-          "hashFull": "01484ce71bbc76e1af75ebb07a52844145ce99dc",
-          "merge": false,
-          "message": "[Gradle Release Plugin] - pre tag commit:  \u00271.0\u0027."
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2015-11-14 19:36:21",
-          "commitTimeLong": 1447529781000,
-          "hash": "83a8a7b2f96ba88",
-          "hashFull": "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e",
-          "merge": false,
-          "message": "Doc"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2015-11-14 19:00:17",
-          "commitTimeLong": 1447527617000,
-          "hash": "5c54861708099d9",
-          "hashFull": "5c54861708099d999ac2b1c94aae90ee77984c25",
-          "merge": false,
-          "message": "Test"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2015-11-14 12:14:41",
-          "commitTimeLong": 1447503281000,
-          "hash": "051effe72405e78",
-          "hashFull": "051effe72405e7828e7f25a273a1030400651f7b",
-          "merge": false,
-          "message": "Work for 1.0"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2015-11-14 09:46:23",
-          "commitTimeLong": 1447494383000,
-          "hash": "5aaeb907f68915a",
-          "hashFull": "5aaeb907f68915aab5483f59d7026206935c0dc7",
-          "merge": false,
-          "message": "Initial commit"
-        },
-        {
-          "authorEmailAddress": "tomas.bjerre85@gmail.com",
-          "authorName": "Tomas Bjerre",
-          "commitTime": "2015-11-12 05:29:31",
-          "commitTimeLong": 1447306171000,
-          "hash": "a1aa5ff5b625e63",
-          "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-          "merge": false,
-          "message": "Initial commit"
-        }
-      ],
-      "authors": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-14 20:19:50",
-              "commitTimeLong": 1447532390000,
-              "hash": "01484ce71bbc76e",
-              "hashFull": "01484ce71bbc76e1af75ebb07a52844145ce99dc",
-              "merge": false,
-              "message": "[Gradle Release Plugin] - pre tag commit:  \u00271.0\u0027."
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-14 19:36:21",
-              "commitTimeLong": 1447529781000,
-              "hash": "83a8a7b2f96ba88",
-              "hashFull": "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e",
-              "merge": false,
-              "message": "Doc"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-14 19:00:17",
-              "commitTimeLong": 1447527617000,
-              "hash": "5c54861708099d9",
-              "hashFull": "5c54861708099d999ac2b1c94aae90ee77984c25",
-              "merge": false,
-              "message": "Test"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-14 12:14:41",
-              "commitTimeLong": 1447503281000,
-              "hash": "051effe72405e78",
-              "hashFull": "051effe72405e7828e7f25a273a1030400651f7b",
-              "merge": false,
-              "message": "Work for 1.0"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-14 09:46:23",
-              "commitTimeLong": 1447494383000,
-              "hash": "5aaeb907f68915a",
-              "hashFull": "5aaeb907f68915aab5483f59d7026206935c0dc7",
-              "merge": false,
-              "message": "Initial commit"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-12 05:29:31",
-              "commitTimeLong": 1447306171000,
-              "hash": "a1aa5ff5b625e63",
-              "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-              "merge": false,
-              "message": "Initial commit"
-            }
-          ],
-          "authorName": "Tomas Bjerre",
-          "authorEmail": "tomas.bjerre85@gmail.com"
-        }
-      ],
-      "name": "No issue",
-      "title": "",
-      "hasTitle": false,
-      "issue": "",
-      "hasIssue": false,
-      "link": "",
-      "hasLink": false,
-      "type": "",
-      "hasType": false,
-      "hasDescription": false,
-      "description": "",
-      "hasLabels": false,
-      "hasLinkedIssues": false,
-      "issueType": "NOISSUE",
-      "hasAdditionalFields": false,
-      "additionalFields": {}
-    }
-  ],
-  "issueTypes": [
-    {
-      "name": "No issue",
-      "issues": [
-        {
-          "commits": [
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-14 20:19:50",
-              "commitTimeLong": 1447532390000,
-              "hash": "01484ce71bbc76e",
-              "hashFull": "01484ce71bbc76e1af75ebb07a52844145ce99dc",
-              "merge": false,
-              "message": "[Gradle Release Plugin] - pre tag commit:  \u00271.0\u0027."
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-14 19:36:21",
-              "commitTimeLong": 1447529781000,
-              "hash": "83a8a7b2f96ba88",
-              "hashFull": "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e",
-              "merge": false,
-              "message": "Doc"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-14 19:00:17",
-              "commitTimeLong": 1447527617000,
-              "hash": "5c54861708099d9",
-              "hashFull": "5c54861708099d999ac2b1c94aae90ee77984c25",
-              "merge": false,
-              "message": "Test"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-14 12:14:41",
-              "commitTimeLong": 1447503281000,
-              "hash": "051effe72405e78",
-              "hashFull": "051effe72405e7828e7f25a273a1030400651f7b",
-              "merge": false,
-              "message": "Work for 1.0"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-14 09:46:23",
-              "commitTimeLong": 1447494383000,
-              "hash": "5aaeb907f68915a",
-              "hashFull": "5aaeb907f68915aab5483f59d7026206935c0dc7",
-              "merge": false,
-              "message": "Initial commit"
-            },
-            {
-              "authorEmailAddress": "tomas.bjerre85@gmail.com",
-              "authorName": "Tomas Bjerre",
-              "commitTime": "2015-11-12 05:29:31",
-              "commitTimeLong": 1447306171000,
-              "hash": "a1aa5ff5b625e63",
-              "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-              "merge": false,
-              "message": "Initial commit"
-            }
-          ],
-          "authors": [
-            {
-              "commits": [
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2015-11-14 20:19:50",
-                  "commitTimeLong": 1447532390000,
-                  "hash": "01484ce71bbc76e",
-                  "hashFull": "01484ce71bbc76e1af75ebb07a52844145ce99dc",
-                  "merge": false,
-                  "message": "[Gradle Release Plugin] - pre tag commit:  \u00271.0\u0027."
-                },
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2015-11-14 19:36:21",
-                  "commitTimeLong": 1447529781000,
-                  "hash": "83a8a7b2f96ba88",
-                  "hashFull": "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e",
-                  "merge": false,
-                  "message": "Doc"
-                },
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2015-11-14 19:00:17",
-                  "commitTimeLong": 1447527617000,
-                  "hash": "5c54861708099d9",
-                  "hashFull": "5c54861708099d999ac2b1c94aae90ee77984c25",
-                  "merge": false,
-                  "message": "Test"
-                },
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2015-11-14 12:14:41",
-                  "commitTimeLong": 1447503281000,
-                  "hash": "051effe72405e78",
-                  "hashFull": "051effe72405e7828e7f25a273a1030400651f7b",
-                  "merge": false,
-                  "message": "Work for 1.0"
-                },
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2015-11-14 09:46:23",
-                  "commitTimeLong": 1447494383000,
-                  "hash": "5aaeb907f68915a",
-                  "hashFull": "5aaeb907f68915aab5483f59d7026206935c0dc7",
-                  "merge": false,
-                  "message": "Initial commit"
-                },
-                {
-                  "authorEmailAddress": "tomas.bjerre85@gmail.com",
-                  "authorName": "Tomas Bjerre",
-                  "commitTime": "2015-11-12 05:29:31",
-                  "commitTimeLong": 1447306171000,
-                  "hash": "a1aa5ff5b625e63",
-                  "hashFull": "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8",
-                  "merge": false,
-                  "message": "Initial commit"
-                }
-              ],
-              "authorName": "Tomas Bjerre",
-              "authorEmail": "tomas.bjerre85@gmail.com"
-            }
-          ],
-          "name": "No issue",
-          "title": "",
-          "hasTitle": false,
-          "issue": "",
-          "hasIssue": false,
-          "link": "",
-          "hasLink": false,
-          "type": "",
-          "hasType": false,
-          "hasDescription": false,
-          "description": "",
-          "hasLabels": false,
-          "hasLinkedIssues": false,
-          "issueType": "NOISSUE",
-          "hasAdditionalFields": false,
-          "additionalFields": {}
-        }
-      ],
-      "type": "NOISSUE"
-    }
-  ],
-  "ownerName": "tomasbjerre",
-  "repoName": "git-changelog-lib",
-  "urlParts": [
-    "git-changelog-lib",
-    "tomasbjerre",
-    "git@github.com"
-  ]
+  "commits" : [ {
+    "authorName" : "Tomas Bjerre",
+    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+    "commitTime" : "2015-11-14 20:19:50",
+    "commitTimeLong" : 1447532390000,
+    "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
+    "hash" : "01484ce71bbc76e",
+    "merge" : false,
+    "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
+  }, {
+    "authorName" : "Tomas Bjerre",
+    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+    "commitTime" : "2015-11-14 19:36:21",
+    "commitTimeLong" : 1447529781000,
+    "message" : "Doc",
+    "hash" : "83a8a7b2f96ba88",
+    "merge" : false,
+    "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
+  }, {
+    "authorName" : "Tomas Bjerre",
+    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+    "commitTime" : "2015-11-14 19:00:17",
+    "commitTimeLong" : 1447527617000,
+    "message" : "Test",
+    "hash" : "5c54861708099d9",
+    "merge" : false,
+    "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
+  }, {
+    "authorName" : "Tomas Bjerre",
+    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+    "commitTime" : "2015-11-14 12:14:41",
+    "commitTimeLong" : 1447503281000,
+    "message" : "Work for 1.0",
+    "hash" : "051effe72405e78",
+    "merge" : false,
+    "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
+  }, {
+    "authorName" : "Tomas Bjerre",
+    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+    "commitTime" : "2015-11-14 09:46:23",
+    "commitTimeLong" : 1447494383000,
+    "message" : "Initial commit",
+    "hash" : "5aaeb907f68915a",
+    "merge" : false,
+    "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
+  }, {
+    "authorName" : "Tomas Bjerre",
+    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+    "commitTime" : "2015-11-12 05:29:31",
+    "commitTimeLong" : 1447306171000,
+    "message" : "Initial commit",
+    "hash" : "a1aa5ff5b625e63",
+    "merge" : false,
+    "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+  } ],
+  "tags" : [ {
+    "name" : "1.0",
+    "annotation" : "[Gradle Release Plugin] - creating tag:  '1.0'.\n",
+    "commits" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2015-11-14 20:19:50",
+      "commitTimeLong" : 1447532390000,
+      "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
+      "hash" : "01484ce71bbc76e",
+      "merge" : false,
+      "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2015-11-14 19:36:21",
+      "commitTimeLong" : 1447529781000,
+      "message" : "Doc",
+      "hash" : "83a8a7b2f96ba88",
+      "merge" : false,
+      "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2015-11-14 19:00:17",
+      "commitTimeLong" : 1447527617000,
+      "message" : "Test",
+      "hash" : "5c54861708099d9",
+      "merge" : false,
+      "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2015-11-14 12:14:41",
+      "commitTimeLong" : 1447503281000,
+      "message" : "Work for 1.0",
+      "hash" : "051effe72405e78",
+      "merge" : false,
+      "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2015-11-14 09:46:23",
+      "commitTimeLong" : 1447494383000,
+      "message" : "Initial commit",
+      "hash" : "5aaeb907f68915a",
+      "merge" : false,
+      "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
+    } ],
+    "authors" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmail" : "tomas.bjerre85@gmail.com",
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-14 20:19:50",
+        "commitTimeLong" : 1447532390000,
+        "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
+        "hash" : "01484ce71bbc76e",
+        "merge" : false,
+        "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-14 19:36:21",
+        "commitTimeLong" : 1447529781000,
+        "message" : "Doc",
+        "hash" : "83a8a7b2f96ba88",
+        "merge" : false,
+        "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-14 19:00:17",
+        "commitTimeLong" : 1447527617000,
+        "message" : "Test",
+        "hash" : "5c54861708099d9",
+        "merge" : false,
+        "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-14 12:14:41",
+        "commitTimeLong" : 1447503281000,
+        "message" : "Work for 1.0",
+        "hash" : "051effe72405e78",
+        "merge" : false,
+        "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-14 09:46:23",
+        "commitTimeLong" : 1447494383000,
+        "message" : "Initial commit",
+        "hash" : "5aaeb907f68915a",
+        "merge" : false,
+        "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
+      } ]
+    } ],
+    "issues" : [ {
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-14 20:19:50",
+        "commitTimeLong" : 1447532390000,
+        "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
+        "hash" : "01484ce71bbc76e",
+        "merge" : false,
+        "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-14 19:36:21",
+        "commitTimeLong" : 1447529781000,
+        "message" : "Doc",
+        "hash" : "83a8a7b2f96ba88",
+        "merge" : false,
+        "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-14 19:00:17",
+        "commitTimeLong" : 1447527617000,
+        "message" : "Test",
+        "hash" : "5c54861708099d9",
+        "merge" : false,
+        "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-14 12:14:41",
+        "commitTimeLong" : 1447503281000,
+        "message" : "Work for 1.0",
+        "hash" : "051effe72405e78",
+        "merge" : false,
+        "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-14 09:46:23",
+        "commitTimeLong" : 1447494383000,
+        "message" : "Initial commit",
+        "hash" : "5aaeb907f68915a",
+        "merge" : false,
+        "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
+      } ],
+      "authors" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2015-11-14 20:19:50",
+          "commitTimeLong" : 1447532390000,
+          "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
+          "hash" : "01484ce71bbc76e",
+          "merge" : false,
+          "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
+        }, {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2015-11-14 19:36:21",
+          "commitTimeLong" : 1447529781000,
+          "message" : "Doc",
+          "hash" : "83a8a7b2f96ba88",
+          "merge" : false,
+          "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
+        }, {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2015-11-14 19:00:17",
+          "commitTimeLong" : 1447527617000,
+          "message" : "Test",
+          "hash" : "5c54861708099d9",
+          "merge" : false,
+          "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
+        }, {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2015-11-14 12:14:41",
+          "commitTimeLong" : 1447503281000,
+          "message" : "Work for 1.0",
+          "hash" : "051effe72405e78",
+          "merge" : false,
+          "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
+        }, {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2015-11-14 09:46:23",
+          "commitTimeLong" : 1447494383000,
+          "message" : "Initial commit",
+          "hash" : "5aaeb907f68915a",
+          "merge" : false,
+          "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
+        } ]
+      } ],
+      "name" : "No issue",
+      "title" : "",
+      "issue" : "",
+      "issueType" : "NOISSUE",
+      "description" : "",
+      "link" : "",
+      "type" : "",
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : false,
+      "hasIssue" : false,
+      "hasLabels" : false,
+      "hasLink" : false,
+      "hasLinkedIssues" : false,
+      "hasTitle" : false,
+      "hasType" : false
+    } ],
+    "issueTypes" : [ {
+      "issues" : [ {
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2015-11-14 20:19:50",
+          "commitTimeLong" : 1447532390000,
+          "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
+          "hash" : "01484ce71bbc76e",
+          "merge" : false,
+          "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
+        }, {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2015-11-14 19:36:21",
+          "commitTimeLong" : 1447529781000,
+          "message" : "Doc",
+          "hash" : "83a8a7b2f96ba88",
+          "merge" : false,
+          "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
+        }, {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2015-11-14 19:00:17",
+          "commitTimeLong" : 1447527617000,
+          "message" : "Test",
+          "hash" : "5c54861708099d9",
+          "merge" : false,
+          "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
+        }, {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2015-11-14 12:14:41",
+          "commitTimeLong" : 1447503281000,
+          "message" : "Work for 1.0",
+          "hash" : "051effe72405e78",
+          "merge" : false,
+          "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
+        }, {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2015-11-14 09:46:23",
+          "commitTimeLong" : 1447494383000,
+          "message" : "Initial commit",
+          "hash" : "5aaeb907f68915a",
+          "merge" : false,
+          "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
+        } ],
+        "authors" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmail" : "tomas.bjerre85@gmail.com",
+          "commits" : [ {
+            "authorName" : "Tomas Bjerre",
+            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+            "commitTime" : "2015-11-14 20:19:50",
+            "commitTimeLong" : 1447532390000,
+            "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
+            "hash" : "01484ce71bbc76e",
+            "merge" : false,
+            "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
+          }, {
+            "authorName" : "Tomas Bjerre",
+            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+            "commitTime" : "2015-11-14 19:36:21",
+            "commitTimeLong" : 1447529781000,
+            "message" : "Doc",
+            "hash" : "83a8a7b2f96ba88",
+            "merge" : false,
+            "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
+          }, {
+            "authorName" : "Tomas Bjerre",
+            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+            "commitTime" : "2015-11-14 19:00:17",
+            "commitTimeLong" : 1447527617000,
+            "message" : "Test",
+            "hash" : "5c54861708099d9",
+            "merge" : false,
+            "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
+          }, {
+            "authorName" : "Tomas Bjerre",
+            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+            "commitTime" : "2015-11-14 12:14:41",
+            "commitTimeLong" : 1447503281000,
+            "message" : "Work for 1.0",
+            "hash" : "051effe72405e78",
+            "merge" : false,
+            "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
+          }, {
+            "authorName" : "Tomas Bjerre",
+            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+            "commitTime" : "2015-11-14 09:46:23",
+            "commitTimeLong" : 1447494383000,
+            "message" : "Initial commit",
+            "hash" : "5aaeb907f68915a",
+            "merge" : false,
+            "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
+          } ]
+        } ],
+        "name" : "No issue",
+        "title" : "",
+        "issue" : "",
+        "issueType" : "NOISSUE",
+        "description" : "",
+        "link" : "",
+        "type" : "",
+        "additionalFields" : { },
+        "hasAdditionalFields" : false,
+        "hasDescription" : false,
+        "hasIssue" : false,
+        "hasLabels" : false,
+        "hasLink" : false,
+        "hasLinkedIssues" : false,
+        "hasTitle" : false,
+        "hasType" : false
+      } ],
+      "name" : "No issue",
+      "type" : "NOISSUE"
+    } ],
+    "tagTime" : "2015-11-14 20:19:50",
+    "tagTimeLong" : 1447532390000,
+    "hasTagTime" : true
+  }, {
+    "name" : "0.0.1",
+    "commits" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2015-11-12 05:29:31",
+      "commitTimeLong" : 1447306171000,
+      "message" : "Initial commit",
+      "hash" : "a1aa5ff5b625e63",
+      "merge" : false,
+      "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+    } ],
+    "authors" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmail" : "tomas.bjerre85@gmail.com",
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-12 05:29:31",
+        "commitTimeLong" : 1447306171000,
+        "message" : "Initial commit",
+        "hash" : "a1aa5ff5b625e63",
+        "merge" : false,
+        "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+      } ]
+    } ],
+    "issues" : [ {
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-12 05:29:31",
+        "commitTimeLong" : 1447306171000,
+        "message" : "Initial commit",
+        "hash" : "a1aa5ff5b625e63",
+        "merge" : false,
+        "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+      } ],
+      "authors" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2015-11-12 05:29:31",
+          "commitTimeLong" : 1447306171000,
+          "message" : "Initial commit",
+          "hash" : "a1aa5ff5b625e63",
+          "merge" : false,
+          "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+        } ]
+      } ],
+      "name" : "No issue",
+      "title" : "",
+      "issue" : "",
+      "issueType" : "NOISSUE",
+      "description" : "",
+      "link" : "",
+      "type" : "",
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : false,
+      "hasIssue" : false,
+      "hasLabels" : false,
+      "hasLink" : false,
+      "hasLinkedIssues" : false,
+      "hasTitle" : false,
+      "hasType" : false
+    } ],
+    "issueTypes" : [ {
+      "issues" : [ {
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2015-11-12 05:29:31",
+          "commitTimeLong" : 1447306171000,
+          "message" : "Initial commit",
+          "hash" : "a1aa5ff5b625e63",
+          "merge" : false,
+          "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+        } ],
+        "authors" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmail" : "tomas.bjerre85@gmail.com",
+          "commits" : [ {
+            "authorName" : "Tomas Bjerre",
+            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+            "commitTime" : "2015-11-12 05:29:31",
+            "commitTimeLong" : 1447306171000,
+            "message" : "Initial commit",
+            "hash" : "a1aa5ff5b625e63",
+            "merge" : false,
+            "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+          } ]
+        } ],
+        "name" : "No issue",
+        "title" : "",
+        "issue" : "",
+        "issueType" : "NOISSUE",
+        "description" : "",
+        "link" : "",
+        "type" : "",
+        "additionalFields" : { },
+        "hasAdditionalFields" : false,
+        "hasDescription" : false,
+        "hasIssue" : false,
+        "hasLabels" : false,
+        "hasLink" : false,
+        "hasLinkedIssues" : false,
+        "hasTitle" : false,
+        "hasType" : false
+      } ],
+      "name" : "No issue",
+      "type" : "NOISSUE"
+    } ],
+    "tagTime" : "2015-11-12 05:29:31",
+    "tagTimeLong" : 1447306171000,
+    "hasTagTime" : true
+  } ],
+  "authors" : [ {
+    "authorName" : "Tomas Bjerre",
+    "authorEmail" : "tomas.bjerre85@gmail.com",
+    "commits" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2015-11-14 20:19:50",
+      "commitTimeLong" : 1447532390000,
+      "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
+      "hash" : "01484ce71bbc76e",
+      "merge" : false,
+      "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2015-11-14 19:36:21",
+      "commitTimeLong" : 1447529781000,
+      "message" : "Doc",
+      "hash" : "83a8a7b2f96ba88",
+      "merge" : false,
+      "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2015-11-14 19:00:17",
+      "commitTimeLong" : 1447527617000,
+      "message" : "Test",
+      "hash" : "5c54861708099d9",
+      "merge" : false,
+      "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2015-11-14 12:14:41",
+      "commitTimeLong" : 1447503281000,
+      "message" : "Work for 1.0",
+      "hash" : "051effe72405e78",
+      "merge" : false,
+      "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2015-11-14 09:46:23",
+      "commitTimeLong" : 1447494383000,
+      "message" : "Initial commit",
+      "hash" : "5aaeb907f68915a",
+      "merge" : false,
+      "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2015-11-12 05:29:31",
+      "commitTimeLong" : 1447306171000,
+      "message" : "Initial commit",
+      "hash" : "a1aa5ff5b625e63",
+      "merge" : false,
+      "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+    } ]
+  } ],
+  "issues" : [ {
+    "commits" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2015-11-14 20:19:50",
+      "commitTimeLong" : 1447532390000,
+      "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
+      "hash" : "01484ce71bbc76e",
+      "merge" : false,
+      "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2015-11-14 19:36:21",
+      "commitTimeLong" : 1447529781000,
+      "message" : "Doc",
+      "hash" : "83a8a7b2f96ba88",
+      "merge" : false,
+      "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2015-11-14 19:00:17",
+      "commitTimeLong" : 1447527617000,
+      "message" : "Test",
+      "hash" : "5c54861708099d9",
+      "merge" : false,
+      "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2015-11-14 12:14:41",
+      "commitTimeLong" : 1447503281000,
+      "message" : "Work for 1.0",
+      "hash" : "051effe72405e78",
+      "merge" : false,
+      "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2015-11-14 09:46:23",
+      "commitTimeLong" : 1447494383000,
+      "message" : "Initial commit",
+      "hash" : "5aaeb907f68915a",
+      "merge" : false,
+      "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
+    }, {
+      "authorName" : "Tomas Bjerre",
+      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+      "commitTime" : "2015-11-12 05:29:31",
+      "commitTimeLong" : 1447306171000,
+      "message" : "Initial commit",
+      "hash" : "a1aa5ff5b625e63",
+      "merge" : false,
+      "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+    } ],
+    "authors" : [ {
+      "authorName" : "Tomas Bjerre",
+      "authorEmail" : "tomas.bjerre85@gmail.com",
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-14 20:19:50",
+        "commitTimeLong" : 1447532390000,
+        "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
+        "hash" : "01484ce71bbc76e",
+        "merge" : false,
+        "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-14 19:36:21",
+        "commitTimeLong" : 1447529781000,
+        "message" : "Doc",
+        "hash" : "83a8a7b2f96ba88",
+        "merge" : false,
+        "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-14 19:00:17",
+        "commitTimeLong" : 1447527617000,
+        "message" : "Test",
+        "hash" : "5c54861708099d9",
+        "merge" : false,
+        "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-14 12:14:41",
+        "commitTimeLong" : 1447503281000,
+        "message" : "Work for 1.0",
+        "hash" : "051effe72405e78",
+        "merge" : false,
+        "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-14 09:46:23",
+        "commitTimeLong" : 1447494383000,
+        "message" : "Initial commit",
+        "hash" : "5aaeb907f68915a",
+        "merge" : false,
+        "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-12 05:29:31",
+        "commitTimeLong" : 1447306171000,
+        "message" : "Initial commit",
+        "hash" : "a1aa5ff5b625e63",
+        "merge" : false,
+        "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+      } ]
+    } ],
+    "name" : "No issue",
+    "title" : "",
+    "issue" : "",
+    "issueType" : "NOISSUE",
+    "description" : "",
+    "link" : "",
+    "type" : "",
+    "additionalFields" : { },
+    "hasAdditionalFields" : false,
+    "hasDescription" : false,
+    "hasIssue" : false,
+    "hasLabels" : false,
+    "hasLink" : false,
+    "hasLinkedIssues" : false,
+    "hasTitle" : false,
+    "hasType" : false
+  } ],
+  "issueTypes" : [ {
+    "issues" : [ {
+      "commits" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-14 20:19:50",
+        "commitTimeLong" : 1447532390000,
+        "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
+        "hash" : "01484ce71bbc76e",
+        "merge" : false,
+        "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-14 19:36:21",
+        "commitTimeLong" : 1447529781000,
+        "message" : "Doc",
+        "hash" : "83a8a7b2f96ba88",
+        "merge" : false,
+        "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-14 19:00:17",
+        "commitTimeLong" : 1447527617000,
+        "message" : "Test",
+        "hash" : "5c54861708099d9",
+        "merge" : false,
+        "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-14 12:14:41",
+        "commitTimeLong" : 1447503281000,
+        "message" : "Work for 1.0",
+        "hash" : "051effe72405e78",
+        "merge" : false,
+        "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-14 09:46:23",
+        "commitTimeLong" : 1447494383000,
+        "message" : "Initial commit",
+        "hash" : "5aaeb907f68915a",
+        "merge" : false,
+        "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
+      }, {
+        "authorName" : "Tomas Bjerre",
+        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+        "commitTime" : "2015-11-12 05:29:31",
+        "commitTimeLong" : 1447306171000,
+        "message" : "Initial commit",
+        "hash" : "a1aa5ff5b625e63",
+        "merge" : false,
+        "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+      } ],
+      "authors" : [ {
+        "authorName" : "Tomas Bjerre",
+        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "commits" : [ {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2015-11-14 20:19:50",
+          "commitTimeLong" : 1447532390000,
+          "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
+          "hash" : "01484ce71bbc76e",
+          "merge" : false,
+          "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
+        }, {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2015-11-14 19:36:21",
+          "commitTimeLong" : 1447529781000,
+          "message" : "Doc",
+          "hash" : "83a8a7b2f96ba88",
+          "merge" : false,
+          "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
+        }, {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2015-11-14 19:00:17",
+          "commitTimeLong" : 1447527617000,
+          "message" : "Test",
+          "hash" : "5c54861708099d9",
+          "merge" : false,
+          "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
+        }, {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2015-11-14 12:14:41",
+          "commitTimeLong" : 1447503281000,
+          "message" : "Work for 1.0",
+          "hash" : "051effe72405e78",
+          "merge" : false,
+          "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
+        }, {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2015-11-14 09:46:23",
+          "commitTimeLong" : 1447494383000,
+          "message" : "Initial commit",
+          "hash" : "5aaeb907f68915a",
+          "merge" : false,
+          "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
+        }, {
+          "authorName" : "Tomas Bjerre",
+          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
+          "commitTime" : "2015-11-12 05:29:31",
+          "commitTimeLong" : 1447306171000,
+          "message" : "Initial commit",
+          "hash" : "a1aa5ff5b625e63",
+          "merge" : false,
+          "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+        } ]
+      } ],
+      "name" : "No issue",
+      "title" : "",
+      "issue" : "",
+      "issueType" : "NOISSUE",
+      "description" : "",
+      "link" : "",
+      "type" : "",
+      "additionalFields" : { },
+      "hasAdditionalFields" : false,
+      "hasDescription" : false,
+      "hasIssue" : false,
+      "hasLabels" : false,
+      "hasLink" : false,
+      "hasLinkedIssues" : false,
+      "hasTitle" : false,
+      "hasType" : false
+    } ],
+    "name" : "No issue",
+    "type" : "NOISSUE"
+  } ],
+  "ownerName" : "tomasbjerre",
+  "repoName" : "git-changelog-lib",
+  "urlParts" : [ "git-changelog-lib", "tomasbjerre", "git@github.com" ]
 }

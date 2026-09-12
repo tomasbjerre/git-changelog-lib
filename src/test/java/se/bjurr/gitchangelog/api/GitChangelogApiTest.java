@@ -19,8 +19,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
-import se.bjurr.gitchangelog.internal.integrations.github.GitHubMockInterceptor;
-import se.bjurr.gitchangelog.internal.integrations.github.GitHubServiceFactory;
 import se.bjurr.gitchangelog.internal.integrations.jira.JiraClientFactory;
 import se.bjurr.gitchangelog.internal.integrations.redmine.RedmineClientFactory;
 import se.bjurr.gitchangelog.internal.integrations.rest.RestClientMock;
@@ -34,7 +32,6 @@ public class GitChangelogApiTest {
   private static final String JIRA_BASE_PATH = "/jira/rest/api/2";
 
   private RestClientMock mockedRestClient;
-  private GitHubMockInterceptor gitHubMockInterceptor;
 
   @BeforeEach
   public void before() throws Exception {
@@ -45,7 +42,7 @@ public class GitChangelogApiTest {
     this.mockedRestClient = new RestClientMock();
     this.mockedRestClient //
         .addMockedResponse(
-            "/repos/tomasbjerre/git-changelog-lib/issues?state=all",
+            "/repos/tomasbjerre/git-changelog-lib/issues?state=all&per_page=100&page=1",
             new String(
                 Files.readAllBytes(
                     Paths.get(TemplatesTest.class.getResource("/github-issues.json").toURI())),
@@ -71,25 +68,12 @@ public class GitChangelogApiTest {
                     Paths.get(TemplatesTest.class.getResource("/redmine-issue-1234.json").toURI())),
                 UTF_8)); //
     mock(this.mockedRestClient);
-
-    this.gitHubMockInterceptor = new GitHubMockInterceptor();
-    this.gitHubMockInterceptor //
-        .addMockedResponse(
-        "https://api.github.com/repos/tomasbjerre/git-changelog-lib/issues?state=all&per_page=100&page=1",
-        new String(
-            Files.readAllBytes(
-                Paths.get(TemplatesTest.class.getResource("/github-issues.json").toURI())),
-            UTF_8));
-
-    GitHubServiceFactory //
-        .setInterceptor(this.gitHubMockInterceptor);
   }
 
   @AfterEach
   public void after() {
     JiraClientFactory.reset();
     RedmineClientFactory.reset();
-    GitHubServiceFactory.setInterceptor(null);
     mock(null);
   }
 
