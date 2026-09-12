@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
 import org.slf4j.Logger;
@@ -145,11 +146,13 @@ public class IssueParser {
     }
     final Integer matchedIssue = Integer.parseInt(matchedIssueString);
     try {
-      if (gitLabClient != null && gitLabClient.getIssue(projectName, matchedIssue).isPresent()) {
-        final GitLabIssue gitLabIssue = gitLabClient.getIssue(projectName, matchedIssue).get();
-        link = gitLabIssue.getLink();
-        title = gitLabIssue.getTitle();
-        labels = gitLabIssue.getLabels();
+      if (gitLabClient != null) {
+        final Optional<GitLabIssue> gitLabIssue = gitLabClient.getIssue(projectName, matchedIssue);
+        if (gitLabIssue.isPresent()) {
+          link = gitLabIssue.get().getLink();
+          title = gitLabIssue.get().getTitle();
+          labels = gitLabIssue.get().getLabels();
+        }
       }
     } catch (final GitChangelogIntegrationException e) {
       LOG.error(matchedIssueString, e);
@@ -257,15 +260,17 @@ public class IssueParser {
     List<String> labels = null;
     Map<String, Object> additionalFields = null;
     try {
-      if (jiraClient != null && jiraClient.getIssue(matchedIssue).isPresent()) {
-        final JiraIssue jiraIssue = jiraClient.getIssue(matchedIssue).get();
-        link = jiraIssue.getLink();
-        title = jiraIssue.getTitle();
-        issueType = jiraIssue.getIssueType();
-        linkedIssues = jiraIssue.getLinkedIssues();
-        labels = jiraIssue.getLabels();
-        desc = jiraIssue.getDescription();
-        additionalFields = jiraIssue.getAdditionalFields();
+      if (jiraClient != null) {
+        final Optional<JiraIssue> jiraIssue = jiraClient.getIssue(matchedIssue);
+        if (jiraIssue.isPresent()) {
+          link = jiraIssue.get().getLink();
+          title = jiraIssue.get().getTitle();
+          issueType = jiraIssue.get().getIssueType();
+          linkedIssues = jiraIssue.get().getLinkedIssues();
+          labels = jiraIssue.get().getLabels();
+          desc = jiraIssue.get().getDescription();
+          additionalFields = jiraIssue.get().getAdditionalFields();
+        }
       }
     } catch (final GitChangelogIntegrationException e) {
       LOG.error(matchedIssue, e);
@@ -295,12 +300,14 @@ public class IssueParser {
     final List<String> labels = null;
     final Map<String, Object> additionalFields = new TreeMap<>();
     try {
-      if (redmineClient != null && redmineClient.getIssue(matchedIssue).isPresent()) {
-        final RedmineIssue redmineIssue = redmineClient.getIssue(matchedIssue).get();
-        link = redmineIssue.getLink();
-        title = redmineIssue.getTitle();
-        issueType = redmineIssue.getIssueType();
-        desc = redmineIssue.getDescription();
+      if (redmineClient != null) {
+        final Optional<RedmineIssue> redmineIssue = redmineClient.getIssue(matchedIssue);
+        if (redmineIssue.isPresent()) {
+          link = redmineIssue.get().getLink();
+          title = redmineIssue.get().getTitle();
+          issueType = redmineIssue.get().getIssueType();
+          desc = redmineIssue.get().getDescription();
+        }
       }
     } catch (final GitChangelogIntegrationException e) {
       LOG.error(matchedIssue, e);
