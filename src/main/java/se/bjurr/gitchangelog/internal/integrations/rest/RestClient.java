@@ -67,7 +67,6 @@ public class RestClient {
   }
 
   private Optional<String> doGet(final String urlParam) {
-    final String response = null;
     HttpURLConnection conn = null;
     try {
       logger.info("GET:\n" + urlParam);
@@ -87,7 +86,7 @@ public class RestClient {
       }
       return Optional.of(this.getResponse(conn));
     } catch (final Exception e) {
-      logger.error("Got:\n" + response, e);
+      logger.error("GET failed:\n" + urlParam, e);
       return Optional.empty();
     } finally {
       if (conn != null) {
