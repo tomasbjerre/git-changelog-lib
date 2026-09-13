@@ -1,6 +1,6 @@
 # Git Changelog Lib
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/se.bjurr.gitchangelog/git-changelog-lib/badge.svg)](https://maven-badges.herokuapp.com/maven-central/se.bjurr.gitchangelog/git-changelog-lib)
+[![Maven Central](https://img.shields.io/maven-central/v/se.bjurr.gitchangelog/git-changelog-lib.svg?label=Maven%20Central)](https://search.maven.org/artifact/se.bjurr.gitchangelog/git-changelog-lib)
 
 This is a library that can:
 
