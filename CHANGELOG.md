@@ -1,3 +1,28 @@
+## 3.0.0 (2026-09-13)
+
+### Breaking changes
+
+-  remove Retrofit/OkHttp/Gson, migrate to Jackson 3 everywhere ([844e0](https://github.com/tomasbjerre/git-changelog-lib/commit/844e001a6b24a27) Tomas Bjerre)  
+-  replace java-gitlab-api with a Retrofit/Jackson3 GitLab client ([13a47](https://github.com/tomasbjerre/git-changelog-lib/commit/13a479f78ae2d82) Tomas Bjerre)  
+
+### Features
+
+-  remove Retrofit/OkHttp/Gson, migrate to Jackson 3 everywhere ([844e0](https://github.com/tomasbjerre/git-changelog-lib/commit/844e001a6b24a27) Tomas Bjerre)  
+-  replace java-gitlab-api with a Retrofit/Jackson3 GitLab client ([13a47](https://github.com/tomasbjerre/git-changelog-lib/commit/13a479f78ae2d82) Tomas Bjerre)  
+
+### Bug Fixes
+
+-  apply extendedRestHeaders to GitHub and GitLab lookups too ([97a9a](https://github.com/tomasbjerre/git-changelog-lib/commit/97a9ad8b1c17453) Tomas Bjerre)  
+-  log the failed URL instead of an always-null placeholder ([cfe42](https://github.com/tomasbjerre/git-changelog-lib/commit/cfe42f9f1cb9763) Tomas Bjerre)  
+
+### Dependency updates
+
+- remove unused mockito-core dependency ([b013f](https://github.com/tomasbjerre/git-changelog-lib/commit/b013f9281ccd556) Tomas Bjerre)  
+- update dependencies ([ae764](https://github.com/tomasbjerre/git-changelog-lib/commit/ae7640a9d2fe91b) Tomas Bjerre)  
+- gradle 9 ([bc753](https://github.com/tomasbjerre/git-changelog-lib/commit/bc753dedbbf7a27) Tomas Bjerre)  
+### Other changes
+
+
 ## 2.6.3 (2025-09-30)
 
 ### Bug Fixes
