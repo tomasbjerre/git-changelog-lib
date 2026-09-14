@@ -1,0 +1,14 @@
+name: Draft Release
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  draft-release:
+    uses: tomasbjerre/.github/.github/workflows/bundle-draft-release.yaml@master
+    secrets: inherit

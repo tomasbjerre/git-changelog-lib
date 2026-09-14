@@ -1,0 +1,10 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  release:
+    uses: tomasbjerre/.github/.github/workflows/bundle-gradle-library-release.yaml@master
+    secrets: inherit
