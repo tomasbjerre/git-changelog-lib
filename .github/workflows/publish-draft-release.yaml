@@ -1,0 +1,11 @@
+name: Publish pending draft release
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+jobs:
+  publish:
+    uses: tomasbjerre/.github/.github/workflows/bundle-publish-draft-release.yaml@master
+    secrets: inherit
