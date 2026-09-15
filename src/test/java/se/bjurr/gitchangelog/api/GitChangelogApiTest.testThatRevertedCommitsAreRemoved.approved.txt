@@ -63,6 +63,7 @@ context:
     "message" : "doing change 2",
     "hash" : "4c6e07857c48c98",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
   } ],
   "tags" : [ {
@@ -75,6 +76,7 @@ context:
       "message" : "doing change 2",
       "hash" : "4c6e07857c48c98",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
     } ],
     "authors" : [ {
@@ -88,6 +90,7 @@ context:
         "message" : "doing change 2",
         "hash" : "4c6e07857c48c98",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
       } ]
     } ],
@@ -100,6 +103,7 @@ context:
         "message" : "doing change 2",
         "hash" : "4c6e07857c48c98",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
       } ],
       "authors" : [ {
@@ -113,6 +117,7 @@ context:
           "message" : "doing change 2",
           "hash" : "4c6e07857c48c98",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
         } ]
       } ],
@@ -143,6 +148,7 @@ context:
           "message" : "doing change 2",
           "hash" : "4c6e07857c48c98",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
         } ],
         "authors" : [ {
@@ -156,6 +162,7 @@ context:
             "message" : "doing change 2",
             "hash" : "4c6e07857c48c98",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
           } ]
         } ],
@@ -194,6 +201,7 @@ context:
       "message" : "doing change 2",
       "hash" : "4c6e07857c48c98",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
     } ]
   } ],
@@ -206,6 +214,7 @@ context:
       "message" : "doing change 2",
       "hash" : "4c6e07857c48c98",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
     } ],
     "authors" : [ {
@@ -219,6 +228,7 @@ context:
         "message" : "doing change 2",
         "hash" : "4c6e07857c48c98",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
       } ]
     } ],
@@ -249,6 +259,7 @@ context:
         "message" : "doing change 2",
         "hash" : "4c6e07857c48c98",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
       } ],
       "authors" : [ {
@@ -262,6 +273,7 @@ context:
           "message" : "doing change 2",
           "hash" : "4c6e07857c48c98",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
         } ]
       } ],

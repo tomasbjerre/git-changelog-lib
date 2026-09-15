@@ -277,7 +277,8 @@ public class Transformer {
             new IssuesUtil(this.settings).getIssues(),
             gitCommit.getMessage()), //
         gitCommit.getHash(), //
-        gitCommit.isMerge());
+        gitCommit.isMerge(), //
+        gitCommit.getMessageNotes());
   }
 
   public static String toReadableTagName(final String input, final String readableTagName) {

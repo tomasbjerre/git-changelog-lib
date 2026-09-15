@@ -9,6 +9,7 @@ public class GitCommit implements Comparable<GitCommit> {
   private final String hash;
   private final Boolean merge;
   private final String message;
+  private final String messageNotes;
 
   public GitCommit(
       String authorName,
@@ -16,13 +17,15 @@ public class GitCommit implements Comparable<GitCommit> {
       Date commitTime,
       String message,
       String hash,
-      Boolean merge) {
+      Boolean merge,
+      String messageNotes) {
     this.authorEmailAddress = authorEmailAddress;
     this.authorName = authorName;
     this.commitTime = commitTime;
     this.message = message;
     this.hash = hash;
     this.merge = merge;
+    this.messageNotes = messageNotes;
   }
 
   @Override
@@ -88,6 +91,13 @@ public class GitCommit implements Comparable<GitCommit> {
     } else if (!this.message.equals(other.message)) {
       return false;
     }
+    if (this.messageNotes == null) {
+      if (other.messageNotes != null) {
+        return false;
+      }
+    } else if (!this.messageNotes.equals(other.messageNotes)) {
+      return false;
+    }
     return true;
   }
 
@@ -111,6 +121,10 @@ public class GitCommit implements Comparable<GitCommit> {
     return this.message;
   }
 
+  public String getMessageNotes() {
+    return this.messageNotes;
+  }
+
   @Override
   public int hashCode() {
     final int prime = 31;
@@ -123,6 +137,7 @@ public class GitCommit implements Comparable<GitCommit> {
     result = prime * result + ((this.hash == null) ? 0 : this.hash.hashCode());
     result = prime * result + ((this.merge == null) ? 0 : this.merge.hashCode());
     result = prime * result + ((this.message == null) ? 0 : this.message.hashCode());
+    result = prime * result + ((this.messageNotes == null) ? 0 : this.messageNotes.hashCode());
     return result;
   }
 
@@ -144,6 +159,8 @@ public class GitCommit implements Comparable<GitCommit> {
         + this.merge
         + ", message="
         + this.message
+        + ", messageNotes="
+        + this.messageNotes
         + "]";
   }
 }

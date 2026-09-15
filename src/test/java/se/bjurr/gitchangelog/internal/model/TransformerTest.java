@@ -3,9 +3,12 @@ package se.bjurr.gitchangelog.internal.model;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import se.bjurr.gitchangelog.api.model.Commit;
+import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.settings.Settings;
 import se.bjurr.gitchangelog.internal.settings.SettingsIssue;
 
@@ -40,5 +43,23 @@ public class TransformerTest {
         .isEqualTo(" message title\n\n *  The first item\n * The second item");
     assertThat(this.transformer.toMessage(true, this.noIssues, this.message)) //
         .isEqualTo(this.message);
+  }
+
+  @Test
+  public void testThatMessageNotesArePropagatedToCommit() {
+    final GitCommit gitCommit =
+        new GitCommit(
+            "Author",
+            "author@example.com",
+            new Date(),
+            "A commit message",
+            "abc1234567890abcdef",
+            false,
+            "A note on the commit");
+
+    final List<Commit> commits = this.transformer.toCommits(Arrays.asList(gitCommit));
+
+    assertThat(commits).hasSize(1);
+    assertThat(commits.get(0).getMessageNotes()).isEqualTo("A note on the commit");
   }
 }

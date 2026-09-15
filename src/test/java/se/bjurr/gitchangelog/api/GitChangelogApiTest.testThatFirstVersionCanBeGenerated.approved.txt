@@ -124,6 +124,7 @@ context:
     "message" : "Initial commit",
     "hash" : "a1aa5ff5b625e63",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
   } ],
   "tags" : [ {
@@ -136,6 +137,7 @@ context:
       "message" : "Initial commit",
       "hash" : "a1aa5ff5b625e63",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
     } ],
     "authors" : [ {
@@ -149,6 +151,7 @@ context:
         "message" : "Initial commit",
         "hash" : "a1aa5ff5b625e63",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
       } ]
     } ],
@@ -161,6 +164,7 @@ context:
         "message" : "Initial commit",
         "hash" : "a1aa5ff5b625e63",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
       } ],
       "authors" : [ {
@@ -174,6 +178,7 @@ context:
           "message" : "Initial commit",
           "hash" : "a1aa5ff5b625e63",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
         } ]
       } ],
@@ -204,6 +209,7 @@ context:
           "message" : "Initial commit",
           "hash" : "a1aa5ff5b625e63",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
         } ],
         "authors" : [ {
@@ -217,6 +223,7 @@ context:
             "message" : "Initial commit",
             "hash" : "a1aa5ff5b625e63",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
           } ]
         } ],
@@ -255,6 +262,7 @@ context:
       "message" : "Initial commit",
       "hash" : "a1aa5ff5b625e63",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
     } ]
   } ],
@@ -267,6 +275,7 @@ context:
       "message" : "Initial commit",
       "hash" : "a1aa5ff5b625e63",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
     } ],
     "authors" : [ {
@@ -280,6 +289,7 @@ context:
         "message" : "Initial commit",
         "hash" : "a1aa5ff5b625e63",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
       } ]
     } ],
@@ -310,6 +320,7 @@ context:
         "message" : "Initial commit",
         "hash" : "a1aa5ff5b625e63",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
       } ],
       "authors" : [ {
@@ -323,6 +334,7 @@ context:
           "message" : "Initial commit",
           "hash" : "a1aa5ff5b625e63",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
         } ]
       } ],

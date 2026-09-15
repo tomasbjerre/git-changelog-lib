@@ -120,6 +120,7 @@ context:
     "message" : "Adding stuff with a jira JIR-1234",
     "hash" : "cc0fbbd8bc63955",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -129,6 +130,7 @@ context:
     "message" : "Adding stuff with a jira\n  JIR-5262",
     "hash" : "071a14f29020758",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
   } ],
   "tags" : [ {
@@ -142,6 +144,7 @@ context:
       "message" : "Adding stuff with a jira JIR-1234",
       "hash" : "cc0fbbd8bc63955",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
     } ],
     "authors" : [ {
@@ -155,6 +158,7 @@ context:
         "message" : "Adding stuff with a jira JIR-1234",
         "hash" : "cc0fbbd8bc63955",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
       } ]
     } ],
@@ -167,6 +171,7 @@ context:
         "message" : "Adding stuff with a jira JIR-1234",
         "hash" : "cc0fbbd8bc63955",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
       } ],
       "authors" : [ {
@@ -180,6 +185,7 @@ context:
           "message" : "Adding stuff with a jira JIR-1234",
           "hash" : "cc0fbbd8bc63955",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
         } ]
       } ],
@@ -210,6 +216,7 @@ context:
           "message" : "Adding stuff with a jira JIR-1234",
           "hash" : "cc0fbbd8bc63955",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
         } ],
         "authors" : [ {
@@ -223,6 +230,7 @@ context:
             "message" : "Adding stuff with a jira JIR-1234",
             "hash" : "cc0fbbd8bc63955",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
           } ]
         } ],
@@ -260,6 +268,7 @@ context:
       "message" : "Adding stuff with a jira\n  JIR-5262",
       "hash" : "071a14f29020758",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
     } ],
     "authors" : [ {
@@ -273,6 +282,7 @@ context:
         "message" : "Adding stuff with a jira\n  JIR-5262",
         "hash" : "071a14f29020758",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
       } ]
     } ],
@@ -285,6 +295,7 @@ context:
         "message" : "Adding stuff with a jira\n  JIR-5262",
         "hash" : "071a14f29020758",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
       } ],
       "authors" : [ {
@@ -298,6 +309,7 @@ context:
           "message" : "Adding stuff with a jira\n  JIR-5262",
           "hash" : "071a14f29020758",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
         } ]
       } ],
@@ -328,6 +340,7 @@ context:
           "message" : "Adding stuff with a jira\n  JIR-5262",
           "hash" : "071a14f29020758",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
         } ],
         "authors" : [ {
@@ -341,6 +354,7 @@ context:
             "message" : "Adding stuff with a jira\n  JIR-5262",
             "hash" : "071a14f29020758",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
           } ]
         } ],
@@ -379,6 +393,7 @@ context:
       "message" : "Adding stuff with a jira JIR-1234",
       "hash" : "cc0fbbd8bc63955",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -388,6 +403,7 @@ context:
       "message" : "Adding stuff with a jira\n  JIR-5262",
       "hash" : "071a14f29020758",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
     } ]
   } ],
@@ -400,6 +416,7 @@ context:
       "message" : "Adding stuff with a jira JIR-1234",
       "hash" : "cc0fbbd8bc63955",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
     } ],
     "authors" : [ {
@@ -413,6 +430,7 @@ context:
         "message" : "Adding stuff with a jira JIR-1234",
         "hash" : "cc0fbbd8bc63955",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
       } ]
     } ],
@@ -441,6 +459,7 @@ context:
       "message" : "Adding stuff with a jira\n  JIR-5262",
       "hash" : "071a14f29020758",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
     } ],
     "authors" : [ {
@@ -454,6 +473,7 @@ context:
         "message" : "Adding stuff with a jira\n  JIR-5262",
         "hash" : "071a14f29020758",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
       } ]
     } ],
@@ -484,6 +504,7 @@ context:
         "message" : "Adding stuff with a jira JIR-1234",
         "hash" : "cc0fbbd8bc63955",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
       } ],
       "authors" : [ {
@@ -497,6 +518,7 @@ context:
           "message" : "Adding stuff with a jira JIR-1234",
           "hash" : "cc0fbbd8bc63955",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
         } ]
       } ],
@@ -525,6 +547,7 @@ context:
         "message" : "Adding stuff with a jira\n  JIR-5262",
         "hash" : "071a14f29020758",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
       } ],
       "authors" : [ {
@@ -538,6 +561,7 @@ context:
           "message" : "Adding stuff with a jira\n  JIR-5262",
           "hash" : "071a14f29020758",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
         } ]
       } ],

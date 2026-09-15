@@ -9,6 +9,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -29,6 +30,7 @@ import org.eclipse.jgit.lib.AnyObjectId;
 import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.lib.Repository;
+import org.eclipse.jgit.notes.Note;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevTag;
 import org.eclipse.jgit.revwalk.RevWalk;
@@ -652,7 +654,22 @@ public class GitRepo implements Closeable {
         new Date(revCommit.getCommitTime() * 1000L), //
         revCommit.getFullMessage(), //
         revCommit.getId().getName(), //
-        merge);
+        merge, //
+        this.getMessageNotes(revCommit));
+  }
+
+  private String getMessageNotes(final RevCommit revCommit) {
+    try {
+      final Note note = this.git.notesShow().setObjectId(revCommit).call();
+      if (note == null) {
+        return "";
+      }
+      final byte[] bytes = this.repository.open(note.getData()).getBytes();
+      return new String(bytes, StandardCharsets.UTF_8).trim();
+    } catch (final Exception e) {
+      LOG.debug("Unable to read git notes for commit: " + revCommit.getName(), e);
+      return "";
+    }
   }
 
   public void setPathFilters(final List<String> pathFilters) {
