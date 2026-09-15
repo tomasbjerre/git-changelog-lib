@@ -454,6 +454,7 @@ context:
     "message" : "Gathering repo provider information #49\n\n * Getting ownerName and repoName from clone URL.\n * Setting GitLab server and GitHub API from clone URL.",
     "hash" : "dd8497034624b12",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "dd8497034624b125e9ac242ab5cf8c6374b4d295"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -463,6 +464,7 @@ context:
     "message" : "Adjustments after merge of #47\n\n * Using the Date data type instead of String to supply ignoreCommitsOlderThan.\n * Making ignoreCommits more effective.\n * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer.",
     "hash" : "121e65493ec764b",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "121e65493ec764b4cf01d35f2cff9a6cb0d64d2b"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -472,6 +474,7 @@ context:
     "message" : "Merge pull request #47 from grandchild/ignoreCommitsOlderThan\n\nAdd ignoreCommitsOlderThan date limiting",
     "hash" : "3b6cf6124370238",
     "merge" : true,
+    "messageNotes" : "",
     "hashFull" : "3b6cf6124370238fed92bb7ff6731fd0b8c73bc4"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -481,6 +484,7 @@ context:
     "message" : "GitLab integration #2\n\n * Adding it to the API.",
     "hash" : "743ab5566d39083",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "743ab5566d39083c51b9e96069dc67106cc09042"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -490,6 +494,7 @@ context:
     "message" : "GitLab integration #42",
     "hash" : "eb3d1ee8a5ed370",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "eb3d1ee8a5ed3709e085e9defb5aa056b208290d"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -499,6 +504,7 @@ context:
     "message" : "Adding issueType and labels attributes #40",
     "hash" : "6db44d44152f5da",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "6db44d44152f5da329af7f0d591736db53fcf8de"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -508,6 +514,7 @@ context:
     "message" : "Adding annotation to context of tag #36",
     "hash" : "ecd852cfa40b0a7",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "ecd852cfa40b0a7a0f944398fcae28407bc9f709"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -517,6 +524,7 @@ context:
     "message" : "Adding merge boolean to commits #35",
     "hash" : "2d9189f421254f2",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "2d9189f421254f248e8c8f9792952b6f8aa74664"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -526,6 +534,7 @@ context:
     "message" : "Fixing testcases after merge of #31",
     "hash" : "50dcd850d6bec5d",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "50dcd850d6bec5defa36b61a14fd7cfe41599d94"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -535,6 +544,7 @@ context:
     "message" : "Adding {{hashFull}} variable with full commit hash #30",
     "hash" : "7fd9971d4c2a30b",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "7fd9971d4c2a30b5ec5b80f4cf3ce1b7da66d505"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -544,6 +554,7 @@ context:
     "message" : "Allowing master branch to be absent #28",
     "hash" : "dd4633ba627695d",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "dd4633ba627695db650fc3130825bdf4feacba2b"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -553,6 +564,7 @@ context:
     "message" : "Correcting how to find diffing commits #29",
     "hash" : "717602bef6a4ab1",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "717602bef6a4ab1a9c05a9f07bd7cf197a2700ff"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -562,6 +574,7 @@ context:
     "message" : "Including commits frmo merges #29",
     "hash" : "a723e0a230e3f38",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "a723e0a230e3f38993534349b89043ef78ce6fb9"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -571,6 +584,7 @@ context:
     "message" : "Finding first commit in repo as parents of HEAD #28\n\n * Was looking at parents of master, which may not exist.",
     "hash" : "87fe4044e587b1b",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "87fe4044e587b1b9e7d04bad370b9fc772955dff"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -580,6 +594,7 @@ context:
     "message" : "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them.",
     "hash" : "e3106df640b693b",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -589,6 +604,7 @@ context:
     "message" : "Parsing commits, oldest first #23\n\n * To avoid random behaviour.",
     "hash" : "9817cdf6a1fbe91",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "9817cdf6a1fbe91af51c6df25fd1247a30524dd7"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -598,6 +614,7 @@ context:
     "message" : "Traversing commit tree by parents #23\n\n * To find all commits in all tags.",
     "hash" : "9dcba5d33fc2e44",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "9dcba5d33fc2e44bec8f273a6becb6241526a87f"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -607,6 +624,7 @@ context:
     "message" : "Adding feature to ignore tags by regexp\n\n * Also testing tag in feature branch #23",
     "hash" : "8166ec7dfd456df",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "8166ec7dfd456dffb58defb8ee3fe98908ed8126"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -616,6 +634,7 @@ context:
     "message" : "Removing commits without issue, from tags #19",
     "hash" : "22a2c55c44b6b4d",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "22a2c55c44b6b4dcb99c65a12c498a20a21038b7"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -625,6 +644,7 @@ context:
     "message" : "Ignore commits without issue #19",
     "hash" : "0b70db9921da8dd",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "0b70db9921da8dda660daabf3dfd9d7ae5e8cdfd"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -634,6 +654,7 @@ context:
     "message" : "Avoiding adding commit twice in same issue #21",
     "hash" : "414348773e3d658",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "414348773e3d65831896d88384fbcd840b1898c0"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -643,6 +664,7 @@ context:
     "message" : "Adding issueTypes in context #19",
     "hash" : "a025adfc759313f",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "a025adfc759313fc007d965736d29f8b6d429d4b"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -652,6 +674,7 @@ context:
     "message" : "Logging error if error invoking GitHub API #18",
     "hash" : "a040e51847b4f23",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "a040e51847b4f23d560cd9d78ecd360beee7e0e6"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -661,6 +684,7 @@ context:
     "message" : "Introducing custom exceptions\n\n * Also fixing some issues from PR #18. Removing duplicate Gson, System.out, throwing exceptions.",
     "hash" : "4cb3f757f8a6b9f",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "4cb3f757f8a6b9f9c8aa6dc7e88618fa90d6841f"
   }, {
     "authorName" : "Jonas Kalderstam",
@@ -670,6 +694,7 @@ context:
     "message" : "Migrate GitHub REST-API to RetroFit library\n\nAdded auth-token support for GitHub, fixes #10\nAdded pagination support for GitHub, fixes #15",
     "hash" : "d29029a38fad6a4",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "d29029a38fad6a48bb8c6c5c39c01a69502be6c6"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -679,6 +704,7 @@ context:
     "message" : "Supplying commit in each issue mentioned in message #16",
     "hash" : "102431686668a6c",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "102431686668a6cf8edf70024e2d636523f30214"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -688,6 +714,7 @@ context:
     "message" : "Rewriting GitRepo to make it faster #13",
     "hash" : "60811d245d20669",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "60811d245d206697550336e88380253aa41bd4e7"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -697,6 +724,7 @@ context:
     "message" : "Identified performance issue as GitRepo:getTags() #13\n\n * Updating performance test to reveal it.",
     "hash" : "be9fb93023f13ad",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "be9fb93023f13ad5f2e00b3f32804437fef45238"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -706,6 +734,7 @@ context:
     "message" : "Letting JGit determine new commits between refs #13\n\n * Also changing changelog template.\n * Also trimming messageTitle variable.",
     "hash" : "5b307bd00b47e83",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "5b307bd00b47e8397ccc1da3441e5a955de739ba"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -715,6 +744,7 @@ context:
     "message" : "Removing command line code #11",
     "hash" : "a7b20fdea564ff2",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "a7b20fdea564ff26036dfa23e16f0b955dfbafb6"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -724,6 +754,7 @@ context:
     "message" : "Integrating with Jira #3",
     "hash" : "30a1095331ded15",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "30a1095331ded155b1bf6ee3f1d29b41628e4eed"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -733,6 +764,7 @@ context:
     "message" : "Integrating with GitHub #2",
     "hash" : "45af766856ac703",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "45af766856ac703357e4d31ea78e0de4e25f51d8"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -742,6 +774,7 @@ context:
     "message" : "Adding hasIssue hasLink to readme doc #7",
     "hash" : "fbb455921921ddc",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "fbb455921921ddcecad4641cb7f1176293abf026"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -751,6 +784,7 @@ context:
     "message" : "Adding booleans to check if link and/or issue exists in issue #7",
     "hash" : "210e963a07b8a7b",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "210e963a07b8a7bb7cb0190501e9e38095b511a1"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -760,6 +794,7 @@ context:
     "message" : "MediaWiki integration #4",
     "hash" : "f45829b2c6a78d7",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "f45829b2c6a78d775fff9735e0f1992d389d7402"
   } ],
   "tags" : [ {
@@ -773,6 +808,7 @@ context:
       "message" : "Gathering repo provider information #49\n\n * Getting ownerName and repoName from clone URL.\n * Setting GitLab server and GitHub API from clone URL.",
       "hash" : "dd8497034624b12",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "dd8497034624b125e9ac242ab5cf8c6374b4d295"
     } ],
     "authors" : [ {
@@ -786,6 +822,7 @@ context:
         "message" : "Gathering repo provider information #49\n\n * Getting ownerName and repoName from clone URL.\n * Setting GitLab server and GitHub API from clone URL.",
         "hash" : "dd8497034624b12",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "dd8497034624b125e9ac242ab5cf8c6374b4d295"
       } ]
     } ],
@@ -798,6 +835,7 @@ context:
         "message" : "Gathering repo provider information #49\n\n * Getting ownerName and repoName from clone URL.\n * Setting GitLab server and GitHub API from clone URL.",
         "hash" : "dd8497034624b12",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "dd8497034624b125e9ac242ab5cf8c6374b4d295"
       } ],
       "authors" : [ {
@@ -811,6 +849,7 @@ context:
           "message" : "Gathering repo provider information #49\n\n * Getting ownerName and repoName from clone URL.\n * Setting GitLab server and GitHub API from clone URL.",
           "hash" : "dd8497034624b12",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "dd8497034624b125e9ac242ab5cf8c6374b4d295"
         } ]
       } ],
@@ -843,6 +882,7 @@ context:
           "message" : "Gathering repo provider information #49\n\n * Getting ownerName and repoName from clone URL.\n * Setting GitLab server and GitHub API from clone URL.",
           "hash" : "dd8497034624b12",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "dd8497034624b125e9ac242ab5cf8c6374b4d295"
         } ],
         "authors" : [ {
@@ -856,6 +896,7 @@ context:
             "message" : "Gathering repo provider information #49\n\n * Getting ownerName and repoName from clone URL.\n * Setting GitLab server and GitHub API from clone URL.",
             "hash" : "dd8497034624b12",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "dd8497034624b125e9ac242ab5cf8c6374b4d295"
           } ]
         } ],
@@ -895,6 +936,7 @@ context:
       "message" : "Adjustments after merge of #47\n\n * Using the Date data type instead of String to supply ignoreCommitsOlderThan.\n * Making ignoreCommits more effective.\n * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer.",
       "hash" : "121e65493ec764b",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "121e65493ec764b4cf01d35f2cff9a6cb0d64d2b"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -904,6 +946,7 @@ context:
       "message" : "Merge pull request #47 from grandchild/ignoreCommitsOlderThan\n\nAdd ignoreCommitsOlderThan date limiting",
       "hash" : "3b6cf6124370238",
       "merge" : true,
+      "messageNotes" : "",
       "hashFull" : "3b6cf6124370238fed92bb7ff6731fd0b8c73bc4"
     } ],
     "authors" : [ {
@@ -917,6 +960,7 @@ context:
         "message" : "Adjustments after merge of #47\n\n * Using the Date data type instead of String to supply ignoreCommitsOlderThan.\n * Making ignoreCommits more effective.\n * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer.",
         "hash" : "121e65493ec764b",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "121e65493ec764b4cf01d35f2cff9a6cb0d64d2b"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -926,6 +970,7 @@ context:
         "message" : "Merge pull request #47 from grandchild/ignoreCommitsOlderThan\n\nAdd ignoreCommitsOlderThan date limiting",
         "hash" : "3b6cf6124370238",
         "merge" : true,
+        "messageNotes" : "",
         "hashFull" : "3b6cf6124370238fed92bb7ff6731fd0b8c73bc4"
       } ]
     } ],
@@ -938,6 +983,7 @@ context:
         "message" : "Adjustments after merge of #47\n\n * Using the Date data type instead of String to supply ignoreCommitsOlderThan.\n * Making ignoreCommits more effective.\n * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer.",
         "hash" : "121e65493ec764b",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "121e65493ec764b4cf01d35f2cff9a6cb0d64d2b"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -947,6 +993,7 @@ context:
         "message" : "Merge pull request #47 from grandchild/ignoreCommitsOlderThan\n\nAdd ignoreCommitsOlderThan date limiting",
         "hash" : "3b6cf6124370238",
         "merge" : true,
+        "messageNotes" : "",
         "hashFull" : "3b6cf6124370238fed92bb7ff6731fd0b8c73bc4"
       } ],
       "authors" : [ {
@@ -960,6 +1007,7 @@ context:
           "message" : "Adjustments after merge of #47\n\n * Using the Date data type instead of String to supply ignoreCommitsOlderThan.\n * Making ignoreCommits more effective.\n * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer.",
           "hash" : "121e65493ec764b",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "121e65493ec764b4cf01d35f2cff9a6cb0d64d2b"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -969,6 +1017,7 @@ context:
           "message" : "Merge pull request #47 from grandchild/ignoreCommitsOlderThan\n\nAdd ignoreCommitsOlderThan date limiting",
           "hash" : "3b6cf6124370238",
           "merge" : true,
+          "messageNotes" : "",
           "hashFull" : "3b6cf6124370238fed92bb7ff6731fd0b8c73bc4"
         } ]
       } ],
@@ -1001,6 +1050,7 @@ context:
           "message" : "Adjustments after merge of #47\n\n * Using the Date data type instead of String to supply ignoreCommitsOlderThan.\n * Making ignoreCommits more effective.\n * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer.",
           "hash" : "121e65493ec764b",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "121e65493ec764b4cf01d35f2cff9a6cb0d64d2b"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1010,6 +1060,7 @@ context:
           "message" : "Merge pull request #47 from grandchild/ignoreCommitsOlderThan\n\nAdd ignoreCommitsOlderThan date limiting",
           "hash" : "3b6cf6124370238",
           "merge" : true,
+          "messageNotes" : "",
           "hashFull" : "3b6cf6124370238fed92bb7ff6731fd0b8c73bc4"
         } ],
         "authors" : [ {
@@ -1023,6 +1074,7 @@ context:
             "message" : "Adjustments after merge of #47\n\n * Using the Date data type instead of String to supply ignoreCommitsOlderThan.\n * Making ignoreCommits more effective.\n * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer.",
             "hash" : "121e65493ec764b",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "121e65493ec764b4cf01d35f2cff9a6cb0d64d2b"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -1032,6 +1084,7 @@ context:
             "message" : "Merge pull request #47 from grandchild/ignoreCommitsOlderThan\n\nAdd ignoreCommitsOlderThan date limiting",
             "hash" : "3b6cf6124370238",
             "merge" : true,
+            "messageNotes" : "",
             "hashFull" : "3b6cf6124370238fed92bb7ff6731fd0b8c73bc4"
           } ]
         } ],
@@ -1071,6 +1124,7 @@ context:
       "message" : "GitLab integration #2\n\n * Adding it to the API.",
       "hash" : "743ab5566d39083",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "743ab5566d39083c51b9e96069dc67106cc09042"
     } ],
     "authors" : [ {
@@ -1084,6 +1138,7 @@ context:
         "message" : "GitLab integration #2\n\n * Adding it to the API.",
         "hash" : "743ab5566d39083",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "743ab5566d39083c51b9e96069dc67106cc09042"
       } ]
     } ],
@@ -1096,6 +1151,7 @@ context:
         "message" : "GitLab integration #2\n\n * Adding it to the API.",
         "hash" : "743ab5566d39083",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "743ab5566d39083c51b9e96069dc67106cc09042"
       } ],
       "authors" : [ {
@@ -1109,6 +1165,7 @@ context:
           "message" : "GitLab integration #2\n\n * Adding it to the API.",
           "hash" : "743ab5566d39083",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "743ab5566d39083c51b9e96069dc67106cc09042"
         } ]
       } ],
@@ -1141,6 +1198,7 @@ context:
           "message" : "GitLab integration #2\n\n * Adding it to the API.",
           "hash" : "743ab5566d39083",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "743ab5566d39083c51b9e96069dc67106cc09042"
         } ],
         "authors" : [ {
@@ -1154,6 +1212,7 @@ context:
             "message" : "GitLab integration #2\n\n * Adding it to the API.",
             "hash" : "743ab5566d39083",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "743ab5566d39083c51b9e96069dc67106cc09042"
           } ]
         } ],
@@ -1193,6 +1252,7 @@ context:
       "message" : "GitLab integration #42",
       "hash" : "eb3d1ee8a5ed370",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "eb3d1ee8a5ed3709e085e9defb5aa056b208290d"
     } ],
     "authors" : [ {
@@ -1206,6 +1266,7 @@ context:
         "message" : "GitLab integration #42",
         "hash" : "eb3d1ee8a5ed370",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "eb3d1ee8a5ed3709e085e9defb5aa056b208290d"
       } ]
     } ],
@@ -1218,6 +1279,7 @@ context:
         "message" : "GitLab integration #42",
         "hash" : "eb3d1ee8a5ed370",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "eb3d1ee8a5ed3709e085e9defb5aa056b208290d"
       } ],
       "authors" : [ {
@@ -1231,6 +1293,7 @@ context:
           "message" : "GitLab integration #42",
           "hash" : "eb3d1ee8a5ed370",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "eb3d1ee8a5ed3709e085e9defb5aa056b208290d"
         } ]
       } ],
@@ -1263,6 +1326,7 @@ context:
           "message" : "GitLab integration #42",
           "hash" : "eb3d1ee8a5ed370",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "eb3d1ee8a5ed3709e085e9defb5aa056b208290d"
         } ],
         "authors" : [ {
@@ -1276,6 +1340,7 @@ context:
             "message" : "GitLab integration #42",
             "hash" : "eb3d1ee8a5ed370",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "eb3d1ee8a5ed3709e085e9defb5aa056b208290d"
           } ]
         } ],
@@ -1315,6 +1380,7 @@ context:
       "message" : "Adding issueType and labels attributes #40",
       "hash" : "6db44d44152f5da",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "6db44d44152f5da329af7f0d591736db53fcf8de"
     } ],
     "authors" : [ {
@@ -1328,6 +1394,7 @@ context:
         "message" : "Adding issueType and labels attributes #40",
         "hash" : "6db44d44152f5da",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "6db44d44152f5da329af7f0d591736db53fcf8de"
       } ]
     } ],
@@ -1340,6 +1407,7 @@ context:
         "message" : "Adding issueType and labels attributes #40",
         "hash" : "6db44d44152f5da",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "6db44d44152f5da329af7f0d591736db53fcf8de"
       } ],
       "authors" : [ {
@@ -1353,6 +1421,7 @@ context:
           "message" : "Adding issueType and labels attributes #40",
           "hash" : "6db44d44152f5da",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "6db44d44152f5da329af7f0d591736db53fcf8de"
         } ]
       } ],
@@ -1385,6 +1454,7 @@ context:
           "message" : "Adding issueType and labels attributes #40",
           "hash" : "6db44d44152f5da",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "6db44d44152f5da329af7f0d591736db53fcf8de"
         } ],
         "authors" : [ {
@@ -1398,6 +1468,7 @@ context:
             "message" : "Adding issueType and labels attributes #40",
             "hash" : "6db44d44152f5da",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "6db44d44152f5da329af7f0d591736db53fcf8de"
           } ]
         } ],
@@ -1437,6 +1508,7 @@ context:
       "message" : "Adding annotation to context of tag #36",
       "hash" : "ecd852cfa40b0a7",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "ecd852cfa40b0a7a0f944398fcae28407bc9f709"
     } ],
     "authors" : [ {
@@ -1450,6 +1522,7 @@ context:
         "message" : "Adding annotation to context of tag #36",
         "hash" : "ecd852cfa40b0a7",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "ecd852cfa40b0a7a0f944398fcae28407bc9f709"
       } ]
     } ],
@@ -1462,6 +1535,7 @@ context:
         "message" : "Adding annotation to context of tag #36",
         "hash" : "ecd852cfa40b0a7",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "ecd852cfa40b0a7a0f944398fcae28407bc9f709"
       } ],
       "authors" : [ {
@@ -1475,6 +1549,7 @@ context:
           "message" : "Adding annotation to context of tag #36",
           "hash" : "ecd852cfa40b0a7",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "ecd852cfa40b0a7a0f944398fcae28407bc9f709"
         } ]
       } ],
@@ -1507,6 +1582,7 @@ context:
           "message" : "Adding annotation to context of tag #36",
           "hash" : "ecd852cfa40b0a7",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "ecd852cfa40b0a7a0f944398fcae28407bc9f709"
         } ],
         "authors" : [ {
@@ -1520,6 +1596,7 @@ context:
             "message" : "Adding annotation to context of tag #36",
             "hash" : "ecd852cfa40b0a7",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "ecd852cfa40b0a7a0f944398fcae28407bc9f709"
           } ]
         } ],
@@ -1559,6 +1636,7 @@ context:
       "message" : "Adding merge boolean to commits #35",
       "hash" : "2d9189f421254f2",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "2d9189f421254f248e8c8f9792952b6f8aa74664"
     } ],
     "authors" : [ {
@@ -1572,6 +1650,7 @@ context:
         "message" : "Adding merge boolean to commits #35",
         "hash" : "2d9189f421254f2",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "2d9189f421254f248e8c8f9792952b6f8aa74664"
       } ]
     } ],
@@ -1584,6 +1663,7 @@ context:
         "message" : "Adding merge boolean to commits #35",
         "hash" : "2d9189f421254f2",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "2d9189f421254f248e8c8f9792952b6f8aa74664"
       } ],
       "authors" : [ {
@@ -1597,6 +1677,7 @@ context:
           "message" : "Adding merge boolean to commits #35",
           "hash" : "2d9189f421254f2",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "2d9189f421254f248e8c8f9792952b6f8aa74664"
         } ]
       } ],
@@ -1629,6 +1710,7 @@ context:
           "message" : "Adding merge boolean to commits #35",
           "hash" : "2d9189f421254f2",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "2d9189f421254f248e8c8f9792952b6f8aa74664"
         } ],
         "authors" : [ {
@@ -1642,6 +1724,7 @@ context:
             "message" : "Adding merge boolean to commits #35",
             "hash" : "2d9189f421254f2",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "2d9189f421254f248e8c8f9792952b6f8aa74664"
           } ]
         } ],
@@ -1681,6 +1764,7 @@ context:
       "message" : "Fixing testcases after merge of #31",
       "hash" : "50dcd850d6bec5d",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "50dcd850d6bec5defa36b61a14fd7cfe41599d94"
     } ],
     "authors" : [ {
@@ -1694,6 +1778,7 @@ context:
         "message" : "Fixing testcases after merge of #31",
         "hash" : "50dcd850d6bec5d",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "50dcd850d6bec5defa36b61a14fd7cfe41599d94"
       } ]
     } ],
@@ -1706,6 +1791,7 @@ context:
         "message" : "Fixing testcases after merge of #31",
         "hash" : "50dcd850d6bec5d",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "50dcd850d6bec5defa36b61a14fd7cfe41599d94"
       } ],
       "authors" : [ {
@@ -1719,6 +1805,7 @@ context:
           "message" : "Fixing testcases after merge of #31",
           "hash" : "50dcd850d6bec5d",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "50dcd850d6bec5defa36b61a14fd7cfe41599d94"
         } ]
       } ],
@@ -1751,6 +1838,7 @@ context:
           "message" : "Fixing testcases after merge of #31",
           "hash" : "50dcd850d6bec5d",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "50dcd850d6bec5defa36b61a14fd7cfe41599d94"
         } ],
         "authors" : [ {
@@ -1764,6 +1852,7 @@ context:
             "message" : "Fixing testcases after merge of #31",
             "hash" : "50dcd850d6bec5d",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "50dcd850d6bec5defa36b61a14fd7cfe41599d94"
           } ]
         } ],
@@ -1803,6 +1892,7 @@ context:
       "message" : "Adding {{hashFull}} variable with full commit hash #30",
       "hash" : "7fd9971d4c2a30b",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "7fd9971d4c2a30b5ec5b80f4cf3ce1b7da66d505"
     } ],
     "authors" : [ {
@@ -1816,6 +1906,7 @@ context:
         "message" : "Adding {{hashFull}} variable with full commit hash #30",
         "hash" : "7fd9971d4c2a30b",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "7fd9971d4c2a30b5ec5b80f4cf3ce1b7da66d505"
       } ]
     } ],
@@ -1828,6 +1919,7 @@ context:
         "message" : "Adding {{hashFull}} variable with full commit hash #30",
         "hash" : "7fd9971d4c2a30b",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "7fd9971d4c2a30b5ec5b80f4cf3ce1b7da66d505"
       } ],
       "authors" : [ {
@@ -1841,6 +1933,7 @@ context:
           "message" : "Adding {{hashFull}} variable with full commit hash #30",
           "hash" : "7fd9971d4c2a30b",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "7fd9971d4c2a30b5ec5b80f4cf3ce1b7da66d505"
         } ]
       } ],
@@ -1873,6 +1966,7 @@ context:
           "message" : "Adding {{hashFull}} variable with full commit hash #30",
           "hash" : "7fd9971d4c2a30b",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "7fd9971d4c2a30b5ec5b80f4cf3ce1b7da66d505"
         } ],
         "authors" : [ {
@@ -1886,6 +1980,7 @@ context:
             "message" : "Adding {{hashFull}} variable with full commit hash #30",
             "hash" : "7fd9971d4c2a30b",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "7fd9971d4c2a30b5ec5b80f4cf3ce1b7da66d505"
           } ]
         } ],
@@ -1925,6 +2020,7 @@ context:
       "message" : "Allowing master branch to be absent #28",
       "hash" : "dd4633ba627695d",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "dd4633ba627695db650fc3130825bdf4feacba2b"
     } ],
     "authors" : [ {
@@ -1938,6 +2034,7 @@ context:
         "message" : "Allowing master branch to be absent #28",
         "hash" : "dd4633ba627695d",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "dd4633ba627695db650fc3130825bdf4feacba2b"
       } ]
     } ],
@@ -1950,6 +2047,7 @@ context:
         "message" : "Allowing master branch to be absent #28",
         "hash" : "dd4633ba627695d",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "dd4633ba627695db650fc3130825bdf4feacba2b"
       } ],
       "authors" : [ {
@@ -1963,6 +2061,7 @@ context:
           "message" : "Allowing master branch to be absent #28",
           "hash" : "dd4633ba627695d",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "dd4633ba627695db650fc3130825bdf4feacba2b"
         } ]
       } ],
@@ -1995,6 +2094,7 @@ context:
           "message" : "Allowing master branch to be absent #28",
           "hash" : "dd4633ba627695d",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "dd4633ba627695db650fc3130825bdf4feacba2b"
         } ],
         "authors" : [ {
@@ -2008,6 +2108,7 @@ context:
             "message" : "Allowing master branch to be absent #28",
             "hash" : "dd4633ba627695d",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "dd4633ba627695db650fc3130825bdf4feacba2b"
           } ]
         } ],
@@ -2047,6 +2148,7 @@ context:
       "message" : "Correcting how to find diffing commits #29",
       "hash" : "717602bef6a4ab1",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "717602bef6a4ab1a9c05a9f07bd7cf197a2700ff"
     } ],
     "authors" : [ {
@@ -2060,6 +2162,7 @@ context:
         "message" : "Correcting how to find diffing commits #29",
         "hash" : "717602bef6a4ab1",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "717602bef6a4ab1a9c05a9f07bd7cf197a2700ff"
       } ]
     } ],
@@ -2072,6 +2175,7 @@ context:
         "message" : "Correcting how to find diffing commits #29",
         "hash" : "717602bef6a4ab1",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "717602bef6a4ab1a9c05a9f07bd7cf197a2700ff"
       } ],
       "authors" : [ {
@@ -2085,6 +2189,7 @@ context:
           "message" : "Correcting how to find diffing commits #29",
           "hash" : "717602bef6a4ab1",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "717602bef6a4ab1a9c05a9f07bd7cf197a2700ff"
         } ]
       } ],
@@ -2117,6 +2222,7 @@ context:
           "message" : "Correcting how to find diffing commits #29",
           "hash" : "717602bef6a4ab1",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "717602bef6a4ab1a9c05a9f07bd7cf197a2700ff"
         } ],
         "authors" : [ {
@@ -2130,6 +2236,7 @@ context:
             "message" : "Correcting how to find diffing commits #29",
             "hash" : "717602bef6a4ab1",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "717602bef6a4ab1a9c05a9f07bd7cf197a2700ff"
           } ]
         } ],
@@ -2169,6 +2276,7 @@ context:
       "message" : "Including commits frmo merges #29",
       "hash" : "a723e0a230e3f38",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a723e0a230e3f38993534349b89043ef78ce6fb9"
     } ],
     "authors" : [ {
@@ -2182,6 +2290,7 @@ context:
         "message" : "Including commits frmo merges #29",
         "hash" : "a723e0a230e3f38",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a723e0a230e3f38993534349b89043ef78ce6fb9"
       } ]
     } ],
@@ -2194,6 +2303,7 @@ context:
         "message" : "Including commits frmo merges #29",
         "hash" : "a723e0a230e3f38",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a723e0a230e3f38993534349b89043ef78ce6fb9"
       } ],
       "authors" : [ {
@@ -2207,6 +2317,7 @@ context:
           "message" : "Including commits frmo merges #29",
           "hash" : "a723e0a230e3f38",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a723e0a230e3f38993534349b89043ef78ce6fb9"
         } ]
       } ],
@@ -2239,6 +2350,7 @@ context:
           "message" : "Including commits frmo merges #29",
           "hash" : "a723e0a230e3f38",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a723e0a230e3f38993534349b89043ef78ce6fb9"
         } ],
         "authors" : [ {
@@ -2252,6 +2364,7 @@ context:
             "message" : "Including commits frmo merges #29",
             "hash" : "a723e0a230e3f38",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "a723e0a230e3f38993534349b89043ef78ce6fb9"
           } ]
         } ],
@@ -2291,6 +2404,7 @@ context:
       "message" : "Finding first commit in repo as parents of HEAD #28\n\n * Was looking at parents of master, which may not exist.",
       "hash" : "87fe4044e587b1b",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "87fe4044e587b1b9e7d04bad370b9fc772955dff"
     } ],
     "authors" : [ {
@@ -2304,6 +2418,7 @@ context:
         "message" : "Finding first commit in repo as parents of HEAD #28\n\n * Was looking at parents of master, which may not exist.",
         "hash" : "87fe4044e587b1b",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "87fe4044e587b1b9e7d04bad370b9fc772955dff"
       } ]
     } ],
@@ -2316,6 +2431,7 @@ context:
         "message" : "Finding first commit in repo as parents of HEAD #28\n\n * Was looking at parents of master, which may not exist.",
         "hash" : "87fe4044e587b1b",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "87fe4044e587b1b9e7d04bad370b9fc772955dff"
       } ],
       "authors" : [ {
@@ -2329,6 +2445,7 @@ context:
           "message" : "Finding first commit in repo as parents of HEAD #28\n\n * Was looking at parents of master, which may not exist.",
           "hash" : "87fe4044e587b1b",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "87fe4044e587b1b9e7d04bad370b9fc772955dff"
         } ]
       } ],
@@ -2361,6 +2478,7 @@ context:
           "message" : "Finding first commit in repo as parents of HEAD #28\n\n * Was looking at parents of master, which may not exist.",
           "hash" : "87fe4044e587b1b",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "87fe4044e587b1b9e7d04bad370b9fc772955dff"
         } ],
         "authors" : [ {
@@ -2374,6 +2492,7 @@ context:
             "message" : "Finding first commit in repo as parents of HEAD #28\n\n * Was looking at parents of master, which may not exist.",
             "hash" : "87fe4044e587b1b",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "87fe4044e587b1b9e7d04bad370b9fc772955dff"
           } ]
         } ],
@@ -2413,6 +2532,7 @@ context:
       "message" : "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them.",
       "hash" : "e3106df640b693b",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
     } ],
     "authors" : [ {
@@ -2426,6 +2546,7 @@ context:
         "message" : "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them.",
         "hash" : "e3106df640b693b",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
       } ]
     } ],
@@ -2438,6 +2559,7 @@ context:
         "message" : "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them.",
         "hash" : "e3106df640b693b",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
       } ],
       "authors" : [ {
@@ -2451,6 +2573,7 @@ context:
           "message" : "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them.",
           "hash" : "e3106df640b693b",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
         } ]
       } ],
@@ -2483,6 +2606,7 @@ context:
           "message" : "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them.",
           "hash" : "e3106df640b693b",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
         } ],
         "authors" : [ {
@@ -2496,6 +2620,7 @@ context:
             "message" : "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them.",
             "hash" : "e3106df640b693b",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
           } ]
         } ],
@@ -2535,6 +2660,7 @@ context:
       "message" : "Parsing commits, oldest first #23\n\n * To avoid random behaviour.",
       "hash" : "9817cdf6a1fbe91",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "9817cdf6a1fbe91af51c6df25fd1247a30524dd7"
     } ],
     "authors" : [ {
@@ -2548,6 +2674,7 @@ context:
         "message" : "Parsing commits, oldest first #23\n\n * To avoid random behaviour.",
         "hash" : "9817cdf6a1fbe91",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "9817cdf6a1fbe91af51c6df25fd1247a30524dd7"
       } ]
     } ],
@@ -2560,6 +2687,7 @@ context:
         "message" : "Parsing commits, oldest first #23\n\n * To avoid random behaviour.",
         "hash" : "9817cdf6a1fbe91",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "9817cdf6a1fbe91af51c6df25fd1247a30524dd7"
       } ],
       "authors" : [ {
@@ -2573,6 +2701,7 @@ context:
           "message" : "Parsing commits, oldest first #23\n\n * To avoid random behaviour.",
           "hash" : "9817cdf6a1fbe91",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "9817cdf6a1fbe91af51c6df25fd1247a30524dd7"
         } ]
       } ],
@@ -2605,6 +2734,7 @@ context:
           "message" : "Parsing commits, oldest first #23\n\n * To avoid random behaviour.",
           "hash" : "9817cdf6a1fbe91",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "9817cdf6a1fbe91af51c6df25fd1247a30524dd7"
         } ],
         "authors" : [ {
@@ -2618,6 +2748,7 @@ context:
             "message" : "Parsing commits, oldest first #23\n\n * To avoid random behaviour.",
             "hash" : "9817cdf6a1fbe91",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "9817cdf6a1fbe91af51c6df25fd1247a30524dd7"
           } ]
         } ],
@@ -2657,6 +2788,7 @@ context:
       "message" : "Traversing commit tree by parents #23\n\n * To find all commits in all tags.",
       "hash" : "9dcba5d33fc2e44",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "9dcba5d33fc2e44bec8f273a6becb6241526a87f"
     } ],
     "authors" : [ {
@@ -2670,6 +2802,7 @@ context:
         "message" : "Traversing commit tree by parents #23\n\n * To find all commits in all tags.",
         "hash" : "9dcba5d33fc2e44",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "9dcba5d33fc2e44bec8f273a6becb6241526a87f"
       } ]
     } ],
@@ -2682,6 +2815,7 @@ context:
         "message" : "Traversing commit tree by parents #23\n\n * To find all commits in all tags.",
         "hash" : "9dcba5d33fc2e44",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "9dcba5d33fc2e44bec8f273a6becb6241526a87f"
       } ],
       "authors" : [ {
@@ -2695,6 +2829,7 @@ context:
           "message" : "Traversing commit tree by parents #23\n\n * To find all commits in all tags.",
           "hash" : "9dcba5d33fc2e44",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "9dcba5d33fc2e44bec8f273a6becb6241526a87f"
         } ]
       } ],
@@ -2727,6 +2862,7 @@ context:
           "message" : "Traversing commit tree by parents #23\n\n * To find all commits in all tags.",
           "hash" : "9dcba5d33fc2e44",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "9dcba5d33fc2e44bec8f273a6becb6241526a87f"
         } ],
         "authors" : [ {
@@ -2740,6 +2876,7 @@ context:
             "message" : "Traversing commit tree by parents #23\n\n * To find all commits in all tags.",
             "hash" : "9dcba5d33fc2e44",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "9dcba5d33fc2e44bec8f273a6becb6241526a87f"
           } ]
         } ],
@@ -2779,6 +2916,7 @@ context:
       "message" : "Adding feature to ignore tags by regexp\n\n * Also testing tag in feature branch #23",
       "hash" : "8166ec7dfd456df",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "8166ec7dfd456dffb58defb8ee3fe98908ed8126"
     } ],
     "authors" : [ {
@@ -2792,6 +2930,7 @@ context:
         "message" : "Adding feature to ignore tags by regexp\n\n * Also testing tag in feature branch #23",
         "hash" : "8166ec7dfd456df",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "8166ec7dfd456dffb58defb8ee3fe98908ed8126"
       } ]
     } ],
@@ -2804,6 +2943,7 @@ context:
         "message" : "Adding feature to ignore tags by regexp\n\n * Also testing tag in feature branch #23",
         "hash" : "8166ec7dfd456df",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "8166ec7dfd456dffb58defb8ee3fe98908ed8126"
       } ],
       "authors" : [ {
@@ -2817,6 +2957,7 @@ context:
           "message" : "Adding feature to ignore tags by regexp\n\n * Also testing tag in feature branch #23",
           "hash" : "8166ec7dfd456df",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "8166ec7dfd456dffb58defb8ee3fe98908ed8126"
         } ]
       } ],
@@ -2849,6 +2990,7 @@ context:
           "message" : "Adding feature to ignore tags by regexp\n\n * Also testing tag in feature branch #23",
           "hash" : "8166ec7dfd456df",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "8166ec7dfd456dffb58defb8ee3fe98908ed8126"
         } ],
         "authors" : [ {
@@ -2862,6 +3004,7 @@ context:
             "message" : "Adding feature to ignore tags by regexp\n\n * Also testing tag in feature branch #23",
             "hash" : "8166ec7dfd456df",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "8166ec7dfd456dffb58defb8ee3fe98908ed8126"
           } ]
         } ],
@@ -2901,6 +3044,7 @@ context:
       "message" : "Removing commits without issue, from tags #19",
       "hash" : "22a2c55c44b6b4d",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "22a2c55c44b6b4dcb99c65a12c498a20a21038b7"
     } ],
     "authors" : [ {
@@ -2914,6 +3058,7 @@ context:
         "message" : "Removing commits without issue, from tags #19",
         "hash" : "22a2c55c44b6b4d",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "22a2c55c44b6b4dcb99c65a12c498a20a21038b7"
       } ]
     } ],
@@ -2926,6 +3071,7 @@ context:
         "message" : "Removing commits without issue, from tags #19",
         "hash" : "22a2c55c44b6b4d",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "22a2c55c44b6b4dcb99c65a12c498a20a21038b7"
       } ],
       "authors" : [ {
@@ -2939,6 +3085,7 @@ context:
           "message" : "Removing commits without issue, from tags #19",
           "hash" : "22a2c55c44b6b4d",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "22a2c55c44b6b4dcb99c65a12c498a20a21038b7"
         } ]
       } ],
@@ -2971,6 +3118,7 @@ context:
           "message" : "Removing commits without issue, from tags #19",
           "hash" : "22a2c55c44b6b4d",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "22a2c55c44b6b4dcb99c65a12c498a20a21038b7"
         } ],
         "authors" : [ {
@@ -2984,6 +3132,7 @@ context:
             "message" : "Removing commits without issue, from tags #19",
             "hash" : "22a2c55c44b6b4d",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "22a2c55c44b6b4dcb99c65a12c498a20a21038b7"
           } ]
         } ],
@@ -3023,6 +3172,7 @@ context:
       "message" : "Ignore commits without issue #19",
       "hash" : "0b70db9921da8dd",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "0b70db9921da8dda660daabf3dfd9d7ae5e8cdfd"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -3032,6 +3182,7 @@ context:
       "message" : "Avoiding adding commit twice in same issue #21",
       "hash" : "414348773e3d658",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "414348773e3d65831896d88384fbcd840b1898c0"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -3041,6 +3192,7 @@ context:
       "message" : "Adding issueTypes in context #19",
       "hash" : "a025adfc759313f",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a025adfc759313fc007d965736d29f8b6d429d4b"
     } ],
     "authors" : [ {
@@ -3054,6 +3206,7 @@ context:
         "message" : "Ignore commits without issue #19",
         "hash" : "0b70db9921da8dd",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "0b70db9921da8dda660daabf3dfd9d7ae5e8cdfd"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -3063,6 +3216,7 @@ context:
         "message" : "Avoiding adding commit twice in same issue #21",
         "hash" : "414348773e3d658",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "414348773e3d65831896d88384fbcd840b1898c0"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -3072,6 +3226,7 @@ context:
         "message" : "Adding issueTypes in context #19",
         "hash" : "a025adfc759313f",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a025adfc759313fc007d965736d29f8b6d429d4b"
       } ]
     } ],
@@ -3084,6 +3239,7 @@ context:
         "message" : "Ignore commits without issue #19",
         "hash" : "0b70db9921da8dd",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "0b70db9921da8dda660daabf3dfd9d7ae5e8cdfd"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -3093,6 +3249,7 @@ context:
         "message" : "Adding issueTypes in context #19",
         "hash" : "a025adfc759313f",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a025adfc759313fc007d965736d29f8b6d429d4b"
       } ],
       "authors" : [ {
@@ -3106,6 +3263,7 @@ context:
           "message" : "Ignore commits without issue #19",
           "hash" : "0b70db9921da8dd",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "0b70db9921da8dda660daabf3dfd9d7ae5e8cdfd"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -3115,6 +3273,7 @@ context:
           "message" : "Adding issueTypes in context #19",
           "hash" : "a025adfc759313f",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a025adfc759313fc007d965736d29f8b6d429d4b"
         } ]
       } ],
@@ -3145,6 +3304,7 @@ context:
         "message" : "Avoiding adding commit twice in same issue #21",
         "hash" : "414348773e3d658",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "414348773e3d65831896d88384fbcd840b1898c0"
       } ],
       "authors" : [ {
@@ -3158,6 +3318,7 @@ context:
           "message" : "Avoiding adding commit twice in same issue #21",
           "hash" : "414348773e3d658",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "414348773e3d65831896d88384fbcd840b1898c0"
         } ]
       } ],
@@ -3190,6 +3351,7 @@ context:
           "message" : "Ignore commits without issue #19",
           "hash" : "0b70db9921da8dd",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "0b70db9921da8dda660daabf3dfd9d7ae5e8cdfd"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -3199,6 +3361,7 @@ context:
           "message" : "Adding issueTypes in context #19",
           "hash" : "a025adfc759313f",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a025adfc759313fc007d965736d29f8b6d429d4b"
         } ],
         "authors" : [ {
@@ -3212,6 +3375,7 @@ context:
             "message" : "Ignore commits without issue #19",
             "hash" : "0b70db9921da8dd",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "0b70db9921da8dda660daabf3dfd9d7ae5e8cdfd"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -3221,6 +3385,7 @@ context:
             "message" : "Adding issueTypes in context #19",
             "hash" : "a025adfc759313f",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "a025adfc759313fc007d965736d29f8b6d429d4b"
           } ]
         } ],
@@ -3251,6 +3416,7 @@ context:
           "message" : "Avoiding adding commit twice in same issue #21",
           "hash" : "414348773e3d658",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "414348773e3d65831896d88384fbcd840b1898c0"
         } ],
         "authors" : [ {
@@ -3264,6 +3430,7 @@ context:
             "message" : "Avoiding adding commit twice in same issue #21",
             "hash" : "414348773e3d658",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "414348773e3d65831896d88384fbcd840b1898c0"
           } ]
         } ],
@@ -3303,6 +3470,7 @@ context:
       "message" : "Logging error if error invoking GitHub API #18",
       "hash" : "a040e51847b4f23",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a040e51847b4f23d560cd9d78ecd360beee7e0e6"
     } ],
     "authors" : [ {
@@ -3316,6 +3484,7 @@ context:
         "message" : "Logging error if error invoking GitHub API #18",
         "hash" : "a040e51847b4f23",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a040e51847b4f23d560cd9d78ecd360beee7e0e6"
       } ]
     } ],
@@ -3328,6 +3497,7 @@ context:
         "message" : "Logging error if error invoking GitHub API #18",
         "hash" : "a040e51847b4f23",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a040e51847b4f23d560cd9d78ecd360beee7e0e6"
       } ],
       "authors" : [ {
@@ -3341,6 +3511,7 @@ context:
           "message" : "Logging error if error invoking GitHub API #18",
           "hash" : "a040e51847b4f23",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a040e51847b4f23d560cd9d78ecd360beee7e0e6"
         } ]
       } ],
@@ -3373,6 +3544,7 @@ context:
           "message" : "Logging error if error invoking GitHub API #18",
           "hash" : "a040e51847b4f23",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a040e51847b4f23d560cd9d78ecd360beee7e0e6"
         } ],
         "authors" : [ {
@@ -3386,6 +3558,7 @@ context:
             "message" : "Logging error if error invoking GitHub API #18",
             "hash" : "a040e51847b4f23",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "a040e51847b4f23d560cd9d78ecd360beee7e0e6"
           } ]
         } ],
@@ -3425,6 +3598,7 @@ context:
       "message" : "Introducing custom exceptions\n\n * Also fixing some issues from PR #18. Removing duplicate Gson, System.out, throwing exceptions.",
       "hash" : "4cb3f757f8a6b9f",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "4cb3f757f8a6b9f9c8aa6dc7e88618fa90d6841f"
     }, {
       "authorName" : "Jonas Kalderstam",
@@ -3434,6 +3608,7 @@ context:
       "message" : "Migrate GitHub REST-API to RetroFit library\n\nAdded auth-token support for GitHub, fixes #10\nAdded pagination support for GitHub, fixes #15",
       "hash" : "d29029a38fad6a4",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "d29029a38fad6a48bb8c6c5c39c01a69502be6c6"
     } ],
     "authors" : [ {
@@ -3447,6 +3622,7 @@ context:
         "message" : "Introducing custom exceptions\n\n * Also fixing some issues from PR #18. Removing duplicate Gson, System.out, throwing exceptions.",
         "hash" : "4cb3f757f8a6b9f",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "4cb3f757f8a6b9f9c8aa6dc7e88618fa90d6841f"
       } ]
     }, {
@@ -3460,6 +3636,7 @@ context:
         "message" : "Migrate GitHub REST-API to RetroFit library\n\nAdded auth-token support for GitHub, fixes #10\nAdded pagination support for GitHub, fixes #15",
         "hash" : "d29029a38fad6a4",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "d29029a38fad6a48bb8c6c5c39c01a69502be6c6"
       } ]
     } ],
@@ -3472,6 +3649,7 @@ context:
         "message" : "Migrate GitHub REST-API to RetroFit library\n\nAdded auth-token support for GitHub, fixes #10\nAdded pagination support for GitHub, fixes #15",
         "hash" : "d29029a38fad6a4",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "d29029a38fad6a48bb8c6c5c39c01a69502be6c6"
       } ],
       "authors" : [ {
@@ -3485,6 +3663,7 @@ context:
           "message" : "Migrate GitHub REST-API to RetroFit library\n\nAdded auth-token support for GitHub, fixes #10\nAdded pagination support for GitHub, fixes #15",
           "hash" : "d29029a38fad6a4",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "d29029a38fad6a48bb8c6c5c39c01a69502be6c6"
         } ]
       } ],
@@ -3515,6 +3694,7 @@ context:
         "message" : "Migrate GitHub REST-API to RetroFit library\n\nAdded auth-token support for GitHub, fixes #10\nAdded pagination support for GitHub, fixes #15",
         "hash" : "d29029a38fad6a4",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "d29029a38fad6a48bb8c6c5c39c01a69502be6c6"
       } ],
       "authors" : [ {
@@ -3528,6 +3708,7 @@ context:
           "message" : "Migrate GitHub REST-API to RetroFit library\n\nAdded auth-token support for GitHub, fixes #10\nAdded pagination support for GitHub, fixes #15",
           "hash" : "d29029a38fad6a4",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "d29029a38fad6a48bb8c6c5c39c01a69502be6c6"
         } ]
       } ],
@@ -3558,6 +3739,7 @@ context:
         "message" : "Introducing custom exceptions\n\n * Also fixing some issues from PR #18. Removing duplicate Gson, System.out, throwing exceptions.",
         "hash" : "4cb3f757f8a6b9f",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "4cb3f757f8a6b9f9c8aa6dc7e88618fa90d6841f"
       } ],
       "authors" : [ {
@@ -3571,6 +3753,7 @@ context:
           "message" : "Introducing custom exceptions\n\n * Also fixing some issues from PR #18. Removing duplicate Gson, System.out, throwing exceptions.",
           "hash" : "4cb3f757f8a6b9f",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "4cb3f757f8a6b9f9c8aa6dc7e88618fa90d6841f"
         } ]
       } ],
@@ -3603,6 +3786,7 @@ context:
           "message" : "Migrate GitHub REST-API to RetroFit library\n\nAdded auth-token support for GitHub, fixes #10\nAdded pagination support for GitHub, fixes #15",
           "hash" : "d29029a38fad6a4",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "d29029a38fad6a48bb8c6c5c39c01a69502be6c6"
         } ],
         "authors" : [ {
@@ -3616,6 +3800,7 @@ context:
             "message" : "Migrate GitHub REST-API to RetroFit library\n\nAdded auth-token support for GitHub, fixes #10\nAdded pagination support for GitHub, fixes #15",
             "hash" : "d29029a38fad6a4",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "d29029a38fad6a48bb8c6c5c39c01a69502be6c6"
           } ]
         } ],
@@ -3646,6 +3831,7 @@ context:
           "message" : "Migrate GitHub REST-API to RetroFit library\n\nAdded auth-token support for GitHub, fixes #10\nAdded pagination support for GitHub, fixes #15",
           "hash" : "d29029a38fad6a4",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "d29029a38fad6a48bb8c6c5c39c01a69502be6c6"
         } ],
         "authors" : [ {
@@ -3659,6 +3845,7 @@ context:
             "message" : "Migrate GitHub REST-API to RetroFit library\n\nAdded auth-token support for GitHub, fixes #10\nAdded pagination support for GitHub, fixes #15",
             "hash" : "d29029a38fad6a4",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "d29029a38fad6a48bb8c6c5c39c01a69502be6c6"
           } ]
         } ],
@@ -3689,6 +3876,7 @@ context:
           "message" : "Introducing custom exceptions\n\n * Also fixing some issues from PR #18. Removing duplicate Gson, System.out, throwing exceptions.",
           "hash" : "4cb3f757f8a6b9f",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "4cb3f757f8a6b9f9c8aa6dc7e88618fa90d6841f"
         } ],
         "authors" : [ {
@@ -3702,6 +3890,7 @@ context:
             "message" : "Introducing custom exceptions\n\n * Also fixing some issues from PR #18. Removing duplicate Gson, System.out, throwing exceptions.",
             "hash" : "4cb3f757f8a6b9f",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "4cb3f757f8a6b9f9c8aa6dc7e88618fa90d6841f"
           } ]
         } ],
@@ -3741,6 +3930,7 @@ context:
       "message" : "Supplying commit in each issue mentioned in message #16",
       "hash" : "102431686668a6c",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "102431686668a6cf8edf70024e2d636523f30214"
     } ],
     "authors" : [ {
@@ -3754,6 +3944,7 @@ context:
         "message" : "Supplying commit in each issue mentioned in message #16",
         "hash" : "102431686668a6c",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "102431686668a6cf8edf70024e2d636523f30214"
       } ]
     } ],
@@ -3766,6 +3957,7 @@ context:
         "message" : "Supplying commit in each issue mentioned in message #16",
         "hash" : "102431686668a6c",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "102431686668a6cf8edf70024e2d636523f30214"
       } ],
       "authors" : [ {
@@ -3779,6 +3971,7 @@ context:
           "message" : "Supplying commit in each issue mentioned in message #16",
           "hash" : "102431686668a6c",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "102431686668a6cf8edf70024e2d636523f30214"
         } ]
       } ],
@@ -3811,6 +4004,7 @@ context:
           "message" : "Supplying commit in each issue mentioned in message #16",
           "hash" : "102431686668a6c",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "102431686668a6cf8edf70024e2d636523f30214"
         } ],
         "authors" : [ {
@@ -3824,6 +4018,7 @@ context:
             "message" : "Supplying commit in each issue mentioned in message #16",
             "hash" : "102431686668a6c",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "102431686668a6cf8edf70024e2d636523f30214"
           } ]
         } ],
@@ -3863,6 +4058,7 @@ context:
       "message" : "Rewriting GitRepo to make it faster #13",
       "hash" : "60811d245d20669",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "60811d245d206697550336e88380253aa41bd4e7"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -3872,6 +4068,7 @@ context:
       "message" : "Identified performance issue as GitRepo:getTags() #13\n\n * Updating performance test to reveal it.",
       "hash" : "be9fb93023f13ad",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "be9fb93023f13ad5f2e00b3f32804437fef45238"
     } ],
     "authors" : [ {
@@ -3885,6 +4082,7 @@ context:
         "message" : "Rewriting GitRepo to make it faster #13",
         "hash" : "60811d245d20669",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "60811d245d206697550336e88380253aa41bd4e7"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -3894,6 +4092,7 @@ context:
         "message" : "Identified performance issue as GitRepo:getTags() #13\n\n * Updating performance test to reveal it.",
         "hash" : "be9fb93023f13ad",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "be9fb93023f13ad5f2e00b3f32804437fef45238"
       } ]
     } ],
@@ -3906,6 +4105,7 @@ context:
         "message" : "Rewriting GitRepo to make it faster #13",
         "hash" : "60811d245d20669",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "60811d245d206697550336e88380253aa41bd4e7"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -3915,6 +4115,7 @@ context:
         "message" : "Identified performance issue as GitRepo:getTags() #13\n\n * Updating performance test to reveal it.",
         "hash" : "be9fb93023f13ad",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "be9fb93023f13ad5f2e00b3f32804437fef45238"
       } ],
       "authors" : [ {
@@ -3928,6 +4129,7 @@ context:
           "message" : "Rewriting GitRepo to make it faster #13",
           "hash" : "60811d245d20669",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "60811d245d206697550336e88380253aa41bd4e7"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -3937,6 +4139,7 @@ context:
           "message" : "Identified performance issue as GitRepo:getTags() #13\n\n * Updating performance test to reveal it.",
           "hash" : "be9fb93023f13ad",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "be9fb93023f13ad5f2e00b3f32804437fef45238"
         } ]
       } ],
@@ -3969,6 +4172,7 @@ context:
           "message" : "Rewriting GitRepo to make it faster #13",
           "hash" : "60811d245d20669",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "60811d245d206697550336e88380253aa41bd4e7"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -3978,6 +4182,7 @@ context:
           "message" : "Identified performance issue as GitRepo:getTags() #13\n\n * Updating performance test to reveal it.",
           "hash" : "be9fb93023f13ad",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "be9fb93023f13ad5f2e00b3f32804437fef45238"
         } ],
         "authors" : [ {
@@ -3991,6 +4196,7 @@ context:
             "message" : "Rewriting GitRepo to make it faster #13",
             "hash" : "60811d245d20669",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "60811d245d206697550336e88380253aa41bd4e7"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -4000,6 +4206,7 @@ context:
             "message" : "Identified performance issue as GitRepo:getTags() #13\n\n * Updating performance test to reveal it.",
             "hash" : "be9fb93023f13ad",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "be9fb93023f13ad5f2e00b3f32804437fef45238"
           } ]
         } ],
@@ -4039,6 +4246,7 @@ context:
       "message" : "Letting JGit determine new commits between refs #13\n\n * Also changing changelog template.\n * Also trimming messageTitle variable.",
       "hash" : "5b307bd00b47e83",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "5b307bd00b47e8397ccc1da3441e5a955de739ba"
     } ],
     "authors" : [ {
@@ -4052,6 +4260,7 @@ context:
         "message" : "Letting JGit determine new commits between refs #13\n\n * Also changing changelog template.\n * Also trimming messageTitle variable.",
         "hash" : "5b307bd00b47e83",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "5b307bd00b47e8397ccc1da3441e5a955de739ba"
       } ]
     } ],
@@ -4064,6 +4273,7 @@ context:
         "message" : "Letting JGit determine new commits between refs #13\n\n * Also changing changelog template.\n * Also trimming messageTitle variable.",
         "hash" : "5b307bd00b47e83",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "5b307bd00b47e8397ccc1da3441e5a955de739ba"
       } ],
       "authors" : [ {
@@ -4077,6 +4287,7 @@ context:
           "message" : "Letting JGit determine new commits between refs #13\n\n * Also changing changelog template.\n * Also trimming messageTitle variable.",
           "hash" : "5b307bd00b47e83",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "5b307bd00b47e8397ccc1da3441e5a955de739ba"
         } ]
       } ],
@@ -4109,6 +4320,7 @@ context:
           "message" : "Letting JGit determine new commits between refs #13\n\n * Also changing changelog template.\n * Also trimming messageTitle variable.",
           "hash" : "5b307bd00b47e83",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "5b307bd00b47e8397ccc1da3441e5a955de739ba"
         } ],
         "authors" : [ {
@@ -4122,6 +4334,7 @@ context:
             "message" : "Letting JGit determine new commits between refs #13\n\n * Also changing changelog template.\n * Also trimming messageTitle variable.",
             "hash" : "5b307bd00b47e83",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "5b307bd00b47e8397ccc1da3441e5a955de739ba"
           } ]
         } ],
@@ -4161,6 +4374,7 @@ context:
       "message" : "Removing command line code #11",
       "hash" : "a7b20fdea564ff2",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a7b20fdea564ff26036dfa23e16f0b955dfbafb6"
     } ],
     "authors" : [ {
@@ -4174,6 +4388,7 @@ context:
         "message" : "Removing command line code #11",
         "hash" : "a7b20fdea564ff2",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a7b20fdea564ff26036dfa23e16f0b955dfbafb6"
       } ]
     } ],
@@ -4186,6 +4401,7 @@ context:
         "message" : "Removing command line code #11",
         "hash" : "a7b20fdea564ff2",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a7b20fdea564ff26036dfa23e16f0b955dfbafb6"
       } ],
       "authors" : [ {
@@ -4199,6 +4415,7 @@ context:
           "message" : "Removing command line code #11",
           "hash" : "a7b20fdea564ff2",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a7b20fdea564ff26036dfa23e16f0b955dfbafb6"
         } ]
       } ],
@@ -4231,6 +4448,7 @@ context:
           "message" : "Removing command line code #11",
           "hash" : "a7b20fdea564ff2",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a7b20fdea564ff26036dfa23e16f0b955dfbafb6"
         } ],
         "authors" : [ {
@@ -4244,6 +4462,7 @@ context:
             "message" : "Removing command line code #11",
             "hash" : "a7b20fdea564ff2",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "a7b20fdea564ff26036dfa23e16f0b955dfbafb6"
           } ]
         } ],
@@ -4283,6 +4502,7 @@ context:
       "message" : "Integrating with Jira #3",
       "hash" : "30a1095331ded15",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "30a1095331ded155b1bf6ee3f1d29b41628e4eed"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -4292,6 +4512,7 @@ context:
       "message" : "Integrating with GitHub #2",
       "hash" : "45af766856ac703",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "45af766856ac703357e4d31ea78e0de4e25f51d8"
     } ],
     "authors" : [ {
@@ -4305,6 +4526,7 @@ context:
         "message" : "Integrating with Jira #3",
         "hash" : "30a1095331ded15",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "30a1095331ded155b1bf6ee3f1d29b41628e4eed"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -4314,6 +4536,7 @@ context:
         "message" : "Integrating with GitHub #2",
         "hash" : "45af766856ac703",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "45af766856ac703357e4d31ea78e0de4e25f51d8"
       } ]
     } ],
@@ -4326,6 +4549,7 @@ context:
         "message" : "Integrating with GitHub #2",
         "hash" : "45af766856ac703",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "45af766856ac703357e4d31ea78e0de4e25f51d8"
       } ],
       "authors" : [ {
@@ -4339,6 +4563,7 @@ context:
           "message" : "Integrating with GitHub #2",
           "hash" : "45af766856ac703",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "45af766856ac703357e4d31ea78e0de4e25f51d8"
         } ]
       } ],
@@ -4369,6 +4594,7 @@ context:
         "message" : "Integrating with Jira #3",
         "hash" : "30a1095331ded15",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "30a1095331ded155b1bf6ee3f1d29b41628e4eed"
       } ],
       "authors" : [ {
@@ -4382,6 +4608,7 @@ context:
           "message" : "Integrating with Jira #3",
           "hash" : "30a1095331ded15",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "30a1095331ded155b1bf6ee3f1d29b41628e4eed"
         } ]
       } ],
@@ -4414,6 +4641,7 @@ context:
           "message" : "Integrating with GitHub #2",
           "hash" : "45af766856ac703",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "45af766856ac703357e4d31ea78e0de4e25f51d8"
         } ],
         "authors" : [ {
@@ -4427,6 +4655,7 @@ context:
             "message" : "Integrating with GitHub #2",
             "hash" : "45af766856ac703",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "45af766856ac703357e4d31ea78e0de4e25f51d8"
           } ]
         } ],
@@ -4457,6 +4686,7 @@ context:
           "message" : "Integrating with Jira #3",
           "hash" : "30a1095331ded15",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "30a1095331ded155b1bf6ee3f1d29b41628e4eed"
         } ],
         "authors" : [ {
@@ -4470,6 +4700,7 @@ context:
             "message" : "Integrating with Jira #3",
             "hash" : "30a1095331ded15",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "30a1095331ded155b1bf6ee3f1d29b41628e4eed"
           } ]
         } ],
@@ -4509,6 +4740,7 @@ context:
       "message" : "Adding hasIssue hasLink to readme doc #7",
       "hash" : "fbb455921921ddc",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "fbb455921921ddcecad4641cb7f1176293abf026"
     } ],
     "authors" : [ {
@@ -4522,6 +4754,7 @@ context:
         "message" : "Adding hasIssue hasLink to readme doc #7",
         "hash" : "fbb455921921ddc",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "fbb455921921ddcecad4641cb7f1176293abf026"
       } ]
     } ],
@@ -4534,6 +4767,7 @@ context:
         "message" : "Adding hasIssue hasLink to readme doc #7",
         "hash" : "fbb455921921ddc",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "fbb455921921ddcecad4641cb7f1176293abf026"
       } ],
       "authors" : [ {
@@ -4547,6 +4781,7 @@ context:
           "message" : "Adding hasIssue hasLink to readme doc #7",
           "hash" : "fbb455921921ddc",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "fbb455921921ddcecad4641cb7f1176293abf026"
         } ]
       } ],
@@ -4579,6 +4814,7 @@ context:
           "message" : "Adding hasIssue hasLink to readme doc #7",
           "hash" : "fbb455921921ddc",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "fbb455921921ddcecad4641cb7f1176293abf026"
         } ],
         "authors" : [ {
@@ -4592,6 +4828,7 @@ context:
             "message" : "Adding hasIssue hasLink to readme doc #7",
             "hash" : "fbb455921921ddc",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "fbb455921921ddcecad4641cb7f1176293abf026"
           } ]
         } ],
@@ -4631,6 +4868,7 @@ context:
       "message" : "Adding booleans to check if link and/or issue exists in issue #7",
       "hash" : "210e963a07b8a7b",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "210e963a07b8a7bb7cb0190501e9e38095b511a1"
     } ],
     "authors" : [ {
@@ -4644,6 +4882,7 @@ context:
         "message" : "Adding booleans to check if link and/or issue exists in issue #7",
         "hash" : "210e963a07b8a7b",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "210e963a07b8a7bb7cb0190501e9e38095b511a1"
       } ]
     } ],
@@ -4656,6 +4895,7 @@ context:
         "message" : "Adding booleans to check if link and/or issue exists in issue #7",
         "hash" : "210e963a07b8a7b",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "210e963a07b8a7bb7cb0190501e9e38095b511a1"
       } ],
       "authors" : [ {
@@ -4669,6 +4909,7 @@ context:
           "message" : "Adding booleans to check if link and/or issue exists in issue #7",
           "hash" : "210e963a07b8a7b",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "210e963a07b8a7bb7cb0190501e9e38095b511a1"
         } ]
       } ],
@@ -4701,6 +4942,7 @@ context:
           "message" : "Adding booleans to check if link and/or issue exists in issue #7",
           "hash" : "210e963a07b8a7b",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "210e963a07b8a7bb7cb0190501e9e38095b511a1"
         } ],
         "authors" : [ {
@@ -4714,6 +4956,7 @@ context:
             "message" : "Adding booleans to check if link and/or issue exists in issue #7",
             "hash" : "210e963a07b8a7b",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "210e963a07b8a7bb7cb0190501e9e38095b511a1"
           } ]
         } ],
@@ -4753,6 +4996,7 @@ context:
       "message" : "MediaWiki integration #4",
       "hash" : "f45829b2c6a78d7",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "f45829b2c6a78d775fff9735e0f1992d389d7402"
     } ],
     "authors" : [ {
@@ -4766,6 +5010,7 @@ context:
         "message" : "MediaWiki integration #4",
         "hash" : "f45829b2c6a78d7",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "f45829b2c6a78d775fff9735e0f1992d389d7402"
       } ]
     } ],
@@ -4778,6 +5023,7 @@ context:
         "message" : "MediaWiki integration #4",
         "hash" : "f45829b2c6a78d7",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "f45829b2c6a78d775fff9735e0f1992d389d7402"
       } ],
       "authors" : [ {
@@ -4791,6 +5037,7 @@ context:
           "message" : "MediaWiki integration #4",
           "hash" : "f45829b2c6a78d7",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "f45829b2c6a78d775fff9735e0f1992d389d7402"
         } ]
       } ],
@@ -4823,6 +5070,7 @@ context:
           "message" : "MediaWiki integration #4",
           "hash" : "f45829b2c6a78d7",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "f45829b2c6a78d775fff9735e0f1992d389d7402"
         } ],
         "authors" : [ {
@@ -4836,6 +5084,7 @@ context:
             "message" : "MediaWiki integration #4",
             "hash" : "f45829b2c6a78d7",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "f45829b2c6a78d775fff9735e0f1992d389d7402"
           } ]
         } ],
@@ -4876,6 +5125,7 @@ context:
       "message" : "Gathering repo provider information #49\n\n * Getting ownerName and repoName from clone URL.\n * Setting GitLab server and GitHub API from clone URL.",
       "hash" : "dd8497034624b12",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "dd8497034624b125e9ac242ab5cf8c6374b4d295"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -4885,6 +5135,7 @@ context:
       "message" : "Adjustments after merge of #47\n\n * Using the Date data type instead of String to supply ignoreCommitsOlderThan.\n * Making ignoreCommits more effective.\n * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer.",
       "hash" : "121e65493ec764b",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "121e65493ec764b4cf01d35f2cff9a6cb0d64d2b"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -4894,6 +5145,7 @@ context:
       "message" : "Merge pull request #47 from grandchild/ignoreCommitsOlderThan\n\nAdd ignoreCommitsOlderThan date limiting",
       "hash" : "3b6cf6124370238",
       "merge" : true,
+      "messageNotes" : "",
       "hashFull" : "3b6cf6124370238fed92bb7ff6731fd0b8c73bc4"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -4903,6 +5155,7 @@ context:
       "message" : "GitLab integration #2\n\n * Adding it to the API.",
       "hash" : "743ab5566d39083",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "743ab5566d39083c51b9e96069dc67106cc09042"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -4912,6 +5165,7 @@ context:
       "message" : "GitLab integration #42",
       "hash" : "eb3d1ee8a5ed370",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "eb3d1ee8a5ed3709e085e9defb5aa056b208290d"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -4921,6 +5175,7 @@ context:
       "message" : "Adding issueType and labels attributes #40",
       "hash" : "6db44d44152f5da",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "6db44d44152f5da329af7f0d591736db53fcf8de"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -4930,6 +5185,7 @@ context:
       "message" : "Adding annotation to context of tag #36",
       "hash" : "ecd852cfa40b0a7",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "ecd852cfa40b0a7a0f944398fcae28407bc9f709"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -4939,6 +5195,7 @@ context:
       "message" : "Adding merge boolean to commits #35",
       "hash" : "2d9189f421254f2",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "2d9189f421254f248e8c8f9792952b6f8aa74664"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -4948,6 +5205,7 @@ context:
       "message" : "Fixing testcases after merge of #31",
       "hash" : "50dcd850d6bec5d",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "50dcd850d6bec5defa36b61a14fd7cfe41599d94"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -4957,6 +5215,7 @@ context:
       "message" : "Adding {{hashFull}} variable with full commit hash #30",
       "hash" : "7fd9971d4c2a30b",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "7fd9971d4c2a30b5ec5b80f4cf3ce1b7da66d505"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -4966,6 +5225,7 @@ context:
       "message" : "Allowing master branch to be absent #28",
       "hash" : "dd4633ba627695d",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "dd4633ba627695db650fc3130825bdf4feacba2b"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -4975,6 +5235,7 @@ context:
       "message" : "Correcting how to find diffing commits #29",
       "hash" : "717602bef6a4ab1",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "717602bef6a4ab1a9c05a9f07bd7cf197a2700ff"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -4984,6 +5245,7 @@ context:
       "message" : "Including commits frmo merges #29",
       "hash" : "a723e0a230e3f38",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a723e0a230e3f38993534349b89043ef78ce6fb9"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -4993,6 +5255,7 @@ context:
       "message" : "Finding first commit in repo as parents of HEAD #28\n\n * Was looking at parents of master, which may not exist.",
       "hash" : "87fe4044e587b1b",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "87fe4044e587b1b9e7d04bad370b9fc772955dff"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5002,6 +5265,7 @@ context:
       "message" : "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them.",
       "hash" : "e3106df640b693b",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5011,6 +5275,7 @@ context:
       "message" : "Parsing commits, oldest first #23\n\n * To avoid random behaviour.",
       "hash" : "9817cdf6a1fbe91",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "9817cdf6a1fbe91af51c6df25fd1247a30524dd7"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5020,6 +5285,7 @@ context:
       "message" : "Traversing commit tree by parents #23\n\n * To find all commits in all tags.",
       "hash" : "9dcba5d33fc2e44",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "9dcba5d33fc2e44bec8f273a6becb6241526a87f"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5029,6 +5295,7 @@ context:
       "message" : "Adding feature to ignore tags by regexp\n\n * Also testing tag in feature branch #23",
       "hash" : "8166ec7dfd456df",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "8166ec7dfd456dffb58defb8ee3fe98908ed8126"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5038,6 +5305,7 @@ context:
       "message" : "Removing commits without issue, from tags #19",
       "hash" : "22a2c55c44b6b4d",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "22a2c55c44b6b4dcb99c65a12c498a20a21038b7"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5047,6 +5315,7 @@ context:
       "message" : "Ignore commits without issue #19",
       "hash" : "0b70db9921da8dd",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "0b70db9921da8dda660daabf3dfd9d7ae5e8cdfd"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5056,6 +5325,7 @@ context:
       "message" : "Avoiding adding commit twice in same issue #21",
       "hash" : "414348773e3d658",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "414348773e3d65831896d88384fbcd840b1898c0"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5065,6 +5335,7 @@ context:
       "message" : "Adding issueTypes in context #19",
       "hash" : "a025adfc759313f",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a025adfc759313fc007d965736d29f8b6d429d4b"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5074,6 +5345,7 @@ context:
       "message" : "Logging error if error invoking GitHub API #18",
       "hash" : "a040e51847b4f23",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a040e51847b4f23d560cd9d78ecd360beee7e0e6"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5083,6 +5355,7 @@ context:
       "message" : "Introducing custom exceptions\n\n * Also fixing some issues from PR #18. Removing duplicate Gson, System.out, throwing exceptions.",
       "hash" : "4cb3f757f8a6b9f",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "4cb3f757f8a6b9f9c8aa6dc7e88618fa90d6841f"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5092,6 +5365,7 @@ context:
       "message" : "Supplying commit in each issue mentioned in message #16",
       "hash" : "102431686668a6c",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "102431686668a6cf8edf70024e2d636523f30214"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5101,6 +5375,7 @@ context:
       "message" : "Rewriting GitRepo to make it faster #13",
       "hash" : "60811d245d20669",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "60811d245d206697550336e88380253aa41bd4e7"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5110,6 +5385,7 @@ context:
       "message" : "Identified performance issue as GitRepo:getTags() #13\n\n * Updating performance test to reveal it.",
       "hash" : "be9fb93023f13ad",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "be9fb93023f13ad5f2e00b3f32804437fef45238"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5119,6 +5395,7 @@ context:
       "message" : "Letting JGit determine new commits between refs #13\n\n * Also changing changelog template.\n * Also trimming messageTitle variable.",
       "hash" : "5b307bd00b47e83",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "5b307bd00b47e8397ccc1da3441e5a955de739ba"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5128,6 +5405,7 @@ context:
       "message" : "Removing command line code #11",
       "hash" : "a7b20fdea564ff2",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a7b20fdea564ff26036dfa23e16f0b955dfbafb6"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5137,6 +5415,7 @@ context:
       "message" : "Integrating with Jira #3",
       "hash" : "30a1095331ded15",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "30a1095331ded155b1bf6ee3f1d29b41628e4eed"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5146,6 +5425,7 @@ context:
       "message" : "Integrating with GitHub #2",
       "hash" : "45af766856ac703",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "45af766856ac703357e4d31ea78e0de4e25f51d8"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5155,6 +5435,7 @@ context:
       "message" : "Adding hasIssue hasLink to readme doc #7",
       "hash" : "fbb455921921ddc",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "fbb455921921ddcecad4641cb7f1176293abf026"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5164,6 +5445,7 @@ context:
       "message" : "Adding booleans to check if link and/or issue exists in issue #7",
       "hash" : "210e963a07b8a7b",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "210e963a07b8a7bb7cb0190501e9e38095b511a1"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5173,6 +5455,7 @@ context:
       "message" : "MediaWiki integration #4",
       "hash" : "f45829b2c6a78d7",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "f45829b2c6a78d775fff9735e0f1992d389d7402"
     } ]
   }, {
@@ -5186,6 +5469,7 @@ context:
       "message" : "Migrate GitHub REST-API to RetroFit library\n\nAdded auth-token support for GitHub, fixes #10\nAdded pagination support for GitHub, fixes #15",
       "hash" : "d29029a38fad6a4",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "d29029a38fad6a48bb8c6c5c39c01a69502be6c6"
     } ]
   } ],
@@ -5198,6 +5482,7 @@ context:
       "message" : "Migrate GitHub REST-API to RetroFit library\n\nAdded auth-token support for GitHub, fixes #10\nAdded pagination support for GitHub, fixes #15",
       "hash" : "d29029a38fad6a4",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "d29029a38fad6a48bb8c6c5c39c01a69502be6c6"
     } ],
     "authors" : [ {
@@ -5211,6 +5496,7 @@ context:
         "message" : "Migrate GitHub REST-API to RetroFit library\n\nAdded auth-token support for GitHub, fixes #10\nAdded pagination support for GitHub, fixes #15",
         "hash" : "d29029a38fad6a4",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "d29029a38fad6a48bb8c6c5c39c01a69502be6c6"
       } ]
     } ],
@@ -5241,6 +5527,7 @@ context:
       "message" : "Removing command line code #11",
       "hash" : "a7b20fdea564ff2",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a7b20fdea564ff26036dfa23e16f0b955dfbafb6"
     } ],
     "authors" : [ {
@@ -5254,6 +5541,7 @@ context:
         "message" : "Removing command line code #11",
         "hash" : "a7b20fdea564ff2",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a7b20fdea564ff26036dfa23e16f0b955dfbafb6"
       } ]
     } ],
@@ -5284,6 +5572,7 @@ context:
       "message" : "Rewriting GitRepo to make it faster #13",
       "hash" : "60811d245d20669",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "60811d245d206697550336e88380253aa41bd4e7"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5293,6 +5582,7 @@ context:
       "message" : "Identified performance issue as GitRepo:getTags() #13\n\n * Updating performance test to reveal it.",
       "hash" : "be9fb93023f13ad",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "be9fb93023f13ad5f2e00b3f32804437fef45238"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5302,6 +5592,7 @@ context:
       "message" : "Letting JGit determine new commits between refs #13\n\n * Also changing changelog template.\n * Also trimming messageTitle variable.",
       "hash" : "5b307bd00b47e83",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "5b307bd00b47e8397ccc1da3441e5a955de739ba"
     } ],
     "authors" : [ {
@@ -5315,6 +5606,7 @@ context:
         "message" : "Rewriting GitRepo to make it faster #13",
         "hash" : "60811d245d20669",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "60811d245d206697550336e88380253aa41bd4e7"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -5324,6 +5616,7 @@ context:
         "message" : "Identified performance issue as GitRepo:getTags() #13\n\n * Updating performance test to reveal it.",
         "hash" : "be9fb93023f13ad",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "be9fb93023f13ad5f2e00b3f32804437fef45238"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -5333,6 +5626,7 @@ context:
         "message" : "Letting JGit determine new commits between refs #13\n\n * Also changing changelog template.\n * Also trimming messageTitle variable.",
         "hash" : "5b307bd00b47e83",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "5b307bd00b47e8397ccc1da3441e5a955de739ba"
       } ]
     } ],
@@ -5363,6 +5657,7 @@ context:
       "message" : "Migrate GitHub REST-API to RetroFit library\n\nAdded auth-token support for GitHub, fixes #10\nAdded pagination support for GitHub, fixes #15",
       "hash" : "d29029a38fad6a4",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "d29029a38fad6a48bb8c6c5c39c01a69502be6c6"
     } ],
     "authors" : [ {
@@ -5376,6 +5671,7 @@ context:
         "message" : "Migrate GitHub REST-API to RetroFit library\n\nAdded auth-token support for GitHub, fixes #10\nAdded pagination support for GitHub, fixes #15",
         "hash" : "d29029a38fad6a4",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "d29029a38fad6a48bb8c6c5c39c01a69502be6c6"
       } ]
     } ],
@@ -5406,6 +5702,7 @@ context:
       "message" : "Supplying commit in each issue mentioned in message #16",
       "hash" : "102431686668a6c",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "102431686668a6cf8edf70024e2d636523f30214"
     } ],
     "authors" : [ {
@@ -5419,6 +5716,7 @@ context:
         "message" : "Supplying commit in each issue mentioned in message #16",
         "hash" : "102431686668a6c",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "102431686668a6cf8edf70024e2d636523f30214"
       } ]
     } ],
@@ -5449,6 +5747,7 @@ context:
       "message" : "Logging error if error invoking GitHub API #18",
       "hash" : "a040e51847b4f23",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a040e51847b4f23d560cd9d78ecd360beee7e0e6"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5458,6 +5757,7 @@ context:
       "message" : "Introducing custom exceptions\n\n * Also fixing some issues from PR #18. Removing duplicate Gson, System.out, throwing exceptions.",
       "hash" : "4cb3f757f8a6b9f",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "4cb3f757f8a6b9f9c8aa6dc7e88618fa90d6841f"
     } ],
     "authors" : [ {
@@ -5471,6 +5771,7 @@ context:
         "message" : "Logging error if error invoking GitHub API #18",
         "hash" : "a040e51847b4f23",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a040e51847b4f23d560cd9d78ecd360beee7e0e6"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -5480,6 +5781,7 @@ context:
         "message" : "Introducing custom exceptions\n\n * Also fixing some issues from PR #18. Removing duplicate Gson, System.out, throwing exceptions.",
         "hash" : "4cb3f757f8a6b9f",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "4cb3f757f8a6b9f9c8aa6dc7e88618fa90d6841f"
       } ]
     } ],
@@ -5510,6 +5812,7 @@ context:
       "message" : "Removing commits without issue, from tags #19",
       "hash" : "22a2c55c44b6b4d",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "22a2c55c44b6b4dcb99c65a12c498a20a21038b7"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5519,6 +5822,7 @@ context:
       "message" : "Ignore commits without issue #19",
       "hash" : "0b70db9921da8dd",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "0b70db9921da8dda660daabf3dfd9d7ae5e8cdfd"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5528,6 +5832,7 @@ context:
       "message" : "Adding issueTypes in context #19",
       "hash" : "a025adfc759313f",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a025adfc759313fc007d965736d29f8b6d429d4b"
     } ],
     "authors" : [ {
@@ -5541,6 +5846,7 @@ context:
         "message" : "Removing commits without issue, from tags #19",
         "hash" : "22a2c55c44b6b4d",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "22a2c55c44b6b4dcb99c65a12c498a20a21038b7"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -5550,6 +5856,7 @@ context:
         "message" : "Ignore commits without issue #19",
         "hash" : "0b70db9921da8dd",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "0b70db9921da8dda660daabf3dfd9d7ae5e8cdfd"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -5559,6 +5866,7 @@ context:
         "message" : "Adding issueTypes in context #19",
         "hash" : "a025adfc759313f",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a025adfc759313fc007d965736d29f8b6d429d4b"
       } ]
     } ],
@@ -5589,6 +5897,7 @@ context:
       "message" : "GitLab integration #2\n\n * Adding it to the API.",
       "hash" : "743ab5566d39083",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "743ab5566d39083c51b9e96069dc67106cc09042"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5598,6 +5907,7 @@ context:
       "message" : "Integrating with GitHub #2",
       "hash" : "45af766856ac703",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "45af766856ac703357e4d31ea78e0de4e25f51d8"
     } ],
     "authors" : [ {
@@ -5611,6 +5921,7 @@ context:
         "message" : "GitLab integration #2\n\n * Adding it to the API.",
         "hash" : "743ab5566d39083",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "743ab5566d39083c51b9e96069dc67106cc09042"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -5620,6 +5931,7 @@ context:
         "message" : "Integrating with GitHub #2",
         "hash" : "45af766856ac703",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "45af766856ac703357e4d31ea78e0de4e25f51d8"
       } ]
     } ],
@@ -5650,6 +5962,7 @@ context:
       "message" : "Avoiding adding commit twice in same issue #21",
       "hash" : "414348773e3d658",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "414348773e3d65831896d88384fbcd840b1898c0"
     } ],
     "authors" : [ {
@@ -5663,6 +5976,7 @@ context:
         "message" : "Avoiding adding commit twice in same issue #21",
         "hash" : "414348773e3d658",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "414348773e3d65831896d88384fbcd840b1898c0"
       } ]
     } ],
@@ -5693,6 +6007,7 @@ context:
       "message" : "Parsing commits, oldest first #23\n\n * To avoid random behaviour.",
       "hash" : "9817cdf6a1fbe91",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "9817cdf6a1fbe91af51c6df25fd1247a30524dd7"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5702,6 +6017,7 @@ context:
       "message" : "Traversing commit tree by parents #23\n\n * To find all commits in all tags.",
       "hash" : "9dcba5d33fc2e44",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "9dcba5d33fc2e44bec8f273a6becb6241526a87f"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5711,6 +6027,7 @@ context:
       "message" : "Adding feature to ignore tags by regexp\n\n * Also testing tag in feature branch #23",
       "hash" : "8166ec7dfd456df",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "8166ec7dfd456dffb58defb8ee3fe98908ed8126"
     } ],
     "authors" : [ {
@@ -5724,6 +6041,7 @@ context:
         "message" : "Parsing commits, oldest first #23\n\n * To avoid random behaviour.",
         "hash" : "9817cdf6a1fbe91",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "9817cdf6a1fbe91af51c6df25fd1247a30524dd7"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -5733,6 +6051,7 @@ context:
         "message" : "Traversing commit tree by parents #23\n\n * To find all commits in all tags.",
         "hash" : "9dcba5d33fc2e44",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "9dcba5d33fc2e44bec8f273a6becb6241526a87f"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -5742,6 +6061,7 @@ context:
         "message" : "Adding feature to ignore tags by regexp\n\n * Also testing tag in feature branch #23",
         "hash" : "8166ec7dfd456df",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "8166ec7dfd456dffb58defb8ee3fe98908ed8126"
       } ]
     } ],
@@ -5772,6 +6092,7 @@ context:
       "message" : "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them.",
       "hash" : "e3106df640b693b",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
     } ],
     "authors" : [ {
@@ -5785,6 +6106,7 @@ context:
         "message" : "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them.",
         "hash" : "e3106df640b693b",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
       } ]
     } ],
@@ -5815,6 +6137,7 @@ context:
       "message" : "Allowing master branch to be absent #28",
       "hash" : "dd4633ba627695d",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "dd4633ba627695db650fc3130825bdf4feacba2b"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5824,6 +6147,7 @@ context:
       "message" : "Finding first commit in repo as parents of HEAD #28\n\n * Was looking at parents of master, which may not exist.",
       "hash" : "87fe4044e587b1b",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "87fe4044e587b1b9e7d04bad370b9fc772955dff"
     } ],
     "authors" : [ {
@@ -5837,6 +6161,7 @@ context:
         "message" : "Allowing master branch to be absent #28",
         "hash" : "dd4633ba627695d",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "dd4633ba627695db650fc3130825bdf4feacba2b"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -5846,6 +6171,7 @@ context:
         "message" : "Finding first commit in repo as parents of HEAD #28\n\n * Was looking at parents of master, which may not exist.",
         "hash" : "87fe4044e587b1b",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "87fe4044e587b1b9e7d04bad370b9fc772955dff"
       } ]
     } ],
@@ -5876,6 +6202,7 @@ context:
       "message" : "Correcting how to find diffing commits #29",
       "hash" : "717602bef6a4ab1",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "717602bef6a4ab1a9c05a9f07bd7cf197a2700ff"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -5885,6 +6212,7 @@ context:
       "message" : "Including commits frmo merges #29",
       "hash" : "a723e0a230e3f38",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a723e0a230e3f38993534349b89043ef78ce6fb9"
     } ],
     "authors" : [ {
@@ -5898,6 +6226,7 @@ context:
         "message" : "Correcting how to find diffing commits #29",
         "hash" : "717602bef6a4ab1",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "717602bef6a4ab1a9c05a9f07bd7cf197a2700ff"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -5907,6 +6236,7 @@ context:
         "message" : "Including commits frmo merges #29",
         "hash" : "a723e0a230e3f38",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a723e0a230e3f38993534349b89043ef78ce6fb9"
       } ]
     } ],
@@ -5937,6 +6267,7 @@ context:
       "message" : "Integrating with Jira #3",
       "hash" : "30a1095331ded15",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "30a1095331ded155b1bf6ee3f1d29b41628e4eed"
     } ],
     "authors" : [ {
@@ -5950,6 +6281,7 @@ context:
         "message" : "Integrating with Jira #3",
         "hash" : "30a1095331ded15",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "30a1095331ded155b1bf6ee3f1d29b41628e4eed"
       } ]
     } ],
@@ -5980,6 +6312,7 @@ context:
       "message" : "Adding {{hashFull}} variable with full commit hash #30",
       "hash" : "7fd9971d4c2a30b",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "7fd9971d4c2a30b5ec5b80f4cf3ce1b7da66d505"
     } ],
     "authors" : [ {
@@ -5993,6 +6326,7 @@ context:
         "message" : "Adding {{hashFull}} variable with full commit hash #30",
         "hash" : "7fd9971d4c2a30b",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "7fd9971d4c2a30b5ec5b80f4cf3ce1b7da66d505"
       } ]
     } ],
@@ -6023,6 +6357,7 @@ context:
       "message" : "Fixing testcases after merge of #31",
       "hash" : "50dcd850d6bec5d",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "50dcd850d6bec5defa36b61a14fd7cfe41599d94"
     } ],
     "authors" : [ {
@@ -6036,6 +6371,7 @@ context:
         "message" : "Fixing testcases after merge of #31",
         "hash" : "50dcd850d6bec5d",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "50dcd850d6bec5defa36b61a14fd7cfe41599d94"
       } ]
     } ],
@@ -6066,6 +6402,7 @@ context:
       "message" : "Adding merge boolean to commits #35",
       "hash" : "2d9189f421254f2",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "2d9189f421254f248e8c8f9792952b6f8aa74664"
     } ],
     "authors" : [ {
@@ -6079,6 +6416,7 @@ context:
         "message" : "Adding merge boolean to commits #35",
         "hash" : "2d9189f421254f2",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "2d9189f421254f248e8c8f9792952b6f8aa74664"
       } ]
     } ],
@@ -6109,6 +6447,7 @@ context:
       "message" : "Adding annotation to context of tag #36",
       "hash" : "ecd852cfa40b0a7",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "ecd852cfa40b0a7a0f944398fcae28407bc9f709"
     } ],
     "authors" : [ {
@@ -6122,6 +6461,7 @@ context:
         "message" : "Adding annotation to context of tag #36",
         "hash" : "ecd852cfa40b0a7",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "ecd852cfa40b0a7a0f944398fcae28407bc9f709"
       } ]
     } ],
@@ -6152,6 +6492,7 @@ context:
       "message" : "MediaWiki integration #4",
       "hash" : "f45829b2c6a78d7",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "f45829b2c6a78d775fff9735e0f1992d389d7402"
     } ],
     "authors" : [ {
@@ -6165,6 +6506,7 @@ context:
         "message" : "MediaWiki integration #4",
         "hash" : "f45829b2c6a78d7",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "f45829b2c6a78d775fff9735e0f1992d389d7402"
       } ]
     } ],
@@ -6195,6 +6537,7 @@ context:
       "message" : "Adding issueType and labels attributes #40",
       "hash" : "6db44d44152f5da",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "6db44d44152f5da329af7f0d591736db53fcf8de"
     } ],
     "authors" : [ {
@@ -6208,6 +6551,7 @@ context:
         "message" : "Adding issueType and labels attributes #40",
         "hash" : "6db44d44152f5da",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "6db44d44152f5da329af7f0d591736db53fcf8de"
       } ]
     } ],
@@ -6238,6 +6582,7 @@ context:
       "message" : "GitLab integration #42",
       "hash" : "eb3d1ee8a5ed370",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "eb3d1ee8a5ed3709e085e9defb5aa056b208290d"
     } ],
     "authors" : [ {
@@ -6251,6 +6596,7 @@ context:
         "message" : "GitLab integration #42",
         "hash" : "eb3d1ee8a5ed370",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "eb3d1ee8a5ed3709e085e9defb5aa056b208290d"
       } ]
     } ],
@@ -6281,6 +6627,7 @@ context:
       "message" : "Adjustments after merge of #47\n\n * Using the Date data type instead of String to supply ignoreCommitsOlderThan.\n * Making ignoreCommits more effective.\n * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer.",
       "hash" : "121e65493ec764b",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "121e65493ec764b4cf01d35f2cff9a6cb0d64d2b"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -6290,6 +6637,7 @@ context:
       "message" : "Merge pull request #47 from grandchild/ignoreCommitsOlderThan\n\nAdd ignoreCommitsOlderThan date limiting",
       "hash" : "3b6cf6124370238",
       "merge" : true,
+      "messageNotes" : "",
       "hashFull" : "3b6cf6124370238fed92bb7ff6731fd0b8c73bc4"
     } ],
     "authors" : [ {
@@ -6303,6 +6651,7 @@ context:
         "message" : "Adjustments after merge of #47\n\n * Using the Date data type instead of String to supply ignoreCommitsOlderThan.\n * Making ignoreCommits more effective.\n * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer.",
         "hash" : "121e65493ec764b",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "121e65493ec764b4cf01d35f2cff9a6cb0d64d2b"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -6312,6 +6661,7 @@ context:
         "message" : "Merge pull request #47 from grandchild/ignoreCommitsOlderThan\n\nAdd ignoreCommitsOlderThan date limiting",
         "hash" : "3b6cf6124370238",
         "merge" : true,
+        "messageNotes" : "",
         "hashFull" : "3b6cf6124370238fed92bb7ff6731fd0b8c73bc4"
       } ]
     } ],
@@ -6342,6 +6692,7 @@ context:
       "message" : "Gathering repo provider information #49\n\n * Getting ownerName and repoName from clone URL.\n * Setting GitLab server and GitHub API from clone URL.",
       "hash" : "dd8497034624b12",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "dd8497034624b125e9ac242ab5cf8c6374b4d295"
     } ],
     "authors" : [ {
@@ -6355,6 +6706,7 @@ context:
         "message" : "Gathering repo provider information #49\n\n * Getting ownerName and repoName from clone URL.\n * Setting GitLab server and GitHub API from clone URL.",
         "hash" : "dd8497034624b12",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "dd8497034624b125e9ac242ab5cf8c6374b4d295"
       } ]
     } ],
@@ -6385,6 +6737,7 @@ context:
       "message" : "Adding hasIssue hasLink to readme doc #7",
       "hash" : "fbb455921921ddc",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "fbb455921921ddcecad4641cb7f1176293abf026"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -6394,6 +6747,7 @@ context:
       "message" : "Adding booleans to check if link and/or issue exists in issue #7",
       "hash" : "210e963a07b8a7b",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "210e963a07b8a7bb7cb0190501e9e38095b511a1"
     } ],
     "authors" : [ {
@@ -6407,6 +6761,7 @@ context:
         "message" : "Adding hasIssue hasLink to readme doc #7",
         "hash" : "fbb455921921ddc",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "fbb455921921ddcecad4641cb7f1176293abf026"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -6416,6 +6771,7 @@ context:
         "message" : "Adding booleans to check if link and/or issue exists in issue #7",
         "hash" : "210e963a07b8a7b",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "210e963a07b8a7bb7cb0190501e9e38095b511a1"
       } ]
     } ],
@@ -6448,6 +6804,7 @@ context:
         "message" : "Migrate GitHub REST-API to RetroFit library\n\nAdded auth-token support for GitHub, fixes #10\nAdded pagination support for GitHub, fixes #15",
         "hash" : "d29029a38fad6a4",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "d29029a38fad6a48bb8c6c5c39c01a69502be6c6"
       } ],
       "authors" : [ {
@@ -6461,6 +6818,7 @@ context:
           "message" : "Migrate GitHub REST-API to RetroFit library\n\nAdded auth-token support for GitHub, fixes #10\nAdded pagination support for GitHub, fixes #15",
           "hash" : "d29029a38fad6a4",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "d29029a38fad6a48bb8c6c5c39c01a69502be6c6"
         } ]
       } ],
@@ -6491,6 +6849,7 @@ context:
         "message" : "Removing command line code #11",
         "hash" : "a7b20fdea564ff2",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a7b20fdea564ff26036dfa23e16f0b955dfbafb6"
       } ],
       "authors" : [ {
@@ -6504,6 +6863,7 @@ context:
           "message" : "Removing command line code #11",
           "hash" : "a7b20fdea564ff2",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a7b20fdea564ff26036dfa23e16f0b955dfbafb6"
         } ]
       } ],
@@ -6534,6 +6894,7 @@ context:
         "message" : "Rewriting GitRepo to make it faster #13",
         "hash" : "60811d245d20669",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "60811d245d206697550336e88380253aa41bd4e7"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -6543,6 +6904,7 @@ context:
         "message" : "Identified performance issue as GitRepo:getTags() #13\n\n * Updating performance test to reveal it.",
         "hash" : "be9fb93023f13ad",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "be9fb93023f13ad5f2e00b3f32804437fef45238"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -6552,6 +6914,7 @@ context:
         "message" : "Letting JGit determine new commits between refs #13\n\n * Also changing changelog template.\n * Also trimming messageTitle variable.",
         "hash" : "5b307bd00b47e83",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "5b307bd00b47e8397ccc1da3441e5a955de739ba"
       } ],
       "authors" : [ {
@@ -6565,6 +6928,7 @@ context:
           "message" : "Rewriting GitRepo to make it faster #13",
           "hash" : "60811d245d20669",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "60811d245d206697550336e88380253aa41bd4e7"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -6574,6 +6938,7 @@ context:
           "message" : "Identified performance issue as GitRepo:getTags() #13\n\n * Updating performance test to reveal it.",
           "hash" : "be9fb93023f13ad",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "be9fb93023f13ad5f2e00b3f32804437fef45238"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -6583,6 +6948,7 @@ context:
           "message" : "Letting JGit determine new commits between refs #13\n\n * Also changing changelog template.\n * Also trimming messageTitle variable.",
           "hash" : "5b307bd00b47e83",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "5b307bd00b47e8397ccc1da3441e5a955de739ba"
         } ]
       } ],
@@ -6613,6 +6979,7 @@ context:
         "message" : "Migrate GitHub REST-API to RetroFit library\n\nAdded auth-token support for GitHub, fixes #10\nAdded pagination support for GitHub, fixes #15",
         "hash" : "d29029a38fad6a4",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "d29029a38fad6a48bb8c6c5c39c01a69502be6c6"
       } ],
       "authors" : [ {
@@ -6626,6 +6993,7 @@ context:
           "message" : "Migrate GitHub REST-API to RetroFit library\n\nAdded auth-token support for GitHub, fixes #10\nAdded pagination support for GitHub, fixes #15",
           "hash" : "d29029a38fad6a4",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "d29029a38fad6a48bb8c6c5c39c01a69502be6c6"
         } ]
       } ],
@@ -6656,6 +7024,7 @@ context:
         "message" : "Supplying commit in each issue mentioned in message #16",
         "hash" : "102431686668a6c",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "102431686668a6cf8edf70024e2d636523f30214"
       } ],
       "authors" : [ {
@@ -6669,6 +7038,7 @@ context:
           "message" : "Supplying commit in each issue mentioned in message #16",
           "hash" : "102431686668a6c",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "102431686668a6cf8edf70024e2d636523f30214"
         } ]
       } ],
@@ -6699,6 +7069,7 @@ context:
         "message" : "Logging error if error invoking GitHub API #18",
         "hash" : "a040e51847b4f23",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a040e51847b4f23d560cd9d78ecd360beee7e0e6"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -6708,6 +7079,7 @@ context:
         "message" : "Introducing custom exceptions\n\n * Also fixing some issues from PR #18. Removing duplicate Gson, System.out, throwing exceptions.",
         "hash" : "4cb3f757f8a6b9f",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "4cb3f757f8a6b9f9c8aa6dc7e88618fa90d6841f"
       } ],
       "authors" : [ {
@@ -6721,6 +7093,7 @@ context:
           "message" : "Logging error if error invoking GitHub API #18",
           "hash" : "a040e51847b4f23",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a040e51847b4f23d560cd9d78ecd360beee7e0e6"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -6730,6 +7103,7 @@ context:
           "message" : "Introducing custom exceptions\n\n * Also fixing some issues from PR #18. Removing duplicate Gson, System.out, throwing exceptions.",
           "hash" : "4cb3f757f8a6b9f",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "4cb3f757f8a6b9f9c8aa6dc7e88618fa90d6841f"
         } ]
       } ],
@@ -6760,6 +7134,7 @@ context:
         "message" : "Removing commits without issue, from tags #19",
         "hash" : "22a2c55c44b6b4d",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "22a2c55c44b6b4dcb99c65a12c498a20a21038b7"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -6769,6 +7144,7 @@ context:
         "message" : "Ignore commits without issue #19",
         "hash" : "0b70db9921da8dd",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "0b70db9921da8dda660daabf3dfd9d7ae5e8cdfd"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -6778,6 +7154,7 @@ context:
         "message" : "Adding issueTypes in context #19",
         "hash" : "a025adfc759313f",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a025adfc759313fc007d965736d29f8b6d429d4b"
       } ],
       "authors" : [ {
@@ -6791,6 +7168,7 @@ context:
           "message" : "Removing commits without issue, from tags #19",
           "hash" : "22a2c55c44b6b4d",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "22a2c55c44b6b4dcb99c65a12c498a20a21038b7"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -6800,6 +7178,7 @@ context:
           "message" : "Ignore commits without issue #19",
           "hash" : "0b70db9921da8dd",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "0b70db9921da8dda660daabf3dfd9d7ae5e8cdfd"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -6809,6 +7188,7 @@ context:
           "message" : "Adding issueTypes in context #19",
           "hash" : "a025adfc759313f",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a025adfc759313fc007d965736d29f8b6d429d4b"
         } ]
       } ],
@@ -6839,6 +7219,7 @@ context:
         "message" : "GitLab integration #2\n\n * Adding it to the API.",
         "hash" : "743ab5566d39083",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "743ab5566d39083c51b9e96069dc67106cc09042"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -6848,6 +7229,7 @@ context:
         "message" : "Integrating with GitHub #2",
         "hash" : "45af766856ac703",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "45af766856ac703357e4d31ea78e0de4e25f51d8"
       } ],
       "authors" : [ {
@@ -6861,6 +7243,7 @@ context:
           "message" : "GitLab integration #2\n\n * Adding it to the API.",
           "hash" : "743ab5566d39083",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "743ab5566d39083c51b9e96069dc67106cc09042"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -6870,6 +7253,7 @@ context:
           "message" : "Integrating with GitHub #2",
           "hash" : "45af766856ac703",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "45af766856ac703357e4d31ea78e0de4e25f51d8"
         } ]
       } ],
@@ -6900,6 +7284,7 @@ context:
         "message" : "Avoiding adding commit twice in same issue #21",
         "hash" : "414348773e3d658",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "414348773e3d65831896d88384fbcd840b1898c0"
       } ],
       "authors" : [ {
@@ -6913,6 +7298,7 @@ context:
           "message" : "Avoiding adding commit twice in same issue #21",
           "hash" : "414348773e3d658",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "414348773e3d65831896d88384fbcd840b1898c0"
         } ]
       } ],
@@ -6943,6 +7329,7 @@ context:
         "message" : "Parsing commits, oldest first #23\n\n * To avoid random behaviour.",
         "hash" : "9817cdf6a1fbe91",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "9817cdf6a1fbe91af51c6df25fd1247a30524dd7"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -6952,6 +7339,7 @@ context:
         "message" : "Traversing commit tree by parents #23\n\n * To find all commits in all tags.",
         "hash" : "9dcba5d33fc2e44",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "9dcba5d33fc2e44bec8f273a6becb6241526a87f"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -6961,6 +7349,7 @@ context:
         "message" : "Adding feature to ignore tags by regexp\n\n * Also testing tag in feature branch #23",
         "hash" : "8166ec7dfd456df",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "8166ec7dfd456dffb58defb8ee3fe98908ed8126"
       } ],
       "authors" : [ {
@@ -6974,6 +7363,7 @@ context:
           "message" : "Parsing commits, oldest first #23\n\n * To avoid random behaviour.",
           "hash" : "9817cdf6a1fbe91",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "9817cdf6a1fbe91af51c6df25fd1247a30524dd7"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -6983,6 +7373,7 @@ context:
           "message" : "Traversing commit tree by parents #23\n\n * To find all commits in all tags.",
           "hash" : "9dcba5d33fc2e44",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "9dcba5d33fc2e44bec8f273a6becb6241526a87f"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -6992,6 +7383,7 @@ context:
           "message" : "Adding feature to ignore tags by regexp\n\n * Also testing tag in feature branch #23",
           "hash" : "8166ec7dfd456df",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "8166ec7dfd456dffb58defb8ee3fe98908ed8126"
         } ]
       } ],
@@ -7022,6 +7414,7 @@ context:
         "message" : "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them.",
         "hash" : "e3106df640b693b",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
       } ],
       "authors" : [ {
@@ -7035,6 +7428,7 @@ context:
           "message" : "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them.",
           "hash" : "e3106df640b693b",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
         } ]
       } ],
@@ -7065,6 +7459,7 @@ context:
         "message" : "Allowing master branch to be absent #28",
         "hash" : "dd4633ba627695d",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "dd4633ba627695db650fc3130825bdf4feacba2b"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -7074,6 +7469,7 @@ context:
         "message" : "Finding first commit in repo as parents of HEAD #28\n\n * Was looking at parents of master, which may not exist.",
         "hash" : "87fe4044e587b1b",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "87fe4044e587b1b9e7d04bad370b9fc772955dff"
       } ],
       "authors" : [ {
@@ -7087,6 +7483,7 @@ context:
           "message" : "Allowing master branch to be absent #28",
           "hash" : "dd4633ba627695d",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "dd4633ba627695db650fc3130825bdf4feacba2b"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -7096,6 +7493,7 @@ context:
           "message" : "Finding first commit in repo as parents of HEAD #28\n\n * Was looking at parents of master, which may not exist.",
           "hash" : "87fe4044e587b1b",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "87fe4044e587b1b9e7d04bad370b9fc772955dff"
         } ]
       } ],
@@ -7126,6 +7524,7 @@ context:
         "message" : "Correcting how to find diffing commits #29",
         "hash" : "717602bef6a4ab1",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "717602bef6a4ab1a9c05a9f07bd7cf197a2700ff"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -7135,6 +7534,7 @@ context:
         "message" : "Including commits frmo merges #29",
         "hash" : "a723e0a230e3f38",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a723e0a230e3f38993534349b89043ef78ce6fb9"
       } ],
       "authors" : [ {
@@ -7148,6 +7548,7 @@ context:
           "message" : "Correcting how to find diffing commits #29",
           "hash" : "717602bef6a4ab1",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "717602bef6a4ab1a9c05a9f07bd7cf197a2700ff"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -7157,6 +7558,7 @@ context:
           "message" : "Including commits frmo merges #29",
           "hash" : "a723e0a230e3f38",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a723e0a230e3f38993534349b89043ef78ce6fb9"
         } ]
       } ],
@@ -7187,6 +7589,7 @@ context:
         "message" : "Integrating with Jira #3",
         "hash" : "30a1095331ded15",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "30a1095331ded155b1bf6ee3f1d29b41628e4eed"
       } ],
       "authors" : [ {
@@ -7200,6 +7603,7 @@ context:
           "message" : "Integrating with Jira #3",
           "hash" : "30a1095331ded15",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "30a1095331ded155b1bf6ee3f1d29b41628e4eed"
         } ]
       } ],
@@ -7230,6 +7634,7 @@ context:
         "message" : "Adding {{hashFull}} variable with full commit hash #30",
         "hash" : "7fd9971d4c2a30b",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "7fd9971d4c2a30b5ec5b80f4cf3ce1b7da66d505"
       } ],
       "authors" : [ {
@@ -7243,6 +7648,7 @@ context:
           "message" : "Adding {{hashFull}} variable with full commit hash #30",
           "hash" : "7fd9971d4c2a30b",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "7fd9971d4c2a30b5ec5b80f4cf3ce1b7da66d505"
         } ]
       } ],
@@ -7273,6 +7679,7 @@ context:
         "message" : "Fixing testcases after merge of #31",
         "hash" : "50dcd850d6bec5d",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "50dcd850d6bec5defa36b61a14fd7cfe41599d94"
       } ],
       "authors" : [ {
@@ -7286,6 +7693,7 @@ context:
           "message" : "Fixing testcases after merge of #31",
           "hash" : "50dcd850d6bec5d",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "50dcd850d6bec5defa36b61a14fd7cfe41599d94"
         } ]
       } ],
@@ -7316,6 +7724,7 @@ context:
         "message" : "Adding merge boolean to commits #35",
         "hash" : "2d9189f421254f2",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "2d9189f421254f248e8c8f9792952b6f8aa74664"
       } ],
       "authors" : [ {
@@ -7329,6 +7738,7 @@ context:
           "message" : "Adding merge boolean to commits #35",
           "hash" : "2d9189f421254f2",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "2d9189f421254f248e8c8f9792952b6f8aa74664"
         } ]
       } ],
@@ -7359,6 +7769,7 @@ context:
         "message" : "Adding annotation to context of tag #36",
         "hash" : "ecd852cfa40b0a7",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "ecd852cfa40b0a7a0f944398fcae28407bc9f709"
       } ],
       "authors" : [ {
@@ -7372,6 +7783,7 @@ context:
           "message" : "Adding annotation to context of tag #36",
           "hash" : "ecd852cfa40b0a7",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "ecd852cfa40b0a7a0f944398fcae28407bc9f709"
         } ]
       } ],
@@ -7402,6 +7814,7 @@ context:
         "message" : "MediaWiki integration #4",
         "hash" : "f45829b2c6a78d7",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "f45829b2c6a78d775fff9735e0f1992d389d7402"
       } ],
       "authors" : [ {
@@ -7415,6 +7828,7 @@ context:
           "message" : "MediaWiki integration #4",
           "hash" : "f45829b2c6a78d7",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "f45829b2c6a78d775fff9735e0f1992d389d7402"
         } ]
       } ],
@@ -7445,6 +7859,7 @@ context:
         "message" : "Adding issueType and labels attributes #40",
         "hash" : "6db44d44152f5da",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "6db44d44152f5da329af7f0d591736db53fcf8de"
       } ],
       "authors" : [ {
@@ -7458,6 +7873,7 @@ context:
           "message" : "Adding issueType and labels attributes #40",
           "hash" : "6db44d44152f5da",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "6db44d44152f5da329af7f0d591736db53fcf8de"
         } ]
       } ],
@@ -7488,6 +7904,7 @@ context:
         "message" : "GitLab integration #42",
         "hash" : "eb3d1ee8a5ed370",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "eb3d1ee8a5ed3709e085e9defb5aa056b208290d"
       } ],
       "authors" : [ {
@@ -7501,6 +7918,7 @@ context:
           "message" : "GitLab integration #42",
           "hash" : "eb3d1ee8a5ed370",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "eb3d1ee8a5ed3709e085e9defb5aa056b208290d"
         } ]
       } ],
@@ -7531,6 +7949,7 @@ context:
         "message" : "Adjustments after merge of #47\n\n * Using the Date data type instead of String to supply ignoreCommitsOlderThan.\n * Making ignoreCommits more effective.\n * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer.",
         "hash" : "121e65493ec764b",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "121e65493ec764b4cf01d35f2cff9a6cb0d64d2b"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -7540,6 +7959,7 @@ context:
         "message" : "Merge pull request #47 from grandchild/ignoreCommitsOlderThan\n\nAdd ignoreCommitsOlderThan date limiting",
         "hash" : "3b6cf6124370238",
         "merge" : true,
+        "messageNotes" : "",
         "hashFull" : "3b6cf6124370238fed92bb7ff6731fd0b8c73bc4"
       } ],
       "authors" : [ {
@@ -7553,6 +7973,7 @@ context:
           "message" : "Adjustments after merge of #47\n\n * Using the Date data type instead of String to supply ignoreCommitsOlderThan.\n * Making ignoreCommits more effective.\n * Also cleaning up unrelated parts of the API. Use File instead of String to supply changelog file. Enabling write changelog to Writer.",
           "hash" : "121e65493ec764b",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "121e65493ec764b4cf01d35f2cff9a6cb0d64d2b"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -7562,6 +7983,7 @@ context:
           "message" : "Merge pull request #47 from grandchild/ignoreCommitsOlderThan\n\nAdd ignoreCommitsOlderThan date limiting",
           "hash" : "3b6cf6124370238",
           "merge" : true,
+          "messageNotes" : "",
           "hashFull" : "3b6cf6124370238fed92bb7ff6731fd0b8c73bc4"
         } ]
       } ],
@@ -7592,6 +8014,7 @@ context:
         "message" : "Gathering repo provider information #49\n\n * Getting ownerName and repoName from clone URL.\n * Setting GitLab server and GitHub API from clone URL.",
         "hash" : "dd8497034624b12",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "dd8497034624b125e9ac242ab5cf8c6374b4d295"
       } ],
       "authors" : [ {
@@ -7605,6 +8028,7 @@ context:
           "message" : "Gathering repo provider information #49\n\n * Getting ownerName and repoName from clone URL.\n * Setting GitLab server and GitHub API from clone URL.",
           "hash" : "dd8497034624b12",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "dd8497034624b125e9ac242ab5cf8c6374b4d295"
         } ]
       } ],
@@ -7635,6 +8059,7 @@ context:
         "message" : "Adding hasIssue hasLink to readme doc #7",
         "hash" : "fbb455921921ddc",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "fbb455921921ddcecad4641cb7f1176293abf026"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -7644,6 +8069,7 @@ context:
         "message" : "Adding booleans to check if link and/or issue exists in issue #7",
         "hash" : "210e963a07b8a7b",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "210e963a07b8a7bb7cb0190501e9e38095b511a1"
       } ],
       "authors" : [ {
@@ -7657,6 +8083,7 @@ context:
           "message" : "Adding hasIssue hasLink to readme doc #7",
           "hash" : "fbb455921921ddc",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "fbb455921921ddcecad4641cb7f1176293abf026"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -7666,6 +8093,7 @@ context:
           "message" : "Adding booleans to check if link and/or issue exists in issue #7",
           "hash" : "210e963a07b8a7b",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "210e963a07b8a7bb7cb0190501e9e38095b511a1"
         } ]
       } ],

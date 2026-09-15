@@ -154,6 +154,7 @@ context:
     "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
     "hash" : "01484ce71bbc76e",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -163,6 +164,7 @@ context:
     "message" : "Doc",
     "hash" : "83a8a7b2f96ba88",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -172,6 +174,7 @@ context:
     "message" : "Test",
     "hash" : "5c54861708099d9",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -181,6 +184,7 @@ context:
     "message" : "Work for 1.0",
     "hash" : "051effe72405e78",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -190,6 +194,7 @@ context:
     "message" : "Initial commit",
     "hash" : "5aaeb907f68915a",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -199,6 +204,7 @@ context:
     "message" : "Initial commit",
     "hash" : "a1aa5ff5b625e63",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
   } ],
   "tags" : [ {
@@ -212,6 +218,7 @@ context:
       "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
       "hash" : "01484ce71bbc76e",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -221,6 +228,7 @@ context:
       "message" : "Doc",
       "hash" : "83a8a7b2f96ba88",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -230,6 +238,7 @@ context:
       "message" : "Test",
       "hash" : "5c54861708099d9",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -239,6 +248,7 @@ context:
       "message" : "Work for 1.0",
       "hash" : "051effe72405e78",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -248,6 +258,7 @@ context:
       "message" : "Initial commit",
       "hash" : "5aaeb907f68915a",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
     } ],
     "authors" : [ {
@@ -261,6 +272,7 @@ context:
         "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
         "hash" : "01484ce71bbc76e",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -270,6 +282,7 @@ context:
         "message" : "Doc",
         "hash" : "83a8a7b2f96ba88",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -279,6 +292,7 @@ context:
         "message" : "Test",
         "hash" : "5c54861708099d9",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -288,6 +302,7 @@ context:
         "message" : "Work for 1.0",
         "hash" : "051effe72405e78",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -297,6 +312,7 @@ context:
         "message" : "Initial commit",
         "hash" : "5aaeb907f68915a",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
       } ]
     } ],
@@ -309,6 +325,7 @@ context:
         "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
         "hash" : "01484ce71bbc76e",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -318,6 +335,7 @@ context:
         "message" : "Doc",
         "hash" : "83a8a7b2f96ba88",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -327,6 +345,7 @@ context:
         "message" : "Test",
         "hash" : "5c54861708099d9",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -336,6 +355,7 @@ context:
         "message" : "Work for 1.0",
         "hash" : "051effe72405e78",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -345,6 +365,7 @@ context:
         "message" : "Initial commit",
         "hash" : "5aaeb907f68915a",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
       } ],
       "authors" : [ {
@@ -358,6 +379,7 @@ context:
           "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
           "hash" : "01484ce71bbc76e",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -367,6 +389,7 @@ context:
           "message" : "Doc",
           "hash" : "83a8a7b2f96ba88",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -376,6 +399,7 @@ context:
           "message" : "Test",
           "hash" : "5c54861708099d9",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -385,6 +409,7 @@ context:
           "message" : "Work for 1.0",
           "hash" : "051effe72405e78",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -394,6 +419,7 @@ context:
           "message" : "Initial commit",
           "hash" : "5aaeb907f68915a",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
         } ]
       } ],
@@ -424,6 +450,7 @@ context:
           "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
           "hash" : "01484ce71bbc76e",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -433,6 +460,7 @@ context:
           "message" : "Doc",
           "hash" : "83a8a7b2f96ba88",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -442,6 +470,7 @@ context:
           "message" : "Test",
           "hash" : "5c54861708099d9",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -451,6 +480,7 @@ context:
           "message" : "Work for 1.0",
           "hash" : "051effe72405e78",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -460,6 +490,7 @@ context:
           "message" : "Initial commit",
           "hash" : "5aaeb907f68915a",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
         } ],
         "authors" : [ {
@@ -473,6 +504,7 @@ context:
             "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
             "hash" : "01484ce71bbc76e",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -482,6 +514,7 @@ context:
             "message" : "Doc",
             "hash" : "83a8a7b2f96ba88",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -491,6 +524,7 @@ context:
             "message" : "Test",
             "hash" : "5c54861708099d9",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -500,6 +534,7 @@ context:
             "message" : "Work for 1.0",
             "hash" : "051effe72405e78",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -509,6 +544,7 @@ context:
             "message" : "Initial commit",
             "hash" : "5aaeb907f68915a",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
           } ]
         } ],
@@ -545,6 +581,7 @@ context:
       "message" : "Initial commit",
       "hash" : "a1aa5ff5b625e63",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
     } ],
     "authors" : [ {
@@ -558,6 +595,7 @@ context:
         "message" : "Initial commit",
         "hash" : "a1aa5ff5b625e63",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
       } ]
     } ],
@@ -570,6 +608,7 @@ context:
         "message" : "Initial commit",
         "hash" : "a1aa5ff5b625e63",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
       } ],
       "authors" : [ {
@@ -583,6 +622,7 @@ context:
           "message" : "Initial commit",
           "hash" : "a1aa5ff5b625e63",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
         } ]
       } ],
@@ -613,6 +653,7 @@ context:
           "message" : "Initial commit",
           "hash" : "a1aa5ff5b625e63",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
         } ],
         "authors" : [ {
@@ -626,6 +667,7 @@ context:
             "message" : "Initial commit",
             "hash" : "a1aa5ff5b625e63",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
           } ]
         } ],
@@ -664,6 +706,7 @@ context:
       "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
       "hash" : "01484ce71bbc76e",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -673,6 +716,7 @@ context:
       "message" : "Doc",
       "hash" : "83a8a7b2f96ba88",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -682,6 +726,7 @@ context:
       "message" : "Test",
       "hash" : "5c54861708099d9",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -691,6 +736,7 @@ context:
       "message" : "Work for 1.0",
       "hash" : "051effe72405e78",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -700,6 +746,7 @@ context:
       "message" : "Initial commit",
       "hash" : "5aaeb907f68915a",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -709,6 +756,7 @@ context:
       "message" : "Initial commit",
       "hash" : "a1aa5ff5b625e63",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
     } ]
   } ],
@@ -721,6 +769,7 @@ context:
       "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
       "hash" : "01484ce71bbc76e",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -730,6 +779,7 @@ context:
       "message" : "Doc",
       "hash" : "83a8a7b2f96ba88",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -739,6 +789,7 @@ context:
       "message" : "Test",
       "hash" : "5c54861708099d9",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -748,6 +799,7 @@ context:
       "message" : "Work for 1.0",
       "hash" : "051effe72405e78",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -757,6 +809,7 @@ context:
       "message" : "Initial commit",
       "hash" : "5aaeb907f68915a",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -766,6 +819,7 @@ context:
       "message" : "Initial commit",
       "hash" : "a1aa5ff5b625e63",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
     } ],
     "authors" : [ {
@@ -779,6 +833,7 @@ context:
         "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
         "hash" : "01484ce71bbc76e",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -788,6 +843,7 @@ context:
         "message" : "Doc",
         "hash" : "83a8a7b2f96ba88",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -797,6 +853,7 @@ context:
         "message" : "Test",
         "hash" : "5c54861708099d9",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -806,6 +863,7 @@ context:
         "message" : "Work for 1.0",
         "hash" : "051effe72405e78",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -815,6 +873,7 @@ context:
         "message" : "Initial commit",
         "hash" : "5aaeb907f68915a",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -824,6 +883,7 @@ context:
         "message" : "Initial commit",
         "hash" : "a1aa5ff5b625e63",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
       } ]
     } ],
@@ -854,6 +914,7 @@ context:
         "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
         "hash" : "01484ce71bbc76e",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -863,6 +924,7 @@ context:
         "message" : "Doc",
         "hash" : "83a8a7b2f96ba88",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -872,6 +934,7 @@ context:
         "message" : "Test",
         "hash" : "5c54861708099d9",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -881,6 +944,7 @@ context:
         "message" : "Work for 1.0",
         "hash" : "051effe72405e78",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -890,6 +954,7 @@ context:
         "message" : "Initial commit",
         "hash" : "5aaeb907f68915a",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -899,6 +964,7 @@ context:
         "message" : "Initial commit",
         "hash" : "a1aa5ff5b625e63",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
       } ],
       "authors" : [ {
@@ -912,6 +978,7 @@ context:
           "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
           "hash" : "01484ce71bbc76e",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -921,6 +988,7 @@ context:
           "message" : "Doc",
           "hash" : "83a8a7b2f96ba88",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -930,6 +998,7 @@ context:
           "message" : "Test",
           "hash" : "5c54861708099d9",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -939,6 +1008,7 @@ context:
           "message" : "Work for 1.0",
           "hash" : "051effe72405e78",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -948,6 +1018,7 @@ context:
           "message" : "Initial commit",
           "hash" : "5aaeb907f68915a",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -957,6 +1028,7 @@ context:
           "message" : "Initial commit",
           "hash" : "a1aa5ff5b625e63",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
         } ]
       } ],

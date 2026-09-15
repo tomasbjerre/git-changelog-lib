@@ -197,6 +197,7 @@ context:
     "message" : "Some stuff in test again",
     "hash" : "8371342ad0d887d",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "8371342ad0d887da7710af881a41e01c3e091ecb"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -206,6 +207,7 @@ context:
     "message" : "Some stuff in test-feature",
     "hash" : "090e7f4b11223c4",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "090e7f4b11223c49a302327c6e0c32822b4b1109"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -215,6 +217,7 @@ context:
     "message" : "some stuff in test branch",
     "hash" : "c5d37f5e964afd5",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "c5d37f5e964afd50194eb86dc4565ba4d46a8226"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -224,6 +227,7 @@ context:
     "message" : "Multiple issues",
     "hash" : "87c0d7288896171",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -233,6 +237,7 @@ context:
     "message" : "More stuff tagged with  twice",
     "hash" : "20e333f8e108f77",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -242,6 +247,7 @@ context:
     "message" : "Adding stuff  gh 12",
     "hash" : "d50a3e332f9fcba",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -251,6 +257,7 @@ context:
     "message" : "Adding stuff with a jira",
     "hash" : "cc0fbbd8bc63955",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -260,6 +267,7 @@ context:
     "message" : "Adding cq stuff with CQ",
     "hash" : "a9bd03b34b255ff",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -269,6 +277,7 @@ context:
     "message" : "Adding stuff\n with gh again",
     "hash" : "5607ea23fa8aaf7",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -278,6 +287,7 @@ context:
     "message" : "This is 1.0 tagged commit",
     "hash" : "3f62b35d1317311",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "3f62b35d131731126b15fa599acf409f997d3ea0"
   }, {
     "authorName" : "T B",
@@ -287,6 +297,7 @@ context:
     "message" : "Adding stuff, no issue",
     "hash" : "71d845c18924504",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "71d845c18924504097edc6b0c34a35cf242cc080"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -296,6 +307,7 @@ context:
     "message" : "Adding stuff with a jira",
     "hash" : "071a14f29020758",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
   }, {
     "authorName" : "T B",
@@ -305,6 +317,7 @@ context:
     "message" : "Adding stuff with gh 20",
     "hash" : "326d4d01c0a9415",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -314,6 +327,7 @@ context:
     "message" : "Adding stuff without issue",
     "hash" : "7cd30508cecdc5b",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "7cd30508cecdc5b1303cb6e25fec343d5d57e1bb"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -323,6 +337,7 @@ context:
     "message" : "Initial commit",
     "hash" : "a1aa5ff5b625e63",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
   } ],
   "tags" : [ {
@@ -335,6 +350,7 @@ context:
       "message" : "Some stuff in test again",
       "hash" : "8371342ad0d887d",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "8371342ad0d887da7710af881a41e01c3e091ecb"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -344,6 +360,7 @@ context:
       "message" : "Some stuff in test-feature",
       "hash" : "090e7f4b11223c4",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "090e7f4b11223c49a302327c6e0c32822b4b1109"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -353,6 +370,7 @@ context:
       "message" : "some stuff in test branch",
       "hash" : "c5d37f5e964afd5",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "c5d37f5e964afd50194eb86dc4565ba4d46a8226"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -362,6 +380,7 @@ context:
       "message" : "Multiple issues",
       "hash" : "87c0d7288896171",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -371,6 +390,7 @@ context:
       "message" : "More stuff tagged with  twice",
       "hash" : "20e333f8e108f77",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -380,6 +400,7 @@ context:
       "message" : "Adding stuff with a jira",
       "hash" : "cc0fbbd8bc63955",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -389,6 +410,7 @@ context:
       "message" : "Adding stuff\n with gh again",
       "hash" : "5607ea23fa8aaf7",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
     } ],
     "authors" : [ {
@@ -402,6 +424,7 @@ context:
         "message" : "Some stuff in test again",
         "hash" : "8371342ad0d887d",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "8371342ad0d887da7710af881a41e01c3e091ecb"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -411,6 +434,7 @@ context:
         "message" : "Some stuff in test-feature",
         "hash" : "090e7f4b11223c4",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "090e7f4b11223c49a302327c6e0c32822b4b1109"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -420,6 +444,7 @@ context:
         "message" : "some stuff in test branch",
         "hash" : "c5d37f5e964afd5",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "c5d37f5e964afd50194eb86dc4565ba4d46a8226"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -429,6 +454,7 @@ context:
         "message" : "Multiple issues",
         "hash" : "87c0d7288896171",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -438,6 +464,7 @@ context:
         "message" : "More stuff tagged with  twice",
         "hash" : "20e333f8e108f77",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -447,6 +474,7 @@ context:
         "message" : "Adding stuff with a jira",
         "hash" : "cc0fbbd8bc63955",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -456,6 +484,7 @@ context:
         "message" : "Adding stuff\n with gh again",
         "hash" : "5607ea23fa8aaf7",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
       } ]
     } ],
@@ -468,6 +497,7 @@ context:
         "message" : "More stuff tagged with  twice",
         "hash" : "20e333f8e108f77",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
       } ],
       "authors" : [ {
@@ -481,6 +511,7 @@ context:
           "message" : "More stuff tagged with  twice",
           "hash" : "20e333f8e108f77",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
         } ]
       } ],
@@ -509,6 +540,7 @@ context:
         "message" : "Multiple issues",
         "hash" : "87c0d7288896171",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
       } ],
       "authors" : [ {
@@ -522,6 +554,7 @@ context:
           "message" : "Multiple issues",
           "hash" : "87c0d7288896171",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
         } ]
       } ],
@@ -552,6 +585,7 @@ context:
         "message" : "Multiple issues",
         "hash" : "87c0d7288896171",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
       } ],
       "authors" : [ {
@@ -565,6 +599,7 @@ context:
           "message" : "Multiple issues",
           "hash" : "87c0d7288896171",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
         } ]
       } ],
@@ -595,6 +630,7 @@ context:
         "message" : "Adding stuff\n with gh again",
         "hash" : "5607ea23fa8aaf7",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
       } ],
       "authors" : [ {
@@ -608,6 +644,7 @@ context:
           "message" : "Adding stuff\n with gh again",
           "hash" : "5607ea23fa8aaf7",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
         } ]
       } ],
@@ -638,6 +675,7 @@ context:
         "message" : "Adding stuff with a jira",
         "hash" : "cc0fbbd8bc63955",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
       } ],
       "authors" : [ {
@@ -651,6 +689,7 @@ context:
           "message" : "Adding stuff with a jira",
           "hash" : "cc0fbbd8bc63955",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
         } ]
       } ],
@@ -681,6 +720,7 @@ context:
         "message" : "Some stuff in test again",
         "hash" : "8371342ad0d887d",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "8371342ad0d887da7710af881a41e01c3e091ecb"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -690,6 +730,7 @@ context:
         "message" : "Some stuff in test-feature",
         "hash" : "090e7f4b11223c4",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "090e7f4b11223c49a302327c6e0c32822b4b1109"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -699,6 +740,7 @@ context:
         "message" : "some stuff in test branch",
         "hash" : "c5d37f5e964afd5",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "c5d37f5e964afd50194eb86dc4565ba4d46a8226"
       } ],
       "authors" : [ {
@@ -712,6 +754,7 @@ context:
           "message" : "Some stuff in test again",
           "hash" : "8371342ad0d887d",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "8371342ad0d887da7710af881a41e01c3e091ecb"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -721,6 +764,7 @@ context:
           "message" : "Some stuff in test-feature",
           "hash" : "090e7f4b11223c4",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "090e7f4b11223c49a302327c6e0c32822b4b1109"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -730,6 +774,7 @@ context:
           "message" : "some stuff in test branch",
           "hash" : "c5d37f5e964afd5",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "c5d37f5e964afd50194eb86dc4565ba4d46a8226"
         } ]
       } ],
@@ -760,6 +805,7 @@ context:
           "message" : "More stuff tagged with  twice",
           "hash" : "20e333f8e108f77",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
         } ],
         "authors" : [ {
@@ -773,6 +819,7 @@ context:
             "message" : "More stuff tagged with  twice",
             "hash" : "20e333f8e108f77",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
           } ]
         } ],
@@ -805,6 +852,7 @@ context:
           "message" : "Multiple issues",
           "hash" : "87c0d7288896171",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
         } ],
         "authors" : [ {
@@ -818,6 +866,7 @@ context:
             "message" : "Multiple issues",
             "hash" : "87c0d7288896171",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
           } ]
         } ],
@@ -848,6 +897,7 @@ context:
           "message" : "Multiple issues",
           "hash" : "87c0d7288896171",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
         } ],
         "authors" : [ {
@@ -861,6 +911,7 @@ context:
             "message" : "Multiple issues",
             "hash" : "87c0d7288896171",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
           } ]
         } ],
@@ -891,6 +942,7 @@ context:
           "message" : "Adding stuff\n with gh again",
           "hash" : "5607ea23fa8aaf7",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
         } ],
         "authors" : [ {
@@ -904,6 +956,7 @@ context:
             "message" : "Adding stuff\n with gh again",
             "hash" : "5607ea23fa8aaf7",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
           } ]
         } ],
@@ -938,6 +991,7 @@ context:
           "message" : "Adding stuff with a jira",
           "hash" : "cc0fbbd8bc63955",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
         } ],
         "authors" : [ {
@@ -951,6 +1005,7 @@ context:
             "message" : "Adding stuff with a jira",
             "hash" : "cc0fbbd8bc63955",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
           } ]
         } ],
@@ -985,6 +1040,7 @@ context:
           "message" : "Some stuff in test again",
           "hash" : "8371342ad0d887d",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "8371342ad0d887da7710af881a41e01c3e091ecb"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -994,6 +1050,7 @@ context:
           "message" : "Some stuff in test-feature",
           "hash" : "090e7f4b11223c4",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "090e7f4b11223c49a302327c6e0c32822b4b1109"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1003,6 +1060,7 @@ context:
           "message" : "some stuff in test branch",
           "hash" : "c5d37f5e964afd5",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "c5d37f5e964afd50194eb86dc4565ba4d46a8226"
         } ],
         "authors" : [ {
@@ -1016,6 +1074,7 @@ context:
             "message" : "Some stuff in test again",
             "hash" : "8371342ad0d887d",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "8371342ad0d887da7710af881a41e01c3e091ecb"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -1025,6 +1084,7 @@ context:
             "message" : "Some stuff in test-feature",
             "hash" : "090e7f4b11223c4",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "090e7f4b11223c49a302327c6e0c32822b4b1109"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -1034,6 +1094,7 @@ context:
             "message" : "some stuff in test branch",
             "hash" : "c5d37f5e964afd5",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "c5d37f5e964afd50194eb86dc4565ba4d46a8226"
           } ]
         } ],
@@ -1070,6 +1131,7 @@ context:
       "message" : "Adding cq stuff with CQ",
       "hash" : "a9bd03b34b255ff",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
     } ],
     "authors" : [ {
@@ -1083,6 +1145,7 @@ context:
         "message" : "Adding cq stuff with CQ",
         "hash" : "a9bd03b34b255ff",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
       } ]
     } ],
@@ -1095,6 +1158,7 @@ context:
         "message" : "Adding cq stuff with CQ",
         "hash" : "a9bd03b34b255ff",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
       } ],
       "authors" : [ {
@@ -1108,6 +1172,7 @@ context:
           "message" : "Adding cq stuff with CQ",
           "hash" : "a9bd03b34b255ff",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
         } ]
       } ],
@@ -1138,6 +1203,7 @@ context:
           "message" : "Adding cq stuff with CQ",
           "hash" : "a9bd03b34b255ff",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
         } ],
         "authors" : [ {
@@ -1151,6 +1217,7 @@ context:
             "message" : "Adding cq stuff with CQ",
             "hash" : "a9bd03b34b255ff",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
           } ]
         } ],
@@ -1188,6 +1255,7 @@ context:
       "message" : "Adding stuff  gh 12",
       "hash" : "d50a3e332f9fcba",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1197,6 +1265,7 @@ context:
       "message" : "This is 1.0 tagged commit",
       "hash" : "3f62b35d1317311",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "3f62b35d131731126b15fa599acf409f997d3ea0"
     }, {
       "authorName" : "T B",
@@ -1206,6 +1275,7 @@ context:
       "message" : "Adding stuff, no issue",
       "hash" : "71d845c18924504",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "71d845c18924504097edc6b0c34a35cf242cc080"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1215,6 +1285,7 @@ context:
       "message" : "Adding stuff with a jira",
       "hash" : "071a14f29020758",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
     }, {
       "authorName" : "T B",
@@ -1224,6 +1295,7 @@ context:
       "message" : "Adding stuff with gh 20",
       "hash" : "326d4d01c0a9415",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1233,6 +1305,7 @@ context:
       "message" : "Adding stuff without issue",
       "hash" : "7cd30508cecdc5b",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "7cd30508cecdc5b1303cb6e25fec343d5d57e1bb"
     } ],
     "authors" : [ {
@@ -1246,6 +1319,7 @@ context:
         "message" : "Adding stuff  gh 12",
         "hash" : "d50a3e332f9fcba",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1255,6 +1329,7 @@ context:
         "message" : "This is 1.0 tagged commit",
         "hash" : "3f62b35d1317311",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "3f62b35d131731126b15fa599acf409f997d3ea0"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1264,6 +1339,7 @@ context:
         "message" : "Adding stuff with a jira",
         "hash" : "071a14f29020758",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1273,6 +1349,7 @@ context:
         "message" : "Adding stuff without issue",
         "hash" : "7cd30508cecdc5b",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "7cd30508cecdc5b1303cb6e25fec343d5d57e1bb"
       } ]
     }, {
@@ -1286,6 +1363,7 @@ context:
         "message" : "Adding stuff, no issue",
         "hash" : "71d845c18924504",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "71d845c18924504097edc6b0c34a35cf242cc080"
       }, {
         "authorName" : "T B",
@@ -1295,6 +1373,7 @@ context:
         "message" : "Adding stuff with gh 20",
         "hash" : "326d4d01c0a9415",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
       } ]
     } ],
@@ -1307,6 +1386,7 @@ context:
         "message" : "Adding stuff  gh 12",
         "hash" : "d50a3e332f9fcba",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
       } ],
       "authors" : [ {
@@ -1320,6 +1400,7 @@ context:
           "message" : "Adding stuff  gh 12",
           "hash" : "d50a3e332f9fcba",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
         } ]
       } ],
@@ -1350,6 +1431,7 @@ context:
         "message" : "Adding stuff with gh 20",
         "hash" : "326d4d01c0a9415",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
       } ],
       "authors" : [ {
@@ -1363,6 +1445,7 @@ context:
           "message" : "Adding stuff with gh 20",
           "hash" : "326d4d01c0a9415",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
         } ]
       } ],
@@ -1393,6 +1476,7 @@ context:
         "message" : "Adding stuff with a jira",
         "hash" : "071a14f29020758",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
       } ],
       "authors" : [ {
@@ -1406,6 +1490,7 @@ context:
           "message" : "Adding stuff with a jira",
           "hash" : "071a14f29020758",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
         } ]
       } ],
@@ -1436,6 +1521,7 @@ context:
         "message" : "This is 1.0 tagged commit",
         "hash" : "3f62b35d1317311",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "3f62b35d131731126b15fa599acf409f997d3ea0"
       }, {
         "authorName" : "T B",
@@ -1445,6 +1531,7 @@ context:
         "message" : "Adding stuff, no issue",
         "hash" : "71d845c18924504",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "71d845c18924504097edc6b0c34a35cf242cc080"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1454,6 +1541,7 @@ context:
         "message" : "Adding stuff without issue",
         "hash" : "7cd30508cecdc5b",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "7cd30508cecdc5b1303cb6e25fec343d5d57e1bb"
       } ],
       "authors" : [ {
@@ -1467,6 +1555,7 @@ context:
           "message" : "This is 1.0 tagged commit",
           "hash" : "3f62b35d1317311",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "3f62b35d131731126b15fa599acf409f997d3ea0"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1476,6 +1565,7 @@ context:
           "message" : "Adding stuff without issue",
           "hash" : "7cd30508cecdc5b",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "7cd30508cecdc5b1303cb6e25fec343d5d57e1bb"
         } ]
       }, {
@@ -1489,6 +1579,7 @@ context:
           "message" : "Adding stuff, no issue",
           "hash" : "71d845c18924504",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "71d845c18924504097edc6b0c34a35cf242cc080"
         } ]
       } ],
@@ -1519,6 +1610,7 @@ context:
           "message" : "Adding stuff  gh 12",
           "hash" : "d50a3e332f9fcba",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
         } ],
         "authors" : [ {
@@ -1532,6 +1624,7 @@ context:
             "message" : "Adding stuff  gh 12",
             "hash" : "d50a3e332f9fcba",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
           } ]
         } ],
@@ -1562,6 +1655,7 @@ context:
           "message" : "Adding stuff with gh 20",
           "hash" : "326d4d01c0a9415",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
         } ],
         "authors" : [ {
@@ -1575,6 +1669,7 @@ context:
             "message" : "Adding stuff with gh 20",
             "hash" : "326d4d01c0a9415",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
           } ]
         } ],
@@ -1609,6 +1704,7 @@ context:
           "message" : "Adding stuff with a jira",
           "hash" : "071a14f29020758",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
         } ],
         "authors" : [ {
@@ -1622,6 +1718,7 @@ context:
             "message" : "Adding stuff with a jira",
             "hash" : "071a14f29020758",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
           } ]
         } ],
@@ -1656,6 +1753,7 @@ context:
           "message" : "This is 1.0 tagged commit",
           "hash" : "3f62b35d1317311",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "3f62b35d131731126b15fa599acf409f997d3ea0"
         }, {
           "authorName" : "T B",
@@ -1665,6 +1763,7 @@ context:
           "message" : "Adding stuff, no issue",
           "hash" : "71d845c18924504",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "71d845c18924504097edc6b0c34a35cf242cc080"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1674,6 +1773,7 @@ context:
           "message" : "Adding stuff without issue",
           "hash" : "7cd30508cecdc5b",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "7cd30508cecdc5b1303cb6e25fec343d5d57e1bb"
         } ],
         "authors" : [ {
@@ -1687,6 +1787,7 @@ context:
             "message" : "This is 1.0 tagged commit",
             "hash" : "3f62b35d1317311",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "3f62b35d131731126b15fa599acf409f997d3ea0"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -1696,6 +1797,7 @@ context:
             "message" : "Adding stuff without issue",
             "hash" : "7cd30508cecdc5b",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "7cd30508cecdc5b1303cb6e25fec343d5d57e1bb"
           } ]
         }, {
@@ -1709,6 +1811,7 @@ context:
             "message" : "Adding stuff, no issue",
             "hash" : "71d845c18924504",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "71d845c18924504097edc6b0c34a35cf242cc080"
           } ]
         } ],
@@ -1745,6 +1848,7 @@ context:
       "message" : "Initial commit",
       "hash" : "a1aa5ff5b625e63",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
     } ],
     "authors" : [ {
@@ -1758,6 +1862,7 @@ context:
         "message" : "Initial commit",
         "hash" : "a1aa5ff5b625e63",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
       } ]
     } ],
@@ -1770,6 +1875,7 @@ context:
         "message" : "Initial commit",
         "hash" : "a1aa5ff5b625e63",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
       } ],
       "authors" : [ {
@@ -1783,6 +1889,7 @@ context:
           "message" : "Initial commit",
           "hash" : "a1aa5ff5b625e63",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
         } ]
       } ],
@@ -1813,6 +1920,7 @@ context:
           "message" : "Initial commit",
           "hash" : "a1aa5ff5b625e63",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
         } ],
         "authors" : [ {
@@ -1826,6 +1934,7 @@ context:
             "message" : "Initial commit",
             "hash" : "a1aa5ff5b625e63",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
           } ]
         } ],
@@ -1864,6 +1973,7 @@ context:
       "message" : "Some stuff in test again",
       "hash" : "8371342ad0d887d",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "8371342ad0d887da7710af881a41e01c3e091ecb"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1873,6 +1983,7 @@ context:
       "message" : "Some stuff in test-feature",
       "hash" : "090e7f4b11223c4",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "090e7f4b11223c49a302327c6e0c32822b4b1109"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1882,6 +1993,7 @@ context:
       "message" : "some stuff in test branch",
       "hash" : "c5d37f5e964afd5",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "c5d37f5e964afd50194eb86dc4565ba4d46a8226"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1891,6 +2003,7 @@ context:
       "message" : "Multiple issues",
       "hash" : "87c0d7288896171",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1900,6 +2013,7 @@ context:
       "message" : "More stuff tagged with  twice",
       "hash" : "20e333f8e108f77",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1909,6 +2023,7 @@ context:
       "message" : "Adding stuff  gh 12",
       "hash" : "d50a3e332f9fcba",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1918,6 +2033,7 @@ context:
       "message" : "Adding stuff with a jira",
       "hash" : "cc0fbbd8bc63955",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1927,6 +2043,7 @@ context:
       "message" : "Adding cq stuff with CQ",
       "hash" : "a9bd03b34b255ff",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1936,6 +2053,7 @@ context:
       "message" : "Adding stuff\n with gh again",
       "hash" : "5607ea23fa8aaf7",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1945,6 +2063,7 @@ context:
       "message" : "This is 1.0 tagged commit",
       "hash" : "3f62b35d1317311",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "3f62b35d131731126b15fa599acf409f997d3ea0"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1954,6 +2073,7 @@ context:
       "message" : "Adding stuff with a jira",
       "hash" : "071a14f29020758",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1963,6 +2083,7 @@ context:
       "message" : "Adding stuff without issue",
       "hash" : "7cd30508cecdc5b",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "7cd30508cecdc5b1303cb6e25fec343d5d57e1bb"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1972,6 +2093,7 @@ context:
       "message" : "Initial commit",
       "hash" : "a1aa5ff5b625e63",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
     } ]
   }, {
@@ -1985,6 +2107,7 @@ context:
       "message" : "Adding stuff, no issue",
       "hash" : "71d845c18924504",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "71d845c18924504097edc6b0c34a35cf242cc080"
     }, {
       "authorName" : "T B",
@@ -1994,6 +2117,7 @@ context:
       "message" : "Adding stuff with gh 20",
       "hash" : "326d4d01c0a9415",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
     } ]
   } ],
@@ -2006,6 +2130,7 @@ context:
       "message" : "More stuff tagged with  twice",
       "hash" : "20e333f8e108f77",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
     } ],
     "authors" : [ {
@@ -2019,6 +2144,7 @@ context:
         "message" : "More stuff tagged with  twice",
         "hash" : "20e333f8e108f77",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
       } ]
     } ],
@@ -2047,6 +2173,7 @@ context:
       "message" : "Adding cq stuff with CQ",
       "hash" : "a9bd03b34b255ff",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
     } ],
     "authors" : [ {
@@ -2060,6 +2187,7 @@ context:
         "message" : "Adding cq stuff with CQ",
         "hash" : "a9bd03b34b255ff",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
       } ]
     } ],
@@ -2088,6 +2216,7 @@ context:
       "message" : "Adding stuff  gh 12",
       "hash" : "d50a3e332f9fcba",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
     } ],
     "authors" : [ {
@@ -2101,6 +2230,7 @@ context:
         "message" : "Adding stuff  gh 12",
         "hash" : "d50a3e332f9fcba",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
       } ]
     } ],
@@ -2131,6 +2261,7 @@ context:
       "message" : "Multiple issues",
       "hash" : "87c0d7288896171",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
     }, {
       "authorName" : "T B",
@@ -2140,6 +2271,7 @@ context:
       "message" : "Adding stuff with gh 20",
       "hash" : "326d4d01c0a9415",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
     } ],
     "authors" : [ {
@@ -2153,6 +2285,7 @@ context:
         "message" : "Multiple issues",
         "hash" : "87c0d7288896171",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
       } ]
     }, {
@@ -2166,6 +2299,7 @@ context:
         "message" : "Adding stuff with gh 20",
         "hash" : "326d4d01c0a9415",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
       } ]
     } ],
@@ -2196,6 +2330,7 @@ context:
       "message" : "Multiple issues",
       "hash" : "87c0d7288896171",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
     } ],
     "authors" : [ {
@@ -2209,6 +2344,7 @@ context:
         "message" : "Multiple issues",
         "hash" : "87c0d7288896171",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
       } ]
     } ],
@@ -2239,6 +2375,7 @@ context:
       "message" : "Adding stuff\n with gh again",
       "hash" : "5607ea23fa8aaf7",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
     } ],
     "authors" : [ {
@@ -2252,6 +2389,7 @@ context:
         "message" : "Adding stuff\n with gh again",
         "hash" : "5607ea23fa8aaf7",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
       } ]
     } ],
@@ -2282,6 +2420,7 @@ context:
       "message" : "Adding stuff with a jira",
       "hash" : "cc0fbbd8bc63955",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
     } ],
     "authors" : [ {
@@ -2295,6 +2434,7 @@ context:
         "message" : "Adding stuff with a jira",
         "hash" : "cc0fbbd8bc63955",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
       } ]
     } ],
@@ -2325,6 +2465,7 @@ context:
       "message" : "Adding stuff with a jira",
       "hash" : "071a14f29020758",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
     } ],
     "authors" : [ {
@@ -2338,6 +2479,7 @@ context:
         "message" : "Adding stuff with a jira",
         "hash" : "071a14f29020758",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
       } ]
     } ],
@@ -2368,6 +2510,7 @@ context:
       "message" : "Some stuff in test again",
       "hash" : "8371342ad0d887d",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "8371342ad0d887da7710af881a41e01c3e091ecb"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2377,6 +2520,7 @@ context:
       "message" : "Some stuff in test-feature",
       "hash" : "090e7f4b11223c4",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "090e7f4b11223c49a302327c6e0c32822b4b1109"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2386,6 +2530,7 @@ context:
       "message" : "some stuff in test branch",
       "hash" : "c5d37f5e964afd5",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "c5d37f5e964afd50194eb86dc4565ba4d46a8226"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2395,6 +2540,7 @@ context:
       "message" : "This is 1.0 tagged commit",
       "hash" : "3f62b35d1317311",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "3f62b35d131731126b15fa599acf409f997d3ea0"
     }, {
       "authorName" : "T B",
@@ -2404,6 +2550,7 @@ context:
       "message" : "Adding stuff, no issue",
       "hash" : "71d845c18924504",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "71d845c18924504097edc6b0c34a35cf242cc080"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2413,6 +2560,7 @@ context:
       "message" : "Adding stuff without issue",
       "hash" : "7cd30508cecdc5b",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "7cd30508cecdc5b1303cb6e25fec343d5d57e1bb"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2422,6 +2570,7 @@ context:
       "message" : "Initial commit",
       "hash" : "a1aa5ff5b625e63",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
     } ],
     "authors" : [ {
@@ -2435,6 +2584,7 @@ context:
         "message" : "Some stuff in test again",
         "hash" : "8371342ad0d887d",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "8371342ad0d887da7710af881a41e01c3e091ecb"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2444,6 +2594,7 @@ context:
         "message" : "Some stuff in test-feature",
         "hash" : "090e7f4b11223c4",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "090e7f4b11223c49a302327c6e0c32822b4b1109"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2453,6 +2604,7 @@ context:
         "message" : "some stuff in test branch",
         "hash" : "c5d37f5e964afd5",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "c5d37f5e964afd50194eb86dc4565ba4d46a8226"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2462,6 +2614,7 @@ context:
         "message" : "This is 1.0 tagged commit",
         "hash" : "3f62b35d1317311",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "3f62b35d131731126b15fa599acf409f997d3ea0"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2471,6 +2624,7 @@ context:
         "message" : "Adding stuff without issue",
         "hash" : "7cd30508cecdc5b",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "7cd30508cecdc5b1303cb6e25fec343d5d57e1bb"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2480,6 +2634,7 @@ context:
         "message" : "Initial commit",
         "hash" : "a1aa5ff5b625e63",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
       } ]
     }, {
@@ -2493,6 +2648,7 @@ context:
         "message" : "Adding stuff, no issue",
         "hash" : "71d845c18924504",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "71d845c18924504097edc6b0c34a35cf242cc080"
       } ]
     } ],
@@ -2523,6 +2679,7 @@ context:
         "message" : "More stuff tagged with  twice",
         "hash" : "20e333f8e108f77",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
       } ],
       "authors" : [ {
@@ -2536,6 +2693,7 @@ context:
           "message" : "More stuff tagged with  twice",
           "hash" : "20e333f8e108f77",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
         } ]
       } ],
@@ -2568,6 +2726,7 @@ context:
         "message" : "Adding cq stuff with CQ",
         "hash" : "a9bd03b34b255ff",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
       } ],
       "authors" : [ {
@@ -2581,6 +2740,7 @@ context:
           "message" : "Adding cq stuff with CQ",
           "hash" : "a9bd03b34b255ff",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
         } ]
       } ],
@@ -2613,6 +2773,7 @@ context:
         "message" : "Adding stuff  gh 12",
         "hash" : "d50a3e332f9fcba",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
       } ],
       "authors" : [ {
@@ -2626,6 +2787,7 @@ context:
           "message" : "Adding stuff  gh 12",
           "hash" : "d50a3e332f9fcba",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
         } ]
       } ],
@@ -2656,6 +2818,7 @@ context:
         "message" : "Multiple issues",
         "hash" : "87c0d7288896171",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
       }, {
         "authorName" : "T B",
@@ -2665,6 +2828,7 @@ context:
         "message" : "Adding stuff with gh 20",
         "hash" : "326d4d01c0a9415",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
       } ],
       "authors" : [ {
@@ -2678,6 +2842,7 @@ context:
           "message" : "Multiple issues",
           "hash" : "87c0d7288896171",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
         } ]
       }, {
@@ -2691,6 +2856,7 @@ context:
           "message" : "Adding stuff with gh 20",
           "hash" : "326d4d01c0a9415",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
         } ]
       } ],
@@ -2721,6 +2887,7 @@ context:
         "message" : "Multiple issues",
         "hash" : "87c0d7288896171",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
       } ],
       "authors" : [ {
@@ -2734,6 +2901,7 @@ context:
           "message" : "Multiple issues",
           "hash" : "87c0d7288896171",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
         } ]
       } ],
@@ -2764,6 +2932,7 @@ context:
         "message" : "Adding stuff\n with gh again",
         "hash" : "5607ea23fa8aaf7",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
       } ],
       "authors" : [ {
@@ -2777,6 +2946,7 @@ context:
           "message" : "Adding stuff\n with gh again",
           "hash" : "5607ea23fa8aaf7",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
         } ]
       } ],
@@ -2811,6 +2981,7 @@ context:
         "message" : "Adding stuff with a jira",
         "hash" : "cc0fbbd8bc63955",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
       } ],
       "authors" : [ {
@@ -2824,6 +2995,7 @@ context:
           "message" : "Adding stuff with a jira",
           "hash" : "cc0fbbd8bc63955",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
         } ]
       } ],
@@ -2854,6 +3026,7 @@ context:
         "message" : "Adding stuff with a jira",
         "hash" : "071a14f29020758",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
       } ],
       "authors" : [ {
@@ -2867,6 +3040,7 @@ context:
           "message" : "Adding stuff with a jira",
           "hash" : "071a14f29020758",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
         } ]
       } ],
@@ -2901,6 +3075,7 @@ context:
         "message" : "Some stuff in test again",
         "hash" : "8371342ad0d887d",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "8371342ad0d887da7710af881a41e01c3e091ecb"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2910,6 +3085,7 @@ context:
         "message" : "Some stuff in test-feature",
         "hash" : "090e7f4b11223c4",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "090e7f4b11223c49a302327c6e0c32822b4b1109"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2919,6 +3095,7 @@ context:
         "message" : "some stuff in test branch",
         "hash" : "c5d37f5e964afd5",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "c5d37f5e964afd50194eb86dc4565ba4d46a8226"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2928,6 +3105,7 @@ context:
         "message" : "This is 1.0 tagged commit",
         "hash" : "3f62b35d1317311",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "3f62b35d131731126b15fa599acf409f997d3ea0"
       }, {
         "authorName" : "T B",
@@ -2937,6 +3115,7 @@ context:
         "message" : "Adding stuff, no issue",
         "hash" : "71d845c18924504",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "71d845c18924504097edc6b0c34a35cf242cc080"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2946,6 +3125,7 @@ context:
         "message" : "Adding stuff without issue",
         "hash" : "7cd30508cecdc5b",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "7cd30508cecdc5b1303cb6e25fec343d5d57e1bb"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2955,6 +3135,7 @@ context:
         "message" : "Initial commit",
         "hash" : "a1aa5ff5b625e63",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
       } ],
       "authors" : [ {
@@ -2968,6 +3149,7 @@ context:
           "message" : "Some stuff in test again",
           "hash" : "8371342ad0d887d",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "8371342ad0d887da7710af881a41e01c3e091ecb"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2977,6 +3159,7 @@ context:
           "message" : "Some stuff in test-feature",
           "hash" : "090e7f4b11223c4",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "090e7f4b11223c49a302327c6e0c32822b4b1109"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2986,6 +3169,7 @@ context:
           "message" : "some stuff in test branch",
           "hash" : "c5d37f5e964afd5",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "c5d37f5e964afd50194eb86dc4565ba4d46a8226"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2995,6 +3179,7 @@ context:
           "message" : "This is 1.0 tagged commit",
           "hash" : "3f62b35d1317311",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "3f62b35d131731126b15fa599acf409f997d3ea0"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -3004,6 +3189,7 @@ context:
           "message" : "Adding stuff without issue",
           "hash" : "7cd30508cecdc5b",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "7cd30508cecdc5b1303cb6e25fec343d5d57e1bb"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -3013,6 +3199,7 @@ context:
           "message" : "Initial commit",
           "hash" : "a1aa5ff5b625e63",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
         } ]
       }, {
@@ -3026,6 +3213,7 @@ context:
           "message" : "Adding stuff, no issue",
           "hash" : "71d845c18924504",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "71d845c18924504097edc6b0c34a35cf242cc080"
         } ]
       } ],

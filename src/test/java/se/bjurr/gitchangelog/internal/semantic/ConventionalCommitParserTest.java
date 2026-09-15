@@ -10,7 +10,14 @@ public class ConventionalCommitParserTest {
 
   private static Commit commit(final String message) {
     return new Commit(
-        "Author", "author@example.com", "2024-01-01", 0L, message, "abc1234567890abcdef", false);
+        "Author",
+        "author@example.com",
+        "2024-01-01",
+        0L,
+        message,
+        "abc1234567890abcdef",
+        false,
+        "");
   }
 
   @Test

@@ -554,6 +554,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
  - hashFull
  - merge (True if this is a merge-commit)
  - message (The full message)
+ - messageNotes (Notes attached to the commit, see 'git notes')
  - messageTitle (Only the first line of the message)
  - messageBody (Everything, except the title)
  * messageBodyItems (List of strings, the lines after the title)
@@ -570,6 +571,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
   - hashFull
   - merge (True if this is a merge-commit)
   - message (The full message)
+  - messageNotes (Notes attached to the commit, see 'git notes')
   - messageTitle (Only the first line of the message)
   - messageBody (Everything, except the title)
   * messageBodyItems (List of strings, the lines after the title)
@@ -584,6 +586,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
    - hashFull
    - merge (True if this is a merge-commit)
    - message (The full message)
+   - messageNotes (Notes attached to the commit, see 'git notes')
    - messageTitle (Only the first line of the message)
    - messageBody (Everything, except the title)
    * messageBodyItems (List of strings, the lines after the title)
@@ -620,6 +623,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
     - hashFull
     - merge (True if this is a merge-commit)
     - message (The full message)
+    - messageNotes (Notes attached to the commit, see 'git notes')
     - messageTitle (Only the first line of the message)
     - messageBody (Everything, except the title)
     * messageBodyItems (List of strings, the lines after the title)
@@ -634,6 +638,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
      - hashFull
      - merge (True if this is a merge-commit)
      - message (The full message)
+     - messageNotes (Notes attached to the commit, see 'git notes')
      - messageTitle (Only the first line of the message)
      - messageBody (Everything, except the title)
      * messageBodyItems (List of strings, the lines after the title)
@@ -668,6 +673,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
    - hashFull
    - merge (True if this is a merge-commit)
    - message (The full message)
+   - messageNotes (Notes attached to the commit, see 'git notes')
    - messageTitle (Only the first line of the message)
    - messageBody (Everything, except the title)
    * messageBodyItems (List of strings, the lines after the title)
@@ -682,6 +688,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
     - hashFull
     - merge (True if this is a merge-commit)
     - message (The full message)
+    - messageNotes (Notes attached to the commit, see 'git notes')
     - messageTitle (Only the first line of the message)
     - messageBody (Everything, except the title)
     * messageBodyItems (List of strings, the lines after the title)
@@ -696,6 +703,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
   - hashFull
   - merge (True if this is a merge-commit)
   - message (The full message)
+  - messageNotes (Notes attached to the commit, see 'git notes')
   - messageTitle (Only the first line of the message)
   - messageBody (Everything, except the title)
   * messageBodyItems (List of strings, the lines after the title)
@@ -730,6 +738,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
   - hashFull
   - merge (True if this is a merge-commit)
   - message (The full message)
+  - messageNotes (Notes attached to the commit, see 'git notes')
   - messageTitle (Only the first line of the message)
   - messageBody (Everything, except the title)
   * messageBodyItems (List of strings, the lines after the title)
@@ -744,6 +753,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
    - hashFull
    - merge (True if this is a merge-commit)
    - message (The full message)
+   - messageNotes (Notes attached to the commit, see 'git notes')
    - messageTitle (Only the first line of the message)
    - messageBody (Everything, except the title)
    * messageBodyItems (List of strings, the lines after the title)
