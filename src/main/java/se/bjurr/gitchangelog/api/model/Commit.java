@@ -18,6 +18,7 @@ public class Commit implements Serializable {
   private final String hashFull;
   private final Boolean merge;
   private final String message;
+  private final String messageNotes;
 
   private static List<String> notFirst(final List<String> stringList) {
     return stringList.subList(1, stringList.size());
@@ -79,10 +80,12 @@ public class Commit implements Serializable {
       final Long commitTimeLong,
       final String message,
       final String hash,
-      final Boolean merge) {
+      final Boolean merge,
+      final String messageNotes) {
     this.authorName = checkNotNull(authorName, "authorName");
     this.authorEmailAddress = checkNotNull(authorEmailAddress, "authorEmailAddress");
     this.message = checkNotNull(message, "message").trim();
+    this.messageNotes = checkNotNull(messageNotes, "messageNotes").trim();
     this.commitTime = checkNotNull(commitTime, "commitTime");
     this.commitTimeLong = checkNotNull(commitTimeLong, "commitTimeLong");
     this.hash = toHash(checkNotNull(hash, "hash"));
@@ -116,6 +119,10 @@ public class Commit implements Serializable {
 
   public String getMessage() {
     return this.message;
+  }
+
+  public String getMessageNotes() {
+    return this.messageNotes;
   }
 
   public String getMessageBody() {
@@ -153,6 +160,7 @@ public class Commit implements Serializable {
     result = prime * result + ((this.hashFull == null) ? 0 : this.hashFull.hashCode());
     result = prime * result + ((this.merge == null) ? 0 : this.merge.hashCode());
     result = prime * result + ((this.message == null) ? 0 : this.message.hashCode());
+    result = prime * result + ((this.messageNotes == null) ? 0 : this.messageNotes.hashCode());
     return result;
   }
 
@@ -222,6 +230,13 @@ public class Commit implements Serializable {
         return false;
       }
     } else if (!this.message.equals(other.message)) {
+      return false;
+    }
+    if (this.messageNotes == null) {
+      if (other.messageNotes != null) {
+        return false;
+      }
+    } else if (!this.messageNotes.equals(other.messageNotes)) {
       return false;
     }
     return true;

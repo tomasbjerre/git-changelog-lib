@@ -729,6 +729,7 @@ context:
     "message" : "feat: dsc\n\nparagraph first line of two here!\nsecond line of first paragraph\n\nsecond paragraph the only line\n\nthird paragraph first line of two\nand second line of third paragraph.\n\nfirst-token-here: value of first token\nsecond line of first token\nsecond-token-here: value of second token",
     "hash" : "65cfb90e2922ae5",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -738,6 +739,7 @@ context:
     "message" : "fix: correct minor typos in code\n\nsee the issue for details\n\non typos fixed.\n\nReviewed-by: Z\nRefs #133",
     "hash" : "c18e11ebd1244b9",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "c18e11ebd1244b9acb498fc715768efbecfebd49"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -747,6 +749,7 @@ context:
     "message" : "feat: allow provided config object to extend other configs\n\nBREAKING CHANGE: `extends` key in config file is now used for extending other config files",
     "hash" : "ed18f49f74281ba",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "ed18f49f74281ba49a850f0a57ed325161ac56d8"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -756,6 +759,7 @@ context:
     "message" : "refactor: using only br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6.",
     "hash" : "78348fda6cd6d6f",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "78348fda6cd6d6f1a3383eb39ab90aedf056c501"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -765,6 +769,7 @@ context:
     "message" : "refactor!: using both ! and br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6.",
     "hash" : "1ec1b3038858387",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "1ec1b3038858387630780f24da6c27da94779391"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -774,6 +779,7 @@ context:
     "message" : "refactor!: doing major stuff",
     "hash" : "2abbccdf2039e7c",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -783,6 +789,7 @@ context:
     "message" : "Revert \"[Gradle Release Plugin] - pre tag commit:  '1.94'.\"\n\nThis reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.",
     "hash" : "d3462925f226d08",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "d3462925f226d085a409fdb74965d56b359d22f3"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -792,6 +799,7 @@ context:
     "message" : "fix(utils:mix): the description (fixes ABC-123)",
     "hash" : "724a04a18602ce9",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "724a04a18602ce98bd858371cc35f8efefaeb8d1"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -801,6 +809,7 @@ context:
     "message" : "feat(utils): more utils",
     "hash" : "5fb068c6ccad741",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -810,6 +819,7 @@ context:
     "message" : "doing change 2",
     "hash" : "4c6e07857c48c98",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -819,6 +829,7 @@ context:
     "message" : "New version: 1.147.2 [GRADLE SCRIPT]",
     "hash" : "aa1fd339a07e6ea",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -828,6 +839,7 @@ context:
     "message" : "fix: dont require semantic patterns to get highest tag",
     "hash" : "38fc504697f8d04",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "38fc504697f8d040a946cf7c0d668f49b6509c57"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -837,6 +849,7 @@ context:
     "message" : "Updating changelog with 1.147.1 [GRADLE SCRIPT]",
     "hash" : "7a839ad349aef46",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "7a839ad349aef465a3fce237211f5dd94c5d4ed8"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -846,6 +859,7 @@ context:
     "message" : "New version: 1.147.1 [GRADLE SCRIPT]",
     "hash" : "e49a9f159266845",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "e49a9f15926684565dd8b95ccc9d470a6f3785e3"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -855,6 +869,7 @@ context:
     "message" : "fix: dont use integrations when determining versions",
     "hash" : "601c009bff8d551",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "601c009bff8d5513d94a906ea4b340678b997209"
   } ],
   "tags" : [ {
@@ -867,6 +882,7 @@ context:
       "message" : "feat: dsc\n\nparagraph first line of two here!\nsecond line of first paragraph\n\nsecond paragraph the only line\n\nthird paragraph first line of two\nand second line of third paragraph.\n\nfirst-token-here: value of first token\nsecond line of first token\nsecond-token-here: value of second token",
       "hash" : "65cfb90e2922ae5",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -876,6 +892,7 @@ context:
       "message" : "fix: correct minor typos in code\n\nsee the issue for details\n\non typos fixed.\n\nReviewed-by: Z\nRefs #133",
       "hash" : "c18e11ebd1244b9",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "c18e11ebd1244b9acb498fc715768efbecfebd49"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -885,6 +902,7 @@ context:
       "message" : "feat: allow provided config object to extend other configs\n\nBREAKING CHANGE: `extends` key in config file is now used for extending other config files",
       "hash" : "ed18f49f74281ba",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "ed18f49f74281ba49a850f0a57ed325161ac56d8"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -894,6 +912,7 @@ context:
       "message" : "refactor: using only br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6.",
       "hash" : "78348fda6cd6d6f",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "78348fda6cd6d6f1a3383eb39ab90aedf056c501"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -903,6 +922,7 @@ context:
       "message" : "refactor!: using both ! and br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6.",
       "hash" : "1ec1b3038858387",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "1ec1b3038858387630780f24da6c27da94779391"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -912,6 +932,7 @@ context:
       "message" : "refactor!: doing major stuff",
       "hash" : "2abbccdf2039e7c",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -921,6 +942,7 @@ context:
       "message" : "Revert \"[Gradle Release Plugin] - pre tag commit:  '1.94'.\"\n\nThis reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.",
       "hash" : "d3462925f226d08",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "d3462925f226d085a409fdb74965d56b359d22f3"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -930,6 +952,7 @@ context:
       "message" : "fix(utils:mix): the description (fixes ABC-123)",
       "hash" : "724a04a18602ce9",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "724a04a18602ce98bd858371cc35f8efefaeb8d1"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -939,6 +962,7 @@ context:
       "message" : "feat(utils): more utils",
       "hash" : "5fb068c6ccad741",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -948,6 +972,7 @@ context:
       "message" : "doing change 2",
       "hash" : "4c6e07857c48c98",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
     } ],
     "authors" : [ {
@@ -961,6 +986,7 @@ context:
         "message" : "feat: dsc\n\nparagraph first line of two here!\nsecond line of first paragraph\n\nsecond paragraph the only line\n\nthird paragraph first line of two\nand second line of third paragraph.\n\nfirst-token-here: value of first token\nsecond line of first token\nsecond-token-here: value of second token",
         "hash" : "65cfb90e2922ae5",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -970,6 +996,7 @@ context:
         "message" : "fix: correct minor typos in code\n\nsee the issue for details\n\non typos fixed.\n\nReviewed-by: Z\nRefs #133",
         "hash" : "c18e11ebd1244b9",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "c18e11ebd1244b9acb498fc715768efbecfebd49"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -979,6 +1006,7 @@ context:
         "message" : "feat: allow provided config object to extend other configs\n\nBREAKING CHANGE: `extends` key in config file is now used for extending other config files",
         "hash" : "ed18f49f74281ba",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "ed18f49f74281ba49a850f0a57ed325161ac56d8"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -988,6 +1016,7 @@ context:
         "message" : "refactor: using only br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6.",
         "hash" : "78348fda6cd6d6f",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "78348fda6cd6d6f1a3383eb39ab90aedf056c501"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -997,6 +1026,7 @@ context:
         "message" : "refactor!: using both ! and br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6.",
         "hash" : "1ec1b3038858387",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "1ec1b3038858387630780f24da6c27da94779391"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1006,6 +1036,7 @@ context:
         "message" : "refactor!: doing major stuff",
         "hash" : "2abbccdf2039e7c",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1015,6 +1046,7 @@ context:
         "message" : "Revert \"[Gradle Release Plugin] - pre tag commit:  '1.94'.\"\n\nThis reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.",
         "hash" : "d3462925f226d08",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "d3462925f226d085a409fdb74965d56b359d22f3"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1024,6 +1056,7 @@ context:
         "message" : "fix(utils:mix): the description (fixes ABC-123)",
         "hash" : "724a04a18602ce9",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "724a04a18602ce98bd858371cc35f8efefaeb8d1"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1033,6 +1066,7 @@ context:
         "message" : "feat(utils): more utils",
         "hash" : "5fb068c6ccad741",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1042,6 +1076,7 @@ context:
         "message" : "doing change 2",
         "hash" : "4c6e07857c48c98",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
       } ]
     } ],
@@ -1054,6 +1089,7 @@ context:
         "message" : "fix: correct minor typos in code\n\nsee the issue for details\n\non typos fixed.\n\nReviewed-by: Z\nRefs #133",
         "hash" : "c18e11ebd1244b9",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "c18e11ebd1244b9acb498fc715768efbecfebd49"
       } ],
       "authors" : [ {
@@ -1067,6 +1103,7 @@ context:
           "message" : "fix: correct minor typos in code\n\nsee the issue for details\n\non typos fixed.\n\nReviewed-by: Z\nRefs #133",
           "hash" : "c18e11ebd1244b9",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "c18e11ebd1244b9acb498fc715768efbecfebd49"
         } ]
       } ],
@@ -1097,6 +1134,7 @@ context:
         "message" : "fix(utils:mix): the description (fixes ABC-123)",
         "hash" : "724a04a18602ce9",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "724a04a18602ce98bd858371cc35f8efefaeb8d1"
       } ],
       "authors" : [ {
@@ -1110,6 +1148,7 @@ context:
           "message" : "fix(utils:mix): the description (fixes ABC-123)",
           "hash" : "724a04a18602ce9",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "724a04a18602ce98bd858371cc35f8efefaeb8d1"
         } ]
       } ],
@@ -1137,6 +1176,7 @@ context:
         "message" : "feat: dsc\n\nparagraph first line of two here!\nsecond line of first paragraph\n\nsecond paragraph the only line\n\nthird paragraph first line of two\nand second line of third paragraph.\n\nfirst-token-here: value of first token\nsecond line of first token\nsecond-token-here: value of second token",
         "hash" : "65cfb90e2922ae5",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1146,6 +1186,7 @@ context:
         "message" : "feat: allow provided config object to extend other configs\n\nBREAKING CHANGE: `extends` key in config file is now used for extending other config files",
         "hash" : "ed18f49f74281ba",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "ed18f49f74281ba49a850f0a57ed325161ac56d8"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1155,6 +1196,7 @@ context:
         "message" : "refactor: using only br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6.",
         "hash" : "78348fda6cd6d6f",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "78348fda6cd6d6f1a3383eb39ab90aedf056c501"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1164,6 +1206,7 @@ context:
         "message" : "refactor!: using both ! and br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6.",
         "hash" : "1ec1b3038858387",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "1ec1b3038858387630780f24da6c27da94779391"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1173,6 +1216,7 @@ context:
         "message" : "refactor!: doing major stuff",
         "hash" : "2abbccdf2039e7c",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1182,6 +1226,7 @@ context:
         "message" : "Revert \"[Gradle Release Plugin] - pre tag commit:  '1.94'.\"\n\nThis reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.",
         "hash" : "d3462925f226d08",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "d3462925f226d085a409fdb74965d56b359d22f3"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1191,6 +1236,7 @@ context:
         "message" : "feat(utils): more utils",
         "hash" : "5fb068c6ccad741",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1200,6 +1246,7 @@ context:
         "message" : "doing change 2",
         "hash" : "4c6e07857c48c98",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
       } ],
       "authors" : [ {
@@ -1213,6 +1260,7 @@ context:
           "message" : "feat: dsc\n\nparagraph first line of two here!\nsecond line of first paragraph\n\nsecond paragraph the only line\n\nthird paragraph first line of two\nand second line of third paragraph.\n\nfirst-token-here: value of first token\nsecond line of first token\nsecond-token-here: value of second token",
           "hash" : "65cfb90e2922ae5",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1222,6 +1270,7 @@ context:
           "message" : "feat: allow provided config object to extend other configs\n\nBREAKING CHANGE: `extends` key in config file is now used for extending other config files",
           "hash" : "ed18f49f74281ba",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "ed18f49f74281ba49a850f0a57ed325161ac56d8"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1231,6 +1280,7 @@ context:
           "message" : "refactor: using only br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6.",
           "hash" : "78348fda6cd6d6f",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "78348fda6cd6d6f1a3383eb39ab90aedf056c501"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1240,6 +1290,7 @@ context:
           "message" : "refactor!: using both ! and br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6.",
           "hash" : "1ec1b3038858387",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "1ec1b3038858387630780f24da6c27da94779391"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1249,6 +1300,7 @@ context:
           "message" : "refactor!: doing major stuff",
           "hash" : "2abbccdf2039e7c",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1258,6 +1310,7 @@ context:
           "message" : "Revert \"[Gradle Release Plugin] - pre tag commit:  '1.94'.\"\n\nThis reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.",
           "hash" : "d3462925f226d08",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "d3462925f226d085a409fdb74965d56b359d22f3"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1267,6 +1320,7 @@ context:
           "message" : "feat(utils): more utils",
           "hash" : "5fb068c6ccad741",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1276,6 +1330,7 @@ context:
           "message" : "doing change 2",
           "hash" : "4c6e07857c48c98",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
         } ]
       } ],
@@ -1306,6 +1361,7 @@ context:
           "message" : "fix: correct minor typos in code\n\nsee the issue for details\n\non typos fixed.\n\nReviewed-by: Z\nRefs #133",
           "hash" : "c18e11ebd1244b9",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "c18e11ebd1244b9acb498fc715768efbecfebd49"
         } ],
         "authors" : [ {
@@ -1319,6 +1375,7 @@ context:
             "message" : "fix: correct minor typos in code\n\nsee the issue for details\n\non typos fixed.\n\nReviewed-by: Z\nRefs #133",
             "hash" : "c18e11ebd1244b9",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "c18e11ebd1244b9acb498fc715768efbecfebd49"
           } ]
         } ],
@@ -1353,6 +1410,7 @@ context:
           "message" : "fix(utils:mix): the description (fixes ABC-123)",
           "hash" : "724a04a18602ce9",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "724a04a18602ce98bd858371cc35f8efefaeb8d1"
         } ],
         "authors" : [ {
@@ -1366,6 +1424,7 @@ context:
             "message" : "fix(utils:mix): the description (fixes ABC-123)",
             "hash" : "724a04a18602ce9",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "724a04a18602ce98bd858371cc35f8efefaeb8d1"
           } ]
         } ],
@@ -1397,6 +1456,7 @@ context:
           "message" : "feat: dsc\n\nparagraph first line of two here!\nsecond line of first paragraph\n\nsecond paragraph the only line\n\nthird paragraph first line of two\nand second line of third paragraph.\n\nfirst-token-here: value of first token\nsecond line of first token\nsecond-token-here: value of second token",
           "hash" : "65cfb90e2922ae5",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1406,6 +1466,7 @@ context:
           "message" : "feat: allow provided config object to extend other configs\n\nBREAKING CHANGE: `extends` key in config file is now used for extending other config files",
           "hash" : "ed18f49f74281ba",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "ed18f49f74281ba49a850f0a57ed325161ac56d8"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1415,6 +1476,7 @@ context:
           "message" : "refactor: using only br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6.",
           "hash" : "78348fda6cd6d6f",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "78348fda6cd6d6f1a3383eb39ab90aedf056c501"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1424,6 +1486,7 @@ context:
           "message" : "refactor!: using both ! and br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6.",
           "hash" : "1ec1b3038858387",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "1ec1b3038858387630780f24da6c27da94779391"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1433,6 +1496,7 @@ context:
           "message" : "refactor!: doing major stuff",
           "hash" : "2abbccdf2039e7c",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1442,6 +1506,7 @@ context:
           "message" : "Revert \"[Gradle Release Plugin] - pre tag commit:  '1.94'.\"\n\nThis reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.",
           "hash" : "d3462925f226d08",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "d3462925f226d085a409fdb74965d56b359d22f3"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1451,6 +1516,7 @@ context:
           "message" : "feat(utils): more utils",
           "hash" : "5fb068c6ccad741",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1460,6 +1526,7 @@ context:
           "message" : "doing change 2",
           "hash" : "4c6e07857c48c98",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
         } ],
         "authors" : [ {
@@ -1473,6 +1540,7 @@ context:
             "message" : "feat: dsc\n\nparagraph first line of two here!\nsecond line of first paragraph\n\nsecond paragraph the only line\n\nthird paragraph first line of two\nand second line of third paragraph.\n\nfirst-token-here: value of first token\nsecond line of first token\nsecond-token-here: value of second token",
             "hash" : "65cfb90e2922ae5",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -1482,6 +1550,7 @@ context:
             "message" : "feat: allow provided config object to extend other configs\n\nBREAKING CHANGE: `extends` key in config file is now used for extending other config files",
             "hash" : "ed18f49f74281ba",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "ed18f49f74281ba49a850f0a57ed325161ac56d8"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -1491,6 +1560,7 @@ context:
             "message" : "refactor: using only br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6.",
             "hash" : "78348fda6cd6d6f",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "78348fda6cd6d6f1a3383eb39ab90aedf056c501"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -1500,6 +1570,7 @@ context:
             "message" : "refactor!: using both ! and br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6.",
             "hash" : "1ec1b3038858387",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "1ec1b3038858387630780f24da6c27da94779391"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -1509,6 +1580,7 @@ context:
             "message" : "refactor!: doing major stuff",
             "hash" : "2abbccdf2039e7c",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -1518,6 +1590,7 @@ context:
             "message" : "Revert \"[Gradle Release Plugin] - pre tag commit:  '1.94'.\"\n\nThis reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.",
             "hash" : "d3462925f226d08",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "d3462925f226d085a409fdb74965d56b359d22f3"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -1527,6 +1600,7 @@ context:
             "message" : "feat(utils): more utils",
             "hash" : "5fb068c6ccad741",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -1536,6 +1610,7 @@ context:
             "message" : "doing change 2",
             "hash" : "4c6e07857c48c98",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
           } ]
         } ],
@@ -1572,6 +1647,7 @@ context:
       "message" : "New version: 1.147.2 [GRADLE SCRIPT]",
       "hash" : "aa1fd339a07e6ea",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1581,6 +1657,7 @@ context:
       "message" : "fix: dont require semantic patterns to get highest tag",
       "hash" : "38fc504697f8d04",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "38fc504697f8d040a946cf7c0d668f49b6509c57"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1590,6 +1667,7 @@ context:
       "message" : "Updating changelog with 1.147.1 [GRADLE SCRIPT]",
       "hash" : "7a839ad349aef46",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "7a839ad349aef465a3fce237211f5dd94c5d4ed8"
     } ],
     "authors" : [ {
@@ -1603,6 +1681,7 @@ context:
         "message" : "New version: 1.147.2 [GRADLE SCRIPT]",
         "hash" : "aa1fd339a07e6ea",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1612,6 +1691,7 @@ context:
         "message" : "fix: dont require semantic patterns to get highest tag",
         "hash" : "38fc504697f8d04",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "38fc504697f8d040a946cf7c0d668f49b6509c57"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1621,6 +1701,7 @@ context:
         "message" : "Updating changelog with 1.147.1 [GRADLE SCRIPT]",
         "hash" : "7a839ad349aef46",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "7a839ad349aef465a3fce237211f5dd94c5d4ed8"
       } ]
     } ],
@@ -1633,6 +1714,7 @@ context:
         "message" : "New version: 1.147.2 [GRADLE SCRIPT]",
         "hash" : "aa1fd339a07e6ea",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1642,6 +1724,7 @@ context:
         "message" : "fix: dont require semantic patterns to get highest tag",
         "hash" : "38fc504697f8d04",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "38fc504697f8d040a946cf7c0d668f49b6509c57"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1651,6 +1734,7 @@ context:
         "message" : "Updating changelog with 1.147.1 [GRADLE SCRIPT]",
         "hash" : "7a839ad349aef46",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "7a839ad349aef465a3fce237211f5dd94c5d4ed8"
       } ],
       "authors" : [ {
@@ -1664,6 +1748,7 @@ context:
           "message" : "New version: 1.147.2 [GRADLE SCRIPT]",
           "hash" : "aa1fd339a07e6ea",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1673,6 +1758,7 @@ context:
           "message" : "fix: dont require semantic patterns to get highest tag",
           "hash" : "38fc504697f8d04",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "38fc504697f8d040a946cf7c0d668f49b6509c57"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1682,6 +1768,7 @@ context:
           "message" : "Updating changelog with 1.147.1 [GRADLE SCRIPT]",
           "hash" : "7a839ad349aef46",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "7a839ad349aef465a3fce237211f5dd94c5d4ed8"
         } ]
       } ],
@@ -1712,6 +1799,7 @@ context:
           "message" : "New version: 1.147.2 [GRADLE SCRIPT]",
           "hash" : "aa1fd339a07e6ea",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1721,6 +1809,7 @@ context:
           "message" : "fix: dont require semantic patterns to get highest tag",
           "hash" : "38fc504697f8d04",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "38fc504697f8d040a946cf7c0d668f49b6509c57"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1730,6 +1819,7 @@ context:
           "message" : "Updating changelog with 1.147.1 [GRADLE SCRIPT]",
           "hash" : "7a839ad349aef46",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "7a839ad349aef465a3fce237211f5dd94c5d4ed8"
         } ],
         "authors" : [ {
@@ -1743,6 +1833,7 @@ context:
             "message" : "New version: 1.147.2 [GRADLE SCRIPT]",
             "hash" : "aa1fd339a07e6ea",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -1752,6 +1843,7 @@ context:
             "message" : "fix: dont require semantic patterns to get highest tag",
             "hash" : "38fc504697f8d04",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "38fc504697f8d040a946cf7c0d668f49b6509c57"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -1761,6 +1853,7 @@ context:
             "message" : "Updating changelog with 1.147.1 [GRADLE SCRIPT]",
             "hash" : "7a839ad349aef46",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "7a839ad349aef465a3fce237211f5dd94c5d4ed8"
           } ]
         } ],
@@ -1797,6 +1890,7 @@ context:
       "message" : "New version: 1.147.1 [GRADLE SCRIPT]",
       "hash" : "e49a9f159266845",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "e49a9f15926684565dd8b95ccc9d470a6f3785e3"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1806,6 +1900,7 @@ context:
       "message" : "fix: dont use integrations when determining versions",
       "hash" : "601c009bff8d551",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "601c009bff8d5513d94a906ea4b340678b997209"
     } ],
     "authors" : [ {
@@ -1819,6 +1914,7 @@ context:
         "message" : "New version: 1.147.1 [GRADLE SCRIPT]",
         "hash" : "e49a9f159266845",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "e49a9f15926684565dd8b95ccc9d470a6f3785e3"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1828,6 +1924,7 @@ context:
         "message" : "fix: dont use integrations when determining versions",
         "hash" : "601c009bff8d551",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "601c009bff8d5513d94a906ea4b340678b997209"
       } ]
     } ],
@@ -1840,6 +1937,7 @@ context:
         "message" : "New version: 1.147.1 [GRADLE SCRIPT]",
         "hash" : "e49a9f159266845",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "e49a9f15926684565dd8b95ccc9d470a6f3785e3"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1849,6 +1947,7 @@ context:
         "message" : "fix: dont use integrations when determining versions",
         "hash" : "601c009bff8d551",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "601c009bff8d5513d94a906ea4b340678b997209"
       } ],
       "authors" : [ {
@@ -1862,6 +1961,7 @@ context:
           "message" : "New version: 1.147.1 [GRADLE SCRIPT]",
           "hash" : "e49a9f159266845",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "e49a9f15926684565dd8b95ccc9d470a6f3785e3"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1871,6 +1971,7 @@ context:
           "message" : "fix: dont use integrations when determining versions",
           "hash" : "601c009bff8d551",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "601c009bff8d5513d94a906ea4b340678b997209"
         } ]
       } ],
@@ -1901,6 +2002,7 @@ context:
           "message" : "New version: 1.147.1 [GRADLE SCRIPT]",
           "hash" : "e49a9f159266845",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "e49a9f15926684565dd8b95ccc9d470a6f3785e3"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1910,6 +2012,7 @@ context:
           "message" : "fix: dont use integrations when determining versions",
           "hash" : "601c009bff8d551",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "601c009bff8d5513d94a906ea4b340678b997209"
         } ],
         "authors" : [ {
@@ -1923,6 +2026,7 @@ context:
             "message" : "New version: 1.147.1 [GRADLE SCRIPT]",
             "hash" : "e49a9f159266845",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "e49a9f15926684565dd8b95ccc9d470a6f3785e3"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -1932,6 +2036,7 @@ context:
             "message" : "fix: dont use integrations when determining versions",
             "hash" : "601c009bff8d551",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "601c009bff8d5513d94a906ea4b340678b997209"
           } ]
         } ],
@@ -1970,6 +2075,7 @@ context:
       "message" : "feat: dsc\n\nparagraph first line of two here!\nsecond line of first paragraph\n\nsecond paragraph the only line\n\nthird paragraph first line of two\nand second line of third paragraph.\n\nfirst-token-here: value of first token\nsecond line of first token\nsecond-token-here: value of second token",
       "hash" : "65cfb90e2922ae5",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1979,6 +2085,7 @@ context:
       "message" : "fix: correct minor typos in code\n\nsee the issue for details\n\non typos fixed.\n\nReviewed-by: Z\nRefs #133",
       "hash" : "c18e11ebd1244b9",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "c18e11ebd1244b9acb498fc715768efbecfebd49"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1988,6 +2095,7 @@ context:
       "message" : "feat: allow provided config object to extend other configs\n\nBREAKING CHANGE: `extends` key in config file is now used for extending other config files",
       "hash" : "ed18f49f74281ba",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "ed18f49f74281ba49a850f0a57ed325161ac56d8"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1997,6 +2105,7 @@ context:
       "message" : "refactor: using only br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6.",
       "hash" : "78348fda6cd6d6f",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "78348fda6cd6d6f1a3383eb39ab90aedf056c501"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2006,6 +2115,7 @@ context:
       "message" : "refactor!: using both ! and br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6.",
       "hash" : "1ec1b3038858387",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "1ec1b3038858387630780f24da6c27da94779391"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2015,6 +2125,7 @@ context:
       "message" : "refactor!: doing major stuff",
       "hash" : "2abbccdf2039e7c",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2024,6 +2135,7 @@ context:
       "message" : "Revert \"[Gradle Release Plugin] - pre tag commit:  '1.94'.\"\n\nThis reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.",
       "hash" : "d3462925f226d08",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "d3462925f226d085a409fdb74965d56b359d22f3"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2033,6 +2145,7 @@ context:
       "message" : "fix(utils:mix): the description (fixes ABC-123)",
       "hash" : "724a04a18602ce9",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "724a04a18602ce98bd858371cc35f8efefaeb8d1"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2042,6 +2155,7 @@ context:
       "message" : "feat(utils): more utils",
       "hash" : "5fb068c6ccad741",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2051,6 +2165,7 @@ context:
       "message" : "doing change 2",
       "hash" : "4c6e07857c48c98",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2060,6 +2175,7 @@ context:
       "message" : "New version: 1.147.2 [GRADLE SCRIPT]",
       "hash" : "aa1fd339a07e6ea",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2069,6 +2185,7 @@ context:
       "message" : "fix: dont require semantic patterns to get highest tag",
       "hash" : "38fc504697f8d04",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "38fc504697f8d040a946cf7c0d668f49b6509c57"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2078,6 +2195,7 @@ context:
       "message" : "Updating changelog with 1.147.1 [GRADLE SCRIPT]",
       "hash" : "7a839ad349aef46",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "7a839ad349aef465a3fce237211f5dd94c5d4ed8"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2087,6 +2205,7 @@ context:
       "message" : "New version: 1.147.1 [GRADLE SCRIPT]",
       "hash" : "e49a9f159266845",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "e49a9f15926684565dd8b95ccc9d470a6f3785e3"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2096,6 +2215,7 @@ context:
       "message" : "fix: dont use integrations when determining versions",
       "hash" : "601c009bff8d551",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "601c009bff8d5513d94a906ea4b340678b997209"
     } ]
   } ],
@@ -2108,6 +2228,7 @@ context:
       "message" : "fix: correct minor typos in code\n\nsee the issue for details\n\non typos fixed.\n\nReviewed-by: Z\nRefs #133",
       "hash" : "c18e11ebd1244b9",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "c18e11ebd1244b9acb498fc715768efbecfebd49"
     } ],
     "authors" : [ {
@@ -2121,6 +2242,7 @@ context:
         "message" : "fix: correct minor typos in code\n\nsee the issue for details\n\non typos fixed.\n\nReviewed-by: Z\nRefs #133",
         "hash" : "c18e11ebd1244b9",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "c18e11ebd1244b9acb498fc715768efbecfebd49"
       } ]
     } ],
@@ -2151,6 +2273,7 @@ context:
       "message" : "fix(utils:mix): the description (fixes ABC-123)",
       "hash" : "724a04a18602ce9",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "724a04a18602ce98bd858371cc35f8efefaeb8d1"
     } ],
     "authors" : [ {
@@ -2164,6 +2287,7 @@ context:
         "message" : "fix(utils:mix): the description (fixes ABC-123)",
         "hash" : "724a04a18602ce9",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "724a04a18602ce98bd858371cc35f8efefaeb8d1"
       } ]
     } ],
@@ -2191,6 +2315,7 @@ context:
       "message" : "feat: dsc\n\nparagraph first line of two here!\nsecond line of first paragraph\n\nsecond paragraph the only line\n\nthird paragraph first line of two\nand second line of third paragraph.\n\nfirst-token-here: value of first token\nsecond line of first token\nsecond-token-here: value of second token",
       "hash" : "65cfb90e2922ae5",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2200,6 +2325,7 @@ context:
       "message" : "feat: allow provided config object to extend other configs\n\nBREAKING CHANGE: `extends` key in config file is now used for extending other config files",
       "hash" : "ed18f49f74281ba",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "ed18f49f74281ba49a850f0a57ed325161ac56d8"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2209,6 +2335,7 @@ context:
       "message" : "refactor: using only br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6.",
       "hash" : "78348fda6cd6d6f",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "78348fda6cd6d6f1a3383eb39ab90aedf056c501"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2218,6 +2345,7 @@ context:
       "message" : "refactor!: using both ! and br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6.",
       "hash" : "1ec1b3038858387",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "1ec1b3038858387630780f24da6c27da94779391"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2227,6 +2355,7 @@ context:
       "message" : "refactor!: doing major stuff",
       "hash" : "2abbccdf2039e7c",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2236,6 +2365,7 @@ context:
       "message" : "Revert \"[Gradle Release Plugin] - pre tag commit:  '1.94'.\"\n\nThis reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.",
       "hash" : "d3462925f226d08",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "d3462925f226d085a409fdb74965d56b359d22f3"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2245,6 +2375,7 @@ context:
       "message" : "feat(utils): more utils",
       "hash" : "5fb068c6ccad741",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2254,6 +2385,7 @@ context:
       "message" : "doing change 2",
       "hash" : "4c6e07857c48c98",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2263,6 +2395,7 @@ context:
       "message" : "New version: 1.147.2 [GRADLE SCRIPT]",
       "hash" : "aa1fd339a07e6ea",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2272,6 +2405,7 @@ context:
       "message" : "fix: dont require semantic patterns to get highest tag",
       "hash" : "38fc504697f8d04",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "38fc504697f8d040a946cf7c0d668f49b6509c57"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2281,6 +2415,7 @@ context:
       "message" : "Updating changelog with 1.147.1 [GRADLE SCRIPT]",
       "hash" : "7a839ad349aef46",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "7a839ad349aef465a3fce237211f5dd94c5d4ed8"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2290,6 +2425,7 @@ context:
       "message" : "New version: 1.147.1 [GRADLE SCRIPT]",
       "hash" : "e49a9f159266845",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "e49a9f15926684565dd8b95ccc9d470a6f3785e3"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2299,6 +2435,7 @@ context:
       "message" : "fix: dont use integrations when determining versions",
       "hash" : "601c009bff8d551",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "601c009bff8d5513d94a906ea4b340678b997209"
     } ],
     "authors" : [ {
@@ -2312,6 +2449,7 @@ context:
         "message" : "feat: dsc\n\nparagraph first line of two here!\nsecond line of first paragraph\n\nsecond paragraph the only line\n\nthird paragraph first line of two\nand second line of third paragraph.\n\nfirst-token-here: value of first token\nsecond line of first token\nsecond-token-here: value of second token",
         "hash" : "65cfb90e2922ae5",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2321,6 +2459,7 @@ context:
         "message" : "feat: allow provided config object to extend other configs\n\nBREAKING CHANGE: `extends` key in config file is now used for extending other config files",
         "hash" : "ed18f49f74281ba",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "ed18f49f74281ba49a850f0a57ed325161ac56d8"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2330,6 +2469,7 @@ context:
         "message" : "refactor: using only br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6.",
         "hash" : "78348fda6cd6d6f",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "78348fda6cd6d6f1a3383eb39ab90aedf056c501"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2339,6 +2479,7 @@ context:
         "message" : "refactor!: using both ! and br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6.",
         "hash" : "1ec1b3038858387",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "1ec1b3038858387630780f24da6c27da94779391"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2348,6 +2489,7 @@ context:
         "message" : "refactor!: doing major stuff",
         "hash" : "2abbccdf2039e7c",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2357,6 +2499,7 @@ context:
         "message" : "Revert \"[Gradle Release Plugin] - pre tag commit:  '1.94'.\"\n\nThis reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.",
         "hash" : "d3462925f226d08",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "d3462925f226d085a409fdb74965d56b359d22f3"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2366,6 +2509,7 @@ context:
         "message" : "feat(utils): more utils",
         "hash" : "5fb068c6ccad741",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2375,6 +2519,7 @@ context:
         "message" : "doing change 2",
         "hash" : "4c6e07857c48c98",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2384,6 +2529,7 @@ context:
         "message" : "New version: 1.147.2 [GRADLE SCRIPT]",
         "hash" : "aa1fd339a07e6ea",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2393,6 +2539,7 @@ context:
         "message" : "fix: dont require semantic patterns to get highest tag",
         "hash" : "38fc504697f8d04",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "38fc504697f8d040a946cf7c0d668f49b6509c57"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2402,6 +2549,7 @@ context:
         "message" : "Updating changelog with 1.147.1 [GRADLE SCRIPT]",
         "hash" : "7a839ad349aef46",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "7a839ad349aef465a3fce237211f5dd94c5d4ed8"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2411,6 +2559,7 @@ context:
         "message" : "New version: 1.147.1 [GRADLE SCRIPT]",
         "hash" : "e49a9f159266845",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "e49a9f15926684565dd8b95ccc9d470a6f3785e3"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2420,6 +2569,7 @@ context:
         "message" : "fix: dont use integrations when determining versions",
         "hash" : "601c009bff8d551",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "601c009bff8d5513d94a906ea4b340678b997209"
       } ]
     } ],
@@ -2450,6 +2600,7 @@ context:
         "message" : "fix: correct minor typos in code\n\nsee the issue for details\n\non typos fixed.\n\nReviewed-by: Z\nRefs #133",
         "hash" : "c18e11ebd1244b9",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "c18e11ebd1244b9acb498fc715768efbecfebd49"
       } ],
       "authors" : [ {
@@ -2463,6 +2614,7 @@ context:
           "message" : "fix: correct minor typos in code\n\nsee the issue for details\n\non typos fixed.\n\nReviewed-by: Z\nRefs #133",
           "hash" : "c18e11ebd1244b9",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "c18e11ebd1244b9acb498fc715768efbecfebd49"
         } ]
       } ],
@@ -2497,6 +2649,7 @@ context:
         "message" : "fix(utils:mix): the description (fixes ABC-123)",
         "hash" : "724a04a18602ce9",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "724a04a18602ce98bd858371cc35f8efefaeb8d1"
       } ],
       "authors" : [ {
@@ -2510,6 +2663,7 @@ context:
           "message" : "fix(utils:mix): the description (fixes ABC-123)",
           "hash" : "724a04a18602ce9",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "724a04a18602ce98bd858371cc35f8efefaeb8d1"
         } ]
       } ],
@@ -2541,6 +2695,7 @@ context:
         "message" : "feat: dsc\n\nparagraph first line of two here!\nsecond line of first paragraph\n\nsecond paragraph the only line\n\nthird paragraph first line of two\nand second line of third paragraph.\n\nfirst-token-here: value of first token\nsecond line of first token\nsecond-token-here: value of second token",
         "hash" : "65cfb90e2922ae5",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2550,6 +2705,7 @@ context:
         "message" : "feat: allow provided config object to extend other configs\n\nBREAKING CHANGE: `extends` key in config file is now used for extending other config files",
         "hash" : "ed18f49f74281ba",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "ed18f49f74281ba49a850f0a57ed325161ac56d8"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2559,6 +2715,7 @@ context:
         "message" : "refactor: using only br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6.",
         "hash" : "78348fda6cd6d6f",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "78348fda6cd6d6f1a3383eb39ab90aedf056c501"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2568,6 +2725,7 @@ context:
         "message" : "refactor!: using both ! and br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6.",
         "hash" : "1ec1b3038858387",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "1ec1b3038858387630780f24da6c27da94779391"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2577,6 +2735,7 @@ context:
         "message" : "refactor!: doing major stuff",
         "hash" : "2abbccdf2039e7c",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2586,6 +2745,7 @@ context:
         "message" : "Revert \"[Gradle Release Plugin] - pre tag commit:  '1.94'.\"\n\nThis reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.",
         "hash" : "d3462925f226d08",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "d3462925f226d085a409fdb74965d56b359d22f3"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2595,6 +2755,7 @@ context:
         "message" : "feat(utils): more utils",
         "hash" : "5fb068c6ccad741",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2604,6 +2765,7 @@ context:
         "message" : "doing change 2",
         "hash" : "4c6e07857c48c98",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2613,6 +2775,7 @@ context:
         "message" : "New version: 1.147.2 [GRADLE SCRIPT]",
         "hash" : "aa1fd339a07e6ea",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2622,6 +2785,7 @@ context:
         "message" : "fix: dont require semantic patterns to get highest tag",
         "hash" : "38fc504697f8d04",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "38fc504697f8d040a946cf7c0d668f49b6509c57"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2631,6 +2795,7 @@ context:
         "message" : "Updating changelog with 1.147.1 [GRADLE SCRIPT]",
         "hash" : "7a839ad349aef46",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "7a839ad349aef465a3fce237211f5dd94c5d4ed8"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2640,6 +2805,7 @@ context:
         "message" : "New version: 1.147.1 [GRADLE SCRIPT]",
         "hash" : "e49a9f159266845",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "e49a9f15926684565dd8b95ccc9d470a6f3785e3"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2649,6 +2815,7 @@ context:
         "message" : "fix: dont use integrations when determining versions",
         "hash" : "601c009bff8d551",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "601c009bff8d5513d94a906ea4b340678b997209"
       } ],
       "authors" : [ {
@@ -2662,6 +2829,7 @@ context:
           "message" : "feat: dsc\n\nparagraph first line of two here!\nsecond line of first paragraph\n\nsecond paragraph the only line\n\nthird paragraph first line of two\nand second line of third paragraph.\n\nfirst-token-here: value of first token\nsecond line of first token\nsecond-token-here: value of second token",
           "hash" : "65cfb90e2922ae5",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2671,6 +2839,7 @@ context:
           "message" : "feat: allow provided config object to extend other configs\n\nBREAKING CHANGE: `extends` key in config file is now used for extending other config files",
           "hash" : "ed18f49f74281ba",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "ed18f49f74281ba49a850f0a57ed325161ac56d8"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2680,6 +2849,7 @@ context:
           "message" : "refactor: using only br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6.",
           "hash" : "78348fda6cd6d6f",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "78348fda6cd6d6f1a3383eb39ab90aedf056c501"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2689,6 +2859,7 @@ context:
           "message" : "refactor!: using both ! and br\n\nBREAKING CHANGE: refactor to use JavaScript features not available in Node 6.",
           "hash" : "1ec1b3038858387",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "1ec1b3038858387630780f24da6c27da94779391"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2698,6 +2869,7 @@ context:
           "message" : "refactor!: doing major stuff",
           "hash" : "2abbccdf2039e7c",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2707,6 +2879,7 @@ context:
           "message" : "Revert \"[Gradle Release Plugin] - pre tag commit:  '1.94'.\"\n\nThis reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.",
           "hash" : "d3462925f226d08",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "d3462925f226d085a409fdb74965d56b359d22f3"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2716,6 +2889,7 @@ context:
           "message" : "feat(utils): more utils",
           "hash" : "5fb068c6ccad741",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2725,6 +2899,7 @@ context:
           "message" : "doing change 2",
           "hash" : "4c6e07857c48c98",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2734,6 +2909,7 @@ context:
           "message" : "New version: 1.147.2 [GRADLE SCRIPT]",
           "hash" : "aa1fd339a07e6ea",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2743,6 +2919,7 @@ context:
           "message" : "fix: dont require semantic patterns to get highest tag",
           "hash" : "38fc504697f8d04",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "38fc504697f8d040a946cf7c0d668f49b6509c57"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2752,6 +2929,7 @@ context:
           "message" : "Updating changelog with 1.147.1 [GRADLE SCRIPT]",
           "hash" : "7a839ad349aef46",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "7a839ad349aef465a3fce237211f5dd94c5d4ed8"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2761,6 +2939,7 @@ context:
           "message" : "New version: 1.147.1 [GRADLE SCRIPT]",
           "hash" : "e49a9f159266845",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "e49a9f15926684565dd8b95ccc9d470a6f3785e3"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2770,6 +2949,7 @@ context:
           "message" : "fix: dont use integrations when determining versions",
           "hash" : "601c009bff8d551",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "601c009bff8d5513d94a906ea4b340678b997209"
         } ]
       } ],

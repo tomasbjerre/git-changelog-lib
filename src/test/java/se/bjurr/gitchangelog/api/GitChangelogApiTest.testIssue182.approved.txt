@@ -126,6 +126,7 @@ context:
     "message" : "chore: X",
     "hash" : "583f3a3ced05979",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -135,6 +136,7 @@ context:
     "message" : "Merge branch 'issue-182-branch' into test/issue-182",
     "hash" : "0c1cd1179ab9e0b",
     "merge" : true,
+    "messageNotes" : "",
     "hashFull" : "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -144,6 +146,7 @@ context:
     "message" : "feat: Y",
     "hash" : "d0555d2e1ee3b1c",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -153,6 +156,7 @@ context:
     "message" : "Initial commit",
     "hash" : "a1aa5ff5b625e63",
     "merge" : false,
+    "messageNotes" : "",
     "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
   } ],
   "tags" : [ {
@@ -165,6 +169,7 @@ context:
       "message" : "chore: X",
       "hash" : "583f3a3ced05979",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -174,6 +179,7 @@ context:
       "message" : "Merge branch 'issue-182-branch' into test/issue-182",
       "hash" : "0c1cd1179ab9e0b",
       "merge" : true,
+      "messageNotes" : "",
       "hashFull" : "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -183,6 +189,7 @@ context:
       "message" : "feat: Y",
       "hash" : "d0555d2e1ee3b1c",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06"
     } ],
     "authors" : [ {
@@ -196,6 +203,7 @@ context:
         "message" : "chore: X",
         "hash" : "583f3a3ced05979",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -205,6 +213,7 @@ context:
         "message" : "Merge branch 'issue-182-branch' into test/issue-182",
         "hash" : "0c1cd1179ab9e0b",
         "merge" : true,
+        "messageNotes" : "",
         "hashFull" : "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -214,6 +223,7 @@ context:
         "message" : "feat: Y",
         "hash" : "d0555d2e1ee3b1c",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06"
       } ]
     } ],
@@ -226,6 +236,7 @@ context:
         "message" : "chore: X",
         "hash" : "583f3a3ced05979",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -235,6 +246,7 @@ context:
         "message" : "Merge branch 'issue-182-branch' into test/issue-182",
         "hash" : "0c1cd1179ab9e0b",
         "merge" : true,
+        "messageNotes" : "",
         "hashFull" : "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -244,6 +256,7 @@ context:
         "message" : "feat: Y",
         "hash" : "d0555d2e1ee3b1c",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06"
       } ],
       "authors" : [ {
@@ -257,6 +270,7 @@ context:
           "message" : "chore: X",
           "hash" : "583f3a3ced05979",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -266,6 +280,7 @@ context:
           "message" : "Merge branch 'issue-182-branch' into test/issue-182",
           "hash" : "0c1cd1179ab9e0b",
           "merge" : true,
+          "messageNotes" : "",
           "hashFull" : "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -275,6 +290,7 @@ context:
           "message" : "feat: Y",
           "hash" : "d0555d2e1ee3b1c",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06"
         } ]
       } ],
@@ -305,6 +321,7 @@ context:
           "message" : "chore: X",
           "hash" : "583f3a3ced05979",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -314,6 +331,7 @@ context:
           "message" : "Merge branch 'issue-182-branch' into test/issue-182",
           "hash" : "0c1cd1179ab9e0b",
           "merge" : true,
+          "messageNotes" : "",
           "hashFull" : "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -323,6 +341,7 @@ context:
           "message" : "feat: Y",
           "hash" : "d0555d2e1ee3b1c",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06"
         } ],
         "authors" : [ {
@@ -336,6 +355,7 @@ context:
             "message" : "chore: X",
             "hash" : "583f3a3ced05979",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -345,6 +365,7 @@ context:
             "message" : "Merge branch 'issue-182-branch' into test/issue-182",
             "hash" : "0c1cd1179ab9e0b",
             "merge" : true,
+            "messageNotes" : "",
             "hashFull" : "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -354,6 +375,7 @@ context:
             "message" : "feat: Y",
             "hash" : "d0555d2e1ee3b1c",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06"
           } ]
         } ],
@@ -390,6 +412,7 @@ context:
       "message" : "Initial commit",
       "hash" : "a1aa5ff5b625e63",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
     } ],
     "authors" : [ {
@@ -403,6 +426,7 @@ context:
         "message" : "Initial commit",
         "hash" : "a1aa5ff5b625e63",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
       } ]
     } ],
@@ -415,6 +439,7 @@ context:
         "message" : "Initial commit",
         "hash" : "a1aa5ff5b625e63",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
       } ],
       "authors" : [ {
@@ -428,6 +453,7 @@ context:
           "message" : "Initial commit",
           "hash" : "a1aa5ff5b625e63",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
         } ]
       } ],
@@ -458,6 +484,7 @@ context:
           "message" : "Initial commit",
           "hash" : "a1aa5ff5b625e63",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
         } ],
         "authors" : [ {
@@ -471,6 +498,7 @@ context:
             "message" : "Initial commit",
             "hash" : "a1aa5ff5b625e63",
             "merge" : false,
+            "messageNotes" : "",
             "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
           } ]
         } ],
@@ -509,6 +537,7 @@ context:
       "message" : "chore: X",
       "hash" : "583f3a3ced05979",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -518,6 +547,7 @@ context:
       "message" : "Merge branch 'issue-182-branch' into test/issue-182",
       "hash" : "0c1cd1179ab9e0b",
       "merge" : true,
+      "messageNotes" : "",
       "hashFull" : "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -527,6 +557,7 @@ context:
       "message" : "feat: Y",
       "hash" : "d0555d2e1ee3b1c",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -536,6 +567,7 @@ context:
       "message" : "Initial commit",
       "hash" : "a1aa5ff5b625e63",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
     } ]
   } ],
@@ -548,6 +580,7 @@ context:
       "message" : "chore: X",
       "hash" : "583f3a3ced05979",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -557,6 +590,7 @@ context:
       "message" : "Merge branch 'issue-182-branch' into test/issue-182",
       "hash" : "0c1cd1179ab9e0b",
       "merge" : true,
+      "messageNotes" : "",
       "hashFull" : "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -566,6 +600,7 @@ context:
       "message" : "feat: Y",
       "hash" : "d0555d2e1ee3b1c",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -575,6 +610,7 @@ context:
       "message" : "Initial commit",
       "hash" : "a1aa5ff5b625e63",
       "merge" : false,
+      "messageNotes" : "",
       "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
     } ],
     "authors" : [ {
@@ -588,6 +624,7 @@ context:
         "message" : "chore: X",
         "hash" : "583f3a3ced05979",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -597,6 +634,7 @@ context:
         "message" : "Merge branch 'issue-182-branch' into test/issue-182",
         "hash" : "0c1cd1179ab9e0b",
         "merge" : true,
+        "messageNotes" : "",
         "hashFull" : "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -606,6 +644,7 @@ context:
         "message" : "feat: Y",
         "hash" : "d0555d2e1ee3b1c",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -615,6 +654,7 @@ context:
         "message" : "Initial commit",
         "hash" : "a1aa5ff5b625e63",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
       } ]
     } ],
@@ -645,6 +685,7 @@ context:
         "message" : "chore: X",
         "hash" : "583f3a3ced05979",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -654,6 +695,7 @@ context:
         "message" : "Merge branch 'issue-182-branch' into test/issue-182",
         "hash" : "0c1cd1179ab9e0b",
         "merge" : true,
+        "messageNotes" : "",
         "hashFull" : "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -663,6 +705,7 @@ context:
         "message" : "feat: Y",
         "hash" : "d0555d2e1ee3b1c",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -672,6 +715,7 @@ context:
         "message" : "Initial commit",
         "hash" : "a1aa5ff5b625e63",
         "merge" : false,
+        "messageNotes" : "",
         "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
       } ],
       "authors" : [ {
@@ -685,6 +729,7 @@ context:
           "message" : "chore: X",
           "hash" : "583f3a3ced05979",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "583f3a3ced05979a3e66aac1c2f4b4ae90a7e112"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -694,6 +739,7 @@ context:
           "message" : "Merge branch 'issue-182-branch' into test/issue-182",
           "hash" : "0c1cd1179ab9e0b",
           "merge" : true,
+          "messageNotes" : "",
           "hashFull" : "0c1cd1179ab9e0b14ca2f49cb32c4b96567090eb"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -703,6 +749,7 @@ context:
           "message" : "feat: Y",
           "hash" : "d0555d2e1ee3b1c",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "d0555d2e1ee3b1c433b016b67fd00799c0d6bd06"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -712,6 +759,7 @@ context:
           "message" : "Initial commit",
           "hash" : "a1aa5ff5b625e63",
           "merge" : false,
+          "messageNotes" : "",
           "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
         } ]
       } ],

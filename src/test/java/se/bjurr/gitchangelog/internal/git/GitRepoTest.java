@@ -1,6 +1,7 @@
 package se.bjurr.gitchangelog.internal.git;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.REF_HEAD;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.REF_MASTER;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 
@@ -12,9 +13,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.TreeMap;
+import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.lib.ObjectId;
+import org.eclipse.jgit.revwalk.RevCommit;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 import se.bjurr.gitchangelog.api.InclusivenessStrategy;
 import se.bjurr.gitchangelog.internal.git.model.GitCommit;
 import se.bjurr.gitchangelog.internal.git.model.GitTag;
@@ -429,6 +433,62 @@ public class GitRepoTest {
     assertThat(GitRepo.isFirstTagSemanticallyHighest("1.2.3", "1.2.3")).isFalse();
     assertThat(GitRepo.isFirstTagSemanticallyHighest("1.2.3", "1.2.4")).isFalse();
     assertThat(GitRepo.isFirstTagSemanticallyHighest("1.2.4", "1.2.3")).isTrue();
+  }
+
+  @Test
+  public void testThatGitNotesArePopulatedOnCommits(@TempDir final File tempRepoDir)
+      throws Exception {
+    RevCommit revCommit;
+    try (Git git = Git.init().setDirectory(tempRepoDir).call()) {
+      final File file = new File(tempRepoDir, "file.txt");
+      java.nio.file.Files.write(file.toPath(), "content".getBytes());
+      git.add().addFilepattern("file.txt").call();
+      revCommit = git.commit().setMessage("Some commit").call();
+      git.notesAdd().setObjectId(revCommit).setMessage("This is a note\non the commit").call();
+    }
+
+    try (GitRepo gitRepo = new GitRepo(tempRepoDir)) {
+      final ObjectId from = gitRepo.getCommit(ZERO_COMMIT);
+      final ObjectId to = gitRepo.getRef(REF_HEAD);
+      final List<GitCommit> gitCommits =
+          gitRepo
+              .getGitRepoData(
+                  new RevisionBoundary<ObjectId>(from, InclusivenessStrategy.DEFAULT),
+                  new RevisionBoundary<ObjectId>(to, InclusivenessStrategy.DEFAULT),
+                  "No tag",
+                  Optional.empty())
+              .getGitCommits();
+
+      assertThat(gitCommits).hasSize(1);
+      assertThat(gitCommits.get(0).getMessageNotes()).isEqualTo("This is a note\non the commit");
+    }
+  }
+
+  @Test
+  public void testThatMessageNotesIsEmptyWhenNoGitNoteExists(@TempDir final File tempRepoDir)
+      throws Exception {
+    try (Git git = Git.init().setDirectory(tempRepoDir).call()) {
+      final File file = new File(tempRepoDir, "file.txt");
+      java.nio.file.Files.write(file.toPath(), "content".getBytes());
+      git.add().addFilepattern("file.txt").call();
+      git.commit().setMessage("Some commit").call();
+    }
+
+    try (GitRepo gitRepo = new GitRepo(tempRepoDir)) {
+      final ObjectId from = gitRepo.getCommit(ZERO_COMMIT);
+      final ObjectId to = gitRepo.getRef(REF_HEAD);
+      final List<GitCommit> gitCommits =
+          gitRepo
+              .getGitRepoData(
+                  new RevisionBoundary<ObjectId>(from, InclusivenessStrategy.DEFAULT),
+                  new RevisionBoundary<ObjectId>(to, InclusivenessStrategy.DEFAULT),
+                  "No tag",
+                  Optional.empty())
+              .getGitCommits();
+
+      assertThat(gitCommits).hasSize(1);
+      assertThat(gitCommits.get(0).getMessageNotes()).isEmpty();
+    }
   }
 
   private GitRepo getGitRepo() throws Exception {
