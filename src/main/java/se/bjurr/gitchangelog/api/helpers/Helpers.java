@@ -62,12 +62,13 @@ public class Helpers {
     helpers.put(
         "subString",
         (final Object a, final Options options) -> {
-          final Integer from = (Integer) options.params[0];
+          final String s = a.toString();
+          final int from = normalizeIndex((Integer) options.params[0], s.length());
           if (options.params.length == 1) {
-            return a.toString().substring(from);
+            return s.substring(from);
           } else {
-            final Integer to = (Integer) options.params[1];
-            return a.toString().substring(from, to);
+            final int to = normalizeIndex((Integer) options.params[1], s.length());
+            return s.substring(from, to);
           }
         });
 
@@ -255,6 +256,18 @@ public class Helpers {
           return each(options, reversedList);
         });
     return helpers;
+  }
+
+  /**
+   * A negative index counts from the end of the string, like Python/JavaScript slicing. This lets
+   * {@code subString} trim relative to the end without knowing the length upfront, e.g. {@code
+   * {{subString str 0 -1}}} to drop the last character.
+   */
+  private static int normalizeIndex(final int index, final int length) {
+    if (index < 0) {
+      return Math.max(length + index, 0);
+    }
+    return Math.min(index, length);
   }
 
   private static Object each(final Options options, final List<?> elements) throws IOException {
