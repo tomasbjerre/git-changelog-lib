@@ -15,6 +15,7 @@ import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.c
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsScope;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsType;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsTypeAndScope;
+import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsTypeAndScopeNotIn;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.containsTypeOtherThan;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.getDate;
 import static se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.getMessageParts;
@@ -101,6 +102,11 @@ public class Helpers {
         "ifContainsTypeAndScope",
         (final List<Commit> commits, final Options options) -> {
           return conditional(options, containsTypeAndScope(commits, options));
+        });
+    helpers.put(
+        "ifContainsTypeAndScopeNotIn",
+        (final List<Commit> commits, final Options options) -> {
+          return conditional(options, containsTypeAndScopeNotIn(commits, options));
         });
     helpers.put(
         "ifContainsTypeOtherThan",

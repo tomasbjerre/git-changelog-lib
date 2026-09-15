@@ -151,6 +151,38 @@ public class ConventionalCommitParser {
     return false;
   }
 
+  /**
+   * Like {@link #containsTypeAndScope}, but for checking that a type exists with a scope that is
+   * <i>not</i> one of the given, comma-separated, scopes. Useful for a catch-all section (e.g.
+   * "chore" commits without a "deps" or "ci" scope) whose heading should not be rendered when every
+   * commit of that type has already been claimed by a more specific section.
+   */
+  public static boolean containsTypeAndScopeNotIn(
+      final List<Commit> commits, final Options options) {
+    final String type = options.hash("type");
+    final String excludedScopesCsv = options.hash("scopes");
+    final List<String> excludedScopes =
+        Arrays.stream(excludedScopesCsv.split(",")) //
+            .map(String::trim)
+            .collect(Collectors.toList());
+    return containsTypeAndScopeNotIn(commits, type, excludedScopes);
+  }
+
+  public static boolean containsTypeAndScopeNotIn(
+      final List<Commit> commits, final String type, final List<String> excludedScopes) {
+    for (final Commit commit : commits) {
+      if (!getType(commit.getMessage()).matches(type)) {
+        continue;
+      }
+      final List<String> scopes = commitScopes(commit.getMessage());
+      final boolean hasExcludedScope = scopes.stream().anyMatch(excludedScopes::contains);
+      if (!hasExcludedScope) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   public static boolean containsTypeOtherThan(final List<Commit> commits, final Options options) {
     for (final Commit commit : commits) {
       if (!commitType(commit.getMessage(), options)) {

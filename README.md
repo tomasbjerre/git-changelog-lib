@@ -272,6 +272,19 @@ Conditional, renders a block if given `List<Commits>` contains given `type` and 
 {{/ifContainsScope}}
 ```
 
+### `ifContainsTypeAndScopeNotIn <List<Commit>>`
+
+Conditional, renders a block if given `List<Commits>` contains a commit with the given
+`type` whose scope is not one of the given, comma-separated, `scopes`. Useful for a
+catch-all section whose heading should stay hidden once every commit of that type has
+already been claimed by a more specific section.
+
+```hbs
+{{#ifContainsTypeAndScopeNotIn commits type="chore" scopes="deps,ci"}}
+  commits contains a chore that is not deps or ci scoped
+{{/ifContainsTypeAndScopeNotIn}}
+```
+
 ### `ifContainsTypeOtherThan <List<Commit>>`
 
 Conditional, renders a block if given `List<Commits>` contains commits that don't match the given `type`.

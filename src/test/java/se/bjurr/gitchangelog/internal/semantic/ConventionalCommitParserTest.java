@@ -4,8 +4,59 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import se.bjurr.gitchangelog.api.model.Commit;
 
 public class ConventionalCommitParserTest {
+
+  private static Commit commit(final String message) {
+    return new Commit(
+        "Author", "author@example.com", "2024-01-01", 0L, message, "abc1234567890abcdef", false);
+  }
+
+  @Test
+  public void testThatContainsTypeAndScopeNotInFindsUnclaimedCommit() {
+    final List<Commit> commits =
+        List.of(
+            commit("chore(deps): bump a"),
+            commit("chore(ci): update workflow"),
+            commit("chore: tidy up"));
+
+    assertThat(
+            ConventionalCommitParser.containsTypeAndScopeNotIn(
+                commits, "chore", List.of("deps", "ci")))
+        .isTrue();
+  }
+
+  @Test
+  public void testThatContainsTypeAndScopeNotInIsFalseWhenEveryCommitIsExcluded() {
+    final List<Commit> commits =
+        List.of(commit("chore(deps): bump a"), commit("chore(ci): update workflow"));
+
+    assertThat(
+            ConventionalCommitParser.containsTypeAndScopeNotIn(
+                commits, "chore", List.of("deps", "ci")))
+        .isFalse();
+  }
+
+  @Test
+  public void testThatContainsTypeAndScopeNotInIsFalseWhenTypeIsAbsent() {
+    final List<Commit> commits = List.of(commit("feat: add thing"));
+
+    assertThat(
+            ConventionalCommitParser.containsTypeAndScopeNotIn(
+                commits, "chore", List.of("deps", "ci")))
+        .isFalse();
+  }
+
+  @Test
+  public void testThatContainsTypeAndScopeNotInIsTrueWhenNoCommitsAreExcluded() {
+    final List<Commit> commits = List.of(commit("chore: tidy up"));
+
+    assertThat(
+            ConventionalCommitParser.containsTypeAndScopeNotIn(
+                commits, "chore", List.of("deps", "ci")))
+        .isTrue();
+  }
 
   @Test
   public void testThatDescriptionCanBeParsed() {
