@@ -517,12 +517,21 @@ Conditional, renders a block if `a` matches regexp `b`.
 
 Works just like [Java substring](<https://docs.oracle.com/javase/7/docs/api/java/lang/String.html#substring(int)>).
 
+A negative `<b>` or `<c>` counts from the end of the string, like Python/JavaScript
+slicing. This is useful when you want to trim relative to the end without knowing the
+length up front, e.g. `{{subString . 0 -1}}` drops the last character.
+
 ```hbs
 {{#eachCommitFixes .}}
  {{#ifMatches . "^[A-Z]+-[0-9]+"}}
   fixes : "{{subString . 0 3}}" and number {{subString . 4}}
  {{/ifMatches}}
 {{/eachCommitFixes}}
+```
+
+```hbs
+{{! "[some value]" -> "some value" }}
+{{subString "[some value]" 1 -1}}
 ```
 
 ## Context
