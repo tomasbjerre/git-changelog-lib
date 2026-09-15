@@ -491,6 +491,54 @@ public class GitRepoTest {
     }
   }
 
+  @Test
+  public void testThatChangedFilesArePopulatedOnCommits(@TempDir final File tempRepoDir)
+      throws Exception {
+    try (Git git = Git.init().setDirectory(tempRepoDir).call()) {
+      java.nio.file.Files.write(new File(tempRepoDir, "first.txt").toPath(), "first".getBytes());
+      java.nio.file.Files.write(new File(tempRepoDir, "second.txt").toPath(), "second".getBytes());
+      git.add().addFilepattern(".").call();
+      git.commit().setMessage("Initial commit").call();
+
+      java.nio.file.Files.write(
+          new File(tempRepoDir, "first.txt").toPath(), "first-updated".getBytes());
+      java.nio.file.Files.write(new File(tempRepoDir, "third.txt").toPath(), "third".getBytes());
+      git.add().addFilepattern(".").call();
+      git.rm().addFilepattern("second.txt").call();
+      git.commit().setMessage("Second commit").call();
+    }
+
+    try (GitRepo gitRepo = new GitRepo(tempRepoDir)) {
+      final ObjectId from = gitRepo.getCommit(ZERO_COMMIT);
+      final ObjectId to = gitRepo.getRef(REF_HEAD);
+      final List<GitCommit> gitCommits =
+          gitRepo
+              .getGitRepoData(
+                  new RevisionBoundary<ObjectId>(from, InclusivenessStrategy.DEFAULT),
+                  new RevisionBoundary<ObjectId>(to, InclusivenessStrategy.DEFAULT),
+                  "No tag",
+                  Optional.empty())
+              .getGitCommits();
+
+      assertThat(gitCommits).hasSize(2);
+      final GitCommit initialCommit =
+          gitCommits.stream()
+              .filter(c -> c.getMessage().trim().equals("Initial commit"))
+              .findFirst()
+              .get();
+      final GitCommit secondCommit =
+          gitCommits.stream()
+              .filter(c -> c.getMessage().trim().equals("Second commit"))
+              .findFirst()
+              .get();
+
+      assertThat(initialCommit.getFiles()) //
+          .containsExactly("first.txt", "second.txt");
+      assertThat(secondCommit.getFiles()) //
+          .containsExactly("first.txt", "second.txt", "third.txt");
+    }
+  }
+
   private GitRepo getGitRepo() throws Exception {
     return new GitRepo(this.gitRepoFile);
   }

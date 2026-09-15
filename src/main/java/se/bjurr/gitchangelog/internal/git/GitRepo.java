@@ -26,15 +26,24 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.LogCommand;
+import org.eclipse.jgit.diff.DiffEntry;
+import org.eclipse.jgit.diff.DiffEntry.ChangeType;
+import org.eclipse.jgit.diff.DiffFormatter;
 import org.eclipse.jgit.lib.AnyObjectId;
 import org.eclipse.jgit.lib.ObjectId;
+import org.eclipse.jgit.lib.ObjectReader;
 import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.notes.Note;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevTag;
+import org.eclipse.jgit.revwalk.RevTree;
 import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
+import org.eclipse.jgit.treewalk.AbstractTreeIterator;
+import org.eclipse.jgit.treewalk.CanonicalTreeParser;
+import org.eclipse.jgit.treewalk.EmptyTreeIterator;
+import org.eclipse.jgit.util.io.DisabledOutputStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import se.bjurr.gitchangelog.api.InclusivenessStrategy;
@@ -655,7 +664,44 @@ public class GitRepo implements Closeable {
         revCommit.getFullMessage(), //
         revCommit.getId().getName(), //
         merge, //
-        this.getMessageNotes(revCommit));
+        this.getMessageNotes(revCommit), //
+        this.getChangedFiles(revCommit));
+  }
+
+  private List<String> getChangedFiles(final RevCommit revCommit) {
+    try (ObjectReader reader = this.repository.newObjectReader()) {
+      final AbstractTreeIterator newTreeIter = this.treeIteratorFor(reader, revCommit.getTree());
+      final AbstractTreeIterator oldTreeIter;
+      if (revCommit.getParentCount() > 0) {
+        final RevCommit parent = this.revWalk.parseCommit(revCommit.getParent(0).getId());
+        oldTreeIter = this.treeIteratorFor(reader, parent.getTree());
+      } else {
+        oldTreeIter = new EmptyTreeIterator();
+      }
+      try (DiffFormatter diffFormatter = new DiffFormatter(DisabledOutputStream.INSTANCE)) {
+        diffFormatter.setRepository(this.repository);
+        final List<DiffEntry> diffEntries = diffFormatter.scan(oldTreeIter, newTreeIter);
+        final Set<String> files = new TreeSet<>();
+        for (final DiffEntry diffEntry : diffEntries) {
+          if (diffEntry.getChangeType() == ChangeType.DELETE) {
+            files.add(diffEntry.getOldPath());
+          } else {
+            files.add(diffEntry.getNewPath());
+          }
+        }
+        return new ArrayList<>(files);
+      }
+    } catch (final Exception e) {
+      LOG.debug("Unable to determine changed files for commit: " + revCommit.getName(), e);
+      return new ArrayList<>();
+    }
+  }
+
+  private AbstractTreeIterator treeIteratorFor(final ObjectReader reader, final RevTree tree)
+      throws IOException {
+    final CanonicalTreeParser treeParser = new CanonicalTreeParser();
+    treeParser.reset(reader, tree);
+    return treeParser;
   }
 
   private String getMessageNotes(final RevCommit revCommit) {

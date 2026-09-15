@@ -3,6 +3,7 @@ package se.bjurr.gitchangelog.internal.model;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
@@ -55,11 +56,32 @@ public class TransformerTest {
             "A commit message",
             "abc1234567890abcdef",
             false,
-            "A note on the commit");
+            "A note on the commit",
+            Collections.emptyList());
 
     final List<Commit> commits = this.transformer.toCommits(Arrays.asList(gitCommit));
 
     assertThat(commits).hasSize(1);
     assertThat(commits.get(0).getMessageNotes()).isEqualTo("A note on the commit");
+  }
+
+  @Test
+  public void testThatFilesArePropagatedToCommit() {
+    final GitCommit gitCommit =
+        new GitCommit(
+            "Author",
+            "author@example.com",
+            new Date(),
+            "A commit message",
+            "abc1234567890abcdef",
+            false,
+            "",
+            Arrays.asList("first.txt", "second.txt"));
+
+    final List<Commit> commits = this.transformer.toCommits(Arrays.asList(gitCommit));
+
+    assertThat(commits).hasSize(1);
+    assertThat(commits.get(0).getFiles()) //
+        .containsExactly("first.txt", "second.txt");
   }
 }

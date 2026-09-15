@@ -14,6 +14,7 @@ public class Commit implements Serializable {
   private final String authorName;
   private final String commitTime;
   private final Long commitTimeLong;
+  private final List<String> files;
   private final String hash;
   private final String hashFull;
   private final Boolean merge;
@@ -81,7 +82,8 @@ public class Commit implements Serializable {
       final String message,
       final String hash,
       final Boolean merge,
-      final String messageNotes) {
+      final String messageNotes,
+      final List<String> files) {
     this.authorName = checkNotNull(authorName, "authorName");
     this.authorEmailAddress = checkNotNull(authorEmailAddress, "authorEmailAddress");
     this.message = checkNotNull(message, "message").trim();
@@ -91,6 +93,7 @@ public class Commit implements Serializable {
     this.hash = toHash(checkNotNull(hash, "hash"));
     this.hashFull = checkNotNull(hash, "hashFull");
     this.merge = checkNotNull(merge, "merge");
+    this.files = new ArrayList<>(checkNotNull(files, "files"));
   }
 
   public String getAuthorEmailAddress() {
@@ -107,6 +110,10 @@ public class Commit implements Serializable {
 
   public Long getCommitTimeLong() {
     return this.commitTimeLong;
+  }
+
+  public List<String> getFiles() {
+    return this.files;
   }
 
   public String getHash() {
@@ -156,6 +163,7 @@ public class Commit implements Serializable {
     result = prime * result + ((this.authorName == null) ? 0 : this.authorName.hashCode());
     result = prime * result + ((this.commitTime == null) ? 0 : this.commitTime.hashCode());
     result = prime * result + ((this.commitTimeLong == null) ? 0 : this.commitTimeLong.hashCode());
+    result = prime * result + ((this.files == null) ? 0 : this.files.hashCode());
     result = prime * result + ((this.hash == null) ? 0 : this.hash.hashCode());
     result = prime * result + ((this.hashFull == null) ? 0 : this.hashFull.hashCode());
     result = prime * result + ((this.merge == null) ? 0 : this.merge.hashCode());
@@ -202,6 +210,13 @@ public class Commit implements Serializable {
         return false;
       }
     } else if (!this.commitTimeLong.equals(other.commitTimeLong)) {
+      return false;
+    }
+    if (this.files == null) {
+      if (other.files != null) {
+        return false;
+      }
+    } else if (!this.files.equals(other.files)) {
       return false;
     }
     if (this.hash == null) {

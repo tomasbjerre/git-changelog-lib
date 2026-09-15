@@ -101,6 +101,7 @@ context:
     "hash" : "65cfb90e2922ae5",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ ".gitignore" ],
     "hashFull" : "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -111,6 +112,7 @@ context:
     "hash" : "c18e11ebd1244b9",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ ".gitignore" ],
     "hashFull" : "c18e11ebd1244b9acb498fc715768efbecfebd49"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -121,6 +123,7 @@ context:
     "hash" : "ed18f49f74281ba",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ ".gitignore" ],
     "hashFull" : "ed18f49f74281ba49a850f0a57ed325161ac56d8"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -131,6 +134,7 @@ context:
     "hash" : "78348fda6cd6d6f",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ ".gitignore" ],
     "hashFull" : "78348fda6cd6d6f1a3383eb39ab90aedf056c501"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -141,6 +145,7 @@ context:
     "hash" : "1ec1b3038858387",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ ".gitignore" ],
     "hashFull" : "1ec1b3038858387630780f24da6c27da94779391"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -151,6 +156,7 @@ context:
     "hash" : "2abbccdf2039e7c",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ ".gitignore" ],
     "hashFull" : "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -161,6 +167,7 @@ context:
     "hash" : "d3462925f226d08",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ "gradle.properties" ],
     "hashFull" : "d3462925f226d085a409fdb74965d56b359d22f3"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -171,6 +178,7 @@ context:
     "hash" : "724a04a18602ce9",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ ".gitignore" ],
     "hashFull" : "724a04a18602ce98bd858371cc35f8efefaeb8d1"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -181,6 +189,7 @@ context:
     "hash" : "5fb068c6ccad741",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ ".gitignore" ],
     "hashFull" : "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -191,6 +200,7 @@ context:
     "hash" : "4c6e07857c48c98",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ ".gitignore" ],
     "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -201,6 +211,7 @@ context:
     "hash" : "aa1fd339a07e6ea",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ "gradle.properties" ],
     "hashFull" : "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -211,6 +222,7 @@ context:
     "hash" : "38fc504697f8d04",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/semantic/SemanticVersion.java", "src/main/java/se/bjurr/gitchangelog/internal/semantic/SemanticVersioning.java", "src/main/java/se/bjurr/gitchangelog/semantic/SemanticVersion.java", "src/main/java/se/bjurr/gitchangelog/semantic/SemanticVersioning.java", "src/test/java/se/bjurr/gitchangelog/semantic/SemanticVersioningTest.java" ],
     "hashFull" : "38fc504697f8d040a946cf7c0d668f49b6509c57"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -221,6 +233,7 @@ context:
     "hash" : "7a839ad349aef46",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ "CHANGELOG.md" ],
     "hashFull" : "7a839ad349aef465a3fce237211f5dd94c5d4ed8"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -231,6 +244,7 @@ context:
     "hash" : "e49a9f159266845",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ "gradle.properties" ],
     "hashFull" : "e49a9f15926684565dd8b95ccc9d470a6f3785e3"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -241,6 +255,7 @@ context:
     "hash" : "601c009bff8d551",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java" ],
     "hashFull" : "601c009bff8d5513d94a906ea4b340678b997209"
   } ],
   "tags" : [ {
@@ -254,6 +269,7 @@ context:
       "hash" : "65cfb90e2922ae5",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -264,6 +280,7 @@ context:
       "hash" : "c18e11ebd1244b9",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "c18e11ebd1244b9acb498fc715768efbecfebd49"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -274,6 +291,7 @@ context:
       "hash" : "ed18f49f74281ba",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "ed18f49f74281ba49a850f0a57ed325161ac56d8"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -284,6 +302,7 @@ context:
       "hash" : "78348fda6cd6d6f",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "78348fda6cd6d6f1a3383eb39ab90aedf056c501"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -294,6 +313,7 @@ context:
       "hash" : "1ec1b3038858387",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "1ec1b3038858387630780f24da6c27da94779391"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -304,6 +324,7 @@ context:
       "hash" : "2abbccdf2039e7c",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -314,6 +335,7 @@ context:
       "hash" : "d3462925f226d08",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "gradle.properties" ],
       "hashFull" : "d3462925f226d085a409fdb74965d56b359d22f3"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -324,6 +346,7 @@ context:
       "hash" : "724a04a18602ce9",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "724a04a18602ce98bd858371cc35f8efefaeb8d1"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -334,6 +357,7 @@ context:
       "hash" : "5fb068c6ccad741",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -344,6 +368,7 @@ context:
       "hash" : "4c6e07857c48c98",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
     } ],
     "authors" : [ {
@@ -358,6 +383,7 @@ context:
         "hash" : "65cfb90e2922ae5",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -368,6 +394,7 @@ context:
         "hash" : "c18e11ebd1244b9",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "c18e11ebd1244b9acb498fc715768efbecfebd49"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -378,6 +405,7 @@ context:
         "hash" : "ed18f49f74281ba",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "ed18f49f74281ba49a850f0a57ed325161ac56d8"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -388,6 +416,7 @@ context:
         "hash" : "78348fda6cd6d6f",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "78348fda6cd6d6f1a3383eb39ab90aedf056c501"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -398,6 +427,7 @@ context:
         "hash" : "1ec1b3038858387",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "1ec1b3038858387630780f24da6c27da94779391"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -408,6 +438,7 @@ context:
         "hash" : "2abbccdf2039e7c",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -418,6 +449,7 @@ context:
         "hash" : "d3462925f226d08",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "gradle.properties" ],
         "hashFull" : "d3462925f226d085a409fdb74965d56b359d22f3"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -428,6 +460,7 @@ context:
         "hash" : "724a04a18602ce9",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "724a04a18602ce98bd858371cc35f8efefaeb8d1"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -438,6 +471,7 @@ context:
         "hash" : "5fb068c6ccad741",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -448,6 +482,7 @@ context:
         "hash" : "4c6e07857c48c98",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
       } ]
     } ],
@@ -461,6 +496,7 @@ context:
         "hash" : "c18e11ebd1244b9",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "c18e11ebd1244b9acb498fc715768efbecfebd49"
       } ],
       "authors" : [ {
@@ -475,6 +511,7 @@ context:
           "hash" : "c18e11ebd1244b9",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "c18e11ebd1244b9acb498fc715768efbecfebd49"
         } ]
       } ],
@@ -506,6 +543,7 @@ context:
         "hash" : "724a04a18602ce9",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "724a04a18602ce98bd858371cc35f8efefaeb8d1"
       } ],
       "authors" : [ {
@@ -520,6 +558,7 @@ context:
           "hash" : "724a04a18602ce9",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "724a04a18602ce98bd858371cc35f8efefaeb8d1"
         } ]
       } ],
@@ -548,6 +587,7 @@ context:
         "hash" : "65cfb90e2922ae5",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -558,6 +598,7 @@ context:
         "hash" : "ed18f49f74281ba",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "ed18f49f74281ba49a850f0a57ed325161ac56d8"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -568,6 +609,7 @@ context:
         "hash" : "78348fda6cd6d6f",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "78348fda6cd6d6f1a3383eb39ab90aedf056c501"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -578,6 +620,7 @@ context:
         "hash" : "1ec1b3038858387",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "1ec1b3038858387630780f24da6c27da94779391"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -588,6 +631,7 @@ context:
         "hash" : "2abbccdf2039e7c",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -598,6 +642,7 @@ context:
         "hash" : "d3462925f226d08",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "gradle.properties" ],
         "hashFull" : "d3462925f226d085a409fdb74965d56b359d22f3"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -608,6 +653,7 @@ context:
         "hash" : "5fb068c6ccad741",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -618,6 +664,7 @@ context:
         "hash" : "4c6e07857c48c98",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
       } ],
       "authors" : [ {
@@ -632,6 +679,7 @@ context:
           "hash" : "65cfb90e2922ae5",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -642,6 +690,7 @@ context:
           "hash" : "ed18f49f74281ba",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "ed18f49f74281ba49a850f0a57ed325161ac56d8"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -652,6 +701,7 @@ context:
           "hash" : "78348fda6cd6d6f",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "78348fda6cd6d6f1a3383eb39ab90aedf056c501"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -662,6 +712,7 @@ context:
           "hash" : "1ec1b3038858387",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "1ec1b3038858387630780f24da6c27da94779391"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -672,6 +723,7 @@ context:
           "hash" : "2abbccdf2039e7c",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -682,6 +734,7 @@ context:
           "hash" : "d3462925f226d08",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "gradle.properties" ],
           "hashFull" : "d3462925f226d085a409fdb74965d56b359d22f3"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -692,6 +745,7 @@ context:
           "hash" : "5fb068c6ccad741",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -702,6 +756,7 @@ context:
           "hash" : "4c6e07857c48c98",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
         } ]
       } ],
@@ -733,6 +788,7 @@ context:
           "hash" : "c18e11ebd1244b9",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "c18e11ebd1244b9acb498fc715768efbecfebd49"
         } ],
         "authors" : [ {
@@ -747,6 +803,7 @@ context:
             "hash" : "c18e11ebd1244b9",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ ".gitignore" ],
             "hashFull" : "c18e11ebd1244b9acb498fc715768efbecfebd49"
           } ]
         } ],
@@ -782,6 +839,7 @@ context:
           "hash" : "724a04a18602ce9",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "724a04a18602ce98bd858371cc35f8efefaeb8d1"
         } ],
         "authors" : [ {
@@ -796,6 +854,7 @@ context:
             "hash" : "724a04a18602ce9",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ ".gitignore" ],
             "hashFull" : "724a04a18602ce98bd858371cc35f8efefaeb8d1"
           } ]
         } ],
@@ -828,6 +887,7 @@ context:
           "hash" : "65cfb90e2922ae5",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -838,6 +898,7 @@ context:
           "hash" : "ed18f49f74281ba",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "ed18f49f74281ba49a850f0a57ed325161ac56d8"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -848,6 +909,7 @@ context:
           "hash" : "78348fda6cd6d6f",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "78348fda6cd6d6f1a3383eb39ab90aedf056c501"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -858,6 +920,7 @@ context:
           "hash" : "1ec1b3038858387",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "1ec1b3038858387630780f24da6c27da94779391"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -868,6 +931,7 @@ context:
           "hash" : "2abbccdf2039e7c",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -878,6 +942,7 @@ context:
           "hash" : "d3462925f226d08",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "gradle.properties" ],
           "hashFull" : "d3462925f226d085a409fdb74965d56b359d22f3"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -888,6 +953,7 @@ context:
           "hash" : "5fb068c6ccad741",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -898,6 +964,7 @@ context:
           "hash" : "4c6e07857c48c98",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
         } ],
         "authors" : [ {
@@ -912,6 +979,7 @@ context:
             "hash" : "65cfb90e2922ae5",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ ".gitignore" ],
             "hashFull" : "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -922,6 +990,7 @@ context:
             "hash" : "ed18f49f74281ba",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ ".gitignore" ],
             "hashFull" : "ed18f49f74281ba49a850f0a57ed325161ac56d8"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -932,6 +1001,7 @@ context:
             "hash" : "78348fda6cd6d6f",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ ".gitignore" ],
             "hashFull" : "78348fda6cd6d6f1a3383eb39ab90aedf056c501"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -942,6 +1012,7 @@ context:
             "hash" : "1ec1b3038858387",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ ".gitignore" ],
             "hashFull" : "1ec1b3038858387630780f24da6c27da94779391"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -952,6 +1023,7 @@ context:
             "hash" : "2abbccdf2039e7c",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ ".gitignore" ],
             "hashFull" : "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -962,6 +1034,7 @@ context:
             "hash" : "d3462925f226d08",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ "gradle.properties" ],
             "hashFull" : "d3462925f226d085a409fdb74965d56b359d22f3"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -972,6 +1045,7 @@ context:
             "hash" : "5fb068c6ccad741",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ ".gitignore" ],
             "hashFull" : "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -982,6 +1056,7 @@ context:
             "hash" : "4c6e07857c48c98",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ ".gitignore" ],
             "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
           } ]
         } ],
@@ -1019,6 +1094,7 @@ context:
       "hash" : "aa1fd339a07e6ea",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "gradle.properties" ],
       "hashFull" : "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1029,6 +1105,7 @@ context:
       "hash" : "38fc504697f8d04",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/semantic/SemanticVersion.java", "src/main/java/se/bjurr/gitchangelog/internal/semantic/SemanticVersioning.java", "src/main/java/se/bjurr/gitchangelog/semantic/SemanticVersion.java", "src/main/java/se/bjurr/gitchangelog/semantic/SemanticVersioning.java", "src/test/java/se/bjurr/gitchangelog/semantic/SemanticVersioningTest.java" ],
       "hashFull" : "38fc504697f8d040a946cf7c0d668f49b6509c57"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1039,6 +1116,7 @@ context:
       "hash" : "7a839ad349aef46",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "CHANGELOG.md" ],
       "hashFull" : "7a839ad349aef465a3fce237211f5dd94c5d4ed8"
     } ],
     "authors" : [ {
@@ -1053,6 +1131,7 @@ context:
         "hash" : "aa1fd339a07e6ea",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "gradle.properties" ],
         "hashFull" : "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1063,6 +1142,7 @@ context:
         "hash" : "38fc504697f8d04",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/semantic/SemanticVersion.java", "src/main/java/se/bjurr/gitchangelog/internal/semantic/SemanticVersioning.java", "src/main/java/se/bjurr/gitchangelog/semantic/SemanticVersion.java", "src/main/java/se/bjurr/gitchangelog/semantic/SemanticVersioning.java", "src/test/java/se/bjurr/gitchangelog/semantic/SemanticVersioningTest.java" ],
         "hashFull" : "38fc504697f8d040a946cf7c0d668f49b6509c57"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1073,6 +1153,7 @@ context:
         "hash" : "7a839ad349aef46",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "CHANGELOG.md" ],
         "hashFull" : "7a839ad349aef465a3fce237211f5dd94c5d4ed8"
       } ]
     } ],
@@ -1086,6 +1167,7 @@ context:
         "hash" : "aa1fd339a07e6ea",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "gradle.properties" ],
         "hashFull" : "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1096,6 +1178,7 @@ context:
         "hash" : "38fc504697f8d04",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/semantic/SemanticVersion.java", "src/main/java/se/bjurr/gitchangelog/internal/semantic/SemanticVersioning.java", "src/main/java/se/bjurr/gitchangelog/semantic/SemanticVersion.java", "src/main/java/se/bjurr/gitchangelog/semantic/SemanticVersioning.java", "src/test/java/se/bjurr/gitchangelog/semantic/SemanticVersioningTest.java" ],
         "hashFull" : "38fc504697f8d040a946cf7c0d668f49b6509c57"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1106,6 +1189,7 @@ context:
         "hash" : "7a839ad349aef46",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "CHANGELOG.md" ],
         "hashFull" : "7a839ad349aef465a3fce237211f5dd94c5d4ed8"
       } ],
       "authors" : [ {
@@ -1120,6 +1204,7 @@ context:
           "hash" : "aa1fd339a07e6ea",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "gradle.properties" ],
           "hashFull" : "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1130,6 +1215,7 @@ context:
           "hash" : "38fc504697f8d04",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/semantic/SemanticVersion.java", "src/main/java/se/bjurr/gitchangelog/internal/semantic/SemanticVersioning.java", "src/main/java/se/bjurr/gitchangelog/semantic/SemanticVersion.java", "src/main/java/se/bjurr/gitchangelog/semantic/SemanticVersioning.java", "src/test/java/se/bjurr/gitchangelog/semantic/SemanticVersioningTest.java" ],
           "hashFull" : "38fc504697f8d040a946cf7c0d668f49b6509c57"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1140,6 +1226,7 @@ context:
           "hash" : "7a839ad349aef46",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "CHANGELOG.md" ],
           "hashFull" : "7a839ad349aef465a3fce237211f5dd94c5d4ed8"
         } ]
       } ],
@@ -1171,6 +1258,7 @@ context:
           "hash" : "aa1fd339a07e6ea",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "gradle.properties" ],
           "hashFull" : "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1181,6 +1269,7 @@ context:
           "hash" : "38fc504697f8d04",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/semantic/SemanticVersion.java", "src/main/java/se/bjurr/gitchangelog/internal/semantic/SemanticVersioning.java", "src/main/java/se/bjurr/gitchangelog/semantic/SemanticVersion.java", "src/main/java/se/bjurr/gitchangelog/semantic/SemanticVersioning.java", "src/test/java/se/bjurr/gitchangelog/semantic/SemanticVersioningTest.java" ],
           "hashFull" : "38fc504697f8d040a946cf7c0d668f49b6509c57"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1191,6 +1280,7 @@ context:
           "hash" : "7a839ad349aef46",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "CHANGELOG.md" ],
           "hashFull" : "7a839ad349aef465a3fce237211f5dd94c5d4ed8"
         } ],
         "authors" : [ {
@@ -1205,6 +1295,7 @@ context:
             "hash" : "aa1fd339a07e6ea",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ "gradle.properties" ],
             "hashFull" : "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -1215,6 +1306,7 @@ context:
             "hash" : "38fc504697f8d04",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/semantic/SemanticVersion.java", "src/main/java/se/bjurr/gitchangelog/internal/semantic/SemanticVersioning.java", "src/main/java/se/bjurr/gitchangelog/semantic/SemanticVersion.java", "src/main/java/se/bjurr/gitchangelog/semantic/SemanticVersioning.java", "src/test/java/se/bjurr/gitchangelog/semantic/SemanticVersioningTest.java" ],
             "hashFull" : "38fc504697f8d040a946cf7c0d668f49b6509c57"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -1225,6 +1317,7 @@ context:
             "hash" : "7a839ad349aef46",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ "CHANGELOG.md" ],
             "hashFull" : "7a839ad349aef465a3fce237211f5dd94c5d4ed8"
           } ]
         } ],
@@ -1262,6 +1355,7 @@ context:
       "hash" : "e49a9f159266845",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "gradle.properties" ],
       "hashFull" : "e49a9f15926684565dd8b95ccc9d470a6f3785e3"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1272,6 +1366,7 @@ context:
       "hash" : "601c009bff8d551",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java" ],
       "hashFull" : "601c009bff8d5513d94a906ea4b340678b997209"
     } ],
     "authors" : [ {
@@ -1286,6 +1381,7 @@ context:
         "hash" : "e49a9f159266845",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "gradle.properties" ],
         "hashFull" : "e49a9f15926684565dd8b95ccc9d470a6f3785e3"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1296,6 +1392,7 @@ context:
         "hash" : "601c009bff8d551",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java" ],
         "hashFull" : "601c009bff8d5513d94a906ea4b340678b997209"
       } ]
     } ],
@@ -1309,6 +1406,7 @@ context:
         "hash" : "e49a9f159266845",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "gradle.properties" ],
         "hashFull" : "e49a9f15926684565dd8b95ccc9d470a6f3785e3"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1319,6 +1417,7 @@ context:
         "hash" : "601c009bff8d551",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java" ],
         "hashFull" : "601c009bff8d5513d94a906ea4b340678b997209"
       } ],
       "authors" : [ {
@@ -1333,6 +1432,7 @@ context:
           "hash" : "e49a9f159266845",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "gradle.properties" ],
           "hashFull" : "e49a9f15926684565dd8b95ccc9d470a6f3785e3"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1343,6 +1443,7 @@ context:
           "hash" : "601c009bff8d551",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java" ],
           "hashFull" : "601c009bff8d5513d94a906ea4b340678b997209"
         } ]
       } ],
@@ -1374,6 +1475,7 @@ context:
           "hash" : "e49a9f159266845",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "gradle.properties" ],
           "hashFull" : "e49a9f15926684565dd8b95ccc9d470a6f3785e3"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1384,6 +1486,7 @@ context:
           "hash" : "601c009bff8d551",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java" ],
           "hashFull" : "601c009bff8d5513d94a906ea4b340678b997209"
         } ],
         "authors" : [ {
@@ -1398,6 +1501,7 @@ context:
             "hash" : "e49a9f159266845",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ "gradle.properties" ],
             "hashFull" : "e49a9f15926684565dd8b95ccc9d470a6f3785e3"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -1408,6 +1512,7 @@ context:
             "hash" : "601c009bff8d551",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java" ],
             "hashFull" : "601c009bff8d5513d94a906ea4b340678b997209"
           } ]
         } ],
@@ -1447,6 +1552,7 @@ context:
       "hash" : "65cfb90e2922ae5",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1457,6 +1563,7 @@ context:
       "hash" : "c18e11ebd1244b9",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "c18e11ebd1244b9acb498fc715768efbecfebd49"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1467,6 +1574,7 @@ context:
       "hash" : "ed18f49f74281ba",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "ed18f49f74281ba49a850f0a57ed325161ac56d8"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1477,6 +1585,7 @@ context:
       "hash" : "78348fda6cd6d6f",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "78348fda6cd6d6f1a3383eb39ab90aedf056c501"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1487,6 +1596,7 @@ context:
       "hash" : "1ec1b3038858387",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "1ec1b3038858387630780f24da6c27da94779391"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1497,6 +1607,7 @@ context:
       "hash" : "2abbccdf2039e7c",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1507,6 +1618,7 @@ context:
       "hash" : "d3462925f226d08",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "gradle.properties" ],
       "hashFull" : "d3462925f226d085a409fdb74965d56b359d22f3"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1517,6 +1629,7 @@ context:
       "hash" : "724a04a18602ce9",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "724a04a18602ce98bd858371cc35f8efefaeb8d1"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1527,6 +1640,7 @@ context:
       "hash" : "5fb068c6ccad741",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1537,6 +1651,7 @@ context:
       "hash" : "4c6e07857c48c98",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1547,6 +1662,7 @@ context:
       "hash" : "aa1fd339a07e6ea",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "gradle.properties" ],
       "hashFull" : "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1557,6 +1673,7 @@ context:
       "hash" : "38fc504697f8d04",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/semantic/SemanticVersion.java", "src/main/java/se/bjurr/gitchangelog/internal/semantic/SemanticVersioning.java", "src/main/java/se/bjurr/gitchangelog/semantic/SemanticVersion.java", "src/main/java/se/bjurr/gitchangelog/semantic/SemanticVersioning.java", "src/test/java/se/bjurr/gitchangelog/semantic/SemanticVersioningTest.java" ],
       "hashFull" : "38fc504697f8d040a946cf7c0d668f49b6509c57"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1567,6 +1684,7 @@ context:
       "hash" : "7a839ad349aef46",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "CHANGELOG.md" ],
       "hashFull" : "7a839ad349aef465a3fce237211f5dd94c5d4ed8"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1577,6 +1695,7 @@ context:
       "hash" : "e49a9f159266845",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "gradle.properties" ],
       "hashFull" : "e49a9f15926684565dd8b95ccc9d470a6f3785e3"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1587,6 +1706,7 @@ context:
       "hash" : "601c009bff8d551",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java" ],
       "hashFull" : "601c009bff8d5513d94a906ea4b340678b997209"
     } ]
   } ],
@@ -1600,6 +1720,7 @@ context:
       "hash" : "c18e11ebd1244b9",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "c18e11ebd1244b9acb498fc715768efbecfebd49"
     } ],
     "authors" : [ {
@@ -1614,6 +1735,7 @@ context:
         "hash" : "c18e11ebd1244b9",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "c18e11ebd1244b9acb498fc715768efbecfebd49"
       } ]
     } ],
@@ -1645,6 +1767,7 @@ context:
       "hash" : "724a04a18602ce9",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "724a04a18602ce98bd858371cc35f8efefaeb8d1"
     } ],
     "authors" : [ {
@@ -1659,6 +1782,7 @@ context:
         "hash" : "724a04a18602ce9",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "724a04a18602ce98bd858371cc35f8efefaeb8d1"
       } ]
     } ],
@@ -1687,6 +1811,7 @@ context:
       "hash" : "65cfb90e2922ae5",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1697,6 +1822,7 @@ context:
       "hash" : "ed18f49f74281ba",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "ed18f49f74281ba49a850f0a57ed325161ac56d8"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1707,6 +1833,7 @@ context:
       "hash" : "78348fda6cd6d6f",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "78348fda6cd6d6f1a3383eb39ab90aedf056c501"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1717,6 +1844,7 @@ context:
       "hash" : "1ec1b3038858387",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "1ec1b3038858387630780f24da6c27da94779391"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1727,6 +1855,7 @@ context:
       "hash" : "2abbccdf2039e7c",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1737,6 +1866,7 @@ context:
       "hash" : "d3462925f226d08",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "gradle.properties" ],
       "hashFull" : "d3462925f226d085a409fdb74965d56b359d22f3"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1747,6 +1877,7 @@ context:
       "hash" : "5fb068c6ccad741",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1757,6 +1888,7 @@ context:
       "hash" : "4c6e07857c48c98",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore" ],
       "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1767,6 +1899,7 @@ context:
       "hash" : "aa1fd339a07e6ea",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "gradle.properties" ],
       "hashFull" : "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1777,6 +1910,7 @@ context:
       "hash" : "38fc504697f8d04",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/semantic/SemanticVersion.java", "src/main/java/se/bjurr/gitchangelog/internal/semantic/SemanticVersioning.java", "src/main/java/se/bjurr/gitchangelog/semantic/SemanticVersion.java", "src/main/java/se/bjurr/gitchangelog/semantic/SemanticVersioning.java", "src/test/java/se/bjurr/gitchangelog/semantic/SemanticVersioningTest.java" ],
       "hashFull" : "38fc504697f8d040a946cf7c0d668f49b6509c57"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1787,6 +1921,7 @@ context:
       "hash" : "7a839ad349aef46",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "CHANGELOG.md" ],
       "hashFull" : "7a839ad349aef465a3fce237211f5dd94c5d4ed8"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1797,6 +1932,7 @@ context:
       "hash" : "e49a9f159266845",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "gradle.properties" ],
       "hashFull" : "e49a9f15926684565dd8b95ccc9d470a6f3785e3"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1807,6 +1943,7 @@ context:
       "hash" : "601c009bff8d551",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java" ],
       "hashFull" : "601c009bff8d5513d94a906ea4b340678b997209"
     } ],
     "authors" : [ {
@@ -1821,6 +1958,7 @@ context:
         "hash" : "65cfb90e2922ae5",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1831,6 +1969,7 @@ context:
         "hash" : "ed18f49f74281ba",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "ed18f49f74281ba49a850f0a57ed325161ac56d8"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1841,6 +1980,7 @@ context:
         "hash" : "78348fda6cd6d6f",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "78348fda6cd6d6f1a3383eb39ab90aedf056c501"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1851,6 +1991,7 @@ context:
         "hash" : "1ec1b3038858387",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "1ec1b3038858387630780f24da6c27da94779391"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1861,6 +2002,7 @@ context:
         "hash" : "2abbccdf2039e7c",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1871,6 +2013,7 @@ context:
         "hash" : "d3462925f226d08",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "gradle.properties" ],
         "hashFull" : "d3462925f226d085a409fdb74965d56b359d22f3"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1881,6 +2024,7 @@ context:
         "hash" : "5fb068c6ccad741",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1891,6 +2035,7 @@ context:
         "hash" : "4c6e07857c48c98",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1901,6 +2046,7 @@ context:
         "hash" : "aa1fd339a07e6ea",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "gradle.properties" ],
         "hashFull" : "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1911,6 +2057,7 @@ context:
         "hash" : "38fc504697f8d04",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/semantic/SemanticVersion.java", "src/main/java/se/bjurr/gitchangelog/internal/semantic/SemanticVersioning.java", "src/main/java/se/bjurr/gitchangelog/semantic/SemanticVersion.java", "src/main/java/se/bjurr/gitchangelog/semantic/SemanticVersioning.java", "src/test/java/se/bjurr/gitchangelog/semantic/SemanticVersioningTest.java" ],
         "hashFull" : "38fc504697f8d040a946cf7c0d668f49b6509c57"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1921,6 +2068,7 @@ context:
         "hash" : "7a839ad349aef46",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "CHANGELOG.md" ],
         "hashFull" : "7a839ad349aef465a3fce237211f5dd94c5d4ed8"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1931,6 +2079,7 @@ context:
         "hash" : "e49a9f159266845",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "gradle.properties" ],
         "hashFull" : "e49a9f15926684565dd8b95ccc9d470a6f3785e3"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1941,6 +2090,7 @@ context:
         "hash" : "601c009bff8d551",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java" ],
         "hashFull" : "601c009bff8d5513d94a906ea4b340678b997209"
       } ]
     } ],
@@ -1972,6 +2122,7 @@ context:
         "hash" : "c18e11ebd1244b9",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "c18e11ebd1244b9acb498fc715768efbecfebd49"
       } ],
       "authors" : [ {
@@ -1986,6 +2137,7 @@ context:
           "hash" : "c18e11ebd1244b9",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "c18e11ebd1244b9acb498fc715768efbecfebd49"
         } ]
       } ],
@@ -2021,6 +2173,7 @@ context:
         "hash" : "724a04a18602ce9",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "724a04a18602ce98bd858371cc35f8efefaeb8d1"
       } ],
       "authors" : [ {
@@ -2035,6 +2188,7 @@ context:
           "hash" : "724a04a18602ce9",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "724a04a18602ce98bd858371cc35f8efefaeb8d1"
         } ]
       } ],
@@ -2067,6 +2221,7 @@ context:
         "hash" : "65cfb90e2922ae5",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2077,6 +2232,7 @@ context:
         "hash" : "ed18f49f74281ba",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "ed18f49f74281ba49a850f0a57ed325161ac56d8"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2087,6 +2243,7 @@ context:
         "hash" : "78348fda6cd6d6f",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "78348fda6cd6d6f1a3383eb39ab90aedf056c501"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2097,6 +2254,7 @@ context:
         "hash" : "1ec1b3038858387",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "1ec1b3038858387630780f24da6c27da94779391"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2107,6 +2265,7 @@ context:
         "hash" : "2abbccdf2039e7c",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2117,6 +2276,7 @@ context:
         "hash" : "d3462925f226d08",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "gradle.properties" ],
         "hashFull" : "d3462925f226d085a409fdb74965d56b359d22f3"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2127,6 +2287,7 @@ context:
         "hash" : "5fb068c6ccad741",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2137,6 +2298,7 @@ context:
         "hash" : "4c6e07857c48c98",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore" ],
         "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2147,6 +2309,7 @@ context:
         "hash" : "aa1fd339a07e6ea",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "gradle.properties" ],
         "hashFull" : "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2157,6 +2320,7 @@ context:
         "hash" : "38fc504697f8d04",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/semantic/SemanticVersion.java", "src/main/java/se/bjurr/gitchangelog/internal/semantic/SemanticVersioning.java", "src/main/java/se/bjurr/gitchangelog/semantic/SemanticVersion.java", "src/main/java/se/bjurr/gitchangelog/semantic/SemanticVersioning.java", "src/test/java/se/bjurr/gitchangelog/semantic/SemanticVersioningTest.java" ],
         "hashFull" : "38fc504697f8d040a946cf7c0d668f49b6509c57"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2167,6 +2331,7 @@ context:
         "hash" : "7a839ad349aef46",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "CHANGELOG.md" ],
         "hashFull" : "7a839ad349aef465a3fce237211f5dd94c5d4ed8"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2177,6 +2342,7 @@ context:
         "hash" : "e49a9f159266845",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "gradle.properties" ],
         "hashFull" : "e49a9f15926684565dd8b95ccc9d470a6f3785e3"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2187,6 +2353,7 @@ context:
         "hash" : "601c009bff8d551",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java" ],
         "hashFull" : "601c009bff8d5513d94a906ea4b340678b997209"
       } ],
       "authors" : [ {
@@ -2201,6 +2368,7 @@ context:
           "hash" : "65cfb90e2922ae5",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "65cfb90e2922ae5a55ce86a63d0c702bf73fbe51"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2211,6 +2379,7 @@ context:
           "hash" : "ed18f49f74281ba",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "ed18f49f74281ba49a850f0a57ed325161ac56d8"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2221,6 +2390,7 @@ context:
           "hash" : "78348fda6cd6d6f",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "78348fda6cd6d6f1a3383eb39ab90aedf056c501"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2231,6 +2401,7 @@ context:
           "hash" : "1ec1b3038858387",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "1ec1b3038858387630780f24da6c27da94779391"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2241,6 +2412,7 @@ context:
           "hash" : "2abbccdf2039e7c",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "2abbccdf2039e7c9e20f0bb8faf3dc85b69b544f"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2251,6 +2423,7 @@ context:
           "hash" : "d3462925f226d08",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "gradle.properties" ],
           "hashFull" : "d3462925f226d085a409fdb74965d56b359d22f3"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2261,6 +2434,7 @@ context:
           "hash" : "5fb068c6ccad741",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "5fb068c6ccad74177e1b5c4e669955aa8c68ff5d"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2271,6 +2445,7 @@ context:
           "hash" : "4c6e07857c48c98",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore" ],
           "hashFull" : "4c6e07857c48c985dc53eef9045b5e36dab8f676"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2281,6 +2456,7 @@ context:
           "hash" : "aa1fd339a07e6ea",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "gradle.properties" ],
           "hashFull" : "aa1fd339a07e6ea5b8a8003e6ad13ed24a3a020e"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2291,6 +2467,7 @@ context:
           "hash" : "38fc504697f8d04",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/semantic/SemanticVersion.java", "src/main/java/se/bjurr/gitchangelog/internal/semantic/SemanticVersioning.java", "src/main/java/se/bjurr/gitchangelog/semantic/SemanticVersion.java", "src/main/java/se/bjurr/gitchangelog/semantic/SemanticVersioning.java", "src/test/java/se/bjurr/gitchangelog/semantic/SemanticVersioningTest.java" ],
           "hashFull" : "38fc504697f8d040a946cf7c0d668f49b6509c57"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2301,6 +2478,7 @@ context:
           "hash" : "7a839ad349aef46",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "CHANGELOG.md" ],
           "hashFull" : "7a839ad349aef465a3fce237211f5dd94c5d4ed8"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2311,6 +2489,7 @@ context:
           "hash" : "e49a9f159266845",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "gradle.properties" ],
           "hashFull" : "e49a9f15926684565dd8b95ccc9d470a6f3785e3"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -2321,6 +2500,7 @@ context:
           "hash" : "601c009bff8d551",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java" ],
           "hashFull" : "601c009bff8d5513d94a906ea4b340678b997209"
         } ]
       } ],
