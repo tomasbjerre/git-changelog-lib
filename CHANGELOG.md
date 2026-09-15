@@ -1,3 +1,22 @@
+## 3.2.0 (2026-09-15)
+
+### Features
+
+-  add ifContainsTypeAndScopeNotIn helper ([30d78](https://github.com/tomasbjerre/git-changelog-lib/commit/30d78eba04ffb67) Tomas Bjerre)  
+
+### Other changes
+
+**Superseded by centralized publish-draft-releases.yaml in .github**
+
+
+[cfdbb](https://github.com/tomasbjerre/git-changelog-lib/commit/cfdbb2250ac7bdb) Tomas Bjerre *2026-09-14 19:58:54*
+
+**Auto-publish pending draft releases weekly**
+
+
+[15b62](https://github.com/tomasbjerre/git-changelog-lib/commit/15b6246e998b439) Tomas Bjerre *2026-09-14 19:47:51*
+
+
 ## 3.0.0 (2026-09-13)
 
 ### Breaking changes
