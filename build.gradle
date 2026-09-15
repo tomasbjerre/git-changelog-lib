@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-	api "com.github.jknack:handlebars:4.5.4"
+	api "com.github.jknack:handlebars:4.5.5"
 	implementation "com.jayway.jsonpath:json-path:3.0.0"
 	implementation "org.eclipse.jgit:org.eclipse.jgit:7.8.0.202609011348-r"
 	implementation "tools.jackson.core:jackson-databind:3.2.2"
