@@ -138,6 +138,7 @@ context:
     "hash" : "e3106df640b693b",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/TraversalWork.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogTest.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java", "src/test/java/se/bjurr/gitchangelog/test/LibPerformanceTest.java", "src/test/resources/simplelogger.properties" ],
     "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -148,6 +149,7 @@ context:
     "hash" : "27642e3db66e67c",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java" ],
     "hashFull" : "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644"
   } ],
   "tags" : [ {
@@ -162,6 +164,7 @@ context:
       "hash" : "e3106df640b693b",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/TraversalWork.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogTest.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java", "src/test/java/se/bjurr/gitchangelog/test/LibPerformanceTest.java", "src/test/resources/simplelogger.properties" ],
       "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
     } ],
     "authors" : [ {
@@ -176,6 +179,7 @@ context:
         "hash" : "e3106df640b693b",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/TraversalWork.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogTest.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java", "src/test/java/se/bjurr/gitchangelog/test/LibPerformanceTest.java", "src/test/resources/simplelogger.properties" ],
         "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
       } ]
     } ],
@@ -189,6 +193,7 @@ context:
         "hash" : "e3106df640b693b",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/TraversalWork.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogTest.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java", "src/test/java/se/bjurr/gitchangelog/test/LibPerformanceTest.java", "src/test/resources/simplelogger.properties" ],
         "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
       } ],
       "authors" : [ {
@@ -203,6 +208,7 @@ context:
           "hash" : "e3106df640b693b",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/TraversalWork.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogTest.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java", "src/test/java/se/bjurr/gitchangelog/test/LibPerformanceTest.java", "src/test/resources/simplelogger.properties" ],
           "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
         } ]
       } ],
@@ -233,6 +239,7 @@ context:
           "hash" : "e3106df640b693b",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/TraversalWork.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogTest.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java", "src/test/java/se/bjurr/gitchangelog/test/LibPerformanceTest.java", "src/test/resources/simplelogger.properties" ],
           "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
         } ],
         "authors" : [ {
@@ -247,6 +254,7 @@ context:
             "hash" : "e3106df640b693b",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/TraversalWork.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogTest.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java", "src/test/java/se/bjurr/gitchangelog/test/LibPerformanceTest.java", "src/test/resources/simplelogger.properties" ],
             "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
           } ]
         } ],
@@ -284,6 +292,7 @@ context:
       "hash" : "27642e3db66e67c",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java" ],
       "hashFull" : "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644"
     } ],
     "authors" : [ {
@@ -298,6 +307,7 @@ context:
         "hash" : "27642e3db66e67c",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java" ],
         "hashFull" : "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644"
       } ]
     } ],
@@ -311,6 +321,7 @@ context:
         "hash" : "27642e3db66e67c",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java" ],
         "hashFull" : "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644"
       } ],
       "authors" : [ {
@@ -325,6 +336,7 @@ context:
           "hash" : "27642e3db66e67c",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java" ],
           "hashFull" : "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644"
         } ]
       } ],
@@ -355,6 +367,7 @@ context:
           "hash" : "27642e3db66e67c",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java" ],
           "hashFull" : "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644"
         } ],
         "authors" : [ {
@@ -369,6 +382,7 @@ context:
             "hash" : "27642e3db66e67c",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java" ],
             "hashFull" : "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644"
           } ]
         } ],
@@ -407,6 +421,7 @@ context:
       "hash" : "e3106df640b693b",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/TraversalWork.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogTest.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java", "src/test/java/se/bjurr/gitchangelog/test/LibPerformanceTest.java", "src/test/resources/simplelogger.properties" ],
       "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -417,6 +432,7 @@ context:
       "hash" : "27642e3db66e67c",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java" ],
       "hashFull" : "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644"
     } ]
   } ],
@@ -430,6 +446,7 @@ context:
       "hash" : "27642e3db66e67c",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java" ],
       "hashFull" : "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644"
     } ],
     "authors" : [ {
@@ -444,6 +461,7 @@ context:
         "hash" : "27642e3db66e67c",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java" ],
         "hashFull" : "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644"
       } ]
     } ],
@@ -472,6 +490,7 @@ context:
       "hash" : "e3106df640b693b",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/TraversalWork.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogTest.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java", "src/test/java/se/bjurr/gitchangelog/test/LibPerformanceTest.java", "src/test/resources/simplelogger.properties" ],
       "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
     } ],
     "authors" : [ {
@@ -486,6 +505,7 @@ context:
         "hash" : "e3106df640b693b",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/TraversalWork.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogTest.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java", "src/test/java/se/bjurr/gitchangelog/test/LibPerformanceTest.java", "src/test/resources/simplelogger.properties" ],
         "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
       } ]
     } ],
@@ -516,6 +536,7 @@ context:
         "hash" : "27642e3db66e67c",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java" ],
         "hashFull" : "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644"
       } ],
       "authors" : [ {
@@ -530,6 +551,7 @@ context:
           "hash" : "27642e3db66e67c",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java" ],
           "hashFull" : "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644"
         } ]
       } ],
@@ -558,6 +580,7 @@ context:
         "hash" : "e3106df640b693b",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/TraversalWork.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogTest.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java", "src/test/java/se/bjurr/gitchangelog/test/LibPerformanceTest.java", "src/test/resources/simplelogger.properties" ],
         "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
       } ],
       "authors" : [ {
@@ -572,6 +595,7 @@ context:
           "hash" : "e3106df640b693b",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/TraversalWork.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogTest.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java", "src/test/java/se/bjurr/gitchangelog/test/LibPerformanceTest.java", "src/test/resources/simplelogger.properties" ],
           "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
         } ]
       } ],

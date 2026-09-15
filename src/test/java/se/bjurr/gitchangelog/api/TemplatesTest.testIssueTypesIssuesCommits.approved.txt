@@ -261,6 +261,7 @@ context:
     "hash" : "8371342ad0d887d",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ "README.md" ],
     "hashFull" : "8371342ad0d887da7710af881a41e01c3e091ecb"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -271,6 +272,7 @@ context:
     "hash" : "090e7f4b11223c4",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ "README.md" ],
     "hashFull" : "090e7f4b11223c49a302327c6e0c32822b4b1109"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -281,6 +283,7 @@ context:
     "hash" : "c5d37f5e964afd5",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ "README.md" ],
     "hashFull" : "c5d37f5e964afd50194eb86dc4565ba4d46a8226"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -291,6 +294,7 @@ context:
     "hash" : "87c0d7288896171",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ "README.md" ],
     "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -301,6 +305,7 @@ context:
     "hash" : "20e333f8e108f77",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ "README.md" ],
     "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -311,6 +316,7 @@ context:
     "hash" : "d50a3e332f9fcba",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ "README.md" ],
     "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -321,6 +327,7 @@ context:
     "hash" : "cc0fbbd8bc63955",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ "README.md" ],
     "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -331,6 +338,7 @@ context:
     "hash" : "a9bd03b34b255ff",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ "README.md" ],
     "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -341,6 +349,7 @@ context:
     "hash" : "5607ea23fa8aaf7",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ "README.md" ],
     "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -351,6 +360,7 @@ context:
     "hash" : "3f62b35d1317311",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ "README.md" ],
     "hashFull" : "3f62b35d131731126b15fa599acf409f997d3ea0"
   }, {
     "authorName" : "T B",
@@ -361,6 +371,7 @@ context:
     "hash" : "71d845c18924504",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ "README.md" ],
     "hashFull" : "71d845c18924504097edc6b0c34a35cf242cc080"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -371,6 +382,7 @@ context:
     "hash" : "071a14f29020758",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ "README.md" ],
     "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
   }, {
     "authorName" : "T B",
@@ -381,6 +393,7 @@ context:
     "hash" : "326d4d01c0a9415",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ "README.md" ],
     "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -391,6 +404,7 @@ context:
     "hash" : "7cd30508cecdc5b",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
     "hashFull" : "7cd30508cecdc5b1303cb6e25fec343d5d57e1bb"
   }, {
     "authorName" : "Tomas Bjerre",
@@ -401,6 +415,7 @@ context:
     "hash" : "a1aa5ff5b625e63",
     "merge" : false,
     "messageNotes" : "",
+    "files" : [ ".gitignore", ".travis.yml", "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
     "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
   } ],
   "tags" : [ {
@@ -414,6 +429,7 @@ context:
       "hash" : "8371342ad0d887d",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "8371342ad0d887da7710af881a41e01c3e091ecb"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -424,6 +440,7 @@ context:
       "hash" : "090e7f4b11223c4",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "090e7f4b11223c49a302327c6e0c32822b4b1109"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -434,6 +451,7 @@ context:
       "hash" : "c5d37f5e964afd5",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "c5d37f5e964afd50194eb86dc4565ba4d46a8226"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -444,6 +462,7 @@ context:
       "hash" : "87c0d7288896171",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -454,6 +473,7 @@ context:
       "hash" : "20e333f8e108f77",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -464,6 +484,7 @@ context:
       "hash" : "cc0fbbd8bc63955",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -474,6 +495,7 @@ context:
       "hash" : "5607ea23fa8aaf7",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
     } ],
     "authors" : [ {
@@ -488,6 +510,7 @@ context:
         "hash" : "8371342ad0d887d",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "8371342ad0d887da7710af881a41e01c3e091ecb"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -498,6 +521,7 @@ context:
         "hash" : "090e7f4b11223c4",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "090e7f4b11223c49a302327c6e0c32822b4b1109"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -508,6 +532,7 @@ context:
         "hash" : "c5d37f5e964afd5",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "c5d37f5e964afd50194eb86dc4565ba4d46a8226"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -518,6 +543,7 @@ context:
         "hash" : "87c0d7288896171",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -528,6 +554,7 @@ context:
         "hash" : "20e333f8e108f77",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -538,6 +565,7 @@ context:
         "hash" : "cc0fbbd8bc63955",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -548,6 +576,7 @@ context:
         "hash" : "5607ea23fa8aaf7",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
       } ]
     } ],
@@ -561,6 +590,7 @@ context:
         "hash" : "20e333f8e108f77",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
       } ],
       "authors" : [ {
@@ -575,6 +605,7 @@ context:
           "hash" : "20e333f8e108f77",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
         } ]
       } ],
@@ -604,6 +635,7 @@ context:
         "hash" : "87c0d7288896171",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
       } ],
       "authors" : [ {
@@ -618,6 +650,7 @@ context:
           "hash" : "87c0d7288896171",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
         } ]
       } ],
@@ -649,6 +682,7 @@ context:
         "hash" : "87c0d7288896171",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
       } ],
       "authors" : [ {
@@ -663,6 +697,7 @@ context:
           "hash" : "87c0d7288896171",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
         } ]
       } ],
@@ -694,6 +729,7 @@ context:
         "hash" : "5607ea23fa8aaf7",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
       } ],
       "authors" : [ {
@@ -708,6 +744,7 @@ context:
           "hash" : "5607ea23fa8aaf7",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
         } ]
       } ],
@@ -739,6 +776,7 @@ context:
         "hash" : "cc0fbbd8bc63955",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
       } ],
       "authors" : [ {
@@ -753,6 +791,7 @@ context:
           "hash" : "cc0fbbd8bc63955",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
         } ]
       } ],
@@ -784,6 +823,7 @@ context:
         "hash" : "8371342ad0d887d",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "8371342ad0d887da7710af881a41e01c3e091ecb"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -794,6 +834,7 @@ context:
         "hash" : "090e7f4b11223c4",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "090e7f4b11223c49a302327c6e0c32822b4b1109"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -804,6 +845,7 @@ context:
         "hash" : "c5d37f5e964afd5",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "c5d37f5e964afd50194eb86dc4565ba4d46a8226"
       } ],
       "authors" : [ {
@@ -818,6 +860,7 @@ context:
           "hash" : "8371342ad0d887d",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "8371342ad0d887da7710af881a41e01c3e091ecb"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -828,6 +871,7 @@ context:
           "hash" : "090e7f4b11223c4",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "090e7f4b11223c49a302327c6e0c32822b4b1109"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -838,6 +882,7 @@ context:
           "hash" : "c5d37f5e964afd5",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "c5d37f5e964afd50194eb86dc4565ba4d46a8226"
         } ]
       } ],
@@ -869,6 +914,7 @@ context:
           "hash" : "20e333f8e108f77",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
         } ],
         "authors" : [ {
@@ -883,6 +929,7 @@ context:
             "hash" : "20e333f8e108f77",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ "README.md" ],
             "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
           } ]
         } ],
@@ -916,6 +963,7 @@ context:
           "hash" : "87c0d7288896171",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
         } ],
         "authors" : [ {
@@ -930,6 +978,7 @@ context:
             "hash" : "87c0d7288896171",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ "README.md" ],
             "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
           } ]
         } ],
@@ -961,6 +1010,7 @@ context:
           "hash" : "87c0d7288896171",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
         } ],
         "authors" : [ {
@@ -975,6 +1025,7 @@ context:
             "hash" : "87c0d7288896171",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ "README.md" ],
             "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
           } ]
         } ],
@@ -1006,6 +1057,7 @@ context:
           "hash" : "5607ea23fa8aaf7",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
         } ],
         "authors" : [ {
@@ -1020,6 +1072,7 @@ context:
             "hash" : "5607ea23fa8aaf7",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ "README.md" ],
             "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
           } ]
         } ],
@@ -1055,6 +1108,7 @@ context:
           "hash" : "cc0fbbd8bc63955",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
         } ],
         "authors" : [ {
@@ -1069,6 +1123,7 @@ context:
             "hash" : "cc0fbbd8bc63955",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ "README.md" ],
             "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
           } ]
         } ],
@@ -1104,6 +1159,7 @@ context:
           "hash" : "8371342ad0d887d",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "8371342ad0d887da7710af881a41e01c3e091ecb"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1114,6 +1170,7 @@ context:
           "hash" : "090e7f4b11223c4",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "090e7f4b11223c49a302327c6e0c32822b4b1109"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1124,6 +1181,7 @@ context:
           "hash" : "c5d37f5e964afd5",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "c5d37f5e964afd50194eb86dc4565ba4d46a8226"
         } ],
         "authors" : [ {
@@ -1138,6 +1196,7 @@ context:
             "hash" : "8371342ad0d887d",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ "README.md" ],
             "hashFull" : "8371342ad0d887da7710af881a41e01c3e091ecb"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -1148,6 +1207,7 @@ context:
             "hash" : "090e7f4b11223c4",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ "README.md" ],
             "hashFull" : "090e7f4b11223c49a302327c6e0c32822b4b1109"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -1158,6 +1218,7 @@ context:
             "hash" : "c5d37f5e964afd5",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ "README.md" ],
             "hashFull" : "c5d37f5e964afd50194eb86dc4565ba4d46a8226"
           } ]
         } ],
@@ -1195,6 +1256,7 @@ context:
       "hash" : "a9bd03b34b255ff",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
     } ],
     "authors" : [ {
@@ -1209,6 +1271,7 @@ context:
         "hash" : "a9bd03b34b255ff",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
       } ]
     } ],
@@ -1222,6 +1285,7 @@ context:
         "hash" : "a9bd03b34b255ff",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
       } ],
       "authors" : [ {
@@ -1236,6 +1300,7 @@ context:
           "hash" : "a9bd03b34b255ff",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
         } ]
       } ],
@@ -1267,6 +1332,7 @@ context:
           "hash" : "a9bd03b34b255ff",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
         } ],
         "authors" : [ {
@@ -1281,6 +1347,7 @@ context:
             "hash" : "a9bd03b34b255ff",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ "README.md" ],
             "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
           } ]
         } ],
@@ -1319,6 +1386,7 @@ context:
       "hash" : "d50a3e332f9fcba",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1329,6 +1397,7 @@ context:
       "hash" : "3f62b35d1317311",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "3f62b35d131731126b15fa599acf409f997d3ea0"
     }, {
       "authorName" : "T B",
@@ -1339,6 +1408,7 @@ context:
       "hash" : "71d845c18924504",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "71d845c18924504097edc6b0c34a35cf242cc080"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1349,6 +1419,7 @@ context:
       "hash" : "071a14f29020758",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
     }, {
       "authorName" : "T B",
@@ -1359,6 +1430,7 @@ context:
       "hash" : "326d4d01c0a9415",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -1369,6 +1441,7 @@ context:
       "hash" : "7cd30508cecdc5b",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
       "hashFull" : "7cd30508cecdc5b1303cb6e25fec343d5d57e1bb"
     } ],
     "authors" : [ {
@@ -1383,6 +1456,7 @@ context:
         "hash" : "d50a3e332f9fcba",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1393,6 +1467,7 @@ context:
         "hash" : "3f62b35d1317311",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "3f62b35d131731126b15fa599acf409f997d3ea0"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1403,6 +1478,7 @@ context:
         "hash" : "071a14f29020758",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1413,6 +1489,7 @@ context:
         "hash" : "7cd30508cecdc5b",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
         "hashFull" : "7cd30508cecdc5b1303cb6e25fec343d5d57e1bb"
       } ]
     }, {
@@ -1427,6 +1504,7 @@ context:
         "hash" : "71d845c18924504",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "71d845c18924504097edc6b0c34a35cf242cc080"
       }, {
         "authorName" : "T B",
@@ -1437,6 +1515,7 @@ context:
         "hash" : "326d4d01c0a9415",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
       } ]
     } ],
@@ -1450,6 +1529,7 @@ context:
         "hash" : "d50a3e332f9fcba",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
       } ],
       "authors" : [ {
@@ -1464,6 +1544,7 @@ context:
           "hash" : "d50a3e332f9fcba",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
         } ]
       } ],
@@ -1495,6 +1576,7 @@ context:
         "hash" : "326d4d01c0a9415",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
       } ],
       "authors" : [ {
@@ -1509,6 +1591,7 @@ context:
           "hash" : "326d4d01c0a9415",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
         } ]
       } ],
@@ -1540,6 +1623,7 @@ context:
         "hash" : "071a14f29020758",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
       } ],
       "authors" : [ {
@@ -1554,6 +1638,7 @@ context:
           "hash" : "071a14f29020758",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
         } ]
       } ],
@@ -1585,6 +1670,7 @@ context:
         "hash" : "3f62b35d1317311",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "3f62b35d131731126b15fa599acf409f997d3ea0"
       }, {
         "authorName" : "T B",
@@ -1595,6 +1681,7 @@ context:
         "hash" : "71d845c18924504",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "71d845c18924504097edc6b0c34a35cf242cc080"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -1605,6 +1692,7 @@ context:
         "hash" : "7cd30508cecdc5b",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
         "hashFull" : "7cd30508cecdc5b1303cb6e25fec343d5d57e1bb"
       } ],
       "authors" : [ {
@@ -1619,6 +1707,7 @@ context:
           "hash" : "3f62b35d1317311",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "3f62b35d131731126b15fa599acf409f997d3ea0"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1629,6 +1718,7 @@ context:
           "hash" : "7cd30508cecdc5b",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
           "hashFull" : "7cd30508cecdc5b1303cb6e25fec343d5d57e1bb"
         } ]
       }, {
@@ -1643,6 +1733,7 @@ context:
           "hash" : "71d845c18924504",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "71d845c18924504097edc6b0c34a35cf242cc080"
         } ]
       } ],
@@ -1674,6 +1765,7 @@ context:
           "hash" : "d50a3e332f9fcba",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
         } ],
         "authors" : [ {
@@ -1688,6 +1780,7 @@ context:
             "hash" : "d50a3e332f9fcba",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ "README.md" ],
             "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
           } ]
         } ],
@@ -1719,6 +1812,7 @@ context:
           "hash" : "326d4d01c0a9415",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
         } ],
         "authors" : [ {
@@ -1733,6 +1827,7 @@ context:
             "hash" : "326d4d01c0a9415",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ "README.md" ],
             "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
           } ]
         } ],
@@ -1768,6 +1863,7 @@ context:
           "hash" : "071a14f29020758",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
         } ],
         "authors" : [ {
@@ -1782,6 +1878,7 @@ context:
             "hash" : "071a14f29020758",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ "README.md" ],
             "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
           } ]
         } ],
@@ -1817,6 +1914,7 @@ context:
           "hash" : "3f62b35d1317311",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "3f62b35d131731126b15fa599acf409f997d3ea0"
         }, {
           "authorName" : "T B",
@@ -1827,6 +1925,7 @@ context:
           "hash" : "71d845c18924504",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "71d845c18924504097edc6b0c34a35cf242cc080"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -1837,6 +1936,7 @@ context:
           "hash" : "7cd30508cecdc5b",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
           "hashFull" : "7cd30508cecdc5b1303cb6e25fec343d5d57e1bb"
         } ],
         "authors" : [ {
@@ -1851,6 +1951,7 @@ context:
             "hash" : "3f62b35d1317311",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ "README.md" ],
             "hashFull" : "3f62b35d131731126b15fa599acf409f997d3ea0"
           }, {
             "authorName" : "Tomas Bjerre",
@@ -1861,6 +1962,7 @@ context:
             "hash" : "7cd30508cecdc5b",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
             "hashFull" : "7cd30508cecdc5b1303cb6e25fec343d5d57e1bb"
           } ]
         }, {
@@ -1875,6 +1977,7 @@ context:
             "hash" : "71d845c18924504",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ "README.md" ],
             "hashFull" : "71d845c18924504097edc6b0c34a35cf242cc080"
           } ]
         } ],
@@ -1912,6 +2015,7 @@ context:
       "hash" : "a1aa5ff5b625e63",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore", ".travis.yml", "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
       "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
     } ],
     "authors" : [ {
@@ -1926,6 +2030,7 @@ context:
         "hash" : "a1aa5ff5b625e63",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore", ".travis.yml", "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
         "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
       } ]
     } ],
@@ -1939,6 +2044,7 @@ context:
         "hash" : "a1aa5ff5b625e63",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore", ".travis.yml", "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
         "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
       } ],
       "authors" : [ {
@@ -1953,6 +2059,7 @@ context:
           "hash" : "a1aa5ff5b625e63",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore", ".travis.yml", "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
           "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
         } ]
       } ],
@@ -1984,6 +2091,7 @@ context:
           "hash" : "a1aa5ff5b625e63",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore", ".travis.yml", "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
           "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
         } ],
         "authors" : [ {
@@ -1998,6 +2106,7 @@ context:
             "hash" : "a1aa5ff5b625e63",
             "merge" : false,
             "messageNotes" : "",
+            "files" : [ ".gitignore", ".travis.yml", "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
             "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
           } ]
         } ],
@@ -2037,6 +2146,7 @@ context:
       "hash" : "8371342ad0d887d",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "8371342ad0d887da7710af881a41e01c3e091ecb"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2047,6 +2157,7 @@ context:
       "hash" : "090e7f4b11223c4",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "090e7f4b11223c49a302327c6e0c32822b4b1109"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2057,6 +2168,7 @@ context:
       "hash" : "c5d37f5e964afd5",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "c5d37f5e964afd50194eb86dc4565ba4d46a8226"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2067,6 +2179,7 @@ context:
       "hash" : "87c0d7288896171",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2077,6 +2190,7 @@ context:
       "hash" : "20e333f8e108f77",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2087,6 +2201,7 @@ context:
       "hash" : "d50a3e332f9fcba",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2097,6 +2212,7 @@ context:
       "hash" : "cc0fbbd8bc63955",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2107,6 +2223,7 @@ context:
       "hash" : "a9bd03b34b255ff",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2117,6 +2234,7 @@ context:
       "hash" : "5607ea23fa8aaf7",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2127,6 +2245,7 @@ context:
       "hash" : "3f62b35d1317311",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "3f62b35d131731126b15fa599acf409f997d3ea0"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2137,6 +2256,7 @@ context:
       "hash" : "071a14f29020758",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2147,6 +2267,7 @@ context:
       "hash" : "7cd30508cecdc5b",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
       "hashFull" : "7cd30508cecdc5b1303cb6e25fec343d5d57e1bb"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2157,6 +2278,7 @@ context:
       "hash" : "a1aa5ff5b625e63",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore", ".travis.yml", "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
       "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
     } ]
   }, {
@@ -2171,6 +2293,7 @@ context:
       "hash" : "71d845c18924504",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "71d845c18924504097edc6b0c34a35cf242cc080"
     }, {
       "authorName" : "T B",
@@ -2181,6 +2304,7 @@ context:
       "hash" : "326d4d01c0a9415",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
     } ]
   } ],
@@ -2194,6 +2318,7 @@ context:
       "hash" : "20e333f8e108f77",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
     } ],
     "authors" : [ {
@@ -2208,6 +2333,7 @@ context:
         "hash" : "20e333f8e108f77",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
       } ]
     } ],
@@ -2237,6 +2363,7 @@ context:
       "hash" : "a9bd03b34b255ff",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
     } ],
     "authors" : [ {
@@ -2251,6 +2378,7 @@ context:
         "hash" : "a9bd03b34b255ff",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
       } ]
     } ],
@@ -2280,6 +2408,7 @@ context:
       "hash" : "d50a3e332f9fcba",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
     } ],
     "authors" : [ {
@@ -2294,6 +2423,7 @@ context:
         "hash" : "d50a3e332f9fcba",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
       } ]
     } ],
@@ -2325,6 +2455,7 @@ context:
       "hash" : "87c0d7288896171",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
     }, {
       "authorName" : "T B",
@@ -2335,6 +2466,7 @@ context:
       "hash" : "326d4d01c0a9415",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
     } ],
     "authors" : [ {
@@ -2349,6 +2481,7 @@ context:
         "hash" : "87c0d7288896171",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
       } ]
     }, {
@@ -2363,6 +2496,7 @@ context:
         "hash" : "326d4d01c0a9415",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
       } ]
     } ],
@@ -2394,6 +2528,7 @@ context:
       "hash" : "87c0d7288896171",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
     } ],
     "authors" : [ {
@@ -2408,6 +2543,7 @@ context:
         "hash" : "87c0d7288896171",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
       } ]
     } ],
@@ -2439,6 +2575,7 @@ context:
       "hash" : "5607ea23fa8aaf7",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
     } ],
     "authors" : [ {
@@ -2453,6 +2590,7 @@ context:
         "hash" : "5607ea23fa8aaf7",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
       } ]
     } ],
@@ -2484,6 +2622,7 @@ context:
       "hash" : "cc0fbbd8bc63955",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
     } ],
     "authors" : [ {
@@ -2498,6 +2637,7 @@ context:
         "hash" : "cc0fbbd8bc63955",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
       } ]
     } ],
@@ -2529,6 +2669,7 @@ context:
       "hash" : "071a14f29020758",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
     } ],
     "authors" : [ {
@@ -2543,6 +2684,7 @@ context:
         "hash" : "071a14f29020758",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
       } ]
     } ],
@@ -2574,6 +2716,7 @@ context:
       "hash" : "8371342ad0d887d",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "8371342ad0d887da7710af881a41e01c3e091ecb"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2584,6 +2727,7 @@ context:
       "hash" : "090e7f4b11223c4",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "090e7f4b11223c49a302327c6e0c32822b4b1109"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2594,6 +2738,7 @@ context:
       "hash" : "c5d37f5e964afd5",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "c5d37f5e964afd50194eb86dc4565ba4d46a8226"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2604,6 +2749,7 @@ context:
       "hash" : "3f62b35d1317311",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "3f62b35d131731126b15fa599acf409f997d3ea0"
     }, {
       "authorName" : "T B",
@@ -2614,6 +2760,7 @@ context:
       "hash" : "71d845c18924504",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "README.md" ],
       "hashFull" : "71d845c18924504097edc6b0c34a35cf242cc080"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2624,6 +2771,7 @@ context:
       "hash" : "7cd30508cecdc5b",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
       "hashFull" : "7cd30508cecdc5b1303cb6e25fec343d5d57e1bb"
     }, {
       "authorName" : "Tomas Bjerre",
@@ -2634,6 +2782,7 @@ context:
       "hash" : "a1aa5ff5b625e63",
       "merge" : false,
       "messageNotes" : "",
+      "files" : [ ".gitignore", ".travis.yml", "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
       "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
     } ],
     "authors" : [ {
@@ -2648,6 +2797,7 @@ context:
         "hash" : "8371342ad0d887d",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "8371342ad0d887da7710af881a41e01c3e091ecb"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2658,6 +2808,7 @@ context:
         "hash" : "090e7f4b11223c4",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "090e7f4b11223c49a302327c6e0c32822b4b1109"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2668,6 +2819,7 @@ context:
         "hash" : "c5d37f5e964afd5",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "c5d37f5e964afd50194eb86dc4565ba4d46a8226"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2678,6 +2830,7 @@ context:
         "hash" : "3f62b35d1317311",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "3f62b35d131731126b15fa599acf409f997d3ea0"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2688,6 +2841,7 @@ context:
         "hash" : "7cd30508cecdc5b",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
         "hashFull" : "7cd30508cecdc5b1303cb6e25fec343d5d57e1bb"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -2698,6 +2852,7 @@ context:
         "hash" : "a1aa5ff5b625e63",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore", ".travis.yml", "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
         "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
       } ]
     }, {
@@ -2712,6 +2867,7 @@ context:
         "hash" : "71d845c18924504",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "71d845c18924504097edc6b0c34a35cf242cc080"
       } ]
     } ],
@@ -2743,6 +2899,7 @@ context:
         "hash" : "20e333f8e108f77",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
       } ],
       "authors" : [ {
@@ -2757,6 +2914,7 @@ context:
           "hash" : "20e333f8e108f77",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "20e333f8e108f77b9345516f2c407d9673b16ff8"
         } ]
       } ],
@@ -2790,6 +2948,7 @@ context:
         "hash" : "a9bd03b34b255ff",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
       } ],
       "authors" : [ {
@@ -2804,6 +2963,7 @@ context:
           "hash" : "a9bd03b34b255ff",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "a9bd03b34b255fffc2a9bfe20932fd50a3d90af3"
         } ]
       } ],
@@ -2837,6 +2997,7 @@ context:
         "hash" : "d50a3e332f9fcba",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
       } ],
       "authors" : [ {
@@ -2851,6 +3012,7 @@ context:
           "hash" : "d50a3e332f9fcba",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "d50a3e332f9fcbabac24c2b411ef60b70970dea7"
         } ]
       } ],
@@ -2882,6 +3044,7 @@ context:
         "hash" : "87c0d7288896171",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
       }, {
         "authorName" : "T B",
@@ -2892,6 +3055,7 @@ context:
         "hash" : "326d4d01c0a9415",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
       } ],
       "authors" : [ {
@@ -2906,6 +3070,7 @@ context:
           "hash" : "87c0d7288896171",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
         } ]
       }, {
@@ -2920,6 +3085,7 @@ context:
           "hash" : "326d4d01c0a9415",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "326d4d01c0a941538cea89f7391999066874738a"
         } ]
       } ],
@@ -2951,6 +3117,7 @@ context:
         "hash" : "87c0d7288896171",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
       } ],
       "authors" : [ {
@@ -2965,6 +3132,7 @@ context:
           "hash" : "87c0d7288896171",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "87c0d72888961712d4d63dd6298c24c1133a6b51"
         } ]
       } ],
@@ -2996,6 +3164,7 @@ context:
         "hash" : "5607ea23fa8aaf7",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
       } ],
       "authors" : [ {
@@ -3010,6 +3179,7 @@ context:
           "hash" : "5607ea23fa8aaf7",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "5607ea23fa8aaf7a94e1c2d285778eaea66c1c37"
         } ]
       } ],
@@ -3045,6 +3215,7 @@ context:
         "hash" : "cc0fbbd8bc63955",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
       } ],
       "authors" : [ {
@@ -3059,6 +3230,7 @@ context:
           "hash" : "cc0fbbd8bc63955",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "cc0fbbd8bc63955e4576e24feb481ab315efec31"
         } ]
       } ],
@@ -3090,6 +3262,7 @@ context:
         "hash" : "071a14f29020758",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
       } ],
       "authors" : [ {
@@ -3104,6 +3277,7 @@ context:
           "hash" : "071a14f29020758",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "071a14f29020758bc46ac0a45e7cfc074c872850"
         } ]
       } ],
@@ -3139,6 +3313,7 @@ context:
         "hash" : "8371342ad0d887d",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "8371342ad0d887da7710af881a41e01c3e091ecb"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -3149,6 +3324,7 @@ context:
         "hash" : "090e7f4b11223c4",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "090e7f4b11223c49a302327c6e0c32822b4b1109"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -3159,6 +3335,7 @@ context:
         "hash" : "c5d37f5e964afd5",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "c5d37f5e964afd50194eb86dc4565ba4d46a8226"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -3169,6 +3346,7 @@ context:
         "hash" : "3f62b35d1317311",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "3f62b35d131731126b15fa599acf409f997d3ea0"
       }, {
         "authorName" : "T B",
@@ -3179,6 +3357,7 @@ context:
         "hash" : "71d845c18924504",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "README.md" ],
         "hashFull" : "71d845c18924504097edc6b0c34a35cf242cc080"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -3189,6 +3368,7 @@ context:
         "hash" : "7cd30508cecdc5b",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
         "hashFull" : "7cd30508cecdc5b1303cb6e25fec343d5d57e1bb"
       }, {
         "authorName" : "Tomas Bjerre",
@@ -3199,6 +3379,7 @@ context:
         "hash" : "a1aa5ff5b625e63",
         "merge" : false,
         "messageNotes" : "",
+        "files" : [ ".gitignore", ".travis.yml", "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
         "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
       } ],
       "authors" : [ {
@@ -3213,6 +3394,7 @@ context:
           "hash" : "8371342ad0d887d",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "8371342ad0d887da7710af881a41e01c3e091ecb"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -3223,6 +3405,7 @@ context:
           "hash" : "090e7f4b11223c4",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "090e7f4b11223c49a302327c6e0c32822b4b1109"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -3233,6 +3416,7 @@ context:
           "hash" : "c5d37f5e964afd5",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "c5d37f5e964afd50194eb86dc4565ba4d46a8226"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -3243,6 +3427,7 @@ context:
           "hash" : "3f62b35d1317311",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "3f62b35d131731126b15fa599acf409f997d3ea0"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -3253,6 +3438,7 @@ context:
           "hash" : "7cd30508cecdc5b",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
           "hashFull" : "7cd30508cecdc5b1303cb6e25fec343d5d57e1bb"
         }, {
           "authorName" : "Tomas Bjerre",
@@ -3263,6 +3449,7 @@ context:
           "hash" : "a1aa5ff5b625e63",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ ".gitignore", ".travis.yml", "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
           "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
         } ]
       }, {
@@ -3277,6 +3464,7 @@ context:
           "hash" : "71d845c18924504",
           "merge" : false,
           "messageNotes" : "",
+          "files" : [ "README.md" ],
           "hashFull" : "71d845c18924504097edc6b0c34a35cf242cc080"
         } ]
       } ],

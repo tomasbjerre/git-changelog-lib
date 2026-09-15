@@ -278,7 +278,8 @@ public class Transformer {
             gitCommit.getMessage()), //
         gitCommit.getHash(), //
         gitCommit.isMerge(), //
-        gitCommit.getMessageNotes());
+        gitCommit.getMessageNotes(), //
+        gitCommit.getFiles());
   }
 
   public static String toReadableTagName(final String input, final String readableTagName) {

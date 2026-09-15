@@ -2,6 +2,7 @@ package se.bjurr.gitchangelog.internal.semantic;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.Collections;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import se.bjurr.gitchangelog.api.model.Commit;
@@ -17,7 +18,8 @@ public class ConventionalCommitParserTest {
         message,
         "abc1234567890abcdef",
         false,
-        "");
+        "",
+        Collections.emptyList());
   }
 
   @Test

@@ -1,11 +1,13 @@
 package se.bjurr.gitchangelog.internal.git.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class GitCommit implements Comparable<GitCommit> {
   private final String authorEmailAddress;
   private final String authorName;
   private final Date commitTime;
+  private final List<String> files;
   private final String hash;
   private final Boolean merge;
   private final String message;
@@ -18,7 +20,8 @@ public class GitCommit implements Comparable<GitCommit> {
       String message,
       String hash,
       Boolean merge,
-      String messageNotes) {
+      String messageNotes,
+      List<String> files) {
     this.authorEmailAddress = authorEmailAddress;
     this.authorName = authorName;
     this.commitTime = commitTime;
@@ -26,6 +29,7 @@ public class GitCommit implements Comparable<GitCommit> {
     this.hash = hash;
     this.merge = merge;
     this.messageNotes = messageNotes;
+    this.files = files;
   }
 
   @Override
@@ -68,6 +72,13 @@ public class GitCommit implements Comparable<GitCommit> {
         return false;
       }
     } else if (!this.commitTime.equals(other.commitTime)) {
+      return false;
+    }
+    if (this.files == null) {
+      if (other.files != null) {
+        return false;
+      }
+    } else if (!this.files.equals(other.files)) {
       return false;
     }
     if (this.hash == null) {
@@ -113,6 +124,10 @@ public class GitCommit implements Comparable<GitCommit> {
     return this.commitTime;
   }
 
+  public List<String> getFiles() {
+    return this.files;
+  }
+
   public String getHash() {
     return this.hash;
   }
@@ -134,6 +149,7 @@ public class GitCommit implements Comparable<GitCommit> {
             + ((this.authorEmailAddress == null) ? 0 : this.authorEmailAddress.hashCode());
     result = prime * result + ((this.authorName == null) ? 0 : this.authorName.hashCode());
     result = prime * result + ((this.commitTime == null) ? 0 : this.commitTime.hashCode());
+    result = prime * result + ((this.files == null) ? 0 : this.files.hashCode());
     result = prime * result + ((this.hash == null) ? 0 : this.hash.hashCode());
     result = prime * result + ((this.merge == null) ? 0 : this.merge.hashCode());
     result = prime * result + ((this.message == null) ? 0 : this.message.hashCode());
@@ -153,6 +169,8 @@ public class GitCommit implements Comparable<GitCommit> {
         + this.authorName
         + ", commitTime="
         + this.commitTime
+        + ", files="
+        + this.files
         + ", hash="
         + this.hash
         + ", merge="
