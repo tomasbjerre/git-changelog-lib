@@ -19,7 +19,8 @@ public class ConventionalCommitParserTest {
         "abc1234567890abcdef",
         false,
         "",
-        Collections.emptyList());
+        Collections.emptyList(),
+        null);
   }
 
   @Test

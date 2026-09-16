@@ -12,6 +12,7 @@ public class GitCommit implements Comparable<GitCommit> {
   private final Boolean merge;
   private final String message;
   private final String messageNotes;
+  private final Integer commitCount;
 
   public GitCommit(
       String authorName,
@@ -21,7 +22,8 @@ public class GitCommit implements Comparable<GitCommit> {
       String hash,
       Boolean merge,
       String messageNotes,
-      List<String> files) {
+      List<String> files,
+      Integer commitCount) {
     this.authorEmailAddress = authorEmailAddress;
     this.authorName = authorName;
     this.commitTime = commitTime;
@@ -30,6 +32,7 @@ public class GitCommit implements Comparable<GitCommit> {
     this.merge = merge;
     this.messageNotes = messageNotes;
     this.files = files;
+    this.commitCount = commitCount;
   }
 
   @Override
@@ -65,6 +68,13 @@ public class GitCommit implements Comparable<GitCommit> {
         return false;
       }
     } else if (!this.authorName.equals(other.authorName)) {
+      return false;
+    }
+    if (this.commitCount == null) {
+      if (other.commitCount != null) {
+        return false;
+      }
+    } else if (!this.commitCount.equals(other.commitCount)) {
       return false;
     }
     if (this.commitTime == null) {
@@ -140,6 +150,10 @@ public class GitCommit implements Comparable<GitCommit> {
     return this.messageNotes;
   }
 
+  public Integer getCommitCount() {
+    return this.commitCount;
+  }
+
   @Override
   public int hashCode() {
     final int prime = 31;
@@ -148,6 +162,7 @@ public class GitCommit implements Comparable<GitCommit> {
         prime * result
             + ((this.authorEmailAddress == null) ? 0 : this.authorEmailAddress.hashCode());
     result = prime * result + ((this.authorName == null) ? 0 : this.authorName.hashCode());
+    result = prime * result + ((this.commitCount == null) ? 0 : this.commitCount.hashCode());
     result = prime * result + ((this.commitTime == null) ? 0 : this.commitTime.hashCode());
     result = prime * result + ((this.files == null) ? 0 : this.files.hashCode());
     result = prime * result + ((this.hash == null) ? 0 : this.hash.hashCode());
@@ -167,6 +182,8 @@ public class GitCommit implements Comparable<GitCommit> {
         + this.authorEmailAddress
         + ", authorName="
         + this.authorName
+        + ", commitCount="
+        + this.commitCount
         + ", commitTime="
         + this.commitTime
         + ", files="

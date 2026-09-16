@@ -20,6 +20,8 @@ public class Commit implements Serializable {
   private final Boolean merge;
   private final String message;
   private final String messageNotes;
+  private final boolean hasCommitCount;
+  private final Integer commitCount;
 
   private static List<String> notFirst(final List<String> stringList) {
     return stringList.subList(1, stringList.size());
@@ -83,7 +85,8 @@ public class Commit implements Serializable {
       final String hash,
       final Boolean merge,
       final String messageNotes,
-      final List<String> files) {
+      final List<String> files,
+      final Integer commitCount) {
     this.authorName = checkNotNull(authorName, "authorName");
     this.authorEmailAddress = checkNotNull(authorEmailAddress, "authorEmailAddress");
     this.message = checkNotNull(message, "message").trim();
@@ -94,6 +97,8 @@ public class Commit implements Serializable {
     this.hashFull = checkNotNull(hash, "hashFull");
     this.merge = checkNotNull(merge, "merge");
     this.files = new ArrayList<>(checkNotNull(files, "files"));
+    this.hasCommitCount = commitCount != null;
+    this.commitCount = commitCount;
   }
 
   public String getAuthorEmailAddress() {
@@ -148,6 +153,19 @@ public class Commit implements Serializable {
     return this.merge;
   }
 
+  /**
+   * The number of ancestor commits reachable from this commit (equivalent to {@code git rev-list
+   * --count <hash>}), when {@code GitChangelogApi#withCommitCount(true)} was used. {@code null}
+   * otherwise.
+   */
+  public Integer getCommitCount() {
+    return this.commitCount;
+  }
+
+  public boolean getHasCommitCount() {
+    return this.hasCommitCount;
+  }
+
   @Override
   public String toString() {
     return "hash: " + this.hash + " message: " + this.message;
@@ -169,6 +187,8 @@ public class Commit implements Serializable {
     result = prime * result + ((this.merge == null) ? 0 : this.merge.hashCode());
     result = prime * result + ((this.message == null) ? 0 : this.message.hashCode());
     result = prime * result + ((this.messageNotes == null) ? 0 : this.messageNotes.hashCode());
+    result = prime * result + ((this.commitCount == null) ? 0 : this.commitCount.hashCode());
+    result = prime * result + (this.hasCommitCount ? 1231 : 1237);
     return result;
   }
 
@@ -252,6 +272,16 @@ public class Commit implements Serializable {
         return false;
       }
     } else if (!this.messageNotes.equals(other.messageNotes)) {
+      return false;
+    }
+    if (this.hasCommitCount != other.hasCommitCount) {
+      return false;
+    }
+    if (this.commitCount == null) {
+      if (other.commitCount != null) {
+        return false;
+      }
+    } else if (!this.commitCount.equals(other.commitCount)) {
       return false;
     }
     return true;
