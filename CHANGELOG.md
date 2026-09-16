@@ -1,3 +1,9 @@
+## 3.4.0 (2026-09-16)
+
+### Features
+
+-  make per-commit changed-files computation opt-in (#203) ([457fd](https://github.com/tomasbjerre/git-changelog-lib/commit/457fd7f8aa6b7e8) Tomas Bjerre)  
+
 ## 3.3.0 (2026-09-16)
 
 ### Features
