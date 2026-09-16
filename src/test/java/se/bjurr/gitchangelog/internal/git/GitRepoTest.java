@@ -472,6 +472,46 @@ public class GitRepoTest {
   }
 
   @Test
+  public void testThatUntaggedGroupGetsTheDateOfItsLatestCommit(@TempDir final File tempRepoDir)
+      throws Exception {
+    RevCommit untaggedCommit;
+    try (Git git = Git.init().setDirectory(tempRepoDir).call()) {
+      final File file1 = new File(tempRepoDir, "file1.txt");
+      java.nio.file.Files.write(file1.toPath(), "content".getBytes());
+      git.add().addFilepattern("file1.txt").call();
+      final RevCommit taggedCommit = git.commit().setMessage("Tagged commit").call();
+      git.tag().setName("v1.0").setObjectId(taggedCommit).call();
+
+      final File file2 = new File(tempRepoDir, "file2.txt");
+      java.nio.file.Files.write(file2.toPath(), "more content".getBytes());
+      git.add().addFilepattern("file2.txt").call();
+      untaggedCommit = git.commit().setMessage("Untagged commit").call();
+    }
+
+    try (GitRepo gitRepo = new GitRepo(tempRepoDir)) {
+      final ObjectId from = gitRepo.getCommit(ZERO_COMMIT);
+      final ObjectId to = gitRepo.getRef(REF_HEAD);
+      final List<GitTag> gitTags =
+          gitRepo
+              .getGitRepoData(
+                  new RevisionBoundary<ObjectId>(from, InclusivenessStrategy.DEFAULT),
+                  new RevisionBoundary<ObjectId>(to, InclusivenessStrategy.DEFAULT),
+                  "Next release",
+                  Optional.empty())
+              .getGitTags();
+
+      assertThat(gitTags)
+          .extracting(GitTag::getName)
+          .containsExactlyInAnyOrder("refs/tags/v1.0", "Next release");
+      final GitTag untaggedGroup =
+          gitTags.stream().filter(t -> t.getName().equals("Next release")).findFirst().get();
+      assertThat(untaggedGroup.getTagTime()).isNotNull();
+      assertThat(untaggedGroup.getTagTime().getTime() / 1000)
+          .isEqualTo(untaggedCommit.getCommitTime());
+    }
+  }
+
+  @Test
   public void testThatGitNotesArePopulatedOnCommits(@TempDir final File tempRepoDir)
       throws Exception {
     RevCommit revCommit;
