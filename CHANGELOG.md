@@ -1,3 +1,22 @@
+## 3.3.0 (2026-09-16)
+
+### Features
+
+-  allow overriding the Jira REST API base path (#202) ([7caf3](https://github.com/tomasbjerre/git-changelog-lib/commit/7caf3dbed3dd7d1) Tomas Bjerre)  
+-  add opt-in commitCount, ancestor count per commit (#200) ([04d77](https://github.com/tomasbjerre/git-changelog-lib/commit/04d77ee361b19e9) Tomas Bjerre)  
+-  add previousTag/nextTag helpers to reach adjacent tags in templates (#199) ([e4efb](https://github.com/tomasbjerre/git-changelog-lib/commit/e4efb41e18b81b4) Tomas Bjerre)  
+-  add files field with the changed files per commit (#197) ([910a9](https://github.com/tomasbjerre/git-changelog-lib/commit/910a9accf0d7d24) Tomas Bjerre)  
+-  add messageNotes with git notes support for commits (#183) (#196) ([634ff](https://github.com/tomasbjerre/git-changelog-lib/commit/634ffd458a5533a) Tomas Bjerre)  
+
+### Bug Fixes
+
+-  give the untagged commit group a real tag date (#201) ([01c0e](https://github.com/tomasbjerre/git-changelog-lib/commit/01c0e3867e12210) Tomas Bjerre)  
+-  support negative indices in subString helper ([5c275](https://github.com/tomasbjerre/git-changelog-lib/commit/5c275355f2cc2c6) Tomas Bjerre)  [#152](https://github.com/tomasbjerre/git-changelog-lib/issues/152)  
+
+### Dependency updates
+
+- update plugin se.bjurr.gradle.bundle-jar to v2.3.0 (#198) ([724f9](https://github.com/tomasbjerre/git-changelog-lib/commit/724f9cbf622b6a0) renovate[bot])  
+- update dependency com.github.jknack:handlebars to v4.5.5 (#195) ([38e6b](https://github.com/tomasbjerre/git-changelog-lib/commit/38e6b115373b4dc) renovate[bot])  
 ## 3.2.0 (2026-09-15)
 
 ### Features
