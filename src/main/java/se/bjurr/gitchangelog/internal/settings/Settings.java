@@ -303,6 +303,12 @@ public class Settings implements Serializable {
    */
   private boolean commitCount;
 
+  /**
+   * Compute each commit's changed files, a tree diff against its first parent. Off by default since
+   * it adds a diff per commit, proportional to repository/change size.
+   */
+  private boolean commitFiles;
+
   private String encoding = StandardCharsets.UTF_8.name();
 
   public Settings() {}
@@ -795,6 +801,14 @@ public class Settings implements Serializable {
     return this.commitCount;
   }
 
+  public void setCommitFiles(final boolean commitFiles) {
+    this.commitFiles = commitFiles;
+  }
+
+  public boolean isCommitFiles() {
+    return this.commitFiles;
+  }
+
   public List<String> getJiraIssueAdditionalFields() {
     if (this.jiraIssueAdditionalFields == null) {
       return new ArrayList<>();
@@ -861,6 +875,7 @@ public class Settings implements Serializable {
         this.semanticPatchPattern,
         this.pathFilters,
         this.commitCount,
+        this.commitFiles,
         this.templateBaseDir,
         this.templatePath,
         this.prependTemplatePath,
@@ -928,6 +943,7 @@ public class Settings implements Serializable {
         && Objects.equals(this.semanticPatchPattern, other.semanticPatchPattern)
         && Objects.equals(this.pathFilters, other.pathFilters)
         && this.commitCount == other.commitCount
+        && this.commitFiles == other.commitFiles
         && Objects.equals(this.templateBaseDir, other.templateBaseDir)
         && Objects.equals(this.templatePath, other.templatePath)
         && Objects.equals(this.prependTemplatePath, other.prependTemplatePath)
@@ -1045,6 +1061,8 @@ public class Settings implements Serializable {
         + this.pathFilters
         + ", commitCount="
         + this.commitCount
+        + ", commitFiles="
+        + this.commitFiles
         + ", encoding="
         + this.encoding
         + "]";

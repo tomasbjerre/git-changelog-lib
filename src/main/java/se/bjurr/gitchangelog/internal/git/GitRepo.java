@@ -67,6 +67,7 @@ public class GitRepo implements Closeable {
   private final RevWalk revWalk;
   private List<String> pathFilters = new ArrayList<>();
   private boolean commitCount;
+  private boolean commitFiles;
 
   public GitRepo() {
     this.repository = null;
@@ -667,7 +668,7 @@ public class GitRepo implements Closeable {
         revCommit.getId().getName(), //
         merge, //
         this.getMessageNotes(revCommit), //
-        this.getChangedFiles(revCommit), //
+        this.commitFiles ? this.getChangedFiles(revCommit) : new ArrayList<>(), //
         this.commitCount ? this.countAncestors(revCommit) : null);
   }
 
@@ -691,6 +692,10 @@ public class GitRepo implements Closeable {
     }
   }
 
+  /**
+   * A tree diff against the commit's first parent, one {@link DiffFormatter} scan per commit - only
+   * invoked when {@link #commitFiles} is enabled.
+   */
   private List<String> getChangedFiles(final RevCommit revCommit) {
     try (ObjectReader reader = this.repository.newObjectReader()) {
       final AbstractTreeIterator newTreeIter = this.treeIteratorFor(reader, revCommit.getTree());
@@ -747,6 +752,10 @@ public class GitRepo implements Closeable {
 
   public void setCommitCount(final boolean commitCount) {
     this.commitCount = commitCount;
+  }
+
+  public void setCommitFiles(final boolean commitFiles) {
+    this.commitFiles = commitFiles;
   }
 
   public List<String> getTags(

@@ -751,6 +751,18 @@ public final class GitChangelogApi {
   }
 
   /**
+   * Populate each commit's {@code files}, the list of file paths changed by it. Off by default:
+   * computing it is a tree diff against the commit's first parent, done once per commit, so
+   * enabling it adds overhead proportional to repository/change size.
+   *
+   * @param commitFiles whether to compute the changed files for each commit.
+   */
+  public GitChangelogApi withCommitFiles(final boolean commitFiles) {
+    this.settings.setCommitFiles(commitFiles);
+    return this;
+  }
+
+  /**
    * Some commits may not be included in any tag. Commits that not released yet may not be tagged.
    * This is a "virtual tag", added to {@link Changelog#getTags()}, that includes those commits. A
    * fitting value may be "Next release".
@@ -764,6 +776,7 @@ public final class GitChangelogApi {
       throws GitChangelogRepositoryException {
     gitRepo.setPathFilters(this.settings.getPathFilters());
     gitRepo.setCommitCount(this.settings.isCommitCount());
+    gitRepo.setCommitFiles(this.settings.isCommitFiles());
     final RevisionBoundary<ObjectId> fromId = this.getFrom(gitRepo, this.settings);
     final RevisionBoundary<ObjectId> toId = this.getTo(gitRepo, this.settings);
     GitRepoData gitRepoData =

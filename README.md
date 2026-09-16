@@ -576,7 +576,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
  - hashFull
  - commitCount (Only present if withCommitCount(true) was used)
  - merge (True if this is a merge-commit)
- * files (List of strings, the files changed in this commit)
+ * files (List of strings, the files changed in this commit. Empty unless withCommitFiles(true) was used)
  - message (The full message)
  - messageNotes (Notes attached to the commit, see 'git notes')
  - messageTitle (Only the first line of the message)
@@ -595,7 +595,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
   - hashFull
   - commitCount (Only present if withCommitCount(true) was used)
   - merge (True if this is a merge-commit)
-  * files (List of strings, the files changed in this commit)
+  * files (List of strings, the files changed in this commit. Empty unless withCommitFiles(true) was used)
   - message (The full message)
   - messageNotes (Notes attached to the commit, see 'git notes')
   - messageTitle (Only the first line of the message)
@@ -612,7 +612,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
    - hashFull
    - commitCount (Only present if withCommitCount(true) was used)
    - merge (True if this is a merge-commit)
-   * files (List of strings, the files changed in this commit)
+   * files (List of strings, the files changed in this commit. Empty unless withCommitFiles(true) was used)
    - message (The full message)
    - messageNotes (Notes attached to the commit, see 'git notes')
    - messageTitle (Only the first line of the message)
@@ -651,7 +651,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
     - hashFull
     - commitCount (Only present if withCommitCount(true) was used)
     - merge (True if this is a merge-commit)
-    * files (List of strings, the files changed in this commit)
+    * files (List of strings, the files changed in this commit. Empty unless withCommitFiles(true) was used)
     - message (The full message)
     - messageNotes (Notes attached to the commit, see 'git notes')
     - messageTitle (Only the first line of the message)
@@ -668,7 +668,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
      - hashFull
      - commitCount (Only present if withCommitCount(true) was used)
      - merge (True if this is a merge-commit)
-     * files (List of strings, the files changed in this commit)
+     * files (List of strings, the files changed in this commit. Empty unless withCommitFiles(true) was used)
      - message (The full message)
      - messageNotes (Notes attached to the commit, see 'git notes')
      - messageTitle (Only the first line of the message)
@@ -705,7 +705,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
    - hashFull
    - commitCount (Only present if withCommitCount(true) was used)
    - merge (True if this is a merge-commit)
-   * files (List of strings, the files changed in this commit)
+   * files (List of strings, the files changed in this commit. Empty unless withCommitFiles(true) was used)
    - message (The full message)
    - messageNotes (Notes attached to the commit, see 'git notes')
    - messageTitle (Only the first line of the message)
@@ -722,7 +722,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
     - hashFull
     - commitCount (Only present if withCommitCount(true) was used)
     - merge (True if this is a merge-commit)
-    * files (List of strings, the files changed in this commit)
+    * files (List of strings, the files changed in this commit. Empty unless withCommitFiles(true) was used)
     - message (The full message)
     - messageNotes (Notes attached to the commit, see 'git notes')
     - messageTitle (Only the first line of the message)
@@ -739,7 +739,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
   - hashFull
   - commitCount (Only present if withCommitCount(true) was used)
   - merge (True if this is a merge-commit)
-  * files (List of strings, the files changed in this commit)
+  * files (List of strings, the files changed in this commit. Empty unless withCommitFiles(true) was used)
   - message (The full message)
   - messageNotes (Notes attached to the commit, see 'git notes')
   - messageTitle (Only the first line of the message)
@@ -776,7 +776,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
   - hashFull
   - commitCount (Only present if withCommitCount(true) was used)
   - merge (True if this is a merge-commit)
-  * files (List of strings, the files changed in this commit)
+  * files (List of strings, the files changed in this commit. Empty unless withCommitFiles(true) was used)
   - message (The full message)
   - messageNotes (Notes attached to the commit, see 'git notes')
   - messageTitle (Only the first line of the message)
@@ -793,7 +793,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
    - hashFull
    - commitCount (Only present if withCommitCount(true) was used)
    - merge (True if this is a merge-commit)
-   * files (List of strings, the files changed in this commit)
+   * files (List of strings, the files changed in this commit. Empty unless withCommitFiles(true) was used)
    - message (The full message)
    - messageNotes (Notes attached to the commit, see 'git notes')
    - messageTitle (Only the first line of the message)
