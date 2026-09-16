@@ -202,6 +202,9 @@ public class IssueParser {
       if (!this.settings.getJiraIssueAdditionalFields().isEmpty()) {
         jiraClient.withIssueAdditionalFields(this.settings.getJiraIssueAdditionalFields());
       }
+      if (this.settings.getJiraRestBasePath().isPresent()) {
+        jiraClient.withBasePath(this.settings.getJiraRestBasePath().get());
+      }
     }
     return jiraClient;
   }

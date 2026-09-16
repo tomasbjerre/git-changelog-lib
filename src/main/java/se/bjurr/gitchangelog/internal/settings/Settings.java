@@ -172,6 +172,13 @@ public class Settings implements Serializable {
   private String jiraServer;
 
   /**
+   * REST API base path, appended to {@link #jiraServer}, used to reach the issue endpoint. Defaults
+   * to <code>/rest/api/2</code> when not set. Some Jira-compatible servers use a different
+   * structure, e.g. <code>/rest/api/latest</code>.
+   */
+  private String jiraRestBasePath;
+
+  /**
    * Pattern to recognize JIRA:s. <code>\b[a-zA-Z]([a-zA-Z]+)-([0-9]+)\b</code><br>
    * <br>
    * Or escaped if added to json-file:<br>
@@ -376,6 +383,10 @@ public class Settings implements Serializable {
     this.jiraServer = jiraServer;
   }
 
+  public void setJiraRestBasePath(final String jiraRestBasePath) {
+    this.jiraRestBasePath = jiraRestBasePath;
+  }
+
   public void setRedmineIssuePattern(final String redmineIssuePattern) {
     this.redmineIssuePattern = redmineIssuePattern;
   }
@@ -413,6 +424,10 @@ public class Settings implements Serializable {
 
   public Optional<String> getJiraServer() {
     return ofNullable(this.jiraServer);
+  }
+
+  public Optional<String> getJiraRestBasePath() {
+    return ofNullable(this.jiraRestBasePath);
   }
 
   public String getRedmineIssuePattern() {
@@ -829,6 +844,7 @@ public class Settings implements Serializable {
         this.jiraIssuePattern,
         this.jiraPassword,
         this.jiraServer,
+        this.jiraRestBasePath,
         this.jiraToken,
         this.jiraUsername,
         this.noIssueName,
@@ -895,6 +911,7 @@ public class Settings implements Serializable {
         && Objects.equals(this.jiraIssuePattern, other.jiraIssuePattern)
         && Objects.equals(this.jiraPassword, other.jiraPassword)
         && Objects.equals(this.jiraServer, other.jiraServer)
+        && Objects.equals(this.jiraRestBasePath, other.jiraRestBasePath)
         && Objects.equals(this.jiraToken, other.jiraToken)
         && Objects.equals(this.jiraUsername, other.jiraUsername)
         && Objects.equals(this.noIssueName, other.noIssueName)
@@ -964,6 +981,8 @@ public class Settings implements Serializable {
         + this.jiraEnabled
         + ", jiraServer="
         + this.jiraServer
+        + ", jiraRestBasePath="
+        + this.jiraRestBasePath
         + ", jiraIssuePattern="
         + this.jiraIssuePattern
         + ", jiraIssueAdditionalFields="

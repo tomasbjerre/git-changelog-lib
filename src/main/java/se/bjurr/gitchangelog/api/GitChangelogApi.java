@@ -537,6 +537,16 @@ public final class GitChangelogApi {
     return this;
   }
 
+  /**
+   * REST API base path, appended to the Jira server URL, used to reach the issue endpoint. Defaults
+   * to <code>/rest/api/2</code> when not set. Some Jira-compatible servers use a different
+   * structure, e.g. <code>/rest/api/latest</code>.
+   */
+  public GitChangelogApi withJiraRestBasePath(final String jiraRestBasePath) {
+    this.settings.setJiraRestBasePath(jiraRestBasePath);
+    return this;
+  }
+
   /** Authenticate to JIRA. */
   public GitChangelogApi withJiraUsername(final String string) {
     this.settings.setJiraUsername(string);

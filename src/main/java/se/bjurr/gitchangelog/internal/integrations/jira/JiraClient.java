@@ -24,11 +24,12 @@ public abstract class JiraClient {
   private static final String EMPTY_STRING = "";
   private static final String DEFAULT_FIELDS =
       "fields=parent,summary,issuetype,labels,description,issuelinks";
-  private static final String BASE_PATH = "/rest/api/2";
+  private static final String DEFAULT_BASE_PATH = "/rest/api/2";
   private static final Logger LOG = getLogger(JiraClient.class);
 
   private final String api;
   private List<String> fields = Collections.unmodifiableList(new ArrayList<>());
+  private String basePath = DEFAULT_BASE_PATH;
 
   public JiraClient(final String api) {
     if (api.endsWith("/")) {
@@ -48,7 +49,7 @@ public abstract class JiraClient {
 
   protected String getEndpoint(final String issue) {
     return this.api
-        + JiraClient.BASE_PATH
+        + this.basePath
         + this.getIssuePath()
         + issue
         + JiraClient.QUESTION_MARK
@@ -62,6 +63,16 @@ public abstract class JiraClient {
     final List<String> newFields = new ArrayList<>(fields);
     Collections.sort(newFields);
     this.fields = Collections.unmodifiableList(newFields);
+    return this;
+  }
+
+  /**
+   * Overrides the REST API base path, e.g. <code>/rest/api/latest</code> instead of the default
+   * <code>/rest/api/2</code>, for Jira-compatible servers that don't follow the standard path
+   * structure.
+   */
+  public JiraClient withBasePath(final String basePath) {
+    this.basePath = basePath;
     return this;
   }
 

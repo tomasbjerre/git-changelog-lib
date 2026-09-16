@@ -94,4 +94,36 @@ public class JiraClientWireMockTest {
 
     assertThat(result).isEmpty();
   }
+
+  @Test
+  public void testGetIssueWithCustomBasePath() throws GitChangelogIntegrationException {
+    jiraClient.withBasePath("/rest/api/latest");
+    String mockResponse =
+        """
+        {
+          "key": "TEST-123",
+          "fields": {
+            "summary": "Test Summary",
+            "description": "Test Description",
+            "issuetype": {"name": "Bug"},
+            "labels": ["test"],
+            "parent": null,
+            "issuelinks": []
+          }
+        }
+        """;
+
+    wireMockServer.stubFor(
+        get(urlPathEqualTo("/rest/api/latest/issue/TEST-123"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withHeader("Content-Type", "application/json")
+                    .withBody(mockResponse)));
+
+    Optional<JiraIssue> result = jiraClient.getIssue("TEST-123");
+
+    assertThat(result).isPresent();
+    assertThat(result.get().getTitle()).isEqualTo("Test Summary");
+  }
 }
