@@ -31,6 +31,7 @@ import com.github.jknack.handlebars.helper.EachHelper;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -82,6 +83,32 @@ public class Helpers {
         "tagDate",
         (final Tag tag, final Options options) -> {
           return getDate(tag.getTagTime());
+        });
+
+    helpers.put(
+        "previousTag",
+        (final Tag tag, final Options options) -> {
+          return adjacentTag(options, tag, 1);
+        });
+
+    helpers.put(
+        "nextTag",
+        (final Tag tag, final Options options) -> {
+          return adjacentTag(options, tag, -1);
+        });
+
+    helpers.put(
+        "previousTagName",
+        (final Tag tag, final Options options) -> {
+          final Tag previous = adjacentTag(options, tag, 1);
+          return previous == null ? "" : previous.getName();
+        });
+
+    helpers.put(
+        "nextTagName",
+        (final Tag tag, final Options options) -> {
+          final Tag next = adjacentTag(options, tag, -1);
+          return next == null ? "" : next.getName();
         });
 
     helpers.put(
@@ -268,6 +295,32 @@ public class Helpers {
       return Math.max(length + index, 0);
     }
     return Math.min(index, length);
+  }
+
+  /**
+   * Finds the tag chronologically before ({@code direction=1}) or after ({@code direction=-1}) the
+   * given tag, ordering by tag time rather than by list position, since callers should not have to
+   * know which order {@code tags} happens to be rendered in.
+   */
+  @SuppressWarnings("unchecked")
+  private static Tag adjacentTag(final Options options, final Tag tag, final int direction)
+      throws IOException {
+    final Object tagsObject = options.context.get("tags");
+    if (!(tagsObject instanceof List)) {
+      return null;
+    }
+    final List<Tag> sorted = new ArrayList<>((List<Tag>) tagsObject);
+    sorted.sort(
+        Comparator.comparing(Tag::getTagTimeLong, Comparator.nullsLast(Comparator.reverseOrder())));
+    final int index = sorted.indexOf(tag);
+    if (index == -1) {
+      return null;
+    }
+    final int adjacentIndex = index + direction;
+    if (adjacentIndex < 0 || adjacentIndex >= sorted.size()) {
+      return null;
+    }
+    return sorted.get(adjacentIndex);
   }
 
   private static Object each(final Options options, final List<?> elements) throws IOException {
