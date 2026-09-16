@@ -100,6 +100,42 @@ public class GitRepoTest {
   }
 
   @Test
+  public void testThatCommitCountIsNullByDefault() throws Exception {
+    final GitRepo gitRepo = this.getGitRepo();
+    final ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
+    final ObjectId lastCommit = gitRepo.getCommit(TAG_1_0_HASH);
+    final List<GitCommit> diff =
+        gitRepo
+            .getGitRepoData(
+                new RevisionBoundary<ObjectId>(firstCommit, InclusivenessStrategy.DEFAULT),
+                new RevisionBoundary<ObjectId>(lastCommit, InclusivenessStrategy.DEFAULT),
+                "No tag",
+                Optional.of(".*tag-in-test-feature$"))
+            .getGitCommits();
+    assertThat(diff).allMatch(commit -> commit.getCommitCount() == null);
+  }
+
+  @Test
+  public void testThatCommitCountCanBeComputedForTheFirstCommitInTheRepo() throws Exception {
+    final GitRepo gitRepo = this.getGitRepo();
+    gitRepo.setCommitCount(true);
+    final ObjectId firstCommit = gitRepo.getCommit(ZERO_COMMIT);
+    final ObjectId lastCommit = gitRepo.getCommit(TAG_1_0_HASH);
+    final List<GitCommit> diff =
+        gitRepo
+            .getGitRepoData(
+                new RevisionBoundary<ObjectId>(firstCommit, InclusivenessStrategy.DEFAULT),
+                new RevisionBoundary<ObjectId>(lastCommit, InclusivenessStrategy.DEFAULT),
+                "No tag",
+                Optional.of(".*tag-in-test-feature$"))
+            .getGitCommits();
+    Collections.reverse(diff);
+    // The very first commit ever made in the repo has exactly itself as an ancestor.
+    assertThat(diff.get(0).getHash()).startsWith("a1aa");
+    assertThat(diff.get(0).getCommitCount()).isEqualTo(1);
+  }
+
+  @Test
   public void testThatCommitsCanBeRetrieved() throws Exception {
     final GitRepo gitRepo = this.getGitRepo();
     assertThat(gitRepo.getCommit(FIRST_COMMIT_HASH_FULL)).isNotNull();

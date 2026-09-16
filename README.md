@@ -574,6 +574,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
  - commitTime
  - hash
  - hashFull
+ - commitCount (Only present if withCommitCount(true) was used)
  - merge (True if this is a merge-commit)
  * files (List of strings, the files changed in this commit)
  - message (The full message)
@@ -592,6 +593,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
   - commitTime
   - hash
   - hashFull
+  - commitCount (Only present if withCommitCount(true) was used)
   - merge (True if this is a merge-commit)
   * files (List of strings, the files changed in this commit)
   - message (The full message)
@@ -608,6 +610,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
    - commitTime
    - hash
    - hashFull
+   - commitCount (Only present if withCommitCount(true) was used)
    - merge (True if this is a merge-commit)
    * files (List of strings, the files changed in this commit)
    - message (The full message)
@@ -646,6 +649,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
     - commitTime
     - hash
     - hashFull
+    - commitCount (Only present if withCommitCount(true) was used)
     - merge (True if this is a merge-commit)
     * files (List of strings, the files changed in this commit)
     - message (The full message)
@@ -662,6 +666,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
      - commitTime
      - hash
      - hashFull
+     - commitCount (Only present if withCommitCount(true) was used)
      - merge (True if this is a merge-commit)
      * files (List of strings, the files changed in this commit)
      - message (The full message)
@@ -698,6 +703,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
    - commitTime
    - hash
    - hashFull
+   - commitCount (Only present if withCommitCount(true) was used)
    - merge (True if this is a merge-commit)
    * files (List of strings, the files changed in this commit)
    - message (The full message)
@@ -714,6 +720,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
     - commitTime
     - hash
     - hashFull
+    - commitCount (Only present if withCommitCount(true) was used)
     - merge (True if this is a merge-commit)
     * files (List of strings, the files changed in this commit)
     - message (The full message)
@@ -730,6 +737,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
   - commitTime
   - hash
   - hashFull
+  - commitCount (Only present if withCommitCount(true) was used)
   - merge (True if this is a merge-commit)
   * files (List of strings, the files changed in this commit)
   - message (The full message)
@@ -766,6 +774,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
   - commitTime
   - hash
   - hashFull
+  - commitCount (Only present if withCommitCount(true) was used)
   - merge (True if this is a merge-commit)
   * files (List of strings, the files changed in this commit)
   - message (The full message)
@@ -782,6 +791,7 @@ The template is supplied with this context of prepopulated mustache/handlebars v
    - commitTime
    - hash
    - hashFull
+   - commitCount (Only present if withCommitCount(true) was used)
    - merge (True if this is a merge-commit)
    * files (List of strings, the files changed in this commit)
    - message (The full message)

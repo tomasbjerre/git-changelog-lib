@@ -290,6 +290,12 @@ public class Settings implements Serializable {
   /** Path filters to use for filtering commits */
   private List<String> pathFilters;
 
+  /**
+   * Compute each commit's ancestor count (equivalent to {@code git rev-list --count <hash>}). Off
+   * by default since it is O(depth) per commit and can be slow on large histories.
+   */
+  private boolean commitCount;
+
   private String encoding = StandardCharsets.UTF_8.name();
 
   public Settings() {}
@@ -766,6 +772,14 @@ public class Settings implements Serializable {
     return ofNullable(this.pathFilters).orElse(new ArrayList<>());
   }
 
+  public void setCommitCount(final boolean commitCount) {
+    this.commitCount = commitCount;
+  }
+
+  public boolean isCommitCount() {
+    return this.commitCount;
+  }
+
   public List<String> getJiraIssueAdditionalFields() {
     if (this.jiraIssueAdditionalFields == null) {
       return new ArrayList<>();
@@ -830,6 +844,7 @@ public class Settings implements Serializable {
         this.semanticMinorPattern,
         this.semanticPatchPattern,
         this.pathFilters,
+        this.commitCount,
         this.templateBaseDir,
         this.templatePath,
         this.prependTemplatePath,
@@ -895,6 +910,7 @@ public class Settings implements Serializable {
         && Objects.equals(this.semanticMinorPattern, other.semanticMinorPattern)
         && Objects.equals(this.semanticPatchPattern, other.semanticPatchPattern)
         && Objects.equals(this.pathFilters, other.pathFilters)
+        && this.commitCount == other.commitCount
         && Objects.equals(this.templateBaseDir, other.templateBaseDir)
         && Objects.equals(this.templatePath, other.templatePath)
         && Objects.equals(this.prependTemplatePath, other.prependTemplatePath)
@@ -1008,6 +1024,8 @@ public class Settings implements Serializable {
         + this.useIntegrations
         + ", pathFilters="
         + this.pathFilters
+        + ", commitCount="
+        + this.commitCount
         + ", encoding="
         + this.encoding
         + "]";

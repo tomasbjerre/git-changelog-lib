@@ -66,6 +66,7 @@ public class GitRepo implements Closeable {
   private final Repository repository;
   private final RevWalk revWalk;
   private List<String> pathFilters = new ArrayList<>();
+  private boolean commitCount;
 
   public GitRepo() {
     this.repository = null;
@@ -665,7 +666,28 @@ public class GitRepo implements Closeable {
         revCommit.getId().getName(), //
         merge, //
         this.getMessageNotes(revCommit), //
-        this.getChangedFiles(revCommit));
+        this.getChangedFiles(revCommit), //
+        this.commitCount ? this.countAncestors(revCommit) : null);
+  }
+
+  /**
+   * Equivalent to {@code git rev-list --count <hash>}: the number of commits reachable from {@code
+   * revCommit}, itself included. Uses its own {@link RevWalk} so it doesn't disturb the outer
+   * traversal's state; each reachable commit is visited exactly once regardless of merge topology,
+   * so this is O(depth) per call, not exponential, but it is still one full walk per commit
+   * requested - only invoked when {@link #commitCount} is enabled.
+   */
+  private int countAncestors(final RevCommit revCommit) {
+    try (RevWalk walk = new RevWalk(this.repository)) {
+      walk.markStart(walk.parseCommit(revCommit.getId()));
+      int count = 0;
+      for (@SuppressWarnings("unused") final RevCommit ignored : walk) {
+        count++;
+      }
+      return count;
+    } catch (final IOException e) {
+      throw new RuntimeException("Unable to count ancestors of " + revCommit.getId().getName(), e);
+    }
   }
 
   private List<String> getChangedFiles(final RevCommit revCommit) {
@@ -720,6 +742,10 @@ public class GitRepo implements Closeable {
 
   public void setPathFilters(final List<String> pathFilters) {
     this.pathFilters = pathFilters;
+  }
+
+  public void setCommitCount(final boolean commitCount) {
+    this.commitCount = commitCount;
   }
 
   public List<String> getTags(

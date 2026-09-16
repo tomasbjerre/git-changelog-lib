@@ -57,7 +57,8 @@ public class TransformerTest {
             "abc1234567890abcdef",
             false,
             "A note on the commit",
-            Collections.emptyList());
+            Collections.emptyList(),
+            null);
 
     final List<Commit> commits = this.transformer.toCommits(Arrays.asList(gitCommit));
 
@@ -76,7 +77,8 @@ public class TransformerTest {
             "abc1234567890abcdef",
             false,
             "",
-            Arrays.asList("first.txt", "second.txt"));
+            Arrays.asList("first.txt", "second.txt"),
+            null);
 
     final List<Commit> commits = this.transformer.toCommits(Arrays.asList(gitCommit));
 

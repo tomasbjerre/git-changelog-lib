@@ -729,6 +729,18 @@ public final class GitChangelogApi {
   }
 
   /**
+   * Populate each commit's {@code commitCount}, the number of ancestor commits reachable from it
+   * (equivalent to {@code git rev-list --count <hash>}). Off by default: it is O(depth) per commit,
+   * so enabling it can be slow on large histories.
+   *
+   * @param commitCount whether to compute the ancestor count for each commit.
+   */
+  public GitChangelogApi withCommitCount(final boolean commitCount) {
+    this.settings.setCommitCount(commitCount);
+    return this;
+  }
+
+  /**
    * Some commits may not be included in any tag. Commits that not released yet may not be tagged.
    * This is a "virtual tag", added to {@link Changelog#getTags()}, that includes those commits. A
    * fitting value may be "Next release".
@@ -741,6 +753,7 @@ public final class GitChangelogApi {
   private Changelog getChangelog(final GitRepo gitRepo, final boolean useIntegrations)
       throws GitChangelogRepositoryException {
     gitRepo.setPathFilters(this.settings.getPathFilters());
+    gitRepo.setCommitCount(this.settings.isCommitCount());
     final RevisionBoundary<ObjectId> fromId = this.getFrom(gitRepo, this.settings);
     final RevisionBoundary<ObjectId> toId = this.getTo(gitRepo, this.settings);
     GitRepoData gitRepoData =
