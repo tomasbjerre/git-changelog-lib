@@ -192,6 +192,28 @@ Renders date of `Tag` on format `YYYY-MM-DD`.
 {{/tags}}
 ```
 
+### `previousTag <Tag>` / `nextTag <Tag>`
+
+Returns the `Tag` chronologically before/after the given `Tag` (or nothing if there is none). Ordered by tag time, not by rendering order. Composes with other helpers, like building a compare link between a release and the one before it:
+
+```hbs
+{{#tags}}
+ {{#ifReleaseTag .}}
+  [{{name}}](https://gitlab.com/owner/repo/compare/{{previousTagName .}}...{{name}}) ({{tagDate .}})
+ {{/ifReleaseTag}}
+{{/tags}}
+```
+
+### `previousTagName <Tag>` / `nextTagName <Tag>`
+
+Same as `previousTag`/`nextTag`, but returns the tag's name directly (or an empty string if there is none), for when you just need the name.
+
+```hbs
+{{#tags}}
+ previous: {{previousTagName .}}, next: {{nextTagName .}}
+{{/tags}}
+```
+
 ### `ifContainsIssueType <List<Issue>>`
 
 Conditional, renders a block if given `List<Issue>` contains given `type`.
