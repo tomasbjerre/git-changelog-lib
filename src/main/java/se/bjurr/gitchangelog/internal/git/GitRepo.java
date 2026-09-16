@@ -450,8 +450,8 @@ public class GitRepo implements Closeable {
     }
 
     final List<GitTag> tags = new ArrayList<>();
-    this.addToTags(
-        commitsPerTag, untaggedName, datePerTag.get(untaggedName), tags, annotatedTagPerTagName);
+    final Date untaggedDate = untaggedName != null ? datePerTag.get(untaggedName) : null;
+    this.addToTags(commitsPerTag, untaggedName, untaggedDate, tags, annotatedTagPerTagName);
     final List<Ref> tagCommitHashSortedByCommitTime =
         this.getTagCommitHashSortedByCommitTime(tagPerCommitHash.values());
     for (final Ref tag : tagCommitHashSortedByCommitTime) {
