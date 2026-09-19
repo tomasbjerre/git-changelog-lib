@@ -53,12 +53,7 @@ import se.bjurr.gitchangelog.internal.git.model.GitTag;
 import se.bjurr.gitchangelog.internal.semantic.SemanticVersion;
 import se.bjurr.gitchangelog.internal.semantic.SemanticVersioning;
 
-@SuppressFBWarnings({
-  "CRLF_INJECTION_LOGS",
-  "BC_VACUOUS_INSTANCEOF",
-  "BC_UNCONFIRMED_CAST_OF_RETURN_VALUE",
-  "PATH_TRAVERSAL_IN"
-})
+@SuppressFBWarnings({"CRLF_INJECTION_LOGS", "BC_VACUOUS_INSTANCEOF", "PATH_TRAVERSAL_IN"})
 public class GitRepo implements Closeable {
   private static final Logger LOG = LoggerFactory.getLogger(GitRepo.class);
   private List<RevCommit> commitsToInclude;

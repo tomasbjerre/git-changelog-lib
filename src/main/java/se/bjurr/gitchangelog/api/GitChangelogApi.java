@@ -148,7 +148,6 @@ public final class GitChangelogApi {
   }
 
   /** Get the changelog. */
-  @SuppressFBWarnings("PATH_TRAVERSAL_IN")
   public String render() throws GitChangelogRepositoryException {
     return this.render(false);
   }
@@ -157,7 +156,6 @@ public final class GitChangelogApi {
    * Get the changelog. There is a different default changelog when prepending which is why it can
    * be supplied
    */
-  @SuppressFBWarnings("PATH_TRAVERSAL_IN")
   public String render(final boolean prepend) throws GitChangelogRepositoryException {
     final Writer writer = new StringWriter();
     this.render(writer, prepend);
