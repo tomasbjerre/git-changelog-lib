@@ -25,9 +25,11 @@ public class JavascriptHelperTest extends AbstractHandlebarsHelperTest {
                 {{/commits}}
                 """)
             .withHandlebarsHelper(
-                "Handlebars.registerHelper(\"firstWord\", function(options) {"
-                    + "  return options.fn(this).split(\" \")[0];"
-                    + "});")
+                """
+                Handlebars.registerHelper("firstWord", function(options) {
+                  return options.fn(this).split(" ")[0];
+                });
+                """)
             .render();
 
     assertThat(rendered)

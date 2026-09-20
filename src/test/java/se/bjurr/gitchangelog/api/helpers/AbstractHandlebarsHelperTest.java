@@ -38,52 +38,66 @@ abstract class AbstractHandlebarsHelperTest {
             .commit("c8", "fix(utils:mix): the description (fixes ABC-123)", "f", "8")
             .commit(
                 "c9",
-                "Revert \"[Gradle Release Plugin] - pre tag commit:  '1.94'.\"\n\n"
-                    + "This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.",
+                """
+                Revert "[Gradle Release Plugin] - pre tag commit:  '1.94'."
+
+                This reverts commit 1edc0d71eccce51abfb5f62fdddfbe73913785f5.""",
                 "f",
                 "9")
             .commit("c10", "refactor!: doing major stuff", "f", "10")
             .commit(
                 "c11",
-                "refactor!: using both ! and br\n\n"
-                    + "BREAKING CHANGE: refactor to use JavaScript features not available in"
-                    + " Node 6.",
+                """
+                refactor!: using both ! and br
+
+                BREAKING CHANGE: refactor to use JavaScript features not available in Node 6.""",
                 "f",
                 "11")
             .commit(
                 "c12",
-                "refactor: using only br\n\n"
-                    + "BREAKING CHANGE: refactor to use JavaScript features not available in"
-                    + " Node 6.",
+                """
+                refactor: using only br
+
+                BREAKING CHANGE: refactor to use JavaScript features not available in Node 6.""",
                 "f",
                 "12")
             .commit(
                 "c13",
-                "feat: allow provided config object to extend other configs\n\n"
-                    + "BREAKING CHANGE: `extends` key in config file is now used for extending"
-                    + " other config files",
+                """
+                feat: allow provided config object to extend other configs
+
+                BREAKING CHANGE: `extends` key in config file is now used for extending other config files""",
                 "f",
                 "13")
             .commit(
                 "c14",
-                "fix: correct minor typos in code\n\n"
-                    + "see the issue for details\n\n"
-                    + "on typos fixed.\n\n"
-                    + "Reviewed-by: Z\n"
-                    + "Refs #133",
+                """
+                fix: correct minor typos in code
+
+                see the issue for details
+
+                on typos fixed.
+
+                Reviewed-by: Z
+                Refs #133""",
                 "f",
                 "14")
             .commit(
                 "c15",
-                "feat: dsc\n\n"
-                    + "paragraph first line of two here!\n"
-                    + "second line of first paragraph\n\n"
-                    + "second paragraph the only line\n\n"
-                    + "third paragraph first line of two\n"
-                    + "and second line of third paragraph.\n\n"
-                    + "first-token-here: value of first token\n"
-                    + "second line of first token\n"
-                    + "second-token-here: value of second token",
+                """
+                feat: dsc
+
+                paragraph first line of two here!
+                second line of first paragraph
+
+                second paragraph the only line
+
+                third paragraph first line of two
+                and second line of third paragraph.
+
+                first-token-here: value of first token
+                second line of first token
+                second-token-here: value of second token""",
                 "f",
                 "15");
 
