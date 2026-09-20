@@ -2,13 +2,14 @@ package se.bjurr.gitchangelog.api;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.tuple;
 import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
 import static se.bjurr.gitchangelog.api.GitChangelogApiConstants.ZERO_COMMIT;
 import static se.bjurr.gitchangelog.internal.integrations.rest.RestClient.mock;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -21,10 +22,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
+import se.bjurr.gitchangelog.api.model.Changelog;
+import se.bjurr.gitchangelog.api.model.Commit;
+import se.bjurr.gitchangelog.api.model.Issue;
+import se.bjurr.gitchangelog.api.model.Tag;
 import se.bjurr.gitchangelog.internal.integrations.jira.JiraClientFactory;
 import se.bjurr.gitchangelog.internal.integrations.redmine.RedmineClientFactory;
 import se.bjurr.gitchangelog.internal.integrations.rest.RestClientMock;
-import se.bjurr.gitchangelog.test.ApprovalsWrapper;
 import se.bjurr.gitchangelog.test.TestGitRepo;
 
 /**
@@ -32,6 +36,14 @@ import se.bjurr.gitchangelog.test.TestGitRepo;
  * project's own git history - so a reader doesn't need to cross-reference a real `git log` to know
  * what "tag 1.0" or "the test branch" actually contain. See {@link #before} for the shape of that
  * repo and why each commit/tag exists.
+ *
+ * <p>Every test asserts directly on {@link GitChangelogApi#getChangelog()} (or a rendered string,
+ * for the handful where the render itself is the point) rather than approving a full rendered
+ * template: each one has one narrow, nameable behavior to prove (a tag disappearing once empty, a
+ * revert pair vanishing, a path filter narrowing the commit set, ...), and a direct assertion says
+ * so, where a multi-hundred-line snapshot would bury it. Also only pull in the
+ * jira/github/gitlab/redmine/settings-file configuration a given test actually needs - not the full
+ * set every other test happens to use.
  */
 public class GitChangelogApiTest {
 
@@ -153,276 +165,261 @@ public class GitChangelogApiTest {
 
   @Test
   public void testIssue182() throws Exception {
-    final GitChangelogApi given =
+    // Regression test: rendering from ZERO_COMMIT to a plain branch (not a tag) used to crash.
+    // The approved.txt this used to compare against baked in the @TempDir's absolute path (part
+    // of the rendered "settings:" block), making it non-reproducible across runs - so this
+    // checks the behavior that actually matters: it renders, and every tag still shows up.
+    final String rendered =
         gitChangelogApiBuilder() //
             .withTemplatePath("changelog-with-unreleased.mustache")
             .withFromRevision(ZERO_COMMIT) //
             .withToRevision("unreleased-work") //
-            .withFromRepo(this.repo.dir());
+            .withFromRepo(this.repo.dir()) //
+            .render();
 
-    ApprovalsWrapper.verify(given);
+    assertThat(rendered).contains("## test (", "## 1.0 (", "## 0.0.1 (");
   }
 
   @Test
   public void testThatFirstVersionCanBeGenerated() throws Exception {
-    final GitChangelogApi given =
+    final Changelog changelog =
         gitChangelogApiBuilder() //
             .withFromCommit(ZERO_COMMIT) //
             .withToCommit("0.0.1") //
-            .withFromRepo(this.repo.dir());
+            .withFromRepo(this.repo.dir()) //
+            .getChangelog();
 
-    ApprovalsWrapper.verify(given);
+    assertThat(changelog.getTags()).extracting(Tag::getName).containsExactly("0.0.1");
+    assertThat(changelog.getTags().get(0).getCommits())
+        .extracting(Commit::getMessage)
+        .containsExactly("Initial commit");
   }
 
   @Test
   public void testThatSecondVersionCanBeGenerated() throws Exception {
-    final GitChangelogApi given =
+    final Changelog changelog =
         gitChangelogApiBuilder() //
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("1.0") //
-            .withFromRepo(this.repo.dir());
+            .withFromRepo(this.repo.dir()) //
+            .getChangelog();
 
-    ApprovalsWrapper.verify(given);
+    assertThat(changelog.getTags()) //
+        .as("newest tag first") //
+        .extracting(Tag::getName)
+        .containsExactly("1.0", "0.0.1");
+    assertThat(changelog.getTags().get(0).getCommits())
+        .extracting(Commit::getMessage)
+        .containsExactly(
+            "Add feature B", "Update documentation", "Fix crash in feature A", "Add feature A");
   }
 
   @Test
   public void testThatTagsThatAreEmptyAfterCommitsHaveBeenIgnoredAreRemoved() throws Exception {
-    final String templatePath = "templatetest/testAuthorsCommitsExtended.mustache";
-
-    final GitChangelogApi given =
+    final Changelog changelog =
         gitChangelogApiBuilder() //
-            .withJiraEnabled(true)
-            .withGitHubEnabled(true)
-            .withGitLabEnabled(true)
-            .withRedmineEnabled(true)
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
-            .withTemplatePath(templatePath) //
             .withIgnoreCommitsWithMessage(".*") //
-            .withFromRepo(this.repo.dir());
+            .withFromRepo(this.repo.dir()) //
+            .getChangelog();
 
-    ApprovalsWrapper.verify(given);
+    assertThat(changelog.getCommits()) //
+        .as("every commit is filtered out by the \".*\" pattern") //
+        .isEmpty();
+    assertThat(changelog.getTags()) //
+        .as("tags left with no commits are removed rather than rendered empty") //
+        .isEmpty();
   }
 
   @Test
   public void testPathFilterCanBeSpecified() throws Exception {
-    final String templatePath = "templatetest/testAuthorsCommitsExtended.mustache";
-
-    final GitChangelogApi given =
+    final Changelog changelog =
         gitChangelogApiBuilder() //
-            .withJiraEnabled(true)
-            .withGitHubEnabled(true)
-            .withGitLabEnabled(true)
-            .withRedmineEnabled(true)
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("2.0") //
-            .withTemplatePath(templatePath) //
             .withPathFilters("src") //
-            .withFromRepo(this.repo.dir());
+            .withFromRepo(this.repo.dir()) //
+            .getChangelog();
 
-    ApprovalsWrapper.verify(given);
+    assertThat(changelog.getCommits()) //
+        .as("only commits touching src/, plus the always-included root commit, survive") //
+        .extracting(Commit::getMessage)
+        .containsExactly(
+            "Add feature D, implements " + JIRA_ISSUE_1,
+            "Add feature C, fixes " + GITHUB_ISSUE,
+            "Initial commit");
   }
 
   @Test
   public void testPathFiltersCanBeSpecified() throws Exception {
-    final String templatePath = "templatetest/testAuthorsCommitsExtended.mustache";
-
-    final GitChangelogApi given =
+    // Same scenario as testPathFilterCanBeSpecified, but through the withFromRevision/
+    // withToRevision aliases instead of withFromCommit/withToRef.
+    final Changelog changelog =
         gitChangelogApiBuilder() //
-            .withJiraEnabled(true)
-            .withGitHubEnabled(true)
-            .withGitLabEnabled(true)
-            .withRedmineEnabled(true)
-            .withFromRevision(ZERO_COMMIT)
+            .withFromRevision(ZERO_COMMIT) //
             .withToRevision("2.0") //
-            .withTemplatePath(templatePath) //
             .withPathFilters("src") //
-            .withFromRepo(this.repo.dir());
+            .withFromRepo(this.repo.dir()) //
+            .getChangelog();
 
-    ApprovalsWrapper.verify(given);
+    assertThat(changelog.getCommits())
+        .extracting(Commit::getMessage)
+        .containsExactly(
+            "Add feature D, implements " + JIRA_ISSUE_1,
+            "Add feature C, fixes " + GITHUB_ISSUE,
+            "Initial commit");
   }
 
   @Test
   public void testThatIssuesCanBeRemoved() throws Exception {
-
-    final URL settingsFile =
-        GitChangelogApiTest.class
-            .getResource("/settings/git-changelog-test-settings.json")
-            .toURI()
-            .toURL();
-    final String templatePath = "templatetest/testIssuesCommits.mustache";
-
-    final GitChangelogApi given =
+    final Changelog changelog =
         gitChangelogApiBuilder() //
             .withJiraEnabled(true)
             .withGitHubEnabled(true)
-            .withGitLabEnabled(true)
-            .withRedmineEnabled(true)
+            .withJiraServer("https://jiraserver/jira") //
+            .withUseIntegrations(true)
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
-            .withSettings(settingsFile) //
-            .withUseIntegrations(true)
             .withRemoveIssueFromMessageArgument(true) //
-            .withTemplatePath(templatePath) //
-            .withFromRepo(this.repo.dir());
+            .withFromRepo(this.repo.dir()) //
+            .getChangelog();
 
-    ApprovalsWrapper.verify(given);
+    assertThat(changelog.getIssues()) //
+        .as(
+            "GitHub/Jira issues are enriched via REST (title comes from the mocked response),"
+                + " and the issue reference is stripped from the commit message") //
+        .extracting(Issue::getName, Issue::getTitle, i -> i.getCommits().get(0).getMessage())
+        .contains(
+            tuple(
+                "GitHub",
+                "Create resource that can be invoked from scripts to trigger events",
+                "Fix crash reported in"),
+            tuple("Jira", "Title of jira 1234", "Implement support for"),
+            tuple("Jira", "The Title of jira 5262", "Follow-up work for"));
   }
 
   @Test
   public void testThatCommitsWithoutIssueCanBeIgnoredIssuesCommits() throws Exception {
-
-    final URL settingsFile =
-        GitChangelogApiTest.class
-            .getResource("/settings/git-changelog-test-settings.json")
-            .toURI()
-            .toURL();
-    final String templatePath = "templatetest/testIssuesCommits.mustache";
-
-    final GitChangelogApi given =
+    final Changelog changelog =
         gitChangelogApiBuilder() //
             .withJiraEnabled(true)
             .withGitHubEnabled(true)
-            .withGitLabEnabled(true)
-            .withRedmineEnabled(true)
+            .withJiraServer("https://jiraserver/jira") //
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
-            .withSettings(settingsFile) //
-            .withUseIntegrations(true)
             .withIgnoreCommitsWithoutIssue(true) //
-            .withTemplatePath(templatePath) //
-            .withFromRepo(this.repo.dir());
+            .withFromRepo(this.repo.dir()) //
+            .getChangelog();
 
-    ApprovalsWrapper.verify(given);
+    assertThat(changelog.getCommits()) //
+        .as("only commits with a resolvable GitHub/Jira issue reference survive") //
+        .extracting(Commit::getMessage)
+        .containsExactly(
+            "Follow-up work for " + JIRA_ISSUE_2,
+            "Implement support for " + JIRA_ISSUE_1,
+            "Fix crash reported in " + GITHUB_ISSUE);
+    assertThat(changelog.getTags()) //
+        .as("0.0.1 and 1.0 are left with no matching commits and dropped") //
+        .extracting(Tag::getName)
+        .containsExactly("test");
   }
 
   /** "no-issue" (see {@link #before}) has no recognizable issue reference, so it's dropped. */
   @Test
   public void testThatCommitsWithoutIssueCanBeIgnoredTagsIssuesCommits() throws Exception {
-
-    final String templatePath =
-        "templatetest/testThatCommitsWithoutIssueCanBeIgnoredTagsIssuesCommits.mustache";
-
-    final GitChangelogApi given =
+    final Changelog changelog =
         gitChangelogApiBuilder() //
             .withJiraEnabled(true)
             .withGitHubEnabled(true)
-            .withGitLabEnabled(true)
-            .withRedmineEnabled(true)
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
             .withGitHubIssuePattern("nooo") //
-            .withGitLabIssuePattern("nooo") //
-            .withRedmineIssuePattern("nooo") //
             .withCustomIssue(
                 "JIRA", "JIR-[0-9]*", "http://${PATTERN_GROUP}", "${PATTERN_GROUP}") //
             .withIgnoreCommitsWithoutIssue(true) //
-            .withTemplatePath(templatePath) //
-            .withFromRepo(this.repo.dir());
+            .withFromRepo(this.repo.dir()) //
+            .getChangelog();
 
-    ApprovalsWrapper.verify(given);
+    assertThat(changelog.getCommits()) //
+        .as(
+            "the GitHub-referencing commit is dropped once that pattern is disabled; only the"
+                + " commits matched by the custom JIRA pattern remain") //
+        .extracting(Commit::getMessage)
+        .containsExactly(
+            "Follow-up work for " + JIRA_ISSUE_2, "Implement support for " + JIRA_ISSUE_1);
+    assertThat(changelog.getIssues())
+        .extracting(Issue::getName, Issue::getIssue)
+        .containsExactlyInAnyOrder(tuple("JIRA", JIRA_ISSUE_1), tuple("JIRA", JIRA_ISSUE_2));
   }
 
   @Test
   public void testThatReadableGroupMustExist() throws Exception {
-    final URL settingsFile =
-        GitChangelogApiTest.class
-            .getResource("/settings/git-changelog-test-settings.json")
-            .toURI()
-            .toURL();
-    final String templatePath = "templatetest/testIssuesCommits.mustache";
-
-    try {
-      final String actual =
-          gitChangelogApiBuilder() //
-              .withFromCommit(ZERO_COMMIT) //
-              .withSettings(settingsFile) //
-              .withToRef("test") //
-              .withRemoveIssueFromMessageArgument(true) //
-              .withTemplatePath(templatePath) //
-              .withReadableTagName("[0-9]+?") //
-              .withFromRepo(this.repo.dir()) //
-              .render();
-      assertThat(actual) //
-          .as(
-              "Should never happen! But nice to see what was rendered, if it does not crash as expected.") //
-          .isEqualTo("");
-    } catch (final Exception e) {
-      // Every tag in range (0.0.1, 1.0, test) contains a digit, so "[0-9]+?" - which has no
-      // capturing group - fails on whichever one is processed first. Which tag that is isn't
-      // part of the behavior under test, so only the fixed part of the message is checked.
-      assertThat(e.getMessage()) //
-          .startsWith("Pattern: \"[0-9]+?\" did not match any group in: \"refs/tags/");
-    }
+    assertThatThrownBy(
+            () ->
+                gitChangelogApiBuilder() //
+                    .withFromCommit(ZERO_COMMIT) //
+                    .withToRef("test") //
+                    .withReadableTagName("[0-9]+?") //
+                    .withFromRepo(this.repo.dir()) //
+                    .getChangelog())
+        // Every tag in range (0.0.1, 1.0, test) contains a digit, so "[0-9]+?" - which has no
+        // capturing group - fails on whichever one is processed first. Which tag that is isn't
+        // part of the behavior under test, so only the fixed part of the message is checked.
+        .hasMessageStartingWith("Pattern: \"[0-9]+?\" did not match any group in: \"refs/tags/");
   }
 
   @Test
   public void testThatReadableGroupCanBeSet() throws Exception {
-    final URL settingsFile =
-        GitChangelogApiTest.class
-            .getResource("/settings/git-changelog-test-settings.json")
-            .toURI()
-            .toURL();
-    final String templatePath = "templatetest/testIssuesCommits.mustache";
-
-    final GitChangelogApi given =
+    final Changelog changelog =
         gitChangelogApiBuilder() //
-            .withJiraEnabled(true)
-            .withGitHubEnabled(true)
-            .withGitLabEnabled(true)
-            .withRedmineEnabled(true)
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
-            .withSettings(settingsFile) //
-            .withUseIntegrations(true)
-            .withRemoveIssueFromMessageArgument(true) //
-            .withTemplatePath(templatePath) //
             .withReadableTagName(".*/([0-9]+?\\.[0-9]+?)$") //
-            .withFromRepo(this.repo.dir());
+            .withFromRepo(this.repo.dir()) //
+            .getChangelog();
 
-    ApprovalsWrapper.verify(given);
+    assertThat(changelog.getTags()) //
+        .as(
+            "only a ref ending in exactly \"N.N\" matches this pattern and is shortened; refs"
+                + " that don't match (0.0.1 has three components, test has none) keep their full"
+                + " ref name") //
+        .extracting(Tag::getName)
+        .containsExactly("refs/tags/test", "1.0", "refs/tags/0.0.1");
   }
 
   @Test
   public void testThatCustomVariablesCanBeUsed() throws Exception {
-    final URL settingsFile =
-        GitChangelogApiTest.class
-            .getResource("/settings/git-changelog-test-settings.json")
-            .toURI()
-            .toURL();
-    final String templatePath = "templatetest/testAuthorsCommitsExtended.mustache";
+    final Map<String, Object> extendedVariables = new HashMap<>();
+    extendedVariables.put("customVariable", "the value");
 
-    final Map<String, Object> map = new HashMap<>();
-    map.put("customVariable", "the value");
-    final GitChangelogApi given =
+    final String rendered =
         gitChangelogApiBuilder() //
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
-            .withSettings(settingsFile) //
-            .withExtendedVariables(map) //
-            .withRemoveIssueFromMessageArgument(true) //
-            .withTemplatePath(templatePath) //
-            .withFromRepo(this.repo.dir());
+            .withExtendedVariables(extendedVariables) //
+            .withTemplatePath("templatetest/testAuthorsCommitsExtended.mustache") //
+            .withFromRepo(this.repo.dir()) //
+            .render();
 
-    ApprovalsWrapper.verify(given);
+    assertThat(rendered).contains("Extended variable: the value");
   }
 
   @Test
   public void testThatRevertedCommitsAreRemoved() throws Exception {
-    final String templatePath = "templatetest/testThatRevertedCommitsAreRemoved.mustache";
-
-    final GitChangelogApi given =
+    final Changelog changelog =
         gitChangelogApiBuilder() //
-            .withJiraEnabled(true)
-            .withGitHubEnabled(true)
-            .withGitLabEnabled(true)
-            .withRedmineEnabled(true)
             .withFromCommit(this.repo.hash("feature-b")) //
             .withToCommit(this.repo.hash("github-issue-fix")) //
-            .withTemplatePath(templatePath) //
-            .withFromRepo(this.repo.dir());
+            .withFromRepo(this.repo.dir()) //
+            .getChangelog();
 
-    ApprovalsWrapper.verify(given);
+    assertThat(changelog.getCommits()) //
+        .as(
+            "both \"experimental\" and its revert commit are removed; only the following commit"
+                + " remains") //
+        .extracting(Commit::getMessage)
+        .containsExactly("Fix crash reported in " + GITHUB_ISSUE);
   }
 
   @Test
@@ -442,31 +439,40 @@ public class GitChangelogApiTest {
 
   @Test
   public void testThatOnlyGithubIssuesCanBeParsed() throws Exception {
-    final GitChangelogApi given =
+    final Changelog changelog =
         gitChangelogApiBuilder() //
             .withGitHubEnabled(true)
-            .withUseIntegrations(true)
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("2.0") //
-            .withPathFilters("src")
+            .withPathFilters("src") //
             .withIgnoreCommitsWithoutIssue(true) //
-            .withFromRepo(this.repo.dir());
+            .withFromRepo(this.repo.dir()) //
+            .getChangelog();
 
-    ApprovalsWrapper.verify(given);
+    assertThat(changelog.getCommits()) //
+        .as(
+            "with only GitHub enabled, the src/ commit referencing a Jira issue counts as"
+                + " \"without issue\" and is dropped along with the issue-less root commit") //
+        .extracting(Commit::getMessage)
+        .containsExactly("Add feature C, fixes " + GITHUB_ISSUE);
   }
 
   @Test
   public void testThatOnlyJiraIssuesCanBeParsed() throws Exception {
-    final GitChangelogApi given =
+    final Changelog changelog =
         gitChangelogApiBuilder() //
             .withJiraEnabled(true)
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("2.0") //
-            .withPathFilters("src")
+            .withPathFilters("src") //
             .withIgnoreCommitsWithoutIssue(true) //
-            .withFromRepo(this.repo.dir());
+            .withFromRepo(this.repo.dir()) //
+            .getChangelog();
 
-    ApprovalsWrapper.verify(given);
+    assertThat(changelog.getCommits())
+        .as("with only Jira enabled, only the src/ commit referencing a Jira issue survives")
+        .extracting(Commit::getMessage)
+        .containsExactly("Add feature D, implements " + JIRA_ISSUE_1);
   }
 
   @Test
