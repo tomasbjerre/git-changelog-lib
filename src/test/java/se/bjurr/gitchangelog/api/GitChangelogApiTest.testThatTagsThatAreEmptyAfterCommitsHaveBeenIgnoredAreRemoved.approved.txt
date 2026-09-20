@@ -15,8 +15,11 @@ Extended variable: {{customVariable}}
 settings:
 
 {
+  "commitCount" : false,
+  "commitFiles" : false,
   "encoding" : "UTF-8",
   "extendedVariables" : { },
+  "fromRepo" : "/tmp/junit-3265668294692817694",
   "fromRevision" : "0000000000000000000000000000000000000000",
   "fromRevisionStrategy" : "DEFAULT",
   "gitHubApi" : "https://api.github.com/repos/tomasbjerre/git-changelog-lib",

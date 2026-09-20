@@ -74,8 +74,11 @@ Changelog of {{repoName}}.
 settings:
 
 {
+  "commitCount" : false,
+  "commitFiles" : false,
   "encoding" : "UTF-8",
   "extendedVariables" : { },
+  "fromRepo" : "/tmp/junit-9614577681876621841",
   "fromRevision" : "0000000000000000000000000000000000000000",
   "fromRevisionStrategy" : "DEFAULT",
   "gitHubApi" : "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
@@ -99,44 +102,39 @@ changelog:
 
 Changelog of git-changelog-lib.
 
-## 1.0 (2015-11-14)
+## 1.0 (2020-01-01)
 
 ### Other changes
 
-**[Gradle Release Plugin] - pre tag commit:  '1.0'.**
+**Add feature B**
 
 
-[01484](https://github.com/tomasbjerre/git-changelog-lib/commit/01484ce71bbc76e) Tomas Bjerre *2015-11-14 20:19:50*
+[7a595](https://github.com/tomasbjerre/git-changelog-lib/commit/7a5953db4f73091) Author *2020-01-01 00:04:00*
 
-**Doc**
-
-
-[83a8a](https://github.com/tomasbjerre/git-changelog-lib/commit/83a8a7b2f96ba88) Tomas Bjerre *2015-11-14 19:36:21*
-
-**Test**
+**Update documentation**
 
 
-[5c548](https://github.com/tomasbjerre/git-changelog-lib/commit/5c54861708099d9) Tomas Bjerre *2015-11-14 19:00:17*
+[0cdb3](https://github.com/tomasbjerre/git-changelog-lib/commit/0cdb340f2d05f09) Author *2020-01-01 00:03:00*
 
-**Work for 1.0**
-
-
-[051ef](https://github.com/tomasbjerre/git-changelog-lib/commit/051effe72405e78) Tomas Bjerre *2015-11-14 12:14:41*
-
-**Initial commit**
+**Fix crash in feature A**
 
 
-[5aaeb](https://github.com/tomasbjerre/git-changelog-lib/commit/5aaeb907f68915a) Tomas Bjerre *2015-11-14 09:46:23*
+[05503](https://github.com/tomasbjerre/git-changelog-lib/commit/055036e0aaa90ef) Author *2020-01-01 00:02:00*
+
+**Add feature A**
 
 
-## 0.0.1 (2015-11-12)
+[b596a](https://github.com/tomasbjerre/git-changelog-lib/commit/b596a6f3944f14a) Author *2020-01-01 00:01:00*
+
+
+## 0.0.1 (2020-01-01)
 
 ### Other changes
 
 **Initial commit**
 
 
-[a1aa5](https://github.com/tomasbjerre/git-changelog-lib/commit/a1aa5ff5b625e63) Tomas Bjerre *2015-11-12 05:29:31*
+[5130f](https://github.com/tomasbjerre/git-changelog-lib/commit/5130f9d03160fc3) Author *2020-01-01 00:00:00*
 
 
 
@@ -147,306 +145,272 @@ context:
 
 {
   "commits" : [ {
-    "authorName" : "Tomas Bjerre",
-    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-    "commitTime" : "2015-11-14 20:19:50",
-    "commitTimeLong" : 1447532390000,
-    "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
-    "hash" : "01484ce71bbc76e",
+    "authorName" : "Author",
+    "authorEmailAddress" : "author@example.com",
+    "commitTime" : "2020-01-01 00:04:00",
+    "commitTimeLong" : 1577837040000,
+    "message" : "Add feature B",
+    "hash" : "7a5953db4f73091",
     "merge" : false,
     "messageNotes" : "",
-    "files" : [ "gradle.properties" ],
-    "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
+    "files" : [ ],
+    "hasCommitCount" : false,
+    "hashFull" : "7a5953db4f73091acec822d12d0885a5713c920f"
   }, {
-    "authorName" : "Tomas Bjerre",
-    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-    "commitTime" : "2015-11-14 19:36:21",
-    "commitTimeLong" : 1447529781000,
-    "message" : "Doc",
-    "hash" : "83a8a7b2f96ba88",
+    "authorName" : "Author",
+    "authorEmailAddress" : "author@example.com",
+    "commitTime" : "2020-01-01 00:03:00",
+    "commitTimeLong" : 1577836980000,
+    "message" : "Update documentation",
+    "hash" : "0cdb340f2d05f09",
     "merge" : false,
     "messageNotes" : "",
-    "files" : [ "README.md", "build.gradle", "tags-issues-authors-commits.mustache.md" ],
-    "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
+    "files" : [ ],
+    "hasCommitCount" : false,
+    "hashFull" : "0cdb340f2d05f09d207bcd28cc616a9de1fdad33"
   }, {
-    "authorName" : "Tomas Bjerre",
-    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-    "commitTime" : "2015-11-14 19:00:17",
-    "commitTimeLong" : 1447527617000,
-    "message" : "Test",
-    "hash" : "5c54861708099d9",
+    "authorName" : "Author",
+    "authorEmailAddress" : "author@example.com",
+    "commitTime" : "2020-01-01 00:02:00",
+    "commitTimeLong" : 1577836920000,
+    "message" : "Fix crash in feature A",
+    "hash" : "055036e0aaa90ef",
     "merge" : false,
     "messageNotes" : "",
-    "files" : [ ".travis.yml", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/java/se/bjurr/gitchangelog/main/Main.java", "src/main/resources/git-changelog-settings.json", "src/test/java/se/bjurr/gitchangelog/api/FakeGitRepo.java", "src/test/java/se/bjurr/gitchangelog/api/FakeRepo.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogApiAsserter.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogApiTest.java", "src/test/resources/assertions/testAuthorsCommits.md", "src/test/resources/assertions/testCommits.md", "src/test/resources/assertions/testIssuesAuthorsCommits.md", "src/test/resources/assertions/testIssuesCommits.md", "src/test/resources/assertions/testTagsCommits.md", "src/test/resources/assertions/testTagsIssuesAuthorsCommits.md", "src/test/resources/assertions/testTagsIssuesCommits.md", "src/test/resources/settings/git-changelog-test-settings.json", "src/test/resources/templates/testAuthorsCommits.mustache", "src/test/resources/templates/testCommits.mustache", "src/test/resources/templates/testIssuesAuthorsCommits.mustache", "src/test/resources/templates/testIssuesCommits.mustache", "src/test/resources/templates/testTagsCommits.mustache", "src/test/resources/templates/testTagsIssuesAuthorsCommits.mustache", "src/test/resources/templates/testTagsIssuesCommits.mustache", "tags-issues-authors-commits.mustache.md" ],
-    "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
+    "files" : [ ],
+    "hasCommitCount" : false,
+    "hashFull" : "055036e0aaa90efdd701cc2038589bbba06707d5"
   }, {
-    "authorName" : "Tomas Bjerre",
-    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-    "commitTime" : "2015-11-14 12:14:41",
-    "commitTimeLong" : 1447503281000,
-    "message" : "Work for 1.0",
-    "hash" : "051effe72405e78",
+    "authorName" : "Author",
+    "authorEmailAddress" : "author@example.com",
+    "commitTime" : "2020-01-01 00:01:00",
+    "commitTimeLong" : 1577836860000,
+    "message" : "Add feature A",
+    "hash" : "b596a6f3944f14a",
     "merge" : false,
     "messageNotes" : "",
-    "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/api/model/Author.java", "src/main/java/se/bjurr/gitchangelog/api/model/Changelog.java", "src/main/java/se/bjurr/gitchangelog/api/model/Issue.java", "src/main/java/se/bjurr/gitchangelog/api/model/Tag.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/IAuthors.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/ICommits.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/IIssues.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/model/interfaces/IGitCommitReferer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/CustomIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/resources/git-changelog-settings.json", "src/main/resources/git-changelog-template.mustache" ],
-    "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
+    "files" : [ ],
+    "hasCommitCount" : false,
+    "hashFull" : "b596a6f3944f14a1aa84de09cd3bab37c6947ada"
   }, {
-    "authorName" : "Tomas Bjerre",
-    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-    "commitTime" : "2015-11-14 09:46:23",
-    "commitTimeLong" : 1447494383000,
+    "authorName" : "Author",
+    "authorEmailAddress" : "author@example.com",
+    "commitTime" : "2020-01-01 00:00:00",
+    "commitTimeLong" : 1577836800000,
     "message" : "Initial commit",
-    "hash" : "5aaeb907f68915a",
+    "hash" : "5130f9d03160fc3",
     "merge" : false,
     "messageNotes" : "",
-    "files" : [ ".travis.yml", "CHANGELOG.md", "README.md", "build.gradle", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/api/model/Author.java", "src/main/java/se/bjurr/gitchangelog/api/model/Changelog.java", "src/main/java/se/bjurr/gitchangelog/api/model/Commit.java", "src/main/java/se/bjurr/gitchangelog/api/model/Issue.java", "src/main/java/se/bjurr/gitchangelog/api/model/Tag.java", "src/main/java/se/bjurr/gitchangelog/internal/common/GitPredicates.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/CustomIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/java/se/bjurr/gitchangelog/main/Main.java", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-changelog-settings.json", "src/main/resources/git-changelog-template.mustache", "src/main/resources/git-release-notes-settings.json" ],
-    "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
-  }, {
-    "authorName" : "Tomas Bjerre",
-    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-    "commitTime" : "2015-11-12 05:29:31",
-    "commitTimeLong" : 1447306171000,
-    "message" : "Initial commit",
-    "hash" : "a1aa5ff5b625e63",
-    "merge" : false,
-    "messageNotes" : "",
-    "files" : [ ".gitignore", ".travis.yml", "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
-    "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+    "files" : [ ],
+    "hasCommitCount" : false,
+    "hashFull" : "5130f9d03160fc32880823dd10922ee46a3d9b59"
   } ],
   "tags" : [ {
     "name" : "1.0",
-    "annotation" : "[Gradle Release Plugin] - creating tag:  '1.0'.\n",
+    "annotation" : "",
     "commits" : [ {
-      "authorName" : "Tomas Bjerre",
-      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-      "commitTime" : "2015-11-14 20:19:50",
-      "commitTimeLong" : 1447532390000,
-      "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
-      "hash" : "01484ce71bbc76e",
+      "authorName" : "Author",
+      "authorEmailAddress" : "author@example.com",
+      "commitTime" : "2020-01-01 00:04:00",
+      "commitTimeLong" : 1577837040000,
+      "message" : "Add feature B",
+      "hash" : "7a5953db4f73091",
       "merge" : false,
       "messageNotes" : "",
-      "files" : [ "gradle.properties" ],
-      "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
+      "files" : [ ],
+      "hasCommitCount" : false,
+      "hashFull" : "7a5953db4f73091acec822d12d0885a5713c920f"
     }, {
-      "authorName" : "Tomas Bjerre",
-      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-      "commitTime" : "2015-11-14 19:36:21",
-      "commitTimeLong" : 1447529781000,
-      "message" : "Doc",
-      "hash" : "83a8a7b2f96ba88",
+      "authorName" : "Author",
+      "authorEmailAddress" : "author@example.com",
+      "commitTime" : "2020-01-01 00:03:00",
+      "commitTimeLong" : 1577836980000,
+      "message" : "Update documentation",
+      "hash" : "0cdb340f2d05f09",
       "merge" : false,
       "messageNotes" : "",
-      "files" : [ "README.md", "build.gradle", "tags-issues-authors-commits.mustache.md" ],
-      "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
+      "files" : [ ],
+      "hasCommitCount" : false,
+      "hashFull" : "0cdb340f2d05f09d207bcd28cc616a9de1fdad33"
     }, {
-      "authorName" : "Tomas Bjerre",
-      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-      "commitTime" : "2015-11-14 19:00:17",
-      "commitTimeLong" : 1447527617000,
-      "message" : "Test",
-      "hash" : "5c54861708099d9",
+      "authorName" : "Author",
+      "authorEmailAddress" : "author@example.com",
+      "commitTime" : "2020-01-01 00:02:00",
+      "commitTimeLong" : 1577836920000,
+      "message" : "Fix crash in feature A",
+      "hash" : "055036e0aaa90ef",
       "merge" : false,
       "messageNotes" : "",
-      "files" : [ ".travis.yml", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/java/se/bjurr/gitchangelog/main/Main.java", "src/main/resources/git-changelog-settings.json", "src/test/java/se/bjurr/gitchangelog/api/FakeGitRepo.java", "src/test/java/se/bjurr/gitchangelog/api/FakeRepo.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogApiAsserter.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogApiTest.java", "src/test/resources/assertions/testAuthorsCommits.md", "src/test/resources/assertions/testCommits.md", "src/test/resources/assertions/testIssuesAuthorsCommits.md", "src/test/resources/assertions/testIssuesCommits.md", "src/test/resources/assertions/testTagsCommits.md", "src/test/resources/assertions/testTagsIssuesAuthorsCommits.md", "src/test/resources/assertions/testTagsIssuesCommits.md", "src/test/resources/settings/git-changelog-test-settings.json", "src/test/resources/templates/testAuthorsCommits.mustache", "src/test/resources/templates/testCommits.mustache", "src/test/resources/templates/testIssuesAuthorsCommits.mustache", "src/test/resources/templates/testIssuesCommits.mustache", "src/test/resources/templates/testTagsCommits.mustache", "src/test/resources/templates/testTagsIssuesAuthorsCommits.mustache", "src/test/resources/templates/testTagsIssuesCommits.mustache", "tags-issues-authors-commits.mustache.md" ],
-      "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
+      "files" : [ ],
+      "hasCommitCount" : false,
+      "hashFull" : "055036e0aaa90efdd701cc2038589bbba06707d5"
     }, {
-      "authorName" : "Tomas Bjerre",
-      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-      "commitTime" : "2015-11-14 12:14:41",
-      "commitTimeLong" : 1447503281000,
-      "message" : "Work for 1.0",
-      "hash" : "051effe72405e78",
+      "authorName" : "Author",
+      "authorEmailAddress" : "author@example.com",
+      "commitTime" : "2020-01-01 00:01:00",
+      "commitTimeLong" : 1577836860000,
+      "message" : "Add feature A",
+      "hash" : "b596a6f3944f14a",
       "merge" : false,
       "messageNotes" : "",
-      "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/api/model/Author.java", "src/main/java/se/bjurr/gitchangelog/api/model/Changelog.java", "src/main/java/se/bjurr/gitchangelog/api/model/Issue.java", "src/main/java/se/bjurr/gitchangelog/api/model/Tag.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/IAuthors.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/ICommits.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/IIssues.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/model/interfaces/IGitCommitReferer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/CustomIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/resources/git-changelog-settings.json", "src/main/resources/git-changelog-template.mustache" ],
-      "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
-    }, {
-      "authorName" : "Tomas Bjerre",
-      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-      "commitTime" : "2015-11-14 09:46:23",
-      "commitTimeLong" : 1447494383000,
-      "message" : "Initial commit",
-      "hash" : "5aaeb907f68915a",
-      "merge" : false,
-      "messageNotes" : "",
-      "files" : [ ".travis.yml", "CHANGELOG.md", "README.md", "build.gradle", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/api/model/Author.java", "src/main/java/se/bjurr/gitchangelog/api/model/Changelog.java", "src/main/java/se/bjurr/gitchangelog/api/model/Commit.java", "src/main/java/se/bjurr/gitchangelog/api/model/Issue.java", "src/main/java/se/bjurr/gitchangelog/api/model/Tag.java", "src/main/java/se/bjurr/gitchangelog/internal/common/GitPredicates.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/CustomIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/java/se/bjurr/gitchangelog/main/Main.java", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-changelog-settings.json", "src/main/resources/git-changelog-template.mustache", "src/main/resources/git-release-notes-settings.json" ],
-      "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
+      "files" : [ ],
+      "hasCommitCount" : false,
+      "hashFull" : "b596a6f3944f14a1aa84de09cd3bab37c6947ada"
     } ],
     "authors" : [ {
-      "authorName" : "Tomas Bjerre",
-      "authorEmail" : "tomas.bjerre85@gmail.com",
+      "authorName" : "Author",
+      "authorEmail" : "author@example.com",
       "commits" : [ {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2015-11-14 20:19:50",
-        "commitTimeLong" : 1447532390000,
-        "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
-        "hash" : "01484ce71bbc76e",
+        "authorName" : "Author",
+        "authorEmailAddress" : "author@example.com",
+        "commitTime" : "2020-01-01 00:04:00",
+        "commitTimeLong" : 1577837040000,
+        "message" : "Add feature B",
+        "hash" : "7a5953db4f73091",
         "merge" : false,
         "messageNotes" : "",
-        "files" : [ "gradle.properties" ],
-        "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
+        "files" : [ ],
+        "hasCommitCount" : false,
+        "hashFull" : "7a5953db4f73091acec822d12d0885a5713c920f"
       }, {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2015-11-14 19:36:21",
-        "commitTimeLong" : 1447529781000,
-        "message" : "Doc",
-        "hash" : "83a8a7b2f96ba88",
+        "authorName" : "Author",
+        "authorEmailAddress" : "author@example.com",
+        "commitTime" : "2020-01-01 00:03:00",
+        "commitTimeLong" : 1577836980000,
+        "message" : "Update documentation",
+        "hash" : "0cdb340f2d05f09",
         "merge" : false,
         "messageNotes" : "",
-        "files" : [ "README.md", "build.gradle", "tags-issues-authors-commits.mustache.md" ],
-        "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
+        "files" : [ ],
+        "hasCommitCount" : false,
+        "hashFull" : "0cdb340f2d05f09d207bcd28cc616a9de1fdad33"
       }, {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2015-11-14 19:00:17",
-        "commitTimeLong" : 1447527617000,
-        "message" : "Test",
-        "hash" : "5c54861708099d9",
+        "authorName" : "Author",
+        "authorEmailAddress" : "author@example.com",
+        "commitTime" : "2020-01-01 00:02:00",
+        "commitTimeLong" : 1577836920000,
+        "message" : "Fix crash in feature A",
+        "hash" : "055036e0aaa90ef",
         "merge" : false,
         "messageNotes" : "",
-        "files" : [ ".travis.yml", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/java/se/bjurr/gitchangelog/main/Main.java", "src/main/resources/git-changelog-settings.json", "src/test/java/se/bjurr/gitchangelog/api/FakeGitRepo.java", "src/test/java/se/bjurr/gitchangelog/api/FakeRepo.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogApiAsserter.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogApiTest.java", "src/test/resources/assertions/testAuthorsCommits.md", "src/test/resources/assertions/testCommits.md", "src/test/resources/assertions/testIssuesAuthorsCommits.md", "src/test/resources/assertions/testIssuesCommits.md", "src/test/resources/assertions/testTagsCommits.md", "src/test/resources/assertions/testTagsIssuesAuthorsCommits.md", "src/test/resources/assertions/testTagsIssuesCommits.md", "src/test/resources/settings/git-changelog-test-settings.json", "src/test/resources/templates/testAuthorsCommits.mustache", "src/test/resources/templates/testCommits.mustache", "src/test/resources/templates/testIssuesAuthorsCommits.mustache", "src/test/resources/templates/testIssuesCommits.mustache", "src/test/resources/templates/testTagsCommits.mustache", "src/test/resources/templates/testTagsIssuesAuthorsCommits.mustache", "src/test/resources/templates/testTagsIssuesCommits.mustache", "tags-issues-authors-commits.mustache.md" ],
-        "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
+        "files" : [ ],
+        "hasCommitCount" : false,
+        "hashFull" : "055036e0aaa90efdd701cc2038589bbba06707d5"
       }, {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2015-11-14 12:14:41",
-        "commitTimeLong" : 1447503281000,
-        "message" : "Work for 1.0",
-        "hash" : "051effe72405e78",
+        "authorName" : "Author",
+        "authorEmailAddress" : "author@example.com",
+        "commitTime" : "2020-01-01 00:01:00",
+        "commitTimeLong" : 1577836860000,
+        "message" : "Add feature A",
+        "hash" : "b596a6f3944f14a",
         "merge" : false,
         "messageNotes" : "",
-        "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/api/model/Author.java", "src/main/java/se/bjurr/gitchangelog/api/model/Changelog.java", "src/main/java/se/bjurr/gitchangelog/api/model/Issue.java", "src/main/java/se/bjurr/gitchangelog/api/model/Tag.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/IAuthors.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/ICommits.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/IIssues.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/model/interfaces/IGitCommitReferer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/CustomIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/resources/git-changelog-settings.json", "src/main/resources/git-changelog-template.mustache" ],
-        "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
-      }, {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2015-11-14 09:46:23",
-        "commitTimeLong" : 1447494383000,
-        "message" : "Initial commit",
-        "hash" : "5aaeb907f68915a",
-        "merge" : false,
-        "messageNotes" : "",
-        "files" : [ ".travis.yml", "CHANGELOG.md", "README.md", "build.gradle", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/api/model/Author.java", "src/main/java/se/bjurr/gitchangelog/api/model/Changelog.java", "src/main/java/se/bjurr/gitchangelog/api/model/Commit.java", "src/main/java/se/bjurr/gitchangelog/api/model/Issue.java", "src/main/java/se/bjurr/gitchangelog/api/model/Tag.java", "src/main/java/se/bjurr/gitchangelog/internal/common/GitPredicates.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/CustomIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/java/se/bjurr/gitchangelog/main/Main.java", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-changelog-settings.json", "src/main/resources/git-changelog-template.mustache", "src/main/resources/git-release-notes-settings.json" ],
-        "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
+        "files" : [ ],
+        "hasCommitCount" : false,
+        "hashFull" : "b596a6f3944f14a1aa84de09cd3bab37c6947ada"
       } ]
     } ],
     "issues" : [ {
       "commits" : [ {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2015-11-14 20:19:50",
-        "commitTimeLong" : 1447532390000,
-        "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
-        "hash" : "01484ce71bbc76e",
+        "authorName" : "Author",
+        "authorEmailAddress" : "author@example.com",
+        "commitTime" : "2020-01-01 00:04:00",
+        "commitTimeLong" : 1577837040000,
+        "message" : "Add feature B",
+        "hash" : "7a5953db4f73091",
         "merge" : false,
         "messageNotes" : "",
-        "files" : [ "gradle.properties" ],
-        "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
+        "files" : [ ],
+        "hasCommitCount" : false,
+        "hashFull" : "7a5953db4f73091acec822d12d0885a5713c920f"
       }, {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2015-11-14 19:36:21",
-        "commitTimeLong" : 1447529781000,
-        "message" : "Doc",
-        "hash" : "83a8a7b2f96ba88",
+        "authorName" : "Author",
+        "authorEmailAddress" : "author@example.com",
+        "commitTime" : "2020-01-01 00:03:00",
+        "commitTimeLong" : 1577836980000,
+        "message" : "Update documentation",
+        "hash" : "0cdb340f2d05f09",
         "merge" : false,
         "messageNotes" : "",
-        "files" : [ "README.md", "build.gradle", "tags-issues-authors-commits.mustache.md" ],
-        "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
+        "files" : [ ],
+        "hasCommitCount" : false,
+        "hashFull" : "0cdb340f2d05f09d207bcd28cc616a9de1fdad33"
       }, {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2015-11-14 19:00:17",
-        "commitTimeLong" : 1447527617000,
-        "message" : "Test",
-        "hash" : "5c54861708099d9",
+        "authorName" : "Author",
+        "authorEmailAddress" : "author@example.com",
+        "commitTime" : "2020-01-01 00:02:00",
+        "commitTimeLong" : 1577836920000,
+        "message" : "Fix crash in feature A",
+        "hash" : "055036e0aaa90ef",
         "merge" : false,
         "messageNotes" : "",
-        "files" : [ ".travis.yml", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/java/se/bjurr/gitchangelog/main/Main.java", "src/main/resources/git-changelog-settings.json", "src/test/java/se/bjurr/gitchangelog/api/FakeGitRepo.java", "src/test/java/se/bjurr/gitchangelog/api/FakeRepo.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogApiAsserter.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogApiTest.java", "src/test/resources/assertions/testAuthorsCommits.md", "src/test/resources/assertions/testCommits.md", "src/test/resources/assertions/testIssuesAuthorsCommits.md", "src/test/resources/assertions/testIssuesCommits.md", "src/test/resources/assertions/testTagsCommits.md", "src/test/resources/assertions/testTagsIssuesAuthorsCommits.md", "src/test/resources/assertions/testTagsIssuesCommits.md", "src/test/resources/settings/git-changelog-test-settings.json", "src/test/resources/templates/testAuthorsCommits.mustache", "src/test/resources/templates/testCommits.mustache", "src/test/resources/templates/testIssuesAuthorsCommits.mustache", "src/test/resources/templates/testIssuesCommits.mustache", "src/test/resources/templates/testTagsCommits.mustache", "src/test/resources/templates/testTagsIssuesAuthorsCommits.mustache", "src/test/resources/templates/testTagsIssuesCommits.mustache", "tags-issues-authors-commits.mustache.md" ],
-        "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
+        "files" : [ ],
+        "hasCommitCount" : false,
+        "hashFull" : "055036e0aaa90efdd701cc2038589bbba06707d5"
       }, {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2015-11-14 12:14:41",
-        "commitTimeLong" : 1447503281000,
-        "message" : "Work for 1.0",
-        "hash" : "051effe72405e78",
+        "authorName" : "Author",
+        "authorEmailAddress" : "author@example.com",
+        "commitTime" : "2020-01-01 00:01:00",
+        "commitTimeLong" : 1577836860000,
+        "message" : "Add feature A",
+        "hash" : "b596a6f3944f14a",
         "merge" : false,
         "messageNotes" : "",
-        "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/api/model/Author.java", "src/main/java/se/bjurr/gitchangelog/api/model/Changelog.java", "src/main/java/se/bjurr/gitchangelog/api/model/Issue.java", "src/main/java/se/bjurr/gitchangelog/api/model/Tag.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/IAuthors.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/ICommits.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/IIssues.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/model/interfaces/IGitCommitReferer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/CustomIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/resources/git-changelog-settings.json", "src/main/resources/git-changelog-template.mustache" ],
-        "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
-      }, {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2015-11-14 09:46:23",
-        "commitTimeLong" : 1447494383000,
-        "message" : "Initial commit",
-        "hash" : "5aaeb907f68915a",
-        "merge" : false,
-        "messageNotes" : "",
-        "files" : [ ".travis.yml", "CHANGELOG.md", "README.md", "build.gradle", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/api/model/Author.java", "src/main/java/se/bjurr/gitchangelog/api/model/Changelog.java", "src/main/java/se/bjurr/gitchangelog/api/model/Commit.java", "src/main/java/se/bjurr/gitchangelog/api/model/Issue.java", "src/main/java/se/bjurr/gitchangelog/api/model/Tag.java", "src/main/java/se/bjurr/gitchangelog/internal/common/GitPredicates.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/CustomIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/java/se/bjurr/gitchangelog/main/Main.java", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-changelog-settings.json", "src/main/resources/git-changelog-template.mustache", "src/main/resources/git-release-notes-settings.json" ],
-        "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
+        "files" : [ ],
+        "hasCommitCount" : false,
+        "hashFull" : "b596a6f3944f14a1aa84de09cd3bab37c6947ada"
       } ],
       "authors" : [ {
-        "authorName" : "Tomas Bjerre",
-        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "authorName" : "Author",
+        "authorEmail" : "author@example.com",
         "commits" : [ {
-          "authorName" : "Tomas Bjerre",
-          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-          "commitTime" : "2015-11-14 20:19:50",
-          "commitTimeLong" : 1447532390000,
-          "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
-          "hash" : "01484ce71bbc76e",
+          "authorName" : "Author",
+          "authorEmailAddress" : "author@example.com",
+          "commitTime" : "2020-01-01 00:04:00",
+          "commitTimeLong" : 1577837040000,
+          "message" : "Add feature B",
+          "hash" : "7a5953db4f73091",
           "merge" : false,
           "messageNotes" : "",
-          "files" : [ "gradle.properties" ],
-          "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
+          "files" : [ ],
+          "hasCommitCount" : false,
+          "hashFull" : "7a5953db4f73091acec822d12d0885a5713c920f"
         }, {
-          "authorName" : "Tomas Bjerre",
-          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-          "commitTime" : "2015-11-14 19:36:21",
-          "commitTimeLong" : 1447529781000,
-          "message" : "Doc",
-          "hash" : "83a8a7b2f96ba88",
+          "authorName" : "Author",
+          "authorEmailAddress" : "author@example.com",
+          "commitTime" : "2020-01-01 00:03:00",
+          "commitTimeLong" : 1577836980000,
+          "message" : "Update documentation",
+          "hash" : "0cdb340f2d05f09",
           "merge" : false,
           "messageNotes" : "",
-          "files" : [ "README.md", "build.gradle", "tags-issues-authors-commits.mustache.md" ],
-          "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
+          "files" : [ ],
+          "hasCommitCount" : false,
+          "hashFull" : "0cdb340f2d05f09d207bcd28cc616a9de1fdad33"
         }, {
-          "authorName" : "Tomas Bjerre",
-          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-          "commitTime" : "2015-11-14 19:00:17",
-          "commitTimeLong" : 1447527617000,
-          "message" : "Test",
-          "hash" : "5c54861708099d9",
+          "authorName" : "Author",
+          "authorEmailAddress" : "author@example.com",
+          "commitTime" : "2020-01-01 00:02:00",
+          "commitTimeLong" : 1577836920000,
+          "message" : "Fix crash in feature A",
+          "hash" : "055036e0aaa90ef",
           "merge" : false,
           "messageNotes" : "",
-          "files" : [ ".travis.yml", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/java/se/bjurr/gitchangelog/main/Main.java", "src/main/resources/git-changelog-settings.json", "src/test/java/se/bjurr/gitchangelog/api/FakeGitRepo.java", "src/test/java/se/bjurr/gitchangelog/api/FakeRepo.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogApiAsserter.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogApiTest.java", "src/test/resources/assertions/testAuthorsCommits.md", "src/test/resources/assertions/testCommits.md", "src/test/resources/assertions/testIssuesAuthorsCommits.md", "src/test/resources/assertions/testIssuesCommits.md", "src/test/resources/assertions/testTagsCommits.md", "src/test/resources/assertions/testTagsIssuesAuthorsCommits.md", "src/test/resources/assertions/testTagsIssuesCommits.md", "src/test/resources/settings/git-changelog-test-settings.json", "src/test/resources/templates/testAuthorsCommits.mustache", "src/test/resources/templates/testCommits.mustache", "src/test/resources/templates/testIssuesAuthorsCommits.mustache", "src/test/resources/templates/testIssuesCommits.mustache", "src/test/resources/templates/testTagsCommits.mustache", "src/test/resources/templates/testTagsIssuesAuthorsCommits.mustache", "src/test/resources/templates/testTagsIssuesCommits.mustache", "tags-issues-authors-commits.mustache.md" ],
-          "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
+          "files" : [ ],
+          "hasCommitCount" : false,
+          "hashFull" : "055036e0aaa90efdd701cc2038589bbba06707d5"
         }, {
-          "authorName" : "Tomas Bjerre",
-          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-          "commitTime" : "2015-11-14 12:14:41",
-          "commitTimeLong" : 1447503281000,
-          "message" : "Work for 1.0",
-          "hash" : "051effe72405e78",
+          "authorName" : "Author",
+          "authorEmailAddress" : "author@example.com",
+          "commitTime" : "2020-01-01 00:01:00",
+          "commitTimeLong" : 1577836860000,
+          "message" : "Add feature A",
+          "hash" : "b596a6f3944f14a",
           "merge" : false,
           "messageNotes" : "",
-          "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/api/model/Author.java", "src/main/java/se/bjurr/gitchangelog/api/model/Changelog.java", "src/main/java/se/bjurr/gitchangelog/api/model/Issue.java", "src/main/java/se/bjurr/gitchangelog/api/model/Tag.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/IAuthors.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/ICommits.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/IIssues.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/model/interfaces/IGitCommitReferer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/CustomIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/resources/git-changelog-settings.json", "src/main/resources/git-changelog-template.mustache" ],
-          "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
-        }, {
-          "authorName" : "Tomas Bjerre",
-          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-          "commitTime" : "2015-11-14 09:46:23",
-          "commitTimeLong" : 1447494383000,
-          "message" : "Initial commit",
-          "hash" : "5aaeb907f68915a",
-          "merge" : false,
-          "messageNotes" : "",
-          "files" : [ ".travis.yml", "CHANGELOG.md", "README.md", "build.gradle", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/api/model/Author.java", "src/main/java/se/bjurr/gitchangelog/api/model/Changelog.java", "src/main/java/se/bjurr/gitchangelog/api/model/Commit.java", "src/main/java/se/bjurr/gitchangelog/api/model/Issue.java", "src/main/java/se/bjurr/gitchangelog/api/model/Tag.java", "src/main/java/se/bjurr/gitchangelog/internal/common/GitPredicates.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/CustomIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/java/se/bjurr/gitchangelog/main/Main.java", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-changelog-settings.json", "src/main/resources/git-changelog-template.mustache", "src/main/resources/git-release-notes-settings.json" ],
-          "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
+          "files" : [ ],
+          "hasCommitCount" : false,
+          "hashFull" : "b596a6f3944f14a1aa84de09cd3bab37c6947ada"
         } ]
       } ],
       "name" : "No issue",
@@ -469,119 +433,105 @@ context:
     "issueTypes" : [ {
       "issues" : [ {
         "commits" : [ {
-          "authorName" : "Tomas Bjerre",
-          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-          "commitTime" : "2015-11-14 20:19:50",
-          "commitTimeLong" : 1447532390000,
-          "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
-          "hash" : "01484ce71bbc76e",
+          "authorName" : "Author",
+          "authorEmailAddress" : "author@example.com",
+          "commitTime" : "2020-01-01 00:04:00",
+          "commitTimeLong" : 1577837040000,
+          "message" : "Add feature B",
+          "hash" : "7a5953db4f73091",
           "merge" : false,
           "messageNotes" : "",
-          "files" : [ "gradle.properties" ],
-          "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
+          "files" : [ ],
+          "hasCommitCount" : false,
+          "hashFull" : "7a5953db4f73091acec822d12d0885a5713c920f"
         }, {
-          "authorName" : "Tomas Bjerre",
-          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-          "commitTime" : "2015-11-14 19:36:21",
-          "commitTimeLong" : 1447529781000,
-          "message" : "Doc",
-          "hash" : "83a8a7b2f96ba88",
+          "authorName" : "Author",
+          "authorEmailAddress" : "author@example.com",
+          "commitTime" : "2020-01-01 00:03:00",
+          "commitTimeLong" : 1577836980000,
+          "message" : "Update documentation",
+          "hash" : "0cdb340f2d05f09",
           "merge" : false,
           "messageNotes" : "",
-          "files" : [ "README.md", "build.gradle", "tags-issues-authors-commits.mustache.md" ],
-          "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
+          "files" : [ ],
+          "hasCommitCount" : false,
+          "hashFull" : "0cdb340f2d05f09d207bcd28cc616a9de1fdad33"
         }, {
-          "authorName" : "Tomas Bjerre",
-          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-          "commitTime" : "2015-11-14 19:00:17",
-          "commitTimeLong" : 1447527617000,
-          "message" : "Test",
-          "hash" : "5c54861708099d9",
+          "authorName" : "Author",
+          "authorEmailAddress" : "author@example.com",
+          "commitTime" : "2020-01-01 00:02:00",
+          "commitTimeLong" : 1577836920000,
+          "message" : "Fix crash in feature A",
+          "hash" : "055036e0aaa90ef",
           "merge" : false,
           "messageNotes" : "",
-          "files" : [ ".travis.yml", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/java/se/bjurr/gitchangelog/main/Main.java", "src/main/resources/git-changelog-settings.json", "src/test/java/se/bjurr/gitchangelog/api/FakeGitRepo.java", "src/test/java/se/bjurr/gitchangelog/api/FakeRepo.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogApiAsserter.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogApiTest.java", "src/test/resources/assertions/testAuthorsCommits.md", "src/test/resources/assertions/testCommits.md", "src/test/resources/assertions/testIssuesAuthorsCommits.md", "src/test/resources/assertions/testIssuesCommits.md", "src/test/resources/assertions/testTagsCommits.md", "src/test/resources/assertions/testTagsIssuesAuthorsCommits.md", "src/test/resources/assertions/testTagsIssuesCommits.md", "src/test/resources/settings/git-changelog-test-settings.json", "src/test/resources/templates/testAuthorsCommits.mustache", "src/test/resources/templates/testCommits.mustache", "src/test/resources/templates/testIssuesAuthorsCommits.mustache", "src/test/resources/templates/testIssuesCommits.mustache", "src/test/resources/templates/testTagsCommits.mustache", "src/test/resources/templates/testTagsIssuesAuthorsCommits.mustache", "src/test/resources/templates/testTagsIssuesCommits.mustache", "tags-issues-authors-commits.mustache.md" ],
-          "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
+          "files" : [ ],
+          "hasCommitCount" : false,
+          "hashFull" : "055036e0aaa90efdd701cc2038589bbba06707d5"
         }, {
-          "authorName" : "Tomas Bjerre",
-          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-          "commitTime" : "2015-11-14 12:14:41",
-          "commitTimeLong" : 1447503281000,
-          "message" : "Work for 1.0",
-          "hash" : "051effe72405e78",
+          "authorName" : "Author",
+          "authorEmailAddress" : "author@example.com",
+          "commitTime" : "2020-01-01 00:01:00",
+          "commitTimeLong" : 1577836860000,
+          "message" : "Add feature A",
+          "hash" : "b596a6f3944f14a",
           "merge" : false,
           "messageNotes" : "",
-          "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/api/model/Author.java", "src/main/java/se/bjurr/gitchangelog/api/model/Changelog.java", "src/main/java/se/bjurr/gitchangelog/api/model/Issue.java", "src/main/java/se/bjurr/gitchangelog/api/model/Tag.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/IAuthors.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/ICommits.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/IIssues.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/model/interfaces/IGitCommitReferer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/CustomIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/resources/git-changelog-settings.json", "src/main/resources/git-changelog-template.mustache" ],
-          "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
-        }, {
-          "authorName" : "Tomas Bjerre",
-          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-          "commitTime" : "2015-11-14 09:46:23",
-          "commitTimeLong" : 1447494383000,
-          "message" : "Initial commit",
-          "hash" : "5aaeb907f68915a",
-          "merge" : false,
-          "messageNotes" : "",
-          "files" : [ ".travis.yml", "CHANGELOG.md", "README.md", "build.gradle", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/api/model/Author.java", "src/main/java/se/bjurr/gitchangelog/api/model/Changelog.java", "src/main/java/se/bjurr/gitchangelog/api/model/Commit.java", "src/main/java/se/bjurr/gitchangelog/api/model/Issue.java", "src/main/java/se/bjurr/gitchangelog/api/model/Tag.java", "src/main/java/se/bjurr/gitchangelog/internal/common/GitPredicates.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/CustomIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/java/se/bjurr/gitchangelog/main/Main.java", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-changelog-settings.json", "src/main/resources/git-changelog-template.mustache", "src/main/resources/git-release-notes-settings.json" ],
-          "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
+          "files" : [ ],
+          "hasCommitCount" : false,
+          "hashFull" : "b596a6f3944f14a1aa84de09cd3bab37c6947ada"
         } ],
         "authors" : [ {
-          "authorName" : "Tomas Bjerre",
-          "authorEmail" : "tomas.bjerre85@gmail.com",
+          "authorName" : "Author",
+          "authorEmail" : "author@example.com",
           "commits" : [ {
-            "authorName" : "Tomas Bjerre",
-            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-            "commitTime" : "2015-11-14 20:19:50",
-            "commitTimeLong" : 1447532390000,
-            "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
-            "hash" : "01484ce71bbc76e",
+            "authorName" : "Author",
+            "authorEmailAddress" : "author@example.com",
+            "commitTime" : "2020-01-01 00:04:00",
+            "commitTimeLong" : 1577837040000,
+            "message" : "Add feature B",
+            "hash" : "7a5953db4f73091",
             "merge" : false,
             "messageNotes" : "",
-            "files" : [ "gradle.properties" ],
-            "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
+            "files" : [ ],
+            "hasCommitCount" : false,
+            "hashFull" : "7a5953db4f73091acec822d12d0885a5713c920f"
           }, {
-            "authorName" : "Tomas Bjerre",
-            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-            "commitTime" : "2015-11-14 19:36:21",
-            "commitTimeLong" : 1447529781000,
-            "message" : "Doc",
-            "hash" : "83a8a7b2f96ba88",
+            "authorName" : "Author",
+            "authorEmailAddress" : "author@example.com",
+            "commitTime" : "2020-01-01 00:03:00",
+            "commitTimeLong" : 1577836980000,
+            "message" : "Update documentation",
+            "hash" : "0cdb340f2d05f09",
             "merge" : false,
             "messageNotes" : "",
-            "files" : [ "README.md", "build.gradle", "tags-issues-authors-commits.mustache.md" ],
-            "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
+            "files" : [ ],
+            "hasCommitCount" : false,
+            "hashFull" : "0cdb340f2d05f09d207bcd28cc616a9de1fdad33"
           }, {
-            "authorName" : "Tomas Bjerre",
-            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-            "commitTime" : "2015-11-14 19:00:17",
-            "commitTimeLong" : 1447527617000,
-            "message" : "Test",
-            "hash" : "5c54861708099d9",
+            "authorName" : "Author",
+            "authorEmailAddress" : "author@example.com",
+            "commitTime" : "2020-01-01 00:02:00",
+            "commitTimeLong" : 1577836920000,
+            "message" : "Fix crash in feature A",
+            "hash" : "055036e0aaa90ef",
             "merge" : false,
             "messageNotes" : "",
-            "files" : [ ".travis.yml", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/java/se/bjurr/gitchangelog/main/Main.java", "src/main/resources/git-changelog-settings.json", "src/test/java/se/bjurr/gitchangelog/api/FakeGitRepo.java", "src/test/java/se/bjurr/gitchangelog/api/FakeRepo.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogApiAsserter.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogApiTest.java", "src/test/resources/assertions/testAuthorsCommits.md", "src/test/resources/assertions/testCommits.md", "src/test/resources/assertions/testIssuesAuthorsCommits.md", "src/test/resources/assertions/testIssuesCommits.md", "src/test/resources/assertions/testTagsCommits.md", "src/test/resources/assertions/testTagsIssuesAuthorsCommits.md", "src/test/resources/assertions/testTagsIssuesCommits.md", "src/test/resources/settings/git-changelog-test-settings.json", "src/test/resources/templates/testAuthorsCommits.mustache", "src/test/resources/templates/testCommits.mustache", "src/test/resources/templates/testIssuesAuthorsCommits.mustache", "src/test/resources/templates/testIssuesCommits.mustache", "src/test/resources/templates/testTagsCommits.mustache", "src/test/resources/templates/testTagsIssuesAuthorsCommits.mustache", "src/test/resources/templates/testTagsIssuesCommits.mustache", "tags-issues-authors-commits.mustache.md" ],
-            "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
+            "files" : [ ],
+            "hasCommitCount" : false,
+            "hashFull" : "055036e0aaa90efdd701cc2038589bbba06707d5"
           }, {
-            "authorName" : "Tomas Bjerre",
-            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-            "commitTime" : "2015-11-14 12:14:41",
-            "commitTimeLong" : 1447503281000,
-            "message" : "Work for 1.0",
-            "hash" : "051effe72405e78",
+            "authorName" : "Author",
+            "authorEmailAddress" : "author@example.com",
+            "commitTime" : "2020-01-01 00:01:00",
+            "commitTimeLong" : 1577836860000,
+            "message" : "Add feature A",
+            "hash" : "b596a6f3944f14a",
             "merge" : false,
             "messageNotes" : "",
-            "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/api/model/Author.java", "src/main/java/se/bjurr/gitchangelog/api/model/Changelog.java", "src/main/java/se/bjurr/gitchangelog/api/model/Issue.java", "src/main/java/se/bjurr/gitchangelog/api/model/Tag.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/IAuthors.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/ICommits.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/IIssues.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/model/interfaces/IGitCommitReferer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/CustomIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/resources/git-changelog-settings.json", "src/main/resources/git-changelog-template.mustache" ],
-            "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
-          }, {
-            "authorName" : "Tomas Bjerre",
-            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-            "commitTime" : "2015-11-14 09:46:23",
-            "commitTimeLong" : 1447494383000,
-            "message" : "Initial commit",
-            "hash" : "5aaeb907f68915a",
-            "merge" : false,
-            "messageNotes" : "",
-            "files" : [ ".travis.yml", "CHANGELOG.md", "README.md", "build.gradle", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/api/model/Author.java", "src/main/java/se/bjurr/gitchangelog/api/model/Changelog.java", "src/main/java/se/bjurr/gitchangelog/api/model/Commit.java", "src/main/java/se/bjurr/gitchangelog/api/model/Issue.java", "src/main/java/se/bjurr/gitchangelog/api/model/Tag.java", "src/main/java/se/bjurr/gitchangelog/internal/common/GitPredicates.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/CustomIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/java/se/bjurr/gitchangelog/main/Main.java", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-changelog-settings.json", "src/main/resources/git-changelog-template.mustache", "src/main/resources/git-release-notes-settings.json" ],
-            "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
+            "files" : [ ],
+            "hasCommitCount" : false,
+            "hashFull" : "b596a6f3944f14a1aa84de09cd3bab37c6947ada"
           } ]
         } ],
         "name" : "No issue",
@@ -604,66 +554,71 @@ context:
       "name" : "No issue",
       "type" : "NOISSUE"
     } ],
-    "tagTime" : "2015-11-14 20:19:50",
-    "tagTimeLong" : 1447532390000,
+    "tagTime" : "2020-01-01 00:04:00",
+    "tagTimeLong" : 1577837040000,
     "hasTagTime" : true
   }, {
     "name" : "0.0.1",
+    "annotation" : "",
     "commits" : [ {
-      "authorName" : "Tomas Bjerre",
-      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-      "commitTime" : "2015-11-12 05:29:31",
-      "commitTimeLong" : 1447306171000,
+      "authorName" : "Author",
+      "authorEmailAddress" : "author@example.com",
+      "commitTime" : "2020-01-01 00:00:00",
+      "commitTimeLong" : 1577836800000,
       "message" : "Initial commit",
-      "hash" : "a1aa5ff5b625e63",
+      "hash" : "5130f9d03160fc3",
       "merge" : false,
       "messageNotes" : "",
-      "files" : [ ".gitignore", ".travis.yml", "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
-      "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+      "files" : [ ],
+      "hasCommitCount" : false,
+      "hashFull" : "5130f9d03160fc32880823dd10922ee46a3d9b59"
     } ],
     "authors" : [ {
-      "authorName" : "Tomas Bjerre",
-      "authorEmail" : "tomas.bjerre85@gmail.com",
+      "authorName" : "Author",
+      "authorEmail" : "author@example.com",
       "commits" : [ {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2015-11-12 05:29:31",
-        "commitTimeLong" : 1447306171000,
+        "authorName" : "Author",
+        "authorEmailAddress" : "author@example.com",
+        "commitTime" : "2020-01-01 00:00:00",
+        "commitTimeLong" : 1577836800000,
         "message" : "Initial commit",
-        "hash" : "a1aa5ff5b625e63",
+        "hash" : "5130f9d03160fc3",
         "merge" : false,
         "messageNotes" : "",
-        "files" : [ ".gitignore", ".travis.yml", "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
-        "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+        "files" : [ ],
+        "hasCommitCount" : false,
+        "hashFull" : "5130f9d03160fc32880823dd10922ee46a3d9b59"
       } ]
     } ],
     "issues" : [ {
       "commits" : [ {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2015-11-12 05:29:31",
-        "commitTimeLong" : 1447306171000,
+        "authorName" : "Author",
+        "authorEmailAddress" : "author@example.com",
+        "commitTime" : "2020-01-01 00:00:00",
+        "commitTimeLong" : 1577836800000,
         "message" : "Initial commit",
-        "hash" : "a1aa5ff5b625e63",
+        "hash" : "5130f9d03160fc3",
         "merge" : false,
         "messageNotes" : "",
-        "files" : [ ".gitignore", ".travis.yml", "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
-        "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+        "files" : [ ],
+        "hasCommitCount" : false,
+        "hashFull" : "5130f9d03160fc32880823dd10922ee46a3d9b59"
       } ],
       "authors" : [ {
-        "authorName" : "Tomas Bjerre",
-        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "authorName" : "Author",
+        "authorEmail" : "author@example.com",
         "commits" : [ {
-          "authorName" : "Tomas Bjerre",
-          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-          "commitTime" : "2015-11-12 05:29:31",
-          "commitTimeLong" : 1447306171000,
+          "authorName" : "Author",
+          "authorEmailAddress" : "author@example.com",
+          "commitTime" : "2020-01-01 00:00:00",
+          "commitTimeLong" : 1577836800000,
           "message" : "Initial commit",
-          "hash" : "a1aa5ff5b625e63",
+          "hash" : "5130f9d03160fc3",
           "merge" : false,
           "messageNotes" : "",
-          "files" : [ ".gitignore", ".travis.yml", "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
-          "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+          "files" : [ ],
+          "hasCommitCount" : false,
+          "hashFull" : "5130f9d03160fc32880823dd10922ee46a3d9b59"
         } ]
       } ],
       "name" : "No issue",
@@ -686,31 +641,33 @@ context:
     "issueTypes" : [ {
       "issues" : [ {
         "commits" : [ {
-          "authorName" : "Tomas Bjerre",
-          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-          "commitTime" : "2015-11-12 05:29:31",
-          "commitTimeLong" : 1447306171000,
+          "authorName" : "Author",
+          "authorEmailAddress" : "author@example.com",
+          "commitTime" : "2020-01-01 00:00:00",
+          "commitTimeLong" : 1577836800000,
           "message" : "Initial commit",
-          "hash" : "a1aa5ff5b625e63",
+          "hash" : "5130f9d03160fc3",
           "merge" : false,
           "messageNotes" : "",
-          "files" : [ ".gitignore", ".travis.yml", "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
-          "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+          "files" : [ ],
+          "hasCommitCount" : false,
+          "hashFull" : "5130f9d03160fc32880823dd10922ee46a3d9b59"
         } ],
         "authors" : [ {
-          "authorName" : "Tomas Bjerre",
-          "authorEmail" : "tomas.bjerre85@gmail.com",
+          "authorName" : "Author",
+          "authorEmail" : "author@example.com",
           "commits" : [ {
-            "authorName" : "Tomas Bjerre",
-            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-            "commitTime" : "2015-11-12 05:29:31",
-            "commitTimeLong" : 1447306171000,
+            "authorName" : "Author",
+            "authorEmailAddress" : "author@example.com",
+            "commitTime" : "2020-01-01 00:00:00",
+            "commitTimeLong" : 1577836800000,
             "message" : "Initial commit",
-            "hash" : "a1aa5ff5b625e63",
+            "hash" : "5130f9d03160fc3",
             "merge" : false,
             "messageNotes" : "",
-            "files" : [ ".gitignore", ".travis.yml", "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
-            "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+            "files" : [ ],
+            "hasCommitCount" : false,
+            "hashFull" : "5130f9d03160fc32880823dd10922ee46a3d9b59"
           } ]
         } ],
         "name" : "No issue",
@@ -733,218 +690,200 @@ context:
       "name" : "No issue",
       "type" : "NOISSUE"
     } ],
-    "tagTime" : "2015-11-12 05:29:31",
-    "tagTimeLong" : 1447306171000,
+    "tagTime" : "2020-01-01 00:00:00",
+    "tagTimeLong" : 1577836800000,
     "hasTagTime" : true
   } ],
   "authors" : [ {
-    "authorName" : "Tomas Bjerre",
-    "authorEmail" : "tomas.bjerre85@gmail.com",
+    "authorName" : "Author",
+    "authorEmail" : "author@example.com",
     "commits" : [ {
-      "authorName" : "Tomas Bjerre",
-      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-      "commitTime" : "2015-11-14 20:19:50",
-      "commitTimeLong" : 1447532390000,
-      "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
-      "hash" : "01484ce71bbc76e",
+      "authorName" : "Author",
+      "authorEmailAddress" : "author@example.com",
+      "commitTime" : "2020-01-01 00:04:00",
+      "commitTimeLong" : 1577837040000,
+      "message" : "Add feature B",
+      "hash" : "7a5953db4f73091",
       "merge" : false,
       "messageNotes" : "",
-      "files" : [ "gradle.properties" ],
-      "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
+      "files" : [ ],
+      "hasCommitCount" : false,
+      "hashFull" : "7a5953db4f73091acec822d12d0885a5713c920f"
     }, {
-      "authorName" : "Tomas Bjerre",
-      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-      "commitTime" : "2015-11-14 19:36:21",
-      "commitTimeLong" : 1447529781000,
-      "message" : "Doc",
-      "hash" : "83a8a7b2f96ba88",
+      "authorName" : "Author",
+      "authorEmailAddress" : "author@example.com",
+      "commitTime" : "2020-01-01 00:03:00",
+      "commitTimeLong" : 1577836980000,
+      "message" : "Update documentation",
+      "hash" : "0cdb340f2d05f09",
       "merge" : false,
       "messageNotes" : "",
-      "files" : [ "README.md", "build.gradle", "tags-issues-authors-commits.mustache.md" ],
-      "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
+      "files" : [ ],
+      "hasCommitCount" : false,
+      "hashFull" : "0cdb340f2d05f09d207bcd28cc616a9de1fdad33"
     }, {
-      "authorName" : "Tomas Bjerre",
-      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-      "commitTime" : "2015-11-14 19:00:17",
-      "commitTimeLong" : 1447527617000,
-      "message" : "Test",
-      "hash" : "5c54861708099d9",
+      "authorName" : "Author",
+      "authorEmailAddress" : "author@example.com",
+      "commitTime" : "2020-01-01 00:02:00",
+      "commitTimeLong" : 1577836920000,
+      "message" : "Fix crash in feature A",
+      "hash" : "055036e0aaa90ef",
       "merge" : false,
       "messageNotes" : "",
-      "files" : [ ".travis.yml", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/java/se/bjurr/gitchangelog/main/Main.java", "src/main/resources/git-changelog-settings.json", "src/test/java/se/bjurr/gitchangelog/api/FakeGitRepo.java", "src/test/java/se/bjurr/gitchangelog/api/FakeRepo.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogApiAsserter.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogApiTest.java", "src/test/resources/assertions/testAuthorsCommits.md", "src/test/resources/assertions/testCommits.md", "src/test/resources/assertions/testIssuesAuthorsCommits.md", "src/test/resources/assertions/testIssuesCommits.md", "src/test/resources/assertions/testTagsCommits.md", "src/test/resources/assertions/testTagsIssuesAuthorsCommits.md", "src/test/resources/assertions/testTagsIssuesCommits.md", "src/test/resources/settings/git-changelog-test-settings.json", "src/test/resources/templates/testAuthorsCommits.mustache", "src/test/resources/templates/testCommits.mustache", "src/test/resources/templates/testIssuesAuthorsCommits.mustache", "src/test/resources/templates/testIssuesCommits.mustache", "src/test/resources/templates/testTagsCommits.mustache", "src/test/resources/templates/testTagsIssuesAuthorsCommits.mustache", "src/test/resources/templates/testTagsIssuesCommits.mustache", "tags-issues-authors-commits.mustache.md" ],
-      "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
+      "files" : [ ],
+      "hasCommitCount" : false,
+      "hashFull" : "055036e0aaa90efdd701cc2038589bbba06707d5"
     }, {
-      "authorName" : "Tomas Bjerre",
-      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-      "commitTime" : "2015-11-14 12:14:41",
-      "commitTimeLong" : 1447503281000,
-      "message" : "Work for 1.0",
-      "hash" : "051effe72405e78",
+      "authorName" : "Author",
+      "authorEmailAddress" : "author@example.com",
+      "commitTime" : "2020-01-01 00:01:00",
+      "commitTimeLong" : 1577836860000,
+      "message" : "Add feature A",
+      "hash" : "b596a6f3944f14a",
       "merge" : false,
       "messageNotes" : "",
-      "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/api/model/Author.java", "src/main/java/se/bjurr/gitchangelog/api/model/Changelog.java", "src/main/java/se/bjurr/gitchangelog/api/model/Issue.java", "src/main/java/se/bjurr/gitchangelog/api/model/Tag.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/IAuthors.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/ICommits.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/IIssues.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/model/interfaces/IGitCommitReferer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/CustomIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/resources/git-changelog-settings.json", "src/main/resources/git-changelog-template.mustache" ],
-      "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
+      "files" : [ ],
+      "hasCommitCount" : false,
+      "hashFull" : "b596a6f3944f14a1aa84de09cd3bab37c6947ada"
     }, {
-      "authorName" : "Tomas Bjerre",
-      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-      "commitTime" : "2015-11-14 09:46:23",
-      "commitTimeLong" : 1447494383000,
+      "authorName" : "Author",
+      "authorEmailAddress" : "author@example.com",
+      "commitTime" : "2020-01-01 00:00:00",
+      "commitTimeLong" : 1577836800000,
       "message" : "Initial commit",
-      "hash" : "5aaeb907f68915a",
+      "hash" : "5130f9d03160fc3",
       "merge" : false,
       "messageNotes" : "",
-      "files" : [ ".travis.yml", "CHANGELOG.md", "README.md", "build.gradle", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/api/model/Author.java", "src/main/java/se/bjurr/gitchangelog/api/model/Changelog.java", "src/main/java/se/bjurr/gitchangelog/api/model/Commit.java", "src/main/java/se/bjurr/gitchangelog/api/model/Issue.java", "src/main/java/se/bjurr/gitchangelog/api/model/Tag.java", "src/main/java/se/bjurr/gitchangelog/internal/common/GitPredicates.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/CustomIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/java/se/bjurr/gitchangelog/main/Main.java", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-changelog-settings.json", "src/main/resources/git-changelog-template.mustache", "src/main/resources/git-release-notes-settings.json" ],
-      "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
-    }, {
-      "authorName" : "Tomas Bjerre",
-      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-      "commitTime" : "2015-11-12 05:29:31",
-      "commitTimeLong" : 1447306171000,
-      "message" : "Initial commit",
-      "hash" : "a1aa5ff5b625e63",
-      "merge" : false,
-      "messageNotes" : "",
-      "files" : [ ".gitignore", ".travis.yml", "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
-      "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+      "files" : [ ],
+      "hasCommitCount" : false,
+      "hashFull" : "5130f9d03160fc32880823dd10922ee46a3d9b59"
     } ]
   } ],
   "issues" : [ {
     "commits" : [ {
-      "authorName" : "Tomas Bjerre",
-      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-      "commitTime" : "2015-11-14 20:19:50",
-      "commitTimeLong" : 1447532390000,
-      "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
-      "hash" : "01484ce71bbc76e",
+      "authorName" : "Author",
+      "authorEmailAddress" : "author@example.com",
+      "commitTime" : "2020-01-01 00:04:00",
+      "commitTimeLong" : 1577837040000,
+      "message" : "Add feature B",
+      "hash" : "7a5953db4f73091",
       "merge" : false,
       "messageNotes" : "",
-      "files" : [ "gradle.properties" ],
-      "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
+      "files" : [ ],
+      "hasCommitCount" : false,
+      "hashFull" : "7a5953db4f73091acec822d12d0885a5713c920f"
     }, {
-      "authorName" : "Tomas Bjerre",
-      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-      "commitTime" : "2015-11-14 19:36:21",
-      "commitTimeLong" : 1447529781000,
-      "message" : "Doc",
-      "hash" : "83a8a7b2f96ba88",
+      "authorName" : "Author",
+      "authorEmailAddress" : "author@example.com",
+      "commitTime" : "2020-01-01 00:03:00",
+      "commitTimeLong" : 1577836980000,
+      "message" : "Update documentation",
+      "hash" : "0cdb340f2d05f09",
       "merge" : false,
       "messageNotes" : "",
-      "files" : [ "README.md", "build.gradle", "tags-issues-authors-commits.mustache.md" ],
-      "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
+      "files" : [ ],
+      "hasCommitCount" : false,
+      "hashFull" : "0cdb340f2d05f09d207bcd28cc616a9de1fdad33"
     }, {
-      "authorName" : "Tomas Bjerre",
-      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-      "commitTime" : "2015-11-14 19:00:17",
-      "commitTimeLong" : 1447527617000,
-      "message" : "Test",
-      "hash" : "5c54861708099d9",
+      "authorName" : "Author",
+      "authorEmailAddress" : "author@example.com",
+      "commitTime" : "2020-01-01 00:02:00",
+      "commitTimeLong" : 1577836920000,
+      "message" : "Fix crash in feature A",
+      "hash" : "055036e0aaa90ef",
       "merge" : false,
       "messageNotes" : "",
-      "files" : [ ".travis.yml", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/java/se/bjurr/gitchangelog/main/Main.java", "src/main/resources/git-changelog-settings.json", "src/test/java/se/bjurr/gitchangelog/api/FakeGitRepo.java", "src/test/java/se/bjurr/gitchangelog/api/FakeRepo.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogApiAsserter.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogApiTest.java", "src/test/resources/assertions/testAuthorsCommits.md", "src/test/resources/assertions/testCommits.md", "src/test/resources/assertions/testIssuesAuthorsCommits.md", "src/test/resources/assertions/testIssuesCommits.md", "src/test/resources/assertions/testTagsCommits.md", "src/test/resources/assertions/testTagsIssuesAuthorsCommits.md", "src/test/resources/assertions/testTagsIssuesCommits.md", "src/test/resources/settings/git-changelog-test-settings.json", "src/test/resources/templates/testAuthorsCommits.mustache", "src/test/resources/templates/testCommits.mustache", "src/test/resources/templates/testIssuesAuthorsCommits.mustache", "src/test/resources/templates/testIssuesCommits.mustache", "src/test/resources/templates/testTagsCommits.mustache", "src/test/resources/templates/testTagsIssuesAuthorsCommits.mustache", "src/test/resources/templates/testTagsIssuesCommits.mustache", "tags-issues-authors-commits.mustache.md" ],
-      "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
+      "files" : [ ],
+      "hasCommitCount" : false,
+      "hashFull" : "055036e0aaa90efdd701cc2038589bbba06707d5"
     }, {
-      "authorName" : "Tomas Bjerre",
-      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-      "commitTime" : "2015-11-14 12:14:41",
-      "commitTimeLong" : 1447503281000,
-      "message" : "Work for 1.0",
-      "hash" : "051effe72405e78",
+      "authorName" : "Author",
+      "authorEmailAddress" : "author@example.com",
+      "commitTime" : "2020-01-01 00:01:00",
+      "commitTimeLong" : 1577836860000,
+      "message" : "Add feature A",
+      "hash" : "b596a6f3944f14a",
       "merge" : false,
       "messageNotes" : "",
-      "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/api/model/Author.java", "src/main/java/se/bjurr/gitchangelog/api/model/Changelog.java", "src/main/java/se/bjurr/gitchangelog/api/model/Issue.java", "src/main/java/se/bjurr/gitchangelog/api/model/Tag.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/IAuthors.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/ICommits.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/IIssues.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/model/interfaces/IGitCommitReferer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/CustomIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/resources/git-changelog-settings.json", "src/main/resources/git-changelog-template.mustache" ],
-      "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
+      "files" : [ ],
+      "hasCommitCount" : false,
+      "hashFull" : "b596a6f3944f14a1aa84de09cd3bab37c6947ada"
     }, {
-      "authorName" : "Tomas Bjerre",
-      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-      "commitTime" : "2015-11-14 09:46:23",
-      "commitTimeLong" : 1447494383000,
+      "authorName" : "Author",
+      "authorEmailAddress" : "author@example.com",
+      "commitTime" : "2020-01-01 00:00:00",
+      "commitTimeLong" : 1577836800000,
       "message" : "Initial commit",
-      "hash" : "5aaeb907f68915a",
+      "hash" : "5130f9d03160fc3",
       "merge" : false,
       "messageNotes" : "",
-      "files" : [ ".travis.yml", "CHANGELOG.md", "README.md", "build.gradle", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/api/model/Author.java", "src/main/java/se/bjurr/gitchangelog/api/model/Changelog.java", "src/main/java/se/bjurr/gitchangelog/api/model/Commit.java", "src/main/java/se/bjurr/gitchangelog/api/model/Issue.java", "src/main/java/se/bjurr/gitchangelog/api/model/Tag.java", "src/main/java/se/bjurr/gitchangelog/internal/common/GitPredicates.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/CustomIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/java/se/bjurr/gitchangelog/main/Main.java", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-changelog-settings.json", "src/main/resources/git-changelog-template.mustache", "src/main/resources/git-release-notes-settings.json" ],
-      "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
-    }, {
-      "authorName" : "Tomas Bjerre",
-      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-      "commitTime" : "2015-11-12 05:29:31",
-      "commitTimeLong" : 1447306171000,
-      "message" : "Initial commit",
-      "hash" : "a1aa5ff5b625e63",
-      "merge" : false,
-      "messageNotes" : "",
-      "files" : [ ".gitignore", ".travis.yml", "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
-      "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+      "files" : [ ],
+      "hasCommitCount" : false,
+      "hashFull" : "5130f9d03160fc32880823dd10922ee46a3d9b59"
     } ],
     "authors" : [ {
-      "authorName" : "Tomas Bjerre",
-      "authorEmail" : "tomas.bjerre85@gmail.com",
+      "authorName" : "Author",
+      "authorEmail" : "author@example.com",
       "commits" : [ {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2015-11-14 20:19:50",
-        "commitTimeLong" : 1447532390000,
-        "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
-        "hash" : "01484ce71bbc76e",
+        "authorName" : "Author",
+        "authorEmailAddress" : "author@example.com",
+        "commitTime" : "2020-01-01 00:04:00",
+        "commitTimeLong" : 1577837040000,
+        "message" : "Add feature B",
+        "hash" : "7a5953db4f73091",
         "merge" : false,
         "messageNotes" : "",
-        "files" : [ "gradle.properties" ],
-        "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
+        "files" : [ ],
+        "hasCommitCount" : false,
+        "hashFull" : "7a5953db4f73091acec822d12d0885a5713c920f"
       }, {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2015-11-14 19:36:21",
-        "commitTimeLong" : 1447529781000,
-        "message" : "Doc",
-        "hash" : "83a8a7b2f96ba88",
+        "authorName" : "Author",
+        "authorEmailAddress" : "author@example.com",
+        "commitTime" : "2020-01-01 00:03:00",
+        "commitTimeLong" : 1577836980000,
+        "message" : "Update documentation",
+        "hash" : "0cdb340f2d05f09",
         "merge" : false,
         "messageNotes" : "",
-        "files" : [ "README.md", "build.gradle", "tags-issues-authors-commits.mustache.md" ],
-        "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
+        "files" : [ ],
+        "hasCommitCount" : false,
+        "hashFull" : "0cdb340f2d05f09d207bcd28cc616a9de1fdad33"
       }, {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2015-11-14 19:00:17",
-        "commitTimeLong" : 1447527617000,
-        "message" : "Test",
-        "hash" : "5c54861708099d9",
+        "authorName" : "Author",
+        "authorEmailAddress" : "author@example.com",
+        "commitTime" : "2020-01-01 00:02:00",
+        "commitTimeLong" : 1577836920000,
+        "message" : "Fix crash in feature A",
+        "hash" : "055036e0aaa90ef",
         "merge" : false,
         "messageNotes" : "",
-        "files" : [ ".travis.yml", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/java/se/bjurr/gitchangelog/main/Main.java", "src/main/resources/git-changelog-settings.json", "src/test/java/se/bjurr/gitchangelog/api/FakeGitRepo.java", "src/test/java/se/bjurr/gitchangelog/api/FakeRepo.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogApiAsserter.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogApiTest.java", "src/test/resources/assertions/testAuthorsCommits.md", "src/test/resources/assertions/testCommits.md", "src/test/resources/assertions/testIssuesAuthorsCommits.md", "src/test/resources/assertions/testIssuesCommits.md", "src/test/resources/assertions/testTagsCommits.md", "src/test/resources/assertions/testTagsIssuesAuthorsCommits.md", "src/test/resources/assertions/testTagsIssuesCommits.md", "src/test/resources/settings/git-changelog-test-settings.json", "src/test/resources/templates/testAuthorsCommits.mustache", "src/test/resources/templates/testCommits.mustache", "src/test/resources/templates/testIssuesAuthorsCommits.mustache", "src/test/resources/templates/testIssuesCommits.mustache", "src/test/resources/templates/testTagsCommits.mustache", "src/test/resources/templates/testTagsIssuesAuthorsCommits.mustache", "src/test/resources/templates/testTagsIssuesCommits.mustache", "tags-issues-authors-commits.mustache.md" ],
-        "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
+        "files" : [ ],
+        "hasCommitCount" : false,
+        "hashFull" : "055036e0aaa90efdd701cc2038589bbba06707d5"
       }, {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2015-11-14 12:14:41",
-        "commitTimeLong" : 1447503281000,
-        "message" : "Work for 1.0",
-        "hash" : "051effe72405e78",
+        "authorName" : "Author",
+        "authorEmailAddress" : "author@example.com",
+        "commitTime" : "2020-01-01 00:01:00",
+        "commitTimeLong" : 1577836860000,
+        "message" : "Add feature A",
+        "hash" : "b596a6f3944f14a",
         "merge" : false,
         "messageNotes" : "",
-        "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/api/model/Author.java", "src/main/java/se/bjurr/gitchangelog/api/model/Changelog.java", "src/main/java/se/bjurr/gitchangelog/api/model/Issue.java", "src/main/java/se/bjurr/gitchangelog/api/model/Tag.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/IAuthors.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/ICommits.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/IIssues.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/model/interfaces/IGitCommitReferer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/CustomIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/resources/git-changelog-settings.json", "src/main/resources/git-changelog-template.mustache" ],
-        "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
+        "files" : [ ],
+        "hasCommitCount" : false,
+        "hashFull" : "b596a6f3944f14a1aa84de09cd3bab37c6947ada"
       }, {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2015-11-14 09:46:23",
-        "commitTimeLong" : 1447494383000,
+        "authorName" : "Author",
+        "authorEmailAddress" : "author@example.com",
+        "commitTime" : "2020-01-01 00:00:00",
+        "commitTimeLong" : 1577836800000,
         "message" : "Initial commit",
-        "hash" : "5aaeb907f68915a",
+        "hash" : "5130f9d03160fc3",
         "merge" : false,
         "messageNotes" : "",
-        "files" : [ ".travis.yml", "CHANGELOG.md", "README.md", "build.gradle", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/api/model/Author.java", "src/main/java/se/bjurr/gitchangelog/api/model/Changelog.java", "src/main/java/se/bjurr/gitchangelog/api/model/Commit.java", "src/main/java/se/bjurr/gitchangelog/api/model/Issue.java", "src/main/java/se/bjurr/gitchangelog/api/model/Tag.java", "src/main/java/se/bjurr/gitchangelog/internal/common/GitPredicates.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/CustomIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/java/se/bjurr/gitchangelog/main/Main.java", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-changelog-settings.json", "src/main/resources/git-changelog-template.mustache", "src/main/resources/git-release-notes-settings.json" ],
-        "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
-      }, {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2015-11-12 05:29:31",
-        "commitTimeLong" : 1447306171000,
-        "message" : "Initial commit",
-        "hash" : "a1aa5ff5b625e63",
-        "merge" : false,
-        "messageNotes" : "",
-        "files" : [ ".gitignore", ".travis.yml", "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
-        "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+        "files" : [ ],
+        "hasCommitCount" : false,
+        "hashFull" : "5130f9d03160fc32880823dd10922ee46a3d9b59"
       } ]
     } ],
     "name" : "No issue",
@@ -967,141 +906,129 @@ context:
   "issueTypes" : [ {
     "issues" : [ {
       "commits" : [ {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2015-11-14 20:19:50",
-        "commitTimeLong" : 1447532390000,
-        "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
-        "hash" : "01484ce71bbc76e",
+        "authorName" : "Author",
+        "authorEmailAddress" : "author@example.com",
+        "commitTime" : "2020-01-01 00:04:00",
+        "commitTimeLong" : 1577837040000,
+        "message" : "Add feature B",
+        "hash" : "7a5953db4f73091",
         "merge" : false,
         "messageNotes" : "",
-        "files" : [ "gradle.properties" ],
-        "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
+        "files" : [ ],
+        "hasCommitCount" : false,
+        "hashFull" : "7a5953db4f73091acec822d12d0885a5713c920f"
       }, {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2015-11-14 19:36:21",
-        "commitTimeLong" : 1447529781000,
-        "message" : "Doc",
-        "hash" : "83a8a7b2f96ba88",
+        "authorName" : "Author",
+        "authorEmailAddress" : "author@example.com",
+        "commitTime" : "2020-01-01 00:03:00",
+        "commitTimeLong" : 1577836980000,
+        "message" : "Update documentation",
+        "hash" : "0cdb340f2d05f09",
         "merge" : false,
         "messageNotes" : "",
-        "files" : [ "README.md", "build.gradle", "tags-issues-authors-commits.mustache.md" ],
-        "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
+        "files" : [ ],
+        "hasCommitCount" : false,
+        "hashFull" : "0cdb340f2d05f09d207bcd28cc616a9de1fdad33"
       }, {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2015-11-14 19:00:17",
-        "commitTimeLong" : 1447527617000,
-        "message" : "Test",
-        "hash" : "5c54861708099d9",
+        "authorName" : "Author",
+        "authorEmailAddress" : "author@example.com",
+        "commitTime" : "2020-01-01 00:02:00",
+        "commitTimeLong" : 1577836920000,
+        "message" : "Fix crash in feature A",
+        "hash" : "055036e0aaa90ef",
         "merge" : false,
         "messageNotes" : "",
-        "files" : [ ".travis.yml", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/java/se/bjurr/gitchangelog/main/Main.java", "src/main/resources/git-changelog-settings.json", "src/test/java/se/bjurr/gitchangelog/api/FakeGitRepo.java", "src/test/java/se/bjurr/gitchangelog/api/FakeRepo.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogApiAsserter.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogApiTest.java", "src/test/resources/assertions/testAuthorsCommits.md", "src/test/resources/assertions/testCommits.md", "src/test/resources/assertions/testIssuesAuthorsCommits.md", "src/test/resources/assertions/testIssuesCommits.md", "src/test/resources/assertions/testTagsCommits.md", "src/test/resources/assertions/testTagsIssuesAuthorsCommits.md", "src/test/resources/assertions/testTagsIssuesCommits.md", "src/test/resources/settings/git-changelog-test-settings.json", "src/test/resources/templates/testAuthorsCommits.mustache", "src/test/resources/templates/testCommits.mustache", "src/test/resources/templates/testIssuesAuthorsCommits.mustache", "src/test/resources/templates/testIssuesCommits.mustache", "src/test/resources/templates/testTagsCommits.mustache", "src/test/resources/templates/testTagsIssuesAuthorsCommits.mustache", "src/test/resources/templates/testTagsIssuesCommits.mustache", "tags-issues-authors-commits.mustache.md" ],
-        "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
+        "files" : [ ],
+        "hasCommitCount" : false,
+        "hashFull" : "055036e0aaa90efdd701cc2038589bbba06707d5"
       }, {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2015-11-14 12:14:41",
-        "commitTimeLong" : 1447503281000,
-        "message" : "Work for 1.0",
-        "hash" : "051effe72405e78",
+        "authorName" : "Author",
+        "authorEmailAddress" : "author@example.com",
+        "commitTime" : "2020-01-01 00:01:00",
+        "commitTimeLong" : 1577836860000,
+        "message" : "Add feature A",
+        "hash" : "b596a6f3944f14a",
         "merge" : false,
         "messageNotes" : "",
-        "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/api/model/Author.java", "src/main/java/se/bjurr/gitchangelog/api/model/Changelog.java", "src/main/java/se/bjurr/gitchangelog/api/model/Issue.java", "src/main/java/se/bjurr/gitchangelog/api/model/Tag.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/IAuthors.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/ICommits.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/IIssues.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/model/interfaces/IGitCommitReferer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/CustomIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/resources/git-changelog-settings.json", "src/main/resources/git-changelog-template.mustache" ],
-        "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
+        "files" : [ ],
+        "hasCommitCount" : false,
+        "hashFull" : "b596a6f3944f14a1aa84de09cd3bab37c6947ada"
       }, {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2015-11-14 09:46:23",
-        "commitTimeLong" : 1447494383000,
+        "authorName" : "Author",
+        "authorEmailAddress" : "author@example.com",
+        "commitTime" : "2020-01-01 00:00:00",
+        "commitTimeLong" : 1577836800000,
         "message" : "Initial commit",
-        "hash" : "5aaeb907f68915a",
+        "hash" : "5130f9d03160fc3",
         "merge" : false,
         "messageNotes" : "",
-        "files" : [ ".travis.yml", "CHANGELOG.md", "README.md", "build.gradle", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/api/model/Author.java", "src/main/java/se/bjurr/gitchangelog/api/model/Changelog.java", "src/main/java/se/bjurr/gitchangelog/api/model/Commit.java", "src/main/java/se/bjurr/gitchangelog/api/model/Issue.java", "src/main/java/se/bjurr/gitchangelog/api/model/Tag.java", "src/main/java/se/bjurr/gitchangelog/internal/common/GitPredicates.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/CustomIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/java/se/bjurr/gitchangelog/main/Main.java", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-changelog-settings.json", "src/main/resources/git-changelog-template.mustache", "src/main/resources/git-release-notes-settings.json" ],
-        "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
-      }, {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2015-11-12 05:29:31",
-        "commitTimeLong" : 1447306171000,
-        "message" : "Initial commit",
-        "hash" : "a1aa5ff5b625e63",
-        "merge" : false,
-        "messageNotes" : "",
-        "files" : [ ".gitignore", ".travis.yml", "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
-        "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+        "files" : [ ],
+        "hasCommitCount" : false,
+        "hashFull" : "5130f9d03160fc32880823dd10922ee46a3d9b59"
       } ],
       "authors" : [ {
-        "authorName" : "Tomas Bjerre",
-        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "authorName" : "Author",
+        "authorEmail" : "author@example.com",
         "commits" : [ {
-          "authorName" : "Tomas Bjerre",
-          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-          "commitTime" : "2015-11-14 20:19:50",
-          "commitTimeLong" : 1447532390000,
-          "message" : "[Gradle Release Plugin] - pre tag commit:  '1.0'.",
-          "hash" : "01484ce71bbc76e",
+          "authorName" : "Author",
+          "authorEmailAddress" : "author@example.com",
+          "commitTime" : "2020-01-01 00:04:00",
+          "commitTimeLong" : 1577837040000,
+          "message" : "Add feature B",
+          "hash" : "7a5953db4f73091",
           "merge" : false,
           "messageNotes" : "",
-          "files" : [ "gradle.properties" ],
-          "hashFull" : "01484ce71bbc76e1af75ebb07a52844145ce99dc"
+          "files" : [ ],
+          "hasCommitCount" : false,
+          "hashFull" : "7a5953db4f73091acec822d12d0885a5713c920f"
         }, {
-          "authorName" : "Tomas Bjerre",
-          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-          "commitTime" : "2015-11-14 19:36:21",
-          "commitTimeLong" : 1447529781000,
-          "message" : "Doc",
-          "hash" : "83a8a7b2f96ba88",
+          "authorName" : "Author",
+          "authorEmailAddress" : "author@example.com",
+          "commitTime" : "2020-01-01 00:03:00",
+          "commitTimeLong" : 1577836980000,
+          "message" : "Update documentation",
+          "hash" : "0cdb340f2d05f09",
           "merge" : false,
           "messageNotes" : "",
-          "files" : [ "README.md", "build.gradle", "tags-issues-authors-commits.mustache.md" ],
-          "hashFull" : "83a8a7b2f96ba883549b712f106cbd0ab0ec4c5e"
+          "files" : [ ],
+          "hasCommitCount" : false,
+          "hashFull" : "0cdb340f2d05f09d207bcd28cc616a9de1fdad33"
         }, {
-          "authorName" : "Tomas Bjerre",
-          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-          "commitTime" : "2015-11-14 19:00:17",
-          "commitTimeLong" : 1447527617000,
-          "message" : "Test",
-          "hash" : "5c54861708099d9",
+          "authorName" : "Author",
+          "authorEmailAddress" : "author@example.com",
+          "commitTime" : "2020-01-01 00:02:00",
+          "commitTimeLong" : 1577836920000,
+          "message" : "Fix crash in feature A",
+          "hash" : "055036e0aaa90ef",
           "merge" : false,
           "messageNotes" : "",
-          "files" : [ ".travis.yml", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/java/se/bjurr/gitchangelog/main/Main.java", "src/main/resources/git-changelog-settings.json", "src/test/java/se/bjurr/gitchangelog/api/FakeGitRepo.java", "src/test/java/se/bjurr/gitchangelog/api/FakeRepo.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogApiAsserter.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogApiTest.java", "src/test/resources/assertions/testAuthorsCommits.md", "src/test/resources/assertions/testCommits.md", "src/test/resources/assertions/testIssuesAuthorsCommits.md", "src/test/resources/assertions/testIssuesCommits.md", "src/test/resources/assertions/testTagsCommits.md", "src/test/resources/assertions/testTagsIssuesAuthorsCommits.md", "src/test/resources/assertions/testTagsIssuesCommits.md", "src/test/resources/settings/git-changelog-test-settings.json", "src/test/resources/templates/testAuthorsCommits.mustache", "src/test/resources/templates/testCommits.mustache", "src/test/resources/templates/testIssuesAuthorsCommits.mustache", "src/test/resources/templates/testIssuesCommits.mustache", "src/test/resources/templates/testTagsCommits.mustache", "src/test/resources/templates/testTagsIssuesAuthorsCommits.mustache", "src/test/resources/templates/testTagsIssuesCommits.mustache", "tags-issues-authors-commits.mustache.md" ],
-          "hashFull" : "5c54861708099d999ac2b1c94aae90ee77984c25"
+          "files" : [ ],
+          "hasCommitCount" : false,
+          "hashFull" : "055036e0aaa90efdd701cc2038589bbba06707d5"
         }, {
-          "authorName" : "Tomas Bjerre",
-          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-          "commitTime" : "2015-11-14 12:14:41",
-          "commitTimeLong" : 1447503281000,
-          "message" : "Work for 1.0",
-          "hash" : "051effe72405e78",
+          "authorName" : "Author",
+          "authorEmailAddress" : "author@example.com",
+          "commitTime" : "2020-01-01 00:01:00",
+          "commitTimeLong" : 1577836860000,
+          "message" : "Add feature A",
+          "hash" : "b596a6f3944f14a",
           "merge" : false,
           "messageNotes" : "",
-          "files" : [ "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/api/model/Author.java", "src/main/java/se/bjurr/gitchangelog/api/model/Changelog.java", "src/main/java/se/bjurr/gitchangelog/api/model/Issue.java", "src/main/java/se/bjurr/gitchangelog/api/model/Tag.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/IAuthors.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/ICommits.java", "src/main/java/se/bjurr/gitchangelog/api/model/interfaces/IIssues.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/model/interfaces/IGitCommitReferer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/CustomIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/resources/git-changelog-settings.json", "src/main/resources/git-changelog-template.mustache" ],
-          "hashFull" : "051effe72405e7828e7f25a273a1030400651f7b"
+          "files" : [ ],
+          "hasCommitCount" : false,
+          "hashFull" : "b596a6f3944f14a1aa84de09cd3bab37c6947ada"
         }, {
-          "authorName" : "Tomas Bjerre",
-          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-          "commitTime" : "2015-11-14 09:46:23",
-          "commitTimeLong" : 1447494383000,
+          "authorName" : "Author",
+          "authorEmailAddress" : "author@example.com",
+          "commitTime" : "2020-01-01 00:00:00",
+          "commitTimeLong" : 1577836800000,
           "message" : "Initial commit",
-          "hash" : "5aaeb907f68915a",
+          "hash" : "5130f9d03160fc3",
           "merge" : false,
           "messageNotes" : "",
-          "files" : [ ".travis.yml", "CHANGELOG.md", "README.md", "build.gradle", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/api/model/Author.java", "src/main/java/se/bjurr/gitchangelog/api/model/Changelog.java", "src/main/java/se/bjurr/gitchangelog/api/model/Commit.java", "src/main/java/se/bjurr/gitchangelog/api/model/Issue.java", "src/main/java/se/bjurr/gitchangelog/api/model/Tag.java", "src/main/java/se/bjurr/gitchangelog/internal/common/GitPredicates.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitchangelog/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitchangelog/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitchangelog/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/model/Transformer.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/CustomIssue.java", "src/main/java/se/bjurr/gitchangelog/internal/settings/Settings.java", "src/main/java/se/bjurr/gitchangelog/main/Main.java", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-changelog-settings.json", "src/main/resources/git-changelog-template.mustache", "src/main/resources/git-release-notes-settings.json" ],
-          "hashFull" : "5aaeb907f68915aab5483f59d7026206935c0dc7"
-        }, {
-          "authorName" : "Tomas Bjerre",
-          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-          "commitTime" : "2015-11-12 05:29:31",
-          "commitTimeLong" : 1447306171000,
-          "message" : "Initial commit",
-          "hash" : "a1aa5ff5b625e63",
-          "merge" : false,
-          "messageNotes" : "",
-          "files" : [ ".gitignore", ".travis.yml", "LICENSE", "README.md", "build.gradle", "eclipse_cleanup.xml", "eclipse_formatter.xml", "gradle.properties", "gradle/wrapper/gradle-wrapper.jar", "gradle/wrapper/gradle-wrapper.properties", "gradlew", "gradlew.bat", "src/main/java/se/bjurr/gitreleasenotes/api/GitReleaseNotesApi.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Author.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Commit.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Issue.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/ReleaseNotes.java", "src/main/java/se/bjurr/gitreleasenotes/api/model/Tag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitCommit.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTag.java", "src/main/java/se/bjurr/gitreleasenotes/internal/git/model/GitTags.java", "src/main/java/se/bjurr/gitreleasenotes/internal/issues/IssueParser.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssue.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/ParsedIssueType.java", "src/main/java/se/bjurr/gitreleasenotes/internal/model/Transformer.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/Settings.java", "src/main/java/se/bjurr/gitreleasenotes/internal/settings/SettingsIssue.java", "src/main/java/se/bjurr/gitreleasenotes/main/Main.java", "src/main/resources/git-release-notes-settings.json" ],
-          "hashFull" : "a1aa5ff5b625e63aa5ad7b59367ec7f75658afb8"
+          "files" : [ ],
+          "hasCommitCount" : false,
+          "hashFull" : "5130f9d03160fc32880823dd10922ee46a3d9b59"
         } ]
       } ],
       "name" : "No issue",
