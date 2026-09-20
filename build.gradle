@@ -12,8 +12,8 @@ dependencies {
 	testImplementation "org.junit.jupiter:junit-jupiter:6.1.3"
 	testRuntimeOnly "org.junit.platform:junit-platform-launcher:6.1.3"
 	testImplementation "org.assertj:assertj-core:3.27.7"
-	testImplementation "com.approvaltests:approvaltests:31.0.0"
 	testImplementation "org.wiremock:wiremock-standalone:3.13.2"
+	testImplementation "org.openjdk.nashorn:nashorn-core:15.7"
 }
 
 test {
