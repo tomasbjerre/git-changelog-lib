@@ -812,7 +812,7 @@ It has a [builder](/src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java
   gitChangelogApiBuilder()
    .withFromCommit(ZERO_COMMIT)
    .withToRef("refs/heads/master")
-   .withTemplatePath("changelog.mustache")
+   .withTemplatePath("changelog.hbs")
    .render();
 ```
 

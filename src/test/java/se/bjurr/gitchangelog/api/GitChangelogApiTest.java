@@ -71,27 +71,33 @@ public class GitChangelogApiTest {
             "/repos/tomasbjerre/git-changelog-lib/issues?state=all&per_page=100&page=1",
             new String(
                 Files.readAllBytes(
-                    Paths.get(TemplatesTest.class.getResource("/github-issues.json").toURI())),
+                    Paths.get(
+                        GitChangelogApiTest.class.getResource("/github-issues.json").toURI())),
                 UTF_8)) //
         .addMockedResponse(
             JIRA_BASE_PATH + "/issue/" + JIRA_ISSUE_1 + "?" + JIRA_ISSUE_FIELDS,
             new String(
                 Files.readAllBytes(
                     Paths.get(
-                        TemplatesTest.class.getResource("/jira-issue-jir-1234.json").toURI())),
+                        GitChangelogApiTest.class
+                            .getResource("/jira-issue-jir-1234.json")
+                            .toURI())),
                 UTF_8)) //
         .addMockedResponse(
             JIRA_BASE_PATH + "/issue/" + JIRA_ISSUE_2 + "?" + JIRA_ISSUE_FIELDS,
             new String(
                 Files.readAllBytes(
                     Paths.get(
-                        TemplatesTest.class.getResource("/jira-issue-jir-5262.json").toURI())),
+                        GitChangelogApiTest.class
+                            .getResource("/jira-issue-jir-5262.json")
+                            .toURI())),
                 UTF_8)) //
         .addMockedResponse(
             "/redmine/issues/1234.json?null",
             new String(
                 Files.readAllBytes(
-                    Paths.get(TemplatesTest.class.getResource("/redmine-issue-1234.json").toURI())),
+                    Paths.get(
+                        GitChangelogApiTest.class.getResource("/redmine-issue-1234.json").toURI())),
                 UTF_8)); //
     mock(this.mockedRestClient);
 
@@ -146,9 +152,8 @@ public class GitChangelogApiTest {
         // A commit outside src/, tagged 2.0 - the path filter must exclude this one.
         .commit("docs-update", "Update non-src file", "docs/readme.txt", "docs")
         .tag("2.0", "docs-update")
-        // An untagged branch, for testIssue182: rendering from ZERO_COMMIT to a plain branch
-        // (not a tag) must not crash, and the "Unreleased" bucket the template hides must not
-        // leak any of the tagged commits above into it.
+        // An untagged branch: rendering from ZERO_COMMIT to a plain branch (not a tag) must not
+        // crash, and its "Unreleased" bucket must not leak any of the tagged commits above.
         .branch("unreleased-work")
         .checkout("unreleased-work")
         .commit("wip", "Experiment with a new approach", "wip.txt", "wip")
@@ -164,20 +169,20 @@ public class GitChangelogApiTest {
   }
 
   @Test
-  public void testIssue182() throws Exception {
-    // Regression test: rendering from ZERO_COMMIT to a plain branch (not a tag) used to crash.
-    // The approved.txt this used to compare against baked in the @TempDir's absolute path (part
-    // of the rendered "settings:" block), making it non-reproducible across runs - so this
-    // checks the behavior that actually matters: it renders, and every tag still shows up.
+  public void testThatRenderingFromZeroCommitToABranchDoesNotCrash() throws Exception {
     final String rendered =
         gitChangelogApiBuilder() //
-            .withTemplatePath("changelog-with-unreleased.mustache")
+            .withTemplateContent(
+                """
+                {{#tags}}
+                ## {{name}} ({{tagDate .}})
+                {{/tags}}""") //
             .withFromRevision(ZERO_COMMIT) //
             .withToRevision("unreleased-work") //
             .withFromRepo(this.repo.dir()) //
             .render();
 
-    assertThat(rendered).contains("## test (", "## 1.0 (", "## 0.0.1 (");
+    assertThat(rendered).contains("## test (", "## 1.0 (", "## 0.0.1 (", "## Unreleased (");
   }
 
   @Test
@@ -398,7 +403,7 @@ public class GitChangelogApiTest {
             .withFromCommit(ZERO_COMMIT) //
             .withToRef("test") //
             .withExtendedVariables(extendedVariables) //
-            .withTemplatePath("templatetest/testAuthorsCommitsExtended.mustache") //
+            .withTemplateContent("Extended variable: {{customVariable}}") //
             .withFromRepo(this.repo.dir()) //
             .render();
 
@@ -424,13 +429,12 @@ public class GitChangelogApiTest {
 
   @Test
   public void testThatFileCanBeSupplied() throws Exception {
-    final String templatePath = "templatetest/testThatRevertedCommitsAreRemoved.mustache";
-
+    // Content doesn't matter here - only that toFile() writes it out.
     final Path path = Paths.get("build", "testdirtocreate", "testThatFileCanBeSupplied.md");
     gitChangelogApiBuilder() //
         .withFromCommit(this.repo.hash("feature-b")) //
         .withToCommit(this.repo.hash("github-issue-fix")) //
-        .withTemplatePath(templatePath) //
+        .withTemplateContent("content") //
         .withFromRepo(this.repo.dir()) //
         .toFile(path.toFile());
 

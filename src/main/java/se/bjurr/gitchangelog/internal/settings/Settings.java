@@ -478,11 +478,11 @@ public class Settings implements Serializable {
   }
 
   public String getTemplatePath() {
-    return ofNullable(this.templatePath).orElse("changelog.mustache");
+    return ofNullable(this.templatePath).orElse("changelog.hbs");
   }
 
   public String getPrependTemplatePath() {
-    return ofNullable(this.prependTemplatePath).orElse("changelog-prepend.mustache");
+    return ofNullable(this.prependTemplatePath).orElse("changelog-prepend.hbs");
   }
 
   public void setTemplatePath(final String templatePath) {
