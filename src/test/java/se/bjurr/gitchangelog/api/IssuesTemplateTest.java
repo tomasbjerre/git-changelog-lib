@@ -246,54 +246,177 @@ public class IssuesTemplateTest extends AbstractTemplatesTest {
             """);
   }
 
-  // @Test
-  // Enable when this is fixed: https://github.com/jknack/handlebars.java/issues/951
+  @Test
   public void testIssueType() throws Exception {
-    // Disabled (see above), so left unasserted - just keeping it exercisable for when it's
-    // re-enabled.
-    this.baseBuilder
-        .withTemplateContent(
+    final String rendered =
+        this.baseBuilder
+            .withTemplateContent(
+                """
+                {{#tags}}
+                ## {{name}}
+                {{#issues}}
+
+                {{name}}
+                {{hasType}} {{type}}
+                isGitHub: {{#isGitHub}}yes{{/isGitHub}}
+                isGitLab: {{#isGitLab}}yes{{/isGitLab}}
+                isJira: {{#isJira}}yes{{/isJira}}
+                isRedmine: {{#isRedmine}}yes{{/isRedmine}}
+                isCustom: {{#isCustom}}yes{{/isCustom}}
+                isNoIssue: {{#isNoIssue}}yes{{/isNoIssue}}
+
+                {{/issues}}
+                {{/tags}}
+
+
+                Issues:
+                {{#ifContainsIssueType issues type='Bug'}}
+                {{#issues}}
+                {{#ifIssueType . type='Bug'}}
+                ### Bugs
+                {{name}}
+
+                {{/ifIssueType}}
+                {{/issues}}
+                {{/ifContainsIssueType}}
+
+
+                {{#ifContainsIssueTypeOtherThan issues type='Bug'}}
+                {{#issues}}
+                {{#ifIssueTypeOtherThan . type='Bug'}}
+                ### Other issues
+                {{name}}
+
+                {{/ifIssueTypeOtherThan}}
+                {{/issues}}
+                {{/ifContainsIssueTypeOtherThan}}
+                """)
+            .render();
+
+    assertThat(rendered)
+        .isEqualToIgnoringWhitespace(
             """
-            {{#tags}}
-            ## {{name}}
-            {{#issues}}
+            ## test
 
-            {{name}}
-            {{hasType}} {{type}}
-            isGitHub: {{#isGitHub}}yes{{/isGitHub}}
-            isGitLab: {{#isGitLab}}yes{{/isGitLab}}
-            isJira: {{#isJira}}yes{{/isJira}}
-            isRedmine: {{#isRedmine}}yes{{/isRedmine}}
-            isCustom: {{#isCustom}}yes{{/isCustom}}
-            isNoIssue: {{#isNoIssue}}yes{{/isNoIssue}}
+            Bugs
+            false
+            isGitHub:
+            isGitLab:
+            isJira:
+            isRedmine:
+            isCustom: yes
+            isNoIssue:
 
-            {{/issues}}
-            {{/tags}}
+
+            CQ
+            false
+            isGitHub:
+            isGitLab:
+            isJira:
+            isRedmine:
+            isCustom: yes
+            isNoIssue:
+
+
+            Incident
+            false
+            isGitHub:
+            isGitLab:
+            isJira:
+            isRedmine:
+            isCustom: yes
+            isNoIssue:
+
+
+            Jira
+            true Bug
+            isGitHub:
+            isGitLab:
+            isJira: yes
+            isRedmine:
+            isCustom:
+            isNoIssue:
+
+
+            Jira
+            true Bug
+            isGitHub:
+            isGitLab:
+            isJira: yes
+            isRedmine:
+            isCustom:
+            isNoIssue:
+
+
+            No issue supplied
+            false
+            isGitHub:
+            isGitLab:
+            isJira:
+            isRedmine:
+            isCustom:
+            isNoIssue: yes
+
+            ## 1.0
+
+            GitHub
+            false
+            isGitHub: yes
+            isGitLab:
+            isJira:
+            isRedmine:
+            isCustom:
+            isNoIssue:
+
+
+            GitHub
+            false
+            isGitHub: yes
+            isGitLab:
+            isJira:
+            isRedmine:
+            isCustom:
+            isNoIssue:
+
+
+            No issue supplied
+            false
+            isGitHub:
+            isGitLab:
+            isJira:
+            isRedmine:
+            isCustom:
+            isNoIssue: yes
+
 
 
             Issues:
-            {{#ifContainsIssueType issues type='Bug'}}
-            {{#issues}}
-            {{#ifIssueType . type='Bug'}}
             ### Bugs
-            {{name}}
+            Jira
 
-            {{/ifIssueType}}
-            {{/issues}}
-            {{/ifContainsIssueType}}
+            ### Bugs
+            Jira
 
 
-            {{#ifContainsIssueTypeOtherThan issues type='Bug'}}
-            {{#issues}}
-            {{#ifIssueTypeOtherThan . type='Bug'}}
+
             ### Other issues
-            {{name}}
+            Bugs
 
-            {{/ifIssueTypeOtherThan}}
-            {{/issues}}
-            {{/ifContainsIssueTypeOtherThan}}
-            """)
-        .render();
+            ### Other issues
+            CQ
+
+            ### Other issues
+            GitHub
+
+            ### Other issues
+            GitHub
+
+            ### Other issues
+            Incident
+
+            ### Other issues
+            No issue supplied
+            """);
   }
 
   @Test
