@@ -74,8 +74,11 @@ Changelog of {{repoName}}.
 settings:
 
 {
+  "commitCount" : false,
+  "commitFiles" : false,
   "encoding" : "UTF-8",
   "extendedVariables" : { },
+  "fromRepo" : "/tmp/junit-11303132204577888614",
   "fromRevision" : "0000000000000000000000000000000000000000",
   "fromRevisionStrategy" : "DEFAULT",
   "gitHubApi" : "https://api.github.com/repos/tomasbjerre/git-changelog-lib",
@@ -87,7 +90,7 @@ settings:
   "pathFilters" : [ "src" ],
   "redmineEnabled" : false,
   "removeIssueFromMessage" : false,
-  "toRevision" : "1.71",
+  "toRevision" : "2.0",
   "toRevisionStrategy" : "DEFAULT",
   "useIntegrations" : false
 }
@@ -100,26 +103,14 @@ changelog:
 
 Changelog of git-changelog-lib.
 
-## 1.45 (2016-04-13)
+## 2.0 (2020-01-01)
 
 ### Other changes
 
-**Including correct commits + performance #26 JENKINS-34156**
-
-* Found major performance problem when sorting tags by commit time, fixed. 
-* Now not following parents, unless *from* is merged into them. 
-
-[e3106](https://github.com/tomasbjerre/git-changelog-lib/commit/e3106df640b693b) Tomas Bjerre *2016-04-13 18:30:26*
+**Add feature D, implements JIR-1234**
 
 
-## 1.44 (2016-04-12)
-
-### Other changes
-
-**JENKINS-34155 Support short SHA**
-
-
-[27642](https://github.com/tomasbjerre/git-changelog-lib/commit/27642e3db66e67c) Tomas Bjerre *2016-04-12 16:43:21*
+[6a857](https://github.com/tomasbjerre/git-changelog-lib/commit/6a857c19eff6966) Author *2020-01-01 00:13:00*
 
 
 
@@ -130,91 +121,85 @@ context:
 
 {
   "commits" : [ {
-    "authorName" : "Tomas Bjerre",
-    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-    "commitTime" : "2016-04-13 18:30:26",
-    "commitTimeLong" : 1460572226000,
-    "message" : "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them.",
-    "hash" : "e3106df640b693b",
+    "authorName" : "Author",
+    "authorEmailAddress" : "author@example.com",
+    "commitTime" : "2020-01-01 00:13:00",
+    "commitTimeLong" : 1577837580000,
+    "message" : "Add feature D, implements JIR-1234",
+    "hash" : "6a857c19eff6966",
     "merge" : false,
     "messageNotes" : "",
-    "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/TraversalWork.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogTest.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java", "src/test/java/se/bjurr/gitchangelog/test/LibPerformanceTest.java", "src/test/resources/simplelogger.properties" ],
-    "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
-  }, {
-    "authorName" : "Tomas Bjerre",
-    "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-    "commitTime" : "2016-04-12 16:43:21",
-    "commitTimeLong" : 1460479401000,
-    "message" : "JENKINS-34155 Support short SHA",
-    "hash" : "27642e3db66e67c",
-    "merge" : false,
-    "messageNotes" : "",
-    "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java" ],
-    "hashFull" : "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644"
+    "files" : [ ],
+    "hasCommitCount" : false,
+    "hashFull" : "6a857c19eff6966b922cd60c222ee88f091687e9"
   } ],
   "tags" : [ {
-    "name" : "1.45",
-    "annotation" : "[Gradle Release Plugin] - creating tag:  '1.45'.\n",
+    "name" : "2.0",
+    "annotation" : "",
     "commits" : [ {
-      "authorName" : "Tomas Bjerre",
-      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-      "commitTime" : "2016-04-13 18:30:26",
-      "commitTimeLong" : 1460572226000,
-      "message" : "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them.",
-      "hash" : "e3106df640b693b",
+      "authorName" : "Author",
+      "authorEmailAddress" : "author@example.com",
+      "commitTime" : "2020-01-01 00:13:00",
+      "commitTimeLong" : 1577837580000,
+      "message" : "Add feature D, implements JIR-1234",
+      "hash" : "6a857c19eff6966",
       "merge" : false,
       "messageNotes" : "",
-      "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/TraversalWork.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogTest.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java", "src/test/java/se/bjurr/gitchangelog/test/LibPerformanceTest.java", "src/test/resources/simplelogger.properties" ],
-      "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
+      "files" : [ ],
+      "hasCommitCount" : false,
+      "hashFull" : "6a857c19eff6966b922cd60c222ee88f091687e9"
     } ],
     "authors" : [ {
-      "authorName" : "Tomas Bjerre",
-      "authorEmail" : "tomas.bjerre85@gmail.com",
+      "authorName" : "Author",
+      "authorEmail" : "author@example.com",
       "commits" : [ {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2016-04-13 18:30:26",
-        "commitTimeLong" : 1460572226000,
-        "message" : "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them.",
-        "hash" : "e3106df640b693b",
+        "authorName" : "Author",
+        "authorEmailAddress" : "author@example.com",
+        "commitTime" : "2020-01-01 00:13:00",
+        "commitTimeLong" : 1577837580000,
+        "message" : "Add feature D, implements JIR-1234",
+        "hash" : "6a857c19eff6966",
         "merge" : false,
         "messageNotes" : "",
-        "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/TraversalWork.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogTest.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java", "src/test/java/se/bjurr/gitchangelog/test/LibPerformanceTest.java", "src/test/resources/simplelogger.properties" ],
-        "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
+        "files" : [ ],
+        "hasCommitCount" : false,
+        "hashFull" : "6a857c19eff6966b922cd60c222ee88f091687e9"
       } ]
     } ],
     "issues" : [ {
       "commits" : [ {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2016-04-13 18:30:26",
-        "commitTimeLong" : 1460572226000,
-        "message" : "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them.",
-        "hash" : "e3106df640b693b",
+        "authorName" : "Author",
+        "authorEmailAddress" : "author@example.com",
+        "commitTime" : "2020-01-01 00:13:00",
+        "commitTimeLong" : 1577837580000,
+        "message" : "Add feature D, implements JIR-1234",
+        "hash" : "6a857c19eff6966",
         "merge" : false,
         "messageNotes" : "",
-        "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/TraversalWork.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogTest.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java", "src/test/java/se/bjurr/gitchangelog/test/LibPerformanceTest.java", "src/test/resources/simplelogger.properties" ],
-        "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
+        "files" : [ ],
+        "hasCommitCount" : false,
+        "hashFull" : "6a857c19eff6966b922cd60c222ee88f091687e9"
       } ],
       "authors" : [ {
-        "authorName" : "Tomas Bjerre",
-        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "authorName" : "Author",
+        "authorEmail" : "author@example.com",
         "commits" : [ {
-          "authorName" : "Tomas Bjerre",
-          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-          "commitTime" : "2016-04-13 18:30:26",
-          "commitTimeLong" : 1460572226000,
-          "message" : "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them.",
-          "hash" : "e3106df640b693b",
+          "authorName" : "Author",
+          "authorEmailAddress" : "author@example.com",
+          "commitTime" : "2020-01-01 00:13:00",
+          "commitTimeLong" : 1577837580000,
+          "message" : "Add feature D, implements JIR-1234",
+          "hash" : "6a857c19eff6966",
           "merge" : false,
           "messageNotes" : "",
-          "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/TraversalWork.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogTest.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java", "src/test/java/se/bjurr/gitchangelog/test/LibPerformanceTest.java", "src/test/resources/simplelogger.properties" ],
-          "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
+          "files" : [ ],
+          "hasCommitCount" : false,
+          "hashFull" : "6a857c19eff6966b922cd60c222ee88f091687e9"
         } ]
       } ],
       "name" : "Jira",
       "title" : "",
-      "issue" : "JENKINS-34156",
+      "issue" : "JIR-1234",
       "issueType" : "JIRA",
       "description" : "",
       "link" : "",
@@ -231,36 +216,38 @@ context:
     "issueTypes" : [ {
       "issues" : [ {
         "commits" : [ {
-          "authorName" : "Tomas Bjerre",
-          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-          "commitTime" : "2016-04-13 18:30:26",
-          "commitTimeLong" : 1460572226000,
-          "message" : "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them.",
-          "hash" : "e3106df640b693b",
+          "authorName" : "Author",
+          "authorEmailAddress" : "author@example.com",
+          "commitTime" : "2020-01-01 00:13:00",
+          "commitTimeLong" : 1577837580000,
+          "message" : "Add feature D, implements JIR-1234",
+          "hash" : "6a857c19eff6966",
           "merge" : false,
           "messageNotes" : "",
-          "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/TraversalWork.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogTest.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java", "src/test/java/se/bjurr/gitchangelog/test/LibPerformanceTest.java", "src/test/resources/simplelogger.properties" ],
-          "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
+          "files" : [ ],
+          "hasCommitCount" : false,
+          "hashFull" : "6a857c19eff6966b922cd60c222ee88f091687e9"
         } ],
         "authors" : [ {
-          "authorName" : "Tomas Bjerre",
-          "authorEmail" : "tomas.bjerre85@gmail.com",
+          "authorName" : "Author",
+          "authorEmail" : "author@example.com",
           "commits" : [ {
-            "authorName" : "Tomas Bjerre",
-            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-            "commitTime" : "2016-04-13 18:30:26",
-            "commitTimeLong" : 1460572226000,
-            "message" : "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them.",
-            "hash" : "e3106df640b693b",
+            "authorName" : "Author",
+            "authorEmailAddress" : "author@example.com",
+            "commitTime" : "2020-01-01 00:13:00",
+            "commitTimeLong" : 1577837580000,
+            "message" : "Add feature D, implements JIR-1234",
+            "hash" : "6a857c19eff6966",
             "merge" : false,
             "messageNotes" : "",
-            "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/TraversalWork.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogTest.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java", "src/test/java/se/bjurr/gitchangelog/test/LibPerformanceTest.java", "src/test/resources/simplelogger.properties" ],
-            "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
+            "files" : [ ],
+            "hasCommitCount" : false,
+            "hashFull" : "6a857c19eff6966b922cd60c222ee88f091687e9"
           } ]
         } ],
         "name" : "Jira",
         "title" : "",
-        "issue" : "JENKINS-34156",
+        "issue" : "JIR-1234",
         "issueType" : "JIRA",
         "description" : "",
         "link" : "",
@@ -277,241 +264,61 @@ context:
       "name" : "Jira",
       "type" : "JIRA"
     } ],
-    "tagTime" : "2016-04-13 18:31:03",
-    "tagTimeLong" : 1460572263000,
-    "hasTagTime" : true
-  }, {
-    "name" : "1.44",
-    "annotation" : "[Gradle Release Plugin] - creating tag:  '1.44'.\n",
-    "commits" : [ {
-      "authorName" : "Tomas Bjerre",
-      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-      "commitTime" : "2016-04-12 16:43:21",
-      "commitTimeLong" : 1460479401000,
-      "message" : "JENKINS-34155 Support short SHA",
-      "hash" : "27642e3db66e67c",
-      "merge" : false,
-      "messageNotes" : "",
-      "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java" ],
-      "hashFull" : "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644"
-    } ],
-    "authors" : [ {
-      "authorName" : "Tomas Bjerre",
-      "authorEmail" : "tomas.bjerre85@gmail.com",
-      "commits" : [ {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2016-04-12 16:43:21",
-        "commitTimeLong" : 1460479401000,
-        "message" : "JENKINS-34155 Support short SHA",
-        "hash" : "27642e3db66e67c",
-        "merge" : false,
-        "messageNotes" : "",
-        "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java" ],
-        "hashFull" : "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644"
-      } ]
-    } ],
-    "issues" : [ {
-      "commits" : [ {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2016-04-12 16:43:21",
-        "commitTimeLong" : 1460479401000,
-        "message" : "JENKINS-34155 Support short SHA",
-        "hash" : "27642e3db66e67c",
-        "merge" : false,
-        "messageNotes" : "",
-        "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java" ],
-        "hashFull" : "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644"
-      } ],
-      "authors" : [ {
-        "authorName" : "Tomas Bjerre",
-        "authorEmail" : "tomas.bjerre85@gmail.com",
-        "commits" : [ {
-          "authorName" : "Tomas Bjerre",
-          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-          "commitTime" : "2016-04-12 16:43:21",
-          "commitTimeLong" : 1460479401000,
-          "message" : "JENKINS-34155 Support short SHA",
-          "hash" : "27642e3db66e67c",
-          "merge" : false,
-          "messageNotes" : "",
-          "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java" ],
-          "hashFull" : "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644"
-        } ]
-      } ],
-      "name" : "Jira",
-      "title" : "",
-      "issue" : "JENKINS-34155",
-      "issueType" : "JIRA",
-      "description" : "",
-      "link" : "",
-      "type" : "",
-      "hasAdditionalFields" : false,
-      "hasDescription" : false,
-      "hasIssue" : true,
-      "hasLabels" : false,
-      "hasLink" : false,
-      "hasLinkedIssues" : false,
-      "hasTitle" : false,
-      "hasType" : false
-    } ],
-    "issueTypes" : [ {
-      "issues" : [ {
-        "commits" : [ {
-          "authorName" : "Tomas Bjerre",
-          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-          "commitTime" : "2016-04-12 16:43:21",
-          "commitTimeLong" : 1460479401000,
-          "message" : "JENKINS-34155 Support short SHA",
-          "hash" : "27642e3db66e67c",
-          "merge" : false,
-          "messageNotes" : "",
-          "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java" ],
-          "hashFull" : "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644"
-        } ],
-        "authors" : [ {
-          "authorName" : "Tomas Bjerre",
-          "authorEmail" : "tomas.bjerre85@gmail.com",
-          "commits" : [ {
-            "authorName" : "Tomas Bjerre",
-            "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-            "commitTime" : "2016-04-12 16:43:21",
-            "commitTimeLong" : 1460479401000,
-            "message" : "JENKINS-34155 Support short SHA",
-            "hash" : "27642e3db66e67c",
-            "merge" : false,
-            "messageNotes" : "",
-            "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java" ],
-            "hashFull" : "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644"
-          } ]
-        } ],
-        "name" : "Jira",
-        "title" : "",
-        "issue" : "JENKINS-34155",
-        "issueType" : "JIRA",
-        "description" : "",
-        "link" : "",
-        "type" : "",
-        "hasAdditionalFields" : false,
-        "hasDescription" : false,
-        "hasIssue" : true,
-        "hasLabels" : false,
-        "hasLink" : false,
-        "hasLinkedIssues" : false,
-        "hasTitle" : false,
-        "hasType" : false
-      } ],
-      "name" : "Jira",
-      "type" : "JIRA"
-    } ],
-    "tagTime" : "2016-04-12 16:44:03",
-    "tagTimeLong" : 1460479443000,
+    "tagTime" : "2020-01-01 00:14:00",
+    "tagTimeLong" : 1577837640000,
     "hasTagTime" : true
   } ],
   "authors" : [ {
-    "authorName" : "Tomas Bjerre",
-    "authorEmail" : "tomas.bjerre85@gmail.com",
+    "authorName" : "Author",
+    "authorEmail" : "author@example.com",
     "commits" : [ {
-      "authorName" : "Tomas Bjerre",
-      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-      "commitTime" : "2016-04-13 18:30:26",
-      "commitTimeLong" : 1460572226000,
-      "message" : "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them.",
-      "hash" : "e3106df640b693b",
+      "authorName" : "Author",
+      "authorEmailAddress" : "author@example.com",
+      "commitTime" : "2020-01-01 00:13:00",
+      "commitTimeLong" : 1577837580000,
+      "message" : "Add feature D, implements JIR-1234",
+      "hash" : "6a857c19eff6966",
       "merge" : false,
       "messageNotes" : "",
-      "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/TraversalWork.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogTest.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java", "src/test/java/se/bjurr/gitchangelog/test/LibPerformanceTest.java", "src/test/resources/simplelogger.properties" ],
-      "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
-    }, {
-      "authorName" : "Tomas Bjerre",
-      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-      "commitTime" : "2016-04-12 16:43:21",
-      "commitTimeLong" : 1460479401000,
-      "message" : "JENKINS-34155 Support short SHA",
-      "hash" : "27642e3db66e67c",
-      "merge" : false,
-      "messageNotes" : "",
-      "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java" ],
-      "hashFull" : "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644"
+      "files" : [ ],
+      "hasCommitCount" : false,
+      "hashFull" : "6a857c19eff6966b922cd60c222ee88f091687e9"
     } ]
   } ],
   "issues" : [ {
     "commits" : [ {
-      "authorName" : "Tomas Bjerre",
-      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-      "commitTime" : "2016-04-12 16:43:21",
-      "commitTimeLong" : 1460479401000,
-      "message" : "JENKINS-34155 Support short SHA",
-      "hash" : "27642e3db66e67c",
+      "authorName" : "Author",
+      "authorEmailAddress" : "author@example.com",
+      "commitTime" : "2020-01-01 00:13:00",
+      "commitTimeLong" : 1577837580000,
+      "message" : "Add feature D, implements JIR-1234",
+      "hash" : "6a857c19eff6966",
       "merge" : false,
       "messageNotes" : "",
-      "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java" ],
-      "hashFull" : "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644"
+      "files" : [ ],
+      "hasCommitCount" : false,
+      "hashFull" : "6a857c19eff6966b922cd60c222ee88f091687e9"
     } ],
     "authors" : [ {
-      "authorName" : "Tomas Bjerre",
-      "authorEmail" : "tomas.bjerre85@gmail.com",
+      "authorName" : "Author",
+      "authorEmail" : "author@example.com",
       "commits" : [ {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2016-04-12 16:43:21",
-        "commitTimeLong" : 1460479401000,
-        "message" : "JENKINS-34155 Support short SHA",
-        "hash" : "27642e3db66e67c",
+        "authorName" : "Author",
+        "authorEmailAddress" : "author@example.com",
+        "commitTime" : "2020-01-01 00:13:00",
+        "commitTimeLong" : 1577837580000,
+        "message" : "Add feature D, implements JIR-1234",
+        "hash" : "6a857c19eff6966",
         "merge" : false,
         "messageNotes" : "",
-        "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java" ],
-        "hashFull" : "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644"
+        "files" : [ ],
+        "hasCommitCount" : false,
+        "hashFull" : "6a857c19eff6966b922cd60c222ee88f091687e9"
       } ]
     } ],
     "name" : "Jira",
     "title" : "",
-    "issue" : "JENKINS-34155",
-    "issueType" : "JIRA",
-    "description" : "",
-    "link" : "",
-    "type" : "",
-    "hasAdditionalFields" : false,
-    "hasDescription" : false,
-    "hasIssue" : true,
-    "hasLabels" : false,
-    "hasLink" : false,
-    "hasLinkedIssues" : false,
-    "hasTitle" : false,
-    "hasType" : false
-  }, {
-    "commits" : [ {
-      "authorName" : "Tomas Bjerre",
-      "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-      "commitTime" : "2016-04-13 18:30:26",
-      "commitTimeLong" : 1460572226000,
-      "message" : "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them.",
-      "hash" : "e3106df640b693b",
-      "merge" : false,
-      "messageNotes" : "",
-      "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/TraversalWork.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogTest.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java", "src/test/java/se/bjurr/gitchangelog/test/LibPerformanceTest.java", "src/test/resources/simplelogger.properties" ],
-      "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
-    } ],
-    "authors" : [ {
-      "authorName" : "Tomas Bjerre",
-      "authorEmail" : "tomas.bjerre85@gmail.com",
-      "commits" : [ {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2016-04-13 18:30:26",
-        "commitTimeLong" : 1460572226000,
-        "message" : "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them.",
-        "hash" : "e3106df640b693b",
-        "merge" : false,
-        "messageNotes" : "",
-        "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/TraversalWork.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogTest.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java", "src/test/java/se/bjurr/gitchangelog/test/LibPerformanceTest.java", "src/test/resources/simplelogger.properties" ],
-        "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
-      } ]
-    } ],
-    "name" : "Jira",
-    "title" : "",
-    "issue" : "JENKINS-34156",
+    "issue" : "JIR-1234",
     "issueType" : "JIRA",
     "description" : "",
     "link" : "",
@@ -528,80 +335,38 @@ context:
   "issueTypes" : [ {
     "issues" : [ {
       "commits" : [ {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2016-04-12 16:43:21",
-        "commitTimeLong" : 1460479401000,
-        "message" : "JENKINS-34155 Support short SHA",
-        "hash" : "27642e3db66e67c",
+        "authorName" : "Author",
+        "authorEmailAddress" : "author@example.com",
+        "commitTime" : "2020-01-01 00:13:00",
+        "commitTimeLong" : 1577837580000,
+        "message" : "Add feature D, implements JIR-1234",
+        "hash" : "6a857c19eff6966",
         "merge" : false,
         "messageNotes" : "",
-        "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java" ],
-        "hashFull" : "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644"
+        "files" : [ ],
+        "hasCommitCount" : false,
+        "hashFull" : "6a857c19eff6966b922cd60c222ee88f091687e9"
       } ],
       "authors" : [ {
-        "authorName" : "Tomas Bjerre",
-        "authorEmail" : "tomas.bjerre85@gmail.com",
+        "authorName" : "Author",
+        "authorEmail" : "author@example.com",
         "commits" : [ {
-          "authorName" : "Tomas Bjerre",
-          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-          "commitTime" : "2016-04-12 16:43:21",
-          "commitTimeLong" : 1460479401000,
-          "message" : "JENKINS-34155 Support short SHA",
-          "hash" : "27642e3db66e67c",
+          "authorName" : "Author",
+          "authorEmailAddress" : "author@example.com",
+          "commitTime" : "2020-01-01 00:13:00",
+          "commitTimeLong" : 1577837580000,
+          "message" : "Add feature D, implements JIR-1234",
+          "hash" : "6a857c19eff6966",
           "merge" : false,
           "messageNotes" : "",
-          "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/api/GitChangelogApi.java", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java" ],
-          "hashFull" : "27642e3db66e67cfe17cdbcc2d6dbf8a3bbcf644"
+          "files" : [ ],
+          "hasCommitCount" : false,
+          "hashFull" : "6a857c19eff6966b922cd60c222ee88f091687e9"
         } ]
       } ],
       "name" : "Jira",
       "title" : "",
-      "issue" : "JENKINS-34155",
-      "issueType" : "JIRA",
-      "description" : "",
-      "link" : "",
-      "type" : "",
-      "hasAdditionalFields" : false,
-      "hasDescription" : false,
-      "hasIssue" : true,
-      "hasLabels" : false,
-      "hasLink" : false,
-      "hasLinkedIssues" : false,
-      "hasTitle" : false,
-      "hasType" : false
-    }, {
-      "commits" : [ {
-        "authorName" : "Tomas Bjerre",
-        "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-        "commitTime" : "2016-04-13 18:30:26",
-        "commitTimeLong" : 1460572226000,
-        "message" : "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them.",
-        "hash" : "e3106df640b693b",
-        "merge" : false,
-        "messageNotes" : "",
-        "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/TraversalWork.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogTest.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java", "src/test/java/se/bjurr/gitchangelog/test/LibPerformanceTest.java", "src/test/resources/simplelogger.properties" ],
-        "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
-      } ],
-      "authors" : [ {
-        "authorName" : "Tomas Bjerre",
-        "authorEmail" : "tomas.bjerre85@gmail.com",
-        "commits" : [ {
-          "authorName" : "Tomas Bjerre",
-          "authorEmailAddress" : "tomas.bjerre85@gmail.com",
-          "commitTime" : "2016-04-13 18:30:26",
-          "commitTimeLong" : 1460572226000,
-          "message" : "Including correct commits + performance #26 JENKINS-34156\n\n * Found major performance problem when sorting tags by commit time, fixed.\n * Now not following parents, unless *from* is merged into them.",
-          "hash" : "e3106df640b693b",
-          "merge" : false,
-          "messageNotes" : "",
-          "files" : [ "CHANGELOG.md", "src/main/java/se/bjurr/gitchangelog/internal/git/GitRepo.java", "src/main/java/se/bjurr/gitchangelog/internal/git/TraversalWork.java", "src/test/java/se/bjurr/gitchangelog/api/GitChangelogTest.java", "src/test/java/se/bjurr/gitchangelog/internal/git/GitRepoTest.java", "src/test/java/se/bjurr/gitchangelog/test/LibPerformanceTest.java", "src/test/resources/simplelogger.properties" ],
-          "hashFull" : "e3106df640b693b50c297154919cb5564895c08e"
-        } ]
-      } ],
-      "name" : "Jira",
-      "title" : "",
-      "issue" : "JENKINS-34156",
+      "issue" : "JIR-1234",
       "issueType" : "JIRA",
       "description" : "",
       "link" : "",

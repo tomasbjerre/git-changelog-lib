@@ -19,6 +19,7 @@ import org.eclipse.jgit.lib.PersonIdent;
 import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevWalk;
+import org.eclipse.jgit.transport.URIish;
 import se.bjurr.gitchangelog.internal.git.GitRepo;
 
 /**
@@ -82,6 +83,12 @@ public final class TestGitRepo implements Closeable {
       final String label, final String message, final String path, final String content)
       throws Exception {
     return this.write(path, content).commit(label, message);
+  }
+
+  /** Configures a remote, e.g. {@code remote("origin", "git@github.com:owner/repo.git")}. */
+  public TestGitRepo remote(final String name, final String url) throws Exception {
+    this.git.remoteAdd().setName(name).setUri(new URIish(url)).call();
+    return this;
   }
 
   public TestGitRepo branch(final String name) throws Exception {
@@ -163,6 +170,11 @@ public final class TestGitRepo implements Closeable {
   /** Opens the {@link GitRepo} under test against this repo. */
   public GitRepo open() throws Exception {
     return new GitRepo(this.dir);
+  }
+
+  /** The repo's working directory, e.g. for {@code GitChangelogApi.withFromRepo(...)}. */
+  public File dir() {
+    return this.dir;
   }
 
   @Override
