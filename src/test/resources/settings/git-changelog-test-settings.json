@@ -11,7 +11,7 @@
   "untaggedName": "No tag",
   "noIssueName": "No issue supplied",
   "ignoreCommitsWithoutIssue": "false",
-  "templatePath": "git-changelog-template.mustache",
+  "templatePath": "git-changelog-template.hbs",
   "timeZone": "UTC",
   "removeIssueFromMessage": "true",
   "jiraEnabled": true,
