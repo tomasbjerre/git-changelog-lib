@@ -42,6 +42,8 @@ public final class TestGitRepo implements Closeable {
   private final Git git;
   private final Map<String, ObjectId> commits = new HashMap<>();
   private int tick = 0;
+  private String authorName = "Author";
+  private String authorEmail = "author@example.com";
 
   private TestGitRepo(final File dir) throws Exception {
     this.dir = dir;
@@ -83,6 +85,13 @@ public final class TestGitRepo implements Closeable {
       final String label, final String message, final String path, final String content)
       throws Exception {
     return this.write(path, content).commit(label, message);
+  }
+
+  /** The author (and committer) subsequent commits are stamped with, until changed again. */
+  public TestGitRepo author(final String name, final String email) {
+    this.authorName = name;
+    this.authorEmail = email;
+    return this;
   }
 
   /** Configures a remote, e.g. {@code remote("origin", "git@github.com:owner/repo.git")}. */
@@ -164,7 +173,7 @@ public final class TestGitRepo implements Closeable {
 
   private PersonIdent nextIdentity() {
     final Instant when = EPOCH.plus(Duration.ofMinutes(this.tick++));
-    return new PersonIdent("Author", "author@example.com", when, ZoneOffset.UTC);
+    return new PersonIdent(this.authorName, this.authorEmail, when, ZoneOffset.UTC);
   }
 
   /** Opens the {@link GitRepo} under test against this repo. */

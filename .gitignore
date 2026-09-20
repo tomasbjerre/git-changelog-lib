@@ -18,7 +18,5 @@ classes
 .sdkmanrc
 
 /.nb-gradle/
-*.received.txt
 tmptestfile-*
-.approval_tests_temp
 
