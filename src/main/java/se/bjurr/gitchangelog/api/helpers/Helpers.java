@@ -45,7 +45,7 @@ import se.bjurr.gitchangelog.internal.semantic.ConventionalCommitParser.Footer;
 public class Helpers {
 
   public static Map<String, Helper<?>> getAll() {
-    final TreeMap<String, Helper<?>> helpers = new TreeMap<>();
+    final Map<String, Helper<?>> helpers = new TreeMap<>();
     helpers.put(
         "ifEquals",
         (final Object a, final Options options) -> {
@@ -210,13 +210,13 @@ public class Helpers {
     helpers.put(
         "ifCommitHasFooters",
         (final Commit commit, final Options options) -> {
-          return conditional(options, getMessageParts(commit.getMessage()).footers.size() > 0);
+          return conditional(options, !getMessageParts(commit.getMessage()).footers.isEmpty());
         });
 
     helpers.put(
         "ifCommitHasParagraphs",
         (final Commit commit, final Options options) -> {
-          return conditional(options, getMessageParts(commit.getMessage()).paragraphs.size() > 0);
+          return conditional(options, !getMessageParts(commit.getMessage()).paragraphs.isEmpty());
         });
 
     helpers.put(

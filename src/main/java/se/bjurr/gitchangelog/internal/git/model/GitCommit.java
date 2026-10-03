@@ -1,12 +1,12 @@
 package se.bjurr.gitchangelog.internal.git.model;
 
-import java.util.Date;
+import java.time.Instant;
 import java.util.List;
 
 public class GitCommit implements Comparable<GitCommit> {
   private final String authorEmailAddress;
   private final String authorName;
-  private final Date commitTime;
+  private final Instant commitTime;
   private final List<String> files;
   private final String hash;
   private final Boolean merge;
@@ -17,7 +17,7 @@ public class GitCommit implements Comparable<GitCommit> {
   public GitCommit(
       String authorName,
       String authorEmailAddress,
-      Date commitTime,
+      Instant commitTime,
       String message,
       String hash,
       Boolean merge,
@@ -130,7 +130,7 @@ public class GitCommit implements Comparable<GitCommit> {
     return this.authorName;
   }
 
-  public Date getCommitTime() {
+  public Instant getCommitTime() {
     return this.commitTime;
   }
 

@@ -6,7 +6,6 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -30,12 +29,9 @@ public class RestClient {
   public RestClient() {}
 
   public RestClient withBasicAuthCredentials(final String username, final String password) {
-    try {
-      this.basicAuthString =
-          Base64.getEncoder().encodeToString((username + ":" + password).getBytes("UTF-8"));
-    } catch (final UnsupportedEncodingException e) {
-      throw new RuntimeException(e);
-    }
+    this.basicAuthString =
+        Base64.getEncoder()
+            .encodeToString((username + ":" + password).getBytes(StandardCharsets.UTF_8));
     return this;
   }
 

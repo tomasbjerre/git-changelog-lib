@@ -51,7 +51,7 @@ public class ConventionalCommitParser {
     }
     final String group = matcher.group(1);
     final String value = group == null ? "" : group;
-    return Arrays.stream(value.split(" ")).map((it) -> it.trim()).collect(Collectors.toList());
+    return Arrays.stream(value.split(" ")).map(String::trim).collect(Collectors.toList());
   }
 
   public static List<String> commitRefs(final Object commitMessage) {
@@ -61,7 +61,7 @@ public class ConventionalCommitParser {
     }
     final String group = matcher.group(1);
     final String value = group == null ? "" : group;
-    return Arrays.stream(value.split(" ")).map((it) -> it.trim()).collect(Collectors.toList());
+    return Arrays.stream(value.split(" ")).map(String::trim).collect(Collectors.toList());
   }
 
   public static String commitDescription(final Object commitMessage) {
@@ -89,7 +89,7 @@ public class ConventionalCommitParser {
     if (group == null) {
       return new ArrayList<>();
     }
-    return Arrays.stream(group.split("[:,]")).map((it) -> it.trim()).collect(Collectors.toList());
+    return Arrays.stream(group.split("[:,]")).map(String::trim).collect(Collectors.toList());
   }
 
   public static boolean commitBreaking(final String commitMessage) {

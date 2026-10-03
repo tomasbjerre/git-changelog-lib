@@ -3,7 +3,7 @@ package se.bjurr.gitchangelog.internal.git.model;
 import static se.bjurr.gitchangelog.internal.util.Preconditions.checkArgument;
 import static se.bjurr.gitchangelog.internal.util.Preconditions.checkNotNull;
 
-import java.util.Date;
+import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 import se.bjurr.gitchangelog.internal.model.interfaces.IGitCommitReferer;
@@ -13,13 +13,13 @@ public class GitTag implements IGitCommitReferer {
   private final String annotation;
   private final List<GitCommit> gitCommits;
   private final String name;
-  private final Date tagTime;
+  private final Instant tagTime;
 
   public GitTag(
       final String name,
       final String annotation,
       final List<GitCommit> gitCommits,
-      final Date tagTime) {
+      final Instant tagTime) {
     checkArgument(!gitCommits.isEmpty(), "No commits in " + name);
     this.name = checkNotNull(name, "name");
     this.annotation = annotation;
@@ -45,7 +45,7 @@ public class GitTag implements IGitCommitReferer {
     return this.name;
   }
 
-  public Date getTagTime() {
+  public Instant getTagTime() {
     return this.tagTime;
   }
 

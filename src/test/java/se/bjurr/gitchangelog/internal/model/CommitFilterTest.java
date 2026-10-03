@@ -2,11 +2,12 @@ package se.bjurr.gitchangelog.internal.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -32,7 +33,7 @@ public class CommitFilterTest {
 
   private List<GitCommit> commits;
   private Settings settings;
-  private Date year2017;
+  private Instant year2017;
 
   @BeforeEach
   public void before() throws Exception {
@@ -48,7 +49,7 @@ public class CommitFilterTest {
             gitCommit(
                 NEW_RELEASE_COMMIT_2017_HASH, "[Gradle Release Plugin] release 0.9", "2017-07-01"));
     this.settings = new Settings();
-    this.year2017 = new SimpleDateFormat("yyyy-MM-dd").parse("2017-01-01");
+    this.year2017 = LocalDate.parse("2017-01-01").atStartOfDay(ZoneOffset.UTC).toInstant();
   }
 
   @Test
@@ -105,7 +106,7 @@ public class CommitFilterTest {
     return new GitCommit(
         "Author",
         "author@example.com",
-        new SimpleDateFormat("yyyy-MM-dd").parse(date),
+        LocalDate.parse(date).atStartOfDay(ZoneOffset.UTC).toInstant(),
         message,
         hash,
         false,

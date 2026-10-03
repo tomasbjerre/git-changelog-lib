@@ -2,9 +2,9 @@ package se.bjurr.gitchangelog.internal.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.time.Instant;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -52,7 +52,7 @@ public class TransformerTest {
         new GitCommit(
             "Author",
             "author@example.com",
-            new Date(),
+            Instant.now(),
             "A commit message",
             "abc1234567890abcdef",
             false,
@@ -72,7 +72,7 @@ public class TransformerTest {
         new GitCommit(
             "Author",
             "author@example.com",
-            new Date(),
+            Instant.now(),
             "A commit message",
             "abc1234567890abcdef",
             false,

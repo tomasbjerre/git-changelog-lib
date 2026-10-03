@@ -9,7 +9,6 @@ import java.nio.file.Files;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.ZoneOffset;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import org.eclipse.jgit.api.Git;
@@ -161,8 +160,8 @@ public final class TestGitRepo implements Closeable {
   }
 
   /** The commit time of a previously labelled commit, at the same (1-second) precision git uses. */
-  public Date commitDate(final String label) throws IOException {
-    return new Date(this.revCommit(label).getCommitTime() * 1000L);
+  public Instant commitDate(final String label) throws IOException {
+    return Instant.ofEpochSecond(this.revCommit(label).getCommitTime());
   }
 
   private RevCommit revCommit(final String label) throws IOException {

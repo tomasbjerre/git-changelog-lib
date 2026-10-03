@@ -1,6 +1,6 @@
 package se.bjurr.gitchangelog.internal.integrations.redmine;
 
-import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Map;
 import java.util.Optional;
@@ -24,12 +24,8 @@ public class DefaultRedmineClient extends RedmineClient {
 
   @Override
   public RedmineClient withTokenCredentials(final String token) {
-    String authToken;
-    try {
-      authToken = Base64.getEncoder().encodeToString((token + ":changelog").getBytes("UTF-8"));
-    } catch (final UnsupportedEncodingException e) {
-      throw new RuntimeException(e);
-    }
+    final String authToken =
+        Base64.getEncoder().encodeToString((token + ":changelog").getBytes(StandardCharsets.UTF_8));
     this.client = this.client.withTokenAuthCredentials(authToken);
     return this;
   }

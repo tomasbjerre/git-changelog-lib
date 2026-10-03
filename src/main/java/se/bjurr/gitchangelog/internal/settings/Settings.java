@@ -27,8 +27,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -97,11 +97,10 @@ public class Settings implements Serializable {
   private String ignoreCommitsIfMessageMatches;
 
   /**
-   * A date that is evaluated on the commit time of each commit. If the commit is older than the
-   * point in time given, then it will be filtered out and not included in the changelog. <br>
-   * See {@link SimpleDateFormat}.
+   * A point in time that is evaluated on the commit time of each commit. If the commit is older
+   * than the point in time given, then it will be filtered out and not included in the changelog.
    */
-  private Date ignoreCommitsIfOlderThan;
+  private Instant ignoreCommitsIfOlderThan;
 
   /**
    * Some commits may not be included in any tag. Commits that not released yet may not be tagged.
@@ -373,12 +372,8 @@ public class Settings implements Serializable {
     this.ignoreTagsIfNameMatches = ignoreTagsIfNameMatches;
   }
 
-  public void setIgnoreCommitsIfOlderThan(final Date ignoreCommitsIfOlderThan) {
-    if (ignoreCommitsIfOlderThan != null) {
-      this.ignoreCommitsIfOlderThan = new Date(ignoreCommitsIfOlderThan.getTime());
-    } else {
-      this.ignoreCommitsIfOlderThan = null;
-    }
+  public void setIgnoreCommitsIfOlderThan(final Instant ignoreCommitsIfOlderThan) {
+    this.ignoreCommitsIfOlderThan = ignoreCommitsIfOlderThan;
   }
 
   public void setJiraIssuePattern(final String jiraIssuePattern) {
@@ -420,7 +415,7 @@ public class Settings implements Serializable {
     return ofNullable(this.ignoreCommitsIfMessageMatches).orElse(DEFAULT_IGNORE_COMMITS_REGEXP);
   }
 
-  public Optional<Date> getIgnoreCommitsIfOlderThan() {
+  public Optional<Instant> getIgnoreCommitsIfOlderThan() {
     return ofNullable(this.ignoreCommitsIfOlderThan);
   }
 
