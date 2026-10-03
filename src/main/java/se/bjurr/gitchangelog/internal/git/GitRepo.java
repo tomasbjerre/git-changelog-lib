@@ -10,16 +10,17 @@ import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.PriorityQueue;
+import java.util.Queue;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -98,13 +99,7 @@ public class GitRepo implements Closeable {
     this.git.close();
     this.repository.close();
     this.revWalk.dispose();
-    if (this.revWalk instanceof AutoCloseable) {
-      try {
-        ((AutoCloseable) this.revWalk).close();
-      } catch (final Exception e) {
-        LOG.error(e.getMessage(), e);
-      }
-    }
+    this.revWalk.close();
   }
 
   public ObjectId getCommit(final String fromCommit) throws GitChangelogRepositoryException {
@@ -218,7 +213,7 @@ public class GitRepo implements Closeable {
     final GitCommit gitCommit = this.toGitCommit(thisCommit);
     boolean newTagFound = false;
     if (!commitsPerTagName.containsKey(currentTagName)) {
-      commitsPerTagName.put(currentTagName, new TreeSet<GitCommit>());
+      commitsPerTagName.put(currentTagName, new TreeSet<>());
       newTagFound = true;
     }
     final Set<GitCommit> gitCommitsInCurrentTag = commitsPerTagName.get(currentTagName);
@@ -229,7 +224,7 @@ public class GitRepo implements Closeable {
   private void addToTags(
       final Map<String, Set<GitCommit>> commitsPerTag,
       final String tagName,
-      final Date tagTime,
+      final Instant tagTime,
       final List<GitTag> addTo,
       final Map<String, RevTag> annotatedTagPerTagName) {
     if (commitsPerTag.containsKey(tagName)) {
@@ -422,7 +417,7 @@ public class GitRepo implements Closeable {
      * Why: Its what we are here for! =)
      */
     final Map<String, Set<GitCommit>> commitsPerTag = new HashMap<>();
-    final Map<String, Date> datePerTag = new TreeMap<>();
+    final Map<String, Instant> datePerTag = new TreeMap<>();
 
     this.populateComitPerTag(
         from.getRevision(),
@@ -446,7 +441,7 @@ public class GitRepo implements Closeable {
     }
 
     final List<GitTag> tags = new ArrayList<>();
-    final Date untaggedDate = untaggedName != null ? datePerTag.get(untaggedName) : null;
+    final Instant untaggedDate = untaggedName != null ? datePerTag.get(untaggedName) : null;
     this.addToTags(commitsPerTag, untaggedName, untaggedDate, tags, annotatedTagPerTagName);
     final List<Ref> tagCommitHashSortedByCommitTime =
         this.getTagCommitHashSortedByCommitTime(tagPerCommitHash.values());
@@ -462,7 +457,7 @@ public class GitRepo implements Closeable {
   }
 
   private RevisionBoundary<RevCommit> toRevCommit(final RevisionBoundary<ObjectId> fromObjectId) {
-    return new RevisionBoundary<RevCommit>(
+    return new RevisionBoundary<>(
         this.revWalk.lookupCommit(fromObjectId.getRevision()),
         fromObjectId.getInclusivenessStrategy());
   }
@@ -484,7 +479,7 @@ public class GitRepo implements Closeable {
                   .filter(c -> !toIncludeSet.contains(c.getHash()))
                   .collect(Collectors.toList());
           commits.removeAll(removeList);
-          if (commits.size() == 0) {
+          if (commits.isEmpty()) {
             tagsToRemove.add(tag);
           }
         });
@@ -496,12 +491,8 @@ public class GitRepo implements Closeable {
       final String thisCommitHash,
       final String thisTagName) {
     final String existingTagName = tagPerCommitsHash.get(thisCommitHash);
-    if (existingTagName == null) {
-      /** It was not mapped. */
-      return false;
-    }
     /** If mapped, map it to the lowest version. Where it was first released. */
-    return isFirstTagSemanticallyHighest(thisTagName, existingTagName);
+    return existingTagName != null && isFirstTagSemanticallyHighest(thisTagName, existingTagName);
   }
 
   private String noteThatTheCommitWasMapped(
@@ -522,14 +513,14 @@ public class GitRepo implements Closeable {
       final Map<String, Ref> tagPerCommitHash,
       final Map<String, String> tagPerCommitsHash,
       final Map<String, Set<GitCommit>> commitsPerTag,
-      final Map<String, Date> datePerTag,
+      final Map<String, Instant> datePerTag,
       final String startingTagName)
       throws Exception {
 
     final RevCommit thisCommit = this.revWalk.lookupCommit(to);
     this.revWalk.parseHeaders(thisCommit);
 
-    final PriorityQueue<TraversalWork> moreWork = new PriorityQueue<>();
+    final Queue<TraversalWork> moreWork = new PriorityQueue<>();
     moreWork.add(new TraversalWork(to, startingTagName));
     do {
       final TraversalWork next = moreWork.remove();
@@ -552,9 +543,9 @@ public class GitRepo implements Closeable {
       final Map<String, Set<GitCommit>> commitsPerTagName,
       final Map<String, Ref> tagPerCommitHash,
       final Map<String, String> tagPerCommitsHash,
-      final Map<String, Date> datePerTag,
+      final Map<String, Instant> datePerTag,
       String currentTagName,
-      final PriorityQueue<TraversalWork> moreWork)
+      final Queue<TraversalWork> moreWork)
       throws Exception {
     final String thisCommitHash = to.getName();
     if (this.isMappedToAnotherTag(tagPerCommitsHash, thisCommitHash, currentTagName)) {
@@ -565,7 +556,7 @@ public class GitRepo implements Closeable {
     }
     if (currentTagName != null && this.shouldInclude(to)) {
       if (this.addCommitToCurrentTag(commitsPerTagName, currentTagName, to)) {
-        datePerTag.put(currentTagName, new Date(to.getCommitTime() * 1000L));
+        datePerTag.put(currentTagName, Instant.ofEpochSecond(to.getCommitTime()));
       }
       this.noteThatTheCommitWasMapped(tagPerCommitsHash, currentTagName, thisCommitHash);
     }
@@ -658,7 +649,7 @@ public class GitRepo implements Closeable {
     return new GitCommit( //
         revCommit.getAuthorIdent().getName(), //
         revCommit.getAuthorIdent().getEmailAddress(), //
-        new Date(revCommit.getCommitTime() * 1000L), //
+        Instant.ofEpochSecond(revCommit.getCommitTime()), //
         revCommit.getFullMessage(), //
         revCommit.getId().getName(), //
         merge, //

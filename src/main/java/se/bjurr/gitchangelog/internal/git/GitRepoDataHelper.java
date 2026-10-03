@@ -24,7 +24,7 @@ public final class GitRepoDataHelper {
     for (final GitTag gitTag : gitRepoData.getGitTags()) {
       final List<GitCommit> reducedCommitsInTag =
           gitTag.getGitCommits().stream()
-              .filter(it -> reducedGitCommits.contains(it))
+              .filter(reducedGitCommits::contains)
               .collect(Collectors.toList());
       if (reducedCommitsInTag.iterator().hasNext()) {
         final GitTag item =

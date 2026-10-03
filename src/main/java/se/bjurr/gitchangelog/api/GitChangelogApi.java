@@ -22,8 +22,8 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -34,7 +34,9 @@ import org.eclipse.jgit.lib.ObjectId;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
 import se.bjurr.gitchangelog.api.helpers.Helpers;
 import se.bjurr.gitchangelog.api.model.Changelog;
+import se.bjurr.gitchangelog.api.model.Commit;
 import se.bjurr.gitchangelog.api.model.Issue;
+import se.bjurr.gitchangelog.api.model.Tag;
 import se.bjurr.gitchangelog.internal.git.GitRepo;
 import se.bjurr.gitchangelog.internal.git.GitRepoData;
 import se.bjurr.gitchangelog.internal.git.RevisionBoundary;
@@ -247,13 +249,11 @@ public final class GitChangelogApi {
   }
 
   private List<String> getCommitMessages(final Changelog changelog) {
-    return changelog.getCommits().stream()
-        .map((it) -> it.getMessage())
-        .collect(Collectors.toList());
+    return changelog.getCommits().stream().map(Commit::getMessage).collect(Collectors.toList());
   }
 
   private List<String> getTagsAsStrings(final Changelog changelog) {
-    return changelog.getTags().stream().map((it) -> it.getName()).collect(Collectors.toList());
+    return changelog.getTags().stream().map(Tag::getName).collect(Collectors.toList());
   }
 
   /** Will be used to determine next semantic version. */
@@ -464,11 +464,10 @@ public final class GitChangelogApi {
   }
 
   /**
-   * A date that is evaluated on the author date of each commit. If the commit is older than the
-   * point in time given, then it will be filtered out and not included in the changelog. <br>
-   * See {@link SimpleDateFormat}.
+   * A point in time that is evaluated on the author date of each commit. If the commit is older
+   * than the point in time given, then it will be filtered out and not included in the changelog.
    */
-  public GitChangelogApi withIgnoreCommitsOlderThan(final Date ignoreCommitsIfOlderThan) {
+  public GitChangelogApi withIgnoreCommitsOlderThan(final Instant ignoreCommitsIfOlderThan) {
     this.settings.setIgnoreCommitsIfOlderThan(ignoreCommitsIfOlderThan);
     return this;
   }
@@ -821,10 +820,9 @@ public final class GitChangelogApi {
     } else {
       final Optional<ObjectId> headOpt = gitRepo.findRef(REF_HEAD);
       if (headOpt.isPresent()) {
-        return new RevisionBoundary<ObjectId>(headOpt.get(), InclusivenessStrategy.INCLUSIVE);
+        return new RevisionBoundary<>(headOpt.get(), InclusivenessStrategy.INCLUSIVE);
       } else {
-        return new RevisionBoundary<ObjectId>(
-            gitRepo.getRef(REF_MASTER), InclusivenessStrategy.INCLUSIVE);
+        return new RevisionBoundary<>(gitRepo.getRef(REF_MASTER), InclusivenessStrategy.INCLUSIVE);
       }
     }
   }
@@ -833,7 +831,7 @@ public final class GitChangelogApi {
       throws GitChangelogRepositoryException {
     return this.getId(gitRepo, settings.getFromRevision(), settings.getFromRevisionStrategy()) //
         .orElse(
-            new RevisionBoundary<ObjectId>(
+            new RevisionBoundary<>(
                 gitRepo.getCommit(ZERO_COMMIT), InclusivenessStrategy.INCLUSIVE));
   }
 

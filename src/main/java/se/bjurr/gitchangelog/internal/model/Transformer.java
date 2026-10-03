@@ -6,10 +6,10 @@ import static java.util.regex.Pattern.compile;
 import static java.util.stream.Collectors.toList;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
-import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -53,9 +53,9 @@ public class Transformer {
       authors.get(key).add(gitCommit);
     }
     return keys.stream()
-        .map(key -> authors.get(key))
-        .map((final Set<GitCommit> gc) -> this.toCommits(gc))
-        .filter(it -> it.size() > 0)
+        .map(authors::get)
+        .map(this::toCommits)
+        .filter(it -> !it.isEmpty())
         .map(
             (final List<Commit> commits) ->
                 new Author(
@@ -95,7 +95,7 @@ public class Transformer {
 
   public List<Commit> toCommits(final Collection<GitCommit> from) {
     final List<GitCommit> revertCommits =
-        from.stream().filter(it -> this.isRevertCommit(it)).collect(Collectors.toList());
+        from.stream().filter(this::isRevertCommit).collect(Collectors.toList());
     final List<GitCommit> revertedCommits =
         from.stream()
             .filter(it -> this.isRevertedCommit(it, revertCommits))
@@ -131,7 +131,7 @@ public class Transformer {
                     final boolean olderThan =
                         gitCommit
                             .getCommitTime()
-                            .before(this.settings.getIgnoreCommitsIfOlderThan().get());
+                            .isBefore(this.settings.getIgnoreCommitsIfOlderThan().get());
                     if (olderThan) {
                       return false;
                     }
@@ -140,12 +140,12 @@ public class Transformer {
                 })
             .collect(toList());
 
-    return filteredCommits.stream().map(c -> Transformer.this.toCommit(c)).collect(toList());
+    return filteredCommits.stream().map(this::toCommit).collect(toList());
   }
 
   public List<Issue> toIssues(final List<ParsedIssue> issues) {
     final List<ParsedIssue> issuesWithCommits = this.filterWithCommits(issues);
-    return issuesWithCommits.stream().map(it -> this.parsedIssueToIssue(it)).collect(toList());
+    return issuesWithCommits.stream().map(this::parsedIssueToIssue).collect(toList());
   }
 
   public List<IssueType> toIssueTypes(final List<ParsedIssue> issues) {
@@ -153,7 +153,7 @@ public class Transformer {
 
     for (final ParsedIssue parsedIssue : this.filterWithCommits(issues)) {
       if (!issuesPerName.containsKey(parsedIssue.getName())) {
-        issuesPerName.put(parsedIssue.getName(), new ArrayList<Issue>());
+        issuesPerName.put(parsedIssue.getName(), new ArrayList<>());
       }
       final Issue transformedIssues = this.parsedIssueToIssue(parsedIssue);
       issuesPerName
@@ -190,7 +190,7 @@ public class Transformer {
                       issues,
                       issueTypes,
                       input.getTagTime() != null ? Transformer.this.format(input.getTagTime()) : "",
-                      input.getTagTime() != null ? input.getTagTime().getTime() : -1);
+                      input.getTagTime() != null ? input.getTagTime().toEpochMilli() : -1L);
                 })
             .collect(Collectors.toList());
 
@@ -205,7 +205,7 @@ public class Transformer {
     for (final ParsedIssue candidate : allParsedIssues) {
       final List<GitCommit> candidateCommits =
           candidate.getGitCommits().stream()
-              .filter(it -> gitCommits.contains(it))
+              .filter(gitCommits::contains)
               .collect(Collectors.toList());
       if (!candidateCommits.isEmpty()) {
         final ParsedIssue parsedIssue =
@@ -233,9 +233,10 @@ public class Transformer {
         .collect(toList());
   }
 
-  private String format(final Date commitTime) {
-    final SimpleDateFormat df = new SimpleDateFormat(this.settings.getDateFormat(), Locale.ENGLISH);
-    df.setTimeZone(getTimeZone(this.settings.getTimeZone()));
+  private String format(final Instant commitTime) {
+    final DateTimeFormatter df =
+        DateTimeFormatter.ofPattern(this.settings.getDateFormat(), Locale.ENGLISH)
+            .withZone(getTimeZone(this.settings.getTimeZone()).toZoneId());
     return df.format(commitTime);
   }
 
@@ -271,7 +272,7 @@ public class Transformer {
         gitCommit.getAuthorName(), //
         gitCommit.getAuthorEmailAddress(), //
         this.format(gitCommit.getCommitTime()), //
-        gitCommit.getCommitTime().getTime(), //
+        gitCommit.getCommitTime().toEpochMilli(), //
         this.toMessage(
             this.settings.removeIssueFromMessage(),
             new IssuesUtil(this.settings).getIssues(),
