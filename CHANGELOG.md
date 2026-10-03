@@ -1,3 +1,12 @@
+## 5.0.0 (2026-10-03)
+
+### Breaking changes
+
+-  **deps**  update plugin se.bjurr.gradle.bundle-jar to v2.4.1 (#216) ([ea16d](https://github.com/tomasbjerre/git-changelog-lib/commit/ea16d88fc856828) renovate[bot])  
+
+### Dependency updates
+
+- update plugin se.bjurr.gradle.bundle-jar to v2.4.1 (#216) ([ea16d](https://github.com/tomasbjerre/git-changelog-lib/commit/ea16d88fc856828) renovate[bot])  
 ## 3.4.0 (2026-09-16)
 
 ### Features
