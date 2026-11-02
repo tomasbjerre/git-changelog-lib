@@ -1,3 +1,16 @@
+## 5.0.1 (2026-10-30)
+
+### Bug Fixes
+
+-  remove literal quotes from gradle.properties description ([147ea](https://github.com/tomasbjerre/git-changelog-lib/commit/147eaf8e91b3a24) Tomas Bjerre)  
+
+### Dependency updates
+
+- update dependency com.github.jknack:handlebars to v4.5.7 (#222) ([da1e2](https://github.com/tomasbjerre/git-changelog-lib/commit/da1e2c8d0152a51) renovate[bot])  
+- update dependency com.github.jknack:handlebars to v4.5.6 (#221) ([55a85](https://github.com/tomasbjerre/git-changelog-lib/commit/55a85ff6e9c91c6) renovate[bot])  
+- update dependency tools.jackson.core:jackson-databind to v3.2.4 (#220) ([c8774](https://github.com/tomasbjerre/git-changelog-lib/commit/c877450e5b16c30) renovate[bot])  
+- update dependency gradle to v9.8.2 (#219) ([a4302](https://github.com/tomasbjerre/git-changelog-lib/commit/a43021a8c832295) renovate[bot])  
+- update dependency gradle to v9.8.1 (#218) ([29165](https://github.com/tomasbjerre/git-changelog-lib/commit/291653365b12316) renovate[bot])  
 ## 5.0.0 (2026-10-03)
 
 ### Breaking changes
