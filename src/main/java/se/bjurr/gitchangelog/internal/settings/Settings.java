@@ -546,7 +546,7 @@ public class Settings implements Serializable {
     s.setIgnoreCommitsIfMessageMatches("^Merge.*");
     s.setTemplateSuffix(".hbs");
     s.setReadableTagName("/([^/]+?)$");
-    s.setDateFormat("YYYY-MM-dd HH:mm:ss");
+    s.setDateFormat(DEFAULT_DATEFORMAT);
     s.setUntaggedName("No tag");
     s.setNoIssueName("No issue");
     s.setTimeZone("UTC");

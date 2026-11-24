@@ -86,4 +86,25 @@ public class TransformerTest {
     assertThat(commits.get(0).getFiles()) //
         .containsExactly("first.txt", "second.txt");
   }
+
+  @Test
+  public void testThatDefaultSettingsRenderTheCalendarYear() {
+    final GitCommit gitCommit =
+        new GitCommit(
+            "Author",
+            "author@example.com",
+            Instant.parse("2024-12-30T10:11:12Z"),
+            "A commit message",
+            "abc1234567890abcdef",
+            false,
+            "",
+            Collections.emptyList(),
+            null);
+
+    final List<Commit> commits =
+        new Transformer(Settings.defaultSettings()).toCommits(Arrays.asList(gitCommit));
+
+    assertThat(commits).hasSize(1);
+    assertThat(commits.get(0).getCommitTime()).isEqualTo("2024-12-30 10:11:12");
+  }
 }
