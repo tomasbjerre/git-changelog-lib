@@ -1,3 +1,27 @@
+## 5.0.2 (2026-11-25)
+
+### Bug Fixes
+
+-  default settings use yyyy and not YYYY ([1d721](https://github.com/tomasbjerre/git-changelog-lib/commit/1d721321de966fa) Mradul Singh)  
+
+### Dependency updates
+
+- update dependency gradle to v9.9.2 (#229) ([0d2a1](https://github.com/tomasbjerre/git-changelog-lib/commit/0d2a14c99d0177d) renovate[bot])  
+- update dependency tools.jackson.core:jackson-databind to v3.3.0 (#228) ([8467f](https://github.com/tomasbjerre/git-changelog-lib/commit/8467f9c83fa636d) renovate[bot])  
+- update dependency gradle to v9.9.1 (#227) ([41194](https://github.com/tomasbjerre/git-changelog-lib/commit/4119487857a227f) renovate[bot])  
+- update dependency org.eclipse.jgit:org.eclipse.jgit to v7.8.1.202611041320-r (#226) ([defda](https://github.com/tomasbjerre/git-changelog-lib/commit/defda30c20d0188) renovate[bot])  
+- update dependency gradle to v9.9.0 (#225) ([100ef](https://github.com/tomasbjerre/git-changelog-lib/commit/100efe276e2ee7b) renovate[bot])  
+- update dependency com.github.jknack:handlebars to v4.5.8 (#224) ([63238](https://github.com/tomasbjerre/git-changelog-lib/commit/6323877b213d254) renovate[bot])  
+- update plugin se.bjurr.gradle.bundle-jar to v2.4.5 (#223) ([51fd4](https://github.com/tomasbjerre/git-changelog-lib/commit/51fd45542b21825) renovate[bot])  
+### Other changes
+
+**Merge pull request #230 from bardrop-oss/fix-default-date-format**
+
+* fix: default settings use yyyy and not YYYY 
+
+[e1752](https://github.com/tomasbjerre/git-changelog-lib/commit/e17528e76e840c0) Tomas Bjerre *2026-11-25 19:09:06*
+
+
 ## 5.0.1 (2026-10-30)
 
 ### Bug Fixes
